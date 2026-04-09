@@ -1,0 +1,19 @@
+[project]
+name = "aop-wiki-cli"
+version = "0.1.0"
+description = "A CLI tool that extracts AOP entities from the AOP-Wiki XML and applies filtering and processing operations"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bs4>=0.0.2",
+    "matplotlib>=3.10.7",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.3",
+    "requests>=2.32.5",
+    "tabulate>=0.9.0",
+    "typer>=0.21.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = ["tests"]

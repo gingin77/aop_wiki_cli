@@ -1,0 +1,12 @@
+{
+    "new_aop_1": {
+        "merged_aops": [214, 223],
+        "aop_title": "Altered Serotonin Transporter Activity Leading to Seizure",
+        "priority_aop": 214
+    },
+    "new_aop_2": {
+        "merged_aops": [215, 230],
+        "aop_title": "Activated Presynaptic Neuron Leading to Seizure",
+        "priority_aop": null
+    }
+}
