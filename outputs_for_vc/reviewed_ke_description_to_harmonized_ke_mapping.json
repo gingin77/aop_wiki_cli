@@ -1,0 +1,175 @@
+{
+  "summary": {
+    "total": 8,
+    "reviewed": 3,
+    "skipped": 5,
+    "accepted": 2,
+    "rejected": 1,
+    "suggested": 0
+  },
+  "results": [
+    {
+      "assays": [
+        "NVS_ENZ_hAChE",
+        "NVS_ENZ_rAChE"
+      ],
+      "target_families": [
+        "Acetylcholinesterase (AChE)"
+      ],
+      "input_term": "AChE inhibition",
+      "matched_term": "AChE Inhibition",
+      "match_score": 1.0,
+      "human_verified": null,
+      "suggested_match": null
+    },
+    {
+      "assays": [
+        "NVS_LGIC_bGABAR_Agonist",
+        "NVS_LGIC_bGABARa1",
+        "NVS_LGIC_bGABARa5",
+        "NVS_LGIC_rGABAR_NonSelective",
+        "NVS_LGIC_rGABARa6",
+        "ERF_LGIC_binding_hGABRA1"
+      ],
+      "target_families": [
+        "GABA-A"
+      ],
+      "input_term": "Binding to GABA A R",
+      "matched_term": "Binding to GABA A R",
+      "match_score": 1.0,
+      "human_verified": null,
+      "suggested_match": null
+    },
+    {
+      "assays": [
+        "NVS_LGIC_bGABAR_Agonist",
+        "NVS_LGIC_bGABARa1",
+        "NVS_LGIC_bGABARa5",
+        "NVS_LGIC_rGABAR_NonSelective",
+        "NVS_LGIC_rGABARa6",
+        "ERF_LGIC_binding_hGABRA1"
+      ],
+      "target_families": [
+        "GABA-A"
+      ],
+      "input_term": "Altered GABA A R Activation",
+      "matched_term": "Reduced GABA A R Activation",
+      "match_score": 0.8518518518518519,
+      "human_verified": true,
+      "suggested_match": null
+    },
+    {
+      "assays": [
+        "NVS_LGIC_rGluNMDA_Agonist",
+        "NVS_LGIC_rGluNMDA_MK801_Agonist"
+      ],
+      "target_families": [
+        "Glutamate Receptors"
+      ],
+      "input_term": "Activated NMDA-R",
+      "matched_term": "Activated NMDA R",
+      "match_score": 0.9375,
+      "human_verified": null,
+      "suggested_match": null
+    },
+    {
+      "assays": [
+        "NVS_GPCR_gMPeripheral_NonSelective",
+        "NVS_GPCR_hM1",
+        "NVS_GPCR_hM2",
+        "NVS_GPCR_hM3",
+        "NVS_GPCR_hM4",
+        "NVS_GPCR_hM5",
+        "ATG_GPCR_CHRM3_TRANS",
+        "ERF_GPCR_binding_hCHRM1",
+        "ERF_GPCR_binding_hCHRM2",
+        "ERF_GPCR_binding_hCHRM3",
+        "ERF_GPCR_binding_hCHRM4",
+        "ERF_GPCR_binding_hCHRM5"
+      ],
+      "target_families": [
+        "Muscarinic Receptor"
+      ],
+      "input_term": "Activated mACh R",
+      "matched_term": "Activated NMDA R",
+      "match_score": 0.875,
+      "human_verified": false,
+      "suggested_match": null
+    },
+    {
+      "assays": [
+        "CCTE_Shafer_MEA_dev_firing_rate_mean",
+        "CCTE_Shafer_MEA_dev_burst_rate",
+        "CCTE_Shafer_MEA_dev_active_electrodes_number",
+        "CCTE_Shafer_MEA_dev_bursting_electrodes_number",
+        "CCTE_Shafer_MEA_dev_per_burst_interspike_interval",
+        "CCTE_Shafer_MEA_dev_per_burst_spike_percent",
+        "CCTE_Shafer_MEA_dev_burst_duration_mean",
+        "CCTE_Shafer_MEA_dev_interburst_interval_mean",
+        "CCTE_Shafer_MEA_dev_network_spike_number",
+        "CCTE_Shafer_MEA_dev_network_spike_peak",
+        "CCTE_Shafer_MEA_dev_spike_duration_mean",
+        "CCTE_Shafer_MEA_dev_network_spike_duration_std",
+        "CCTE_Shafer_MEA_dev_per_network_spike_interspike_interval_mean",
+        "CCTE_Shafer_MEA_dev_per_network_spike_spike_number_mean",
+        "CCTE_Shafer_MEA_dev_per_network_spike_spike_percent",
+        "CCTE_Shafer_MEA_dev_correlation_coefficient_mean",
+        "CCTE_Shafer_MEA_dev_mutual_information_norm"
+      ],
+      "target_families": [
+        "Neurotransmission"
+      ],
+      "input_term": "Change in Electrical Activity",
+      "matched_term": "Increased Electrical Activity",
+      "match_score": 0.7586206896551724,
+      "human_verified": true,
+      "suggested_match": null
+    },
+    {
+      "assays": [
+        "NVS_GPCR_g5HT4",
+        "NVS_GPCR_h5HT2A",
+        "NVS_GPCR_h5HT5A",
+        "NVS_GPCR_h5HT6",
+        "NVS_GPCR_h5HT7",
+        "NVS_GPCR_p5HT2C",
+        "NVS_GPCR_r5HT_NonSelective",
+        "NVS_GPCR_r5HT1_NonSelective",
+        "NVS_LGIC_h5HT3",
+        "ATG_GPCR_HTR7_TRANS",
+        "ERF_GPCR_binding_g5HT4",
+        "ERF_GPCR_binding_hHTR1A",
+        "ERF_GPCR_binding_hHTR5A",
+        "ERF_GPCR_binding_hHTR6",
+        "ERF_GPCR_binding_hHTR7",
+        "ERF_NR_binding_hHTR2C",
+        "ERF_TR_binding_hSLC6A4",
+        "NVS_TR_hSERT",
+        "NVS_TR_rSERT"
+      ],
+      "target_families": [
+        "Serotonin (5-HT) Receptor",
+        "Serotonin Transporter"
+      ],
+      "input_term": "Activated/Inactivated 5-HT R",
+      "matched_term": "Activated/Inactivated 5-HT R",
+      "match_score": 1.0,
+      "human_verified": null,
+      "suggested_match": null
+    },
+    {
+      "assays": [
+        "NVS_IC_rNaCh_site2",
+        "ERF_IC_binding_rSCN1A"
+      ],
+      "target_families": [
+        "Voltage-Gated Na Channels"
+      ],
+      "input_term": "Activated Voltage Gated Sodium Channels",
+      "matched_term": "Activated Voltage Gated Sodium Channels",
+      "match_score": 1.0,
+      "human_verified": null,
+      "suggested_match": null
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+[
+  {
+    "target_family": "Nicotinic Acetylcholine Receptor",
+    "event": "Activation, Nicotinic acetylcholine receptor",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.8176043557168784,
+    "matched_event_id": "559",
+    "human_verified": true
+  },
+  {
+    "target_family": "GABA-A Receptor",
+    "event": "Inhibition GABAA receptor",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.8045454545454545,
+    "matched_event_id": "2039",
+    "human_verified": true
+  },
+  {
+    "target_family": "Voltage-Gated K Channel",
+    "event": "Binding to voltage-gated sodium channel",
+    "suggested_event": "Inhibition, Ether-a-go-go (ERG) voltage-gated potassium channel",
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.7232597623089982,
+    "matched_event_id": "1353",
+    "human_verified": false
+  },
+  {
+    "target_family": "Voltage-Gated Na Channel",
+    "event": "Binding to voltage-gated sodium channel",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.7081807081807081,
+    "matched_event_id": "1353",
+    "human_verified": true
+  },
+  {
+    "target_family": "Translocator Protein",
+    "event": "Decrease, Translocator protein (TSPO)",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.7017543859649122,
+    "matched_event_id": "289",
+    "human_verified": false
+  },
+  {
+    "target_family": "Serotonin (5-HT) Receptor",
+    "event": "Increased, serotonin (5-HT) ",
+    "suggested_event": "Serotonin 1A Receptor Agonism",
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.692847740236946,
+    "matched_event_id": "626",
+    "human_verified": false
+  },
+  {
+    "target_family": "Adenosine Receptor",
+    "event": "Ryanodine receptor activation",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.6524822695035462,
+    "matched_event_id": "2186",
+    "human_verified": false
+  },
+  {
+    "target_family": "Voltage-Gated L-type Ca Channel",
+    "event": "Opening, voltage-gated calcium channels",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.6447439353099731,
+    "matched_event_id": "2187",
+    "human_verified": true
+  },
+  {
+    "target_family": "Voltage-Gated N-type Ca Channel",
+    "event": "Opening, voltage-gated calcium channels",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.6447439353099731,
+    "matched_event_id": "2187",
+    "human_verified": true
+  },
+  {
+    "target_family": "Opioid Receptor",
+    "event": "Mu Opioid Receptor Agonism",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.6267232237539766,
+    "matched_event_id": "1425",
+    "human_verified": true
+  },
+  {
+    "target_family": "Histamine Receptor",
+    "event": "Antagonism, Histamine Receptor (H2)",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.596765498652291,
+    "matched_event_id": "638",
+    "human_verified": true
+  },
+  {
+    "target_family": "Adrenergic Receptor",
+    "event": "Activation, beta-2 adrenergic receptor",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5897435897435896,
+    "matched_event_id": "1038",
+    "human_verified": true
+  },
+  {
+    "target_family": "Cannabinoid Receptor",
+    "event": "Antagonism, Thyroid Receptor ",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5598639455782313,
+    "matched_event_id": "1656",
+    "human_verified": false
+  },
+  {
+    "target_family": "Glutamate Receptor",
+    "event": "Glutamate dyshomeostasis",
+    "suggested_event": "Activation of metabotropic glutamate receptor",
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5584415584415584,
+    "matched_event_id": "1488",
+    "human_verified": false
+  },
+  {
+    "target_family": "Monoamine Oxidase",
+    "event": "Inhibition, cytochrome oxidase",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5531914893617021,
+    "matched_event_id": "1840",
+    "human_verified": false
+  },
+  {
+    "target_family": "Glycine Receptor",
+    "event": "Ryanodine receptor activation",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5388888888888889,
+    "matched_event_id": "2186",
+    "human_verified": false
+  },
+  {
+    "target_family": "Dopamine Receptor",
+    "event": "decreased dopamine",
+    "suggested_event": "Increase, transcription of the dopamine receptor (drd) gene.",
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5362637362637362,
+    "matched_event_id": "1450",
+    "human_verified": false
+  },
+  {
+    "target_family": "Muscarinic Receptor",
+    "event": "Increased Muscarinic Acetylcholine Receptors",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5288600288600288,
+    "matched_event_id": "1602",
+    "human_verified": true
+  },
+  {
+    "target_family": "Endothelin Receptor",
+    "event": "Impairment, Endothelial network",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5239024390243903,
+    "matched_event_id": "110",
+    "human_verified": false
+  },
+  {
+    "target_family": "Dopamine Transporter",
+    "event": "decreased dopamine",
+    "suggested_event": "decreased methylation of dopamine transporter promoter",
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5182186234817814,
+    "matched_event_id": "1450",
+    "human_verified": false
+  },
+  {
+    "target_family": "Sigma Receptor",
+    "event": "Inhibition GABAA receptor",
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": 0.5076923076923077,
+    "matched_event_id": "2039",
+    "human_verified": false
+  },
+  {
+    "target_family": "Acetylcholinesterase (AChE)",
+    "event": null,
+    "suggested_event": null,
+    "match_with_h_event": true,
+    "h_events": [
+      "AChE Inhibition",
+      "ACh Synaptic Accumulation"
+    ],
+    "match_score": null,
+    "matched_event_id": null,
+    "human_verified": null
+  },
+  {
+    "target_family": "Glycine Transporter",
+    "event": null,
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": null,
+    "matched_event_id": null,
+    "human_verified": null
+  },
+  {
+    "target_family": "Norepinephrine Transporter",
+    "event": null,
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": null,
+    "matched_event_id": null,
+    "human_verified": null
+  },
+  {
+    "target_family": "Neurotransmission",
+    "event": null,
+    "suggested_event": null,
+    "match_with_h_event": true,
+    "h_events": [
+      "Increased Electrical Activity"
+    ],
+    "match_score": null,
+    "matched_event_id": null,
+    "human_verified": null
+  },
+  {
+    "target_family": "Purinergic Receptor",
+    "event": null,
+    "suggested_event": null,
+    "match_with_h_event": false,
+    "h_events": [],
+    "match_score": null,
+    "matched_event_id": null,
+    "human_verified": null
+  },
+  {
+    "target_family": "Serotonin Transporter",
+    "event": null,
+    "suggested_event": null,
+    "match_with_h_event": true,
+    "h_events": [
+      "Altered Serotonin Transporter Activity"
+    ],
+    "match_score": null,
+    "matched_event_id": null,
+    "human_verified": null
+  }
+]
