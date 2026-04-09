@@ -1,5 +1,5 @@
 """
-Unified Data Export Module for AOP Analytics.
+Unified Data Export Module for AOP-Wiki CLI.
 
 Provides a DRY (Don't Repeat Yourself) approach to CSV and Excel generation.
 Uses configurable field definitions and transformers to produce consistent,

@@ -190,6 +190,7 @@ def download_with_retry(url, logger, filepath, max_retries=3, request_timeout=30
 def set_up_logger(logger_name, log_file=None, level=logging.INFO):
     if log_file is None:
         log_file = f"logs/{logger_name}.log"
+    os.makedirs(os.path.dirname(log_file), exist_ok=True)
     logging.basicConfig(
         level=level,
         format='%(asctime)s - %(levelname)s - %(message)s',

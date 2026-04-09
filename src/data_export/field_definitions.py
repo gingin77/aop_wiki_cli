@@ -2,7 +2,7 @@
 Centralized field definitions for CSV exports.
 
 This module defines the structure and configuration for all CSV exports
-in the AOP Analytics system. Each field configuration includes:
+in the AOP-Wiki CLI system. Each field configuration includes:
 - Column name
 - Source key (supports dot notation for nested dicts)
 - Optional transformer function

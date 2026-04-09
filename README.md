@@ -1,13 +1,13 @@
-# AOP Analytics
+# AOP-Wiki CLI
 
-Tools for analyzing AOP-Wiki content derived from XML data. In future, this repo will also include tools for processing
-AOP content from literature and other sources, which may be compared against the AOP-Wiki XML content.
+Tools for analyzing AOP-Wiki content derived from XML data along with scripts to process AOP content
+from literature sources.
 
 ## Overview
 
 This repository provides Python functions and CLI commands for analyzing content from the [AOP-Wiki](https://aopwiki.org/)
-XML data export. The tools extract Adverse Outcome Pathways (AOPs), Key Events (KEs), and Key Event Relationships (KERs)
-from the XML, calculate completion metrics, and support various analytical workflows.
+XML data export. The CLI functions extract Adverse Outcome Pathways (AOPs), Key Events (KEs), and Key Event Relationships
+(KERs) from the XML, calculate completion metrics, and support various analytical workflows.
 
 ## Key Features
 
@@ -162,7 +162,7 @@ bash test_cli_integration.sh 2>&1 | grep -E "(Testing:|PASSED|FAILED|Test Summar
 ## Project Structure ()
 
 ```sh
-aop_analytics/
+aop_wiki_cli/
 ├── cli.py                              # Main CLI entry point
 ├── pyproject.toml                      # Project dependencies
 ├── test_cli_integration.sh             # CLI integration tests
@@ -203,84 +203,9 @@ aop_analytics/
 └── scratch/                      # Experimental code
 ```
 
-> To generate dir and sud-dir, structure run: `tree src -L 2 -I '__pycache__|*.pyc'`. If tree is not
-> available, install on a mac with homebrew, `brew install tree`
-
-## Module Reference
-
-In the module list below, ✅ indicate that the module is a dependency of functions that are currently available through
-the `CLI` tool.
-
-### Analysis (`src/analysis/`)
-
-Post-extraction analytics and statistical operations.
-
-- ✅ **meta_data_helpers.py** - Ranking, filtering, averaging, and summary statistics functions
-- ✅ **collect_event_rankings.py** - Workflow for collecting and ranking events
-- ✅ **map_ke_descriptions_to_harmonized.py** - Fuzzy matching for KE descriptions, target
-  family enrichment, assay-event mapping
-- ✅ **analyze_seizure_aop_content.py** - Seizure AOP analysis and comparison with AOP-Wiki data
-- ✅ **manual_match_review.py** - Interactive terminal-based review workflow for validating fuzzy matches
-
-### Collection (`src/collection/`)
-
-Data fetching and initial processing from AOP-Wiki.
-
-- ✅ **get_aop_wiki_xml_data.py** - Download and validate XML exports
-- **collect_aops_and_kers_from_events.py** - Collect related entities
-
-### Parsers (`src/parsers/`)
-
-XML parsing and entity extraction.
-
-- ✅ **parse_aop_wiki_xml_data.py** - Main XML parsing and entity collection
-- ✅ **xml_processing_helpers.py** - XML utilities and table extraction
-- ✅ **completion_score.py** - Calculate data completeness scores for AOPs, KERs, and Events
-- ✅ **aop_wiki_content_parsers.py** - Event title/content parsing helpers (e.g., `strip_event_titles`)
-- **parse_references.py** - Citation extraction and structuring
-
-### Search (`src/search/`)
-
-Text and reference searching capabilities.
-
-- ✅ **search_text_by_field.py** - Search entity text fields for terms
-- **search_references.py** - Search citations with flexible matching
-- **aop_wiki_xml_ref_search.py** - Reference search workflows
-
-### Harmonization (`src/harmonization/`)
-
-Evidence table standardization.
-
-- ✅ **harmonize_tabulated_evidence.py** - Column header harmonization
-- ✅ **helpers_for_ker_evidence_harmonization.py** - Caching wrapper
-
-### Data Export (`src/data_export/`)
-
-File generation in various formats.
-
-- ✅ **csv_writer.py** - Generic CSV export with field configurations
-- ✅ **field_definitions.py** - Field configuration objects
-- ✅ **transformers.py** - Data transformation functions
-- ✅ **excel_workbook_initiator.py** - Excel workbook orchestration
-- ✅ **export_harmonized_kers_to_excel.py** - KER evidence Excel exports
-- **export_reference_search_results.py** - Reference search result exports
-
-### Utilities (`src/utilities/`)
-
-Shared helper functions.
-
-- ✅ **helpers.py** - File I/O, logging, caching, downloads, URL generation
-- **html_to_csv_converter.py** - HTML table conversion
-
-### Visualization (`src/visualization/`)
-
-Graphical output generation.
-
-- **visualize_aop_as_box_diagram.py** - PDF diagram generation for AOPs
-- **traversal_helpers.py** - Graph traversal utilities
-
-## Debugging
 
 ## License
 
-[TODO: Add license information]
+This project is licensed under the [MIT License](LICENSE).
+
+Copyright (c) 2026 Ginnie Hench

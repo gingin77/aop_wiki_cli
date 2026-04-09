@@ -1,4 +1,4 @@
-"""CLI interface for AOP Analytics using Typer."""
+"""CLI interface for AOP-Wiki CLI using Typer."""
 import typer
 import os
 import logging
@@ -46,7 +46,7 @@ from src.data_export import initiate_workbook_creation_for_harmonized_kers
 app = typer.Typer(pretty_exceptions_enable=False)
 
 # Shared logger for all CLI commands
-logger = set_up_logger('aop-analytics-cli', level=logging.INFO)
+logger = set_up_logger('aop-wiki-cli', level=logging.INFO)
 
 # Today's date
 today = date.today()
