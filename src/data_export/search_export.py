@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Dict, Union, Optional
 
 from .csv_writer import write_csv
-from .field_definitions import SEARCH_RESULTS_AOP_FIELDS, SEARCH_RESULTS_EVENT_FIELDS
+from .field_definitions import SEARCH_RESULTS_AOP_FIELDS, SEARCH_RESULTS_EVENT_FIELDS, SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS
 
 
 def generate_search_results_filename(
@@ -85,6 +85,8 @@ def export_search_results_to_json(
     
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+    print(f"✓ JSON written to {output_path} ({len(results)} items)")
 
 
 def write_search_results_csv(
@@ -171,7 +173,11 @@ def write_search_results_csv(
                 'title': result.get('title', 'N/A'),
                 'terms_found': result.get('terms_found', []),
                 'matched_fields': result.get('matched_fields', []),
-                'snippet_count': snippet_count
+                'snippet_count': snippet_count,
+                'integration_score': entity_dict.get(entity_id, {}).get('integration_score', 0),
+                'has_method': entity_dict.get(entity_id, {}).get('has_method', False),
+                'aop_count': entity_dict.get(entity_id, {}).get('aop_count', 0),
+                'completion_percent': entity_dict.get(entity_id, {}).get('completion_score', {}).get('percent', 0)
             }
             rows.append(row_data)
         
@@ -186,3 +192,75 @@ def write_search_results_csv(
         output_path=output_path,
         sort_key='entity_id' if entity_type != 'aops' else None
     )
+
+
+def _event_row(event_id, title, found_in_event_search, found_through_aops,
+               terms_found, matched_fields, snippet_count, entity_info):
+    """Build a single row dict for write_combined_search_events_csv."""
+    return {
+        'entity_id': event_id,
+        'title': title,
+        'found_in_event_search': found_in_event_search,
+        'found_through_aops': found_through_aops,
+        'terms_found': terms_found,
+        'matched_fields': matched_fields,
+        'snippet_count': snippet_count,
+        'has_method': entity_info.get('has_method', False),
+        'integration_score': entity_info.get('integration_score', 0),
+        'aop_count': entity_info.get('aop_count', 0),
+        'completion_percent': entity_info.get('completion_score', {}).get('percent', 0),
+    }
+
+
+def write_combined_search_events_csv(
+    event_results: Dict[str, Dict],
+    aop_events: Dict[str, Dict],
+    entity_dict: Dict[str, Dict],
+    output_path: Union[str, Path],
+) -> None:
+    """
+    Write a combined events CSV for entities_and_fields search mode.
+
+    Merges events found via direct text search with events found via AOP
+    membership, adding source flags for each row.
+
+    Args:
+        event_results: Serialized search results for events (from search_entity_data)
+        aop_events: Events collected from matched AOPs (from collect_events_from_matched_aops)
+                    {event_id: {"event_info": {...}, "found_in_aops": [...]}}
+        entity_dict: Full events dictionary for metadata lookups
+        output_path: Path where CSV will be saved
+    """
+    aop_event_ids = set(aop_events.keys())
+    rows = []
+    seen = set()
+
+    for event_id, result in event_results.items():
+        rows.append(_event_row(
+            event_id=result.get('entity_id', event_id),
+            title=result.get('title', 'N/A'),
+            found_in_event_search=True,
+            found_through_aops=event_id in aop_event_ids,
+            terms_found=result.get('terms_found', []),
+            matched_fields=result.get('matched_fields', []),
+            snippet_count=sum(len(s) for s in result.get('snippets_by_field', {}).values()),
+            entity_info=entity_dict.get(event_id, {}),
+        ))
+        seen.add(event_id)
+
+    for event_id, aop_event_data in aop_events.items():
+        if event_id in seen:
+            continue
+        entity_info = aop_event_data.get('event_info', entity_dict.get(event_id, {}))
+        rows.append(_event_row(
+            event_id=event_id,
+            title=entity_info.get('title', 'N/A'),
+            found_in_event_search=False,
+            found_through_aops=True,
+            terms_found=[],
+            matched_fields=[],
+            snippet_count=0,
+            entity_info=entity_info,
+        ))
+
+    write_csv(rows, SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS, output_path, sort_key='entity_id')

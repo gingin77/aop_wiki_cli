@@ -26,6 +26,7 @@ from .field_definitions import (
     CONCORDANCE_KER_FIELDS,
     SEARCH_RESULTS_AOP_FIELDS,
     SEARCH_RESULTS_EVENT_FIELDS,
+    SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS,
     SEIZURE_AOP_EVENT_FIELDS,
     HARMONIZED_SEIZURE_AOP_EVENT_FIELDS,
     HARMONIZED_SEIZURE_AOP_SUMMARY_FIELDS,
@@ -68,6 +69,7 @@ from .transformers import (
 from .search_export import (
     export_search_results_to_json,
     write_search_results_csv,
+    write_combined_search_events_csv,
     generate_search_results_filename,
 )
 
@@ -151,7 +153,16 @@ __all__ = [
     
     # Seizure AOP exports
     'export_seizure_aop_results',
-    
+
+    # Search result exports
+    'export_search_results_to_json',
+    'write_search_results_csv',
+    'write_combined_search_events_csv',
+    'generate_search_results_filename',
+    'SEARCH_RESULTS_AOP_FIELDS',
+    'SEARCH_RESULTS_EVENT_FIELDS',
+    'SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS',
+
     # Reference search exports
     'export_search_results_to_csv',
     'export_structured_json',
