@@ -50,7 +50,7 @@ def collect_and_rank_events(
     # Sort events by retention score
     event_dict = dict(sorted(
         event_dict.items(),
-        key=lambda x: x[1].get('retention_score', 0),
+        key=lambda x: x[1].get('integration_score', 0),
         reverse=True
     ))
     

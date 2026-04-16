@@ -80,9 +80,8 @@ def apply_ranking_to_events_dict(events_dict):
             elif search_source == 'full_text_search':
                 score_for_retention += 1
 
-        events_dict[event_id]['retention_score'] = score_for_retention
-        events_dict[event_id]['max_retention_score'] = max_score
-        events_dict[event_id]['percent_retention_score'] = (score_for_retention / max_score) * 100 if max_score > 0 else 0
+        events_dict[event_id]['integration_score'] = score_for_retention
+        events_dict[event_id]['max_i_score_sans_aop_count'] = max_score
         events_dict[event_id]['has_method'] = has_method
 
     return events_dict
@@ -119,7 +118,7 @@ def calculate_event_summary_statistics(event_dict):
         return {
             'total_events': 0,
             'average_completion_percent': 0,
-            'average_retention_score': 0,
+            'average_integration_score': 0,
             'events_with_methods': 0,
             'events_only_open_for_adoption': 0,
             'events_in_oecd_program': 0,
@@ -133,7 +132,7 @@ def calculate_event_summary_statistics(event_dict):
         2
     )
     avg_retention = round(
-        sum(e.get('retention_score', 0) for e in event_dict.values()) / total_events, 
+        sum(e.get('integration_score', 0) for e in event_dict.values()) / total_events, 
         2
     )
     
@@ -169,7 +168,7 @@ def calculate_event_summary_statistics(event_dict):
     return {
         'total_events': total_events,
         'average_completion_percent': avg_completion,
-        'average_retention_score': avg_retention,
+        'average_integration_score': avg_retention,
         'events_with_methods': events_with_methods,
         'events_only_open_for_adoption': only_open_for_adoption,
         'events_in_oecd_program': oecd_program_events,
@@ -182,9 +181,9 @@ if __name__ == "__main__":
     events_dict = get_dict_from_json(input_event_file)["key_events"]
     events_dict = apply_ranking_to_events_dict(events_dict)
     
-    ranked_events = sorted(events_dict.items(), key=lambda x: x[1]['percent_retention_score'], reverse=True)
+    ranked_events = sorted(events_dict.items(), key=lambda x: x[1]['percent_integration_score'], reverse=True)
     for event_id, event in ranked_events:
-        print(f"{event_id}: {event.get('title', 'N/A')}, %Score: {event['percent_retention_score']}, Has Method: {event['has_method']}, AOP Count: {event.get('aop_count', 0)}, %Complete: {event['completion_score']['percent']}")
+        print(f"{event_id}: {event.get('title', 'N/A')}, %Score: {event['percent_integration_score']}, Has Method: {event['has_method']}, AOP Count: {event.get('aop_count', 0)}, %Complete: {event['completion_score']['percent']}")
 
     # Example output line:
     # 1532: Decrease, Cardiac contractility , %Score: 90.0, Has Method: False, AOP Count: 6, %Complete: 27.27

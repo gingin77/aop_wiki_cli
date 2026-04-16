@@ -5,43 +5,48 @@ import logging
 import importlib
 import json
 import pprint as pp
-import pandas as pd
 from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
-from src.utilities import set_up_logger, write_dict_to_json, get_dated_cache_dir, to_json_serializable
+from src.utilities import set_up_logger, write_dict_to_json, get_dated_cache_dir
 from src.analysis import (
     get_average_completion_score,
     filter_kers_by_tables,
     map_ke_descriptions_to_harmonized_kes,
-    generate_match_metrics,
     organize_and_enrich_harmonized_events,
     enrich_target_families,
     map_assays_to_events_via_target_families,
 )
-from src.analysis.manual_match_review import review_matches, calculate_review_summary, get_matches_and_scores_from_json
+from src.analysis.manual_match_review import review_matches, calculate_review_summary
 from src.analysis.collect_event_rankings import collect_and_rank_events
-from src.data_export import write_csv, write_concordance_csv, export_seizure_aop_results, write_summary_stats_csv, EVENT_FIELDS_MIN
+from src.data_export import (
+    write_csv,
+    write_concordance_csv,
+    export_seizure_aop_results,
+    write_summary_stats_csv,
+    EVENT_FIELDS_MIN,
+    prepare_concordance_results_for_export,
+    export_search_results_to_json,
+    write_search_results_csv,
+    write_combined_search_events_csv,
+    generate_search_results_filename,
+    initiate_workbook_creation_for_harmonized_kers,
+)
 from src.parsers import (
-    collect_aops_from_xml, 
+    collect_aops_from_xml,
     collect_events_from_xml,
     collect_kers_from_xml,
     collect_entity_with_cache,
 )
 from src.parsers.parse_behl_seizure_aop_workbook import parse_seizure_aop_workbook
+from src.collection.collect_associated_aop_wiki_entities import collect_events_from_matched_aops
 from src.search import search_entity_data, serialize_search_results, filter_by_co_occurrence, sort_by_priority_field, search_events_to_aops
-from src.data_export import (
-    prepare_concordance_results_for_export, 
-    export_search_results_to_json, 
-    write_search_results_csv,
-    generate_search_results_filename,
-)
+
 from configs.harmonize_ker_evidence import (
-    KERS_TO_SKIP, AOPS_SELECTED_FOR_HARMONIZED_KERS_WORKBOOKS, CONCORDANCE_SEARCH_PARAMS
+    AOPS_SELECTED_FOR_HARMONIZED_KERS_WORKBOOKS, CONCORDANCE_SEARCH_PARAMS
 )
 from src.harmonization import harmonize_kers_with_cache
-from src.data_export import initiate_workbook_creation_for_harmonized_kers
 
 app = typer.Typer(pretty_exceptions_enable=False)
 
@@ -308,7 +313,12 @@ def search_with_config(
     if search_mode == "event_to_aop":
         _run_event_to_aop_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh)
         return
-    
+
+    # Check for entities_and_fields mode (multi-entity search with cross-comparison)
+    if "entities_and_fields" in search_params:
+        _run_entities_and_fields_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh)
+        return
+
     entity_types = search_params.get("entity", ["events"])
     
     # Map entity types to collection functions
@@ -341,7 +351,7 @@ def search_with_config(
     # Run search
     logger.info(f"Searching {entity_type} with config '{config}'...")
     summary, results = search_entity_data(entities, search_params)
-    
+
     # Serialize for export (JSON/CSV)
     results = serialize_search_results(results)
     
@@ -386,8 +396,6 @@ def search_with_config(
     export_search_results_to_json(results, summary, json_path, config, work_date_str, co_occurrence_only)
     write_search_results_csv(results, csv_path, entity_type, entities)
     
-    logger.info(f"✓ Results written to {json_path}")
-    logger.info(f"✓ Results written to {csv_path}")
     typer.echo(f"✓ Search complete. Results in {output_dir}")
 
 
@@ -623,43 +631,93 @@ def manually_review_matches(
 # - Export results to CSV/JSON
 
 
-# ============================================================================
-# Event-to-AOP Search Helper
-# ============================================================================
+def _run_entities_and_fields_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh):
+    """
+    Run multi-entity search with cross-comparison between events and AOPs.
 
-def _collect_events_from_aops(matched_aops, events_dict):
+    This search mode:
+    1. Searches events using event-specific fields → directly matched events
+    2. Searches AOPs using AOP-specific fields → matched AOPs
+    3. Collects all event_ids from matched AOPs → AOP-linked events
+    4. Compares sets: events found in both, only via text search, or only via AOP membership
     """
-    Collect all events associated with matched AOPs.
-    
-    Args:
-        matched_aops: Dict of matched AOPs from search
-        events_dict: Full events dictionary for lookups
-        
-    Returns:
-        dict: All events from matched AOPs keyed by event ID
-              {event_id: {"event_info": {...}, "found_in_aops": [...]}}
-    """
-    aop_events = {}
-    
-    for aop_id, aop_data in matched_aops.items():
-        aop_info = aop_data.get("aop_info", {})
-        event_ids = aop_info.get("event_ids", [])
-        
-        for event_id in event_ids:
-            event_id_str = str(event_id)
-            if event_id_str in aop_events:
-                # Event already collected, just add this AOP to its list
-                aop_events[event_id_str]["found_in_aops"].append(aop_id)
-            else:
-                # New event - look up its info
-                event_info = events_dict.get(event_id_str, events_dict.get(int(event_id), {}))
-                aop_events[event_id_str] = {
-                    "event_info": event_info,
-                    "title": event_info.get("title", "Unknown"),
-                    "found_in_aops": [aop_id],
-                }
-    
-    return aop_events
+    entities_and_fields = search_params["entities_and_fields"]
+    output_dir = output_config["directory"]
+    os.makedirs(output_dir, exist_ok=True)
+
+    # --- Step 1: Search events ---
+    events_dict = collect_entity_with_cache(
+        "events", collect_events_from_xml, work_date, cache_dir, force_refresh, logger
+    )
+    event_search_params = {**search_params, "fields_to_search": entities_and_fields.get("events", [])}
+    event_summary, event_results_raw = search_entity_data(events_dict, event_search_params)
+    event_results = serialize_search_results(event_results_raw)
+    matched_event_ids = set(event_results.keys())
+
+    # --- Step 2: Search AOPs ---
+    aops_dict = collect_entity_with_cache(
+        "aops", collect_aops_from_xml, work_date, cache_dir, force_refresh, logger
+    )
+    aop_search_params = {**search_params, "fields_to_search": entities_and_fields.get("aops", [])}
+    aop_summary, aop_results_raw = search_entity_data(aops_dict, aop_search_params)
+    aop_results = serialize_search_results(aop_results_raw)
+
+    # --- Step 3: Collect all events from matched AOPs ---
+    aop_events = collect_events_from_matched_aops(aop_results, events_dict, aops_dict=aops_dict)
+    aop_event_ids = set(aop_events.keys())
+
+    # --- Step 4: Compare ---
+    events_in_both = matched_event_ids & aop_event_ids
+    events_text_only = matched_event_ids - aop_event_ids
+    events_aop_only = aop_event_ids - matched_event_ids
+
+    # Print summary
+    typer.echo(f"\n{'='*60}")
+    typer.echo(f"  {config.replace('_', ' ').upper()} — ENTITIES AND FIELDS SEARCH")
+    typer.echo(f"{'='*60}")
+    typer.echo(f"  Events matched by text search:        {len(matched_event_ids)}")
+    typer.echo(f"  AOPs matched by text search:          {len(aop_results)}")
+    typer.echo(f"  Unique events in matched AOPs:        {len(aop_event_ids)}")
+    typer.echo(f"  Events found by both routes:          {len(events_in_both)}")
+    typer.echo(f"  Events matched by text only:          {len(events_text_only)}")
+    typer.echo(f"  Events in matched AOPs only:          {len(events_aop_only)}")
+    typer.echo(f"{'='*60}\n")
+
+    # Export JSON
+    output_data = {
+        "search_config": config,
+        "search_date": work_date_str,
+        "summary": {
+            "event_search": event_summary,
+            "aop_search": aop_summary,
+            "matched_event_count": len(matched_event_ids),
+            "matched_aop_count": len(aop_results),
+            "aop_linked_event_count": len(aop_event_ids),
+            "events_in_both_count": len(events_in_both),
+            "events_text_only_count": len(events_text_only),
+            "events_aop_only_count": len(events_aop_only),
+        },
+        "matched_events": event_results,
+        "matched_aops": aop_results,
+        "comparison": {
+            "events_in_both": sorted(events_in_both),
+            "events_text_only": sorted(events_text_only),
+            "events_aop_only": sorted(events_aop_only),
+        },
+    }
+    json_filename = f"{config}_{work_date_str}.json"
+    json_path = os.path.join(output_dir, json_filename)
+    write_dict_to_json(output_data, output_dir, json_filename)
+    typer.echo(f"✓ JSON written to {json_path}")
+
+    # Export CSVs
+    events_csv_path = os.path.join(output_dir, f"{config}_events_{work_date_str}.csv")
+    write_combined_search_events_csv(event_results, aop_events, events_dict, events_csv_path)
+
+    aops_csv_path = os.path.join(output_dir, f"{config}_aops_{work_date_str}.csv")
+    write_search_results_csv(aop_results, aops_csv_path, "aops", aops_dict)
+
+    typer.echo(f"✓ Search complete. Results in {output_dir}")
 
 
 def _run_event_to_aop_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh):
@@ -690,7 +748,7 @@ def _run_event_to_aop_search(config, search_params, output_config, work_date, wo
     events_dict = results["events_dict"]
     
     # Collect all events from matched AOPs
-    aop_events = _collect_events_from_aops(matched_aops, events_dict)
+    aop_events = collect_events_from_matched_aops(matched_aops, events_dict)
     
     # Add aop_events count to summary
     summary["total_aop_events"] = len(aop_events)
@@ -744,6 +802,11 @@ def _run_event_to_aop_search(config, search_params, output_config, work_date, wo
     typer.echo(f"\n✓ Search complete. Results in {output_dir}")
 
 
+
+# ============================================================================
+# Console Output Helpers
+# ============================================================================
+
 def _print_event_to_aop_summary(summary, total_aop_events=0):
     """Print formatted event-to-AOP search summary to console."""
     typer.echo(f"\n{'='*60}")
@@ -762,10 +825,6 @@ def _print_event_to_aop_summary(summary, total_aop_events=0):
             typer.echo(f"  - '{term}': {count} events")
     typer.echo(f"{'='*60}\n")
 
-
-# ============================================================================
-# Console Output Helpers
-# ============================================================================
 
 def _print_search_summary(summary: dict, entity_type: str = "entities", search_type: str = "SEARCH") -> None:
     """
@@ -793,7 +852,7 @@ def _print_event_summary(summary: dict) -> None:
     typer.echo(f"{'='*60}")
     typer.echo(f"Total events: {summary['total_events']}")
     typer.echo(f"Average completion: {summary['average_completion_percent']}%")
-    typer.echo(f"Average retention score: {summary['average_retention_score']}")
+    typer.echo(f"Average retention score: {summary['average_integration_score']}")
     typer.echo(f"Events with methods: {summary['events_with_methods']}")
     typer.echo(f"Events only open for adoption: {summary['events_only_open_for_adoption']}")
     typer.echo(f"Events in OECD AOP program: {summary['events_in_oecd_program']}")
@@ -815,11 +874,12 @@ def _print_ker_statistics(stats: dict) -> None:
     typer.echo(f"{'='*60}\n")
 
 def _print_match_metrics(metrics: dict) -> None:
-    print("\n" + "="*60)
-    print("KE DESCRIPTION TO HARMONIZED KE MATCHING REPORT")
-    print("="*60)
-    print(f"Total KE descriptions: {metrics['total_ke_descriptions']}")
-    print(f"Fuzzy matches: {metrics['fuzzy_matches']}")
+    """Print formatted KE description to harmonized KE matching report."""
+    typer.echo(f"\n{'='*60}")
+    typer.echo(f"KE DESCRIPTION TO HARMONIZED KE MATCHING REPORT")
+    typer.echo(f"{'='*60}")
+    typer.echo(f"Total KE descriptions: {metrics['total_ke_descriptions']}")
+    typer.echo(f"Fuzzy matches: {metrics['fuzzy_matches']}")
     print(f"No matches: {metrics['no_matches']}")
     print(f"Match rate: {metrics['match_rate']:.1%}")
     if metrics['fuzzy_matches'] > 0:

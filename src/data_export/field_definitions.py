@@ -13,7 +13,7 @@ Adding a new field only requires updating this file.
 """
 
 from dataclasses import dataclass
-from typing import Callable, Optional, List, Any
+from typing import Optional, List, Any
 
 
 @dataclass
@@ -90,7 +90,7 @@ EVENT_FIELDS_MIN = FieldConfigSet(
     fields=[
         FieldConfig('Event ID', 'ke_id', description='Key event identifier'),
         FieldConfig('Title', 'title', transformer='clean_text', description='Event title'),
-        FieldConfig('Retention Score', 'retention_score', default=0, description='Integration ranking score'),
+        FieldConfig('Retention Score', 'integration_score', default=0, description='Integration ranking score'),
         FieldConfig('Completion %', 'completion_score.percent', transformer='round_2', description='Completion percentage'),
         FieldConfig('AOP Count', 'aop_count', default=0, description='Number of associated AOPs'),
         FieldConfig('Has Method', 'has_method', transformer='yes_no', description='Has measurement method'),
@@ -105,7 +105,7 @@ EVENT_DETAIL_FIELDS = FieldConfigSet(
     fields=[
         FieldConfig('ke_id', 'ke_id'),
         FieldConfig('title', 'title', transformer='clean_text'),
-        FieldConfig('retention_score', 'retention_score', default=0),
+        FieldConfig('integration_score', 'integration_score', default=0),
         FieldConfig('source', 'source'),
         FieldConfig('completion_score', 'completion_score.percent', transformer='round_2'),
         FieldConfig('any_open_for_adoption', 'summary_licenses.any_open_for_adoption'),
@@ -176,6 +176,27 @@ SEARCH_RESULTS_EVENT_FIELDS = FieldConfigSet(
         FieldConfig('terms_found', 'terms_found', transformer='join_list', description='Search terms found'),
         FieldConfig('matched_fields', 'matched_fields', transformer='join_list', description='Fields with matches'),
         FieldConfig('snippet_count', 'snippet_count', description='Total number of snippets'),
+        FieldConfig('has_method', 'has_method', transformer='yes_no', description='Has measurement method'),
+        FieldConfig('integration_score', 'integration_score', default=0, description='Integration ranking score'),
+        FieldConfig('aop_count', 'aop_count', default=0, description='Number of associated AOPs'),
+        FieldConfig('completion_percent', 'completion_percent', transformer='round_2', description='Completion percentage'),
+    ]
+)
+
+SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS = FieldConfigSet(
+    name="search_results_event_with_flags",
+    fields=[
+        FieldConfig('entity_id', 'entity_id', description='Event ID'),
+        FieldConfig('title', 'title', description='Event title'),
+        FieldConfig('Found in Event Search', 'found_in_event_search', transformer='yes_no', description='Matched by event text search'),
+        FieldConfig('Found Through AOPs', 'found_through_aops', transformer='yes_no', description='Found as member of a matched AOP'),
+        FieldConfig('terms_found', 'terms_found', transformer='join_list', description='Search terms found'),
+        FieldConfig('matched_fields', 'matched_fields', transformer='join_list', description='Fields with matches'),
+        FieldConfig('snippet_count', 'snippet_count', description='Total number of snippets'),
+        FieldConfig('has_method', 'has_method', transformer='yes_no', description='Has measurement method'),
+        FieldConfig('integration_score', 'integration_score', default=0, description='Integration ranking score'),
+        FieldConfig('aop_count', 'aop_count', default=0, description='Number of associated AOPs'),
+        FieldConfig('completion_percent', 'completion_percent', transformer='round_2', description='Completion percentage'),
     ]
 )
 
