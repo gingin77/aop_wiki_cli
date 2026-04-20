@@ -261,7 +261,7 @@ def harmonize_ker_evidence(
 def search_with_config(
     config: str = typer.Argument(
         ...,
-        help="Config file name from configs/ directory (e.g., 'lung_and_immune_aops', 'regulatory_relevance', 'methods_nams')"
+        help="Config file name from configs/ directory (e.g., 'lung_and_immune_aops', 'hepatic_steatosis', 'regulatory_relevance', 'methods_nams')"
     ),
     cache_date: Optional[str] = typer.Option(
         None,
@@ -294,7 +294,7 @@ def search_with_config(
         output_config = config_module.OUTPUT_CONFIG
     except (ImportError, AttributeError) as e:
         typer.echo(f"❌ Error loading config '{config}': {e}")
-        typer.echo("Available configs: lung_and_immune_aops, regulatory_relevance, methods_nams")
+        typer.echo("Available configs: lung_and_immune_aops, hepatic_steatosis, regulatory_relevance, methods_nams")
         raise typer.Exit(code=1)
 
     # Setup
