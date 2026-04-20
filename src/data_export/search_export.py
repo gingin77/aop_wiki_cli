@@ -180,17 +180,15 @@ def write_search_results_csv(
                 'completion_percent': entity_dict.get(entity_id, {}).get('completion_score', {}).get('percent', 0)
             }
             rows.append(row_data)
-        
+
+        rows.sort(key=lambda x: x['integration_score'], reverse=True)
         field_config = SEARCH_RESULTS_EVENT_FIELDS
-    
-    # Use standard write_csv with prepared data
-    # Note: AOP rows are pre-sorted by priority co-occurrence, then entity_id
-    # Event/KER rows will be sorted by entity_id in write_csv
+
     write_csv(
         data=rows,
         field_config=field_config,
         output_path=output_path,
-        sort_key='entity_id' if entity_type != 'aops' else None
+        sort_key=None
     )
 
 

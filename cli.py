@@ -274,12 +274,6 @@ def search_with_config(
         "--force-refresh",
         "-f",
         help="Force fresh data collection, ignoring cached files"
-    ),
-    co_occurrence_only: bool = typer.Option(
-        False,
-        "--co-occurrence-only",
-        "-c",
-        help="Return only entities with co-occurrence matches (filters out entities with only individual term matches)"
     )
 ):
     """Search AOP-Wiki entities using parameters from a config file.
@@ -291,111 +285,106 @@ def search_with_config(
     
     Example:
         uv run python cli.py search-with-config lung_and_immune_aops
-        uv run python cli.py search-with-config lung_and_immune_aops --co-occurrence-only
+        uv run python cli.py search-with-config regulatory_relevance --date 04-17-2026
     """
     # Load the config module dynamically
     try:
-        config_module = importlib.import_module(f'configs.{config}')
+        config_module = importlib.import_module(f'configs.search.{config}')
         search_params = config_module.SEARCH_PARAMS
         output_config = config_module.OUTPUT_CONFIG
     except (ImportError, AttributeError) as e:
         typer.echo(f"❌ Error loading config '{config}': {e}")
-        typer.echo("Available configs: lung_and_immune_aops, regulatory_relevance, methods_nams, fibrosis_aops")
+        typer.echo("Available configs: lung_and_immune_aops, regulatory_relevance, methods_nams")
         raise typer.Exit(code=1)
-    
+
     # Setup
     work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
     work_date_str = work_date.strftime('%m-%d-%Y')
     cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
-    
-    # Check for event_to_aop search mode (iterative search)
-    search_mode = search_params.get("search_mode")
-    if search_mode == "event_to_aop":
-        _run_event_to_aop_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh)
-        return
-
-    # Check for entities_and_fields mode (multi-entity search with cross-comparison)
-    if "entities_and_fields" in search_params:
-        _run_entities_and_fields_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh)
-        return
-
-    entity_types = search_params.get("entity", ["events"])
-    
-    # Map entity types to collection functions
-    collection_functions = {
-        "events": collect_events_from_xml,
-        "kers": collect_kers_from_xml,
-        "aops": collect_aops_from_xml
-    }
-    
-    for entity_type in entity_types:
-        if entity_type not in collection_functions:
-            typer.echo(f"❌ Unknown entity type: {entity_type}")
-            raise typer.Exit(code=1)
-    
-    # Create output directory
     output_dir = output_config["directory"]
     os.makedirs(output_dir, exist_ok=True)
-    
-    # Collect entity data with automatic caching from centralized cache
-    logger.info(f"Collecting {entity_type} data...")
-    entities = collect_entity_with_cache(
-        entity_type, 
-        collection_functions[entity_type], 
-        work_date, 
-        cache_dir, 
-        force_refresh, 
-        logger
-    )
-    
-    # Run search
-    logger.info(f"Searching {entity_type} with config '{config}'...")
-    summary, results = search_entity_data(entities, search_params)
 
-    # Serialize for export (JSON/CSV)
-    results = serialize_search_results(results)
-    
-    # Filter and sort if co-occurrence-only flag is set
-    priority_count = 0
-    if co_occurrence_only:
-        results = filter_by_co_occurrence(results, entity_type, logger)
-        
-    priority_field = search_params.get("priority_field")
-    if priority_field:
-        results, priority_count = sort_by_priority_field(results, priority_field, entity_type, logger)
-    
-    # Display search summary
-    _print_search_summary(summary, entity_type=entity_type, search_type=config.replace('_', ' ').upper())
-    
-    # Display filtering and co-occurrence details
-    if co_occurrence_only:
-        typer.echo(f"\n⚠️  Filtered to co-occurrence matches only: {len(results)}/{summary['total_entities_with_matches']} {entity_type}")
-        
-        if priority_count > 0:
-            typer.echo(f"   ⭐ {priority_count} have co-occurrences in priority field (listed first)")
-    
-    # Display co-occurrence summary if present
-    if "co_occurrence_matches" in summary and summary["co_occurrence_matches"]:
-        typer.echo(f"\nCo-occurrence matches:")
-        for pair, counts in summary["co_occurrence_matches"].items():
-            if counts["unique_entities"] > 0:
-                typer.echo(f"  - {pair}: {counts['unique_entities']} unique {entity_type} ({counts['total_instances']} total instances)")
-    
-    # Generate filenames with appropriate suffixes
-    csv_filename = generate_search_results_filename(
-        config, work_date_str, co_occurrence_only, search_params, extension="csv"
+    entities_and_fields = search_params["entities_and_fields"]
+
+    # --- Step 1: Search events ---
+    events_dict = collect_entity_with_cache(
+        "events", collect_events_from_xml, work_date, cache_dir, force_refresh, logger
     )
-    json_filename = generate_search_results_filename(
-        config, work_date_str, co_occurrence_only, search_params, extension="json"
+    event_search_params = {**search_params, "fields_to_search": entities_and_fields.get("events", [])}
+    event_summary, event_results_raw = search_entity_data(events_dict, event_search_params)
+    event_results = dict(sorted(
+        serialize_search_results(event_results_raw).items(),
+        key=lambda x: x[1].get('integration_score', 0),
+        reverse=True
+    ))
+    matched_event_ids = set(event_results.keys())
+
+    # --- Step 2: Search AOPs ---
+    aops_dict = collect_entity_with_cache(
+        "aops", collect_aops_from_xml, work_date, cache_dir, force_refresh, logger
     )
-    
-    # Export results
+    aop_search_params = {**search_params, "fields_to_search": entities_and_fields.get("aops", [])}
+    aop_summary, aop_results_raw = search_entity_data(aops_dict, aop_search_params)
+    aop_results = serialize_search_results(aop_results_raw)
+
+    # --- Step 3: Collect all events from matched AOPs ---
+    aop_events = collect_events_from_matched_aops(aop_results, events_dict, aops_dict=aops_dict)
+    aop_event_ids = set(aop_events.keys())
+
+    # --- Step 4: Compare ---
+    events_in_both = matched_event_ids & aop_event_ids
+    events_text_only = matched_event_ids - aop_event_ids
+    events_aop_only = aop_event_ids - matched_event_ids
+
+    # Print summary
+    typer.echo(f"\n{'='*60}")
+    typer.echo(f"  {config.replace('_', ' ').upper()} — ENTITIES AND FIELDS SEARCH")
+    typer.echo(f"{'='*60}")
+    typer.echo(f"  Events matched by text search:        {len(matched_event_ids)}")
+    typer.echo(f"  AOPs matched by text search:          {len(aop_results)}")
+    typer.echo(f"  Unique events in matched AOPs:        {len(aop_event_ids)}")
+    typer.echo(f"  Events found by both routes:          {len(events_in_both)}")
+    typer.echo(f"  Events matched by text only:          {len(events_text_only)}")
+    typer.echo(f"  Events in matched AOPs only:          {len(events_aop_only)}")
+    typer.echo(f"{'='*60}\n")
+
+    # Export JSON
+    output_data = {
+        "search_config": config,
+        "search_date": work_date_str,
+        "summary": {
+            "event_search": event_summary,
+            "aop_search": aop_summary,
+            "matched_event_count": len(matched_event_ids),
+            "matched_aop_count": len(aop_results),
+            "aop_linked_event_count": len(aop_event_ids),
+            "events_in_both_count": len(events_in_both),
+            "events_text_only_count": len(events_text_only),
+            "events_aop_only_count": len(events_aop_only),
+        },
+        "matched_events": event_results,
+        "matched_aops": aop_results,
+        "comparison": {
+            "events_in_both": sorted(events_in_both),
+            "events_text_only": sorted(events_text_only),
+            "events_aop_only": sorted(events_aop_only),
+        },
+    }
+    json_filename = f"{config}_{work_date_str}.json"
     json_path = os.path.join(output_dir, json_filename)
-    csv_path = os.path.join(output_dir, csv_filename)
-    
-    export_search_results_to_json(results, summary, json_path, config, work_date_str, co_occurrence_only)
-    write_search_results_csv(results, csv_path, entity_type, entities)
-    
+    write_dict_to_json(output_data, output_dir, json_filename)
+    typer.echo(f"✓ JSON written to {json_path}")
+
+    # Export CSVs
+    text_matched_events_csv_path = os.path.join(output_dir, f"{config}_text_matched_events_{work_date_str}.csv")
+    write_search_results_csv(event_results, text_matched_events_csv_path, "events", events_dict)
+
+    events_csv_path = os.path.join(output_dir, f"{config}_events_{work_date_str}.csv")
+    write_combined_search_events_csv(event_results, aop_events, events_dict, events_csv_path)
+
+    aops_csv_path = os.path.join(output_dir, f"{config}_aops_{work_date_str}.csv")
+    write_search_results_csv(aop_results, aops_csv_path, "aops", aops_dict)
+
     typer.echo(f"✓ Search complete. Results in {output_dir}")
 
 
@@ -629,95 +618,6 @@ def manually_review_matches(
 # - Command to search for specific references in AOP-Wiki XML
 # - Use aop_wiki_xml_ref_search.py and search_references.py
 # - Export results to CSV/JSON
-
-
-def _run_entities_and_fields_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh):
-    """
-    Run multi-entity search with cross-comparison between events and AOPs.
-
-    This search mode:
-    1. Searches events using event-specific fields → directly matched events
-    2. Searches AOPs using AOP-specific fields → matched AOPs
-    3. Collects all event_ids from matched AOPs → AOP-linked events
-    4. Compares sets: events found in both, only via text search, or only via AOP membership
-    """
-    entities_and_fields = search_params["entities_and_fields"]
-    output_dir = output_config["directory"]
-    os.makedirs(output_dir, exist_ok=True)
-
-    # --- Step 1: Search events ---
-    events_dict = collect_entity_with_cache(
-        "events", collect_events_from_xml, work_date, cache_dir, force_refresh, logger
-    )
-    event_search_params = {**search_params, "fields_to_search": entities_and_fields.get("events", [])}
-    event_summary, event_results_raw = search_entity_data(events_dict, event_search_params)
-    event_results = serialize_search_results(event_results_raw)
-    matched_event_ids = set(event_results.keys())
-
-    # --- Step 2: Search AOPs ---
-    aops_dict = collect_entity_with_cache(
-        "aops", collect_aops_from_xml, work_date, cache_dir, force_refresh, logger
-    )
-    aop_search_params = {**search_params, "fields_to_search": entities_and_fields.get("aops", [])}
-    aop_summary, aop_results_raw = search_entity_data(aops_dict, aop_search_params)
-    aop_results = serialize_search_results(aop_results_raw)
-
-    # --- Step 3: Collect all events from matched AOPs ---
-    aop_events = collect_events_from_matched_aops(aop_results, events_dict, aops_dict=aops_dict)
-    aop_event_ids = set(aop_events.keys())
-
-    # --- Step 4: Compare ---
-    events_in_both = matched_event_ids & aop_event_ids
-    events_text_only = matched_event_ids - aop_event_ids
-    events_aop_only = aop_event_ids - matched_event_ids
-
-    # Print summary
-    typer.echo(f"\n{'='*60}")
-    typer.echo(f"  {config.replace('_', ' ').upper()} — ENTITIES AND FIELDS SEARCH")
-    typer.echo(f"{'='*60}")
-    typer.echo(f"  Events matched by text search:        {len(matched_event_ids)}")
-    typer.echo(f"  AOPs matched by text search:          {len(aop_results)}")
-    typer.echo(f"  Unique events in matched AOPs:        {len(aop_event_ids)}")
-    typer.echo(f"  Events found by both routes:          {len(events_in_both)}")
-    typer.echo(f"  Events matched by text only:          {len(events_text_only)}")
-    typer.echo(f"  Events in matched AOPs only:          {len(events_aop_only)}")
-    typer.echo(f"{'='*60}\n")
-
-    # Export JSON
-    output_data = {
-        "search_config": config,
-        "search_date": work_date_str,
-        "summary": {
-            "event_search": event_summary,
-            "aop_search": aop_summary,
-            "matched_event_count": len(matched_event_ids),
-            "matched_aop_count": len(aop_results),
-            "aop_linked_event_count": len(aop_event_ids),
-            "events_in_both_count": len(events_in_both),
-            "events_text_only_count": len(events_text_only),
-            "events_aop_only_count": len(events_aop_only),
-        },
-        "matched_events": event_results,
-        "matched_aops": aop_results,
-        "comparison": {
-            "events_in_both": sorted(events_in_both),
-            "events_text_only": sorted(events_text_only),
-            "events_aop_only": sorted(events_aop_only),
-        },
-    }
-    json_filename = f"{config}_{work_date_str}.json"
-    json_path = os.path.join(output_dir, json_filename)
-    write_dict_to_json(output_data, output_dir, json_filename)
-    typer.echo(f"✓ JSON written to {json_path}")
-
-    # Export CSVs
-    events_csv_path = os.path.join(output_dir, f"{config}_events_{work_date_str}.csv")
-    write_combined_search_events_csv(event_results, aop_events, events_dict, events_csv_path)
-
-    aops_csv_path = os.path.join(output_dir, f"{config}_aops_{work_date_str}.csv")
-    write_search_results_csv(aop_results, aops_csv_path, "aops", aops_dict)
-
-    typer.echo(f"✓ Search complete. Results in {output_dir}")
 
 
 def _run_event_to_aop_search(config, search_params, output_config, work_date, work_date_str, cache_dir, force_refresh):

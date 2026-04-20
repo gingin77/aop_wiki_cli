@@ -4,8 +4,9 @@ import datetime
 today = datetime.date.today()
 
 SEARCH_PARAMS = {
-    "entity": ["events"],
-    "fields_to_search": ["measurement_method", "regulatory_relevance"],
+    "entities_and_fields": {
+        "events": ["measurement_method", "regulatory_relevance"],
+    },
     "terms": [
         "test guideline",
         "test guidelines",
