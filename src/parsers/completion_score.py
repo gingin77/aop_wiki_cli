@@ -84,6 +84,7 @@ def event_completion_score(event):
     score = 0
     empty_free = []
     empty_struct = []
+    ao_max_increment = 0
     
     # Check free text fields
     for field in free_text_fields:
@@ -91,6 +92,15 @@ def event_completion_score(event):
             score += 1
         else:
             empty_free.append(field)
+
+    # Score AO examples only when this event is an adverse outcome.
+    # In parsed event data this AO examples field is stored as regulatory_relevance.
+    if (event.get('is_ao')):
+        ao_max_increment = 1
+        if _has_content(event.get('regulatory_relevance')):
+            score += 1
+        else:
+            empty_free.append('regulatory_relevance')
     
     # Score lobo and related fields (organ/cell) - has conditional max_score
     lobo_score, lobo_max_increment = _score_event_lobo_fields(event, empty_struct)
@@ -104,7 +114,7 @@ def event_completion_score(event):
             empty_struct.append(field_name)
     
     # Calculate max score (free text + lobo base + lobo conditional + structured fields)
-    max_score = len(free_text_fields) + 1 + lobo_max_increment + len(structured_fields)
+    max_score = len(free_text_fields) + ao_max_increment + 1 + lobo_max_increment + len(structured_fields)
     percent = round(100 * score / max_score, 2) if max_score else 0
     
     return {
