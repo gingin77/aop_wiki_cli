@@ -1,0 +1,104 @@
+{
+  "1499": {
+    "ke_id": "1499",
+    "title": "Increased, activation of T (T) helper (h) type 2 cells",
+    "biological_action": {
+      "term": "increased",
+      "source": "controlled_vocab"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "activation of T helper type 2 cells",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000546",
+          "label": "T-helper 2 cell",
+          "ontology": "CL",
+          "reason": "The biological object being acted upon in this KE is the T helper type 2 cells themselves, which directly matches 'T-helper 2 cell' as the specific cell type.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0035712",
+          "label": "T-helper 2 cell activation",
+          "ontology": "GO",
+          "reason": "The KE describes 'increased activation' of Th2 cells, and 'T-helper 2 cell activation' directly matches this biological process without being a regulatory term or different process like chemotaxis or differentiation.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ]
+  },
+  "1498": {
+    "ke_id": "1498",
+    "title": "Loss of alveolar capillary membrane integrity",
+    "biological_action": {
+      "term": "decreased",
+      "source": "controlled_vocab"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "Loss of alveolar capillary membrane integrity",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0001982",
+          "label": "capillary",
+          "ontology": "UBERON",
+          "reason": "The key event describes loss of integrity of the alveolar capillary membrane as a structure, which is best represented by the capillary vessel itself rather than specific cell types or lamellar body membranes.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ]
+  },
+  "1500": {
+    "ke_id": "1500",
+    "title": "Increased, fibroblast proliferation and myofibroblast differentiation",
+    "biological_action": {
+      "term": "increased",
+      "source": "controlled_vocab"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "fibroblast proliferation",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000057",
+          "label": "fibroblast",
+          "ontology": "CL",
+          "reason": "The KE describes proliferation and differentiation processes of fibroblasts in general, so the basic cell type term 'fibroblast [CL]' from the Cell Ontology is the most appropriate match rather than specific subtypes or anatomical structures.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0048146",
+          "label": "positive regulation of fibroblast proliferation",
+          "ontology": "GO",
+          "reason": "The KE describes 'Increased' fibroblast proliferation, which directly matches the positive regulation/activation/stimulation of fibroblast proliferation.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      },
+      {
+        "subject": "myofibroblast differentiation",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000186",
+          "label": "myofibroblast cell",
+          "ontology": "CL",
+          "reason": "The biological object in this KE is the myofibroblast cell itself, which is the cell type undergoing differentiation and proliferation, rather than the process of differentiation.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ]
+  }
+}

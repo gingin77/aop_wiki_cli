@@ -20,3 +20,4 @@ xml_inputs/
 scratch/
 outputs/
 logs/
+.env

@@ -20,9 +20,10 @@ dependencies = [
     # Pinned to a commit because the schema is still being revised; bump it
     # deliberately and rerun the tests when it changes.
     "linkml-aop @ git+https://github.com/EHS-Data-Standards/linkml-aop@11e16e4e283d90e6f445e2ea57a29778900cda8a",
+    "python-dotenv>=1.2.2",
     # Used only by the opt-in LLM review (analysis/event_level_llm_review.py);
     # the deterministic checks import nothing from it.
-    "anthropic>=0.40",
+    "anthropic>=0.50"
 ]
 
 [dependency-groups]
