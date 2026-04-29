@@ -6,6 +6,15 @@
       "term": "increased",
       "source": "controlled_vocab"
     },
+    "biological_organization": "Cellular",
+    "cell_term": {
+        "term_id": "http://purl.obolibrary.org/obo/CL_0000546",
+        "label": "T-helper 2 cell",
+        "ontology": "CL",
+        "reason": "The biological object being acted upon in this KE is the T helper type 2 cells themselves, which directly matches 'T-helper 2 cell' as the specific cell type.",
+        "source": "manual_review"
+    },
+    "organ_term": null,
     "ecs_annotations": [
       {
         "subject": "activation of T helper type 2 cells",
@@ -28,6 +37,9 @@
           "source": "controlled_vocab"
         }
       }
+    ],
+    "comments": [
+      "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually]"
     ]
   },
   "1498": {
@@ -37,15 +49,30 @@
       "term": "decreased",
       "source": "controlled_vocab"
     },
+    "biological_organization": "Tissue",
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_4028001",
+      "label": "pulmonary capillary endothelial cell",
+      "ontology": "CL",
+      "reason": "CL has 2 types of alveolar capillary endothelial cells, and the KE does not specify which type is involved, so the more general term 'pulmonary capillary endothelial cell' that encompasses both types is the most appropriate match.",
+      "source": "manual_review"
+    },
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+      "label": "lung",
+      "ontology": "UBERON",
+      "reason": "The KE describes injury to the alveolar-capillary membrane in the lung, so 'lung' is the appropriate organ term.",
+      "source": "manual_review"
+    },
     "ecs_annotations": [
       {
         "subject": "Loss of alveolar capillary membrane integrity",
         "biological_object": {
-          "term_id": "http://purl.obolibrary.org/obo/UBERON_0001982",
-          "label": "capillary",
-          "ontology": "UBERON",
-          "reason": "The key event describes loss of integrity of the alveolar capillary membrane as a structure, which is best represented by the capillary vessel itself rather than specific cell types or lamellar body membranes.",
-          "source": "llm_recommendation"
+          "term_id": "http://purl.obolibrary.org/obo/CL_4028001",
+          "label": "pulmonary capillary endothelial cell",
+          "ontology": "CL",
+          "reason": "CL has 2 types of alveolar capillary endothelial cells, and the KE does not specify which type is involved, so the more general term 'pulmonary capillary endothelial cell' that encompasses both types is the most appropriate match.",
+          "source": "manual_review"
         },
         "biological_process": null,
         "biological_action": {
@@ -53,6 +80,13 @@
           "source": "controlled_vocab"
         }
       }
+    ],
+    "comments": [
+      "Organ term could be lung [Updated manually]",
+      "Process term could be a phenotype... add a phenotype term",
+      "Object should be pulmonary capillary endothelial cell [Updated manually]",
+      "Cell term should be pulmonary capillary endothelial cell [Updated manually]",
+      "Process should be blank."
     ]
   },
   "1500": {
@@ -62,6 +96,9 @@
       "term": "increased",
       "source": "controlled_vocab"
     },
+    "biological_organization": "Cellular",
+    "cell_term": null,
+    "organ_term": null,
     "ecs_annotations": [
       {
         "subject": "fibroblast proliferation",
@@ -99,6 +136,9 @@
           "source": "controlled_vocab"
         }
       }
+    ],
+    "comments": [
+      "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP"
     ]
   }
 }
