@@ -372,7 +372,56 @@
       "carried": [
         "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP [carried from reference] [carried from reference] [carried from reference] [carried from reference]"
       ],
-      "new": ["This KE is also an example of a KE that describes 2 related cell types and processes in the same KE title. ECs allow multiple processes but there is some redundancy between the cell term and the object term in some cases. [carried from reference]"]
+      "new": [
+        "This KE is also an example of a KE that describes 2 related cell types and processes in the same KE title. ECs allow multiple processes but there is some redundancy between the cell term and the object term in some cases. [carried from reference]"
+      ]
     }
+  },
+  "122": {
+    "ke_id": "122",
+    "title": "Increase, Glucocorticoid receptor activation",
+    "biological_organization": "Molecular",
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_0000460",
+      "label": "glucocorticoid secreting cell",
+      "ontology": "CL",
+      "reason": "Only 'glucocorticoid secreting cell' is an actual cell type, while all other candidates are biological processes which should be rejected per the component guidance.",
+      "source": "llm_recommendation"
+    },
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Glucocorticoid receptor activation",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CHEBI_63562",
+          "label": "glucocorticoid receptor agonist",
+          "ontology": "CHEBI",
+          "reason": "The biological object being acted upon is the glucocorticoid receptor itself, and in the context of 'activation', the agonist represents the molecular entity that acts upon and activates this receptor.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0042921",
+          "label": "nuclear receptor-mediated glucocorticoid signaling pathway",
+          "ontology": "UPHENO",
+          "reason": "The KE describes activation of the glucocorticoid receptor, which is best represented by the nuclear receptor-mediated glucocorticoid signaling pathway term that directly captures receptor activation and signaling.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "cell_term",
+      "ecs_annotations['Glucocorticoid receptor activation'].biological_object",
+      "ecs_annotations['Glucocorticoid receptor activation'].phenotype"
+    ]
   }
 }
