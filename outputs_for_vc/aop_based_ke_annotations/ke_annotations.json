@@ -416,7 +416,501 @@
     "comments": {
       "carried": [],
       "new": []
-    }
+    },
+    "assays": [
+      {
+        "title": "TOX21 GR BLA Agonist Ratio",
+        "description": "Cell-based beta-lactamase reporter assay measuring glucocorticoid receptor agonism in human cervical cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Huang et al.",
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor"
+          },
+          {
+            "label": "beta-lactamase reporter"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 1
+      },
+      {
+        "title": "GR CALUX",
+        "description": "Chemical-Activated LUciferase gene eXpression assay measuring glucocorticoid receptor agonism in human osteosarcoma cells via luciferase reporter",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Been et al.",
+            "year": 2021,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Macikova et al.",
+            "year": 2014,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Schriks et al.",
+            "year": 2010,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Suzuki et al.",
+            "year": 2015,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor"
+          },
+          {
+            "label": "luciferase reporter"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 2
+      },
+      {
+        "title": "Attagene GR TRANS",
+        "description": "Transactivation assay measuring glucocorticoid receptor-mediated transcriptional activation in human liver cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Martin et al.",
+            "year": 2010,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Medvedev et al.",
+            "year": 2018,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Romanov et al.",
+            "year": 2008,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor"
+          },
+          {
+            "label": "liver cells"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor transactivation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 3
+      },
+      {
+        "title": "Attagene GRe CIS",
+        "description": "Cis-reporter assay measuring glucocorticoid response element-driven transcriptional activity in human liver cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Martin et al.",
+            "year": 2010,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Medvedev et al.",
+            "year": 2018,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Romanov et al.",
+            "year": 2008,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor"
+          },
+          {
+            "label": "glucocorticoid response element"
+          },
+          {
+            "label": "liver cells"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor cis-transcriptional activation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 4
+      },
+      {
+        "title": "CV1-hGR",
+        "description": "Cell-based reporter assay measuring human glucocorticoid receptor agonism in CV1 kidney cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Medlock Kakaley et al.",
+            "year": 2019,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "human glucocorticoid receptor"
+          },
+          {
+            "label": "kidney cells"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 5
+      },
+      {
+        "title": "GR-GeneBlazer",
+        "description": "Beta-lactamase reporter gene assay measuring glucocorticoid receptor agonism in human kidney cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Jia et al.",
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor"
+          },
+          {
+            "label": "beta-lactamase reporter"
+          },
+          {
+            "label": "kidney cells"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 6
+      },
+      {
+        "title": "NovaScreen NR hGR",
+        "description": "Competitive binding or reporter assay measuring human glucocorticoid receptor activation",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Knudsen et al.",
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Sipes et al.",
+            "year": 2013,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "human glucocorticoid receptor"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 7
+      },
+      {
+        "title": "Trout GR1",
+        "description": "Reporter assay measuring glucocorticoid receptor 1 agonism in rainbow trout kidney cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Kugathas & Sumpter",
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor 1"
+          },
+          {
+            "label": "kidney cells"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Oncorhynchus mykiss"
+          }
+        ],
+        "id": 8
+      },
+      {
+        "title": "Trout GR2",
+        "description": "Reporter assay measuring glucocorticoid receptor 2 agonism in rainbow trout kidney cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Kugathas & Sumpter",
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor 2"
+          },
+          {
+            "label": "kidney cells"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Oncorhynchus mykiss"
+          }
+        ],
+        "id": 9
+      },
+      {
+        "title": "Indigo hGR",
+        "description": "Reporter assay measuring human glucocorticoid receptor agonism using Indigo Biosciences platform",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Cavaillin et al.",
+            "year": 2021,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Cole et al.",
+            "year": 2025,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "human glucocorticoid receptor"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 10
+      },
+      {
+        "title": "Indigo zfGR",
+        "description": "Reporter assay measuring zebrafish glucocorticoid receptor agonism using Indigo Biosciences platform",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Cole et al.",
+            "year": 2025,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "activation",
+        "objects": [
+          {
+            "label": "zebrafish glucocorticoid receptor"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Danio rerio"
+          }
+        ],
+        "id": 11
+      },
+      {
+        "title": "GR-regulated gene induction (in vivo)",
+        "description": "Measurement of glucocorticoid receptor-regulated gene expression in vivo as an indicator of GR agonism",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Cavallin et al.",
+            "year": 2021,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Cole et al.",
+            "year": 2025,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Garland et al.",
+            "year": 2019,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "biological_action": "increased",
+        "objects": [
+          {
+            "label": "glucocorticoid receptor"
+          },
+          {
+            "label": "GR-regulated genes"
+          }
+        ],
+        "processes": [
+          {
+            "label": "glucocorticoid receptor-regulated gene expression"
+          },
+          {
+            "label": "glucocorticoid receptor agonism"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 12
+      }
+    ]
   },
   "145": {
     "ke_id": "145",

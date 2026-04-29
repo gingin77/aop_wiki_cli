@@ -1137,6 +1137,131 @@ def add_comment(ke_id: str, comment: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Assay extraction
+# ---------------------------------------------------------------------------
+
+def _strip_html(html: str) -> str:
+    """Remove HTML tags and decode common entities."""
+    text = re.sub(r'<[^>]+>', ' ', html)
+    for entity, char in [('&nbsp;', ' '), ('&amp;', '&'), ('&lt;', '<'), ('&gt;', '>'), ('&apos;', "'"), ('&quot;', '"')]:
+        text = text.replace(entity, char)
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+def extract_assays_from_text(measurement_text: str, client: anthropic.Anthropic) -> list[dict]:
+    """
+    Extract structured assay objects from a KE measurement_method free-text field.
+    Returns a list of assay dicts; IDs are assigned sequentially starting at 1.
+    """
+    prompt = (
+        "You are extracting structured assay information from an AOP-Wiki "
+        '"How is it measured or detected" description.\n\n'
+        f"Text:\n{measurement_text[:3000]}\n\n"
+        "For each distinct assay or measurement method described, extract:\n"
+        '- title: short assay name\n'
+        '- description: brief description of what is measured and how\n'
+        '- citations: list of citation objects, one per reference, each with title, authors, year, doi, pmid, journal\n'
+        '  (null for fields not in the text); empty list if none mentioned\n'
+        '- biological_action: the type of interaction captured — one of: "increased", "decreased",\n'
+        '  "functional change", "abnormal", "occurrence", "inhibition", "activation" (null if not applicable)\n'
+        '- objects: list of biological entities the assay measures (cells, receptors, molecules, organs)\n'
+        '  — each as {"label": "<name>"}\n'
+        '- processes: list of biological processes captured — each as {"label": "<name>"}\n'
+        '- taxon_terms: list of species/organisms used — each as {"label": "<species name>"}\n\n'
+        'Rules:\n'
+        '- One assay object per distinct method; do not merge unrelated methods\n'
+        '- If a table lists multiple assay variants, extract each as a separate assay\n'
+        '- Only include citation fields present in the text; use null for missing fields\n'
+        '- If no citation is mentioned, set citation to null\n'
+        '- Keep labels concise and specific\n\n'
+        'Each assay object must use "citations" (plural, a list) not "citation".\n'
+        'Reply with ONLY valid JSON: {"assays": [<assay objects>]}'
+    )
+    try:
+        message = client.messages.create(
+            model=LLM_MODEL,
+            max_tokens=4096,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = message.content[0].text.strip()
+        json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+        if not json_match:
+            return []
+        parsed = json.loads(json_match.group())
+        assays = parsed.get("assays", [])
+        for i, assay in enumerate(assays, start=1):
+            assay["id"] = i
+        return assays
+    except Exception as e:
+        print(f"  (assay extraction failed: {e})")
+        return []
+
+
+def annotate_ke_assays(ke_id: str, cache_file: str) -> str:
+    """
+    Extract and store assay annotations from the measurement_method field for one KE.
+    Writes to the shared store under ke["assays"]. Returns the shared store path.
+    """
+    client = _make_client()
+    if client is None:
+        raise EnvironmentError("ANTHROPIC_API_KEY not set")
+
+    with open(cache_file) as f:
+        events = json.load(f)
+
+    if ke_id not in events:
+        print(f"KE {ke_id} not found in cache.")
+        sys.exit(1)
+
+    ke_data = events[ke_id]
+    raw_html = ke_data.get("measurement_method", "")
+    if not raw_html:
+        print(f"KE {ke_id} has no measurement_method field.")
+        return SHARED_STORE_PATH
+
+    title = ke_data.get("title", "")
+    text = _strip_html(raw_html)
+    print(f"Extracting assays for KE {ke_id}: {title}")
+    print(f"  Text length: {len(text)} chars")
+
+    assays = extract_assays_from_text(text, client)
+    print(f"  Extracted {len(assays)} assay(s)")
+
+    store = _load_shared_store()
+    if ke_id not in store:
+        print(f"  KE {ke_id} not in shared store — run ECS annotation first.")
+        sys.exit(1)
+
+    store[ke_id]["assays"] = assays
+    _save_shared_store(store)
+
+    print("\n" + "=" * 60)
+    print(f"ASSAY SUMMARY — KE {ke_id}: {title}")
+    print("=" * 60)
+    for assay in assays:
+        print(f"\n  [{assay['id']}] {assay.get('title', '(untitled)')}")
+        desc = (assay.get("description") or "")[:120]
+        if desc:
+            print(f"      description: {desc}")
+        if assay.get("biological_action"):
+            print(f"      action:      {assay['biological_action']}")
+        if assay.get("objects"):
+            print(f"      objects:     {[o.get('label') for o in assay['objects']]}")
+        if assay.get("processes"):
+            print(f"      processes:   {[p.get('label') for p in assay['processes']]}")
+        if assay.get("taxon_terms"):
+            print(f"      taxa:        {[t.get('label') for t in assay['taxon_terms']]}")
+        citations = assay.get("citations") or []
+        if citations:
+            cit_strs = [f"{c.get('authors', '')} ({c.get('year', '')})" for c in citations]
+            print(f"      citations:   {'; '.join(cit_strs)}")
+    print(f"\nSaved to {SHARED_STORE_PATH}")
+    print("=" * 60)
+
+    return SHARED_STORE_PATH
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -1145,6 +1270,7 @@ def main():
     parser.add_argument("--aop", required=True, help="AOP ID (e.g. 173)")
     parser.add_argument("--ke-id", default=None, help="Annotate a single KE by ID")
     parser.add_argument("--add-comment", default=None, help="Append a comment to a KE (requires --ke-id)")
+    parser.add_argument("--annotate-assays", action="store_true", help="Extract assay annotations from measurement_method (requires --ke-id)")
     parser.add_argument("--force", action="store_true", help="Re-annotate all fields from scratch")
     parser.add_argument(
         "--force-on",
@@ -1175,6 +1301,13 @@ def main():
             print("--add-comment requires --ke-id")
             sys.exit(1)
         add_comment(args.ke_id, args.add_comment)
+        return
+
+    if args.annotate_assays:
+        if not args.ke_id:
+            print("--annotate-assays requires --ke-id")
+            sys.exit(1)
+        annotate_ke_assays(args.ke_id, cache)
         return
 
     if args.ke_id is None:
