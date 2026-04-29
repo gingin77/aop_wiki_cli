@@ -437,7 +437,228 @@
         "biological_object should be airways or lung \u2014 'Pulmonary' decomposition was too vague",
         "respiratory airway from Uberon was added [Updated manually]"
       ]
-    }
+    },
+    "assays": [
+      {
+        "title": "Ashcroft Histopathological Fibrosis Scoring",
+        "description": "Histological samples of lung tissue are stained and scored on a numerical scale from 0 to 8 (Ashcroft scale) to indicate the amount of fibrotic tissue. Scores range from normal lung (0) to fibrotic obliteration (8).",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Ashcroft et al."
+            ],
+            "year": "1988",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000114",
+            "label": "lung connective tissue",
+            "ontology": "UBERON",
+            "reason": "The Ashcroft histopathological fibrosis scoring system assesses fibrotic changes in the lung connective tissue/interstitial tissue, making 'lung connective tissue' the most specific and appropriate biological object term.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000479",
+            "label": "tissue",
+            "ontology": "UBERON",
+            "reason": "The Ashcroft Histopathological Fibrosis Scoring system assesses fibrotic changes in tissue (specifically lung tissue sections), making the general 'tissue' UBERON term the best available match among the candidates.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "lung fibrosis"
+          },
+          {
+            "label": "fibrogenesis"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          },
+          {
+            "label": "Rattus norvegicus"
+          }
+        ],
+        "id": 1,
+        "assay_type": null
+      },
+      {
+        "title": "Modified Ashcroft Fibrosis Scoring (Hubner)",
+        "description": "A modified version of the Ashcroft scoring system that enables morphological distinctions for better grading of lung fibrosis. Grades 0\u20138 are assigned based on specific morphological features, applied to bleomycin-induced lung fibrosis in rats.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Hubner et al."
+            ],
+            "year": "2008",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000114",
+            "label": "lung connective tissue",
+            "ontology": "UBERON",
+            "reason": "The Ashcroft fibrosis scoring assesses fibrotic changes in lung connective/interstitial tissue, making lung connective tissue (pulmonary interstitial tissue) the most appropriate biological object for this fibrosis scoring key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0004894",
+            "label": "alveolar wall",
+            "ontology": "UBERON",
+            "reason": "The Ashcroft fibrosis scoring system assesses structural changes in lung tissue, specifically thickening and scarring of the alveolar walls, making 'alveolar wall' the most appropriate biological object for this fibrosis scoring key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "fibrotic masses"
+          }
+        ],
+        "processes": [
+          {
+            "label": "lung fibrosis"
+          },
+          {
+            "label": "fibrogenesis"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Rattus norvegicus"
+          }
+        ],
+        "id": 2,
+        "assay_type": null
+      },
+      {
+        "title": "Morphometric Analysis of Fibrotic Disease Area (ImageJ)",
+        "description": "Formalin-fixed, paraffin-embedded lung cross-sections are imaged using wide-field light microscopy. ImageJ software is used to trace and quantify total lung area and diseased area (alveolar epithelium thickening and consolidated air space). Disease extent is expressed as diseased area / total area.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Nikota et al."
+            ],
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000114",
+            "label": "lung connective tissue",
+            "ontology": "UBERON",
+            "reason": "Fibrotic disease area in the lung involves the connective/interstitial tissue, and 'lung connective tissue' (pulmonary interstitial tissue) best represents the biological object acted upon in morphometric analysis of fibrosis.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0004894",
+            "label": "alveolar wall",
+            "ontology": "UBERON",
+            "reason": "Fibrotic disease area measured by morphometric analysis typically targets structural tissue changes in the alveolar wall, making 'alveolar wall' the most appropriate biological object for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "air space"
+          }
+        ],
+        "processes": [
+          {
+            "label": "lung fibrosis"
+          },
+          {
+            "label": "alveolar epithelium thickening"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": null
+      },
+      {
+        "title": "qRT-PCR for Fibrosis Markers",
+        "description": "Real-time reverse transcription-polymerase chain reaction (qRT-PCR) is used in vitro to measure increased gene expression of collagen, TGF-\u03b21, and pro-inflammatory mediators as markers of fibrogenesis potential.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3815",
+            "label": "Collagen",
+            "ontology": "CHEBI",
+            "reason": "Collagen (CHEBI) is the primary biological molecule measured as a fibrosis marker in qRT-PCR assays, as fibrosis is characterized by excessive collagen deposition and qRT-PCR detects collagen gene expression.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "TGF-\u03b21"
+          },
+          {
+            "label": "pro-inflammatory mediators"
+          }
+        ],
+        "processes": [
+          {
+            "label": "fibrogenesis"
+          },
+          {
+            "label": "inflammation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": null
+      },
+      {
+        "title": "ELISA for Fibrosis Markers",
+        "description": "Enzyme-linked immunosorbent assay (ELISA) is used in vitro to measure protein levels of collagen, TGF-\u03b21, and various pro-inflammatory mediators as sensitive markers of the potential of substances to induce lung fibrosis.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3815",
+            "label": "Collagen",
+            "ontology": "CHEBI",
+            "reason": "ELISA for fibrosis markers measures collagen proteins as key biomarkers of fibrosis, making Collagen [CHEBI] the best match for the biological object being assayed.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "TGF-\u03b21"
+          },
+          {
+            "label": "pro-inflammatory mediators"
+          }
+        ],
+        "processes": [
+          {
+            "label": "fibrogenesis"
+          },
+          {
+            "label": "inflammation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001059",
+          "label": "ELISA microplate reader",
+          "ontology": "OBI",
+          "reason": "An ELISA for fibrosis markers involves measuring absorbance in a microplate, which requires an ELISA microplate reader as the core assay instrument.",
+          "source": "llm_recommendation"
+        }
+      }
+    ]
   },
   "1495": {
     "ke_id": "1495",
@@ -473,6 +694,221 @@
     },
     "newly_annotated_fields": [
       "ec_annotations['Substance interaction with the lung resident cell membrane components'].phenotype"
+    ],
+    "assays": [
+      {
+        "title": "ELISA for DAMP/Cytokine Quantification",
+        "description": "Sandwich ELISA to quantitatively measure DAMPs and cytokines (e.g., IL-1\u03b1, IL-1\u03b2) released from stressed, injured, or dying cells in biological samples such as culture supernatant, bronchoalveolar lavage fluid, serum, cerebrospinal fluid, and peritoneal fluids. A capture antibody immobilized on microtitre wells binds the target antigen; a detection antibody conjugated to horseradish peroxidase or biotin-streptavidin system is used with a chromogenic substrate, and absorbance is read by spectrophotometer.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Nikota et al.",
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Rabolli et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Suwara et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Amsen and De Visser",
+            "year": "2009",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Di Paolo and Shayakhmetov",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "IL-1\u03b1"
+          },
+          {
+            "label": "IL-1\u03b2"
+          },
+          {
+            "label": "DAMPs"
+          },
+          {
+            "label": "alarmins"
+          },
+          {
+            "label": "cytokines"
+          },
+          {
+            "label": "culture supernatant"
+          },
+          {
+            "label": "bronchoalveolar lavage fluid"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0001977",
+            "label": "blood serum",
+            "ontology": "UBERON",
+            "reason": "ELISA for DAMP/Cytokine Quantification typically involves measuring proteins in blood serum, making blood serum (UBERON) the most appropriate biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "cerebrospinal fluid"
+          },
+          {
+            "label": "peritoneal fluid"
+          }
+        ],
+        "processes": [
+          {
+            "label": "DAMP release"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "ELISA for DAMP/Cytokine Quantification measures the production (biosynthesis) of cytokines, which directly corresponds to the GO term 'cytokine production' (including cytokine biosynthetic process).",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "cellular stress"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002532",
+            "label": "production of molecular mediator involved in inflammatory response",
+            "ontology": "GO",
+            "reason": "ELISA quantification of DAMPs/cytokines directly measures the production of molecular mediators involved in inflammatory response, making this term the most specific and accurate match for the biological process underlying cytokine/DAMP quantification.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001775",
+            "label": "cell activation",
+            "ontology": "GO",
+            "reason": "ELISA quantification of DAMPs and cytokines measures markers of cell activation, which is the most general and appropriate biological process term encompassing the cellular activation events that produce these signaling molecules.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          },
+          {
+            "label": "animal"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002766",
+          "label": "cytokine assay",
+          "ontology": "OBI",
+          "reason": "The KE describes quantification of both DAMPs and cytokines using ELISA, and 'cytokine assay' best captures the general assay type for measuring cytokine levels, while the other options are either equipment components or overly specific to TNF/T cells.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Western Blot for Alarmin Quantification",
+        "description": "Western blot technique using specific antibodies to quantify the release of various alarmins from cells exposed to toxicants or particles.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "alarmins"
+          },
+          {
+            "label": "DAMPs"
+          }
+        ],
+        "processes": [
+          {
+            "label": "DAMP release"
+          },
+          {
+            "label": "alarmin secretion"
+          },
+          {
+            "label": "inflammation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000854",
+          "label": "western blot assay",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly refers to 'Western Blot' for protein quantification, which directly matches the 'western blot assay' OBI term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "qRT-PCR for Gene Expression of PRR Downstream Targets",
+        "description": "Real-time reverse transcription-polymerase chain reaction (qRT-PCR) to quantify gene expression regulated by receptor binding, such as downstream of TLR binding, indicative of cellular activation following substance or particle interaction.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "TLR downstream target genes"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_33699",
+            "label": "messenger RNA",
+            "ontology": "CHEBI",
+            "reason": "qRT-PCR measures gene expression by quantifying messenger RNA (mRNA) levels, making 'messenger RNA' the most appropriate biological object for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE involves qRT-PCR measurement of gene expression of PRR downstream targets, which directly corresponds to the GO biological process term 'gene expression'.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0023052",
+            "label": "signaling",
+            "ontology": "GO",
+            "reason": "The KE involves measuring gene expression of Pattern Recognition Receptor (PRR) downstream targets, which relates to signaling pathways activated by PRRs, making the general 'signaling' GO term the best match among the candidates.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001775",
+            "label": "cell activation",
+            "ontology": "GO",
+            "reason": "The KE measures gene expression of PRR (Pattern Recognition Receptor) downstream targets, which broadly relates to cell activation processes triggered by PRR signaling pathways.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006954",
+            "label": "inflammatory response",
+            "ontology": "GO",
+            "reason": "qRT-PCR for gene expression of PRR (pattern recognition receptor) downstream targets measures inflammatory response signaling, as PRR downstream targets are genes involved in the inflammatory response pathway.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": null
+      }
     ]
   },
   "1496": {
@@ -516,6 +952,219 @@
     },
     "newly_annotated_fields": [
       "cell_term"
+    ],
+    "assays": [
+      {
+        "title": "qRT-PCR for pro-inflammatory mediator mRNA",
+        "description": "Measures the abundance of cytokine mRNA in a sample by reverse transcription of RNA to cDNA, PCR amplification, and real-time fluorescence detection using SYBR green or nested fluorescent probes. Cycle threshold values are used to quantify relative mRNA amounts.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Nolan et al.",
+            "year": 2006,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "cytokine mRNA"
+          },
+          {
+            "label": "pro-inflammatory mediators"
+          },
+          {
+            "label": "cDNA"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_51461",
+            "label": "SYBR Green I",
+            "ontology": "CHEBI",
+            "reason": "SYBR Green I is the fluorescent dye used in qRT-PCR assays to detect and quantify mRNA, making it the most relevant biological object in the context of quantitative RT-PCR for pro-inflammatory mediator mRNA measurement.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "reverse transcription"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006277",
+            "label": "DNA amplification",
+            "ontology": "GO",
+            "reason": "qRT-PCR (quantitative reverse transcription PCR) involves DNA amplification as a core biological/biochemical process to quantify mRNA levels of pro-inflammatory mediators.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "qRT-PCR measures mRNA levels as a readout of gene expression, and GO term 'gene expression' best captures the biological process of transcription and mRNA production of pro-inflammatory mediator genes being quantified.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002534",
+            "label": "cytokine production involved in inflammatory response",
+            "ontology": "GO",
+            "reason": "The KE involves measuring pro-inflammatory mediator mRNA via qRT-PCR, which directly reflects cytokine production involved in inflammatory response, without implying specific directional regulation.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Mus musculus"
+          },
+          {
+            "label": "Rattus norvegicus"
+          },
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 1,
+        "assay_type": null
+      },
+      {
+        "title": "ELISA for pro-inflammatory mediators",
+        "description": "Enzyme-linked immunosorbent assay that permits quantitative measurement of cytokine and other pro-inflammatory mediator proteins in biological samples including cell culture supernatants and whole cell homogenates.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "pro-inflammatory mediators"
+          },
+          {
+            "label": "cytokines"
+          },
+          {
+            "label": "antigens"
+          }
+        ],
+        "processes": [
+          {
+            "label": "protein quantification"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002534",
+            "label": "cytokine production involved in inflammatory response",
+            "ontology": "GO",
+            "reason": "The KE measures pro-inflammatory mediators via ELISA, directly representing cytokine production involved in the inflammatory response, without implying directionality of regulation.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": null
+      },
+      {
+        "title": "Cytokine bead array / cytokine PCR array",
+        "description": "Multiplex method for simultaneous quantitative detection of a panel of inflammatory mediator proteins or genes in a single sample, particularly useful when sample amounts are scarce.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Husain et al.",
+            "year": 2015,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "cytokines"
+          },
+          {
+            "label": "pro-inflammatory mediators"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002532",
+            "label": "production of molecular mediator involved in inflammatory response",
+            "ontology": "GO",
+            "reason": "Cytokine bead array and cytokine PCR array measure cytokine production, which are molecular mediators involved in inflammatory responses, making 'production of molecular mediator involved in inflammatory response' the best match for the biological process represented by this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002534",
+            "label": "cytokine production involved in inflammatory response",
+            "ontology": "GO",
+            "reason": "The KE involves measuring cytokine levels via bead array or PCR array, which directly captures cytokine production in the context of inflammatory response, making 'cytokine production involved in inflammatory response' the best match without implying a specific direction of regulation.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000920",
+          "label": "cytometric bead array assay",
+          "ontology": "OBI",
+          "reason": "The KE title 'Cytokine bead array / cytokine PCR array' directly refers to a cytometric bead array assay (Luminex-type assay) used to measure cytokine levels, which matches 'cytometric bead array assay' better than the instrument term 'bead array reader'.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Immunohistochemistry for pro-inflammatory mediators",
+        "description": "Uses specific antibodies to detect and localize immune cell types producing pro-inflammatory mediators and downstream effectors in tissue sections. Results are qualitative and used as weight of evidence.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Costa et al.",
+            "year": 2017,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Amsen and De Visser",
+            "year": 2009,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "pro-inflammatory mediators"
+          },
+          {
+            "label": "immune cells"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000479",
+            "label": "tissue",
+            "ontology": "UBERON",
+            "reason": "Immunohistochemistry for pro-inflammatory mediators is performed on tissue samples (biological object acted upon), and the generic 'tissue' UBERON term best represents the anatomical entity being analyzed in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "immune cell localization"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002532",
+            "label": "production of molecular mediator involved in inflammatory response",
+            "ontology": "GO",
+            "reason": "The KE involves detection of pro-inflammatory mediators via immunohistochemistry, which directly corresponds to the production of molecular mediators involved in inflammatory response.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001986",
+          "label": "immunohistochemistry",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly refers to 'Immunohistochemistry' as the assay type, which directly matches the 'immunohistochemistry' OBI term.",
+          "source": "llm_recommendation"
+        }
+      }
     ]
   },
   "1497": {
@@ -555,7 +1204,302 @@
         "The organ term should be something like 'lung' or 'respiratory system' [Updated manually] [carried from reference]"
       ],
       "new": []
-    }
+    },
+    "assays": [
+      {
+        "title": "Bronchoalveolar Lavage Fluid (BALF) Cellularity Assay",
+        "description": "In vivo assessment of lung immune response by lavaging the fluid lining the lung epithelium and quantitatively analyzing the types of infiltrating cells, cytokines, and chemokines to evaluate pro-inflammatory cell recruitment, dose-response, potency ranking, and no-effect exposure levels.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Cho et al."
+            ],
+            "year": "2010",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "bronchoalveolar lavage fluid (BALF)"
+          },
+          {
+            "label": "pro-inflammatory cells"
+          },
+          {
+            "label": "cytokines"
+          },
+          {
+            "label": "chemokines"
+          },
+          {
+            "label": "lung epithelium"
+          }
+        ],
+        "processes": [
+          {
+            "label": "pro-inflammatory cell recruitment"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The BALF cellularity assay measures the cellular composition of bronchoalveolar lavage fluid as an indicator of immune response in the lung, which broadly represents the general immune response GO term rather than any specific subset.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "initiation and progression of lung immune disease"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "in vivo (unspecified)"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003666",
+          "label": "lavage fluid specimen",
+          "ontology": "OBI",
+          "reason": "Bronchoalveolar lavage fluid (BALF) cellularity assay involves collecting and analyzing lavage fluid specimens from the bronchoalveolar region, making 'lavage fluid specimen' the best match among the candidates.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "In Vitro Pro-inflammatory Mediator Assessment (qRT-PCR)",
+        "description": "Real-time reverse transcription-polymerase chain reaction (qRT-PCR) used in cell culture models to measure cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "pro-inflammatory mediators"
+          },
+          {
+            "label": "mRNA transcripts"
+          }
+        ],
+        "processes": [
+          {
+            "label": "pro-inflammatory cell recruitment"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE involves measuring pro-inflammatory mediator expression via qRT-PCR, which directly assesses gene expression of inflammatory mediators.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "in vitro (cell culture)"
+          }
+        ],
+        "id": 2,
+        "assay_type": null
+      },
+      {
+        "title": "In Vitro Pro-inflammatory Mediator Assessment (ELISA)",
+        "description": "Enzyme-linked immunosorbent assay (ELISA) used in cell culture models to quantify cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "pro-inflammatory mediators"
+          },
+          {
+            "label": "cytokines"
+          },
+          {
+            "label": "chemokines"
+          }
+        ],
+        "processes": [
+          {
+            "label": "pro-inflammatory cell recruitment"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "The KE involves measuring pro-inflammatory mediators (cytokines) via ELISA, which directly corresponds to cytokine production as the underlying biological process being assessed.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "in vitro (cell culture)"
+          }
+        ],
+        "id": 3,
+        "assay_type": null
+      },
+      {
+        "title": "In Vitro Pro-inflammatory Mediator Assessment (Immunohistochemistry)",
+        "description": "Immunohistochemistry used in cell culture models to detect and localize cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "pro-inflammatory mediators"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0009002",
+            "label": "inflammatory cell",
+            "ontology": "CL",
+            "reason": "The KE involves assessing pro-inflammatory mediators via immunohistochemistry, making 'inflammatory cell' the most relevant biological object as these are the cell types being examined and producing the mediators being measured.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "pro-inflammatory cell recruitment"
+          },
+          {
+            "label": "protein localization of pro-inflammatory mediators"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "in vitro (cell culture)"
+          }
+        ],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001986",
+          "label": "immunohistochemistry",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly states 'Immunohistochemistry' as the assay method, which directly matches the 'immunohistochemistry' OBI term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Precision Cut Lung Slices (PCLS) Inflammatory Foci Assessment",
+        "description": "Histological assessment of inflammatory foci in precision cut lung slices to evaluate recruitment of tissue-resident inflammatory cells following treatment with compounds such as bleomycin and MWCNTs.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Rahman et al."
+            ],
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "tissue-resident inflammatory cells"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0009002",
+            "label": "inflammatory cell",
+            "ontology": "CL",
+            "reason": "The biological object in PCLS inflammatory foci assessment is the inflammatory cell (CL), as the assay evaluates the presence and accumulation of inflammatory cells within lung tissue foci.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0008946",
+            "label": "lung parenchyma",
+            "ontology": "UBERON",
+            "reason": "Precision Cut Lung Slices (PCLS) contain the functional tissue of the lung, specifically the parenchyma, which is the biological object being assessed for inflammatory foci in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006954",
+            "label": "inflammatory response",
+            "ontology": "GO",
+            "reason": "The KE involves assessing inflammatory foci in lung slices, which directly corresponds to the inflammatory response (inflammation) biological process in GO.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006954",
+            "label": "inflammatory response",
+            "ontology": "GO",
+            "reason": "The KE involves assessment of inflammatory foci in lung slices, which directly corresponds to the inflammatory response GO biological process term.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "ex vivo lung tissue"
+          }
+        ],
+        "id": 5,
+        "assay_type": null
+      },
+      {
+        "title": "Microfluidic Lung-on-a-Chip Immune Cell Migration Assay",
+        "description": "Microfluidic lung-on-a-chip device used to assess migration of select immune cells and fibroblasts toward a simulated epithelium following treatment with pro-fibrotic compounds.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "He et al."
+            ],
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "immune cells"
+          },
+          {
+            "label": "fibroblasts"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000483",
+            "label": "epithelium",
+            "ontology": "UBERON",
+            "reason": "The lung-on-a-chip system models pulmonary epithelial tissue, and the general 'epithelium' term from UBERON best represents the biological object (epithelial tissue layer) in this microfluidic lung model, as none of the more specific options match lung/pulmonary epithelium.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0016477",
+            "label": "cell migration",
+            "ontology": "GO",
+            "reason": "The KE describes an immune cell migration assay, and 'cell migration' is the most general and appropriate GO biological process term encompassing immune cell migration, while the other options are specific to non-immune cell types.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "fibroblast migration"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The KE involves immune cell migration in a lung-on-a-chip assay, which directly represents an immune response process as described by GO:0006955.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "in vitro (microfluidic model)"
+          }
+        ],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003820",
+          "label": "cell migration assay",
+          "ontology": "OBI",
+          "reason": "The KE describes an immune cell migration assay, which directly matches the 'cell migration assay' ontology term from OBI.",
+          "source": "llm_recommendation"
+        }
+      }
+    ]
   },
   "1498": {
     "ke_id": "1498",
@@ -610,7 +1554,389 @@
         "The phenotype annotation 'Alveolar capillary dysplasia' was removed because it is a specific condition and the KE is describing a more general process. [Updated manually] [carried from reference] [carried from reference]"
       ],
       "new": []
-    }
+    },
+    "assays": [
+      {
+        "title": "BALF Total Protein Content",
+        "description": "Measures total protein content in bronchoalveolar lavage fluid (BALF) from experimental animals or human patients to assess alveolar-capillary membrane (ACM) barrier integrity loss.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_36080",
+            "label": "protein",
+            "ontology": "CHEBI",
+            "reason": "BALF Total Protein Content refers to the measurement of proteins (biological molecules) present in bronchoalveolar lavage fluid, making 'protein' [CHEBI] the best match as the biological object being measured.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "bronchoalveolar lavage fluid (BALF)"
+          }
+        ],
+        "processes": [
+          {
+            "label": "alveolar-capillary membrane barrier integrity"
+          },
+          {
+            "label": "lung fibrosis"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_2100328",
+          "label": "total bodily fluid protein assay",
+          "ontology": "OBI",
+          "reason": "BALF (Bronchoalveolar Lavage Fluid) is a bodily fluid, and measuring total protein content in BALF corresponds to a total bodily fluid protein assay.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "BALF Total Albumin Content",
+        "description": "Measures total albumin content in bronchoalveolar lavage fluid (BALF) from experimental animals or human patients as an indicator of compromised ACM barrier integrity.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_166964",
+            "label": "albumin type",
+            "ontology": "CHEBI",
+            "reason": "Albumin is the biological molecule (chemical entity) being measured in the bronchoalveolar lavage fluid, and 'albumin type' in ChEBI represents this protein class.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "bronchoalveolar lavage fluid (BALF)"
+          }
+        ],
+        "processes": [
+          {
+            "label": "alveolar-capillary membrane barrier integrity"
+          },
+          {
+            "label": "lung fibrosis"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_2100351",
+          "label": "bodily fluid albumin assay",
+          "ontology": "OBI",
+          "reason": "BALF (Bronchoalveolar Lavage Fluid) is a bodily fluid, and the assay measures total albumin content in this fluid, making 'bodily fluid albumin assay' the best match.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "BALF Total Urea Content",
+        "description": "Measures total urea in bronchoalveolar lavage fluid (BALF) as an indicator of ACM integrity loss.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Schmekel et al.",
+            "year": 1992,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16199",
+            "label": "urea",
+            "ontology": "CHEBI",
+            "reason": "The KE 'BALF Total Urea Content' measures urea (the chemical compound) in bronchoalveolar lavage fluid, which directly corresponds to the ChEBI term for urea (carbamide).",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "bronchoalveolar lavage fluid (BALF)"
+          }
+        ],
+        "processes": [
+          {
+            "label": "alveolar-capillary membrane barrier integrity"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 3,
+        "assay_type": null
+      },
+      {
+        "title": "Trypan Blue Exclusion Assay",
+        "description": "A dye exclusion assay where cells with intact membranes exclude trypan blue dye and remain clear, while cells with damaged membranes incorporate the dye and turn blue, allowing assessment of cell viability.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "cell membrane"
+          },
+          {
+            "label": "alveolar macrophages"
+          },
+          {
+            "label": "dendritic cells"
+          },
+          {
+            "label": "epithelial cells"
+          },
+          {
+            "label": "neutrophils"
+          }
+        ],
+        "processes": [
+          {
+            "label": "cytotoxicity"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0051673",
+            "label": "disruption of plasma membrane integrity in another organism",
+            "ontology": "GO",
+            "reason": "The Trypan Blue Exclusion Assay measures cell membrane integrity/disruption, as trypan blue only enters cells with compromised plasma membranes, making 'disruption of plasma membrane integrity in another organism' the closest match among the candidates, though the biological process fundamentally assessed is plasma membrane integrity loss/cell death.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "cell viability"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The Trypan Blue Exclusion Assay is a type of assay (scientific observation/measurement) used to assess cell viability, making 'assay' the best match among the candidates.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Fluorescent DNA Stain Cytotoxicity Assay (Ethidium Bromide / Propidium Iodide)",
+        "description": "High-throughput assay using fluorescent DNA stains such as ethidium bromide or propidium iodide to identify cells with damaged membranes; cells that incorporate the dye are scored by flow cytometry.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "cell membrane"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The biological object acted upon in this assay is DNA itself, as ethidium bromide and propidium iodide are fluorescent dyes that intercalate into DNA to assess cell membrane integrity and cytotoxicity, making deoxyribonucleic acid (CHEBI) the best match.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_4883",
+            "label": "ethidium bromide",
+            "ontology": "CHEBI",
+            "reason": "Ethidium bromide is the primary fluorescent DNA stain referenced in the KE title, and CHEBI:190522 directly represents this compound used in cytotoxicity assays to stain cells with compromised membrane integrity.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_51240",
+            "label": "propidium iodide",
+            "ontology": "CHEBI",
+            "reason": "Propidium iodide is the specific fluorescent DNA stain used in this cytotoxicity assay, making it the best match as the biological object (chemical) being referenced in the KE title.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "cytotoxicity"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0051673",
+            "label": "disruption of plasma membrane integrity in another organism",
+            "ontology": "GO",
+            "reason": "The fluorescent DNA stain cytotoxicity assay using ethidium bromide/propidium iodide detects loss of plasma membrane integrity, as these dyes only enter cells with compromised membranes, making 'disruption of plasma membrane integrity' the best biological process match.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "cell viability"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 5,
+        "assay_type": null
+      },
+      {
+        "title": "Lactate Dehydrogenase (LDH) Release Assay",
+        "description": "Measures the amount of LDH released into cell culture media following membrane injury. Based on measuring NAD reduction and conversion of a tetrazolium dye, detected at 490 nm absorbance.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_24996",
+            "label": "lactate",
+            "ontology": "CHEBI",
+            "reason": "The LDH Release Assay measures lactate dehydrogenase activity by detecting lactate production, and 'lactate' (CHEBI) is the closest biological object among the candidates, as it is the direct product associated with LDH enzymatic activity measured in this assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "nicotinamide adenine dinucleotide (NAD)"
+          },
+          {
+            "label": "tetrazolium dye"
+          },
+          {
+            "label": "cell membrane"
+          }
+        ],
+        "processes": [
+          {
+            "label": "cytotoxicity"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0051673",
+            "label": "disruption of plasma membrane integrity in another organism",
+            "ontology": "GO",
+            "reason": "The LDH Release Assay measures cell membrane integrity by detecting lactate dehydrogenase leakage into the extracellular space, which directly corresponds to disruption of plasma membrane integrity (cytolysis).",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003761",
+          "label": "cell death assay detecting lactate dehydrogenase (LDH) release",
+          "ontology": "OBI",
+          "reason": "The KE title directly refers to the LDH Release Assay, which is a cell death assay that detects lactate dehydrogenase release, matching term 1 as the broader and most accurate description without specifying a detection method.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Calcein AM Assay",
+        "description": "Assay based on intracellular hydrolysis of non-fluorescent calcein AM by non-specific esterases in live cells to produce fluorescent calcein; damaged cells release calcein into culture media, indicating membrane compromise.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3303",
+            "label": "calcein am",
+            "ontology": "CHEBI",
+            "reason": "Calcein AM (acetoxymethyl ester form of calcein) is the specific chemical substrate used in the Calcein AM Assay, making it the direct biological object acted upon in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3303",
+            "label": "calcein am",
+            "ontology": "CHEBI",
+            "reason": "Calcein AM is the direct biological object of the Calcein AM Assay, as it is the cell-permeant ester form of calcein used in the assay to assess cell viability.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "intracellular esterases"
+          },
+          {
+            "label": "cell membrane"
+          }
+        ],
+        "processes": [
+          {
+            "label": "cytotoxicity"
+          },
+          {
+            "label": "cell membrane integrity"
+          },
+          {
+            "label": "cell viability"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 7,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The Calcein AM Assay is a type of assay (a procedure for measuring or testing something), which matches the general OBI 'assay' term representing a scientific observation or measuring process.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Transepithelial/Transendothelial Electrical Resistance (TEER)",
+        "description": "Quantitative technique measuring ohmic resistance across endothelial or epithelial cell monolayers to assess tight junction integrity in cell culture models.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "tight junctions"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000066",
+            "label": "epithelial cell",
+            "ontology": "CL",
+            "reason": "TEER measures the electrical resistance across epithelial (or endothelial) cell layers, and 'epithelial cell' is the most general and appropriate biological object term for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000115",
+            "label": "endothelial cell",
+            "ontology": "CL",
+            "reason": "TEER measures the electrical resistance across cellular layers including epithelial and endothelial cells, and 'endothelial cell' (CL) is the most appropriate general term for the biological object in transendothelial electrical resistance measurements.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "epithelial barrier integrity"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0061028",
+            "label": "establishment of endothelial barrier",
+            "ontology": "GO",
+            "reason": "TEER measures the integrity of epithelial/endothelial barriers, and 'establishment of endothelial barrier' best captures the general process of barrier formation and maintenance that TEER quantifies, without being overly specific to a particular tissue type like brain or intestine.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0120193",
+            "label": "tight junction organization",
+            "ontology": "GO",
+            "reason": "TEER measures the integrity of tight junctions between cells, which reflects tight junction organization \u2014 the process that controls the formation, maintenance, and regulation of tight junction structure and function.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 8,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003809",
+          "label": "Transepithelial Electrical Resistance (TEER) device",
+          "ontology": "OBI",
+          "reason": "The KE directly measures Transepithelial/Transendothelial Electrical Resistance (TEER), which is precisely the assay type captured by the 'Transepithelial Electrical Resistance (TEER) device' term from OBI.",
+          "source": "llm_recommendation"
+        }
+      }
+    ]
   },
   "1499": {
     "ke_id": "1499",
@@ -659,7 +1985,289 @@
         "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually] [carried from reference]"
       ],
       "new": []
-    }
+    },
+    "assays": [
+      {
+        "title": "ELISA for Th1/Th2 Cytokines and Related Proteins",
+        "description": "Enzyme-linked immunosorbent assay to quantify protein levels of Th1 and Th2 cytokines (IL-4, IL-5, IL-13, IL-10, IL-12, IFN-\u03b3, TGF-\u03b2) and related proteins (Arg-1, Arg-2) in BALF supernatant, tissue homogenates, or cell pellets from animals, human patients, or in vitro cell cultures.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "IL-4"
+          },
+          {
+            "label": "IL-5"
+          },
+          {
+            "label": "IL-13"
+          },
+          {
+            "label": "IL-10"
+          },
+          {
+            "label": "IL-12"
+          },
+          {
+            "label": "IFN-\u03b3"
+          },
+          {
+            "label": "TGF-\u03b2"
+          },
+          {
+            "label": "Arginase-1 (Arg-1)"
+          },
+          {
+            "label": "Arginase-2 (Arg-2)"
+          },
+          {
+            "label": "BALF supernatant"
+          },
+          {
+            "label": "tissue homogenate"
+          },
+          {
+            "label": "cell pellet"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The KE involves measuring Th1/Th2 cytokines and related proteins, which broadly represents the immune response process, making the general 'immune response' GO term the best match as it encompasses both Th1 and Th2 cytokine-mediated immune activities without being overly specific to one branch.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The KE involves measuring Th1/Th2 cytokines and related proteins, which broadly reflects immune response processes without being restricted to humoral, mucosal, hepatic, or exclusively adaptive immunity.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The ELISA measurement of Th1/Th2 cytokines and related proteins directly reflects immune response processes, as Th1/Th2 cytokine profiles are central mediators of adaptive immune responses.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "The KE measures Th1/Th2 cytokines and related proteins broadly via ELISA, making the general 'cytokine production' GO term the best match, as it encompasses cytokine biosynthetic/metabolic processes without restricting to a specific cell type.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          },
+          {
+            "label": "animal model"
+          }
+        ],
+        "id": 1,
+        "assay_type": null
+      },
+      {
+        "title": "qRT-PCR for Th1/Th2 Cytokine and Related Gene Expression",
+        "description": "Real-time quantitative polymerase chain reaction to measure mRNA levels of Th1 and Th2 cytokines (IL-4, IL-5, IL-13, IL-10, IL-12, IFN-\u03b3, TGF-\u03b2) and related genes (Arg-1, Arg-2) in BALF supernatant, tissue homogenates, or cell pellets from animals, human patients, or in vitro cell cultures.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "IL-4 mRNA"
+          },
+          {
+            "label": "IL-5 mRNA"
+          },
+          {
+            "label": "IL-13 mRNA"
+          },
+          {
+            "label": "IL-10 mRNA"
+          },
+          {
+            "label": "IL-12 mRNA"
+          },
+          {
+            "label": "IFN-\u03b3 mRNA"
+          },
+          {
+            "label": "TGF-\u03b2 mRNA"
+          },
+          {
+            "label": "Arginase-1 (Arg-1) mRNA"
+          },
+          {
+            "label": "Arginase-2 (Arg-2) mRNA"
+          },
+          {
+            "label": "BALF supernatant"
+          },
+          {
+            "label": "tissue homogenate"
+          },
+          {
+            "label": "cell pellet"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The KE involves measuring Th1/Th2 cytokine gene expression, which broadly represents the immune response process encompassing both Th1 and Th2 branches, making the general 'immune response' GO term the best fit without over-specifying to humoral or adaptive immune response alone.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The KE involves measuring Th1/Th2 cytokine gene expression, which broadly reflects immune response activity without being restricted to humoral, mucosal, hepatic, or specifically adaptive immune contexts.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "The KE involves measuring Th1/Th2 cytokine and related gene expression, which directly reflects the immune response process mediated by T helper cell cytokine profiles.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE involves measuring Th1/Th2 cytokine and related gene expression via qRT-PCR, which directly represents the biological process of gene expression in immune cells.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          },
+          {
+            "label": "animal model"
+          }
+        ],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001961",
+          "label": "PCR program",
+          "ontology": "OBI",
+          "reason": "qRT-PCR is a PCR program/method used to measure gene expression, making 'PCR program' the best match for the assay type in this context.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Cytokine Bead Array (Multiplex Immunoassay)",
+        "description": "Multiplex bead-based immunoassay to simultaneously quantify a panel of Th1 and/or Th2 cytokine proteins from BALF or other samples; particularly advantageous when sample volume is limited.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "Th1 cytokines"
+          },
+          {
+            "label": "Th2 cytokines"
+          },
+          {
+            "label": "BALF supernatant"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "Cytokine Bead Array measures multiple cytokines simultaneously, which are key mediators of the general immune response, making the broad 'immune response' GO term the best match for this KE.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "Cytokine Bead Array measures multiple cytokines simultaneously reflecting broad immune response activity, which is best captured by the general 'immune response' GO term rather than any specific subset like humoral, mucosal, or adaptive immune response.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "The KE represents measurement of cytokines generally via multiplex immunoassay, so the broad 'cytokine production' GO term is the best match without restricting to a specific cell type.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          },
+          {
+            "label": "animal model"
+          }
+        ],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000920",
+          "label": "cytometric bead array assay",
+          "ontology": "OBI",
+          "reason": "The KE title 'Cytokine Bead Array (Multiplex Immunoassay)' directly corresponds to the cytometric bead array assay, which is also known as a Luminex assay and is the standard method for multiplex cytokine detection.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Cytokine PCR Array (Multiplex Gene Expression)",
+        "description": "Multiplex PCR array to simultaneously measure mRNA expression of a panel of Th1 and/or Th2 cytokine genes from BALF or other samples; particularly advantageous when sample volume is limited.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "Th1 cytokine mRNAs"
+          },
+          {
+            "label": "Th2 cytokine mRNAs"
+          },
+          {
+            "label": "BALF supernatant"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "A cytokine multiplex gene expression array measuring multiple cytokines broadly represents the immune response biological process, which encompasses cytokine-mediated signaling and inflammatory responses without being restricted to a specific immune compartment or response type.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006955",
+            "label": "immune response",
+            "ontology": "GO",
+            "reason": "A cytokine PCR array measuring multiplex gene expression of cytokines broadly represents the immune response biological process, as cytokines are key mediators of general immune signaling without being restricted to humoral, mucosal, hepatic, or adaptive immune response specifically.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE involves measuring cytokine gene expression via PCR array/multiplex gene expression profiling, which directly corresponds to the general GO term 'gene expression'.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          },
+          {
+            "label": "animal model"
+          }
+        ],
+        "id": 4,
+        "assay_type": null
+      }
+    ]
   },
   "1500": {
     "ke_id": "1500",
@@ -731,7 +2339,229 @@
         "This KE is also an example of a KE that describes 2 related cell types and processes in the same KE title. ECs allow multiple processes but there is some redundancy between the cell term and the object term in some cases. [carried from reference]"
       ],
       "new": []
-    }
+    },
+    "assays": [
+      {
+        "title": "Immunohistochemistry for Fibroblast and Myofibroblast Markers (In Vivo/Human)",
+        "description": "Detection of fibroblast proliferation and myofibroblast activation in formalin-fixed paraffin-embedded lung sections using antibodies against vimentin, procollagen 1, and \u03b1-SMA via immunoperoxidase technique with avidin-biotin amplification and DAB substrate. Morphometric analysis using ocular grids on 20-25 non-overlapping squares from 2-3 random lung sections at 20x magnification.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Zhang",
+            "year": 1994,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "vimentin"
+          },
+          {
+            "label": "procollagen 1"
+          },
+          {
+            "label": "alpha-SMA"
+          },
+          {
+            "label": "fibroblasts"
+          },
+          {
+            "label": "myofibroblasts"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0004883",
+            "label": "lung mesenchyme",
+            "ontology": "UBERON",
+            "reason": "Fibroblasts and myofibroblasts are mesenchymal cells, and the biological object being acted upon in this KE involving these cell markers is the lung mesenchyme, which specifically encompasses the connective tissue compartment where these cell types reside.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0048144",
+            "label": "fibroblast proliferation",
+            "ontology": "GO",
+            "reason": "The KE involves detection of fibroblast and myofibroblast markers in tissue, which directly corresponds to fibroblast proliferation as the core biological process being measured/assessed.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0036446",
+            "label": "myofibroblast differentiation",
+            "ontology": "GO",
+            "reason": "The KE involves immunohistochemistry for fibroblast and myofibroblast markers, which directly reflects the biological process of myofibroblast differentiation (the transformation of fibroblasts into myofibroblasts, identifiable by specific markers like \u03b1-SMA).",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001986",
+          "label": "immunohistochemistry",
+          "ontology": "OBI",
+          "reason": "The KE explicitly describes immunohistochemistry as the assay type used to detect fibroblast and myofibroblast markers, directly matching the 'immunohistochemistry' OBI term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "In Vitro Immunoassay for Fibroblast and Myofibroblast Markers",
+        "description": "In vitro measurement of fibroblast and myofibroblast markers including type-1 collagen, Thy-1, COX2, caveolin-1, TGF-\u03b2, \u03b1-SMA, and Smad3 to assess fibroblast proliferation, differentiation, and EMT in lung epithelial cells (e.g., A549 cells) exposed to asbestos.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Tamminen et al.",
+            "year": 2012,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Kim et al.",
+            "year": 2006,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "type-1 collagen"
+          },
+          {
+            "label": "Thy-1 cell surface antigen"
+          },
+          {
+            "label": "cyclooxygenase-2 (COX2)"
+          },
+          {
+            "label": "caveolin-1 (CAV1)"
+          },
+          {
+            "label": "TGF-\u03b2"
+          },
+          {
+            "label": "alpha-SMA"
+          },
+          {
+            "label": "Smad3"
+          },
+          {
+            "label": "p-Smad2"
+          },
+          {
+            "label": "A549 cells"
+          },
+          {
+            "label": "fibroblasts"
+          },
+          {
+            "label": "myofibroblasts"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0048144",
+            "label": "fibroblast proliferation",
+            "ontology": "GO",
+            "reason": "The KE involves measuring fibroblast and myofibroblast markers in vitro, which directly relates to fibroblast proliferation as the core biological process being assessed.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "fibroblast differentiation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0036446",
+            "label": "myofibroblast differentiation",
+            "ontology": "GO",
+            "reason": "The KE involves measuring fibroblast and myofibroblast markers in vitro, which directly reflects the biological process of myofibroblast differentiation (transformation of fibroblasts into myofibroblasts).",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001837",
+            "label": "epithelial to mesenchymal transition",
+            "ontology": "GO",
+            "reason": "The KE involves detection of fibroblast and myofibroblast markers, which are characteristic of cells that have undergone epithelial to mesenchymal transition (EMT), making this GO term the best match for the biological process represented.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "TGF-\u03b2 signaling"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": null
+      },
+      {
+        "title": "Hydrogel-Based ECM Mimicry Assay",
+        "description": "Use of water-swollen crosslinked polymer networks (hydrogels) composed of collagen, fibrin, hyaluronic acid, or synthetic materials such as polyacrylamide enriched with ECM proteins to mimic the extracellular matrix and assess mechanical and biochemical properties relevant to fibroblast behavior.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3815",
+            "label": "Collagen",
+            "ontology": "CHEBI",
+            "reason": "The hydrogel-based ECM mimicry assay acts upon collagen as the primary biological object, as collagen is the key extracellular matrix component being mimicked or incorporated in the hydrogel system.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_5054",
+            "label": "Fibrin",
+            "ontology": "CHEBI",
+            "reason": "Fibrin is the biological object (extracellular matrix component) acted upon in a hydrogel-based ECM mimicry assay, as fibrin gels are commonly used to mimic the extracellular matrix environment.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16336",
+            "label": "hyaluronic acid",
+            "ontology": "CHEBI",
+            "reason": "Hyaluronic acid (CHEBI) is the best match as it represents the primary biological molecule used in hydrogel-based ECM mimicry assays, serving as the key extracellular matrix component being acted upon in this experimental context.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_51135",
+            "label": "poly(acrylamide) macromolecule",
+            "ontology": "CHEBI",
+            "reason": "Poly(acrylamide) macromolecule best represents the hydrogel scaffold material used in ECM mimicry assays, which are typically composed of polyacrylamide networks tuned to mimic extracellular matrix stiffness.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_4000022",
+            "label": "obsolete extracellular matrix",
+            "ontology": "UBERON",
+            "reason": "The KE title explicitly references 'ECM Mimicry' and the biological object being acted upon is the extracellular matrix (ECM), which matches the 'obsolete extracellular matrix' UBERON term with synonym 'ECM'.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0022617",
+            "label": "extracellular matrix disassembly",
+            "ontology": "GO",
+            "reason": "Hydrogel-based ECM mimicry assays are typically used to study processes involving ECM remodeling and breakdown, making extracellular matrix disassembly the closest biological process match among the candidates, though the fit is imperfect.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010761",
+            "label": "fibroblast migration",
+            "ontology": "GO",
+            "reason": "A hydrogel-based ECM mimicry assay is primarily used to measure cell migration through a matrix environment, making fibroblast migration the best match for the biological process being assessed.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": null
+      }
+    ]
   },
   "122": {
     "ke_id": "122",
