@@ -710,7 +710,7 @@ def detect_biological_organization(description: str) -> str | None:
         levels_str = ", ".join(BIOLOGICAL_ORGANIZATION_LEVELS)
         prompt = (
             f"You are classifying an AOP-Wiki Key Event by level of biological organization.\n"
-            f"KE description (excerpt):\n{description[:500]!r}\n\n"
+            f"KE description (excerpt):\n{(description or '')[:500]!r}\n\n"
             f"Choose the single best level from: {levels_str}\n"
             f'Reply with ONLY valid JSON: {{"level": "<level>", "reason": "<one sentence>"}}'
         )
@@ -732,6 +732,11 @@ def detect_biological_organization(description: str) -> str | None:
         except Exception:
             pass
         print("  (LLM organization detection failed — falling back to manual)")
+
+    # Skip manual fallback when not interactive
+    if not sys.stdin.isatty():
+        print("  (non-interactive mode — skipping manual selection)")
+        return None
 
     # Manual fallback
     print("  Levels of biological organization:")

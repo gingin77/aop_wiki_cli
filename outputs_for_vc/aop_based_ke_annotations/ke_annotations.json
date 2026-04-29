@@ -423,5 +423,720 @@
       "ecs_annotations['Glucocorticoid receptor activation'].biological_object",
       "ecs_annotations['Glucocorticoid receptor activation'].phenotype"
     ]
+  },
+  "145": {
+    "ke_id": "145",
+    "title": "Induction, IKB inhibitory protein",
+    "biological_organization": "Molecular",
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_0000498",
+      "label": "inhibitory interneuron",
+      "ontology": "CL",
+      "reason": "Without additional context about the specific brain region or neurotransmitter type, 'inhibitory interneuron' is the most general and appropriate cell type term that encompasses inhibitory neurons functioning as interneurons across various brain regions.",
+      "source": "llm_recommendation"
+    },
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "IKB inhibitory protein",
+        "biological_object": null,
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "cell_term"
+    ]
+  },
+  "152": {
+    "ke_id": "152",
+    "title": "Suppression, Inflammatory cytokines",
+    "biological_organization": "Molecular",
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_0009002",
+      "label": "inflammatory cell",
+      "ontology": "CL",
+      "reason": "Only 'inflammatory cell' is an actual cell type, while the others represent biological processes (inflammatory responses) or a highly specific macrophage subtype that may not be the best general match.",
+      "source": "llm_recommendation"
+    },
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Inflammatory cytokines",
+        "biological_object": null,
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0006954",
+          "label": "inflammatory response",
+          "ontology": "GO",
+          "reason": "The KE describes suppression of inflammatory cytokines, which is a general regulation of the inflammatory response process, best captured by the broad term 'inflammatory response' rather than its more specific subtypes.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/UPHENO_0076905",
+          "label": "decreased inflammatory response",
+          "ontology": "UPHENO",
+          "reason": "The KE describes 'Suppression' of inflammatory cytokines, which is best matched by 'decreased inflammatory response' as it captures the reduction in inflammatory signaling.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "cell_term",
+      "ecs_annotations['Inflammatory cytokines'].biological_process",
+      "ecs_annotations['Inflammatory cytokines'].phenotype"
+    ]
+  },
+  "168": {
+    "ke_id": "168",
+    "title": "Decreased, Lymphocytes",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Lymphocytes",
+        "biological_object": null,
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/UPHENO_0077356",
+          "label": "number of lymphocyte phenotype",
+          "ontology": "UPHENO",
+          "reason": "This term directly captures changes in lymphocyte numbers, which encompasses the 'decreased' lymphocytes phenotype described in the KE title.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Lymphocytes'].phenotype"
+    ]
+  },
+  "202": {
+    "ke_id": "202",
+    "title": "Inhibition, Nuclear factor kappa B (NF-kB)",
+    "biological_organization": "Cellular",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Nuclear factor kappa B (NF-kB)",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_000011178",
+          "label": "nuclear factor NF-kappa-B p100 subunit",
+          "ontology": "UBERON",
+          "reason": "The KE describes inhibition of NF-kB in general (not species-specific), and UBERON is the appropriate ontology for molecular/anatomical entities, making the generic UBERON term the best match.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0051092",
+          "label": "positive regulation of NF-kappaB transcription factor activity",
+          "ontology": "UPHENO",
+          "reason": "While not a perfect match for 'inhibition', this term represents regulation of NF-kappa-B transcription factor activity, which is the most relevant phenotype-level term among the options that captures the functional state of NF-kB activity being modulated.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Nuclear factor kappa B (NF-kB)'].biological_object",
+      "ecs_annotations['Nuclear factor kappa B (NF-kB)'].phenotype"
+    ]
+  },
+  "323": {
+    "ke_id": "323",
+    "title": "Increased, Disease susceptibility",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Disease susceptibility",
+        "biological_object": null,
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/PATO_0001043",
+          "label": "susceptibility toward",
+          "ontology": "UPHENO",
+          "reason": "This is the most general term for susceptibility, which best matches the broad concept of 'Increased, Disease susceptibility' without being specific to a particular disease type like the other options.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Disease susceptibility'].phenotype"
+    ]
+  },
+  "403": {
+    "ke_id": "403",
+    "title": "Suppression, Immune system",
+    "biological_organization": "Molecular",
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_4042031",
+      "label": "immune oligodendroglia",
+      "ontology": "CL",
+      "reason": "Only 'immune oligodendroglia' is an actual cell type, while the others are biological processes or anatomical systems.",
+      "source": "llm_recommendation"
+    },
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Immune system",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0002405",
+          "label": "immune system",
+          "ontology": "UBERON",
+          "reason": "UBERON:immune system is the correct anatomical entity being suppressed, as the biological_object guidance prioritizes UBERON for anatomy and this represents the anatomical system acted upon rather than a process or development stage.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0002683",
+          "label": "negative regulation of immune system process",
+          "ontology": "GO",
+          "reason": "The KE describes 'Suppression' of the immune system, which directly corresponds to 'negative regulation of immune system process' and its synonym 'inhibition of immune system process'.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/XPO_0100581",
+          "label": "abnormal immune system",
+          "ontology": "UPHENO",
+          "reason": "Suppression of the immune system represents an abnormality or dysfunction of immune system function, which is best captured by 'abnormal immune system' rather than a general phenotype class or anatomical structure term.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "cell_term",
+      "ecs_annotations['Immune system'].biological_object",
+      "ecs_annotations['Immune system'].biological_process",
+      "ecs_annotations['Immune system'].phenotype"
+    ]
+  },
+  "272": {
+    "ke_id": "272",
+    "title": "Activation/Proliferation, T-cells",
+    "biological_organization": "Cellular",
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_0000084",
+      "label": "T cell",
+      "ontology": "CL",
+      "reason": "The KE describes T-cells in general being affected by protein-hapten complexes and their activation to form memory T-cells, making the broad term 'T cell' the most appropriate match rather than any specific T cell subtype.",
+      "source": "llm_recommendation"
+    },
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_0000084",
+      "label": "T cell",
+      "ontology": "UBERON",
+      "reason": "T cell is the appropriate anatomical/cellular structure term from UBERON that matches the main cellular component discussed in this KE about T-cell activation and memory T-cell formation.",
+      "source": "llm_recommendation"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "T-cells",
+        "biological_object": null,
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "cell_term",
+      "organ_term"
+    ]
+  },
+  "313": {
+    "ke_id": "313",
+    "title": "Increase, Allergic Respiratory Hypersensitivity Response",
+    "biological_organization": "Individual",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Allergic Respiratory Hypersensitivity Response",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0001004",
+          "label": "respiratory system",
+          "ontology": "UBERON",
+          "reason": "Allergic respiratory hypersensitivity response affects the entire respiratory system rather than a specific airway structure, making 'respiratory system' the most appropriate comprehensive term for this biological process.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0016068",
+          "label": "type I hypersensitivity",
+          "ontology": "GO",
+          "reason": "Allergic respiratory hypersensitivity is a type I hypersensitivity response mediated by IgE antibodies, which is the immediate hypersensitivity response characteristic of allergic conditions like asthma and allergic rhinitis.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0002524",
+          "label": "hypersensitivity",
+          "ontology": "UPHENO",
+          "reason": "The term 'hypersensitivity' with synonym 'hypersensitivity response' directly matches the allergic respiratory hypersensitivity response described in the KE, while the other options are either too specific to particular chemicals or describe different respiratory phenomena.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Allergic Respiratory Hypersensitivity Response'].biological_object",
+      "ecs_annotations['Allergic Respiratory Hypersensitivity Response'].biological_process",
+      "ecs_annotations['Allergic Respiratory Hypersensitivity Response'].phenotype"
+    ]
+  },
+  "396": {
+    "ke_id": "396",
+    "title": "Covalent Binding, Protein",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Protein",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CHEBI_16541",
+          "label": "protein polypeptide chain",
+          "ontology": "CHEBI",
+          "reason": "For a chemical event involving covalent binding to proteins, CHEBI:protein polypeptide chain is the most appropriate as it represents the chemical entity being acted upon, and the guidance specifies preferring ChEBI for chemicals.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/UPHENO_7000046",
+          "label": "protein-protein interaction phenotype",
+          "ontology": "UPHENO",
+          "reason": "Covalent binding to a protein represents a change in protein interactions that would be best captured by the general protein-protein interaction phenotype term, as it describes a phenotypic consequence of altered protein binding rather than a specific directional change.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "occurrence",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Protein'].biological_object",
+      "ecs_annotations['Protein'].phenotype"
+    ]
+  },
+  "398": {
+    "ke_id": "398",
+    "title": "Activation, Dendritic Cells",
+    "biological_organization": "Cellular",
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_0000451",
+      "label": "dendritic cell",
+      "ontology": "CL",
+      "reason": "The KE describes dendritic cells (Langerhans cells and dermal dendritic cells) as antigen-presenting cells that mature and migrate, and 'dendritic cell' is the actual cell type term, whereas the other candidates are either anatomical features or processes of dendrites.",
+      "source": "llm_recommendation"
+    },
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/CL_0000451",
+      "label": "dendritic cell",
+      "ontology": "UBERON",
+      "reason": "The key event describes dendritic cells (Langerhans cells and dermal dendritic cells) as the primary cellular components involved in antigen presentation, making 'dendritic cell' the most appropriate anatomical/cellular term rather than morphological descriptors or subcellular components.",
+      "source": "llm_recommendation"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "Dendritic Cells",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000451",
+          "label": "dendritic cell",
+          "ontology": "CL",
+          "reason": "The biological object is a dendritic cell (a specific cell type), and CL (Cell Ontology) is the preferred ontology for cell types as specified in the guidance.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "cell_term",
+      "organ_term",
+      "ecs_annotations['Dendritic Cells'].biological_object"
+    ]
+  },
+  "984": {
+    "ke_id": "984",
+    "title": "Impairment, T-cell dependent antibody response",
+    "biological_organization": "Tissue",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "T-cell dependent antibody response",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000084",
+          "label": "T cell",
+          "ontology": "CL",
+          "reason": "The KE describes impairment of T-cell dependent antibody response, where T cells (the general cell type) are the biological object involved, and CL (Cell Ontology) is the preferred ontology for cell types.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/HP_0005424",
+          "label": "Absent specific antibody response",
+          "ontology": "UPHENO",
+          "reason": "The KE describes an impairment in T-cell dependent antibody response, which is best captured by 'Absent specific antibody response' as it directly relates to the phenotype of deficient antibody production rather than T cell processes themselves.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "abnormal",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['T-cell dependent antibody response'].biological_object",
+      "ecs_annotations['T-cell dependent antibody response'].phenotype"
+    ]
+  },
+  "1700": {
+    "ke_id": "1700",
+    "title": "Impaired IL-1R1 signaling in T cell",
+    "biological_organization": "Cellular",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Impaired IL-1R1 signaling in T cell",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000084",
+          "label": "T cell",
+          "ontology": "CL",
+          "reason": "The KE describes impaired signaling in T cells generally, and CL (Cell Ontology) is the preferred ontology for cell types according to the guidance.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/HP_0031407",
+          "label": "Impaired cytokine signaling",
+          "ontology": "UPHENO",
+          "reason": "The KE describes impaired signaling through IL-1R1 (a cytokine receptor) in T cells, which is most specifically captured by 'Impaired cytokine signaling' rather than the broader T cell function term or the generic cell-cell signaling terms.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "abnormal",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Impaired IL-1R1 signaling in T cell'].biological_object",
+      "ecs_annotations['Impaired IL-1R1 signaling in T cell'].phenotype"
+    ]
+  },
+  "1702": {
+    "ke_id": "1702",
+    "title": "Suppression of  T cell activation",
+    "biological_organization": "Cellular",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Suppression of  T cell activation",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000084",
+          "label": "T cell",
+          "ontology": "CL",
+          "reason": "T cell activation refers to the general process affecting T cells as a cell type, and CL (Cell Ontology) is the preferred ontology for cell types according to the guidance.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0050863",
+          "label": "regulation of T cell activation",
+          "ontology": "GO",
+          "reason": "The KE describes 'Suppression of T cell activation' which is a form of regulation (specifically negative regulation) of T cell activation, making 'regulation of T cell activation' the most appropriate term to capture this biological process.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/UPHENO_0005495",
+          "label": "decreased T cell activation",
+          "ontology": "UPHENO",
+          "reason": "The KE title 'Suppression of T cell activation' indicates a reduction or decrease in T cell activation, which directly corresponds to 'decreased T cell activation'.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Suppression of  T cell activation'].biological_object",
+      "ecs_annotations['Suppression of  T cell activation'].biological_process",
+      "ecs_annotations['Suppression of  T cell activation'].phenotype"
+    ]
+  },
+  "1250": {
+    "ke_id": "1250",
+    "title": "Decrease, Lung function",
+    "biological_organization": "Organ",
+    "cell_term": null,
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+      "label": "lung",
+      "ontology": "UBERON",
+      "reason": "The KE describes decreased lung function as a physiological outcome affecting the entire lung organ, and 'lung [UBERON]' is the appropriate anatomical structure term, whereas other options are either too specific (mesenchyme, hilus, parenchyma) or not an anatomical structure (function).",
+      "source": "llm_recommendation"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "Lung function",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+          "label": "lung",
+          "ontology": "UBERON",
+          "reason": "Lung function refers to the physiological function of the entire lung organ as an anatomical structure, making UBERON:lung the most appropriate term for the biological object.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0030324",
+          "label": "lung development",
+          "ontology": "GO",
+          "reason": "Lung function depends on proper lung development, and a decrease in lung function is most broadly captured by disruption of the overall lung development process which encompasses growth, morphogenesis, and functional maturation.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+          "label": "lung",
+          "ontology": "UPHENO",
+          "reason": "The KE describes a general decrease in lung function as a phenotype, which is best captured by the broad anatomical term 'lung' rather than specific pathological conditions like cysts, hypoplasia, or fibrosis.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "organ_term",
+      "ecs_annotations['Lung function'].biological_object",
+      "ecs_annotations['Lung function'].biological_process",
+      "ecs_annotations['Lung function'].phenotype"
+    ]
+  },
+  "1672": {
+    "ke_id": "1672",
+    "title": "Inhibition of lung surfactant function",
+    "biological_organization": "Tissue",
+    "cell_term": null,
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+      "label": "pulmonary surfactant",
+      "ontology": "UBERON",
+      "reason": "The KE describes interactions with lung surfactant as an anatomical/material substance in the alveoli, and 'pulmonary surfactant' is the only anatomical structure/tissue term that matches, while the others represent processes or cell types.",
+      "source": "llm_recommendation"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "Inhibition of lung surfactant function",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+          "label": "pulmonary surfactant",
+          "ontology": "UBERON",
+          "reason": "The KE specifically refers to lung surfactant function, and 'pulmonary surfactant' from UBERON is the anatomical/biological entity that best represents this substance in the lungs, whereas the CHEBI terms are too general and the homeostasis terms describe processes rather than the object itself.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+          "label": "surfactant homeostasis",
+          "ontology": "UPHENO",
+          "reason": "The KE describes inhibition of lung surfactant function, which is best captured by 'surfactant homeostasis' as it encompasses the functional activity and regulation of surfactant, rather than just the substance itself or its secretion.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "organ_term",
+      "ecs_annotations['Inhibition of lung surfactant function'].biological_object",
+      "ecs_annotations['Inhibition of lung surfactant function'].phenotype"
+    ]
+  },
+  "1673": {
+    "ke_id": "1673",
+    "title": "Alveolar collapse",
+    "biological_organization": "Organ",
+    "cell_term": null,
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/UBERON_0004894",
+      "label": "alveolar wall",
+      "ontology": "UBERON",
+      "reason": "The KE describes the collapse of alveoli walls during expiration when surface tension is insufficient, making 'alveolar wall' the most specific anatomical structure directly involved in this collapse mechanism.",
+      "source": "llm_recommendation"
+    },
+    "ecs_annotations": [
+      {
+        "subject": "Alveolar collapse",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0006524",
+          "label": "alveolar system",
+          "ontology": "UBERON",
+          "reason": "Alveolar collapse refers to the collapse of the alveolar system/bronchoalveolar system as a whole, rather than specific subcomponents like walls, mucosa, or foramina.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "occurrence",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "organ_term",
+      "ecs_annotations['Alveolar collapse'].biological_object"
+    ]
+  },
+  "1677": {
+    "ke_id": "1677",
+    "title": "Reduced tidal volume ",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "ecs_annotations": [
+      {
+        "subject": "Reduced tidal volume",
+        "biological_object": null,
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0005586",
+          "label": "decreased tidal volume",
+          "ontology": "UPHENO",
+          "reason": "The term 'decreased tidal volume' directly matches the KE title with an exact synonym 'reduced tidal volume' and correctly represents a reduction in tidal volume as a phenotype.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ecs_annotations['Reduced tidal volume'].phenotype"
+    ]
   }
 }
