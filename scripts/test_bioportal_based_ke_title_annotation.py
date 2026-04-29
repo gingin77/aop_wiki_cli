@@ -95,7 +95,16 @@ _ORGAN_TERM_LEVELS = {"Cellular", "Tissue", "Organ"}
 # Ontologies for cell and organ term annotations — to be set once confirmed.
 CELL_TERM_ONTOLOGIES = "CL"
 ORGAN_TERM_ONTOLOGIES = "UBERON"
-PHENOTYPE_ONTOLOGIES = "UPHENO"
+PHENOTYPE_ONTOLOGIES = "UPHENO,HP,MP"
+
+# GO terms are mostly biological processes/functions and usually not valid phenotype terms even though,
+# some GO terms have been incorporated into phenotype ontologies like UPHENO. A GO term like "hypersensitivity"
+# is a valid phenotype term and is included in UPHENO, but a term like  "nuclear receptor-mediated
+# glucocorticoid signaling pathway" should not be assigned as a KE phenotype.
+# 
+# Therefor, rather than exclude GO-based # terms, any GO term assigned as a phenotype candidate is 
+# retained but flagged for manual review.
+_PHENOTYPE_GO_REVIEW_PREFIXES = {"GO"}
 
 
 def _flat_ref_comments(raw) -> list[str]:
@@ -299,6 +308,17 @@ def normalize_phrase(phrase: str) -> str:
     return " ".join(tokens)
 
 
+def _iri_prefix(iri: str) -> str:
+    """
+    Extract the true ontology prefix from an OBO IRI.
+    e.g. 'http://purl.obolibrary.org/obo/GO_0042921' → 'GO'
+         'http://purl.obolibrary.org/obo/UPHENO_0005495' → 'UPHENO'
+    Falls back to empty string for non-OBO IRIs.
+    """
+    m = re.search(r"/([A-Z]+)_\d+$", iri)
+    return m.group(1) if m else ""
+
+
 def search_bioportal(phrase: str, ontologies: str, api_key: str) -> list:
     """
     Use BioPortal search API to find ontology terms matching a phrase.
@@ -324,10 +344,10 @@ def search_bioportal(phrase: str, ontologies: str, api_key: str) -> list:
 
     results = []
     for item in data.get("collection", []):
-        onto_url = item.get("links", {}).get("ontology", "")
+        term_id = item.get("@id", "")
         results.append({
-            "ontology": onto_url.split("/")[-1] if onto_url else "",
-            "term_id": item.get("@id", ""),
+            "ontology": _iri_prefix(term_id),
+            "term_id": term_id,
             "label": item.get("prefLabel", ""),
             "synonyms": item.get("synonym", []),
         })
@@ -939,15 +959,19 @@ def _annotate_subject(subject: str, title: str, api_key: str, ref: dict | None =
             display_candidates(phenotype_results[:5], "phenotype", phenotype_used)
             result, source, reason = rank_term(title, "phenotype", phenotype_results[:5])
             if result:
+                needs_review = result.get("ontology", "").upper() in _PHENOTYPE_GO_REVIEW_PREFIXES
                 print(f"  → [{result['ontology']}] {result['label']}")
                 print(f"     IRI:    {result['term_id']}")
                 print(f"     reason: {reason}")
+                if needs_review:
+                    print(f"  ⚠ GO term assigned as phenotype — needs manual review")
                 subj_annotation["phenotype"] = {
                     "term_id": result["term_id"],
                     "label": result["label"],
                     "ontology": result["ontology"],
                     "reason": reason,
                     "source": source,
+                    **({"needs_review": True} if needs_review else {}),
                 }
             elif source == "manual_comment":
                 print(f"  → Comment recorded: {reason!r}")
