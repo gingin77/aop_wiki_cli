@@ -285,10 +285,10 @@
           "source": "llm_recommendation"
         },
         "phenotype": {
-          "term_id": "http://purl.obolibrary.org/obo/GO_0045064",
-          "label": "T-helper 2 cell differentiation",
-          "ontology": "UPHENO",
-          "reason": "The KE describes 'increased activation' of Th2 cells, which best corresponds to the process of T-helper 2 cell differentiation, as activation and differentiation are closely linked processes where naive T cells become activated and differentiate into Th2 effector cells.",
+          "term_id": "http://purl.obolibrary.org/obo/MP_0005466",
+          "label": "abnormal T-helper 2 physiology",
+          "ontology": "MP",
+          "reason": "The KE describes increased activation of Th2 cells, which corresponds to an abnormal Th2 physiology/function phenotype, making MP:abnormal T-helper 2 physiology the best match among the candidates.",
           "source": "llm_recommendation"
         },
         "biological_action": {
@@ -299,7 +299,7 @@
     ],
     "comments": {
       "carried": [
-        "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually] [carried from reference] [carried from reference] [carried from reference] [carried from reference]"
+        "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually] [carried from reference]"
       ],
       "new": []
     }
@@ -336,8 +336,8 @@
         "phenotype": {
           "term_id": "http://purl.obolibrary.org/obo/MP_0011703",
           "label": "increased fibroblast proliferation",
-          "ontology": "UPHENO",
-          "reason": "The KE title explicitly states 'Increased, fibroblast proliferation' which directly matches the term 'increased fibroblast proliferation'.",
+          "ontology": "MP",
+          "reason": "The KE explicitly describes 'Increased, fibroblast proliferation and myofibroblast differentiation', which directly matches the MP term 'increased fibroblast proliferation' as a dedicated mammalian phenotype term.",
           "source": "llm_recommendation"
         },
         "biological_action": {
@@ -356,10 +356,10 @@
         },
         "biological_process": null,
         "phenotype": {
-          "term_id": "http://purl.obolibrary.org/obo/GO_0036446",
-          "label": "myofibroblast differentiation",
-          "ontology": "UPHENO",
-          "reason": "The KE describes 'increased' myofibroblast differentiation, and option 1 provides the neutral process term that can be modified by qualifiers like 'increased', whereas options 2-3 specify abnormal/impaired states that don't match the described increase.",
+          "term_id": "http://purl.obolibrary.org/obo/MP_0012196",
+          "label": "abnormal myofibroblast differentiation",
+          "ontology": "MP",
+          "reason": "The KE describes increased myofibroblast differentiation, which is an abnormal (increased) form of myofibroblast differentiation, best captured by the MP term 'abnormal myofibroblast differentiation' as a dedicated phenotype term rather than the GO process term.",
           "source": "llm_recommendation"
         },
         "biological_action": {
@@ -370,11 +370,10 @@
     ],
     "comments": {
       "carried": [
-        "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP [carried from reference] [carried from reference] [carried from reference] [carried from reference]"
-      ],
-      "new": [
+        "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP [carried from reference]",
         "This KE is also an example of a KE that describes 2 related cell types and processes in the same KE title. ECs allow multiple processes but there is some redundancy between the cell term and the object term in some cases. [carried from reference]"
-      ]
+      ],
+      "new": []
     }
   },
   "122": {
@@ -403,9 +402,10 @@
         "phenotype": {
           "term_id": "http://purl.obolibrary.org/obo/GO_0042921",
           "label": "nuclear receptor-mediated glucocorticoid signaling pathway",
-          "ontology": "UPHENO",
-          "reason": "The KE describes activation of the glucocorticoid receptor, which is best represented by the nuclear receptor-mediated glucocorticoid signaling pathway term that directly captures receptor activation and signaling.",
-          "source": "llm_recommendation"
+          "ontology": "GO",
+          "reason": "The GO term 'nuclear receptor-mediated glucocorticoid signaling pathway' (incorporated into UPHENO) best represents the phenotype of glucocorticoid receptor activation as a signaling pathway event, and is the closest match among the candidates to the KE describing increased GR activation.",
+          "source": "llm_recommendation",
+          "needs_review": true
         },
         "biological_action": {
           "term": "increased",
@@ -416,13 +416,7 @@
     "comments": {
       "carried": [],
       "new": []
-    },
-    "newly_annotated_fields": [
-      "biological_organization",
-      "cell_term",
-      "ecs_annotations['Glucocorticoid receptor activation'].biological_object",
-      "ecs_annotations['Glucocorticoid receptor activation'].phenotype"
-    ]
+    }
   },
   "145": {
     "ke_id": "145",
@@ -553,14 +547,14 @@
           "reason": "The KE describes inhibition of NF-kB in general (not species-specific), and UBERON is the appropriate ontology for molecular/anatomical entities, making the generic UBERON term the best match.",
           "source": "llm_recommendation"
         },
-        "biological_process": null,
-        "phenotype": {
-          "term_id": "http://purl.obolibrary.org/obo/GO_0051092",
-          "label": "positive regulation of NF-kappaB transcription factor activity",
-          "ontology": "UPHENO",
-          "reason": "While not a perfect match for 'inhibition', this term represents regulation of NF-kappa-B transcription factor activity, which is the most relevant phenotype-level term among the options that captures the functional state of NF-kB activity being modulated.",
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0051059",
+          "label": "NF-kappaB binding",
+          "ontology": "GO",
+          "reason": "NF-kappaB binding (GO) best describes the biological process of NF-\u03baB interacting with its targets, which is directly relevant to the inhibition of NF-\u03baB activity represented in this key event.",
           "source": "llm_recommendation"
         },
+        "phenotype": null,
         "biological_action": {
           "term": "decreased",
           "source": "controlled_vocab"
@@ -572,9 +566,7 @@
       "new": []
     },
     "newly_annotated_fields": [
-      "biological_organization",
-      "ecs_annotations['Nuclear factor kappa B (NF-kB)'].biological_object",
-      "ecs_annotations['Nuclear factor kappa B (NF-kB)'].phenotype"
+      "ecs_annotations['Nuclear factor kappa B (NF-kB)'].biological_process"
     ]
   },
   "323": {
@@ -728,10 +720,10 @@
           "source": "llm_recommendation"
         },
         "phenotype": {
-          "term_id": "http://purl.obolibrary.org/obo/GO_0002524",
-          "label": "hypersensitivity",
-          "ontology": "UPHENO",
-          "reason": "The term 'hypersensitivity' with synonym 'hypersensitivity response' directly matches the allergic respiratory hypersensitivity response described in the KE, while the other options are either too specific to particular chemicals or describe different respiratory phenomena.",
+          "term_id": "http://purl.obolibrary.org/obo/HP_0100326",
+          "label": "Immunologic hypersensitivity",
+          "ontology": "HP",
+          "reason": "Immunologic hypersensitivity (HP) best matches the allergic respiratory hypersensitivity response phenotype, as it captures the immune-mediated hypersensitivity nature of the KE, and is a dedicated phenotype term from the Human Phenotype Ontology.",
           "source": "llm_recommendation"
         },
         "biological_action": {
@@ -743,13 +735,7 @@
     "comments": {
       "carried": [],
       "new": []
-    },
-    "newly_annotated_fields": [
-      "biological_organization",
-      "ecs_annotations['Allergic Respiratory Hypersensitivity Response'].biological_object",
-      "ecs_annotations['Allergic Respiratory Hypersensitivity Response'].biological_process",
-      "ecs_annotations['Allergic Respiratory Hypersensitivity Response'].phenotype"
-    ]
+    }
   },
   "396": {
     "ke_id": "396",
@@ -1043,10 +1029,10 @@
         },
         "biological_process": null,
         "phenotype": {
-          "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
-          "label": "surfactant homeostasis",
-          "ontology": "UPHENO",
-          "reason": "The KE describes inhibition of lung surfactant function, which is best captured by 'surfactant homeostasis' as it encompasses the functional activity and regulation of surfactant, rather than just the substance itself or its secretion.",
+          "term_id": "http://purl.obolibrary.org/obo/MP_0004782",
+          "label": "abnormal surfactant physiology",
+          "ontology": "MP",
+          "reason": "Abnormal surfactant physiology (MP) best captures the phenotype of inhibited lung surfactant function, as it broadly encompasses dysfunctional surfactant activity without being limited to secretion or production abnormalities.",
           "source": "llm_recommendation"
         },
         "biological_action": {
@@ -1058,13 +1044,7 @@
     "comments": {
       "carried": [],
       "new": []
-    },
-    "newly_annotated_fields": [
-      "biological_organization",
-      "organ_term",
-      "ecs_annotations['Inhibition of lung surfactant function'].biological_object",
-      "ecs_annotations['Inhibition of lung surfactant function'].phenotype"
-    ]
+    }
   },
   "1673": {
     "ke_id": "1673",
