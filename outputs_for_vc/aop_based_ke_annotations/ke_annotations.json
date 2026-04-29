@@ -5,7 +5,7 @@
     "biological_organization": "Tissue",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Collagen accumulation",
         "biological_object": {
@@ -48,7 +48,7 @@
       "reason": "The KE describes injury to the alveolar-capillary membrane in the lung, so 'lung' is the appropriate organ term.",
       "source": "manual_review"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Pulmonary fibrosis",
         "biological_object": {
@@ -94,7 +94,7 @@
       "reason": "The KE describes injury to the alveolar-capillary membrane in the lung, so 'lung' is the appropriate organ term.",
       "source": "manual_review"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Substance interaction with the lung resident cell membrane components",
         "biological_object": null,
@@ -115,7 +115,7 @@
       "new": []
     },
     "newly_annotated_fields": [
-      "ecs_annotations['Substance interaction with the lung resident cell membrane components'].phenotype"
+      "ec_annotations['Substance interaction with the lung resident cell membrane components'].phenotype"
     ]
   },
   "1496": {
@@ -124,7 +124,7 @@
     "biological_organization": "Molecular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "secretion of proinflammatory mediators",
         "biological_object": null,
@@ -173,7 +173,7 @@
       "source": "llm_recommendation"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "recruitment of inflammatory cells",
         "biological_object": {
@@ -218,7 +218,7 @@
       "reason": "The KE describes injury to the alveolar-capillary membrane in the lung, so 'lung' is the appropriate organ term.",
       "source": "manual_review"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Loss of alveolar capillary membrane integrity",
         "biological_object": {
@@ -267,7 +267,7 @@
       "source": "manual_review"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "activation of T helper type 2 cells",
         "biological_object": {
@@ -316,7 +316,7 @@
       "source": "llm_recommendation"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "fibroblast proliferation",
         "biological_object": {
@@ -388,7 +388,7 @@
       "source": "llm_recommendation"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Glucocorticoid receptor activation",
         "biological_object": {
@@ -430,7 +430,7 @@
       "source": "llm_recommendation"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "IKB inhibitory protein",
         "biological_object": null,
@@ -463,7 +463,7 @@
       "source": "llm_recommendation"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Inflammatory cytokines",
         "biological_object": null,
@@ -494,8 +494,8 @@
     "newly_annotated_fields": [
       "biological_organization",
       "cell_term",
-      "ecs_annotations['Inflammatory cytokines'].biological_process",
-      "ecs_annotations['Inflammatory cytokines'].phenotype"
+      "ec_annotations['Inflammatory cytokines'].biological_process",
+      "ec_annotations['Inflammatory cytokines'].phenotype"
     ]
   },
   "168": {
@@ -504,7 +504,7 @@
     "biological_organization": "Molecular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Lymphocytes",
         "biological_object": null,
@@ -528,7 +528,7 @@
     },
     "newly_annotated_fields": [
       "biological_organization",
-      "ecs_annotations['Lymphocytes'].phenotype"
+      "ec_annotations['Lymphocytes'].phenotype"
     ]
   },
   "202": {
@@ -537,7 +537,7 @@
     "biological_organization": "Cellular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Nuclear factor kappa B (NF-kB)",
         "biological_object": {
@@ -566,7 +566,7 @@
       "new": []
     },
     "newly_annotated_fields": [
-      "ecs_annotations['Nuclear factor kappa B (NF-kB)'].biological_process"
+      "ec_annotations['Nuclear factor kappa B (NF-kB)'].biological_process"
     ]
   },
   "323": {
@@ -575,7 +575,7 @@
     "biological_organization": "Molecular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Disease susceptibility",
         "biological_object": null,
@@ -599,7 +599,7 @@
     },
     "newly_annotated_fields": [
       "biological_organization",
-      "ecs_annotations['Disease susceptibility'].phenotype"
+      "ec_annotations['Disease susceptibility'].phenotype"
     ]
   },
   "403": {
@@ -614,7 +614,7 @@
       "source": "llm_recommendation"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Immune system",
         "biological_object": {
@@ -651,9 +651,9 @@
     "newly_annotated_fields": [
       "biological_organization",
       "cell_term",
-      "ecs_annotations['Immune system'].biological_object",
-      "ecs_annotations['Immune system'].biological_process",
-      "ecs_annotations['Immune system'].phenotype"
+      "ec_annotations['Immune system'].biological_object",
+      "ec_annotations['Immune system'].biological_process",
+      "ec_annotations['Immune system'].phenotype"
     ]
   },
   "272": {
@@ -674,7 +674,7 @@
       "reason": "T cell is the appropriate anatomical/cellular structure term from UBERON that matches the main cellular component discussed in this KE about T-cell activation and memory T-cell formation.",
       "source": "llm_recommendation"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "T-cells",
         "biological_object": null,
@@ -702,7 +702,7 @@
     "biological_organization": "Individual",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Allergic Respiratory Hypersensitivity Response",
         "biological_object": {
@@ -743,7 +743,7 @@
     "biological_organization": "Molecular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Protein",
         "biological_object": {
@@ -773,8 +773,8 @@
     },
     "newly_annotated_fields": [
       "biological_organization",
-      "ecs_annotations['Protein'].biological_object",
-      "ecs_annotations['Protein'].phenotype"
+      "ec_annotations['Protein'].biological_object",
+      "ec_annotations['Protein'].phenotype"
     ]
   },
   "398": {
@@ -795,7 +795,7 @@
       "reason": "The key event describes dendritic cells (Langerhans cells and dermal dendritic cells) as the primary cellular components involved in antigen presentation, making 'dendritic cell' the most appropriate anatomical/cellular term rather than morphological descriptors or subcellular components.",
       "source": "llm_recommendation"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Dendritic Cells",
         "biological_object": {
@@ -821,7 +821,7 @@
       "biological_organization",
       "cell_term",
       "organ_term",
-      "ecs_annotations['Dendritic Cells'].biological_object"
+      "ec_annotations['Dendritic Cells'].biological_object"
     ]
   },
   "984": {
@@ -830,7 +830,7 @@
     "biological_organization": "Tissue",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "T-cell dependent antibody response",
         "biological_object": {
@@ -860,8 +860,8 @@
     },
     "newly_annotated_fields": [
       "biological_organization",
-      "ecs_annotations['T-cell dependent antibody response'].biological_object",
-      "ecs_annotations['T-cell dependent antibody response'].phenotype"
+      "ec_annotations['T-cell dependent antibody response'].biological_object",
+      "ec_annotations['T-cell dependent antibody response'].phenotype"
     ]
   },
   "1700": {
@@ -870,7 +870,7 @@
     "biological_organization": "Cellular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Impaired IL-1R1 signaling in T cell",
         "biological_object": {
@@ -900,8 +900,8 @@
     },
     "newly_annotated_fields": [
       "biological_organization",
-      "ecs_annotations['Impaired IL-1R1 signaling in T cell'].biological_object",
-      "ecs_annotations['Impaired IL-1R1 signaling in T cell'].phenotype"
+      "ec_annotations['Impaired IL-1R1 signaling in T cell'].biological_object",
+      "ec_annotations['Impaired IL-1R1 signaling in T cell'].phenotype"
     ]
   },
   "1702": {
@@ -910,7 +910,7 @@
     "biological_organization": "Cellular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Suppression of  T cell activation",
         "biological_object": {
@@ -946,9 +946,9 @@
     },
     "newly_annotated_fields": [
       "biological_organization",
-      "ecs_annotations['Suppression of  T cell activation'].biological_object",
-      "ecs_annotations['Suppression of  T cell activation'].biological_process",
-      "ecs_annotations['Suppression of  T cell activation'].phenotype"
+      "ec_annotations['Suppression of  T cell activation'].biological_object",
+      "ec_annotations['Suppression of  T cell activation'].biological_process",
+      "ec_annotations['Suppression of  T cell activation'].phenotype"
     ]
   },
   "1250": {
@@ -963,7 +963,7 @@
       "reason": "The KE describes decreased lung function as a physiological outcome affecting the entire lung organ, and 'lung [UBERON]' is the appropriate anatomical structure term, whereas other options are either too specific (mesenchyme, hilus, parenchyma) or not an anatomical structure (function).",
       "source": "llm_recommendation"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Lung function",
         "biological_object": {
@@ -1000,9 +1000,9 @@
     "newly_annotated_fields": [
       "biological_organization",
       "organ_term",
-      "ecs_annotations['Lung function'].biological_object",
-      "ecs_annotations['Lung function'].biological_process",
-      "ecs_annotations['Lung function'].phenotype"
+      "ec_annotations['Lung function'].biological_object",
+      "ec_annotations['Lung function'].biological_process",
+      "ec_annotations['Lung function'].phenotype"
     ]
   },
   "1672": {
@@ -1017,7 +1017,7 @@
       "reason": "The KE describes interactions with lung surfactant as an anatomical/material substance in the alveoli, and 'pulmonary surfactant' is the only anatomical structure/tissue term that matches, while the others represent processes or cell types.",
       "source": "llm_recommendation"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Inhibition of lung surfactant function",
         "biological_object": {
@@ -1058,7 +1058,7 @@
       "reason": "The KE describes the collapse of alveoli walls during expiration when surface tension is insufficient, making 'alveolar wall' the most specific anatomical structure directly involved in this collapse mechanism.",
       "source": "llm_recommendation"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Alveolar collapse",
         "biological_object": {
@@ -1083,7 +1083,7 @@
     "newly_annotated_fields": [
       "biological_organization",
       "organ_term",
-      "ecs_annotations['Alveolar collapse'].biological_object"
+      "ec_annotations['Alveolar collapse'].biological_object"
     ]
   },
   "1677": {
@@ -1092,7 +1092,7 @@
     "biological_organization": "Molecular",
     "cell_term": null,
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Reduced tidal volume",
         "biological_object": null,
@@ -1116,7 +1116,7 @@
     },
     "newly_annotated_fields": [
       "biological_organization",
-      "ecs_annotations['Reduced tidal volume'].phenotype"
+      "ec_annotations['Reduced tidal volume'].phenotype"
     ]
   }
 }

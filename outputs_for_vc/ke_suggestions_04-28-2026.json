@@ -11,7 +11,7 @@
       "source": "manual_review"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "activation of T helper type 2 cells",
         "biological_object": {
@@ -65,7 +65,7 @@
       "reason": "The KE describes injury to the alveolar-capillary membrane in the lung, so 'lung' is the appropriate organ term.",
       "source": "manual_review"
     },
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "Loss of alveolar capillary membrane integrity",
         "biological_object": {
@@ -112,7 +112,7 @@
       "source": "llm_recommendation"
     },
     "organ_term": null,
-    "ecs_annotations": [
+    "ec_annotations": [
       {
         "subject": "fibroblast proliferation",
         "biological_object": {

@@ -857,7 +857,7 @@ def annotate_ke(
         "biological_organization": None,
         "cell_term": None,
         "organ_term": None,
-        "ecs_annotations": [],
+        "ec_annotations": [],
     }
 
     # --- biological_action ---
@@ -916,7 +916,7 @@ def annotate_ke(
     # --- per-subject ECS annotation ---
     ref_subjects: dict[str, dict] = {
         s["subject"]: s
-        for s in (ref_ke or {}).get("ecs_annotations", [])
+        for s in (ref_ke or {}).get("ec_annotations", [])
         if isinstance(s, dict) and "subject" in s
     }
     for i, subject in enumerate(parsed["subjects"]):
@@ -925,7 +925,7 @@ def annotate_ke(
         ref_subj = ref_subjects.get(subject)
         subj_annotation = _annotate_subject(subject, title, api_key, client, ref=ref_subj)
         subj_annotation["biological_action"] = biological_action
-        annotation["ecs_annotations"].append(subj_annotation)
+        annotation["ec_annotations"].append(subj_annotation)
 
     return annotation
 
@@ -1001,7 +1001,7 @@ def _mask_ref(ref_ke: dict, force_fields: set[str]) -> dict:
     """
     Return a copy of ref_ke with specified fields set to None.
     For ECS fields (phenotype, biological_process, biological_object, biological_action),
-    the field is nulled in every subject within ecs_annotations.
+    the field is nulled in every subject within ec_annotations.
     """
     import copy
     masked = copy.deepcopy(ref_ke)
@@ -1011,7 +1011,7 @@ def _mask_ref(ref_ke: dict, force_fields: set[str]) -> dict:
         if field in top_level_fields and field in masked:
             masked[field] = None
         if field in ecs_fields:
-            for subj in masked.get("ecs_annotations", []):
+            for subj in masked.get("ec_annotations", []):
                 if field in subj:
                     subj[field] = None
     return masked
@@ -1071,19 +1071,19 @@ def annotate_single_ke(
     ref_top_keys = {k for k, v in (ref_ke or {}).items() if v is not None}
     new_fields: list[str] = []
     for key, val in annotation.items():
-        if key in ("ke_id", "title", "comments", "ecs_annotations"):
+        if key in ("ke_id", "title", "comments", "ec_annotations"):
             continue
         if val is not None and key not in ref_top_keys:
             new_fields.append(key)
-    for subj in annotation.get("ecs_annotations", []):
+    for subj in annotation.get("ec_annotations", []):
         ref_subj = next(
-            (s for s in (ref_ke or {}).get("ecs_annotations", [])
+            (s for s in (ref_ke or {}).get("ec_annotations", [])
              if s.get("subject") == subj.get("subject")),
             {},
         )
         for field in ("biological_object", "biological_process", "phenotype"):
             if subj.get(field) is not None and ref_subj.get(field) is None:
-                label = f"ecs_annotations[{subj['subject']!r}].{field}"
+                label = f"ec_annotations[{subj['subject']!r}].{field}"
                 if label not in new_fields:
                     new_fields.append(label)
     if new_fields:
@@ -1101,7 +1101,7 @@ def annotate_single_ke(
     organ = annotation.get("organ_term")
     print(f"  cell_term:  {cell.get('label') if cell else None}")
     print(f"  organ_term: {organ.get('label') if organ else None}")
-    for subj in annotation.get("ecs_annotations", []):
+    for subj in annotation.get("ec_annotations", []):
         print(f"\n  subject: {subj['subject']!r}")
         action = subj.get("biological_action", {})
         print(f"    biological_action:  {action.get('term') if action else None}")
