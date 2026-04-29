@@ -1162,8 +1162,8 @@ def extract_assays_from_text(measurement_text: str, client: anthropic.Anthropic)
         '- description: brief description of what is measured and how\n'
         '- citations: list of citation objects, one per reference, each with title, authors, year, doi, pmid, journal\n'
         '  (null for fields not in the text); empty list if none mentioned\n'
-        '- biological_action: the type of interaction captured — one of: "increased", "decreased",\n'
-        '  "functional change", "abnormal", "occurrence", "inhibition", "activation" (null if not applicable)\n'
+        '- effect_specificity: whether the assay is designed to detect agonist or antagonist interactions —\n'
+        '  one of: "agonist", "antagonist" (null if not applicable or not specified)\n'
         '- objects: list of biological entities the assay measures (cells, receptors, molecules, organs)\n'
         '  — each as {"label": "<name>"}\n'
         '- processes: list of biological processes captured — each as {"label": "<name>"}\n'
@@ -1227,6 +1227,49 @@ def annotate_ke_assays(ke_id: str, cache_file: str) -> str:
     assays = extract_assays_from_text(text, client)
     print(f"  Extracted {len(assays)} assay(s)")
 
+    api_key = os.environ.get("BIOPORTAL_API_KEY")
+    for assay in assays:
+        assay_title = assay.get("title", "")
+        if not api_key:
+            assay["assay_type"] = None
+            continue
+
+        print(f"\n  [assay_type] Looking up: {assay_title!r}")
+        assay["assay_type"] = _annotate_term(assay_title, "OBI,BAO", "assay_type", assay_title, api_key, client) if assay_title else None
+
+        resolved_objects = []
+        for obj in assay.get("objects") or []:
+            phrase = obj.get("label", "")
+            if phrase:
+                print(f"  [object] Looking up: {phrase!r}")
+                term = _annotate_term(phrase, ECS_ONTOLOGIES["biological_object"], "biological_object", assay_title, api_key, client)
+                resolved_objects.append(term if term else {"label": phrase})
+            else:
+                resolved_objects.append(obj)
+        assay["objects"] = resolved_objects
+
+        resolved_processes = []
+        for proc in assay.get("processes") or []:
+            phrase = proc.get("label", "")
+            if phrase:
+                print(f"  [process] Looking up: {phrase!r}")
+                term = _annotate_term(phrase, ECS_ONTOLOGIES["biological_process"], "biological_process", assay_title, api_key, client)
+                resolved_processes.append(term if term else {"label": phrase})
+            else:
+                resolved_processes.append(proc)
+        assay["processes"] = resolved_processes
+
+        resolved_taxa = []
+        for taxon in assay.get("taxon_terms") or []:
+            phrase = taxon.get("label", "")
+            if phrase:
+                print(f"  [taxon] Looking up: {phrase!r}")
+                term = _annotate_term(phrase, "NCBITAXON", "taxon_term", assay_title, api_key, client)
+                resolved_taxa.append(term if term else {"label": phrase})
+            else:
+                resolved_taxa.append(taxon)
+        assay["taxon_terms"] = resolved_taxa
+
     store = _load_shared_store()
     if ke_id not in store:
         print(f"  KE {ke_id} not in shared store — run ECS annotation first.")
@@ -1243,14 +1286,29 @@ def annotate_ke_assays(ke_id: str, cache_file: str) -> str:
         desc = (assay.get("description") or "")[:120]
         if desc:
             print(f"      description: {desc}")
-        if assay.get("biological_action"):
-            print(f"      action:      {assay['biological_action']}")
+        assay_type = assay.get("assay_type")
+        if assay_type:
+            print(f"      assay_type:  {assay_type.get('label')} ({assay_type.get('ontology')}:{assay_type.get('term_id', '').split('/')[-1]})")
+        if assay.get("effect_specificity"):
+            print(f"      effect_specificity: {assay['effect_specificity']}")
         if assay.get("objects"):
-            print(f"      objects:     {[o.get('label') for o in assay['objects']]}")
+            for o in assay["objects"]:
+                tid = o.get("term_id", "").split("/")[-1]
+                onto = o.get("ontology", "")
+                suffix = f" ({onto}:{tid})" if tid else ""
+                print(f"      object:      {o.get('label')}{suffix}")
         if assay.get("processes"):
-            print(f"      processes:   {[p.get('label') for p in assay['processes']]}")
+            for p in assay["processes"]:
+                tid = p.get("term_id", "").split("/")[-1]
+                onto = p.get("ontology", "")
+                suffix = f" ({onto}:{tid})" if tid else ""
+                print(f"      process:     {p.get('label')}{suffix}")
         if assay.get("taxon_terms"):
-            print(f"      taxa:        {[t.get('label') for t in assay['taxon_terms']]}")
+            for t in assay["taxon_terms"]:
+                tid = t.get("term_id", "").split("/")[-1]
+                onto = t.get("ontology", "")
+                suffix = f" ({onto}:{tid})" if tid else ""
+                print(f"      taxon:       {t.get('label')}{suffix}")
         citations = assay.get("citations") or []
         if citations:
             cit_strs = [f"{c.get('authors', '')} ({c.get('year', '')})" for c in citations]

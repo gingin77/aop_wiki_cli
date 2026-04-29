@@ -34,7 +34,364 @@
         "I changed the ontology from UPHENO to PATO for phenotype. [Updated manually][carried from reference]"
       ],
       "new": []
-    }
+    },
+    "assays": [
+      {
+        "title": "Western Immunoblotting of Alpha1(I) Collagen",
+        "description": "Western immunoblotting of intact alpha1(I) collagen using antibodies directed to alpha1(I) collagen amino and carboxyl propeptides to assess in vitro production of type I collagen.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Rishikof et al.",
+            "year": "2005",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "alpha1(I) collagen"
+          },
+          {
+            "label": "alpha1(I) collagen amino propeptide"
+          },
+          {
+            "label": "alpha1(I) collagen carboxyl propeptide"
+          }
+        ],
+        "processes": [
+          {
+            "label": "collagen production"
+          },
+          {
+            "label": "type I collagen synthesis"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000854",
+          "label": "western blot assay",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly describes a Western Immunoblotting assay, which directly corresponds to the 'western blot assay' OBI term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Real-Time PCR for Alpha1(I) Collagen mRNA",
+        "description": "Measurement of alpha1(I) collagen mRNA levels using real-time polymerase chain reaction to assess in vitro production of type I collagen.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Rishikof et al.",
+            "year": "2005",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "alpha1(I) collagen mRNA"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE involves measuring alpha1(I) collagen mRNA via Real-Time PCR, which directly reflects gene expression (the process by which genetic information is transcribed into mRNA).",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "type I collagen synthesis"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000893",
+          "label": "real time polymerase chain reaction assay",
+          "ontology": "OBI",
+          "reason": "The KE describes measuring Alpha1(I) Collagen mRNA using Real-Time PCR, which directly corresponds to a 'real time polymerase chain reaction assay' as the assay type used to quantify gene expression.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Nuclear Run-On Assay for Alpha1(I) Collagen Transcriptional Regulation",
+        "description": "A nuclear run-on assay used to determine the transcriptional regulation of alpha1(I) collagen gene expression.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Rishikof et al.",
+            "year": "2005",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "alpha1(I) collagen"
+          },
+          {
+            "label": "nucleus"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032965",
+            "label": "regulation of collagen biosynthetic process",
+            "ontology": "GO",
+            "reason": "The KE involves transcriptional regulation of Alpha1(I) Collagen, which directly corresponds to regulation of collagen biosynthetic process (synthesis/biosynthesis), as transcriptional regulation of collagen genes controls collagen production.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "type I collagen gene transcription"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002457",
+          "label": "precision nuclear run-on sequencing assay",
+          "ontology": "OBI",
+          "reason": "A nuclear run-on assay measures nascent RNA transcription in isolated nuclei, which directly corresponds to precision nuclear run-on sequencing assay (PRO-Seq), the closest match for assessing alpha1(I) collagen transcriptional regulation.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Histological Staining for Collagen (Masson Trichrome / Picro-Sirius Red)",
+        "description": "Histological staining with Masson Trichrome or Picro-Sirius Red to identify the tissue/cellular distribution of collagen, quantified using morphometric analysis both in vivo and in vitro.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3815",
+            "label": "Collagen",
+            "ontology": "CHEBI",
+            "reason": "The biological object being stained and detected in this histological assay is collagen itself, the structural protein that Masson Trichrome and Picro-Sirius Red dyes specifically bind to visualize fibrosis.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000479",
+            "label": "tissue",
+            "ontology": "UBERON",
+            "reason": "Masson Trichrome and Picro-Sirius Red are histological staining methods applied to tissue sections to detect collagen deposition, making 'tissue' the most appropriate biological object term.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "cells"
+          }
+        ],
+        "processes": [
+          {
+            "label": "collagen deposition"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002248",
+            "label": "connective tissue replacement involved in inflammatory response wound healing",
+            "ontology": "GO",
+            "reason": "The KE involves histological staining for collagen (Masson Trichrome/Picro-Sirius Red), which is a measurement of fibrosis/connective tissue replacement, best described by 'connective tissue replacement involved in inflammatory response wound healing' (GO term for tissue fibrosis development).",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0600020",
+          "label": "histological assay",
+          "ontology": "OBI",
+          "reason": "Masson Trichrome and Picro-Sirius Red are histological assays used to detect and quantify collagen in tissue sections, making 'histological assay' the best match for this staining-based tissue analysis method.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Sircol Collagen Assay",
+        "description": "Colorimetric assay using Sirius Red F3BA dye, which selectively binds to collagen; signal is read at 540 nm to quantify collagen in histology samples.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Chen and Raghunath",
+            "year": "2009",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Nikota et al.",
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3815",
+            "label": "Collagen",
+            "ontology": "CHEBI",
+            "reason": "The Sircol Collagen Assay measures total collagen content, so the biological object being acted upon is collagen itself (CHEBI).",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_88279",
+            "label": "Sirius red F3B",
+            "ontology": "CHEBI",
+            "reason": "The Sircol Collagen Assay uses Sirius red F3B (Direct Red 80) dye to bind and quantify collagen, making this the biological object acted upon in the assay context.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "collagen quantification"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The Sircol Collagen Assay is a laboratory assay (a type of scientific measurement/observation) used to quantify collagen, making 'assay' the best match for the assay_type component.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Hydroxyproline Assay",
+        "description": "Colorimetric assay measuring hydroxyproline, a non-proteinogenic amino acid found exclusively in collagen, as a direct measure of collagen content in cells or tissues. Hydroxyproline is formed by prolyl-4-hydroxylase.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Chen and Raghunath",
+            "year": "2009",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Nikota et al.",
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_24741",
+            "label": "hydroxyproline",
+            "ontology": "CHEBI",
+            "reason": "The Hydroxyproline Assay measures hydroxyproline as a general marker of collagen content, and the generic 'hydroxyproline' ChEBI term best represents this biological object without specifying a particular isomer.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_3815",
+            "label": "Collagen",
+            "ontology": "CHEBI",
+            "reason": "The Hydroxyproline Assay measures hydroxyproline content as a proxy for collagen, making collagen (CHEBI) the most appropriate biological object being assessed in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "prolyl-4-hydroxylase"
+          },
+          {
+            "label": "cells"
+          },
+          {
+            "label": "tissues"
+          }
+        ],
+        "processes": [
+          {
+            "label": "collagen quantification"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032964",
+            "label": "collagen biosynthetic process",
+            "ontology": "GO",
+            "reason": "The Hydroxyproline Assay measures hydroxyproline content as a marker of collagen, directly reflecting collagen biosynthetic process, making 'collagen biosynthetic process' the best match.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The Hydroxyproline Assay is a type of assay (scientific measurement/observation) used to quantify hydroxyproline content as a measure of collagen, making 'assay' the best match for the assay_type component.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Ex Vivo Precision Cut Tissue Slices",
+        "description": "Precision cut tissue slices used to mimic whole organ response, allowing histological assessment of collagen and fibrosis endpoints. Reduces the number of animals required compared to whole animal exposure studies.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Rahman et al.",
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000479",
+            "label": "tissue",
+            "ontology": "UBERON",
+            "reason": "Precision cut tissue slices (PCTS) are ex vivo preparations of tissue, making the generic 'tissue' UBERON term the most appropriate biological object for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000062",
+            "label": "organ",
+            "ontology": "UBERON",
+            "reason": "Precision cut tissue slices are ex vivo preparations derived from organs, making 'organ' (UBERON) the best match for the biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "collagen deposition"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002248",
+            "label": "connective tissue replacement involved in inflammatory response wound healing",
+            "ontology": "GO",
+            "reason": "Ex vivo precision cut tissue slices are commonly used to study fibrosis/tissue remodeling processes, and 'connective tissue replacement involved in inflammatory response wound healing' (fibrosis development) best represents the biological process captured by this KE.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "histological assessment"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "animal"
+          }
+        ],
+        "id": 7,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001211",
+          "label": "ex vivo design",
+          "ontology": "OBI",
+          "reason": "Precision cut tissue slices are a classic ex vivo experimental approach where tissue is removed from an organism and studied outside the body, directly matching the 'ex vivo design' assay type.",
+          "source": "llm_recommendation"
+        }
+      }
+    ]
   },
   "1458": {
     "ke_id": "1458",
