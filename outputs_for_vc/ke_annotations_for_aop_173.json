@@ -24,20 +24,17 @@
           "source": "llm_recommendation"
         },
         "biological_action": {
-          "term": "Increase",
-          "source": "controlled_vocab"
+          "term": "increased",
+          "source": "llm_normalization"
         }
       }
     ],
     "comments": {
-      "carried": [],
-      "new": ["I changed the ontology from UPHENO to PATO for phenotype. [Updated manually]"]
-    },
-    "newly_annotated_fields": [
-      "biological_organization",
-      "ecs_annotations['Collagen accumulation'].biological_object",
-      "ecs_annotations['Collagen accumulation'].phenotype"
-    ]
+      "carried": [
+        "I changed the ontology from UPHENO to PATO for phenotype. [Updated manually][carried from reference]"
+      ],
+      "new": []
+    }
   },
   "1458": {
     "ke_id": "1458",
@@ -54,7 +51,12 @@
     "ecs_annotations": [
       {
         "subject": "Pulmonary fibrosis",
-        "biological_object": null,
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0001005",
+          "label": "respiratory airway",
+          "ontology": "UBERON",
+          "source": "manual_entry"
+        },
         "biological_process": null,
         "phenotype": {
           "term_id": "http://purl.obolibrary.org/obo/MP_0006050",
@@ -64,20 +66,21 @@
           "source": "llm_recommendation"
         },
         "biological_action": {
-          "term": "occurrence",
-          "source": "controlled_vocab"
+          "term": "pathological",
+          "source": "llm_normalization"
         }
       }
     ],
     "comments": {
-      "carried": [],
-      "new": ["I added lung as the organ term [Updated manually]",
-      "I corrected the action term to 'occurrence' [Updated manually]"]
-    },
-    "newly_annotated_fields": [
-      "biological_organization",
-      "ecs_annotations['Pulmonary fibrosis'].phenotype"
-    ]
+      "carried": [
+        "I added lung as the organ term [Updated manually] [carried from reference]",
+        "I corrected the action term to 'occurrence' [Updated manually] [carried from reference]"
+      ],
+      "new": [
+        "biological_object should be airways or lung \u2014 'Pulmonary' decomposition was too vague",
+        "respiratory airway from Uberon was added [Updated manually]"
+      ]
+    }
   },
   "1495": {
     "ke_id": "1495",
@@ -98,19 +101,20 @@
         "biological_process": null,
         "phenotype": null,
         "biological_action": {
-          "term": "Substance interaction with the lung resident cell membrane components",
-          "source": "controlled_vocab"
+          "term": "occurrence",
+          "source": "llm_normalization"
         }
       }
     ],
     "comments": {
-      "carried": [],
-      "new": ["I added lung as the organ term [Updated manually]",
-      "I am removing the phenotype annotation because 'cell body membrane' doesn't seem like a meaningful phenotype. [Updated manually]",
-      "The phrase 'Substance interaction with the lung resident cell membrane components' is not an action term, only terms in WIKI_ACTION_WORDS are eligible action terms [Updated manually]"]
+      "carried": [
+        "I added lung as the organ term [Updated manually] [carried from reference]",
+        "I am removing the phenotype annotation because 'cell body membrane' doesn't seem like a meaningful phenotype. [Updated manually] [carried from reference]",
+        "The phrase 'Substance interaction with the lung resident cell membrane components' is not an action term, only terms in WIKI_ACTION_WORDS are eligible action terms [Updated manually] [carried from reference]"
+      ],
+      "new": []
     },
     "newly_annotated_fields": [
-      "biological_organization",
       "ecs_annotations['Substance interaction with the lung resident cell membrane components'].phenotype"
     ]
   },
@@ -125,11 +129,10 @@
         "subject": "secretion of proinflammatory mediators",
         "biological_object": null,
         "biological_process": {
-          "term_id": "http://purl.obolibrary.org/obo/GO_0046903",
-          "label": "secretion",
+          "term_id": "http://purl.obolibrary.org/obo/GO_0050663",
+          "label": "cytokine secretion",
           "ontology": "GO",
-          "reason": "The KE describes an increased secretion of proinflammatory mediators, which is best matched by the general term 'secretion' rather than regulatory terms or specific hormone secretion processes.",
-          "source": "llm_recommendation"
+          "source": "manual_entry"
         },
         "phenotype": {
           "term_id": "http://purl.obolibrary.org/obo/UPHENO_0054962",
@@ -145,20 +148,17 @@
       }
     ],
     "comments": {
-      "carried": [],
-      "new": [
-        "For the cell term, 'secretion' is a bad fit because it's a process, not a cell type. [Updated manually]",
-        "Also, the cell term was from GO, but CL was listed as the ontology - this is inconsistent. [Updated manually]",
-        "For the biological process annotation, 'secretion' is correct but very generic. More specific processes like 'cytokine secretion' or 'chemokine secretion' would be more informative if they can be supported by the KE description or literature evidence. [Updated manually]",
-        "For the phenotype annotation, 'increased secretion' is correct but also very generic. A more specific phenotype that captures the type of mediators being secreted (e.g., 'increased cytokine secretion') would be more informative if supported by evidence. [Updated manually]",
-        "Overall, additional annotations to capture the specific proinflammatory mediators involved would enhance the biological relevance of this KE. [Updated manually]"
-      ]
+      "carried": [
+        "For the cell term, 'secretion' is a bad fit because it's a process, not a cell type. [Updated manually] [carried from reference]",
+        "Also, the cell term was from GO, but CL was listed as the ontology - this is inconsistent. [Updated manually] [carried from reference]",
+        "For the biological process annotation, 'secretion' is correct but very generic. More specific processes like 'cytokine secretion' or 'chemokine secretion' would be more informative if they can be supported by the KE description or literature evidence. [Updated manually] [carried from reference]",
+        "For the phenotype annotation, 'increased secretion' is correct but also very generic. A more specific phenotype that captures the type of mediators being secreted (e.g., 'increased cytokine secretion') would be more informative if supported by evidence. [Updated manually] [carried from reference]",
+        "Overall, additional annotations to capture the specific proinflammatory mediators involved would enhance the biological relevance of this KE. [Updated manually] [carried from reference]"
+      ],
+      "new": []
     },
     "newly_annotated_fields": [
-      "biological_organization",
-      "cell_term",
-      "ecs_annotations['secretion of proinflammatory mediators'].biological_process",
-      "ecs_annotations['secretion of proinflammatory mediators'].phenotype"
+      "cell_term"
     ]
   },
   "1497": {
@@ -192,18 +192,13 @@
       }
     ],
     "comments": {
-      "carried": [],
-      "new": [
-        "The cell term assigned as the object term works as the cell term and I've made the update manually. [Updated manually]",
-        "Organ terms should not be GO process terms. [Updated manually]",
-        "The organ term should be something like 'lung' or 'respiratory system' [Updated manually]"
-      ]
-    },
-    "newly_annotated_fields": [
-      "biological_organization",
-      "organ_term",
-      "ecs_annotations['recruitment of inflammatory cells'].biological_object"
-    ]
+      "carried": [
+        "The cell term assigned as the object term works as the cell term and I've made the update manually. [Updated manually] [carried from reference]",
+        "Organ terms should not be GO process terms. [Updated manually] [carried from reference]",
+        "The organ term should be something like 'lung' or 'respiratory system' [Updated manually] [carried from reference]"
+      ],
+      "new": []
+    }
   },
   "1498": {
     "ke_id": "1498",
@@ -249,19 +244,16 @@
     ],
     "comments": {
       "carried": [
-        "Organ term could be lung [Updated manually] [carried from reference] [carried from reference] [carried from reference]",
-        "Process term could be a phenotype... add a phenotype term [carried from reference] [carried from reference] [carried from reference]",
-        "Object should be pulmonary capillary endothelial cell [Updated manually] [carried from reference] [carried from reference] [carried from reference]",
-        "Cell term should be pulmonary capillary endothelial cell [Updated manually] [carried from reference] [carried from reference] [carried from reference]",
-        "Process should be blank. [carried from reference] [carried from reference] [carried from reference]",
-        "the phenotype should be reviewed manually against OLS [carried from reference] [carried from reference]",
-        "The phenotype annotation 'Alveolar capillary dysplasia' was removed because it is a specific condition and the KE is describing a more general process. [Updated manually] [carried from reference]"
+        "Organ term could be lung [Updated manually] [carried from reference] [carried from reference] [carried from reference] [carried from reference]",
+        "Process term could be a phenotype... add a phenotype term [carried from reference] [carried from reference] [carried from reference] [carried from reference]",
+        "Object should be pulmonary capillary endothelial cell [Updated manually] [carried from reference] [carried from reference] [carried from reference] [carried from reference]",
+        "Cell term should be pulmonary capillary endothelial cell [Updated manually] [carried from reference] [carried from reference] [carried from reference] [carried from reference]",
+        "Process should be blank. [carried from reference] [carried from reference] [carried from reference] [carried from reference]",
+        "the phenotype should be reviewed manually against OLS [carried from reference] [carried from reference] [carried from reference]",
+        "The phenotype annotation 'Alveolar capillary dysplasia' was removed because it is a specific condition and the KE is describing a more general process. [Updated manually] [carried from reference] [carried from reference]"
       ],
       "new": []
-    },
-    "newly_annotated_fields": [
-      "ecs_annotations['Loss of alveolar capillary membrane integrity'].phenotype"
-    ]
+    }
   },
   "1499": {
     "ke_id": "1499",
@@ -307,7 +299,7 @@
     ],
     "comments": {
       "carried": [
-        "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually] [carried from reference] [carried from reference] [carried from reference]"
+        "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually] [carried from reference] [carried from reference] [carried from reference] [carried from reference]"
       ],
       "new": []
     }
@@ -378,9 +370,9 @@
     ],
     "comments": {
       "carried": [
-        "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP [carried from reference] [carried from reference] [carried from reference]"
+        "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP [carried from reference] [carried from reference] [carried from reference] [carried from reference]"
       ],
-      "new": []
+      "new": ["This KE is also an example of a KE that describes 2 related cell types and processes in the same KE title. ECs allow multiple processes but there is some redundancy between the cell term and the object term in some cases. [carried from reference]"]
     }
   }
 }

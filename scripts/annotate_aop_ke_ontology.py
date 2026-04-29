@@ -47,17 +47,17 @@ def _output_path(aop_id: str) -> str:
     return os.path.join(OUTPUT_DIR, f"ke_annotations_for_aop_{aop_id}.json")
 
 
-def _load_output(aop_id: str) -> dict:
-    path = _output_path(aop_id)
+def _load_output(aop_id: str, output_path: str | None = None) -> dict:
+    path = output_path or _output_path(aop_id)
     if os.path.exists(path):
         with open(path) as f:
             return json.load(f)
     return {}
 
 
-def _save_output(aop_id: str, all_annotations: dict) -> str:
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    path = _output_path(aop_id)
+def _save_output(aop_id: str, all_annotations: dict, output_path: str | None = None) -> str:
+    path = output_path or _output_path(aop_id)
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w") as f:
         json.dump(all_annotations, f, indent=2)
     return path
@@ -80,6 +80,7 @@ def annotate_single_ke(
     ke_id: str,
     cache_file: str,
     reference_file: str | None = None,
+    output_path: str | None = None,
 ) -> str:
     """
     Annotate one KE and append/update it in the AOP output file.
@@ -133,9 +134,9 @@ def annotate_single_ke(
     if new_fields:
         annotation["newly_annotated_fields"] = new_fields
 
-    all_annotations = _load_output(aop_id)
+    all_annotations = _load_output(aop_id, output_path)
     all_annotations[ke_id] = annotation
-    out_path = _save_output(aop_id, all_annotations)
+    out_path = _save_output(aop_id, all_annotations, output_path)
 
     # Structured summary for Claude Code to present to the user
     print("\n" + "=" * 60)
@@ -166,15 +167,15 @@ def annotate_single_ke(
     return out_path
 
 
-def add_comment(aop_id: str, ke_id: str, comment: str) -> str:
+def add_comment(aop_id: str, ke_id: str, comment: str, output_path: str | None = None) -> str:
     """Append a comment to an already-annotated KE in the output file."""
-    all_annotations = _load_output(aop_id)
+    all_annotations = _load_output(aop_id, output_path)
     if ke_id not in all_annotations:
-        print(f"KE {ke_id} not found in {_output_path(aop_id)} — annotate it first.")
+        print(f"KE {ke_id} not found in {output_path or _output_path(aop_id)} — annotate it first.")
         sys.exit(1)
     all_annotations[ke_id].setdefault("comments", {"carried": [], "new": []})
     all_annotations[ke_id]["comments"]["new"].append(comment)
-    out_path = _save_output(aop_id, all_annotations)
+    out_path = _save_output(aop_id, all_annotations, output_path)
     print(f"Comment added to KE {ke_id}. Saved to {out_path}")
     return out_path
 
@@ -197,12 +198,26 @@ def main():
         print(f"Cache file not found: {cache}")
         sys.exit(1)
 
+    # Resolve reference and output path
+    ref = args.reference
+    out_path = None
+    if ref is None:
+        for candidate in [
+            os.path.join("outputs_for_vc", f"ke_annotations_for_aop_{args.aop}.json"),
+            os.path.join(OUTPUT_DIR, f"ke_suggestions_{args.date}.json"),
+        ]:
+            if os.path.exists(candidate):
+                ref = candidate
+                break
+    if ref:
+        out_path = ref  # write back to the same file as the reference
+
     # Add a comment to an existing annotation
     if args.add_comment:
         if not args.ke_id:
             print("--add-comment requires --ke-id")
             sys.exit(1)
-        add_comment(args.aop, args.ke_id, args.add_comment)
+        add_comment(args.aop, args.ke_id, args.add_comment, output_path=out_path)
         return
 
     # List mode: no --ke-id given
@@ -211,9 +226,9 @@ def main():
         if not kes:
             print(f"No KEs found for AOP {args.aop}")
             sys.exit(1)
-        existing = _load_output(args.aop)
+        existing = _load_output(args.aop, out_path)
         print(f"\nAOP {args.aop} — {len(kes)} KEs")
-        print(f"Output file: {_output_path(args.aop)}")
+        print(f"Output file: {out_path or _output_path(args.aop)}")
         print()
         for ke_id, title in kes:
             status = "✓ done" if ke_id in existing else "pending"
@@ -221,13 +236,9 @@ def main():
         return
 
     # Single-KE annotation mode
-    ref = args.reference
-    if ref is None:
-        default_ref = os.path.join(OUTPUT_DIR, f"ke_suggestions_{args.date}.json")
-        if os.path.exists(default_ref):
-            ref = default_ref
-
-    annotate_single_ke(args.aop, args.ke_id, cache, reference_file=ref)
+    if ref:
+        print(f"Using reference + output: {ref}")
+    annotate_single_ke(args.aop, args.ke_id, cache, reference_file=ref, output_path=out_path)
 
 
 if __name__ == "__main__":

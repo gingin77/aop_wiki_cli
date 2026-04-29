@@ -558,10 +558,33 @@ def llm_rank_term(
         context_str = "\n".join(f"- {k}: {v}" for k, v in context.items())
         context_str = f"\nAdditional context:\n{context_str}\n"
 
+    component_guidance = {
+        "cell_term": (
+            "Cell terms must be actual cell types from the Cell Ontology (CL). "
+            "Reject any term that is a biological process, molecular function, or anatomical structure — "
+            "even if it appears in the candidate list. If no candidate is a genuine cell type, return null."
+        ),
+        "organ_term": (
+            "Organ terms must be anatomical structures or tissues from UBERON. "
+            "Reject any term that is a biological process or molecular function."
+        ),
+        "biological_process": (
+            "Biological process terms should be GO biological process terms describing "
+            "the activity or process represented by the KE subject phrase."
+        ),
+        "biological_object": (
+            "Biological object terms represent the cell type, tissue, molecule, or anatomical entity "
+            "acted upon. Prefer CL for cell types, UBERON for anatomy, ChEBI for chemicals."
+        ),
+    }
+    guidance = component_guidance.get(component, "")
+    guidance_str = f"\nComponent guidance: {guidance}\n" if guidance else ""
+
     prompt = (
         f"You are annotating an AOP-Wiki Key Event (KE) with ontology terms.\n"
         f"KE title: {ke_title!r}\n"
         f"ECS component to annotate: {component}\n"
+        f"{guidance_str}"
         f"{context_str}\n"
         f"Candidate ontology terms (choose the single best match):\n{candidate_block}\n\n"
         f"Reply with ONLY a JSON object: {{\"index\": <1-based integer>, \"reason\": \"<one sentence>\"}}\n"
@@ -584,6 +607,49 @@ def llm_rank_term(
     if idx_1based is None:
         return None, reason
     return int(idx_1based) - 1, reason  # convert to 0-based
+
+
+def llm_normalize_biological_action(direction: str) -> str | None:
+    """
+    Ask Claude to map a direction phrase to the nearest WIKI_ACTION_WORDS term.
+    Returns the matched canonical term, or None if no confident match exists.
+    """
+    anthropic_ok, _ = check_anthropic_available()
+    if not anthropic_ok:
+        return None
+    client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+    vocab_str = ", ".join(f'"{w}"' for w in WIKI_ACTION_WORDS)
+    prompt = (
+        f"You are normalizing an AOP-Wiki Key Event direction phrase to a controlled vocabulary term.\n"
+        f"Direction phrase: {direction!r}\n\n"
+        f"Controlled vocabulary terms: {vocab_str}\n\n"
+        f"Background: In AOP-Wiki, action terms describe either the direction of a perturbation "
+        f"(e.g. increased, decreased) or an observation of the perturbation itself. "
+        f"'occurrence' is a valid action term for events that are observed to happen without "
+        f"an explicit directional change — for example, the formation of a lesion, the "
+        f"presence of an interaction, or the manifestation of a pathological state.\n\n"
+        f"If the phrase is semantically equivalent to one of these terms, return it exactly as written above.\n"
+        f'Reply with ONLY valid JSON: {{"term": "<matched term or null>", "reason": "<one sentence>"}}'
+    )
+    try:
+        message = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=64,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = message.content[0].text.strip()
+        json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+        if not json_match:
+            return None
+        parsed = json.loads(json_match.group())
+        term = parsed.get("term")
+        reason = parsed.get("reason", "")
+        if term and term in WIKI_ACTION_WORDS:
+            print(f"  (LLM normalized {direction!r} → {term!r}: {reason})")
+            return term
+    except Exception:
+        pass
+    return None
 
 
 def llm_decompose_subject(subject: str) -> tuple[str, str] | None:
@@ -952,11 +1018,19 @@ def annotate_ke(ke_id: str, title: str, api_key: str, description: str = "", ref
             "source": "controlled_vocab",
         }
     else:
-        print(f"  No controlled vocab match for {parsed['raw_direction']!r} — biological_action set to null\n")
-        biological_action = {
-            "term": None,
-            "source": "unmatched",
-        }
+        llm_action = llm_normalize_biological_action(parsed["raw_direction"])
+        if llm_action:
+            print(f"  LLM normalized to: {llm_action!r}\n")
+            biological_action = {
+                "term": llm_action,
+                "source": "llm_normalization",
+            }
+        else:
+            print(f"  No match for {parsed['raw_direction']!r} — biological_action set to null\n")
+            biological_action = {
+                "term": None,
+                "source": "unmatched",
+            }
 
     # --- biological_organization ---
     print("--- biological_organization ---")
