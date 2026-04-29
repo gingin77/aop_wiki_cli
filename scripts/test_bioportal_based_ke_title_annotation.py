@@ -24,13 +24,16 @@ import urllib.request
 import anthropic
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 # KE IDs to annotate in this session.
 KE_IDS = ["1499", "1498", "1500"]
 # KE_IDS = ["1498"]
 CACHE_FILE = "outputs/cache/04-28-2026/all_events_04-28-2026.json"
 OUTPUT_DIR = "outputs/ke_ontology_suggestions"
+# Pre-curated annotations used as a reference; any non-null property here
+# is used directly and skips BioPortal / Anthropic queries.
+REFERENCE_FILE = "outputs_for_vc/ke_suggestions_04-28-2026.json"
 BIOPORTAL_URL = "https://data.bioontology.org/annotator"
 
 # AOP-Wiki controlled vocabulary for the direction/change prefix in KE titles.
@@ -73,6 +76,44 @@ ECS_ONTOLOGIES = {
     "biological_object": "CL,UBERON,CHEBI",
     "biological_process": "GO",
 }
+
+# AOP-Wiki controlled vocabulary for level of biological organization.
+BIOLOGICAL_ORGANIZATION_LEVELS = [
+    "Molecular",
+    "Cellular",
+    "Tissue",
+    "Organ",
+    "Individual",
+    "Population",
+]
+
+# Levels that trigger a cell term annotation.
+_CELL_TERM_LEVELS = {"Molecular", "Cellular"}
+# Levels that trigger an organ term annotation.
+_ORGAN_TERM_LEVELS = {"Cellular", "Tissue", "Organ"}
+
+# Ontologies for cell and organ term annotations — to be set once confirmed.
+CELL_TERM_ONTOLOGIES = "CL"
+ORGAN_TERM_ONTOLOGIES = "UBERON"
+PHENOTYPE_ONTOLOGIES = "UPHENO"
+
+
+def _flat_ref_comments(raw) -> list[str]:
+    """Normalize reference comments to a flat list regardless of storage format."""
+    if not raw:
+        return []
+    if isinstance(raw, list):
+        return [str(c) for c in raw]
+    if isinstance(raw, dict):
+        items: list[str] = []
+        for bucket in ("carried", "new"):
+            for c in raw.get(bucket, []):
+                if isinstance(c, list):
+                    items.extend(str(x) for x in c)
+                else:
+                    items.append(str(c))
+        return items
+    return []
 
 
 def _detect_biological_action(direction: str) -> str:
@@ -591,15 +632,122 @@ def llm_decompose_subject(subject: str) -> tuple[str, str] | None:
     return None
 
 
-def _annotate_subject(subject: str, title: str, api_key: str) -> dict:
+def detect_biological_organization(description: str) -> str | None:
+    """
+    Determine the level of biological organization for a KE from its description.
+    Returns one of BIOLOGICAL_ORGANIZATION_LEVELS, or None if undetermined.
+    Uses LLM if available; otherwise prompts the user interactively.
+    """
+    anthropic_ok, _ = check_anthropic_available()
+    if anthropic_ok:
+        client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+        levels_str = ", ".join(BIOLOGICAL_ORGANIZATION_LEVELS)
+        prompt = (
+            f"You are classifying an AOP-Wiki Key Event by level of biological organization.\n"
+            f"KE description (excerpt):\n{description[:500]!r}\n\n"
+            f"Choose the single best level from: {levels_str}\n"
+            f'Reply with ONLY valid JSON: {{"level": "<level>", "reason": "<one sentence>"}}'
+        )
+        try:
+            message = client.messages.create(
+                model="claude-sonnet-4-5",
+                max_tokens=64,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            raw = message.content[0].text.strip()
+            json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+            if json_match:
+                parsed = json.loads(json_match.group())
+                level = parsed.get("level", "").strip()
+                reason = parsed.get("reason", "")
+                if level in BIOLOGICAL_ORGANIZATION_LEVELS:
+                    print(f"  (LLM: {level!r} — {reason})")
+                    return level
+        except Exception:
+            pass
+        print("  (LLM organization detection failed — falling back to manual)")
+
+    # Manual fallback
+    print("  Levels of biological organization:")
+    for i, level in enumerate(BIOLOGICAL_ORGANIZATION_LEVELS, 1):
+        print(f"    {i}. {level}")
+    choice = input(
+        f"  Select level (1-{len(BIOLOGICAL_ORGANIZATION_LEVELS)}, Enter to skip, q=quit): "
+    ).strip().lower()
+    if choice == "q":
+        print("Quitting.")
+        raise SystemExit(0)
+    if choice.isdigit():
+        idx = int(choice) - 1
+        if 0 <= idx < len(BIOLOGICAL_ORGANIZATION_LEVELS):
+            return BIOLOGICAL_ORGANIZATION_LEVELS[idx]
+    return None
+
+
+def _annotate_term(
+    phrase: str,
+    ontologies: str,
+    component: str,
+    title: str,
+    api_key: str,
+) -> dict | None:
+    """
+    Search BioPortal and interactively select an ontology term for a KE-level component.
+    Used for cell_term and organ_term annotations.
+    Returns an annotation dict, or None if no selection is made.
+    """
+    if not ontologies:
+        print(f"  No ontologies configured for {component} — skipping.")
+        return None
+    print(f"  Query phrase: {phrase!r}")
+    print(f"  Ontologies:   {ontologies}")
+    results, query_used = search_with_fallback(phrase, ontologies, api_key)
+    if not results:
+        print("  No matches found after fallback — manual curation needed.")
+        return None
+    # Filter to only results from the requested ontologies (BioPortal can return
+    # cross-ontology hits, e.g. GO terms when querying CL or UBERON).
+    allowed = {o.strip().upper() for o in ontologies.split(",")}
+    filtered = [r for r in results if r.get("ontology", "").upper() in allowed]
+    if not filtered:
+        print(f"  All results were from off-target ontologies — manual curation needed.")
+        return None
+    if len(filtered) < len(results):
+        print(f"  Filtered out {len(results) - len(filtered)} off-target ontology result(s).")
+    results = filtered
+    display_candidates(results[:5], component, query_used)
+    result, source, reason = rank_term(title, component, results[:5])
+    if result:
+        print(f"  → [{result['ontology']}] {result['label']}")
+        print(f"     IRI:    {result['term_id']}")
+        print(f"     reason: {reason}")
+        return {
+            "term_id": result["term_id"],
+            "label": result["label"],
+            "ontology": result["ontology"],
+            "reason": reason,
+            "source": source,
+        }
+    elif source == "manual_comment":
+        print(f"  → Comment recorded: {reason!r}")
+        return {"comment": reason, "source": source}
+    else:
+        print(f"  → No selection made ({reason})")
+        return None
+
+
+def _annotate_subject(subject: str, title: str, api_key: str, ref: dict | None = None) -> dict:
     """
     Run biological_object and biological_process annotation for one subject phrase.
     Returns dict with keys: subject, biological_object, biological_process.
+    When `ref` is supplied, any non-null property in it is used directly and the
+    corresponding BioPortal / Anthropic query is skipped.
     """
     subj_annotation: dict = {
         "subject": subject,
         "biological_object": None,
         "biological_process": None,
+        "phenotype": None,
     }
 
     # Attempt LLM decomposition first; fall back to heuristics.
@@ -613,69 +761,28 @@ def _annotate_subject(subject: str, title: str, api_key: str) -> dict:
 
     # --- biological_object ---
     print("--- biological_object ---")
-    print(f"  Query phrase: {object_phrase!r}")
-    print(f"  Ontologies:   {ECS_ONTOLOGIES['biological_object']}")
-    object_results, object_used = search_with_fallback(
-        object_phrase, ECS_ONTOLOGIES["biological_object"], api_key
-    )
-
-    selected_object_label = None
-    if object_results:
-        display_candidates(object_results[:5], "biological_object", object_used)
-        result, source, reason = rank_term(title, "biological_object", object_results[:5])
-        if result:
-            selected_object_label = result["label"]
-            print(f"  → [{result['ontology']}] {result['label']}")
-            print(f"     IRI:    {result['term_id']}")
-            print(f"     reason: {reason}")
-            subj_annotation["biological_object"] = {
-                "term_id": result["term_id"],
-                "label": result["label"],
-                "ontology": result["ontology"],
-                "reason": reason,
-                "source": source,
-            }
-        elif source == "manual_comment":
-            print(f"  → Comment recorded: {reason!r}")
-            subj_annotation["biological_object"] = {"comment": reason, "source": source}
-        else:
-            print(f"  → No selection made ({reason})")
+    ref_object = (ref or {}).get("biological_object")
+    if ref_object is not None:
+        print(f"  (reference) {ref_object.get('label', ref_object)!r} — skipping query")
+        subj_annotation["biological_object"] = ref_object
+        selected_object_label = ref_object.get("label")
     else:
-        print("  No matches found after fallback — manual curation needed.")
-    print()
+        print(f"  Query phrase: {object_phrase!r}")
+        print(f"  Ontologies:   {ECS_ONTOLOGIES['biological_object']}")
+        object_results, object_used = search_with_fallback(
+            object_phrase, ECS_ONTOLOGIES["biological_object"], api_key
+        )
 
-    # --- biological_process ---
-    print("--- biological_process ---")
-    process_phrase = process_phrase_raw
-    print(f"  Query phrase: {process_phrase!r}")
-    print(f"  Ontologies:   {ECS_ONTOLOGIES['biological_process']}")
-    process_results, process_used = search_with_fallback(
-        process_phrase, ECS_ONTOLOGIES["biological_process"], api_key
-    )
-
-    if process_results:
-        if selected_object_label:
-            kept, filtered_out = partition_process_results(process_results, selected_object_label)
-            if filtered_out:
-                print(
-                    f"  Filtered out {len(filtered_out)} off-target result(s)"
-                    f" (not '{selected_object_label}'):"
-                )
-                for r in filtered_out:
-                    print(f"    ✗ [{r['ontology']}] {r['label']!r}")
-                print()
-        else:
-            kept = process_results
-
-        if kept:
-            display_candidates(kept[:5], "biological_process", process_used)
-            context = {"selected_object": selected_object_label} if selected_object_label else None
-            result, source, reason = rank_term(title, "biological_process", kept[:5], context)
+        selected_object_label = None
+        if object_results:
+            display_candidates(object_results[:5], "biological_object", object_used)
+            result, source, reason = rank_term(title, "biological_object", object_results[:5])
             if result:
+                selected_object_label = result["label"]
                 print(f"  → [{result['ontology']}] {result['label']}")
                 print(f"     IRI:    {result['term_id']}")
                 print(f"     reason: {reason}")
-                subj_annotation["biological_process"] = {
+                subj_annotation["biological_object"] = {
                     "term_id": result["term_id"],
                     "label": result["label"],
                     "ontology": result["ontology"],
@@ -684,19 +791,106 @@ def _annotate_subject(subject: str, title: str, api_key: str) -> dict:
                 }
             elif source == "manual_comment":
                 print(f"  → Comment recorded: {reason!r}")
-                subj_annotation["biological_process"] = {"comment": reason, "source": source}
+                subj_annotation["biological_object"] = {"comment": reason, "source": source}
             else:
                 print(f"  → No selection made ({reason})")
         else:
-            print("  No results remain after filtering — manual curation needed.")
+            print("  No matches found after fallback — manual curation needed.")
+    print()
+
+    # --- biological_process ---
+    print("--- biological_process ---")
+    ref_process = (ref or {}).get("biological_process")
+    if ref_process is not None:
+        print(f"  (reference) {ref_process.get('label', ref_process)!r} — skipping query")
+        subj_annotation["biological_process"] = ref_process
     else:
-        print("  No matches found after fallback — manual curation needed.")
+        process_phrase = process_phrase_raw
+        print(f"  Query phrase: {process_phrase!r}")
+        print(f"  Ontologies:   {ECS_ONTOLOGIES['biological_process']}")
+        process_results, process_used = search_with_fallback(
+            process_phrase, ECS_ONTOLOGIES["biological_process"], api_key
+        )
+
+        if process_results:
+            if selected_object_label:
+                kept, filtered_out = partition_process_results(process_results, selected_object_label)
+                if filtered_out:
+                    print(
+                        f"  Filtered out {len(filtered_out)} off-target result(s)"
+                        f" (not '{selected_object_label}'):"
+                    )
+                    for r in filtered_out:
+                        print(f"    ✗ [{r['ontology']}] {r['label']!r}")
+                    print()
+            else:
+                kept = process_results
+
+            if kept:
+                display_candidates(kept[:5], "biological_process", process_used)
+                context = {"selected_object": selected_object_label} if selected_object_label else None
+                result, source, reason = rank_term(title, "biological_process", kept[:5], context)
+                if result:
+                    print(f"  → [{result['ontology']}] {result['label']}")
+                    print(f"     IRI:    {result['term_id']}")
+                    print(f"     reason: {reason}")
+                    subj_annotation["biological_process"] = {
+                        "term_id": result["term_id"],
+                        "label": result["label"],
+                        "ontology": result["ontology"],
+                        "reason": reason,
+                        "source": source,
+                    }
+                elif source == "manual_comment":
+                    print(f"  → Comment recorded: {reason!r}")
+                    subj_annotation["biological_process"] = {"comment": reason, "source": source}
+                else:
+                    print(f"  → No selection made ({reason})")
+            else:
+                print("  No results remain after filtering — manual curation needed.")
+        else:
+            print("  No matches found after fallback — manual curation needed.")
+    print()
+
+    # --- phenotype ---
+    print("--- phenotype ---")
+    ref_phenotype = (ref or {}).get("phenotype")
+    if ref_phenotype is not None:
+        print(f"  (reference) {ref_phenotype.get('label', ref_phenotype)!r} — skipping query")
+        subj_annotation["phenotype"] = ref_phenotype
+    else:
+        print(f"  Query phrase: {subject!r}")
+        print(f"  Ontologies:   {PHENOTYPE_ONTOLOGIES}")
+        phenotype_results, phenotype_used = search_with_fallback(
+            subject, PHENOTYPE_ONTOLOGIES, api_key
+        )
+        if phenotype_results:
+            display_candidates(phenotype_results[:5], "phenotype", phenotype_used)
+            result, source, reason = rank_term(title, "phenotype", phenotype_results[:5])
+            if result:
+                print(f"  → [{result['ontology']}] {result['label']}")
+                print(f"     IRI:    {result['term_id']}")
+                print(f"     reason: {reason}")
+                subj_annotation["phenotype"] = {
+                    "term_id": result["term_id"],
+                    "label": result["label"],
+                    "ontology": result["ontology"],
+                    "reason": reason,
+                    "source": source,
+                }
+            elif source == "manual_comment":
+                print(f"  → Comment recorded: {reason!r}")
+                subj_annotation["phenotype"] = {"comment": reason, "source": source}
+            else:
+                print(f"  → No selection made ({reason})")
+        else:
+            print("  No matches found after fallback — manual curation needed.")
     print()
 
     return subj_annotation
 
 
-def annotate_ke(ke_id: str, title: str, api_key: str) -> dict:
+def annotate_ke(ke_id: str, title: str, api_key: str, description: str = "", ref_ke: dict | None = None) -> dict:
     """
     Run the full ECS annotation workflow for a single KE.
     Returns the annotation dict. For KEs with conjoined subjects (e.g.
@@ -704,6 +898,35 @@ def annotate_ke(ke_id: str, title: str, api_key: str) -> dict:
     subject gets its own entry in ecs_annotations.
     """
     print(f"KE {ke_id}: {title}\n")
+
+    # --- review prior comments before annotating ---
+    ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
+    if ref_comments:
+        print("--- prior comments ---")
+        for c in ref_comments:
+            print(f"  • {c}")
+        print()
+        anthropic_ok, _ = check_anthropic_available()
+        if anthropic_ok:
+            client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+            comments_block = "\n".join(f"- {c}" for c in ref_comments)
+            prompt = (
+                f"You are reviewing curator comments on an AOP-Wiki Key Event annotation.\n"
+                f"KE title: {title!r}\n\n"
+                f"Prior curator comments:\n{comments_block}\n\n"
+                f"Summarise in 2-3 sentences what these comments tell you about how the "
+                f"annotation should be improved. Focus on actionable guidance for selecting "
+                f"better ontology terms."
+            )
+            try:
+                message = client.messages.create(
+                    model="claude-sonnet-4-5",
+                    max_tokens=256,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                print(f"  LLM review: {message.content[0].text.strip()}\n")
+            except Exception as e:
+                print(f"  (LLM comment review failed: {e})\n")
 
     parsed = parse_ke_title(title)
     print("Parsed ECS source phrases:")
@@ -714,25 +937,73 @@ def annotate_ke(ke_id: str, title: str, api_key: str) -> dict:
     annotation: dict = {
         "ke_id": ke_id,
         "title": title,
-        "biological_action": None,
+        "biological_organization": None,
+        "cell_term": None,
+        "organ_term": None,
         "ecs_annotations": [],
     }
 
     # --- biological_action: resolved locally, no API call ---
     print("--- biological_action ---")
     print(f"  Detected (controlled vocab): {parsed['biological_action']!r}\n")
-    annotation["biological_action"] = {
+    biological_action = {
         "term": parsed["biological_action"],
         "source": "controlled_vocab",
     }
+
+    # --- biological_organization ---
+    print("--- biological_organization ---")
+    ref_org = (ref_ke or {}).get("biological_organization")
+    if ref_org is not None:
+        print(f"  (reference) {ref_org!r} — skipping detection")
+        org_level = ref_org
+    else:
+        org_level = detect_biological_organization(description)
+    annotation["biological_organization"] = org_level
+    print()
+
+    # --- cell_term (Molecular or Cellular) ---
+    ref_cell = (ref_ke or {}).get("cell_term")
+    if ref_cell is not None:
+        print("--- cell_term ---")
+        print(f"  (reference) {ref_cell.get('label', ref_cell)!r} — skipping query")
+        annotation["cell_term"] = ref_cell
+        print()
+    elif org_level in _CELL_TERM_LEVELS:
+        print("--- cell_term ---")
+        annotation["cell_term"] = _annotate_term(
+            parsed["full_subject"], CELL_TERM_ONTOLOGIES, "cell_term", description, api_key
+        )
+        print()
+
+    # --- organ_term (Cellular, Tissue, or Organ) ---
+    ref_organ = (ref_ke or {}).get("organ_term")
+    if ref_organ is not None:
+        print("--- organ_term ---")
+        print(f"  (reference) {ref_organ.get('label', ref_organ)!r} — skipping query")
+        annotation["organ_term"] = ref_organ
+        print()
+    elif org_level in _ORGAN_TERM_LEVELS:
+        print("--- organ_term ---")
+        annotation["organ_term"] = _annotate_term(
+            parsed["full_subject"], ORGAN_TERM_ONTOLOGIES, "organ_term", description, api_key
+        )
+        print()
+
+    # Build a lookup from subject string → reference subject annotation.
+    ref_subjects: dict[str, dict] = {}
+    for ref_subj in (ref_ke or {}).get("ecs_annotations", []):
+        if isinstance(ref_subj, dict) and "subject" in ref_subj:
+            ref_subjects[ref_subj["subject"]] = ref_subj
 
     # --- per-subject object + process annotation ---
     subjects = parsed["subjects"]
     for i, subject in enumerate(subjects):
         if len(subjects) > 1:
             print(f"\n[Subject {i + 1}/{len(subjects)}: {subject!r}]")
-        subj_annotation = _annotate_subject(subject, title, api_key)
-        subj_annotation["biological_action"] = annotation["biological_action"]
+        ref_subj = ref_subjects.get(subject)
+        subj_annotation = _annotate_subject(subject, title, api_key, ref=ref_subj)
+        subj_annotation["biological_action"] = biological_action
         annotation["ecs_annotations"].append(subj_annotation)
 
     return annotation
@@ -746,6 +1017,15 @@ def main():
     with open(CACHE_FILE) as f:
         events = json.load(f)
 
+    # Load pre-curated reference annotations (skip queries where already assigned).
+    reference: dict = {}
+    if os.path.exists(REFERENCE_FILE):
+        with open(REFERENCE_FILE) as f:
+            reference = json.load(f)
+        print(f"Loaded reference from {REFERENCE_FILE} ({len(reference)} KEs)\n")
+    else:
+        print(f"Reference file not found ({REFERENCE_FILE}) — all properties will be queried.\n")
+
     all_annotations: dict = {}
 
     for i, ke_id in enumerate(KE_IDS):
@@ -754,8 +1034,58 @@ def main():
             continue
 
         title = events[ke_id].get("title", "")
-        annotation = annotate_ke(ke_id, title, api_key)
+        description = events[ke_id].get("description", "")
+        ref_ke = reference.get(ke_id)
+        annotation = annotate_ke(ke_id, title, api_key, description=description, ref_ke=ref_ke)
+
+        # --- carry over reference comments ---
+        ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
+        carried = [f"{c} [carried from reference]" for c in ref_comments]
+        annotation["comments"] = { "carried": carried, "new": [] }  # new session comments appended below
+
+        # --- record which top-level fields are newly annotated this run ---
+        ref_top_keys = {k for k, v in (ref_ke or {}).items() if v is not None}
+        new_fields: list[str] = []
+        for key, val in annotation.items():
+            if key in ("ke_id", "title", "comments", "ecs_annotations"):
+                continue
+            if val is not None and key not in ref_top_keys:
+                new_fields.append(key)
+        # Check ecs_annotations for newly annotated per-subject fields
+        for subj in annotation.get("ecs_annotations", []):
+            ref_subj = next(
+                (s for s in (ref_ke or {}).get("ecs_annotations", [])
+                 if s.get("subject") == subj.get("subject")),
+                {},
+            )
+            for field in ("biological_object", "biological_process", "phenotype"):
+                if subj.get(field) is not None and ref_subj.get(field) is None:
+                    label = f"ecs_annotations[{subj['subject']!r}].{field}"
+                    if label not in new_fields:
+                        new_fields.append(label)
+        if new_fields:
+            annotation["newly_annotated_fields"] = new_fields
+            print(f"  Newly annotated fields: {new_fields}")
+
         all_annotations[ke_id] = annotation
+
+        # --- post-KE comment prompt ---
+        print("\n--- KE review ---")
+        print("  Add comments to this KE annotation? (Enter to skip, or type comment, q=quit)")
+        ke_comments: list[str] = []
+        while True:
+            line = input("  Comment (blank to finish): ").strip()
+            if line.lower() == "q":
+                print("Quitting.")
+                out_path = write_results(all_annotations, OUTPUT_DIR)
+                print(f"Results written to {out_path}")
+                raise SystemExit(0)
+            if not line:
+                break
+            ke_comments.append(line)
+        if ke_comments:
+            annotation["comments"]["new"] = ke_comments
+            print(f"  {len(ke_comments)} comment(s) recorded.")
 
         if i < len(KE_IDS) - 1:
             cont = input("\nContinue to next KE? [Y/n]: ").strip().lower()

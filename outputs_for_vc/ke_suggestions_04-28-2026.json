@@ -2,17 +2,13 @@
   "1499": {
     "ke_id": "1499",
     "title": "Increased, activation of T (T) helper (h) type 2 cells",
-    "biological_action": {
-      "term": "increased",
-      "source": "controlled_vocab"
-    },
     "biological_organization": "Cellular",
     "cell_term": {
-        "term_id": "http://purl.obolibrary.org/obo/CL_0000546",
-        "label": "T-helper 2 cell",
-        "ontology": "CL",
-        "reason": "The biological object being acted upon in this KE is the T helper type 2 cells themselves, which directly matches 'T-helper 2 cell' as the specific cell type.",
-        "source": "manual_review"
+      "term_id": "http://purl.obolibrary.org/obo/CL_0000546",
+      "label": "T-helper 2 cell",
+      "ontology": "CL",
+      "reason": "The biological object being acted upon in this KE is the T helper type 2 cells themselves, which directly matches 'T-helper 2 cell' as the specific cell type.",
+      "source": "manual_review"
     },
     "organ_term": null,
     "ecs_annotations": [
@@ -32,23 +28,28 @@
           "reason": "The KE describes 'increased activation' of Th2 cells, and 'T-helper 2 cell activation' directly matches this biological process without being a regulatory term or different process like chemotaxis or differentiation.",
           "source": "llm_recommendation"
         },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0045064",
+          "label": "T-helper 2 cell differentiation",
+          "ontology": "UPHENO",
+          "reason": "The KE describes 'increased activation' of Th2 cells, which best corresponds to the process of T-helper 2 cell differentiation, as activation and differentiation are closely linked processes where naive T cells become activated and differentiate into Th2 effector cells.",
+          "source": "llm_recommendation"
+        },
         "biological_action": {
           "term": "increased",
           "source": "controlled_vocab"
         }
       }
     ],
-    "comments": [
-      "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually]"
-    ]
+    "comments": {
+      "carried": [
+        "The cell term selection is weird, \"activation of T helper type 2 cells\" - this reads as a process. [Updated manually] [carried from reference] [carried from reference]"
+      ]
+    }
   },
   "1498": {
     "ke_id": "1498",
     "title": "Loss of alveolar capillary membrane integrity",
-    "biological_action": {
-      "term": "decreased",
-      "source": "controlled_vocab"
-    },
     "biological_organization": "Tissue",
     "cell_term": {
       "term_id": "http://purl.obolibrary.org/obo/CL_4028001",
@@ -75,29 +76,41 @@
           "source": "manual_review"
         },
         "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/HP_0033208",
+          "label": "Alveolar capillary dysplasia",
+          "ontology": "UPHENO",
+          "reason": "Alveolar capillary dysplasia directly describes pathology of the alveolar-capillary membrane structure, which best captures loss of membrane integrity in this specific anatomical location.",
+          "source": "llm_recommendation"
+        },
         "biological_action": {
           "term": "decreased",
           "source": "controlled_vocab"
         }
       }
     ],
-    "comments": [
-      "Organ term could be lung [Updated manually]",
-      "Process term could be a phenotype... add a phenotype term",
-      "Object should be pulmonary capillary endothelial cell [Updated manually]",
-      "Cell term should be pulmonary capillary endothelial cell [Updated manually]",
-      "Process should be blank."
-    ]
+    "comments": {
+      "carried": [
+        "Organ term could be lung [Updated manually] [carried from reference] [carried from reference]",
+        "Process term could be a phenotype... add a phenotype term [carried from reference] [carried from reference]",
+        "Object should be pulmonary capillary endothelial cell [Updated manually] [carried from reference] [carried from reference]",
+        "Cell term should be pulmonary capillary endothelial cell [Updated manually] [carried from reference] [carried from reference]",
+        "Process should be blank. [carried from reference] [carried from reference]",
+        "the phenotype should be reviewed manually against OLS [carried from reference]"
+      ]
+    }
   },
   "1500": {
     "ke_id": "1500",
     "title": "Increased, fibroblast proliferation and myofibroblast differentiation",
-    "biological_action": {
-      "term": "increased",
-      "source": "controlled_vocab"
-    },
     "biological_organization": "Cellular",
-    "cell_term": null,
+    "cell_term": {
+      "term_id": "http://purl.obolibrary.org/obo/GO_0048144",
+      "label": "fibroblast proliferation",
+      "ontology": "CL",
+      "reason": "The key event focuses on fibroblast and myofibroblast proliferation as the central process in pulmonary fibrosis, with extensive literature evidence demonstrating increased fibroblast proliferation following various exposures.",
+      "source": "llm_recommendation"
+    },
     "organ_term": null,
     "ecs_annotations": [
       {
@@ -116,6 +129,13 @@
           "reason": "The KE describes 'Increased' fibroblast proliferation, which directly matches the positive regulation/activation/stimulation of fibroblast proliferation.",
           "source": "llm_recommendation"
         },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0011703",
+          "label": "increased fibroblast proliferation",
+          "ontology": "UPHENO",
+          "reason": "The KE title explicitly states 'Increased, fibroblast proliferation' which directly matches the term 'increased fibroblast proliferation'.",
+          "source": "llm_recommendation"
+        },
         "biological_action": {
           "term": "increased",
           "source": "controlled_vocab"
@@ -131,14 +151,23 @@
           "source": "llm_recommendation"
         },
         "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0036446",
+          "label": "myofibroblast differentiation",
+          "ontology": "UPHENO",
+          "reason": "The KE describes 'increased' myofibroblast differentiation, and option 1 provides the neutral process term that can be modified by qualifiers like 'increased', whereas options 2-3 specify abnormal/impaired states that don't match the described increase.",
+          "source": "llm_recommendation"
+        },
         "biological_action": {
           "term": "increased",
           "source": "controlled_vocab"
         }
       }
     ],
-    "comments": [
-      "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP"
-    ]
+    "comments": {
+      "carried": [
+        "This KE - KE 1500: Increased, fibroblast proliferation and myofibroblast differentiation - is a good one to use for biological consistency alignment between the KE and the AOP [carried from reference] [carried from reference]"
+      ]
+    }
   }
 }
