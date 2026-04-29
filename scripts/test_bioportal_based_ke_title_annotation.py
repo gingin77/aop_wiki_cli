@@ -116,12 +116,12 @@ def _flat_ref_comments(raw) -> list[str]:
     return []
 
 
-def _detect_biological_action(direction: str) -> str:
+def _detect_biological_action(direction: str) -> str | None:
     """
     Match the direction prefix of a KE title against the AOP-Wiki controlled
     vocabulary (WIKI_ACTION_WORDS).  If no controlled-vocab term matches,
     checks ALTERATIVE_ACTION_WORDS and returns the mapped canonical term.
-    Returns the raw direction string if nothing matches.
+    Returns None if nothing matches — only WIKI_ACTION_WORDS terms are eligible.
     """
     for word in sorted(WIKI_ACTION_WORDS, key=len, reverse=True):
         if re.search(rf'\b{re.escape(word)}\b', direction, re.IGNORECASE):
@@ -129,7 +129,7 @@ def _detect_biological_action(direction: str) -> str:
     for alt, canonical in sorted(ALTERATIVE_ACTION_WORDS.items(), key=lambda x: len(x[0]), reverse=True):
         if re.search(rf'\b{re.escape(alt)}\b', direction, re.IGNORECASE):
             return canonical
-    return direction
+    return None
 
 
 # Prepositions that link a process verb to its object in KE subject phrases.
@@ -274,7 +274,7 @@ def parse_ke_title(title: str) -> dict:
     # rather than falling back to the full title string.
     if len(parts) == 1:
         detected = _detect_biological_action(cleaned)
-        if detected != cleaned:
+        if detected is not None:
             direction = detected
 
     subjects = _split_conjoined_subjects(subject)
@@ -945,11 +945,18 @@ def annotate_ke(ke_id: str, title: str, api_key: str, description: str = "", ref
 
     # --- biological_action: resolved locally, no API call ---
     print("--- biological_action ---")
-    print(f"  Detected (controlled vocab): {parsed['biological_action']!r}\n")
-    biological_action = {
-        "term": parsed["biological_action"],
-        "source": "controlled_vocab",
-    }
+    if parsed["biological_action"] is not None:
+        print(f"  Detected (controlled vocab): {parsed['biological_action']!r}\n")
+        biological_action = {
+            "term": parsed["biological_action"],
+            "source": "controlled_vocab",
+        }
+    else:
+        print(f"  No controlled vocab match for {parsed['raw_direction']!r} — biological_action set to null\n")
+        biological_action = {
+            "term": None,
+            "source": "unmatched",
+        }
 
     # --- biological_organization ---
     print("--- biological_organization ---")
