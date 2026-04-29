@@ -23,7 +23,13 @@ For each pending KE (in order):
 
 ## Completion
 
-After all KEs are done (or the user stops early), report:
-- Total KEs annotated this session
-- Path to the shared store (outputs_for_vc/aop_based_ke_annotations/ke_annotations.json)
-- Any KEs skipped or still pending
+After all KEs are done (or the user stops early):
+
+1. Report:
+   - Total KEs annotated this session
+   - Path to the shared store (outputs_for_vc/aop_based_ke_annotations/ke_annotations.json)
+   - Any KEs skipped or still pending
+
+2. Run the comparison script:
+   `uv run python scripts/compare_ke_annotations.py`
+   Present a brief summary of the output: how many KEs have divergent fields vs. new-only fields, and the output CSV path.
