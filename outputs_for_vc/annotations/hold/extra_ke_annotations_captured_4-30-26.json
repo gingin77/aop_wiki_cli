@@ -1,0 +1,3866 @@
+{
+  "155": {
+    "ke_id": "155",
+    "title": "Inadequate DNA repair",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "Inadequate DNA repair",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+          "label": "deoxyribonucleic acid",
+          "ontology": "CHEBI",
+          "reason": "The biological object acted upon in 'Inadequate DNA repair' is DNA itself, and the general deoxyribonucleic acid term (CHEBI) is the best match, as the KE refers to unrepaired DNA broadly rather than a specific chemically modified form.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0006281",
+          "label": "DNA repair",
+          "ontology": "GO",
+          "reason": "The KE 'Inadequate DNA repair' directly represents the biological process of DNA repair (GO), as the key event describes insufficient or failed repair of DNA damage.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0014760",
+          "label": "impaired DNA repair",
+          "ontology": "MP",
+          "reason": "Inadequate DNA repair implies a reduction or impairment in repair capacity, which directly matches 'impaired DNA repair' (MP) with synonyms 'reduced DNA repair' and 'decreased DNA repair'.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "disrupted",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Fluorescence-based Multiplex Flow-Cytometric Host Cell Reactivation Assay (FM-HCR)",
+        "description": "Directly measures the ability of human cells to repair plasmid reporters using fluorescence-based multiplex flow cytometry.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Nagel et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "plasmid reporters"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the biological object in a flow cytometry-based host cell reactivation assay, which would involve host cells (likely lymphocytes or similar cell types) used to assess DNA repair capacity.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006281",
+            "label": "DNA repair",
+            "ontology": "GO",
+            "reason": "The FM-HCR assay measures the host cell's ability to repair damaged DNA in reporter plasmids, making 'DNA repair' the most appropriate and general biological process term for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "rejection_reason": "The FM-HCR assay is a flow cytometry-based DNA repair/transcription-coupled repair assay measuring reactivation of damaged reporter plasmids, which does not match any of the listed fluorescence imaging-based assay types (morphology, viability, proliferation, cell cycle, or apoptosis).",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Dose-Response Curve for Alkyl Adducts and Mutations",
+        "description": "Measures the relationship between exposure to mutagenic alkylating agents and mutation frequency across doses to infer DNA repair capacity. Sub-linear (hockey stick or j-shaped) dose-response curves indicate effective repair at low doses with saturation at higher doses.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Clewell et al.",
+            "year": "2019",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_22323",
+            "label": "alkyl group",
+            "ontology": "CHEBI",
+            "reason": "The KE describes alkyl adducts formed when alkyl groups covalently attach to DNA, making 'alkyl group' the best match for the biological object being transferred/reacted in this mutagenesis context.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "mutations"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process of alkyl adduct formation or mutagenesis (DNA alkylation/adduct formation leading to mutations), which is the core process represented by this Key Event.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006307",
+            "label": "DNA alkylation repair",
+            "ontology": "GO",
+            "reason": "DNA alkylation repair directly describes the biological process of repairing alkyl adducts in DNA, which is the core process represented by this key event about dose-response relationships between alkyl adducts and mutations.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006280",
+            "label": "obsolete mutagenesis",
+            "ontology": "GO",
+            "reason": "The KE describes the relationship between alkyl adducts and mutations, which directly corresponds to mutagenesis as a biological process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001172",
+          "label": "dose response curve",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly refers to a 'Dose-Response Curve,' which directly matches the 'dose response curve' ontology term from OBI as the assay type used to measure alkyl adducts and mutations across doses.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Retention of Alkyl DNA Adducts",
+        "description": "Measures the persistence of alkylated DNA adducts in cells after exposure to alkylating agents to infer lack of effective DNA repair. Applied in somatic and spermatogenic cells.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Seiler et al.",
+            "year": "1997",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Scherer et al.",
+            "year": "1987",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_22323",
+            "label": "alkyl group",
+            "ontology": "CHEBI",
+            "reason": "The biological object in 'Retention of Alkyl DNA Adducts' is the alkyl group that forms the DNA adduct, making 'alkyl group' [CHEBI] the closest match among the candidates, though none perfectly capture 'alkyl DNA adduct' as a complete entity.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "The biological object for 'Retention of Alkyl DNA Adducts' should be a DNA molecule or chemical adduct (better represented by ChEBI terms), not a spermatogonial cell type, and none of the candidate UBERON terms appropriately represent the alkyl DNA adduct entity being acted upon.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe the retention/persistence of alkyl DNA adducts, which is fundamentally a DNA damage/repair process (specifically the failure to remove alkylation damage from DNA), not any of the processes listed.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006307",
+            "label": "DNA alkylation repair",
+            "ontology": "GO",
+            "reason": "DNA alkylation repair directly describes the process of repairing alkyl DNA adducts, and 'retention' of these adducts implies failure or absence of this specific repair process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Cricetinae"
+          },
+          {
+            "label": "Rattus norvegicus"
+          }
+        ],
+        "id": 3,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms (DNA subtraction, transduction, transfection, or extraction) describe an assay for measuring or detecting retention of alkyl DNA adducts, which would require terms related to DNA adduct detection/measurement assays such as 32P-postlabeling, immunoassay, or mass spectrometry-based methods.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Mutation Spectrum Analysis",
+        "description": "Analyzes shifts in the specific pattern of DNA sequence changes (mutation spectrum) following chemical exposure compared to non-exposed controls to infer ineffective repair of specific types of DNA damage.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_2588",
+            "label": "Alkylated DNA",
+            "ontology": "CHEBI",
+            "reason": "Mutation Spectrum Analysis in the context of AOPs typically involves examining DNA damage patterns caused by alkylating agents, making 'Alkylated DNA' the most relevant biological object among the candidates.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "mutations"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006280",
+            "label": "obsolete mutagenesis",
+            "ontology": "GO",
+            "reason": "Mutation Spectrum Analysis directly relates to mutagenesis as the biological process underlying the generation of mutations being analyzed in this Key Event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006281",
+            "label": "DNA repair",
+            "ontology": "GO",
+            "reason": "Mutation Spectrum Analysis involves examining patterns of DNA mutations, which is most broadly captured by the biological process 'DNA repair' (GO), as mutation spectra arise from the interplay of DNA damage and repair mechanisms.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0200197",
+          "label": "spectrum analysis objective",
+          "ontology": "OBI",
+          "reason": "Mutation Spectrum Analysis involves analyzing the pattern/spectrum of mutations, which aligns with 'spectrum analysis objective' as the assay type.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "assays",
+      "ec_annotations['Inadequate DNA repair'].biological_object",
+      "ec_annotations['Inadequate DNA repair'].biological_process",
+      "ec_annotations['Inadequate DNA repair'].phenotype",
+      "ec_annotations['Inadequate DNA repair'].biological_action"
+    ]
+  },
+  "185": {
+    "ke_id": "185",
+    "title": "Increase, Mutations",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "Mutations",
+        "biological_object": null,
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Bacterial Reverse Mutation Test (Ames Test)",
+        "description": "Uses multiple Salmonella bacterial strains in the presence and absence of metabolic activation (rat liver microsomal S9 fraction) to detect gene mutations via dose-response analysis of reverse mutation frequency.",
+        "citations": [
+          {
+            "title": "Test No. 471: Bacterial Reverse Mutation Test",
+            "authors": null,
+            "year": 2020,
+            "doi": null,
+            "pmid": null,
+            "journal": "OECD Test Guidelines"
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "The biological object in the Ames Test KE is Salmonella typhimurium (or other tester strain) bacteria used as the mutagenicity indicator organism, which is better represented as a cell type or organism rather than any of the listed Salmonella carbohydrate/polysaccharide chemical structures.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The Ames Test involves bacterial cells (Salmonella typhimurium or E. coli) as the biological object, and none of the candidate terms (all liver-related UBERON anatomy terms) are appropriate matches for this bacterial mutagenicity assay system.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms match the biological process of bacterial reverse mutation (reversion mutation detection in the Ames test), which involves DNA repair, mutagenesis, and mutation detection processes not represented by any of the listed GO terms.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The Bacterial Reverse Mutation Test (Ames Test) involves mutagenesis and DNA repair processes in bacteria, none of which are represented by the candidate GO terms (integrin activation, cell activation, complement activation, leukocyte activation, or fibroblast activation).",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Salmonella typhimurium"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003754",
+          "label": "Ames assay",
+          "ontology": "OBI",
+          "reason": "The Ames assay directly corresponds to the Bacterial Reverse Mutation Test (Ames Test) described in the KE title.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "HPRT Gene Mutation Assay (OECD TG 476)",
+        "description": "In vitro mammalian cell assay detecting gene mutations at the hprt locus (hypoxanthine-guanine phosphoribosyl transferase) using CHO, CHL, V79, L5178Y, or TK6 cell lines. Detects point mutations including base pair substitutions and frameshift mutations.",
+        "citations": [
+          {
+            "title": "Test No. 476: In Vitro Mammalian Cell Gene Mutation Tests using the Hprt and xprt genes",
+            "authors": null,
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": "OECD Test Guidelines"
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "None of the candidate terms match the biological object for the HPRT Gene Mutation Assay, which involves the HPRT (hypoxanthine-guanine phosphoribosyltransferase) gene or mammalian cells used in this mutagenicity assay.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match the biological object of the HPRT Gene Mutation Assay, which involves mammalian somatic cells (typically Chinese hamster ovary or V79 cells) assayed for mutations at the HPRT locus.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are relevant to the HPRT Gene Mutation Assay, which involves mammalian cells (typically CHO or V79 cells) used to detect mutations at the hypoxanthine-guanine phosphoribosyltransferase (HPRT) locus.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match the biological object relevant to the HPRT Gene Mutation Assay, which involves mammalian cells (typically CHO or L5178Y cells) used to detect mutations at the hypoxanthine-guanine phosphoribosyltransferase (HPRT) locus.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately represent the biological object for the HPRT Gene Mutation Assay, which involves the HPRT gene/enzyme or the mammalian cells (typically Chinese hamster ovary or human cells) used in OECD TG 476.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match the biological object for the HPRT Gene Mutation Assay, which involves mammalian cells (typically Chinese hamster ovary cells or human lymphoblastoid cells) assessed for mutations at the hypoxanthine-guanine phosphoribosyltransferase (HPRT) locus.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms accurately describe the biological process represented by the HPRT Gene Mutation Assay, which involves somatic mutation (specifically point mutations or deletions at the HPRT locus) rather than gene expression, gene conversion, plastid gene expression, horizontal gene transfer, or meiotic gene conversion.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0016553",
+            "label": "base conversion or substitution editing",
+            "ontology": "GO",
+            "reason": "The HPRT gene mutation assay detects gene mutations including base substitutions and other sequence alterations, making 'base conversion or substitution editing' the most relevant biological process term among the candidates.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "The KE describes HPRT gene mutation (specifically mutation at the hypoxanthine-guanine phosphoribosyltransferase locus as a measure of genotoxicity), which is not well represented by somatic diversification of immune receptors via somatic mutation, as that term specifically refers to immune receptor diversification rather than general somatic gene mutation assays.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Cricetulus griseus"
+          },
+          {
+            "label": "Mus musculus"
+          },
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 2,
+        "assay_type": {
+          "rejection_reason": "The HPRT gene mutation assay measures forward mutations at the HPRT locus by selecting for 6-thioguanine resistance, which does not match gene dosage, reporter gene, or gene knock-down assay types.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "XPRT Gene Mutation Assay (OECD TG 476)",
+        "description": "In vitro mammalian cell assay detecting gene mutations at the transgenic xprt (xanthine-guanine phosphoribosyl transferase) reporter locus using AS52 cells. Detects point mutations and large deletions not readily detected at the hprt locus.",
+        "citations": [
+          {
+            "title": "Test No. 476: In Vitro Mammalian Cell Gene Mutation Tests using the Hprt and xprt genes",
+            "authors": null,
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": "OECD Test Guidelines"
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "xprt transgene"
+          },
+          {
+            "rejection_reason": "Neither candidate term matches the biological object of the XPRT Gene Mutation Assay, which involves the hypoxanthine-guanine phosphoribosyltransferase (HPRT/XPRT) gene/enzyme in mammalian cells, not gamma-glutamyltransferase or alanine transaminase inhibitors.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are relevant to the HPRT/XPRT gene mutation assay, which involves mammalian cells (typically CHO or V79 cells) used in an in vitro mutagenicity test.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The XPRT Gene Mutation Assay measures somatic cell gene mutation (specifically forward mutations at the xanthine-phosphoribosyltransferase locus), which is not well represented by any of the candidate terms; the closest relevant process would be 'mutagenesis' or 'gene mutation,' but none of the listed GO terms capture this concept.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process relevant to the HPRT/XPRT gene mutation assay, which involves somatic mutation/mutagenesis processes; the candidates relate to RNA nucleotide deletion or B cell deletion, neither of which captures the gene mutation detection process central to this KE.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Cricetulus griseus"
+          }
+        ],
+        "id": 3,
+        "assay_type": {
+          "rejection_reason": "The HPRT/XPRT gene mutation assay measures forward mutations at the HPRT locus, which is a somatic cell gene mutation assay and does not match gene dosage, reporter gene, or gene knock-down assay types.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Mouse Lymphoma Assay (MLA) using tk locus (OECD TG 490)",
+        "description": "In vitro mammalian gene mutation assay using L5178Y tk+/- 3.7.2C cells to detect mutations at the thymidine kinase (tk) locus. Detects tk+/- to tk-/- mutations including point mutations, frameshift mutations, small deletions, and large deletions.",
+        "citations": [
+          {
+            "title": "Test No. 490: In Vitro Mammalian Cell Gene Mutation Tests using the Thymidine Kinase Gene",
+            "authors": null,
+            "year": 2015,
+            "doi": null,
+            "pmid": null,
+            "journal": "OECD Test Guidelines"
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_17748",
+            "label": "thymidine",
+            "ontology": "CHEBI",
+            "reason": "The Mouse Lymphoma Assay using the tk locus measures mutations at the thymidine kinase gene, and thymidine (as a substrate/molecule relevant to the tk locus selection system using trifluorothymidine resistance) is the most relevant biological object among the candidates.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the Mouse Lymphoma Assay context, which involves L5178Y mouse lymphoma cells at the thymidine kinase (tk) locus \u2014 no appropriate cell type (mouse lymphoma cell) or molecular target term is present among the candidates.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The Mouse Lymphoma Assay measures mutagenicity/clastogenicity at the tk locus, which is not well described by any of these GO biological process terms; the closest relevant processes would be DNA repair, mutagenesis, or loss of heterozygosity, none of which are represented in the candidate list.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the Mouse Lymphoma Assay or mutagenicity/genotoxicity biological processes; the candidates are all structural/neuronal or cytoskeletal concepts unrelated to this key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The Mouse Lymphoma Assay measures mutagenicity at the thymidine kinase (tk) locus, which involves somatic mutation/gene mutation processes, but 'somatic diversification of immune receptors via somatic mutation' specifically refers to immune receptor diversification and does not accurately represent the general mutagenicity/gene mutation process being assessed in the MLA.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process in the Mouse Lymphoma Assay (MLA) at the tk locus, which involves mutagenesis/mutation detection processes such as forward mutation, gene mutation, or loss of heterozygosity at the thymidine kinase locus in L5178Y mouse lymphoma cells.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by the Mouse Lymphoma Assay KE, which involves mutagenesis/mutation at the thymidine kinase (tk) locus detected through clastogenic or mutagenic events in mouse lymphoma cells.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Mus musculus"
+          }
+        ],
+        "id": 4,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match the Mouse Lymphoma Assay (MLA), which is a mammalian cell mutagenicity assay measuring forward mutations at the thymidine kinase (tk) locus, not a chromatin immunoprecipitation, fluorescence/radioactivity binding, microarray, or vital dye cell death assay.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "TK6 tk+/- Gene Mutation Assay (OECD TG 490)",
+        "description": "In vitro mammalian gene mutation assay using TK6 tk+/- cells to detect mutations at the thymidine kinase (tk) locus. Detects tk+/- to tk-/- mutations including point mutations, frameshift mutations, small deletions, and large deletions.",
+        "citations": [
+          {
+            "title": "Test No. 490: In Vitro Mammalian Cell Gene Mutation Tests using the Thymidine Kinase Gene",
+            "authors": null,
+            "year": 2015,
+            "doi": null,
+            "pmid": null,
+            "journal": "OECD Test Guidelines"
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "The biological object in the TK6 tk+/- Gene Mutation Assay is the thymidine kinase (TK) gene/locus in TK6 cells, which is not represented by any of the candidate terms (which are all chemical forms of the nucleoside thymidine rather than the gene or enzyme).",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match TK6 tk+/- cells, which are a human lymphoblastoid cell line used in the thymidine kinase gene mutation assay; no appropriate CL term for this specific cell line is present in the candidates.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The TK6 tk+/- Gene Mutation Assay measures mutagenicity at the thymidine kinase locus, which relates to somatic mutation induction rather than any of the listed biological processes (gene expression, gene conversion, plastid gene expression, horizontal gene transfer, or meiotic gene conversion).",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to gene mutation, mutagenesis, or DNA damage processes relevant to the TK6 tk+/- Gene Mutation Assay; all candidates describe structural/cellular branch points unrelated to this key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE describes gene mutation induction at the thymidine kinase locus in TK6 cells, which is not well represented by somatic diversification of immune receptors via somatic mutation; no suitable GO biological process term is available among the candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to gene mutation or mutagenicity assays; the KE describes a thymidine kinase gene mutation assay measuring somatic mutations, which would require a term like 'somatic mutation' or 'gene mutation' from GO biological processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to gene mutation or mutagenesis processes relevant to the TK6 tk+/- Gene Mutation Assay, which involves somatic mutation at the thymidine kinase locus.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 5,
+        "assay_type": {
+          "rejection_reason": "The TK6 tk+/- Gene Mutation Assay measures forward mutation at the thymidine kinase locus, which is a mutagenicity/clastogenicity assay and does not fit gene dosage, reporter gene, or gene knock-down assay categories.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Transgenic Rodent Gene Mutation Assay (OECD TG 488)",
+        "description": "In vivo assay measuring gene mutations and chromosomal deletions/rearrangements in virtually all tissues of transgenic rodents using transgenic reporter genes. Capable of detecting mutations across multiple tissues in a single animal.",
+        "citations": [
+          {
+            "title": "Test No. 488: Transgenic Rodent Somatic and Germ Cell Gene Mutation Assays",
+            "authors": null,
+            "year": 2020,
+            "doi": null,
+            "pmid": null,
+            "journal": "OECD Test Guidelines"
+          },
+          {
+            "title": null,
+            "authors": "Lambert et al.",
+            "year": 2005,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Lambert et al.",
+            "year": 2009,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "None of the candidate terms (bacterial virulence gene B, CGRP-2, CGRP-1) are relevant to the Transgenic Rodent Gene Mutation Assay (OECD TG 488), which involves transgenic reporter genes (like lacZ or cII) used to detect somatic or germline mutations in rodent tissues.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The Transgenic Rodent Gene Mutation Assay (OECD TG 488) measures gene mutations in various tissues of transgenic rodents, and none of the candidate terms (which all relate to somatic muscle/musculature) appropriately represent the biological object of this assay, which involves genomic DNA or reporter genes across multiple tissue types.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The KE describes a gene mutation assay measuring mutagenicity, which is not directly captured by any of the candidate terms; the closest biological process would be 'DNA repair' or 'mutagenesis', but none of the candidates (gene expression, gene conversion, plastid gene expression, horizontal gene transfer, meiotic gene conversion) adequately represent the process of gene mutation induction or detection.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by the Transgenic Rodent Gene Mutation Assay KE, which involves somatic or germline gene mutation detection; the candidates relate to chromosomal regions, RNA nucleotide deletions, or B cell deletion, none of which capture the mutagenesis/DNA mutation process central to this assay.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process relevant to the Transgenic Rodent Gene Mutation Assay (OECD TG 488), which involves DNA mutation/mutagenesis processes; the candidates relate to chromosomal regions, DNA demethylation, histone exchange, or phagocytosis, none of which capture gene mutation as a biological process.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Rattus norvegicus"
+          },
+          {
+            "label": "Mus musculus"
+          }
+        ],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003136",
+          "label": "transgenic mutagenesis",
+          "ontology": "OBI",
+          "reason": "The Transgenic Rodent Gene Mutation Assay (OECD TG 488) is a mutagenesis assay using transgenic rodents to detect in vivo gene mutations, which directly corresponds to 'transgenic mutagenesis' in OBI.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "assays",
+      "ec_annotations['Mutations'].biological_action"
+    ]
+  },
+  "870": {
+    "ke_id": "870",
+    "title": "Increase, Cell Proliferation",
+    "biological_organization": "Cellular",
+    "cell_term": null,
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "Cell Proliferation",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CL_0000000",
+          "label": "cell",
+          "ontology": "CL",
+          "reason": "Cell proliferation is a general process involving cells broadly, and the generic 'cell' term from CL is the best match as the biological object being acted upon in this key event.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms represent general cell proliferation; they all refer to specific cell types (fat cells, Leydig cells, muscle cells, mononuclear cells, or B cells), whereas the KE describes a general increase in cell proliferation with 'cell' as the selected object.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0000351",
+          "label": "increased cell proliferation",
+          "ontology": "MP",
+          "reason": "The KE describes 'Increase, Cell Proliferation', which directly matches 'increased cell proliferation' from the Mammalian Phenotype ontology.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "BrdU Labeling (In Vivo)",
+        "description": "BrdU, a synthetic thymidine analogue, is incorporated into DNA during S-phase of cell replication. Administered via infusion, bolus injection, or osmotic pump implantation. Tissue sections are immunohistochemically stained with anti-BrdU antibodies and labeled (dividing) cells are counted per unit tissue area or per cell nuclei.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Pera"
+            ],
+            "year": 1977,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": [
+              "Bogdanffy"
+            ],
+            "year": 1997,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_472552",
+            "label": "5-bromo-2'-deoxyuridine",
+            "ontology": "CHEBI",
+            "reason": "BrdU (5-bromo-2'-deoxyuridine) is the chemical molecule being labeled/incorporated in this in vivo labeling key event, making the ChEBI term for this compound the correct biological object.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "BrdU (bromodeoxyuridine) labeling measures incorporation into DNA during replication, making deoxyribonucleic acid (DNA) the biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match BrdU (bromodeoxyuridine) labeling in vivo, which involves a chemical (BrdU/ChEBI) incorporated into DNA during cell proliferation, and none of the candidates represent the relevant biological object (proliferating cells or BrdU itself).",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "BrdU labeling measures DNA synthesis/cell proliferation and the biological object acted upon is DNA or proliferating cells, none of which are represented by the candidate anatomical tissue terms (adipose, lymphomyeloid, skeletal, or generic tissue).",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "BrdU labeling measures general cell proliferation (DNA synthesis) and is not specific to any of the listed cell types (fat cells, Leydig cells, muscle cells, mononuclear cells, or B cells).",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0090592",
+            "label": "DNA synthesis involved in DNA replication",
+            "ontology": "GO",
+            "reason": "BrdU labeling in vivo measures DNA synthesis during replication (S-phase incorporation), which is best captured by 'DNA synthesis involved in DNA replication' as a general term encompassing the proliferative process being tracked.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000084",
+            "label": "mitotic S phase",
+            "ontology": "GO",
+            "reason": "BrdU labeling in vivo measures DNA synthesis during the S phase of the mitotic cell cycle, as BrdU is incorporated into newly synthesized DNA during mitotic cell replication.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000664",
+          "label": "BrdU incorporation assay",
+          "ontology": "OBI",
+          "reason": "BrdU incorporation assay directly matches the key event 'BrdU Labeling (In Vivo)', as BrdU (bromodeoxyuridine) incorporation is the specific assay used to measure cell proliferation in this context.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Ki67 Immunostaining (In Vivo)",
+        "description": "Direct immunohistochemical staining of tissue sections using antibodies against Ki67, a cellular marker of replication absent in quiescent cells. Ki67-positive cells are counted as replicating cells, reported per unit tissue area or per cell nuclei.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Grogan"
+            ],
+            "year": 1988,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": [
+              "Roche"
+            ],
+            "year": 2015,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": [
+              "Bogdanffy"
+            ],
+            "year": 1997,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_36080",
+            "label": "protein",
+            "ontology": "CHEBI",
+            "reason": "Ki67 is a protein biomarker used in immunostaining to measure cell proliferation, making 'protein' the best match for the biological object being detected/acted upon in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are relevant to Ki67 immunostaining, which measures cell proliferation and would be best represented by a general cell type or proliferating cell term, none of which are present in the candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000479",
+            "label": "tissue",
+            "ontology": "UBERON",
+            "reason": "Ki67 immunostaining is performed on tissue sections (in vivo context implies tissue specimens), making the generic 'tissue' UBERON term the most appropriate biological object, as no specific tissue type is indicated in the KE title.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "Ki67 is a general marker of cell proliferation not specific to any particular cell type listed in the candidates; none of the specific cell-type proliferation terms accurately represent the general cell proliferation process measured by Ki67 immunostaining in vivo.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0044786",
+            "label": "cell cycle DNA replication",
+            "ontology": "GO",
+            "reason": "Ki67 is a marker of cell proliferation associated with active cell cycle progression including DNA replication, making 'cell cycle DNA replication' the best broad match for the biological process represented by Ki67 immunostaining in vivo.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms accurately describe Ki67 immunostaining as an assay type; Ki67 immunostaining is an immunohistochemical staining assay used to measure cell proliferation, and none of the listed OBI terms capture this concept\u2014they all relate to in vivo experimental interventions rather than a staining/imaging assay methodology.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "IdU (5-iodo-2'-deoxyuridine) Incorporation Assay",
+        "description": "IdU, a thymidine analogue, is incorporated into DNA during synthesis and used to measure cell proliferation similarly to BrdU.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Devine",
+              "Behbehani"
+            ],
+            "year": 2021,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_147675",
+            "label": "5-iodo-2'-deoxyuridine",
+            "ontology": "CHEBI",
+            "reason": "The KE title explicitly refers to 'IdU (5-iodo-2'-deoxyuridine) Incorporation Assay', making 5-iodo-2'-deoxyuridine (idoxuridine) the direct biological object being incorporated in this assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The IdU incorporation assay measures the incorporation of 5-iodo-2'-deoxyuridine into DNA during replication, making deoxyribonucleic acid (DNA) the biological object being acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match the biological object of the IdU incorporation assay, which involves DNA or proliferating cells incorporating 5-iodo-2'-deoxyuridine (a thymidine analog) as a measure of cell proliferation.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The IdU incorporation assay measures DNA synthesis/cell proliferation generally (not specific to any particular cell type listed), and none of the candidate terms (fat cell, Leydig cell, muscle cell, mononuclear cell, or B cell proliferation) adequately represent this general DNA replication/cell proliferation process.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0090592",
+            "label": "DNA synthesis involved in DNA replication",
+            "ontology": "GO",
+            "reason": "The IdU incorporation assay measures DNA synthesis during replication by tracking incorporation of the thymidine analog 5-iodo-2'-deoxyuridine, which is a general measure of DNA synthesis involved in DNA replication.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000664",
+          "label": "BrdU incorporation assay",
+          "ontology": "OBI",
+          "reason": "IdU (5-iodo-2'-deoxyuridine) incorporation is functionally analogous to BrdU (bromodeoxyuridine) incorporation, as both are thymidine analogs incorporated during DNA synthesis to measure cell proliferation, making the BrdU incorporation assay the closest ontology match.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "CyQuant Cell Proliferation Assay",
+        "description": "A DNA-binding dye is added to cell cultures and the fluorescent dye signal is measured directly to provide a cell count and indication of cellular proliferation.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Jones et al."
+            ],
+            "year": 2001,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The CyQuant Cell Proliferation Assay measures cell proliferation by quantifying cellular DNA content using a fluorescent dye that binds to nucleic acids, making deoxyribonucleic acid (DNA) the biological object being acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately represent the biological object of a CyQuant Cell Proliferation Assay, which measures general cell proliferation/DNA content in cultured cells, and none of the listed terms (Leydig cells, metanephros blastemal cells, bronchioalveolar stem cells, or ethmoidal air cells) are relevant matches.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_37958",
+            "label": "dye",
+            "ontology": "CHEBI",
+            "reason": "The CyQuant Cell Proliferation Assay uses a fluorescent dye (CyQuant GR dye) that binds to cellular nucleic acids, making 'dye' the most appropriate biological object term, as no specific CyQuant dye term is available among the candidates.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The CyQuant Cell Proliferation Assay measures general cell proliferation via DNA quantification and is not specific to any of the listed cell types (fat cells, Leydig cells, muscle cells, mononuclear cells, or B cells), so none of the candidate terms are a good match; a general 'cell proliferation' GO term would be more appropriate.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002947",
+          "label": "fluorescence imaging-based cell proliferation assay",
+          "ontology": "OBI",
+          "reason": "The CyQuant Cell Proliferation Assay is a fluorescence-based assay that measures cell proliferation by quantifying cellular DNA content using fluorescent dye, matching the fluorescence imaging-based cell proliferation assay term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Nucleotide Analog Incorporation Assay (e.g., BrdU, EdU)",
+        "description": "Nucleoside analogues (e.g., BrdU, EdU) are added to cell cultures or injected into animals and incorporated into DNA at rates dependent on cellular proliferation. Antibodies conjugated to peroxidase or fluorescent tags are used for quantification via ELISA, flow cytometry, or microscopy.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Romar et al."
+            ],
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": [
+              "Roche"
+            ],
+            "year": 2013,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_472552",
+            "label": "5-bromo-2'-deoxyuridine",
+            "ontology": "CHEBI",
+            "reason": "BrdU (5-bromo-2'-deoxyuridine) is the primary nucleotide analog referenced in the assay title and serves as the biological object (chemical) incorporated during DNA synthesis to measure cell proliferation.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_232486",
+            "label": "5-ethynyl-2'-deoxyuridine",
+            "ontology": "CHEBI",
+            "reason": "EdU (5-ethynyl-2'-deoxyuridine) is the chemical molecule incorporated into DNA during the assay, directly matching the biological object acted upon in this nucleotide analog incorporation assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The nucleotide analog incorporation assay (BrdU, EdU) measures incorporation of nucleotide analogs into DNA during replication, making deoxyribonucleic acid (DNA) the biological object being acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately represent the biological object for a nucleotide analog incorporation assay (e.g., BrdU, EdU), which measures DNA synthesis/cell proliferation and would best be annotated with a chemical entity (like BrdU or EdU via ChEBI) or a general cell/DNA term, not any of the highly specific anatomical or cell type terms listed.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The KE describes a general cell proliferation assay (nucleotide analog incorporation) that measures DNA synthesis across all cell types, not specific to any of the listed cell type-specific proliferation processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0090592",
+            "label": "DNA synthesis involved in DNA replication",
+            "ontology": "GO",
+            "reason": "The nucleotide analog incorporation assay (BrdU, EdU) measures DNA synthesis during replication broadly, and 'DNA synthesis involved in DNA replication' best captures this general process without restricting to a specific cellular compartment or cell cycle phase.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000664",
+          "label": "BrdU incorporation assay",
+          "ontology": "OBI",
+          "reason": "The KE specifically describes a nucleotide analog incorporation assay using BrdU (and EdU) to measure cell proliferation, which directly matches the 'BrdU incorporation assay' term from OBI.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Cytoplasmic Proliferation Dye Assay",
+        "description": "Cells are incubated with a cytoplasmic fluorescent dye of known initial intensity. Cell divisions dilute the dye, reducing fluorescence intensity. The number of cell divisions is calculated using flow cytometry measurements.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Quah",
+              "Parish"
+            ],
+            "year": 2012,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_51121",
+            "label": "fluorescent dye",
+            "ontology": "CHEBI",
+            "reason": "The Cytoplasmic Proliferation Dye Assay involves fluorescent dyes (such as CFSE or similar proliferation tracking dyes) that label cytoplasm and dilute with each cell division, making 'fluorescent dye' the best match for the biological object acted upon in this assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are relevant to a Cytoplasmic Proliferation Dye Assay, which involves labeling cells with a cytoplasmic dye (such as CFSE) to track cell proliferation, and would require a general cell type or proliferating cell term not present in the candidates.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032943",
+            "label": "mononuclear cell proliferation",
+            "ontology": "GO",
+            "reason": "The Cytoplasmic Proliferation Dye Assay is commonly used to measure proliferation of peripheral blood mononuclear cells (PBMCs), making mononuclear cell proliferation the best match among the candidates.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0051301",
+            "label": "cell division",
+            "ontology": "GO",
+            "reason": "The Cytoplasmic Proliferation Dye Assay measures cell proliferation by tracking dye dilution with each cell division, making 'cell division' the most appropriate general GO biological process term.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002947",
+          "label": "fluorescence imaging-based cell proliferation assay",
+          "ontology": "OBI",
+          "reason": "A cytoplasmic proliferation dye assay measures cell proliferation by tracking fluorescent dye dilution through cell divisions via fluorescence imaging, making 'fluorescence imaging-based cell proliferation assay' the best match.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Colorimetric Dye Assay",
+        "description": "Cells are incubated with a dye that changes colour upon cellular metabolism. The colour change is measured and extrapolated to cell number to provide an indication of cellular proliferation rates.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Vega-Avila",
+              "Pugsley"
+            ],
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": [
+              "American Type Culture Collection"
+            ],
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_67126",
+            "label": "colorimetric reagent",
+            "ontology": "CHEBI",
+            "reason": "A colorimetric dye assay acts upon a colorimetric reagent as the biological/chemical object being used to detect or measure a response, making 'colorimetric reagent' the most specific and appropriate match for this KE.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to a colorimetric dye assay biological object, which would typically involve a chemical dye or general cell/tissue substrate, not Leydig cells, blastemal cells, bronchioalveolar stem cells, or ethmoidal air cells.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "A colorimetric dye assay is a cell viability/proliferation measurement technique, not a specific biological process matching any of the listed cell-type-specific proliferation terms.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate GO biological process terms appropriately describe a colorimetric dye assay, which is a measurement/detection method rather than a biological process such as cell viability, metabolic activity, or proliferation.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 7,
+        "assay_type": {
+          "rejection_reason": "None of the candidates specifically describe a colorimetric dye assay; the options refer to a Hoechst-specific dye assay, a cell viability/death assay using vital dye, or merely the role of a dye, none of which captures the general colorimetric dye assay methodology.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "BrdU, Ki67, IdU Quantification by Flow Cytometry",
+        "description": "Measurement of cell proliferation biomarkers (BrdU, Ki67, or IdU) by flow cytometry, normalized to total levels of the respective biomarker.",
+        "citations": [
+          {
+            "title": null,
+            "authors": [
+              "Ligasov\u00e1 et al."
+            ],
+            "year": 2017,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": [
+              "Devine",
+              "Behbehani"
+            ],
+            "year": 2021,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": [
+              "Kim",
+              "Sederstrom"
+            ],
+            "year": 2015,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_472552",
+            "label": "5-bromo-2'-deoxyuridine",
+            "ontology": "CHEBI",
+            "reason": "BrdU (5-bromo-2'-deoxyuridine) is one of the primary molecules quantified in this flow cytometry-based proliferation assay, making it the best match for the biological object being measured.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidates appropriately represent the biological object in this KE, which involves cell proliferation markers (BrdU, Ki67, IdU) measured by flow cytometry on cells\u2014a cell type (CL) or the DNA/nucleoside analogs (ChEBI for BrdU/IdU) would be more appropriate, but 'protein' and its variants are not the best match for what is being quantified in this assay context.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_472552",
+            "label": "5-bromo-2'-deoxyuridine",
+            "ontology": "CHEBI",
+            "reason": "BrdU (5-bromo-2'-deoxyuridine) is the primary biological object in this KE title, as it is the most commonly referenced proliferation marker in flow cytometry-based cell proliferation assays alongside Ki67 and IdU.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the biological objects involved in BrdU/Ki67/IdU quantification by flow cytometry, which concerns proliferating cells measured via DNA synthesis markers and cell cycle proteins.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The KE describes general cell proliferation quantification using BrdU/Ki67/IdU markers by flow cytometry, which is not specific to any of the listed cell types (fat cells, Leydig cells, muscle cells, mononuclear cells, or B cells), so none of the candidates accurately represent this general proliferation measurement process.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 8,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000916",
+          "label": "flow cytometry assay",
+          "ontology": "OBI",
+          "reason": "The KE describes quantification of BrdU, Ki67, and IdU markers by flow cytometry, making 'flow cytometry assay' the best broad match that encompasses all three detection methods described.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "assays",
+      "ec_annotations['Cell Proliferation'].biological_object",
+      "ec_annotations['Cell Proliferation'].phenotype",
+      "ec_annotations['Cell Proliferation'].biological_action"
+    ]
+  },
+  "1556": {
+    "ke_id": "1556",
+    "title": "Increase, lung cancer",
+    "biological_organization": "Organ",
+    "cell_term": null,
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+      "label": "lung",
+      "ontology": "UBERON",
+      "reason": "The KE describes lung cancer (malignant neoplasms arising from bronchial, bronchiolar, and alveolar epithelium) occurring in the lung as the primary organ, making 'lung' [UBERON] the most appropriate and broadest matching anatomical term.",
+      "source": "llm_recommendation"
+    },
+    "ec_annotations": [
+      {
+        "subject": "lung cancer",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+          "label": "lung",
+          "ontology": "UBERON",
+          "reason": "The biological object for 'Increase, lung cancer' is the lung as the anatomical entity where the cancer occurs, and the general 'lung' UBERON term is the most appropriate match.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms represent lung cancer or tumor development/proliferation processes; the KE describes pathological increase in lung cancer, which would be better represented by terms like 'lung carcinogenesis' or 'tumor growth', not normal developmental or morphogenesis processes.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/HP_0030078",
+          "label": "Lung adenocarcinoma",
+          "ontology": "HP",
+          "reason": "Lung adenocarcinoma (HP) is the closest match to 'Increase, lung cancer' as it represents a phenotypic manifestation of lung cancer, which is the key event being described.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Computed Tomography (CT) Scan",
+        "description": "3D X-ray providing cross-sections of organs/tissues/bones to detect tumours",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Bach et al.",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Ollier et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "A CT scan is a medical imaging procedure acting on the whole body or anatomical regions, and none of the candidate terms (tumor antigens, neoplastic cells, p53 modulators) represent the biological object relevant to this diagnostic imaging key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000062",
+            "label": "organ",
+            "ontology": "UBERON",
+            "reason": "A CT scan is an imaging procedure applied to body organs/anatomical structures, making 'organ' the most appropriate general biological object term for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "A CT scan is an imaging procedure applied to the whole body or body regions, not specifically acting upon a single tissue type like adipose, skeletal, or lymphomyeloid tissue, and generic 'tissue' does not adequately capture the biological object of a CT scan procedure.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "A CT scan is an imaging procedure applied to the whole body or specific regions/organs, not specifically to bone tissue; none of the candidate terms adequately represent the biological object of a CT scan, which could encompass any anatomical structure.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate GO biological process terms appropriately describe the process represented by a CT scan, which is a medical imaging procedure involving X-ray detection to produce cross-sectional images of the body.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "A CT scan is a medical imaging procedure, not a biological process, and none of the candidate GO terms (which relate to growth processes) meaningfully describe the activity represented by this key event.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002986",
+          "label": "computed tomography imaging assay",
+          "ontology": "OBI",
+          "reason": "The KE describes a CT scan procedure, which directly matches 'computed tomography imaging assay' with synonyms including 'CT scan' and 'computed tomography scan'.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "High-Resolution CT (HRCT)",
+        "description": "High-resolution computed tomography providing detailed cross-sections of organs/tissues/bones to detect tumours",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Bach et al.",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Ollier et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "HRCT (High-Resolution CT) is an imaging technique applied to lung/thoracic anatomy, and none of the candidate terms (tumor antigens, neoplastic cells, p53 activators/inhibitors) appropriately represent the biological object being measured or acted upon in this diagnostic imaging key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "HRCT (High-Resolution CT) is an imaging technique applied to the lung/thorax, and none of the candidate terms specifically represent lung tissue or the thoracic anatomy being imaged; 'organ' is too generic and the other options (compound organ, parapineal organ) are not appropriate matches for the biological object in this context.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "HRCT (High-Resolution CT) is an imaging measurement/diagnostic endpoint rather than a biological object acted upon, and none of the candidate terms (tissue types) appropriately represent what this key event measures, which is lung tissue morphology assessed via radiological imaging.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "High-Resolution CT (HRCT) is a medical imaging technique/measurement procedure, and none of the candidate GO biological process terms (which describe detection of specific molecules or physical states) appropriately represent this diagnostic imaging measurement as a biological process.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 2,
+        "assay_type": {
+          "rejection_reason": "High-Resolution CT (HRCT) is a computed tomography imaging technique, and none of the candidate terms relate to CT scanning; all candidates refer to NMR/MRI probe types or MRI data sets.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Positron Emission Tomography-CT (PET-CT)",
+        "description": "Combined PET and CT imaging to detect tumours by cross-sectional imaging",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Bach et al.",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Ollier et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0001063",
+            "label": "neoplastic cell",
+            "ontology": "CL",
+            "reason": "PET-CT imaging in the context of AOP-Wiki is used to detect and visualize neoplastic (tumor) cells, making 'neoplastic cell' the most appropriate biological object being acted upon or measured.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000062",
+            "label": "organ",
+            "ontology": "UBERON",
+            "reason": "PET-CT imaging is a diagnostic technique applied to organs/anatomical structures in the body, and 'organ' [UBERON] best represents the biological object being imaged/examined in this context.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "PET-CT is an imaging technique/diagnostic procedure, not a biological object that can be meaningfully mapped to a specific tissue, cell type, or anatomical entity from the given candidates.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0014865",
+            "label": "detection of activity",
+            "ontology": "GO",
+            "reason": "PET-CT is a diagnostic imaging technique that detects metabolic activity (e.g., radiotracer uptake) in tissues, which best corresponds to 'detection of activity' as a biological process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002987",
+          "label": "positron emission tomography imaging assay",
+          "ontology": "OBI",
+          "reason": "The KE describes PET-CT as an imaging procedure/assay type, which directly matches 'positron emission tomography imaging assay' as the methodological approach used.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Magnetic Resonance Imaging (MRI)",
+        "description": "Uses magnetic fields and radio waves to generate images of organs to detect tumours; does not use ionizing radiation",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Khalil et al.",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Wu et al.",
+            "year": "2011",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "MRI is an imaging technique applied to anatomical structures or tissues in general, and none of the candidate terms (tumor antigens, neoplastic cells, p53 modulators) appropriately represent the biological object acted upon during an MRI procedure.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000062",
+            "label": "organ",
+            "ontology": "UBERON",
+            "reason": "MRI is a medical imaging technique applied to organs or body parts (anatomical structures), making 'organ' [UBERON] the most appropriate biological object term for this Key Event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process represented by MRI, which involves detection of magnetic signals from hydrogen nuclei in biological tissues, and none of the GO terms provided are relevant to this imaging technique.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002985",
+          "label": "magnetic resonance imaging assay",
+          "ontology": "OBI",
+          "reason": "The KE title directly refers to Magnetic Resonance Imaging (MRI) as an assay/measurement technique, which matches 'magnetic resonance imaging assay [OBI]' with its synonym MRI.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Sputum Analysis",
+        "description": "Sputum is collected and analyzed for KRAS and TP53 mutations, RNA/protein biomarkers, and chromosomal aberrations as markers of lung cancer",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Hubers et al.",
+            "year": "2013",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0007311",
+            "label": "sputum",
+            "ontology": "UBERON",
+            "reason": "Sputum (UBERON) directly matches the biological object being analyzed in this key event, as sputum/expectoration is the anatomical substance being examined.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "KRAS"
+          },
+          {
+            "label": "TP53"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_59163",
+            "label": "biomarker",
+            "ontology": "CHEBI",
+            "reason": "Sputum analysis involves measuring biological markers (biomarkers) in sputum samples to assess disease states, making 'biomarker' the most appropriate biological object term for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_59163",
+            "label": "biomarker",
+            "ontology": "CHEBI",
+            "reason": "Sputum analysis involves measuring biological markers (biomarkers) in sputum samples to assess respiratory conditions, making 'biomarker' the most appropriate biological object term for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "chromosome"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe 'Sputum Analysis,' which is a clinical measurement/diagnostic procedure rather than a biological process represented by any of the listed GO terms.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to sputum analysis, which involves examining respiratory secretions and would be better described by terms related to respiratory mucus production, airway inflammation, or similar biological processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Sputum analysis is a clinical diagnostic procedure/measurement, not a biological process described by any of the candidate GO terms, which describe specific molecular detection processes unrelated to sputum analysis.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003234",
+          "label": "induced sputum assay",
+          "ontology": "OBI",
+          "reason": "The KE 'Sputum Analysis' refers to an assay procedure performed on sputum, and 'induced sputum assay' best captures the assay type (the analytical procedure), as opposed to the specimen itself or unrelated analysis methods.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Conventional White Light Bronchoscopy",
+        "description": "Bronchoscope with camera passed into the lungs to provide visual inspection of the respiratory tract using conventional white light",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ikeda et al.",
+            "year": "2007",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0004802",
+            "label": "respiratory tract epithelium",
+            "ontology": "UBERON",
+            "reason": "Conventional white light bronchoscopy examines the respiratory tract epithelium (airway epithelium), as bronchoscopy directly visualizes the mucosal lining of the airways, making respiratory tract epithelium the most specific biological object acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+            "label": "lung",
+            "ontology": "UBERON",
+            "reason": "Conventional White Light Bronchoscopy is a procedure examining the airways and lungs broadly, making 'lung' (UBERON) the most appropriate anatomical biological object being examined/acted upon.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process relevant to 'Conventional White Light Bronchoscopy', which involves visual detection/examination of airways rather than detection of activity, inactivity, peptidoglycan, LPS, or humidity.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Conventional White Light Bronchoscopy is a medical imaging/diagnostic procedure involving visual inspection of the bronchial tree, which does not map well to any of the candidate GO biological process terms, as these describe biological/physiological processes rather than a clinical diagnostic technique.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002901",
+          "label": "visible light source",
+          "ontology": "OBI",
+          "reason": "Conventional white light bronchoscopy uses a visible light source to illuminate the bronchial airways for visual inspection, making 'visible light source' the best match for this assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Autofluorescence Bronchoscopy (AFB)",
+        "description": "Bronchoscope passed into the lungs to visualize the respiratory tract using fluorescence technology",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ikeda et al.",
+            "year": "2007",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0004802",
+            "label": "respiratory tract epithelium",
+            "ontology": "UBERON",
+            "reason": "Autofluorescence bronchoscopy detects changes in the respiratory tract epithelium (airway epithelium), as the autofluorescence signal originates from and is altered by the epithelial tissue lining the airways.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+            "label": "lung",
+            "ontology": "UBERON",
+            "reason": "Autofluorescence bronchoscopy acts upon the lung as the primary anatomical target being examined for lesions or abnormalities.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0014865",
+            "label": "detection of activity",
+            "ontology": "GO",
+            "reason": "Autofluorescence Bronchoscopy (AFB) is a detection procedure that identifies activity (specifically abnormal tissue fluorescence patterns indicating lesions), making 'detection of activity' the closest match among the candidates, though the fit is imperfect.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "Autofluorescence bronchoscopy is a medical imaging procedure that detects tissue autofluorescence, which is not represented by any of the candidate GO biological process terms (which relate to respiratory burst/oxidative metabolism or chlorophyll fluorescence).",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 7,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003087",
+          "label": "autofluorescence assay",
+          "ontology": "OBI",
+          "reason": "Autofluorescence bronchoscopy is a clinical endoscopic procedure that detects intrinsic tissue fluorescence, matching the broader 'autofluorescence assay' term rather than the microscopy-specific variant.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Endobronchial Ultrasonography (EBUS)",
+        "description": "Bronchoscope passed into the lungs to visualize the respiratory tract using ultrasound technology",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ikeda et al.",
+            "year": "2007",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000065",
+            "label": "respiratory tract",
+            "ontology": "UBERON",
+            "reason": "Endobronchial ultrasonography (EBUS) is a procedure performed within the bronchial/respiratory tract, making the general 'respiratory tract' the most appropriate biological object, as EBUS examines structures along the entire bronchial tree rather than being restricted to upper or lower portions or epithelium specifically.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0004886",
+            "label": "lung hilus",
+            "ontology": "UBERON",
+            "reason": "EBUS is a bronchoscopic procedure specifically used to visualize and sample structures at the lung hilum, including hilar and mediastinal lymph nodes, making 'lung hilus' the most anatomically precise match for the biological object acted upon.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "EBUS is a medical imaging/diagnostic procedure, and none of the candidate GO biological process terms appropriately describe this clinical diagnostic technique for visualizing structures within or adjacent to the airways.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Endobronchial Ultrasonography (EBUS) is a medical imaging/diagnostic procedure, not a biological process, and none of the candidate GO terms accurately represent this clinical technique.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 8,
+        "assay_type": null
+      },
+      {
+        "title": "Transbronchial Needle Aspiration",
+        "description": "A needle aspirates a tissue sample from a suspected lung cancer lesion for histological or cytological analysis",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Navani et al.",
+            "year": "2015",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Aziz",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0004886",
+            "label": "lung hilus",
+            "ontology": "UBERON",
+            "reason": "Transbronchial needle aspiration targets the lung hilus (hilum) region, where mediastinal lymph nodes and peribronchial structures are sampled via bronchoscopic needle insertion through the bronchial wall.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "Transbronchial Needle Aspiration involves bronchial/lung tissue or lymph nodes accessed via bronchoscopy, but none of the candidate terms (adipose tissue, lymphomyeloid tissue, skeletal tissue, or generic tissue) specifically represent the relevant anatomical target such as bronchial wall, lung parenchyma, or mediastinal lymph nodes.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "Transbronchial Needle Aspiration is a medical procedure (bronchoscopic sampling technique) used to obtain tissue/cell samples from lymph nodes or masses adjacent to airways, and none of the candidate GO terms describing tumor cell immune response regulation are appropriate biological process terms for this procedural key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Transbronchial Needle Aspiration is a medical procedure for sampling tissue/fluid from mediastinal lymph nodes or masses, and none of the candidate GO biological process terms adequately describe this diagnostic/sampling process.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 9,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002655",
+          "label": "fine needle aspiration biopsy",
+          "ontology": "OBI",
+          "reason": "Transbronchial Needle Aspiration (TBNA) is a type of fine needle aspiration biopsy procedure used to sample tissue or cells via a needle, making 'fine needle aspiration biopsy' the closest matching assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Analysis of Volatile Organic Compounds in Breath",
+        "description": "Volatile organic compounds acting as lung cancer biomarkers are collected from exhaled breath and quantified, mostly using mass spectrometry",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Zhou et al.",
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_134179",
+            "label": "volatile organic compound",
+            "ontology": "CHEBI",
+            "reason": "The KE involves analysis of volatile organic compounds (VOCs) in breath, making 'volatile organic compound' from ChEBI the direct and best match for the biological object being measured.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "exhaled breath"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process of detecting or analyzing volatile organic compounds in breath, which would require a term related to chemical detection or olfaction/chemosensation.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process of volatile organic compound analysis in breath, which relates to metabolic processes and exhalation rather than inner cell mass differentiation or melanotic tumor responses.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 10,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0200085",
+          "label": "mass spectrometry analysis",
+          "ontology": "OBI",
+          "reason": "Analysis of Volatile Organic Compounds in breath is performed using mass spectrometry (often combined with gas chromatography), making mass spectrometry analysis the best match for this assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Cell Transformation Assay",
+        "description": "Measures tumourigenicity of a tumour/biopsy sample by analyzing changes in cell physiology and morphology in response to tumour-inducing radiation or chemicals; OECD approved (No. 231)",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Redpath et al.",
+            "year": "1987",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0001063",
+            "label": "neoplastic cell",
+            "ontology": "CL",
+            "reason": "A Cell Transformation Assay measures the transformation of normal cells into neoplastic (tumor) cells, making 'neoplastic cell' the most appropriate biological object acted upon in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately represent the biological object for a Cell Transformation Assay KE, which would ideally be annotated with a cell type term (e.g., from CL ontology) such as a fibroblast or epithelial cell, not a chemical compound like deoxycommendamide.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The Cell Transformation Assay KE refers to neoplastic/oncogenic transformation of cells (a toxicological endpoint measuring carcinogenic potential), which is not well-captured by any of the candidate terms that focus on viral transformation or DNA-mediated bacterial transformation rather than chemical-induced neoplastic cell transformation.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "tumourigenicity"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe cell transformation or neoplastic transformation, which is the biological process represented by the Cell Transformation Assay KE.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe cell transformation (the process by which normal cells acquire malignant/tumorigenic properties), as the options relate to DNA conformational/topological changes or vegetative phase transitions in plants.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 11,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001907",
+          "label": "immortalizing cell line transformation",
+          "ontology": "OBI",
+          "reason": "The Cell Transformation Assay measures the ability of a substance to transform cells toward a malignant phenotype, which aligns with 'immortalizing cell line transformation' as the assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Rodent Two-Year Cancer Bioassay (Carcinogenicity Study)",
+        "description": "Animals are exposed to a possible carcinogen for two years to study long-term cancer-related outcomes; OECD approved (No. 451)",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Matsumo",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Nambiar",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Maronpot",
+            "year": "2015",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0001063",
+            "label": "neoplastic cell",
+            "ontology": "CL",
+            "reason": "A two-year rodent carcinogenicity bioassay measures tumor formation, making 'neoplastic cell' the best match as the biological object being assessed in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_50903",
+            "label": "carcinogenic agent",
+            "ontology": "CHEBI",
+            "reason": "A two-year rodent carcinogenicity bioassay is designed to test carcinogenic agents, making 'carcinogenic agent' the best match for the biological object being acted upon in this study context.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "carcinogenesis"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process relevant to a rodent two-year cancer bioassay (carcinogenicity study), which would involve processes like carcinogenesis, tumor development, or cell proliferation rather than specific organ developmental processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to a rodent two-year cancer bioassay or carcinogenicity study; they all describe neurological/synaptic processes unrelated to cancer biology or long-term toxicological assessment.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Rodentia"
+          }
+        ],
+        "id": 12,
+        "assay_type": {
+          "rejection_reason": "Neither candidate term accurately describes a two-year rodent carcinogenicity bioassay; 'rodent care' refers to animal husbandry and 'insecticide resistance bioassay' is specific to insecticide testing, neither matching a long-term cancer bioassay assay type.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Window Chamber Model",
+        "description": "Window chambers are surgically implanted into animals to observe tumour progression in living animals using in vivo microscopy, MRI, or nuclear imaging",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Moeller",
+            "year": "2004",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Schafer",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Chen",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0001063",
+            "label": "neoplastic cell",
+            "ontology": "CL",
+            "reason": "The Window Chamber Model is used to study tumor vasculature and tumor cells in vivo, making 'neoplastic cell' the most appropriate biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "The 'Window Chamber Model' in AOP-Wiki refers to a dorsal skinfold window chamber used for intravital microscopy to study microvascular responses, which does not correspond to any of the candidate ontology terms (oval window, egg chamber, cardiac chamber, or junk chamber).",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process represented by a Window Chamber Model, which is an in vivo experimental model used to observe microcirculation, angiogenesis, and vascular biology processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by a 'Window Chamber Model' key event, which typically involves processes like angiogenesis, vascular responses, or tissue responses observable through an in vivo dorsal window chamber preparation.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The 'Window Chamber Model' is an experimental in vivo model used to observe microvascular dynamics and angiogenesis, which does not directly correspond to any of the listed GO biological process terms such as general growth, chondrocyte growth, pseudohyphal growth, growth cone, or developmental growth.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Animalia"
+          }
+        ],
+        "id": 13,
+        "assay_type": {
+          "rejection_reason": "The 'Window Chamber Model' refers to a dorsal skinfold window chamber animal model used to study microcirculation and angiogenesis in vivo, which does not match any of the candidate ontology terms (outlet window trap, hybridization chamber, or free-standing window trap).",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Xenograft Assay",
+        "description": "Human tumour cells grown in vitro are injected into animals to induce tumour growth and/or test the tumourigenicity of injected cells",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Wang",
+            "year": "2018",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Shi",
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Jin",
+            "year": "2018",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Wang",
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Zhou",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0001063",
+            "label": "neoplastic cell",
+            "ontology": "CL",
+            "reason": "In a xenograft assay, neoplastic (tumor) cells are transplanted into a host organism to assess tumor formation, making 'neoplastic cell' the most appropriate biological object.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "xenograft"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0040007",
+            "label": "growth",
+            "ontology": "GO",
+            "reason": "A xenograft assay measures tumor growth in vivo, making 'growth' (GO biological process) the best match for the biological process represented by this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "tumourigenicity"
+          },
+          {
+            "rejection_reason": "A xenograft assay is an in vivo tumor engraftment/growth experiment, and none of the candidate GO terms (cell-cell signaling, junction, recognition, fusion, or adhesion) appropriately describe this biological process.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          },
+          {
+            "label": "Animalia"
+          }
+        ],
+        "id": 14,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0100058",
+          "label": "xenograft",
+          "ontology": "OBI",
+          "reason": "The KE title 'Xenograft Assay' directly corresponds to the xenograft/xenotransplant term in OBI, which specifically describes the experimental procedure of transplanting tissue or cells from one species into another, which is the assay type being performed.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "organ_term",
+      "assays",
+      "ec_annotations['lung cancer'].biological_object",
+      "ec_annotations['lung cancer'].phenotype",
+      "ec_annotations['lung cancer'].biological_action"
+    ]
+  },
+  "1635": {
+    "ke_id": "1635",
+    "title": "Increase, DNA strand breaks",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "DNA strand breaks",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+          "label": "deoxyribonucleic acid",
+          "ontology": "CHEBI",
+          "reason": "The biological object acted upon in 'Increase, DNA strand breaks' is DNA itself (deoxyribonucleic acid), as strand breaks occur directly in the DNA molecule.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms describe DNA strand breaks (damage/fragmentation of DNA strands); the candidates relate to strand elongation, displacement, invasion, exchange, or renaturation, none of which capture the biological process of DNA strand break formation.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "rejection_reason": "Neither candidate term matches the KE 'Increase, DNA strand breaks' \u2014 the KE describes an increase in the occurrence of DNA strand breaks (both single- and double-strand), not an abnormality in the repair process of those breaks.",
+          "source": "llm_rejection"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Comet Assay (Alkaline)",
+        "description": "Single cells are encapsulated in agarose on a slide, lysed, and subjected to gel electrophoresis at alkaline pH (>13); DNA fragments migrate forming a 'comet'-like appearance to detect SSBs or DSBs.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Collins",
+            "year": 2004,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Olive and Banath",
+            "year": 2006,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Platel et al.",
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Nikolova et al.",
+            "year": 2017,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The Comet Assay (Alkaline) measures DNA strand breaks and damage, so the biological object acted upon is deoxyribonucleic acid (DNA), best represented by the general ChEBI term for DNA.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_9160",
+            "label": "single-stranded DNA",
+            "ontology": "CHEBI",
+            "reason": "The Comet Assay (Alkaline) detects DNA strand breaks, and under alkaline conditions it specifically reveals single-stranded DNA breaks, making single-stranded DNA (ssDNA) the most appropriate biological object being acted upon.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The Comet Assay (Alkaline) measures DNA strand breaks (single-strand and double-strand breaks) in cells, which relates to DNA damage detection rather than any of the specific molecular binding or strand metabolism processes listed as candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The Alkaline Comet Assay detects single-strand DNA breaks and alkali-labile sites, not specifically double-strand break processing or meiotic processes, so none of the candidate terms accurately represent the biological process measured by this key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the Comet Assay (Alkaline), which is a method used to detect DNA strand breaks and DNA damage\u2014a biological process not represented by any of the offered GO terms.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0302736",
+          "label": "DNA damage comet assay",
+          "ontology": "OBI",
+          "reason": "The Comet Assay (Alkaline) is a single cell gel electrophoresis assay used to measure DNA damage, which directly matches the 'DNA damage comet assay' OBI term with its synonyms including 'comet assay' and 'single cell gel electrophoresis assay'.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "\u03b3-H2AX Foci Quantification - Flow Cytometry",
+        "description": "Measurement of \u03b3-H2AX immunostaining in cells by flow cytometry, normalized to total levels of H2AX.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Rothkamm and Horn",
+            "year": 2009,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Bryce et al.",
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "\u03b3-H2AX"
+          },
+          {
+            "label": "H2AX"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000729",
+            "label": "DNA double-strand break processing",
+            "ontology": "GO",
+            "reason": "\u03b3-H2AX foci formation is a marker of DNA double-strand break processing, as H2AX phosphorylation occurs in response to and during the cellular processing of DNA double-strand breaks.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "immunostaining"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000916",
+          "label": "flow cytometry assay",
+          "ontology": "OBI",
+          "reason": "The KE involves quantifying \u03b3-H2AX foci using flow cytometry, which is best described by the general 'flow cytometry assay' term, as the measurement uses flow cytometric detection of fluorescently labeled intracellular proteins.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "\u03b3-H2AX Foci Quantification - Western Blot",
+        "description": "Measurement of \u03b3-H2AX immunostaining in cells by Western blotting, normalized to total levels of H2AX.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Burma et al.",
+            "year": 2001,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Revet et al.",
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "\u03b3-H2AX"
+          },
+          {
+            "label": "H2AX"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000729",
+            "label": "DNA double-strand break processing",
+            "ontology": "GO",
+            "reason": "\u03b3-H2AX foci formation is a hallmark response to DNA double-strand breaks, and 'DNA double-strand break processing' best captures the biological process of recognizing and responding to DSBs that this KE measures.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "immunostaining"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000854",
+          "label": "western blot assay",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly mentions 'Western Blot' as the quantification method, which directly matches the 'western blot assay' OBI term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "\u03b3-H2AX Foci Quantification - Microscopy",
+        "description": "Quantification of \u03b3-H2AX immunostaining by counting \u03b3-H2AX foci visualized with a microscope.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Redon et al.",
+            "year": 2010,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Mah et al.",
+            "year": 2010,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Garcia-Canton et al.",
+            "year": 2013,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "\u03b3-H2AX"
+          },
+          {
+            "label": "H2AX"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000729",
+            "label": "DNA double-strand break processing",
+            "ontology": "GO",
+            "reason": "\u03b3-H2AX foci formation is a marker of DNA double-strand break processing, as H2AX phosphorylation occurs in response to and during the processing of DNA double-strand breaks.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "immunostaining"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002119",
+          "label": "microscopy assay",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly specifies microscopy as the detection method for \u03b3-H2AX foci quantification, directly matching the 'microscopy assay' OBI term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "\u03b3-H2AX Foci Quantification - ELISA",
+        "description": "Measurement of \u03b3-H2AX in cells by ELISA, normalized to total levels of H2AX.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ji et al.",
+            "year": 2017,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "\u03b3-H2AX"
+          },
+          {
+            "label": "H2AX"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000729",
+            "label": "DNA double-strand break processing",
+            "ontology": "GO",
+            "reason": "\u03b3-H2AX foci formation is a cellular response to DNA double-strand breaks, and 'DNA double-strand break processing' best captures the biological process of recognizing and responding to these breaks, which is what this KE measures.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "immunoassay"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001059",
+          "label": "ELISA microplate reader",
+          "ontology": "OBI",
+          "reason": "An ELISA microplate reader is the instrument used to measure and quantify the signal in an ELISA assay, which directly corresponds to the \u03b3-H2AX foci quantification by ELISA described in this key event.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Pulsed Field Gel Electrophoresis (PFGE)",
+        "description": "Cells are embedded and lysed in agarose, and released DNA undergoes gel electrophoresis with periodically alternating voltage direction to separate large DNA fragments by size, detecting DSBs.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ager et al.",
+            "year": 1990,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Gardiner et al.",
+            "year": 1985,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Herschleb et al.",
+            "year": 2007,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Kawashima et al.",
+            "year": 2017,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "PFGE is a technique used to analyze DNA fragments, so deoxyribonucleic acid (DNA) is the biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000729",
+            "label": "DNA double-strand break processing",
+            "ontology": "GO",
+            "reason": "PFGE detects DNA double-strand breaks by separating large DNA fragments, making 'DNA double-strand break processing' the best match as it describes the biological process of handling/responding to double-strand breaks that this technique measures.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe Pulsed Field Gel Electrophoresis (PFGE), which is a laboratory technique for separating large DNA fragments and does not correspond to a biological process GO term among the options provided.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001106",
+          "label": "pulsed-field gel electrophoresis system",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly names 'Pulsed Field Gel Electrophoresis (PFGE)', which directly matches the 'pulsed-field gel electrophoresis system' ontology term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "TUNEL Assay",
+        "description": "dUTPs are added to the 3'OH end of strand breaks by TdT enzyme and tagged with a fluorescent dye or reporter enzyme to allow visualization of DNA strand breaks.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Loo",
+            "year": 2011,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The TUNEL assay detects DNA fragmentation (strand breaks) in cells undergoing apoptosis, making deoxyribonucleic acid (DNA) the biological object being acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_17625",
+            "label": "dUTP",
+            "ontology": "CHEBI",
+            "reason": "In the TUNEL assay, dUTP (2'-deoxyuridine triphosphate) is the nucleotide substrate that is incorporated at DNA strand breaks by terminal deoxynucleotidyl transferase to label apoptotic cells, making it the primary biological object acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "The TUNEL assay detects DNA fragmentation in cells undergoing apoptosis, and none of the candidate terms (which are all anatomical structures) accurately represent the biological object being acted upon, which would be DNA or apoptotic cells.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The TUNEL assay detects DNA fragmentation/strand breaks associated with apoptosis, and none of the candidate terms (strand elongation, displacement, invasion, exchange, or renaturation) accurately represent this biological process.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Neither candidate term is relevant to the TUNEL assay, which detects DNA fragmentation associated with apoptosis; the candidates describe chlorophyll catabolite enzymatic activities unrelated to this biological process.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 7,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The TUNEL Assay is a laboratory assay/experimental procedure used to detect DNA fragmentation, making 'assay' [OBI] the best match for the assay_type component.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "In Vitro DNA Cleavage Assay using Topoisomerase",
+        "description": "DNA cleavage is achieved using purified topoisomerase; DNA strand breaks are then separated and quantified using gel electrophoresis.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Nitiss",
+            "year": 2012,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The biological object acted upon in a DNA cleavage assay using Topoisomerase is deoxyribonucleic acid (DNA), which is what topoisomerase cleaves, and this general ChEBI term for DNA is the best match among the candidates.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_70727",
+            "label": "topoisomerase inhibitor",
+            "ontology": "CHEBI",
+            "reason": "The KE involves a DNA cleavage assay using topoisomerase generally, so 'topoisomerase inhibitor' (CHEBI) is the broadest and most appropriate biological object term encompassing the chemical entities acting upon topoisomerase in this assay.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe DNA cleavage or topoisomerase activity; the KE involves DNA strand breaking/rejoining by topoisomerases, which is not represented by strand elongation, displacement, invasion, exchange, or renaturation.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe DNA cleavage by topoisomerase, which would require a GO term related to DNA topological change or DNA strand cleavage activity by topoisomerase enzymes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to DNA cleavage or topoisomerase activity, which would best be described by GO terms such as 'DNA topological change' or 'DNA strand cleavage'.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 8,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match an in vitro DNA cleavage assay using topoisomerase, as the options cover cell killing, CRISPR screens, transcription reconstitution, and immunization assays.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "PCR Assay for Strand Breaks",
+        "description": "Strand breaks are assessed through observation of DNA amplification prevention; breaks block Taq polymerase, reducing DNA templates and preventing amplification.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Figueroa-Gonz\u00e1lez and P\u00e9rez-Plasencia",
+            "year": 2017,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The biological object acted upon in a PCR assay for strand breaks is DNA itself (deoxyribonucleic acid), as the assay detects breaks in the DNA strand, and this general ChEBI term best represents the molecular target.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "The biological object in a PCR Assay for Strand Breaks is DNA itself (specifically damaged/broken DNA strands), which is not represented among the candidate terms that all describe various polymerase inhibitors.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms accurately represent the biological process of DNA strand breaks (DNA damage/breakage), which is what the KE 'PCR Assay for Strand Breaks' is measuring; the candidates relate to DNA strand manipulation processes like elongation, displacement, invasion, or exchange, not strand break events.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006277",
+            "label": "DNA amplification",
+            "ontology": "GO",
+            "reason": "PCR assay for strand breaks involves DNA amplification as the core biological process, where PCR amplifies DNA fragments to detect and quantify strand breaks.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 9,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0302737",
+          "label": "PCR-SSCP assay",
+          "ontology": "OBI",
+          "reason": "PCR-SSCP assay detects single-strand conformation polymorphisms arising from strand breaks or conformational changes in single-stranded DNA, making it the best match for a PCR assay designed to detect strand breaks.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Sucrose Density Gradient Centrifugation",
+        "description": "DNA pieces are separated by density using a sucrose cushion; increased fractionation leads to lower density pieces, indicating strand breaks.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Raschke et al.",
+            "year": 2009,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "Sucrose density gradient centrifugation in the context of AOP-Wiki typically involves separation of DNA based on strand breaks or damage, making deoxyribonucleic acid (DNA) the biological object being acted upon by this technique.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "Sucrose density gradient centrifugation is a laboratory technique/method for separating molecules by mass/density, not a biological process represented by any of the candidate GO terms related to DNA strand activities.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "centrifugation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 10,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0600051",
+          "label": "gradient separation",
+          "ontology": "OBI",
+          "reason": "Sucrose density gradient centrifugation is fundamentally a gradient separation technique where molecules are separated based on their sedimentation through a density gradient, making 'gradient separation' the most specific and accurate match for the assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Alkaline Elution Assay",
+        "description": "Cells are lysed with a detergent-solution and filtered through a membrane to remove all but intact DNA, allowing detection of strand breaks.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Kohn",
+            "year": 1991,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The Alkaline Elution Assay measures DNA strand breaks, so the biological object acted upon is DNA (deoxyribonucleic acid), and option 1 is the best general match for DNA as the substrate being analyzed.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The Alkaline Elution Assay is a technique used to detect DNA strand breaks (single-strand and double-strand breaks) by measuring the rate of DNA elution through a filter under alkaline conditions, and none of the candidate terms describe DNA strand break detection or DNA damage assessment processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The Alkaline Elution Assay is a laboratory technique used to detect DNA strand breaks (DNA damage/repair), and none of the candidate terms accurately represent this biological process; the closest relevant GO terms would relate to DNA damage response or DNA strand break repair, not alkaline phosphatase activity or response to alkaline pH.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 11,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0302905",
+          "label": "elution",
+          "ontology": "OBI",
+          "reason": "The Alkaline Elution Assay involves eluting DNA through a filter under alkaline conditions to detect strand breaks, making 'elution' the closest matching ontology term among the candidates.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Unwinding Assay",
+        "description": "DNA is stored in alkaline solutions with DNA-specific dye and allowed to unwind following removal from tissue; increased strand damage is associated with increased unwinding.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Nacci et al.",
+            "year": 1992,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The DNA Unwinding Assay measures the unwinding of double-stranded DNA, making deoxyribonucleic acid (DNA) the primary biological object acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000732",
+            "label": "DNA strand displacement",
+            "ontology": "GO",
+            "reason": "An unwinding assay measures the separation or displacement of DNA strands, which corresponds to DNA strand displacement (including D-loop dissociation processes).",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032508",
+            "label": "obsolete DNA duplex unwinding",
+            "ontology": "GO",
+            "reason": "The KE 'Unwinding Assay' most directly corresponds to DNA duplex unwinding (GO term for obsolete DNA duplex unwinding), which describes the process of separating double-stranded DNA strands, the core biological process measured in an unwinding assay.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 12,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The 'Unwinding Assay' is a type of scientific assay/measurement procedure, best matched by the general 'assay' term from OBI.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "STRIDE Assay",
+        "description": "STRIDE (SensiTive Recognition of Individual DNA Ends) assay for detection of DNA strand breaks.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Zilio and Ulrich",
+            "year": 2021,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "The STRIDE assay measures DNA strand breaks and modifications, making deoxyribonucleic acid (DNA) the biological object acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The STRIDE Assay (Staining of Deoxyribose In Situ Decomposition Events) is a cytological assay for detecting DNA double-strand breaks and apurinic/apyrimidinic sites, which does not directly correspond to any of the candidate biological process terms listed.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 13,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The STRIDE Assay is a type of assay (scientific measurement/observation procedure), which best matches the general 'assay' term from OBI.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "assays",
+      "ec_annotations['DNA strand breaks'].biological_object",
+      "ec_annotations['DNA strand breaks'].biological_action"
+    ]
+  },
+  "1636": {
+    "ke_id": "1636",
+    "title": "Increase, Chromosomal aberrations",
+    "biological_organization": "Cellular",
+    "cell_term": null,
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "Chromosomal aberrations",
+        "biological_object": {
+          "rejection_reason": "None of the candidate terms match the biological object for 'Increase, Chromosomal aberrations', which should refer to chromosomes or DNA/chromatin structures (e.g., a chromosome ontology term), not an exportin 1 inhibitor chemical.",
+          "source": "llm_rejection"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms appropriately describe chromosomal aberrations as a biological process; the best match would be a GO term like 'chromosome instability' or 'DNA damage response,' none of which are present in the candidates.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0008866",
+          "label": "chromosomal instability",
+          "ontology": "MP",
+          "reason": "Chromosomal instability (MP) best captures the phenotype of increased chromosomal aberrations, as it directly refers to the propensity for chromosomal abnormalities and genomic instability.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Premature Chromosome Condensation (PCC)",
+        "description": "Cells are exposed to mitosis-promoting factors (MPF) following cell fusion, or to protein phosphatase inhibitors (type 1 and 2A), causing chromosomes to condense prematurely. Used to detect chromosomal aberrations before and after cell division.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Prasanna et al.",
+            "year": "2000",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Okayasu et al.",
+            "year": "2019",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "chromosomes"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent chromosomes or chromatin (the biological object acted upon in Premature Chromosome Condensation), which would best be described by an ontology term related to chromosomes or nuclear material rather than any of the listed chemical/factor terms.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Neither candidate term represents a biological object relevant to Premature Chromosome Condensation; the candidates are chemical inhibitor classes (ChEBI), not cell types, tissues, or anatomical entities acted upon in PCC, which would more appropriately involve chromosomes or chromatin structures.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0030261",
+            "label": "chromosome condensation",
+            "ontology": "GO",
+            "reason": "Premature Chromosome Condensation (PCC) is a general chromosome condensation event occurring outside of normal cell cycle timing, best captured by the broad 'chromosome condensation' GO term rather than the more specific meiotic or mitotic variants.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms adequately describe premature chromosome condensation as a biological process; the best match would be a GO biological process term such as 'chromosome condensation' (GO:0030261), but that term is not among the candidates provided.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms adequately describe an assay for detecting premature chromosome condensation; the options relate to chromosome conformation capture techniques or YAC vectors, not assays measuring PCC as a cytological/cytogenetic endpoint.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Chromosomal G-banding",
+        "description": "Use of Giemsa dye to stain chromosomal bands; abnormalities are determined by the presence of altered morphology.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Schwatz",
+            "year": "1990",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "chromosomes"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_37958",
+            "label": "dye",
+            "ontology": "CHEBI",
+            "reason": "G-banding involves staining chromosomes with dyes (such as Giemsa stain) to produce a characteristic banding pattern, making 'dye' the most appropriate biological object term.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms represent a biological process related to chromosomal G-banding, which involves the staining and visualization of chromosomes to reveal banding patterns; the candidates are either structural terms (chromosomal region/part) or unrelated detection processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are GO biological process terms; they are all cellular component/object terms, and none specifically describes the biological process of chromosomal G-banding or related chromatin condensation/staining processes.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "rejection_reason": "Chromosomal substitution is not an assay type; G-banding is a cytogenetic staining technique used to visualize chromosome banding patterns, and none of the provided candidates match this assay type.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Fluorescent In Situ Hybridization (FISH)",
+        "description": "Fluorescent assay of metaphase chromosomes that detects chromosomal aberrations through chromosome painting and microscopic analysis.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Beaton et al.",
+            "year": "2013",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Pathak et al.",
+            "year": "2017",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "metaphase chromosomes"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_39442",
+            "label": "fluorescent probe",
+            "ontology": "CHEBI",
+            "reason": "FISH uses fluorescent probes that hybridize to specific DNA/RNA sequences, making 'fluorescent probe' the most appropriate biological object for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms accurately describe FISH as a biological process; FISH is a laboratory technique/assay method for detecting specific DNA/RNA sequences, and none of the GO terms provided capture this detection/hybridization process appropriately.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are GO biological process terms; they are all cellular component/object terms describing types of chromosomes, and none describes the biological process represented by Fluorescent In Situ Hybridization (FISH), which would be something like nucleic acid hybridization or chromosomal localization.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003094",
+          "label": "fluorescence in-situ hybridization assay",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly states 'Fluorescent In Situ Hybridization (FISH)', which directly matches the fluorescence in-situ hybridization assay term with its FISH synonym.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Micronuclei (MN) Assay via Microscopy in vitro",
+        "description": "Micronuclei are scored in vitro using microscopy. OECD-approved assay (No. 487).",
+        "citations": [
+          {
+            "title": null,
+            "authors": "OECD",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "micronuclei"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are relevant to the Micronuclei Assay KE, which involves cell nuclei/chromosomes assessed in cultured cells; the candidates describe specific anatomical structures or obsolete cell types unrelated to this genotoxicity endpoint.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032125",
+            "label": "micronucleus organization",
+            "ontology": "GO",
+            "reason": "Micronucleus organization (GO) directly describes the biological process of micronucleus formation and biogenesis, which is what the Micronuclei (MN) Assay measures in vitro.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms adequately describe the biological process represented by micronuclei formation or chromosomal instability/DNA damage response that underlies the MN assay; the candidates are structural terms or detection processes unrelated to micronucleus formation.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002119",
+          "label": "microscopy assay",
+          "ontology": "OBI",
+          "reason": "The Micronuclei Assay via Microscopy in vitro directly involves microscopic visualization to detect and count micronuclei in cells, matching 'microscopy assay' as the assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Cytokinesis Block Micronucleus (CBMN) Assay with Microscopy in vitro",
+        "description": "Cells are cultured with a cytokinesis blocking agent, fixed to slides, and micronuclei are quantified using microscopy. OECD-approved assay (No. 487).",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Fenech",
+            "year": "2000",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "OECD",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "micronuclei"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the biological object in a CBMN assay, which involves cultured cells (typically lymphocytes or other dividing cells) used to detect micronuclei as indicators of chromosomal damage.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (radiosensitizing agent, sclerotherapy agent, antimyopathic agent, renal agent, pro-agent) appropriately represent the biological object in a CBMN assay, which would involve cell types (e.g., lymphocytes or cultured cells) or cellular structures like micronuclei, not these pharmacological agent categories.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000910",
+            "label": "cytokinesis",
+            "ontology": "GO",
+            "reason": "The CBMN assay blocks cytokinesis using cytochalasin B to identify micronuclei in binucleated cells, making the general 'cytokinesis' GO term the best match for the biological process being measured/blocked in this assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032125",
+            "label": "micronucleus organization",
+            "ontology": "GO",
+            "reason": "Micronucleus organization best describes the biological process underlying the CBMN assay, which detects the formation and organization of micronuclei as indicators of chromosomal damage.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by the CBMN assay KE, which involves cytokinesis, micronucleus formation, and chromosomal instability processes; the listed terms are either structural components or detection processes unrelated to these biological processes.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003755",
+          "label": "micronucleus assay",
+          "ontology": "OBI",
+          "reason": "The Cytokinesis Block Micronucleus (CBMN) Assay is specifically a micronucleus assay, which directly matches OBI's 'micronucleus assay' term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Micronucleus (MN) Assay by Microscopy in vivo",
+        "description": "Cells are fixed on slides and micronuclei are scored using microscopy. Red blood cells can also be scored for micronuclei using flow cytometry. OECD-approved assay (No. 474).",
+        "citations": [
+          {
+            "title": null,
+            "authors": "OECD",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "micronuclei"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0002355",
+            "label": "primitive red blood cell",
+            "ontology": "CL",
+            "reason": "The in vivo micronucleus assay is classically performed on primitive (immature/polychromatic) erythrocytes in bone marrow or peripheral blood, making 'primitive red blood cell' the most relevant biological object for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032125",
+            "label": "micronucleus organization",
+            "ontology": "GO",
+            "reason": "Micronucleus organization (GO) best describes the biological process of micronucleus formation and biogenesis, which is the core process being measured in a Micronucleus Assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by the micronucleus assay KE, which involves chromosomal damage/instability processes such as chromosome missegregation or DNA damage leading to micronucleus formation.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003755",
+          "label": "micronucleus assay",
+          "ontology": "OBI",
+          "reason": "The KE describes a micronucleus assay, which directly matches the 'micronucleus assay' OBI term, as this is the primary assay type being performed regardless of the detection method (microscopy) or context (in vivo).",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "CBMN with Imaging Flow Cytometry",
+        "description": "Cells are cultured with a cytokinesis blocking agent, fixed in solution, and imaged with flow cytometry to quantify micronuclei.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Rodrigues et al.",
+            "year": "2015",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "micronuclei"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the CBMN (Cytokinesis-Block Micronucleus) assay with Imaging Flow Cytometry, which involves lymphocytes or binucleated cells being examined for micronuclei as indicators of chromosomal damage.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (radiosensitizing agent, sclerotherapy agent, antimyopathic agent, renal agent, pro-agent) appropriately represent the biological object in the CBMN (Cytokinesis-Block Micronucleus) assay with Imaging Flow Cytometry, which would involve cell types (such as lymphocytes or binucleated cells) rather than any of these chemical agent categories.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000910",
+            "label": "cytokinesis",
+            "ontology": "GO",
+            "reason": "The cytokinesis-block micronucleus (CBMN) assay with imaging flow cytometry measures micronuclei in cells blocked after cytokinesis (binucleated cells), making 'cytokinesis' the most directly relevant biological process term without over-specifying to meiotic or mitotic contexts.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032125",
+            "label": "micronucleus organization",
+            "ontology": "GO",
+            "reason": "Micronucleus organization (GO biological process) best describes the biological process underlying the cytokinesis-block micronucleus (CBMN) assay, which detects the formation and organization of micronuclei as indicators of chromosomal damage.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the cytokinesis-block micronucleus (CBMN) assay or imaging flow cytometry, which involves biological processes such as cell division, micronucleus formation, or DNA damage response.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 7,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0400146",
+          "label": "multispectral imaging flow cytometer",
+          "ontology": "OBI",
+          "reason": "The cytokinesis-block micronucleus (CBMN) assay combined with Imaging Flow Cytometry specifically uses a multispectral imaging flow cytometer (MIFC), which captures both flow cytometric and imaging data simultaneously to score micronuclei in binucleated cells.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Flow Cytometry Detection of Micronuclei",
+        "description": "In vivo and in vitro flow cytometry-based, automated micronuclei measurements performed without cytokinesis block. In vivo analysis is performed in peripheral blood cells to detect micronuclei in erythrocytes and reticulocytes. OECD-approved assay (No. 487; No. 474).",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Dertinger et al.",
+            "year": "2004",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Bryce et al.",
+            "year": "2007",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "OECD",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "micronuclei"
+          },
+          {
+            "label": "erythrocytes"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0002020",
+            "label": "GlyA-positive reticulocytes",
+            "ontology": "CL",
+            "reason": "Flow cytometry detection of micronuclei in the context of genotoxicity testing commonly uses reticulocytes (specifically GlyA-positive reticulocytes in human samples) as the biological object being analyzed for micronucleus formation.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_4030030",
+            "label": "peripheral blood lymphocyte",
+            "ontology": "CL",
+            "reason": "Flow cytometry detection of micronuclei is classically performed on peripheral blood lymphocytes, which are the standard cell type used in the in vitro micronucleus assay to assess chromosomal damage.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032125",
+            "label": "micronucleus organization",
+            "ontology": "GO",
+            "reason": "Micronucleus organization (GO biological process) directly describes the formation and biogenesis of micronuclei, which is the biological process being detected in this Key Event involving flow cytometry detection of micronuclei.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms accurately describe micronucleus formation or detection, which is the biological process represented by this KE; the candidates relate to microtubule-based processes or nodal flow detection, which are not directly relevant to micronuclei as indicators of chromosomal damage or instability.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 8,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000916",
+          "label": "flow cytometry assay",
+          "ontology": "OBI",
+          "reason": "Flow cytometry assay (FACS) is the best match as the KE describes detection of micronuclei using flow cytometry, which is a general flow cytometry assay rather than any of the more specific subtypes listed.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "High-throughput Biomarker Assays for Clastogenicity",
+        "description": "Multiplexed biomarkers measured by flow cytometry to discern clastogenic and aneugenic mechanisms for micronuclei induction. Includes flow cytometry-based quantification of \u03b3H2AX foci and p53 protein expression, In-Cell Western-based quantification of \u03b3H2AX, and a green fluorescent protein reporter assay to detect activation of stress signaling pathways including DNA damage signaling associated with DNA double strand breaks.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Bryce et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Bryce et al.",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Bryce et al.",
+            "year": "2018",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Khoury et al.",
+            "year": "2013",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Khoury et al.",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Hendriks et al.",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Hendriks et al.",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Wink et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "\u03b3H2AX foci"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately represent the biological object in a clastogenicity biomarker assay context, which would involve DNA, chromosomes, or specific cell types rather than p53 modulators, generic proteins, or protein denaturants/dithiols.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "micronuclei"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_39442",
+            "label": "fluorescent probe",
+            "ontology": "CHEBI",
+            "reason": "Fluorescent probe is the most appropriate term for the biological object in high-throughput biomarker assays for clastogenicity, as these assays typically employ fluorescent probes to detect DNA damage or chromosomal aberrations, making it more general and fitting than specific dye types.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "clastogenicity"
+          },
+          {
+            "label": "aneugenicity"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000077",
+            "label": "DNA damage checkpoint signaling",
+            "ontology": "GO",
+            "reason": "The KE title focuses on high-throughput biomarker assays for clastogenicity, which broadly involves DNA damage checkpoint signaling as the overarching biological process detected by such assays, making the general 'DNA damage checkpoint signaling' term the best fit without over-specifying to a particular cell cycle phase.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0000729",
+            "label": "DNA double-strand break processing",
+            "ontology": "GO",
+            "reason": "DNA double-strand break processing best represents the biological process underlying clastogenicity biomarker assays, which detect and measure the cellular response to chromosomal breaks caused by clastogens.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process of clastogenicity or DNA damage/chromosomal breakage assessment that this KE represents.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032125",
+            "label": "micronucleus organization",
+            "ontology": "GO",
+            "reason": "Micronucleus organization (GO biological process) best captures the formation and organization of micronuclei, which are the key biomarkers assessed in clastogenicity assays resulting from chromosomal breaks or loss.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 9,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match a high-throughput biomarker assay for clastogenicity, which typically involves cytogenetic or DNA damage endpoints (e.g., micronucleus assays, comet assays) rather than sequencing-based genotyping, transcription profiling, microRNA profiling, or CLIP-seq approaches.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Dicentric Chromosome Assay (DCA)",
+        "description": "Cells are fixed on microscope slides, chromosomes are stained, and the number of dicentric chromosomes are quantified.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Abe et al.",
+            "year": "2018",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "dicentric chromosomes"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the Dicentric Chromosome Assay (DCA), which involves chromosomes/DNA in lymphocytes or other cells exposed to radiation or genotoxic agents; the candidates describe unrelated anatomical structures or cell types.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by the Dicentric Chromosome Assay, which involves chromosomal instability, DNA damage response, or chromosome segregation errors leading to dicentric chromosome formation.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are GO biological process terms; they are all cellular component/object terms, and none adequately describe the biological process underlying the Dicentric Chromosome Assay, which involves DNA damage, chromosome breakage, and aberrant chromosome reunion.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 10,
+        "assay_type": {
+          "rejection_reason": "The Dicentric Chromosome Assay (DCA) is a cytogenetic assay that detects dicentric chromosomes as a measure of chromosomal aberrations, and none of the candidate terms (which all relate to chromosome conformation capture methodologies used to study 3D genome organization) match this assay type.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "High Content Imaging",
+        "description": "DNA is stained using fluorescent dye and imaged for chromosomal aberration detection.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Shahane et al.",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "High Content Imaging as a KE in AOP-Wiki typically involves imaging of cellular DNA (e.g., nuclear staining), making deoxyribonucleic acid (DNA) the most appropriate biological object, and option 1 is the standard CHEBI term for DNA.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_51121",
+            "label": "fluorescent dye",
+            "ontology": "CHEBI",
+            "reason": "High Content Imaging relies on fluorescent dyes to label and visualize cellular components, making 'fluorescent dye' the best match for the biological object acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe 'High Content Imaging' as a biological process; the closest relevant GO biological process term would be something like 'imaging' or 'microscopy-based assay,' but none of the provided candidates match this concept.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe 'High Content Imaging' as a biological process; high content imaging is an experimental/measurement technique rather than a biological process, and none of the DNA replication/annealing terms are relevant to this KE.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe a biological process related to high content imaging, which is a cellular imaging/measurement technique used to assess multiple cellular parameters simultaneously.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 11,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000185",
+          "label": "imaging assay",
+          "ontology": "OBI",
+          "reason": "High Content Imaging is a type of imaging assay, making 'imaging assay [OBI]' the direct and accurate match for the assay type.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "assays",
+      "ec_annotations['Chromosomal aberrations'].phenotype",
+      "ec_annotations['Chromosomal aberrations'].biological_action"
+    ]
+  },
+  "1686": {
+    "ke_id": "1686",
+    "title": "Deposition of Energy",
+    "biological_organization": "Molecular",
+    "cell_term": {
+      "rejection_reason": "The KE describes a universal physical process (deposition of energy by ionizing/non-ionizing radiation) applicable to all biological contexts, and none of the highly specific cell types listed are relevant to this general initiating event.",
+      "source": "llm_rejection"
+    },
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "Deposition of Energy",
+        "biological_object": null,
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms accurately represent 'Deposition of Energy' in the context of ionizing radiation depositing energy in biological tissue (a physical process), as the candidates describe unrelated biological processes like egg deposition, neuromast deposition, energy taxis, energy quenching, or energy homeostasis.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "rejection_reason": "None of the candidate terms accurately represent 'Deposition of Energy' in the context of radiation biology, which refers to the physical process of ionizing radiation transferring energy to biological tissue, not amyloid, copulatory plug, or vitreous body deposition.",
+          "source": "llm_rejection"
+        },
+        "biological_action": {
+          "term": "occurrence",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Monte Carlo Simulations (e.g., Geant4)",
+        "description": "Computational algorithm that mathematically models the deposition of energy into materials to simulate ionizing radiation interactions.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Douglass et al.",
+            "year": "2013",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Douglass et al.",
+            "year": "2012",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Zyla et al.",
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [],
+        "processes": [
+          {
+            "rejection_reason": "Monte Carlo Simulations (e.g., Geant4) is a computational/physics simulation method, not a biological process, and none of the candidate GO terms accurately describe this computational modeling approach used in radiation physics.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": null
+      },
+      {
+        "title": "Fluorescent Nuclear Track Detector (FNTD)",
+        "description": "Biocompatible chips with aluminum oxide crystals doped with carbon and magnesium, used with fluorescent microscopy to visualize and quantify linear energy transfer (LET) of ionizing radiation tracks in a material.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Sawakuchi",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Niklas",
+            "year": "2013",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Kodaira & Konishi",
+            "year": "2015",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe a relevant biological process for a Fluorescent Nuclear Track Detector (FNTD), which is a physical detection technology for measuring ionizing radiation tracks and does not directly correspond to any of the listed GO biological processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Fluorescent Nuclear Track Detector (FNTD) is a radiation detection technology/measurement tool, not a biological process, so none of the candidate GO biological process terms are applicable.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000563",
+          "label": "fluorescene detector",
+          "ontology": "OBI",
+          "reason": "A Fluorescent Nuclear Track Detector (FNTD) is a fluorescence-based detection system that uses fluorescent readout to detect and measure particle tracks, making 'fluorescence detector' the closest match among the candidates.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Tissue Equivalent Proportional Counter (TEPC)",
+        "description": "Measures the linear energy transfer (LET) spectrum of ionizing radiation and calculates the equivalent dose.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Straume et al.",
+            "year": "2015",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [],
+        "processes": [
+          {
+            "rejection_reason": "A Tissue Equivalent Proportional Counter (TEPC) is a radiation detection instrument/measurement device, not a biological process, and none of the candidate GO terms describe radiation measurement or ionizing radiation energy deposition in tissue.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "equivalent dose calculation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match a Tissue Equivalent Proportional Counter (TEPC), which is a specific radiation detection instrument used in microdosimetry; the closest conceptual match would be a proportional counter but this is not represented in the candidate list.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Alanine Dosimeters",
+        "description": "Uses the amino acid alanine to detect radiation-induced changes for ionizing radiation dose measurement.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Lind et al.",
+            "year": "2019",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Xie et al.",
+            "year": "2022",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16449",
+            "label": "alanine",
+            "ontology": "CHEBI",
+            "reason": "Alanine dosimeters use the amino acid alanine as the radiation-sensitive material, making 'alanine' (CHEBI) the best match for the biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032328",
+            "label": "alanine transport",
+            "ontology": "GO",
+            "reason": "Alanine dosimeters involve the transport/movement of alanine as the key biological process most closely related to the KE subject, though this is a poor fit overall since alanine dosimeters are radiation measurement devices rather than a true biological process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "rejection_reason": "Alanine dosimeters refer to radiation dosimetry devices that use alanine (an amino acid) to measure ionizing radiation doses via electron spin resonance, which is unrelated to any of the candidate terms that describe alanine aminotransferase assays for liver function testing.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "NanoDots",
+        "description": "Nano-scale technology providing high precision and sensitivity in ionizing radiation dose measurements.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Lind et al.",
+            "year": "2019",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Xie et al.",
+            "year": "2022",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [],
+        "processes": [
+          {
+            "rejection_reason": "The KE title 'NanoDots' does not clearly correspond to any of the radiation response biological processes listed; without more context about what biological process this KE represents, none of the candidate terms can be confidently matched.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": null
+      },
+      {
+        "title": "UV Meters or Radiometers",
+        "description": "Measurement of non-ionizing UV radiation using UV meters for irradiance intensity (UVA/UVB), UV dosimeters for accumulated irradiance over time, and spectrophotometers for absorption of UV by a substance or material.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Xie et al.",
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0009589",
+            "label": "detection of UV",
+            "ontology": "GO",
+            "reason": "UV meters or radiometers detect/measure UV radiation, which best corresponds to 'detection of UV' as the biological process of perceiving or sensing ultraviolet light.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0016039",
+            "label": "absorption of UV light",
+            "ontology": "GO",
+            "reason": "UV meters or radiometers measure the absorption of UV light, making 'absorption of UV light' the most directly relevant biological process term for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001396",
+          "label": "stimulus or stress design",
+          "ontology": "OBI",
+          "reason": "UV meters or radiometers measure UV radiation as a stimulus or stress condition, which aligns with 'stimulus or stress design' as the assay type for quantifying UV exposure levels.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "assays",
+      "ec_annotations['Deposition of Energy'].biological_action"
+    ]
+  }
+}
