@@ -1,5 +1,5 @@
 """
-Compare KE annotations in outputs_for_vc/aop_based_ke_annotations/ke_annotations.json
+Compare KE annotations in outputs_for_vc/annotations/ke_annotations.json
 against existing annotations in the AOP-Wiki cache.
 
 Writes a CSV with one row per KE:
@@ -10,7 +10,7 @@ Writes a CSV with one row per KE:
 Usage:
     uv run python scripts/compare_ke_annotations.py
     uv run python scripts/compare_ke_annotations.py \
-        --annotations outputs_for_vc/aop_based_ke_annotations/ke_annotations.json \
+        --annotations outputs_for_vc/annotations/ke_annotations.json \
         --cache outputs/cache/04-28-2026/all_events_04-28-2026.json \
         --output outputs/ke_annotation_comparison.csv
 """
@@ -20,7 +20,7 @@ import csv
 import json
 from pathlib import Path
 
-ANNOTATIONS_FILE = "outputs_for_vc/aop_based_ke_annotations/ke_annotations.json"
+ANNOTATIONS_FILE = "outputs_for_vc/annotations/ke_annotations.json"
 CACHE_FILE = "outputs/cache/04-28-2026/all_events_04-28-2026.json"
 OUTPUT_FILE = "outputs/ke_annotation_comparison.csv"
 

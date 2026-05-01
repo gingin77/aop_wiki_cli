@@ -73,6 +73,6 @@ Proposed merged name: `scripts/annotate_ke_ontology.py`
 ## `.claude/commands/annotate-aop-ke-ontology.md`
 
 - [ ] **Remove `--reference` flag** from the per-KE run command on line 16 — this flag does not exist in the current script.
-- [ ] **Update the setup step** — step 2 checks for a reference file at `outputs/ke_ontology_suggestions/ke_suggestions_<date>.json`, which is the old format. The current workflow uses the shared store at `outputs_for_vc/aop_based_ke_annotations/ke_annotations.json`; no separate reference file needs to be located.
+- [ ] **Update the setup step** — step 2 checks for a reference file at `outputs/ke_ontology_suggestions/ke_suggestions_<date>.json`, which is the old format. The current workflow uses the shared store at `outputs_for_vc/annotations/ke_annotations.json`; no separate reference file needs to be located.
 - [ ] **Add `needs_review` flag handling** — after presenting the annotation summary, note any phenotype terms flagged `needs_review: true` so the user knows to inspect them.
 - [ ] If the scripts are merged, update the command invocations to point to the new script name.

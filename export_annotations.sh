@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copy outputs_for_vc/aop_based_ke_annotations to a target directory.
+# Copy outputs_for_vc/annotations to a target directory.
 # Usage:
 #   ./export_annotations.sh --output /path/to/target/dir [--dry-run]
 #   ./export_annotations.sh --output ~/Developer/emod_3_OH.nosync/inputs/lung_and_immune_annotations --dry-run
@@ -23,7 +23,7 @@ if [[ -z "$EXPORT_PATH" ]]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SRC_DIR="$SCRIPT_DIR/outputs_for_vc/aop_based_ke_annotations"
+SRC_DIR="$SCRIPT_DIR/outputs_for_vc/annotations"
 
 if [[ ! -d "$SRC_DIR" ]]; then
     echo "Error: source directory not found: $SRC_DIR"

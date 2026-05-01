@@ -13,5 +13,5 @@ description: |
   - review: identify and resolve KEs flagged needs_review
 
   Script: scripts/annotate_ke.py
-  Store:  outputs_for_vc/aop_based_ke_annotations/ke_annotations.json
+  Store:  outputs_for_vc/annotations/ke_annotations.json
 ---

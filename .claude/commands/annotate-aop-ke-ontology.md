@@ -27,7 +27,7 @@ After all KEs are done (or the user stops early):
 
 1. Report:
    - Total KEs annotated this session
-   - Path to the shared store (outputs_for_vc/aop_based_ke_annotations/ke_annotations.json)
+   - Path to the shared store (outputs_for_vc/annotations/ke_annotations.json)
    - Any KEs skipped or still pending
 
 2. Run the comparison script:

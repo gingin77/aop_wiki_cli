@@ -6,7 +6,7 @@ No arguments required. Reads directly from the shared store.
 
 ## Steps
 
-1. Load outputs_for_vc/aop_based_ke_annotations/ke_annotations.json
+1. Load outputs_for_vc/annotations/ke_annotations.json
 2. Find all KEs where any field has needs_review: true (typically phenotype terms with GO IDs)
 3. For each flagged KE, present:
    - KE ID and title

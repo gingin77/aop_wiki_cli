@@ -6,7 +6,7 @@ and maintain the AOP → KE index store.
 import json
 import os
 
-AOP_ANNOTATIONS_DIR = "outputs_for_vc/aop_based_ke_annotations"
+AOP_ANNOTATIONS_DIR = "outputs_for_vc/annotations"
 AOP_STORE_PATH = os.path.join(AOP_ANNOTATIONS_DIR, "aop_based_ke_store.json")
 SHARED_STORE_PATH = os.path.join(AOP_ANNOTATIONS_DIR, "ke_annotations.json")
 
