@@ -5245,7 +5245,10 @@
     "title": "Impairment, T-cell dependent antibody response",
     "biological_organization": "Tissue",
     "cell_term": null,
-    "organ_term": null,
+    "organ_term": {
+      "rejection_reason": "Neither candidate term represents an appropriate anatomical structure or tissue for this key event, which involves systemic immune responses including spleen, blood, and lymphoid tissues rather than a 'T cell domain' or an obsolete cell type designation.",
+      "source": "llm_rejection"
+    },
     "ec_annotations": [
       {
         "subject": "T-cell dependent antibody response",
@@ -5256,7 +5259,13 @@
           "reason": "The KE describes impairment of T-cell dependent antibody response, where T cells (the general cell type) are the biological object involved, and CL (Cell Ontology) is the preferred ontology for cell types.",
           "source": "llm_recommendation"
         },
-        "biological_process": null,
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0002286",
+          "label": "T cell activation involved in immune response",
+          "ontology": "GO",
+          "reason": "T cell activation involved in immune response best captures the biological process underlying a T-cell dependent antibody response, where T cell activation (particularly helper T cells) is required to drive B cell antibody production, and impairment of this activation would impair the TDAR.",
+          "source": "llm_recommendation"
+        },
         "phenotype": {
           "term_id": "http://purl.obolibrary.org/obo/HP_0005424",
           "label": "Absent specific antibody response",
@@ -5270,21 +5279,464 @@
         }
       }
     ],
+    "assays": [
+      {
+        "title": "Sandwich ELISA for serum anti-KLH IgM and IgG (rat, FK506)",
+        "description": "Rats were repeatedly administered FK506 orally for 4 weeks and immunized with KLH. Serum was examined for T-cell-dependent, antigen-specific IgM and IgG levels using a Sandwich ELISA kit.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ulrich et al.",
+            "year": "2004",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "antagonist",
+        "objects": [
+          {
+            "rejection_reason": "The KE involves measuring anti-KLH IgM and IgG antibodies in serum via sandwich ELISA, so the biological object is the immunoglobulin/antibody molecule itself (IgM and IgG), not a cell type; none of the candidate CL terms for B cell subtypes accurately represent serum antibodies as the measured entity.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE involves measuring serum anti-KLH IgM and IgG antibody levels via sandwich ELISA, so the biological object is the immunoglobulin molecules (IgM and IgG antibodies) in serum, not a specific B cell type; none of the candidate terms represent antibody molecules.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "KLH (keyhole limpet hemocyanin)"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The KE describes antibody (IgM/IgG) production measured by sandwich ELISA in response to KLH immunization, which reflects B cell-mediated humoral immune response and antibody production, none of which are adequately captured by the candidate terms that focus on T cell processes or cytotoxicity.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002377",
+            "label": "immunoglobulin production",
+            "ontology": "GO",
+            "reason": "The KE involves measuring serum anti-KLH IgM and IgG antibody levels via sandwich ELISA, directly reflecting immunoglobulin production as a biological process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Rattus norvegicus"
+          }
+        ],
+        "id": 1,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match a sandwich ELISA for anti-KLH IgM/IgG antibodies in rats; all candidates are specific commercial kits or assays for infectious disease antibodies (Chikungunya, Dengue, Orientia, Scrub Typhus) unrelated to KLH immunotoxicology assays.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Plaque-Forming Cell (PFC) Assay for anti-SRBC response (mouse, CNIs)",
+        "description": "Mice were repeatedly administered calcineurin inhibitors (FK506 and CsA) orally for 4 days and immunized with SRBC. Spleen cells were examined using a PFC assay to measure antigen-specific antibody-secreting cells.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Kino et al.",
+            "year": "1987",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "antagonist",
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0002106",
+            "label": "spleen",
+            "ontology": "UBERON",
+            "reason": "The PFC assay measures antibody-forming cells in the spleen, making the spleen (UBERON) the primary biological object/anatomical entity acted upon in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "The PFC assay measures antibody-forming cells responding to sheep red blood cells (SRBC), and none of the candidate terms represent sheep red blood cells, B cells, or relevant immune cell types/molecules involved in this assay.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000946",
+            "label": "antibody secreting cell",
+            "ontology": "CL",
+            "reason": "The PFC assay measures antibody-secreting cells (plaque-forming cells) that produce anti-SRBC antibodies, making 'antibody secreting cell' the best match for the biological object being assessed in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002286",
+            "label": "T cell activation involved in immune response",
+            "ontology": "GO",
+            "reason": "The PFC assay measures the T-cell dependent antibody response to sheep red blood cells (SRBC), which fundamentally involves T cell activation during the immune response to support B cell differentiation into antibody-secreting plasma cells.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002377",
+            "label": "immunoglobulin production",
+            "ontology": "GO",
+            "reason": "The PFC assay measures antibody (immunoglobulin) production against sheep red blood cells (SRBC), so immunoglobulin production is the best match for this key event's biological process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Mus musculus"
+          }
+        ],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000743",
+          "label": "immune response assay",
+          "ontology": "OBI",
+          "reason": "The Plaque-Forming Cell (PFC) assay measures the antibody-mediated immune response against sheep red blood cells (SRBC), making 'immune response assay' the best match for this assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "ELISA for serum anti-SRBC IgM and IgG (cynomolgus monkey, CsA)",
+        "description": "Cynomolgus monkeys received CsA twice daily via oral gavage for 23 days and were immunized with SRBC. Serum was examined for anti-SRBC IgM and IgG levels using an ELISA specific for SRBC antigen.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Kevin, G. et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "antagonist",
+        "objects": [
+          {
+            "rejection_reason": "The KE measures serum anti-SRBC IgM and IgG antibody levels via ELISA, so the biological object is the immunoglobulin/antibody molecule itself (or serum), not a specific B cell type listed in the candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE involves measuring serum IgM and IgG antibodies (immunoglobulins) via ELISA, so the biological object is the antibody molecules (IgM and IgG) in serum, not a specific B cell type; none of the candidate terms represent serum immunoglobulins or antibody molecules.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE involves measuring anti-SRBC (sheep red blood cell) IgM and IgG antibodies by ELISA in cynomolgus monkeys treated with cyclosporine A, and none of the candidate terms represent the relevant biological object (sheep red blood cells as antigen, or IgM/IgG antibodies as measured molecules).",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The KE describes measurement of anti-SRBC IgM and IgG antibody production (humoral/B cell immune response), and none of the candidate terms capture antibody production or the T-dependent humoral immune response; all candidates focus on T cell-specific processes rather than antibody-mediated immunity.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002377",
+            "label": "immunoglobulin production",
+            "ontology": "GO",
+            "reason": "The KE involves measuring serum anti-SRBC IgM and IgG levels via ELISA, which directly represents immunoglobulin production as the biological process being assessed.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Macaca fascicularis"
+          }
+        ],
+        "id": 3,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match the assay type described, which is an ELISA measuring anti-SRBC (sheep red blood cell) IgM and IgG antibodies in cynomolgus monkey serum; all candidates are specific to infectious disease antibody detection (Chikungunya, Dengue, Orientia, Scrub Typhus).",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "ELISA for splenocyte IgM and IgG after DBA exposure (mouse)",
+        "description": "Mice were exposed to a single pharyngeal aspiration of DBA. Supernatants of splenocytes cultured for 24 h in the presence of LPS were assayed using a mouse IgM or IgG matched pairs antibody kit.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Donna, C. et al.",
+            "year": "2010",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "The KE describes measuring IgM and IgG antibody levels (not cell types) from splenocytes via ELISA after DBA exposure, so the biological object is the immunoglobulin molecules (IgM/IgG) rather than any specific B cell subtype listed in the candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE describes an ELISA assay measuring IgM and IgG antibody levels from splenocytes, so the biological object is the immunoglobulin molecules (IgM/IgG) or the splenocyte population broadly, none of which are well captured by the IgG-specific B cell/plasmablast/plasma cell terms provided.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "splenocytes"
+          },
+          {
+            "rejection_reason": "The KE title refers to an ELISA measuring IgM and IgG antibody responses in splenocytes after dibutylamine (DBA) exposure, so the biological object should be immunoglobulins or splenocytes, not lipopolysaccharide-related chemicals.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002377",
+            "label": "immunoglobulin production",
+            "ontology": "GO",
+            "reason": "The KE involves measuring IgM and IgG production by splenocytes via ELISA, which directly corresponds to immunoglobulin production (encompassing immunoglobulin biosynthesis and secretion).",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0042113",
+            "label": "B cell activation",
+            "ontology": "GO",
+            "reason": "The KE measures IgM and IgG antibody production by splenocytes following DBA exposure, which directly reflects B cell activation and subsequent differentiation into antibody-secreting cells.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Mus musculus"
+          }
+        ],
+        "id": 4,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match the assay type described, which is a general ELISA measuring IgM and IgG antibodies from splenocytes after DBA (dibutyl adipate) exposure in mice, not a pathogen-specific diagnostic ELISA kit.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Sandwich ELISA for IgM and IgG in PBMC co-culture (human, CNIs)",
+        "description": "T cells and B cells isolated from human PBMCs were co-cultured with CNIs (FK506 or CsA) for nine days in the presence of polyclonal T-cell stimulation. Supernatants were tested for IgM and IgG levels using a Sandwich ELISA kit.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Heidt et al.",
+            "year": "2009",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "antagonist",
+        "objects": [
+          {
+            "rejection_reason": "The KE measures IgM and IgG antibody levels via sandwich ELISA in PBMC co-culture, so the biological object is the secreted immunoglobulins (IgM and IgG proteins/antibodies) rather than a specific B cell subtype; none of the candidate terms represent the antibody molecules being measured.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The biological object in this KE is IgM and IgG immunoglobulins (antibodies) measured by sandwich ELISA in PBMC co-culture, not a specific B cell type; none of the candidate terms represent the immunoglobulin molecules themselves, and ChEBI or a protein ontology term for IgM/IgG would be more appropriate.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (cyclofarnesine T, mulberrofuran T, anabaenopeptin T, oblongolide T, momordicoside T) are relevant to the biological object in a sandwich ELISA for IgM and IgG in PBMC co-culture, which should reference immunoglobulins (IgM/IgG), peripheral blood mononuclear cells, or calcineurin inhibitors.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE describes measurement of IgM and IgG antibodies via sandwich ELISA in PBMC co-culture, which involves immunoglobulins/antibodies as the biological object rather than any specific B cell subtype or anatomical structure listed in the candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_2000001",
+            "label": "peripheral blood mononuclear cell",
+            "ontology": "CL",
+            "reason": "The KE explicitly refers to PBMC co-culture, and 'peripheral blood mononuclear cell' with the synonym PBMC is the direct match for the biological object being acted upon in this assay.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "The KE describes immunoglobulin (IgM and IgG) production measured by sandwich ELISA in PBMC co-culture, which relates to B cell activation and antibody secretion, not T cell activation, differentiation, or cytotoxicity processes listed in the candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE describes antibody (IgM and IgG) production measured by sandwich ELISA in PBMC co-culture, which relates to B cell activation and humoral immune response rather than any of the listed T cell activation processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0002377",
+            "label": "immunoglobulin production",
+            "ontology": "GO",
+            "reason": "The KE involves measuring IgM and IgG levels via sandwich ELISA in PBMC co-culture, which directly reflects immunoglobulin production (biosynthesis and secretion) as the relevant biological process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 5,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match a generic sandwich ELISA for IgM and IgG in PBMC co-culture; all candidates are disease-specific ELISA kits for particular pathogens (Chikungunya, Dengue, Orientia tsutsugamushi), not general sandwich ELISA assay types.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "ELISA for IgM in SKW6.4 B-cell line co-culture with PBMC supernatant (human, CNIs)",
+        "description": "SKW6.4 cells (IL-6-dependent IgM-secreting human B-cell line) were cultured with anti-CD3/CD28 antibody-stimulated PBMC culture supernatant. After four days, IgM in culture supernatants was measured using an ELISA kit. FK506 or CsA reduced IgM levels.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Sakuma et al.",
+            "year": "2001",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "antagonist",
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000983",
+            "label": "IgM plasmablast",
+            "ontology": "CL",
+            "reason": "The KE involves ELISA measurement of IgM secretion from SKW6.4 B-cell line, which is a plasmablast-like cell that secretes IgM, making IgM plasmablast the best match for the biological object being acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are relevant to the biological object in this KE, which involves IgM antibody production by SKW6.4 B-cells or peripheral blood mononuclear cells (PBMCs) in the context of immunotoxicity testing.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_2000001",
+            "label": "peripheral blood mononuclear cell",
+            "ontology": "CL",
+            "reason": "The KE involves PBMC (peripheral blood mononuclear cell) supernatant used in co-culture, making 'peripheral blood mononuclear cell' the best match for the biological object being acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (various chemical compounds) match the biological object in this KE, which involves IgM antibody measurement in SKW6.4 B-cell line co-culture with PBMC supernatant, where the relevant biological objects would be IgM (an immunoglobulin), B cells (CL term), or PBMC (cell type terms).",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046903",
+            "label": "secretion",
+            "ontology": "GO",
+            "reason": "The KE measures IgM production/secretion by B cells, making 'secretion' the best matching GO biological process term for this immunoglobulin secretion activity.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0042113",
+            "label": "B cell activation",
+            "ontology": "GO",
+            "reason": "The KE involves measuring IgM production in the SKW6.4 B-cell line, which is a readout of B cell activation, making 'B cell activation' the most directly relevant biological process term.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 6,
+        "assay_type": {
+          "rejection_reason": "The assay type here is an ELISA (enzyme-linked immunosorbent assay) for measuring IgM, but none of the candidate terms represent this assay type; the candidates describe cell culture materials or procedures rather than the ELISA detection method itself.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Quantitative PCR for cytokine mRNA in T cells (human, CNIs)",
+        "description": "T cells derived from human PBMCs were cultured with CNIs. Cytokine mRNA levels of Interferon-gamma, IL-2, IL-4, IL-5, IL-10, IL-13, and other B-cell-stimulatory cytokines produced in T cells were measured by quantitative PCR to examine class switching.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Dumont et al.",
+            "year": "1998",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "antagonist",
+        "objects": [
+          {
+            "rejection_reason": "None of the candidates adequately represent the biological object in this KE, which is cytokine mRNA (specifically mRNA molecules like IL-2, IFN-\u03b3, etc.) measured in T cells; the closest candidates involve secreted interferon-gamma protein in specific NK T cell subtypes rather than cytokine mRNA as a measurable entity in general T cells.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent the biological object relevant to this KE, which should be T cells (CL:0000084) or cytokine mRNA; all candidates are unrelated chemical entities.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent the biological object relevant to this KE (cytokine mRNA in T cells); the candidates are unrelated chemicals with no connection to cytokine mRNA, T cells, or immunological signaling.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent the relevant biological objects for this KE (cytokine mRNA or T cells); the candidates are all unrelated chemical compounds.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (which are all lipid/chemical compounds) match the biological object of this KE, which involves cytokine mRNA in T cells measured by quantitative PCR.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent the biological object being acted upon in this KE, which should be T cells (CL:0000084) or cytokine mRNA, not carotenoid or macrolide chemical compounds.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent the biological object relevant to this KE, which involves T cells (a cell type, best represented by a CL term) as the biological object where cytokine mRNA is measured by quantitative PCR.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_4030030",
+            "label": "peripheral blood lymphocyte",
+            "ontology": "CL",
+            "reason": "Peripheral blood lymphocyte is the best match as T cells are a subtype of lymphocytes, and the KE involves cytokine mRNA quantification in T cells from human peripheral blood in the context of calcineurin inhibitors (CNIs).",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "The KE involves measuring cytokine mRNA levels in T cells, which directly reflects cytokine production (biosynthetic process), making 'cytokine production' the best match for the biological process being assessed.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe the biological process of cytokine mRNA expression or gene expression in T cells; the KE involves measuring cytokine transcription via qPCR, which relates to gene expression/transcription regulation, not switching processes.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0042110",
+            "label": "T cell activation",
+            "ontology": "GO",
+            "reason": "The KE involves measuring cytokine mRNA expression in T cells treated with calcineurin inhibitors (CNIs), which directly relates to T cell activation as the broader biological process being assessed.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 7,
+        "assay_type": {
+          "rejection_reason": "None of the candidates specifically describe quantitative PCR (qPCR) for measuring cytokine mRNA levels; the closest options relate to protein-level cytokine production assays rather than mRNA quantification by PCR, and 'PCR program' or 'PCR product' are too generic or irrelevant.",
+          "source": "llm_rejection"
+        }
+      }
+    ],
     "comments": {
       "carried": [],
       "new": []
     },
     "newly_annotated_fields": [
-      "biological_organization",
-      "ec_annotations['T-cell dependent antibody response'].biological_object",
-      "ec_annotations['T-cell dependent antibody response'].phenotype"
+      "assays",
+      "ec_annotations['T-cell dependent antibody response'].biological_process"
     ]
   },
   "1700": {
     "ke_id": "1700",
     "title": "Impaired IL-1R1 signaling in T cell",
     "biological_organization": "Cellular",
-    "cell_term": null,
+    "cell_term": {
+      "rejection_reason": "The KE description focuses on macrophages, dendritic cells, and monocytes producing IL-1, none of which match any of the candidate cell types (T cells and their variants).",
+      "source": "llm_rejection"
+    },
     "organ_term": null,
     "ec_annotations": [
       {
@@ -5296,7 +5748,10 @@
           "reason": "The KE describes impaired signaling in T cells generally, and CL (Cell Ontology) is the preferred ontology for cell types according to the guidance.",
           "source": "llm_recommendation"
         },
-        "biological_process": null,
+        "biological_process": {
+          "rejection_reason": "The KE describes impaired IL-1R1 (interleukin-1 receptor 1) signaling in T cells, which is a cytokine receptor signaling pathway distinct from T cell receptor signaling; none of the candidate terms specifically represent IL-1 receptor signaling or interleukin-1 signaling pathways in T cells.",
+          "source": "llm_rejection"
+        },
         "phenotype": {
           "term_id": "http://purl.obolibrary.org/obo/HP_0031407",
           "label": "Impaired cytokine signaling",
@@ -5310,14 +5765,219 @@
         }
       }
     ],
+    "assays": [
+      {
+        "title": "RT-PCR for IL-1\u03b1/IL-1\u03b2 mRNA",
+        "description": "Real-time polymerase chain reaction to measure IL-1\u03b1 or IL-1\u03b2 mRNA expression levels",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "None of the candidate terms represent IL-1\u03b1 or IL-1\u03b2 mRNA specifically; the candidates are generic mRNA chemical structure terms or an unrelated chemical, and there is no appropriate match for the interleukin mRNA molecules being measured by RT-PCR in this key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_156503",
+            "label": "ppp5'AACA-mRNA(7-)",
+            "ontology": "CHEBI",
+            "reason": "ppp5'AACA-mRNA represents an mRNA molecule, which best corresponds to the biological object in this KE about measuring IL-1\u03b1/IL-1\u03b2 mRNA via RT-PCR, though none of the candidates are ideal matches for cytokine mRNA specifically.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "RT-PCR measurement of IL-1\u03b1/IL-1\u03b2 mRNA directly reflects gene expression, as it quantifies transcription of these cytokine genes.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0009299",
+            "label": "mRNA transcription",
+            "ontology": "GO",
+            "reason": "RT-PCR detection of IL-1\u03b1/IL-1\u03b2 mRNA measures the transcription/synthesis of these mRNA molecules, which is best captured by the general 'mRNA transcription' biological process term.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001361",
+          "label": "transcription profiling by RT-PCR assay",
+          "ontology": "OBI",
+          "reason": "The KE describes RT-PCR measurement of IL-1\u03b1/IL-1\u03b2 mRNA, which directly corresponds to 'transcription profiling by RT-PCR assay' as it involves quantifying mRNA transcripts using reverse transcription PCR.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "ELISA for IL-1\u03b1/IL-1\u03b2 protein",
+        "description": "Enzyme-linked immunosorbent assay to detect and quantify IL-1\u03b1 or IL-1\u03b2 protein levels",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_36080",
+            "label": "protein",
+            "ontology": "CHEBI",
+            "reason": "The biological object in an ELISA for IL-1\u03b1/IL-1\u03b2 is the protein being detected/measured, and 'protein' (CHEBI) is the most appropriate general term for these cytokine proteins.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_36080",
+            "label": "protein",
+            "ontology": "CHEBI",
+            "reason": "The biological object in an ELISA for IL-1\u03b1/IL-1\u03b2 is the protein being measured (IL-1\u03b1 and IL-1\u03b2 are proteins), and 'protein' [CHEBI] is the best general match among the candidates.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "The KE involves measuring IL-1\u03b1/IL-1\u03b2 protein levels by ELISA, which directly reflects cytokine production (a general GO biological process term encompassing cytokine biosynthesis), and the more specific terms (macrophage, myeloid leukocyte, mast cell, dendritic cell cytokine production) are too cell-type-restricted for this general measurement assay.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match 'ELISA for IL-1\u03b1/IL-1\u03b2 protein' as they all describe epitope-specific cytokine release assays by T cells, whereas the KE describes an ELISA-based protein detection assay for IL-1\u03b1/IL-1\u03b2.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Competitive Inhibition Binding Assay for IL-1\u03b1 to Type I IL-1R",
+        "description": "Competitive inhibition binding experiments using 125I-labeled IL-1\u03b1 to measure binding to type I IL-1 receptor present on EL4 thymoma cells, 3T3 fibroblasts, hepatocytes, and Chinese hamster ovary cells expressing recombinant mouse type I IL-1R",
+        "citations": [
+          {
+            "title": null,
+            "authors": "McIntyre et al.",
+            "year": "1991",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Shuck et al.",
+            "year": "1991",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "None of the candidate terms represent IL-1\u03b1 (interleukin-1 alpha) or the Type I IL-1 receptor, which are the relevant biological objects in this binding assay key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match the biological object in this KE, which should be the Type I IL-1 receptor (IL-1R1), a protein/receptor molecule that would be best represented by a protein ontology term (e.g., from UniProt or PRO), not by any of the provided cell type or chemical terms.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms are relevant to the biological object in this KE, which involves IL-1\u03b1 binding to Type I IL-1 receptor (a molecular interaction involving a cytokine and its receptor, best described by ChEBI or protein ontology terms).",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Neither term matches the biological object of this KE, which involves IL-1\u03b1 binding to Type I IL-1 receptor (a molecular interaction), not fibroblasts or regeneration tissue.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "hepatocytes"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (ovary, Chinese gallotannin, left ovary, right ovary) represent the biological object relevant to a competitive inhibition binding assay for IL-1\u03b1 to Type I IL-1R, which would require terms for the IL-1 receptor (a protein/molecule) or IL-1\u03b1 (a cytokine/chemical entity).",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms accurately describe the biological process of competitive inhibition of IL-1\u03b1 binding to Type I IL-1 receptor; the closest concept would be 'cytokine receptor binding' or 'interleukin-1 receptor binding,' which are not represented in the candidates.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Mus musculus"
+          },
+          {
+            "label": "Cricetulus griseus"
+          }
+        ],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001593",
+          "label": "competitive inhibition of binding assay",
+          "ontology": "OBI",
+          "reason": "The KE describes a competitive inhibition binding assay, which directly matches 'competitive inhibition of binding assay [OBI]' as it involves competitive inhibition of IL-1\u03b1 binding to Type I IL-1R.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "IL-1\u03b2 Bioactivity Neutralization Assay on Human Fibroblasts",
+        "description": "Measurement of the ability of a reagent to neutralize the bioactivity of human IL-1\u03b2 on primary human fibroblasts in vitro",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Alten et al.",
+            "year": "2008",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "antagonist",
+        "objects": [
+          {
+            "rejection_reason": "None of the candidate terms represent IL-1\u03b2 (Interleukin-1 beta), which is a cytokine protein and the primary biological object being neutralized in this assay; the closest ontology term would be from the Protein Ontology (PRO) or a cytokine-specific term not present in these candidates.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (primary diamine, nitroalkane, phosphine, carboxamide, or amine) represent the biological object in an IL-1\u03b2 bioactivity neutralization assay on human fibroblasts, which would be best described by a cell type term (human fibroblasts, CL:0000057) or the cytokine IL-1\u03b2 (ChEBI:138181).",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "The KE involves IL-1\u03b2 bioactivity, which relates to cytokine production as a biological process, capturing the biosynthesis and metabolic aspects of the cytokine (IL-1\u03b2) being assessed in the assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0097282",
+            "label": "immunoglobulin-mediated neutralization",
+            "ontology": "GO",
+            "reason": "The KE describes neutralization of IL-1\u03b2 bioactivity, which directly corresponds to antibody-mediated (immunoglobulin-mediated) neutralization of a cytokine.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001643",
+          "label": "assay measuring epitope specific immunoglobulin-mediated neutralization",
+          "ontology": "OBI",
+          "reason": "The KE involves measuring the neutralization of IL-1\u03b2 biological activity (bioactivity), which aligns with an assay measuring epitope-specific immunoglobulin-mediated neutralization of biological activity, as the assay assesses whether IL-1\u03b2's bioactivity is neutralized on human fibroblasts.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
     "comments": {
       "carried": [],
       "new": []
     },
     "newly_annotated_fields": [
-      "biological_organization",
-      "ec_annotations['Impaired IL-1R1 signaling in T cell'].biological_object",
-      "ec_annotations['Impaired IL-1R1 signaling in T cell'].phenotype"
+      "assays"
     ]
   },
   "1702": {
