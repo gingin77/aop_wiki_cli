@@ -1,6 +1,9 @@
 {
   "1": {
     "ke_id": "68",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Western Immunoblotting of Alpha1(I) Collagen",
     "description": "Western immunoblotting of intact alpha1(I) collagen using antibodies directed to alpha1(I) collagen amino and carboxyl propeptides to assess in vitro production of type I collagen.",
     "citations": [
@@ -45,6 +48,9 @@
   },
   "2": {
     "ke_id": "68",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Real-Time PCR for Alpha1(I) Collagen mRNA",
     "description": "Measurement of alpha1(I) collagen mRNA levels using real-time polymerase chain reaction to assess in vitro production of type I collagen.",
     "citations": [
@@ -87,6 +93,9 @@
   },
   "3": {
     "ke_id": "68",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Nuclear Run-On Assay for Alpha1(I) Collagen Transcriptional Regulation",
     "description": "A nuclear run-on assay used to determine the transcriptional regulation of alpha1(I) collagen gene expression.",
     "citations": [
@@ -132,6 +141,9 @@
   },
   "4": {
     "ke_id": "68",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Histological Staining for Collagen (Masson Trichrome / Picro-Sirius Red)",
     "description": "Histological staining with Masson Trichrome or Picro-Sirius Red to identify the tissue/cellular distribution of collagen, quantified using morphometric analysis both in vivo and in vitro.",
     "citations": [],
@@ -179,6 +191,9 @@
   },
   "5": {
     "ke_id": "68",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Sircol Collagen Assay",
     "description": "Colorimetric assay using Sirius Red F3BA dye, which selectively binds to collagen; signal is read at 540 nm to quantify collagen in histology samples.",
     "citations": [
@@ -233,6 +248,9 @@
   },
   "6": {
     "ke_id": "68",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Hydroxyproline Assay",
     "description": "Colorimetric assay measuring hydroxyproline, a non-proteinogenic amino acid found exclusively in collagen, as a direct measure of collagen content in cells or tissues. Hydroxyproline is formed by prolyl-4-hydroxylase.",
     "citations": [
@@ -303,6 +321,9 @@
   },
   "7": {
     "ke_id": "68",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Ex Vivo Precision Cut Tissue Slices",
     "description": "Precision cut tissue slices used to mimic whole organ response, allowing histological assessment of collagen and fibrosis endpoints. Reduces the number of animals required compared to whole animal exposure studies.",
     "citations": [
@@ -363,6 +384,9 @@
   },
   "8": {
     "ke_id": "1458",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Ashcroft Histopathological Fibrosis Scoring",
     "description": "Histological samples of lung tissue are stained and scored on a numerical scale from 0 to 8 (Ashcroft scale) to indicate the amount of fibrotic tissue. Scores range from normal lung (0) to fibrotic obliteration (8).",
     "citations": [
@@ -415,6 +439,9 @@
   },
   "9": {
     "ke_id": "1458",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Modified Ashcroft Fibrosis Scoring (Hubner)",
     "description": "A modified version of the Ashcroft scoring system that enables morphological distinctions for better grading of lung fibrosis. Grades 0\u20138 are assigned based on specific morphological features, applied to bleomycin-induced lung fibrosis in rats.",
     "citations": [
@@ -467,6 +494,9 @@
   },
   "10": {
     "ke_id": "1458",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Morphometric Analysis of Fibrotic Disease Area (ImageJ)",
     "description": "Formalin-fixed, paraffin-embedded lung cross-sections are imaged using wide-field light microscopy. ImageJ software is used to trace and quantify total lung area and diseased area (alveolar epithelium thickening and consolidated air space). Disease extent is expressed as diseased area / total area.",
     "citations": [
@@ -515,6 +545,9 @@
   },
   "11": {
     "ke_id": "1458",
+    "aop_ids": [
+      "173"
+    ],
     "title": "qRT-PCR for Fibrosis Markers",
     "description": "Real-time reverse transcription-polymerase chain reaction (qRT-PCR) is used in vitro to measure increased gene expression of collagen, TGF-\u03b21, and pro-inflammatory mediators as markers of fibrogenesis potential.",
     "citations": [],
@@ -548,6 +581,9 @@
   },
   "12": {
     "ke_id": "1458",
+    "aop_ids": [
+      "173"
+    ],
     "title": "ELISA for Fibrosis Markers",
     "description": "Enzyme-linked immunosorbent assay (ELISA) is used in vitro to measure protein levels of collagen, TGF-\u03b21, and various pro-inflammatory mediators as sensitive markers of the potential of substances to induce lung fibrosis.",
     "citations": [],
@@ -587,6 +623,9 @@
   },
   "13": {
     "ke_id": "1495",
+    "aop_ids": [
+      "173"
+    ],
     "title": "ELISA for DAMP/Cytokine Quantification",
     "description": "Sandwich ELISA to quantitatively measure DAMPs and cytokines (e.g., IL-1\u03b1, IL-1\u03b2) released from stressed, injured, or dying cells in biological samples such as culture supernatant, bronchoalveolar lavage fluid, serum, cerebrospinal fluid, and peritoneal fluids. A capture antibody immobilized on microtitre wells binds the target antigen; a detection antibody conjugated to horseradish peroxidase or biotin-streptavidin system is used with a chromogenic substrate, and absorbance is read by spectrophotometer.",
     "citations": [
@@ -716,6 +755,9 @@
   },
   "14": {
     "ke_id": "1495",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Western Blot for Alarmin Quantification",
     "description": "Western blot technique using specific antibodies to quantify the release of various alarmins from cells exposed to toxicants or particles.",
     "citations": [],
@@ -751,6 +793,9 @@
   },
   "15": {
     "ke_id": "1495",
+    "aop_ids": [
+      "173"
+    ],
     "title": "qRT-PCR for Gene Expression of PRR Downstream Targets",
     "description": "Real-time reverse transcription-polymerase chain reaction (qRT-PCR) to quantify gene expression regulated by receptor binding, such as downstream of TLR binding, indicative of cellular activation following substance or particle interaction.",
     "citations": [],
@@ -803,6 +848,10 @@
   },
   "16": {
     "ke_id": "1496",
+    "aop_ids": [
+      "173",
+      "39"
+    ],
     "title": "qRT-PCR for pro-inflammatory mediator mRNA",
     "description": "Measures the abundance of cytokine mRNA in a sample by reverse transcription of RNA to cDNA, PCR amplification, and real-time fluorescence detection using SYBR green or nested fluorescent probes. Cycle threshold values are used to quantify relative mRNA amounts.",
     "citations": [
@@ -876,6 +925,10 @@
   },
   "17": {
     "ke_id": "1496",
+    "aop_ids": [
+      "173",
+      "39"
+    ],
     "title": "ELISA for pro-inflammatory mediators",
     "description": "Enzyme-linked immunosorbent assay that permits quantitative measurement of cytokine and other pro-inflammatory mediator proteins in biological samples including cell culture supernatants and whole cell homogenates.",
     "citations": [],
@@ -909,6 +962,10 @@
   },
   "18": {
     "ke_id": "1496",
+    "aop_ids": [
+      "173",
+      "39"
+    ],
     "title": "Cytokine bead array / cytokine PCR array",
     "description": "Multiplex method for simultaneous quantitative detection of a panel of inflammatory mediator proteins or genes in a single sample, particularly useful when sample amounts are scarce.",
     "citations": [
@@ -958,6 +1015,10 @@
   },
   "19": {
     "ke_id": "1496",
+    "aop_ids": [
+      "173",
+      "39"
+    ],
     "title": "Immunohistochemistry for pro-inflammatory mediators",
     "description": "Uses specific antibodies to detect and localize immune cell types producing pro-inflammatory mediators and downstream effectors in tissue sections. Results are qualitative and used as weight of evidence.",
     "citations": [
@@ -1018,6 +1079,9 @@
   },
   "20": {
     "ke_id": "1497",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Bronchoalveolar Lavage Fluid (BALF) Cellularity Assay",
     "description": "In vivo assessment of lung immune response by lavaging the fluid lining the lung epithelium and quantitatively analyzing the types of infiltrating cells, cytokines, and chemokines to evaluate pro-inflammatory cell recruitment, dose-response, potency ranking, and no-effect exposure levels.",
     "citations": [
@@ -1081,6 +1145,9 @@
   },
   "21": {
     "ke_id": "1497",
+    "aop_ids": [
+      "173"
+    ],
     "title": "In Vitro Pro-inflammatory Mediator Assessment (qRT-PCR)",
     "description": "Real-time reverse transcription-polymerase chain reaction (qRT-PCR) used in cell culture models to measure cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.",
     "citations": [],
@@ -1115,6 +1182,9 @@
   },
   "22": {
     "ke_id": "1497",
+    "aop_ids": [
+      "173"
+    ],
     "title": "In Vitro Pro-inflammatory Mediator Assessment (ELISA)",
     "description": "Enzyme-linked immunosorbent assay (ELISA) used in cell culture models to quantify cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.",
     "citations": [],
@@ -1152,6 +1222,9 @@
   },
   "23": {
     "ke_id": "1497",
+    "aop_ids": [
+      "173"
+    ],
     "title": "In Vitro Pro-inflammatory Mediator Assessment (Immunohistochemistry)",
     "description": "Immunohistochemistry used in cell culture models to detect and localize cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.",
     "citations": [],
@@ -1192,6 +1265,9 @@
   },
   "24": {
     "ke_id": "1497",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Precision Cut Lung Slices (PCLS) Inflammatory Foci Assessment",
     "description": "Histological assessment of inflammatory foci in precision cut lung slices to evaluate recruitment of tissue-resident inflammatory cells following treatment with compounds such as bleomycin and MWCNTs.",
     "citations": [
@@ -1252,6 +1328,9 @@
   },
   "25": {
     "ke_id": "1497",
+    "aop_ids": [
+      "173"
+    ],
     "title": "Microfluidic Lung-on-a-Chip Immune Cell Migration Assay",
     "description": "Microfluidic lung-on-a-chip device used to assess migration of select immune cells and fibroblasts toward a simulated epithelium following treatment with pro-fibrotic compounds.",
     "citations": [
@@ -1317,6 +1396,10 @@
   },
   "26": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "BALF Total Protein Content",
     "description": "Measures total protein content in bronchoalveolar lavage fluid (BALF) from experimental animals or human patients to assess alveolar-capillary membrane (ACM) barrier integrity loss.",
     "citations": [],
@@ -1357,6 +1440,10 @@
   },
   "27": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "BALF Total Albumin Content",
     "description": "Measures total albumin content in bronchoalveolar lavage fluid (BALF) from experimental animals or human patients as an indicator of compromised ACM barrier integrity.",
     "citations": [],
@@ -1397,6 +1484,10 @@
   },
   "28": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "BALF Total Urea Content",
     "description": "Measures total urea in bronchoalveolar lavage fluid (BALF) as an indicator of ACM integrity loss.",
     "citations": [
@@ -1437,6 +1528,10 @@
   },
   "29": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "Trypan Blue Exclusion Assay",
     "description": "A dye exclusion assay where cells with intact membranes exclude trypan blue dye and remain clear, while cells with damaged membranes incorporate the dye and turn blue, allowing assessment of cell viability.",
     "citations": [],
@@ -1489,6 +1584,10 @@
   },
   "30": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "Fluorescent DNA Stain Cytotoxicity Assay (Ethidium Bromide / Propidium Iodide)",
     "description": "High-throughput assay using fluorescent DNA stains such as ethidium bromide or propidium iodide to identify cells with damaged membranes; cells that incorporate the dye are scored by flow cytometry.",
     "citations": [],
@@ -1544,6 +1643,10 @@
   },
   "31": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "Lactate Dehydrogenase (LDH) Release Assay",
     "description": "Measures the amount of LDH released into cell culture media following membrane injury. Based on measuring NAD reduction and conversion of a tetrazolium dye, detected at 490 nm absorbance.",
     "citations": [],
@@ -1594,6 +1697,10 @@
   },
   "32": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "Calcein AM Assay",
     "description": "Assay based on intracellular hydrolysis of non-fluorescent calcein AM by non-specific esterases in live cells to produce fluorescent calcein; damaged cells release calcein into culture media, indicating membrane compromise.",
     "citations": [],
@@ -1647,6 +1754,10 @@
   },
   "33": {
     "ke_id": "1498",
+    "aop_ids": [
+      "173",
+      "302"
+    ],
     "title": "Transepithelial/Transendothelial Electrical Resistance (TEER)",
     "description": "Quantitative technique measuring ohmic resistance across endothelial or epithelial cell monolayers to assess tight junction integrity in cell culture models.",
     "citations": [],
@@ -1705,6 +1816,10 @@
   },
   "34": {
     "ke_id": "1499",
+    "aop_ids": [
+      "173",
+      "14"
+    ],
     "title": "ELISA for Th1/Th2 Cytokines and Related Proteins",
     "description": "Enzyme-linked immunosorbent assay to quantify protein levels of Th1 and Th2 cytokines (IL-4, IL-5, IL-13, IL-10, IL-12, IFN-\u03b3, TGF-\u03b2) and related proteins (Arg-1, Arg-2) in BALF supernatant, tissue homogenates, or cell pellets from animals, human patients, or in vitro cell cultures.",
     "citations": [],
@@ -1790,6 +1905,10 @@
   },
   "35": {
     "ke_id": "1499",
+    "aop_ids": [
+      "173",
+      "14"
+    ],
     "title": "qRT-PCR for Th1/Th2 Cytokine and Related Gene Expression",
     "description": "Real-time quantitative polymerase chain reaction to measure mRNA levels of Th1 and Th2 cytokines (IL-4, IL-5, IL-13, IL-10, IL-12, IFN-\u03b3, TGF-\u03b2) and related genes (Arg-1, Arg-2) in BALF supernatant, tissue homogenates, or cell pellets from animals, human patients, or in vitro cell cultures.",
     "citations": [],
@@ -1881,6 +2000,10 @@
   },
   "36": {
     "ke_id": "1499",
+    "aop_ids": [
+      "173",
+      "14"
+    ],
     "title": "Cytokine Bead Array (Multiplex Immunoassay)",
     "description": "Multiplex bead-based immunoassay to simultaneously quantify a panel of Th1 and/or Th2 cytokine proteins from BALF or other samples; particularly advantageous when sample volume is limited.",
     "citations": [],
@@ -1938,6 +2061,10 @@
   },
   "37": {
     "ke_id": "1499",
+    "aop_ids": [
+      "173",
+      "14"
+    ],
     "title": "Cytokine PCR Array (Multiplex Gene Expression)",
     "description": "Multiplex PCR array to simultaneously measure mRNA expression of a panel of Th1 and/or Th2 cytokine genes from BALF or other samples; particularly advantageous when sample volume is limited.",
     "citations": [],
@@ -1989,6 +2116,10 @@
   },
   "38": {
     "ke_id": "1500",
+    "aop_ids": [
+      "173",
+      "14"
+    ],
     "title": "Immunohistochemistry for Fibroblast and Myofibroblast Markers (In Vivo/Human)",
     "description": "Detection of fibroblast proliferation and myofibroblast activation in formalin-fixed paraffin-embedded lung sections using antibodies against vimentin, procollagen 1, and \u03b1-SMA via immunoperoxidase technique with avidin-biotin amplification and DAB substrate. Morphometric analysis using ocular grids on 20-25 non-overlapping squares from 2-3 random lung sections at 20x magnification.",
     "citations": [
@@ -2058,6 +2189,10 @@
   },
   "39": {
     "ke_id": "1500",
+    "aop_ids": [
+      "173",
+      "14"
+    ],
     "title": "In Vitro Immunoassay for Fibroblast and Myofibroblast Markers",
     "description": "In vitro measurement of fibroblast and myofibroblast markers including type-1 collagen, Thy-1, COX2, caveolin-1, TGF-\u03b2, \u03b1-SMA, and Smad3 to assess fibroblast proliferation, differentiation, and EMT in lung epithelial cells (e.g., A549 cells) exposed to asbestos.",
     "citations": [
@@ -2149,6 +2284,10 @@
   },
   "40": {
     "ke_id": "1500",
+    "aop_ids": [
+      "173",
+      "14"
+    ],
     "title": "Hydrogel-Based ECM Mimicry Assay",
     "description": "Use of water-swollen crosslinked polymer networks (hydrogels) composed of collagen, fibrin, hyaluronic acid, or synthetic materials such as polyacrylamide enriched with ECM proteins to mimic the extracellular matrix and assess mechanical and biochemical properties relevant to fibroblast behavior.",
     "citations": [],
@@ -2212,6 +2351,9 @@
   },
   "41": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "TOX21 GR BLA Agonist Ratio",
     "description": "Cell-based beta-lactamase reporter assay measuring glucocorticoid receptor agonism in human cervical cells",
     "citations": [
@@ -2247,6 +2389,9 @@
   },
   "42": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "GR CALUX",
     "description": "Chemical-Activated LUciferase gene eXpression assay measuring glucocorticoid receptor agonism in human osteosarcoma cells via luciferase reporter",
     "citations": [
@@ -2306,6 +2451,9 @@
   },
   "43": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "Attagene GR TRANS",
     "description": "Transactivation assay measuring glucocorticoid receptor-mediated transcriptional activation in human liver cells",
     "citations": [
@@ -2357,6 +2505,9 @@
   },
   "44": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "Attagene GRe CIS",
     "description": "Cis-reporter assay measuring glucocorticoid response element-driven transcriptional activity in human liver cells",
     "citations": [
@@ -2411,6 +2562,9 @@
   },
   "45": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "CV1-hGR",
     "description": "Cell-based reporter assay measuring human glucocorticoid receptor agonism in CV1 kidney cells",
     "citations": [
@@ -2446,6 +2600,9 @@
   },
   "46": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "GR-GeneBlazer",
     "description": "Beta-lactamase reporter gene assay measuring glucocorticoid receptor agonism in human kidney cells",
     "citations": [
@@ -2484,6 +2641,9 @@
   },
   "47": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "NovaScreen NR hGR",
     "description": "Competitive binding or reporter assay measuring human glucocorticoid receptor activation",
     "citations": [
@@ -2524,6 +2684,9 @@
   },
   "48": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "Trout GR1",
     "description": "Reporter assay measuring glucocorticoid receptor 1 agonism in rainbow trout kidney cells",
     "citations": [
@@ -2559,6 +2722,9 @@
   },
   "49": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "Trout GR2",
     "description": "Reporter assay measuring glucocorticoid receptor 2 agonism in rainbow trout kidney cells",
     "citations": [
@@ -2594,6 +2760,9 @@
   },
   "50": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "Indigo hGR",
     "description": "Reporter assay measuring human glucocorticoid receptor agonism using Indigo Biosciences platform",
     "citations": [
@@ -2634,6 +2803,9 @@
   },
   "51": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "Indigo zfGR",
     "description": "Reporter assay measuring zebrafish glucocorticoid receptor agonism using Indigo Biosciences platform",
     "citations": [
@@ -2666,6 +2838,9 @@
   },
   "52": {
     "ke_id": "122",
+    "aop_ids": [
+      "14"
+    ],
     "title": "GR-regulated gene induction (in vivo)",
     "description": "Measurement of glucocorticoid receptor-regulated gene expression in vivo as an indicator of GR agonism",
     "citations": [
@@ -2716,6 +2891,13 @@
   },
   "53": {
     "ke_id": "202",
+    "aop_ids": [
+      "14",
+      "277",
+      "278",
+      "447",
+      "618"
+    ],
     "title": "NF-\u03baB Transcriptional Activity Beta-Lactamase Reporter Gene Assay",
     "description": "Measures NF-\u03baB transcriptional activity using a beta-lactamase reporter gene assay",
     "citations": [
@@ -2763,6 +2945,13 @@
   },
   "54": {
     "ke_id": "202",
+    "aop_ids": [
+      "14",
+      "277",
+      "278",
+      "447",
+      "618"
+    ],
     "title": "Lentiviral NF-\u03baB GFP Reporter with Flow Cytometry",
     "description": "Measures NF-\u03baB transcription using a lentiviral NF-\u03baB GFP reporter construct detected by flow cytometry",
     "citations": [
@@ -2809,6 +2998,13 @@
   },
   "55": {
     "ke_id": "202",
+    "aop_ids": [
+      "14",
+      "277",
+      "278",
+      "447",
+      "618"
+    ],
     "title": "I\u03baB\u03b1 Phosphorylation Western Blot",
     "description": "Measures I\u03baB\u03b1 phosphorylation status using Western blotting",
     "citations": [
@@ -2848,6 +3044,13 @@
   },
   "56": {
     "ke_id": "202",
+    "aop_ids": [
+      "14",
+      "277",
+      "278",
+      "447",
+      "618"
+    ],
     "title": "NF-\u03baB p65 Total/Phospho ELISA",
     "description": "Measures total and phosphorylated NF-\u03baB p65 protein levels using ELISA",
     "citations": [],
@@ -2879,6 +3082,13 @@
   },
   "57": {
     "ke_id": "202",
+    "aop_ids": [
+      "14",
+      "277",
+      "278",
+      "447",
+      "618"
+    ],
     "title": "Cytokine ELISA (IL-6, IL-8, COX)",
     "description": "Measures secreted levels of IL-6, IL-8, and COX using ELISA",
     "citations": [],
@@ -2922,6 +3132,10 @@
   },
   "58": {
     "ke_id": "272",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "In vitro T-cell-based co-culture assay",
     "description": "Co-culture of allergen-treated dendritic cells and modified T-lymphocytes measuring expression of selected biomarkers (e.g. interferon gamma) or T-cell proliferation as the reported outcome in response to chemical stimuli.",
     "citations": [
@@ -2991,6 +3205,10 @@
   },
   "59": {
     "ke_id": "272",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "Local Lymph Node Assay (LLNA) - OECD TG 429",
     "description": "In vivo mouse assay measuring lymph node cell proliferation in response to skin sensitizers. The basis for the LLNA is the proliferative response of lymph node cells following topical chemical exposure.",
     "citations": [
@@ -3042,6 +3260,10 @@
   },
   "60": {
     "ke_id": "272",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "LLNA:DA - OECD TG 442A",
     "description": "Non-radioactive modification of the Local Lymph Node Assay measuring lymph node cell proliferation using a non-radioactive endpoint (DA) in mice.",
     "citations": [
@@ -3087,6 +3309,10 @@
   },
   "61": {
     "ke_id": "272",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "LLNA:BrdU-ELISA - OECD TG 442B",
     "description": "Non-radioactive modification of the Local Lymph Node Assay measuring lymph node cell proliferation using BrdU incorporation detected by ELISA in mice.",
     "citations": [
@@ -3142,6 +3368,10 @@
   },
   "62": {
     "ke_id": "272",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "Human T cell proliferation and cytokine profiling assay",
     "description": "Measurement of human T cell proliferation and dendritic cell and T cell cytokine profiles produced in vitro in response to chemical respiratory stimuli.",
     "citations": [
@@ -3209,6 +3439,10 @@
   },
   "63": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "Serial Spirometry (FEV1) for Bronchoconstriction",
     "description": "Serial measures of airflow (FEV1) taken approximately 12 hours after exposure to test for immediate or delayed bronchoconstriction and airflow obstruction.",
     "citations": [
@@ -3251,6 +3485,10 @@
   },
   "64": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "Skin Prick Test for Allergen-Specific IgE",
     "description": "Intradermal and subcutaneous skin prick testing to detect allergen-specific IgE and identify sensitized individuals.",
     "citations": [
@@ -3325,6 +3563,10 @@
   },
   "65": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "ELISA for Allergen-Specific Antibody Detection",
     "description": "Enzyme-linked immunosorbent assay (ELISA) used to detect and measure allergen-specific IgE and IgG antibody isotype profiles in serum.",
     "citations": [
@@ -3397,6 +3639,10 @@
   },
   "66": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "ImmunoCAP for Allergen-Specific IgE",
     "description": "Commercially available immunoassay (ImmunoCAP) used to detect and quantify allergen-specific IgE and antibody isotype profiles in blood.",
     "citations": [
@@ -3469,6 +3715,10 @@
   },
   "67": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "Transcriptomic Analysis of IgE Heavy Chain Transcripts",
     "description": "Transcriptomic analyses of IgE heavy chain transcripts to investigate direct and indirect class switching in IgE-switched B cells.",
     "citations": [
@@ -3521,6 +3771,10 @@
   },
   "68": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "Basophil Activation Test (BAT)",
     "description": "Flow cytometry-based measurement of CD63 translocation to the membrane of basophils in fresh blood samples following IgE receptor cross-linking, used to identify allergic response in patients.",
     "citations": [
@@ -3586,6 +3840,10 @@
   },
   "69": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "In Vivo Breathing Parameter Assessment",
     "description": "Quantitative assessment of allergen-induced airway hyperreactivity by measuring respiratory parameters including respiratory rate, minute volume, tidal volume, peak expiratory flow, inspiratory and expiratory times, and enhanced pause (Penh).",
     "citations": [
@@ -3651,6 +3909,10 @@
   },
   "70": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "Bronchoalveolar Lavage (BAL) Polymorphonuclear Cell Count",
     "description": "Measurement of polymorphonuclear cells (PMN) in bronchoalveolar lavage fluid one day after inhalation challenge with diisocyanates to confirm elicitation of airway response in rats.",
     "citations": [],
@@ -3697,6 +3959,10 @@
   },
   "71": {
     "ke_id": "313",
+    "aop_ids": [
+      "14",
+      "39"
+    ],
     "title": "Exhaled Nitric Oxide (NO) Measurement",
     "description": "Measurement of exhaled nitric oxide as a biomarker of airway inflammation following inhalation challenge with diisocyanates in rats.",
     "citations": [],
@@ -3735,6 +4001,10 @@
   },
   "72": {
     "ke_id": "396",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "In silico Structural Alerts / SAR for Chemical Reactivity",
     "description": "2D structural alerts used for qualitative identification of chemical sub-structures with the potential to be reactive towards proteins, as implemented in tools such as the OECD QSAR Toolbox.",
     "citations": [
@@ -3789,6 +4059,10 @@
   },
   "73": {
     "ke_id": "396",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "QSAR Models for Chemical Reactivity",
     "description": "Quantitative structure-activity relationship models used for quantitative prediction of relative chemical reactivity towards biological nucleophiles, as described by Schw\u00f6bel et al.",
     "citations": [
@@ -3840,6 +4114,10 @@
   },
   "74": {
     "ke_id": "396",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "Glutathione (GSH) Depletion Assay",
     "description": "Chemicals are incubated with glutathione (GSH) as a model nucleophile; after a defined reaction time, the concentration of free thiol groups is measured to assess soft electrophilic reactivity via thiol depletion.",
     "citations": [],
@@ -3889,6 +4167,10 @@
   },
   "75": {
     "ke_id": "396",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "Direct Peptide Reactivity Assay (DPRA)",
     "description": "OECD Test Guideline No. 442C in chemico method that quantifies the reactivity of chemicals towards synthetic model peptides containing either lysine or cysteine residues to assess skin sensitisation potential.",
     "citations": [
@@ -3965,6 +4247,10 @@
   },
   "76": {
     "ke_id": "396",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "In Chemico Reactivity Database for Michael Acceptors",
     "description": "Systematic in chemico databases reporting measurements of reactive potency specifically for Michael acceptors towards nucleophilic model compounds.",
     "citations": [],
@@ -4000,6 +4286,10 @@
   },
   "77": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "VITOSENS",
     "description": "Assay using human CD34+ progenitor-derived dendritic cells (CD34-DC) based on differential expression of CREM and CCR2 genes to identify skin sensitizers.",
     "citations": [
@@ -4056,6 +4346,10 @@
   },
   "78": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "Genomic Allergen Rapid Detection (GARD)",
     "description": "Biomarker genomic signature assay based on the human myelomonocytic cell line MUTZ-3 for identification of human sensitizing chemicals.",
     "citations": [
@@ -4114,6 +4408,10 @@
   },
   "79": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "SENSIS",
     "description": "Genomic platform measuring over-expression of 3 sets of genes to assess the sensitizing potential of a compound in vitro.",
     "citations": [
@@ -4158,6 +4456,10 @@
   },
   "80": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "human Cell Line Activation Test (h-CLAT)",
     "description": "Flow cytometry-based assay measuring CD86 and CD54 surface marker expression on THP-1 cells following exposure to sensitizers, as indicators of dendritic cell maturation/activation.",
     "citations": [
@@ -4220,6 +4522,10 @@
   },
   "81": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "myeloid U937 Skin Sensitisation Test (U-SENS)",
     "description": "Flow cytometry-based assay measuring CD86 surface marker expression on U937 cells to assess skin sensitization potential.",
     "citations": [
@@ -4272,6 +4578,10 @@
   },
   "82": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "IL-8 ELISA assay",
     "description": "Enzyme Linked Immunosorbent Assay (ELISA) for quantification of IL-8 chemokine levels to distinguish sensitizers from non-sensitizers in dendritic cell-based assays.",
     "citations": [
@@ -4324,6 +4634,10 @@
   },
   "83": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "Dendritic cell cytokine expression assay",
     "description": "Measurement of cytokine expression (IL-1\u03b1, IL-1\u03b2, IL-18, TNF-\u03b1) in dendritic cells as biomarkers of response to skin sensitizers.",
     "citations": [],
@@ -4392,6 +4706,10 @@
   },
   "84": {
     "ke_id": "398",
+    "aop_ids": [
+      "39",
+      "40"
+    ],
     "title": "Dendritic cell genomic/proteomic array and qPCR",
     "description": "Custom designed arrays or quantitative PCR of selected genes used to highlight the reaction of dendritic cells to sensitizers in omic studies.",
     "citations": [
@@ -4461,6 +4779,10 @@
   },
   "85": {
     "ke_id": "984",
+    "aop_ids": [
+      "277",
+      "154"
+    ],
     "title": "Sandwich ELISA for serum anti-KLH IgM and IgG (rat, FK506)",
     "description": "Rats were repeatedly administered FK506 orally for 4 weeks and immunized with KLH. Serum was examined for T-cell-dependent, antigen-specific IgM and IgG levels using a Sandwich ELISA kit.",
     "citations": [
@@ -4513,6 +4835,10 @@
   },
   "86": {
     "ke_id": "984",
+    "aop_ids": [
+      "277",
+      "154"
+    ],
     "title": "Plaque-Forming Cell (PFC) Assay for anti-SRBC response (mouse, CNIs)",
     "description": "Mice were repeatedly administered calcineurin inhibitors (FK506 and CsA) orally for 4 days and immunized with SRBC. Spleen cells were examined using a PFC assay to measure antigen-specific antibody-secreting cells.",
     "citations": [
@@ -4578,6 +4904,10 @@
   },
   "87": {
     "ke_id": "984",
+    "aop_ids": [
+      "277",
+      "154"
+    ],
     "title": "ELISA for serum anti-SRBC IgM and IgG (cynomolgus monkey, CsA)",
     "description": "Cynomolgus monkeys received CsA twice daily via oral gavage for 23 days and were immunized with SRBC. Serum was examined for anti-SRBC IgM and IgG levels using an ELISA specific for SRBC antigen.",
     "citations": [
@@ -4631,6 +4961,10 @@
   },
   "88": {
     "ke_id": "984",
+    "aop_ids": [
+      "277",
+      "154"
+    ],
     "title": "ELISA for splenocyte IgM and IgG after DBA exposure (mouse)",
     "description": "Mice were exposed to a single pharyngeal aspiration of DBA. Supernatants of splenocytes cultured for 24 h in the presence of LPS were assayed using a mouse IgM or IgG matched pairs antibody kit.",
     "citations": [
@@ -4690,6 +5024,10 @@
   },
   "89": {
     "ke_id": "984",
+    "aop_ids": [
+      "277",
+      "154"
+    ],
     "title": "Sandwich ELISA for IgM and IgG in PBMC co-culture (human, CNIs)",
     "description": "T cells and B cells isolated from human PBMCs were co-cultured with CNIs (FK506 or CsA) for nine days in the presence of polyclonal T-cell stimulation. Supernatants were tested for IgM and IgG levels using a Sandwich ELISA kit.",
     "citations": [
@@ -4758,6 +5096,10 @@
   },
   "90": {
     "ke_id": "984",
+    "aop_ids": [
+      "277",
+      "154"
+    ],
     "title": "ELISA for IgM in SKW6.4 B-cell line co-culture with PBMC supernatant (human, CNIs)",
     "description": "SKW6.4 cells (IL-6-dependent IgM-secreting human B-cell line) were cultured with anti-CD3/CD28 antibody-stimulated PBMC culture supernatant. After four days, IgM in culture supernatants was measured using an ELISA kit. FK506 or CsA reduced IgM levels.",
     "citations": [
@@ -4824,6 +5166,10 @@
   },
   "91": {
     "ke_id": "984",
+    "aop_ids": [
+      "277",
+      "154"
+    ],
     "title": "Quantitative PCR for cytokine mRNA in T cells (human, CNIs)",
     "description": "T cells derived from human PBMCs were cultured with CNIs. Cytokine mRNA levels of Interferon-gamma, IL-2, IL-4, IL-5, IL-10, IL-13, and other B-cell-stimulatory cytokines produced in T cells were measured by quantitative PCR to examine class switching.",
     "citations": [
@@ -4907,6 +5253,9 @@
   },
   "92": {
     "ke_id": "1700",
+    "aop_ids": [
+      "277"
+    ],
     "title": "RT-PCR for IL-1\u03b1/IL-1\u03b2 mRNA",
     "description": "Real-time polymerase chain reaction to measure IL-1\u03b1 or IL-1\u03b2 mRNA expression levels",
     "citations": [],
@@ -4952,6 +5301,9 @@
   },
   "93": {
     "ke_id": "1700",
+    "aop_ids": [
+      "277"
+    ],
     "title": "ELISA for IL-1\u03b1/IL-1\u03b2 protein",
     "description": "Enzyme-linked immunosorbent assay to detect and quantify IL-1\u03b1 or IL-1\u03b2 protein levels",
     "citations": [],
@@ -4990,6 +5342,9 @@
   },
   "94": {
     "ke_id": "1700",
+    "aop_ids": [
+      "277"
+    ],
     "title": "Competitive Inhibition Binding Assay for IL-1\u03b1 to Type I IL-1R",
     "description": "Competitive inhibition binding experiments using 125I-labeled IL-1\u03b1 to measure binding to type I IL-1 receptor present on EL4 thymoma cells, 3T3 fibroblasts, hepatocytes, and Chinese hamster ovary cells expressing recombinant mouse type I IL-1R",
     "citations": [
@@ -5061,6 +5416,9 @@
   },
   "95": {
     "ke_id": "1700",
+    "aop_ids": [
+      "277"
+    ],
     "title": "IL-1\u03b2 Bioactivity Neutralization Assay on Human Fibroblasts",
     "description": "Measurement of the ability of a reagent to neutralize the bioactivity of human IL-1\u03b2 on primary human fibroblasts in vitro",
     "citations": [
@@ -5113,5 +5471,56 @@
       "reason": "The KE involves measuring the neutralization of IL-1\u03b2 biological activity (bioactivity), which aligns with an assay measuring epitope-specific immunoglobulin-mediated neutralization of biological activity, as the assay assesses whether IL-1\u03b2's bioactivity is neutralized on human fibroblasts.",
       "source": "llm_recommendation"
     }
+  },
+  "96": {
+    "ke_id": "1702",
+    "aop_ids": [
+      "277"
+    ],
+    "title": "T cell Activation Measured by IL-2 ELISA",
+    "objects": [
+      {
+        "label": "IL-2",
+        "source": "manual_entry"
+      }
+    ],
+    "processes": [
+      {
+        "label": "IL-2 production",
+        "source": "manual_entry"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 1,
+    "assay_type": {
+      "label": "ELISA",
+      "source": "manual_entry"
+    }
+  },
+  "97": {
+    "ke_id": "1702",
+    "aop_ids": [
+      "277"
+    ],
+    "title": "T cell proliferation Measured by CFSE assay",
+    "objects": [
+      {
+        "label": "T cell",
+        "source": "manual_entry"
+      }
+    ]
+  },
+  "98": {
+    "ke_id": "1702",
+    "aop_ids": [
+      "277"
+    ],
+    "title": "T cell proliferation Measured by [3H]thymidine",
+    "objects": [
+      {
+        "label": "T cell",
+        "source": "manual_entry"
+      }
+    ]
   }
 }

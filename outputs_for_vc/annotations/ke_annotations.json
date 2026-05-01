@@ -6016,6 +6016,47 @@
         }
       }
     ],
+    "assays":[
+      { 
+        "title": "T cell Activation Measured by IL-2 ELISA",
+        "objects": [
+          {
+            "label": "IL-2",
+            "source": "manual_entry"
+          }
+        ],
+        "processes": [
+          {
+            "label": "IL-2 production",
+            "source": "manual_entry"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "label": "ELISA",
+          "source": "manual_entry"
+        }
+      },
+      {
+        "title": "T cell proliferation Measured by CFSE assay",
+        "objects": [
+          {
+            "label": "T cell",
+            "source": "manual_entry"
+          }
+        ]
+      },
+      {
+        "title": "T cell proliferation Measured by [3H]thymidine",
+        "objects": [
+          {
+            "label": "T cell",
+            "source": "manual_entry"
+          }
+        ]
+      }
+    ],
     "comments": {
       "carried": [],
       "new": []
