@@ -4763,11 +4763,472 @@
           "reason": "The biological object is a dendritic cell (a specific cell type), and CL (Cell Ontology) is the preferred ontology for cell types as specified in the guidance.",
           "source": "llm_recommendation"
         },
-        "biological_process": null,
-        "phenotype": null,
+        "biological_process": {
+          "rejection_reason": "The KE describes general dendritic cell activation, which is a broad immune process, while the only candidate term is too specific (restricted to mucosal-associated lymphoid tissue antigen sampling) and does not capture the general activation of dendritic cells.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "rejection_reason": "The KE describes activation of dendritic cells, but all candidate terms describe absent follicular dendritic cells, which is the opposite phenotype and refers to a specific subset (follicular DCs), making none of these a good match for dendritic cell activation.",
+          "source": "llm_rejection"
+        },
         "biological_action": {
           "term": "increased",
           "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "VITOSENS",
+        "description": "Assay using human CD34+ progenitor-derived dendritic cells (CD34-DC) based on differential expression of CREM and CCR2 genes to identify skin sensitizers.",
+        "citations": [
+          {
+            "title": null,
+            "authors": null,
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "The KE title 'VITOSENS' does not clearly correspond to any of the candidate cell type terms (dendritic progenitors, myeloid progenitors, or macrophage dendritic cell progenitors), and without more context about the biological object being acted upon in this key event, none of these terms can be confidently selected as the best match.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE title 'VITOSENS' likely refers to vitellogenin sensing or a vitellogenin-related biological object, and none of the candidate terms (tubulin modulator, GABA modulator, PPAR modulator, receptor modulator) appropriately represent the biological object involved in this key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000576",
+            "label": "monocyte",
+            "ontology": "CL",
+            "reason": "The general term 'monocyte' best represents the biological object acted upon without specifying a subtype, as 'VITOSENS' likely refers to a general sensing mechanism in monocytes rather than a specific monocyte subpopulation.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "VITOSENS likely refers to a vitellogenin sensor/sensing mechanism involving gene expression, and 'gene expression' [GO] is the most general and appropriate biological process term for a key event involving sensing or expression-based responses.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046960",
+            "label": "sensitization",
+            "ontology": "GO",
+            "reason": "The KE title 'VITOSENS' relates to sensitization, and 'sensitization' as a GO biological process directly captures the key event of an organism or tissue becoming sensitized, which is the core biological process represented.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 1,
+        "assay_type": null
+      },
+      {
+        "title": "Genomic Allergen Rapid Detection (GARD)",
+        "description": "Biomarker genomic signature assay based on the human myelomonocytic cell line MUTZ-3 for identification of human sensitizing chemicals.",
+        "citations": [
+          {
+            "title": null,
+            "authors": null,
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000002",
+            "label": "obsolete immortal cell line cell",
+            "ontology": "CL",
+            "reason": "GARD assay uses the SZ95 sebocyte immortalized cell line, which is an immortal (continuous/permanent) cell line cell, best matched by 'obsolete immortal cell line cell'.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_59163",
+            "label": "biomarker",
+            "ontology": "CHEBI",
+            "reason": "GARD assay measures a set of biomarkers (gene expression signatures) used to classify substances as sensitizers, making 'biomarker' the best match for the biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "GARD assay measures changes in gene expression profiles to identify allergens, making 'gene expression' the best match for the biological process underlying this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046960",
+            "label": "sensitization",
+            "ontology": "GO",
+            "reason": "GARD is an assay used to detect chemical sensitizers by measuring gene expression changes associated with the sensitization process, making 'sensitization' the most appropriate GO biological process term.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 2,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms accurately describe GARD (Genomic Allergen Rapid Detection), which is a genomics/transcriptomics-based assay for allergen detection; the closest candidate (#2) refers to a different rapid detection platform technology, and #3 is a substance rather than an assay type.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "SENSIS",
+        "description": "Genomic platform measuring over-expression of 3 sets of genes to assess the sensitizing potential of a compound in vitro.",
+        "citations": [
+          {
+            "title": null,
+            "authors": null,
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "gene expression sets"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE title 'SENSIS' likely refers to sensitization, a biological process involving changes in gene expression, and 'gene expression' (GO) is the most broadly applicable term among the candidates for describing the biological process underlying sensitization responses.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046960",
+            "label": "sensitization",
+            "ontology": "GO",
+            "reason": "The KE title 'SENSIS' refers to sensitization, which directly matches the GO biological process term 'sensitization'.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 3,
+        "assay_type": null
+      },
+      {
+        "title": "human Cell Line Activation Test (h-CLAT)",
+        "description": "Flow cytometry-based assay measuring CD86 and CD54 surface marker expression on THP-1 cells following exposure to sensitizers, as indicators of dendritic cell maturation/activation.",
+        "citations": [
+          {
+            "title": null,
+            "authors": null,
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "The h-CLAT assay measures CD86 and CD54 expression on THP-1 cells (a human monocytic cell line), not CD86-positive plasmablasts, so none of the candidate terms accurately represent the biological object in this key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "CD54"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match the biological object of h-CLAT, which involves human monocyte-derived dendritic cell precursors (THP-1 cell line) used to assess skin sensitization potential.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0097028",
+            "label": "dendritic cell differentiation",
+            "ontology": "GO",
+            "reason": "The h-CLAT assay measures activation/maturation of monocyte-derived dendritic cells (using THP-1 cells as a surrogate), which corresponds to dendritic cell differentiation as the core biological process being assessed.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001773",
+            "label": "myeloid dendritic cell activation",
+            "ontology": "GO",
+            "reason": "The h-CLAT assay measures activation of monocyte-derived dendritic cells (myeloid dendritic cells) by assessing upregulation of cell surface markers like CD86 and CD54, making 'myeloid dendritic cell activation' the best match for the biological process represented by this KE.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046960",
+            "label": "sensitization",
+            "ontology": "GO",
+            "reason": "The h-CLAT assay measures dendritic cell activation as a marker of skin sensitization potential, making 'sensitization' the most appropriate biological process term for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 4,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match the h-CLAT assay type, which uses the THP-1 human monocytic cell line to assess skin sensitization potential by measuring CD86 and CD54 expression, not any of the listed cell lines (HeLa, P815, T2, RMA, or JY).",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "myeloid U937 Skin Sensitisation Test (U-SENS)",
+        "description": "Flow cytometry-based assay measuring CD86 surface marker expression on U937 cells to assess skin sensitization potential.",
+        "citations": [
+          {
+            "title": null,
+            "authors": null,
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "The U-SENS assay uses U937 myeloid cells measured for CD86 upregulation, but none of the candidate terms match this cell type; a CD86-positive plasmablast is a B-cell lineage entity unrelated to the U937 monocytic cell line used in skin sensitisation testing.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match 'myeloid U937 cells', which are a human monocytic leukemia cell line used in skin sensitization testing; the closest ontology term would be a myeloid cell type (CL) but none of the provided candidates represent this.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001773",
+            "label": "myeloid dendritic cell activation",
+            "ontology": "GO",
+            "reason": "The U-SENS assay measures activation of myeloid U937 cells (a myeloid dendritic cell surrogate), making 'myeloid dendritic cell activation' the most direct match for the biological process represented by this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046960",
+            "label": "sensitization",
+            "ontology": "GO",
+            "reason": "The U-SENS assay measures sensitization potential of chemicals using myeloid U937 cells, making 'sensitization' the most appropriate biological process term to describe this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 5,
+        "assay_type": {
+          "rejection_reason": "The U-SENS assay is a cell-based in vitro test measuring CD86/CD54 expression on U937 cells, which does not match either 'test tube' (a physical container) or 'statistical hypothesis test' (a mathematical procedure).",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "IL-8 ELISA assay",
+        "description": "Enzyme Linked Immunosorbent Assay (ELISA) for quantification of IL-8 chemokine levels to distinguish sensitizers from non-sensitizers in dendritic cell-based assays.",
+        "citations": [
+          {
+            "title": null,
+            "authors": null,
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "None of the candidate terms represent IL-8 (interleukin-8), which is the biological object measured in an IL-8 ELISA assay; the candidates are unrelated chemical compounds.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE 'IL-8 ELISA assay' involves measuring IL-8 (interleukin-8, a chemokine/protein), which is not represented among the candidates; none of the listed terms (dendritic polymer or dendritic cell) match IL-8 as the biological object.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0032602",
+            "label": "chemokine production",
+            "ontology": "GO",
+            "reason": "IL-8 (CXCL8) is a chemokine, and the KE 'IL-8 ELISA assay' measures IL-8 protein levels as an indicator of chemokine production/biosynthesis, making 'chemokine production' the best matching biological process term.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by an IL-8 ELISA assay, which measures interleukin-8 cytokine production related to inflammation or immune response, not skin morphogenesis, development, barrier establishment, or sensitization in the GO sense.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000070",
+          "label": "assay",
+          "ontology": "OBI",
+          "reason": "The assay_type component refers to the type of assay being performed (ELISA), which maps best to the general 'assay' term in OBI, as the KE describes an IL-8 ELISA assay as a scientific measurement method rather than a specific instrument component like a reader or washer.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Dendritic cell cytokine expression assay",
+        "description": "Measurement of cytokine expression (IL-1\u03b1, IL-1\u03b2, IL-18, TNF-\u03b1) in dendritic cells as biomarkers of response to skin sensitizers.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "rejection_reason": "None of the candidate terms represent dendritic cells, cytokines, or relevant biological objects for a dendritic cell cytokine expression assay; the candidates are unrelated chemical or anatomical terms.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent dendritic cells or cytokines, which are the relevant biological objects in a dendritic cell cytokine expression assay (the appropriate terms would be CL:0000451 for dendritic cells or GO/protein ontology terms for cytokines).",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (lipid molecules, antibiotics) match the biological object for a dendritic cell cytokine expression assay, which would be better represented by a cell type term (dendritic cell, CL:0000451) or cytokine molecules.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms represent the biological object for a dendritic cell cytokine expression assay, which should ideally be annotated with a dendritic cell type (CL term) or a cytokine molecule relevant to the assay context.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000451",
+            "label": "dendritic cell",
+            "ontology": "CL",
+            "reason": "The biological object in this KE is the dendritic cell, which is the cell type being assayed for cytokine expression, matching the CL term for dendritic cell.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+            "label": "cytokine production",
+            "ontology": "GO",
+            "reason": "The KE involves dendritic cells expressing/producing cytokines, which directly corresponds to 'cytokine production' (GO biological process), capturing both the biosynthetic and secretory aspects of cytokine expression in these immune cells.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046960",
+            "label": "sensitization",
+            "ontology": "GO",
+            "reason": "The dendritic cell cytokine expression assay measures immune sensitization responses, and 'sensitization' as a GO biological process best captures the immunological activation process being assessed in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001773",
+            "label": "myeloid dendritic cell activation",
+            "ontology": "GO",
+            "reason": "Myeloid dendritic cell activation best describes the biological process represented by a dendritic cell cytokine expression assay, as conventional/myeloid dendritic cells are the primary cells assessed in such assays for cytokine production upon activation.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 7,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002766",
+          "label": "cytokine assay",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly describes a cytokine expression assay in dendritic cells, which directly matches the 'cytokine assay' OBI term.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Dendritic cell genomic/proteomic array and qPCR",
+        "description": "Custom designed arrays or quantitative PCR of selected genes used to highlight the reaction of dendritic cells to sensitizers in omic studies.",
+        "citations": [
+          {
+            "title": null,
+            "authors": null,
+            "year": null,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000451",
+            "label": "dendritic cell",
+            "ontology": "CL",
+            "reason": "The KE title explicitly refers to 'Dendritic cell' genomic/proteomic analysis, matching the CL term for dendritic cell as the biological object being acted upon.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (bacterial virulence gene, CGRP peptides) appropriately represent the biological object in this KE, which involves dendritic cells (CL:0000451) as the primary biological entity acted upon in genomic/proteomic array and qPCR assays.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_36080",
+            "label": "protein",
+            "ontology": "CHEBI",
+            "reason": "The KE involves genomic/proteomic array and qPCR measurements in dendritic cells, where 'protein' (CHEBI) best represents the biological object (proteins/gene expression products) being measured in the proteomic component of this assay.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE involves genomic/proteomic array and qPCR measurements in dendritic cells, which directly measures gene expression patterns, making 'gene expression' the best match for the biological process being captured.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "The KE involves genomic/proteomic array and qPCR measurements in dendritic cells, which directly assess gene expression profiles, making 'gene expression' the best match.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0046960",
+            "label": "sensitization",
+            "ontology": "GO",
+            "reason": "The KE involves dendritic cell genomic/proteomic profiling related to immune sensitization, and 'sensitization' best captures the biological process of allergen-induced immune activation that this key event measures.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Homo sapiens"
+          }
+        ],
+        "id": 8,
+        "assay_type": {
+          "rejection_reason": "The KE title describes a combined genomic/proteomic array and qPCR assay on dendritic cells, but none of the candidate terms captures this combination; the closest options (proteomic profiling by array assay or ChIP-qPCR) only cover part of the methodology, and no single term adequately represents a genomic/proteomic array combined with qPCR.",
+          "source": "llm_rejection"
         }
       }
     ],
@@ -4776,10 +5237,7 @@
       "new": []
     },
     "newly_annotated_fields": [
-      "biological_organization",
-      "cell_term",
-      "organ_term",
-      "ec_annotations['Dendritic Cells'].biological_object"
+      "assays"
     ]
   },
   "984": {

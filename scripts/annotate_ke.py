@@ -484,22 +484,11 @@ def _annotate_subject(
 
     return subj_annotation
 
-
-def _annotate_structured_ke_fields_min(
-    ke_id: str,
-    title: str,
-    api_key: str,
-    description: str = "",
-    ref_ke: dict | None = None,
-) -> dict:
-    """
-    Run the full ECS annotation workflow for a single KE.
-    Returns the annotation dict.
-    """
-    client = _make_client()
-
-    print(f"KE {ke_id}: {title}\n")
-
+def pass_ref_comments_to_llm(
+        ref_ke: dict | None, 
+        client, 
+        title: str
+    ) -> None:
     # --- review prior comments ---
     ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
     if ref_comments and client is not None:
@@ -525,6 +514,23 @@ def _annotate_structured_ke_fields_min(
             print(f"  LLM review: {message.content[0].text.strip()}\n")
         except Exception as e:
             print(f"  (LLM comment review failed: {e})\n")
+
+def _annotate_structured_ke_fields_min(
+    ke_id: str,
+    title: str,
+    api_key: str,
+    description: str = "",
+    ref_ke: dict | None = None,
+) -> dict:
+    """
+    Run the full ECS annotation workflow for a single KE.
+    Returns the annotation dict.
+    """
+    client = _make_client()
+
+    print(f"KE {ke_id}: {title}\n")
+
+    pass_ref_comments_to_llm(ref_ke, client, title)
 
     parsed = parse_ke_title(title)
     print("Parsed ECS source phrases:")
@@ -594,7 +600,7 @@ def _annotate_structured_ke_fields_min(
         )
         print()
 
-    # --- per-subject ECS annotation ---
+    # --- ECS annotation ---
     ref_subjects: dict[str, dict] = {
         s["subject"]: s
         for s in (ref_ke or {}).get("ec_annotations", [])
