@@ -442,3 +442,126 @@ assay_id,ke_id,aop_ids,title,description,effect_specificity,assay_type_label,ass
 95,1700,277,IL-1β Bioactivity Neutralization Assay on Human Fibroblasts,Measurement of the ability of a reagent to neutralize the bioactivity of human IL-1β on primary human fibroblasts in vitro,antagonist,assay measuring epitope specific immunoglobulin-mediated neutralization,OBI,http://purl.obolibrary.org/obo/OBI_0001643,"- 
 - ","- cytokine production
 - immunoglobulin-mediated neutralization",- Homo sapiens,- Alten et al. | 2008
+96,1702,277,IL-2 Production ELISA,Measurement of IL-2 cytokine production by T cells using enzyme-linked immunosorbent assay (ELISA) to evaluate T cell activation,,ELISA measuring epitope specific interleukin-2 production by T cells,OBI,http://purl.obolibrary.org/obo/OBI_1110152,"- 
+- ","- 
+- cytokine production",,
+97,1702,277,CFSE-based T Cell Proliferation Assay,"Measurement of T cell proliferation by labeling cells with CFSE (carboxyfluorescein succinimidyl ester) and analyzing dye dilution as cells divide, to evaluate T cell activation",,epitope specific T cell proliferation,OBI,http://purl.obolibrary.org/obo/OBI_1110182,"- T cell
+- 6-carboxyfluorescein succinimidyl ester","- 
+- T cell proliferation",,
+98,1702,277,[3H]Thymidine Incorporation Assay,"Measurement of T cell proliferation by incorporation of tritiated thymidine ([3H]thymidine) into newly synthesized DNA during cell division, to evaluate T cell activation",,tritiated thymidine incorporation assay,OBI,http://purl.obolibrary.org/obo/OBI_0000669,"- T cell
+- thymidine","- 
+- activated T cell proliferation
+- DNA synthesis involved in DNA replication",,
+99,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - FEV1,"Measures the maximum volume of air that can forcibly be exhaled during the first second following maximal inhalation, used to assess airflow limitation and airway obstruction.",,,,,"- lung
+- FEV1","- forced expiration
+- airflow
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+100,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - FVC,"Measures the maximum volume of air that can forcibly be exhaled following maximal inhalation, used to assess airway restriction and lung function.",,,,,"- lung
+- FVC","- forced expiration
+- 
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+101,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Vital Capacity (VC),"Measures the maximum volume of air that can be exhaled as fast as possible, used to evaluate lung capacity.",,vital sign assay,OBI,http://purl.obolibrary.org/obo/OBI_0003715,"- lung
+- vital capacity","- expiration
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+102,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - FEV1/FVC Ratio,Calculates the ratio of FEV1 to FVC to discriminate between obstructive and restrictive lung diseases.,,,,,"- lung parenchyma
+- FEV1/FVC ratio","- 
+- 
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+103,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Peak Expiratory Flow (PEF),"Measures the maximal flow that can be exhaled when exhaling at a steady rate, used to assess airway function.",,,,,"- lung
+- peak expiratory flow","- expiratory airflow
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+104,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Forced Expiratory Flow (FEF),"Measures mid-expiratory flow rates at 25%, 50%, and 75% of FVC during forced exhalation.",,,,,"- lung
+- forced expiratory flow","- expiratory airflow
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+105,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Inspiratory Vital Capacity (IVC),Measures the maximum volume of air that can be inhaled after a full expiration.,,vital sign assay,OBI,http://purl.obolibrary.org/obo/OBI_0003715,"- lung
+- inspiratory vital capacity","- inspiration
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+106,1250,"302, 148, 411, 418, 419, 424, 425",Body Plethysmography - Functional Residual Capacity (FRC),"Measures the volume of gas present in the lung at end-expiration during tidal breathing using a body plethysmograph, as the initial step in determining lung volumes.",,functional assessment of individual,OBI,http://purl.obolibrary.org/obo/OBI_0003501,"- lung
+- ","- 
+- ",- Homo sapiens,
+107,1250,"302, 148, 411, 418, 419, 424, 425",Nitrogen Washout - Lung Volume Measurement,Measures lung volumes including functional residual capacity using nitrogen washout technique.,,volume measurement assay,OBI,http://purl.obolibrary.org/obo/OBI_0002141,"- lung
+- 
+- ","- 
+- gas transport",- Homo sapiens,
+108,1250,"302, 148, 411, 418, 419, 424, 425",Helium Dilution - Lung Volume Measurement,Measures lung volumes including functional residual capacity using helium dilution technique.,,volume measurement assay,OBI,http://purl.obolibrary.org/obo/OBI_0002141,"- lung
+- helium(0)
+- ","- 
+- gas transport",- Homo sapiens,
+109,1672,"14, 302",Constrained Drop Surfactometer (CDS),"A droplet of lung surfactant is deposited on a sharp-edged pedestal, forming a surfactant film at its air-water surface. The film is cycled continuously to mimic breathing. A camera takes pictures of the droplet before and during exposure to aerosols of the test substance or after mixing with the test substance. Surface tension values (minimum and maximum) are obtained by real-time drop shape analysis.",antagonist,,,,"- pulmonary surfactant
+- pulmonary surfactant","- surfactant homeostasis
+- obsolete negative regulation of liquid surface tension
+- surfactant homeostasis",,"- Zuo, Veldhuizen et al. | 2008
+- Valle, Wu et al. | 2015
+- Sørli, Da Silva et al. | 2016
+- Yang, Wu et al. | 2018
+- Sørli, Låg et al. | 2020
+- Yu, Yang et al. | 2016"
+110,1672,"14, 302",Captive Bubble Surfactometer (CBS),"A lung surfactant film is formed at the air-liquid interface of an air bubble suspended in liquid. The test substance is injected near the surfactant layer or mixed with surfactant prior to injection. The method studies rapid initial adsorption, post-expansion adsorption, surface activity during dynamic and quasi-static cycles, and stability of the surfactant film.",antagonist,,,,"- pulmonary surfactant
+- pulmonary surfactant
+- ","- surfactant homeostasis
+- surfactant homeostasis
+- surfactant homeostasis",,- Autilio and Perez-Gil | 2019
+111,1672,"14, 302",Pulsating Bubble Surfactometer (PBS),"An air bubble suspended on a capillary tube is formed in a chamber containing lung surfactant and is periodically compressed and expanded by a piston pulsator. Used to study effects of nanoparticles, bacterial lipopolysaccharides, glucocorticoids, meconium, and clinical samples on lung surfactant function.",antagonist,,,,"- pulmonary surfactant
+- 
+- 
+- 
+- 
+- ","- surfactant homeostasis
+- obsolete negative regulation of liquid surface tension
+- surfactant homeostasis",- Homo sapiens,"- Enhorning | 2001
+- Autilio and Perez-Gil | 2019
+- Schleh, Muhlfeld et al. | 2009
+- Kolomaznik, Liskayova et al. | 2018
+- Cimato, Facorro et al. | 2018
+- Stichtenoth, Jung et al. | 2006
+- Gregory, Longmore et al. | 1991
+- Markart, Ruppert et al. | 2007"
+112,1672,"14, 302",Capillary Surfactometer (CS),"Surfactant is deposited in a capillary tube of uneven diameter simulating terminal conducting airways, and a constant airflow is led through the capillary. The percent of time with an open passage is used to assess lung surfactant functionality.",antagonist,,,,"- pulmonary surfactant
+- capillary
+- terminal bronchiole","- 
+- surfactant homeostasis",,"- Enhorning | 2001
+- Larsen, Dallot et al. | 2014
+- Sørli, Da Silva et al. | 2016"
+113,1672,"14, 302",Surfactant Adsorption Test,A fluorescence-based high-throughput method measuring the extent and rate of adsorption of lung surfactant at the air-liquid interface. Lung surfactant labelled with a fluorescent probe is injected into multi-well plates containing a light-absorbing agent (brilliant black). Fluorescence of surfactant reaching the surface is measured; bulk fluorescence is quenched by the light-absorbing agent.,antagonist,,,,"- surfactant
+- 
+- ","- surfactant homeostasis
+- ",,"- Ravasio, Cruz et al. | 2008"
+114,1672,"14, 302",Atomic Force Microscopy (AFM) of Surfactant Films,"The topography of surfactant structures formed at respiratory-like air-liquid interfaces upon exposure to test substances is studied by atomic force microscopy on fixed samples, providing nanoscale structural information about the surfactant film.",,,,,"- pulmonary surfactant
+- pulmonary surfactant","- surfactant homeostasis
+- surfactant homeostasis",,
+115,1672,"14, 302",Langmuir-Blodgett Film / Langmuir Trough,"Interfacial films of surfactant are transferred from the air-liquid interface onto solid supports or studied in a Langmuir trough. Surfactant films are compressed by reducing surface area, and a sensor plate measures surface pressure variations to yield surface pressure-area isotherms. Comparison in the presence or absence of test substances reveals interactions with lung surfactant at the molecular level. Can be combined with epifluorescence or atomic force microscopy.",,,,,"- surfactant
+- 1,2-dihexadecanoyl-sn-glycero-3-phosphocholine
+- surfactant
+- phospholipid
+- surfactant","- surfactant homeostasis
+- 
+- surfactant homeostasis",,"- Cruz and Perez-Gil | 2007
+- Xu, Yang et al. | 2020"
+116,1672,"14, 302",Cryogenic Transmission Electron Microscopy (Cryo-TEM),"Lung surfactant vesicles in aqueous dispersions are incubated with test substance, applied onto a carbon grid, and vitrified in liquid ethane cooled by liquid nitrogen. Morphological and structural changes at the single membrane vesicle level (size, circularity, lamellarity) are visualized to indicate disruption of three-dimensional surfactant structures.",,electron microscopy imaging assay,OBI,http://purl.obolibrary.org/obo/OBI_0001631,"- 
+- 
+- lipid","- 
+- ",,
+117,1672,"14, 302",Differential Scanning Calorimetry (DSC),"Phase transitions occurring in lipid membranes (such as lung surfactant models) are studied over changes in temperature. Thermotropic phase behaviours of phospholipids in surfactant models are characterized in the absence or presence of interacting substances. Associated enthalpy, transition temperature, and cooperativity are estimated from thermograms.",,,,,"- 
+- phospholipid
+- 1,2-dihexadecanoyl-sn-glycero-3-phosphocholine
+- lipid","- 
+- ",,- Demetzos | 2008
+118,1673,302,Histological detection of atelectasis in lung tissue,"Lung tissue from exposed experimental animals is stained and examined histologically to identify areas of alveolar collapse (atelectasis). Individual alveoli cannot be measured directly due to their small size (~200 µm diameter), but regions of atelectasis are observable at the tissue level.",,histological assay,OBI,http://purl.obolibrary.org/obo/OBI_0600020,"- lung
+- alveolus of lung","- 
+- atelectasis",- experimental animals,"- Jefferies, Kawano et al. | 1988
+- Yamashita and Tanaka | 1995
+- Nørgaard, Larsen et al. | 2010"

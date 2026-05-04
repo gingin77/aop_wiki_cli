@@ -35,7 +35,15 @@ import os
 import re
 import sys
 import anthropic
+import logging
 from dotenv import load_dotenv
+from datetime import date
+
+from src.utilities import set_up_logger, get_dated_cache_dir
+from src.analysis.collect_event_rankings import collect_and_rank_events
+
+
+logger = set_up_logger('aop-wiki-annotate', level=logging.INFO)
 
 from collect_aop_kes import (
     AOP_STORE_PATH,
@@ -833,6 +841,14 @@ def annotate_ke(
     _print_ke_summary(ke_id, title, annotated_ke, new_fields, ref_comments)
     return SHARED_STORE_PATH
 
+def get_fresh_event_cache():
+    work_date = date.today()
+    cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
+    output_dir = 'outputs/event_rankings'
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Collect and rank events (handles caching internally)
+    collect_and_rank_events(work_date, cache_dir, output_dir, logger, None)
 
 def main():
     parser = argparse.ArgumentParser(description="Annotate AOP-Wiki Key Events with ontology terms")
@@ -854,7 +870,7 @@ def main():
     )
     parser.add_argument(
         "--date",
-        default=datetime.date.today().strftime("%m-%d-%Y"),
+        default=date.today().strftime("%m-%d-%Y"),
         help="Cache date MM-DD-YYYY (default: today)",
     )
     args = parser.parse_args()
@@ -862,7 +878,8 @@ def main():
     cache = _get_cache_file(args.date)
     if not os.path.exists(cache):
         print(f"Cache file not found: {cache}")
-        sys.exit(1)
+        get_fresh_event_cache()
+        cache = _get_cache_file(args.date)
 
     if args.add_comment:
         if not args.ke_id:

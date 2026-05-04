@@ -27,7 +27,7 @@ def extract_assays_from_text(measurement_text: str, client: anthropic.Anthropic)
     prompt = (
         "You are extracting structured assay information from text in an AOP-Wiki Key Event field,"
         '"How is it measured or detected".\n\n'
-        f"Text:\n{measurement_text[:3000]}\n\n"
+        f"Text:\n{measurement_text}\n\n"
         "Purpose:\n" \
         "Extract assay information with specific focus on the biological elements being measured,"
         "which can be classified as biological objects, processes, and phenotypes."

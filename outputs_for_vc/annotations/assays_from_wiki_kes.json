@@ -5477,24 +5477,41 @@
     "aop_ids": [
       "277"
     ],
-    "title": "T cell Activation Measured by IL-2 ELISA",
+    "title": "IL-2 Production ELISA",
+    "description": "Measurement of IL-2 cytokine production by T cells using enzyme-linked immunosorbent assay (ELISA) to evaluate T cell activation",
+    "citations": [],
+    "effect_specificity": null,
     "objects": [
       {
-        "label": "IL-2",
-        "source": "manual_entry"
+        "rejection_reason": "None of the candidate terms match IL-2 (Interleukin-2), which is the biological object (a cytokine/protein) being measured in this ELISA assay.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "The KE 'IL-2 Production ELISA' measures IL-2 cytokine levels, so the biological object should be IL-2 (a chemical/molecule, best represented by ChEBI), not a T cell type from CL ontology.",
+        "source": "llm_rejection"
       }
     ],
     "processes": [
       {
-        "label": "IL-2 production",
-        "source": "manual_entry"
+        "rejection_reason": "The KE title 'IL-2 Production ELISA' refers specifically to the measurement of IL-2 cytokine production, which is better described by a cytokine production or interleukin-2 production biological process term rather than any of the T cell activation terms listed.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0001816",
+        "label": "cytokine production",
+        "ontology": "GO",
+        "reason": "IL-2 is a cytokine, and 'cytokine production' is the most general and accurate GO biological process term for IL-2 production, as the other options specify particular cell types (macrophage, myeloid leukocyte, mast cell, dendritic cell) that are not specifically indicated by the KE title.",
+        "source": "llm_recommendation"
       }
     ],
     "taxon_terms": [],
     "id": 1,
     "assay_type": {
-      "label": "ELISA",
-      "source": "manual_entry"
+      "term_id": "http://purl.obolibrary.org/obo/OBI_1110152",
+      "label": "ELISA measuring epitope specific interleukin-2 production by T cells",
+      "ontology": "OBI",
+      "reason": "The KE title 'IL-2 Production ELISA' directly matches the OBI term for ELISA measuring epitope specific interleukin-2 production by T cells, including the IL-2 release synonym.",
+      "source": "llm_recommendation"
     }
   },
   "97": {
@@ -5502,25 +5519,1554 @@
     "aop_ids": [
       "277"
     ],
-    "title": "T cell proliferation Measured by CFSE assay",
+    "title": "CFSE-based T Cell Proliferation Assay",
+    "description": "Measurement of T cell proliferation by labeling cells with CFSE (carboxyfluorescein succinimidyl ester) and analyzing dye dilution as cells divide, to evaluate T cell activation",
+    "citations": [],
+    "effect_specificity": null,
     "objects": [
       {
+        "term_id": "http://purl.obolibrary.org/obo/CL_0000084",
         "label": "T cell",
-        "source": "manual_entry"
+        "ontology": "CL",
+        "reason": "The CFSE-based T Cell Proliferation Assay measures the proliferation of T cells generally, making the generic 'T cell' CL term the best match for the biological object being acted upon.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_132203",
+        "label": "6-carboxyfluorescein succinimidyl ester",
+        "ontology": "CHEBI",
+        "reason": "CFSE (6-carboxyfluorescein succinimidyl ester) is the chemical dye used in the CFSE-based T Cell Proliferation Assay to label and track cell division, making it the primary biological object acted upon in this key event.",
+        "source": "llm_recommendation"
       }
-    ]
+    ],
+    "processes": [
+      {
+        "rejection_reason": "The KE 'CFSE-based T Cell Proliferation Assay' describes T cell proliferation, not T cell activation; none of the candidate terms capture the biological process of T cell proliferation (GO:0042098 or similar), making none of the candidates a good match.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0042098",
+        "label": "T cell proliferation",
+        "ontology": "GO",
+        "reason": "The CFSE-based T cell proliferation assay directly measures general T cell proliferation, making the broad 'T cell proliferation' GO term the best match without assuming a specific T cell activation state or subset.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 2,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_1110182",
+      "label": "epitope specific T cell proliferation",
+      "ontology": "OBI",
+      "reason": "CFSE-based T cell proliferation assay specifically measures antigen-specific (epitope-specific) T cell proliferation by tracking dye dilution, making 'epitope specific T cell proliferation' the best match among the candidates.",
+      "source": "llm_recommendation"
+    }
   },
   "98": {
     "ke_id": "1702",
     "aop_ids": [
       "277"
     ],
-    "title": "T cell proliferation Measured by [3H]thymidine",
+    "title": "[3H]Thymidine Incorporation Assay",
+    "description": "Measurement of T cell proliferation by incorporation of tritiated thymidine ([3H]thymidine) into newly synthesized DNA during cell division, to evaluate T cell activation",
+    "citations": [],
+    "effect_specificity": null,
     "objects": [
       {
+        "term_id": "http://purl.obolibrary.org/obo/CL_0000084",
         "label": "T cell",
-        "source": "manual_entry"
+        "ontology": "CL",
+        "reason": "The [3H]Thymidine Incorporation Assay measures T cell proliferation, and the general 'T cell' term best represents the biological object being acted upon in this assay context.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_17748",
+        "label": "thymidine",
+        "ontology": "CHEBI",
+        "reason": "The [3H]Thymidine Incorporation Assay measures the uptake of radiolabeled thymidine (2'-deoxythymidine) into newly synthesized DNA, making thymidine (CHEBI) the biological object being acted upon in this key event.",
+        "source": "llm_recommendation"
       }
-    ]
+    ],
+    "processes": [
+      {
+        "rejection_reason": "The [3H]Thymidine Incorporation Assay measures DNA synthesis as an indicator of cell proliferation, which is not specifically captured by any of the T cell activation terms provided; the assay is a general measure of cellular proliferation/DNA replication rather than T cell activation per se.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0050798",
+        "label": "activated T cell proliferation",
+        "ontology": "GO",
+        "reason": "The [3H]Thymidine Incorporation Assay measures DNA synthesis as a proxy for cell proliferation, and in the context of immunotoxicology AOPs this assay is typically used to assess activated T cell proliferation following antigen or mitogen stimulation.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0090592",
+        "label": "DNA synthesis involved in DNA replication",
+        "ontology": "GO",
+        "reason": "The [3H]Thymidine Incorporation Assay measures DNA synthesis during replication (thymidine is incorporated into newly synthesized DNA), making 'DNA synthesis involved in DNA replication' the best general match for this KE's biological process.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 3,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0000669",
+      "label": "tritiated thymidine incorporation assay",
+      "ontology": "OBI",
+      "reason": "The KE title '[3H]Thymidine Incorporation Assay' directly corresponds to the 'tritiated thymidine incorporation assay' term in OBI, as [3H] denotes tritium (radioactive hydrogen) and the assay measures DNA synthesis via thymidine incorporation.",
+      "source": "llm_recommendation"
+    }
+  },
+  "99": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Spirometry - FEV1",
+    "description": "Measures the maximum volume of air that can forcibly be exhaled during the first second following maximal inhalation, used to assess airflow limitation and airway obstruction.",
+    "citations": [
+      {
+        "title": "Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement",
+        "authors": "Graham et al.",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretative strategies for lung function tests",
+        "authors": "Pellegrino et al.",
+        "year": 2005,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretive strategies for lung function tests",
+        "authors": "Culver et al.",
+        "year": 2017,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Spirometry FEV1 (Forced Expiratory Volume in 1 second) measures overall lung function/airflow capacity, making the lung as a whole organ the most appropriate biological object.",
+        "source": "llm_recommendation"
+      },
+      {
+        "label": "FEV1"
+      }
+    ],
+    "processes": [
+      {
+        "label": "forced expiration"
+      },
+      {
+        "label": "airflow"
+      },
+      {
+        "rejection_reason": "Spirometry FEV1 (Forced Expiratory Volume in 1 second) is a measure of lung function/respiratory capacity, not a developmental or morphogenic process, and none of the candidate terms adequately describe pulmonary function measurement or airflow dynamics.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 1,
+    "assay_type": null
+  },
+  "100": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Spirometry - FVC",
+    "description": "Measures the maximum volume of air that can forcibly be exhaled following maximal inhalation, used to assess airway restriction and lung function.",
+    "citations": [
+      {
+        "title": "Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement",
+        "authors": "Graham et al.",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretative strategies for lung function tests",
+        "authors": "Pellegrino et al.",
+        "year": 2005,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretive strategies for lung function tests",
+        "authors": "Culver et al.",
+        "year": 2017,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "FVC (Forced Vital Capacity) spirometry measures overall lung function/volume, making 'lung' the most appropriate anatomical entity for this key event's biological object.",
+        "source": "llm_recommendation"
+      },
+      {
+        "label": "FVC"
+      }
+    ],
+    "processes": [
+      {
+        "label": "forced expiration"
+      },
+      {
+        "rejection_reason": "FVC (Forced Vital Capacity) is a spirometry measurement reflecting lung function/capacity, which is not well captured by any of the candidate terms, as they all relate to developmental processes rather than respiratory function or lung physiology measurement.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "None of the candidate terms relate to spirometry or forced vital capacity (FVC), which is a measure of lung function/respiratory capacity; the candidates are all related to DNA restriction or caloric restriction, which are entirely unrelated biological processes.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 2,
+    "assay_type": null
+  },
+  "101": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Spirometry - Vital Capacity (VC)",
+    "description": "Measures the maximum volume of air that can be exhaled as fast as possible, used to evaluate lung capacity.",
+    "citations": [
+      {
+        "title": "Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement",
+        "authors": "Graham et al.",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretative strategies for lung function tests",
+        "authors": "Pellegrino et al.",
+        "year": 2005,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretive strategies for lung function tests",
+        "authors": "Culver et al.",
+        "year": 2017,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Vital capacity (VC) measured by spirometry reflects the overall functional volume capacity of the lung as an organ, making 'lung' the most appropriate biological object term.",
+        "source": "llm_recommendation"
+      },
+      {
+        "label": "vital capacity"
+      }
+    ],
+    "processes": [
+      {
+        "label": "expiration"
+      },
+      {
+        "rejection_reason": "Spirometry - Vital Capacity (VC) represents a measurement of lung function/capacity rather than a developmental or morphological biological process, and none of the candidate terms adequately capture the physiological process of respiratory airflow or lung ventilation capacity.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 3,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0003715",
+      "label": "vital sign assay",
+      "ontology": "OBI",
+      "reason": "Spirometry measuring Vital Capacity is a clinical measurement of a physiological parameter, which fits the definition of a vital sign assay.",
+      "source": "llm_recommendation"
+    }
+  },
+  "102": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Spirometry - FEV1/FVC Ratio",
+    "description": "Calculates the ratio of FEV1 to FVC to discriminate between obstructive and restrictive lung diseases.",
+    "citations": [
+      {
+        "title": "Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement",
+        "authors": "Graham et al.",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretative strategies for lung function tests",
+        "authors": "Pellegrino et al.",
+        "year": 2005,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretive strategies for lung function tests",
+        "authors": "Culver et al.",
+        "year": 2017,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008946",
+        "label": "lung parenchyma",
+        "ontology": "UBERON",
+        "reason": "FEV1/FVC spirometry measurements reflect the functional capacity of the lung parenchyma, specifically the airway and alveolar tissue that determines airflow obstruction and restriction.",
+        "source": "llm_recommendation"
+      },
+      {
+        "label": "FEV1/FVC ratio"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "None of the candidate terms are relevant to spirometry or FEV1/FVC ratio measurement, which relates to pulmonary function and respiratory airflow, not invasive growth responses to glucose or nitrogen limitation.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "Spirometry FEV1/FVC ratio is a lung function measurement reflecting airflow obstruction, not a biological process like respiratory basal cell differentiation, so none of the candidate terms are appropriate.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "The FEV1/FVC ratio is a measure of lung function/airflow obstruction (spirometry), not a developmental or morphogenetic process, and none of the candidate GO biological process terms accurately describe pulmonary function measurement or airway physiology.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 4,
+    "assay_type": {
+      "rejection_reason": "Neither candidate term matches spirometry, which is a pulmonary function test measuring forced expiratory volume and forced vital capacity to calculate the FEV1/FVC ratio.",
+      "source": "llm_rejection"
+    }
+  },
+  "103": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Spirometry - Peak Expiratory Flow (PEF)",
+    "description": "Measures the maximal flow that can be exhaled when exhaling at a steady rate, used to assess airway function.",
+    "citations": [
+      {
+        "title": "Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement",
+        "authors": "Graham et al.",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretative strategies for lung function tests",
+        "authors": "Pellegrino et al.",
+        "year": 2005,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretive strategies for lung function tests",
+        "authors": "Culver et al.",
+        "year": 2017,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Peak Expiratory Flow (PEF) measured by spirometry reflects overall lung function, making 'lung' the most appropriate anatomical entity being assessed.",
+        "source": "llm_recommendation"
+      },
+      {
+        "label": "peak expiratory flow"
+      }
+    ],
+    "processes": [
+      {
+        "label": "expiratory airflow"
+      },
+      {
+        "rejection_reason": "None of the candidate terms describe the biological process of respiratory airflow or expiratory function measured by peak expiratory flow (PEF); the candidates relate to lung development/morphogenesis rather than the physiological process of breathing or pulmonary ventilation.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 5,
+    "assay_type": {
+      "rejection_reason": "None of the candidate terms appropriately describe spirometry or peak expiratory flow measurement as an assay type; the candidates relate to flow cytometry, flow cells/probes, or peak matching algorithms, none of which correspond to pulmonary function testing via spirometry.",
+      "source": "llm_rejection"
+    }
+  },
+  "104": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Spirometry - Forced Expiratory Flow (FEF)",
+    "description": "Measures mid-expiratory flow rates at 25%, 50%, and 75% of FVC during forced exhalation.",
+    "citations": [
+      {
+        "title": "Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement",
+        "authors": "Graham et al.",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretative strategies for lung function tests",
+        "authors": "Pellegrino et al.",
+        "year": 2005,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretive strategies for lung function tests",
+        "authors": "Culver et al.",
+        "year": 2017,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Forced Expiratory Flow (FEF) measured by spirometry assesses the functional capacity of the lung as a whole organ, making 'lung' the most appropriate biological object term.",
+        "source": "llm_recommendation"
+      },
+      {
+        "label": "forced expiratory flow"
+      }
+    ],
+    "processes": [
+      {
+        "label": "expiratory airflow"
+      },
+      {
+        "rejection_reason": "None of the candidate terms appropriately describe spirometry or forced expiratory flow measurement, which relates to lung function/physiology (airflow mechanics) rather than developmental processes like lung induction, growth, morphogenesis, or development.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 6,
+    "assay_type": {
+      "rejection_reason": "None of the candidate terms accurately describe spirometry/forced expiratory flow measurement, which is a pulmonary function test measuring airflow during forced exhalation; the closest candidate (forced cough assessment) is not the same as spirometry, and the other options relate to flow cytometry or fluid flow hardware components.",
+      "source": "llm_rejection"
+    }
+  },
+  "105": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Spirometry - Inspiratory Vital Capacity (IVC)",
+    "description": "Measures the maximum volume of air that can be inhaled after a full expiration.",
+    "citations": [
+      {
+        "title": "Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement",
+        "authors": "Graham et al.",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretative strategies for lung function tests",
+        "authors": "Pellegrino et al.",
+        "year": 2005,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": "Interpretive strategies for lung function tests",
+        "authors": "Culver et al.",
+        "year": 2017,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Spirometry measuring Inspiratory Vital Capacity (IVC) assesses the overall lung capacity/function, making 'lung' the most appropriate anatomical entity being acted upon in this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "label": "inspiratory vital capacity"
+      }
+    ],
+    "processes": [
+      {
+        "label": "inspiration"
+      },
+      {
+        "rejection_reason": "None of the candidate terms accurately represent spirometry or inspiratory vital capacity measurement, which relates to lung function/physiology rather than lung development or morphogenesis processes.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 7,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0003715",
+      "label": "vital sign assay",
+      "ontology": "OBI",
+      "reason": "Spirometry measuring Inspiratory Vital Capacity (IVC) is a clinical measurement of a physiological parameter, which aligns with 'vital sign assay' as it measures lung function as a vital physiological indicator.",
+      "source": "llm_recommendation"
+    }
+  },
+  "106": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Body Plethysmography - Functional Residual Capacity (FRC)",
+    "description": "Measures the volume of gas present in the lung at end-expiration during tidal breathing using a body plethysmograph, as the initial step in determining lung volumes.",
+    "citations": [],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Functional Residual Capacity (FRC) measured by body plethysmography is a measure of the volume of air remaining in the lungs after passive expiration, making 'lung' the most appropriate biological object.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "None of the candidate terms appropriately represent the biological object for body plethysmography measuring Functional Residual Capacity, which relates to lung volume/respiratory anatomy (e.g., lungs or respiratory system in UBERON), not megaspores, brain structures, or non-connected functional systems.",
+        "source": "llm_rejection"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "Neither term adequately describes the biological process underlying Functional Residual Capacity measurement, which relates to lung volume/capacity and respiratory mechanics (the amount of air remaining in the lungs after passive expiration), rather than gaseous exchange or nervous system regulation of breathing.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by Functional Residual Capacity (FRC) measurement, which relates to lung function/physiology (the volume of air remaining in lungs after passive expiration) rather than lung development, growth, or morphogenesis.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 8,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0003501",
+      "label": "functional assessment of individual",
+      "ontology": "OBI",
+      "reason": "Body plethysmography measuring Functional Residual Capacity is a functional assessment performed on an individual to evaluate lung function/capacity.",
+      "source": "llm_recommendation"
+    }
+  },
+  "107": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Nitrogen Washout - Lung Volume Measurement",
+    "description": "Measures lung volumes including functional residual capacity using nitrogen washout technique.",
+    "citations": [],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "The nitrogen washout technique measures total lung volume (functional residual capacity, total lung capacity, etc.), making 'lung' the most appropriate anatomical term for the biological object being measured in this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "The KE involves nitrogen gas (N\u2082) used in lung washout measurements, but none of the candidates represent molecular nitrogen (N\u2082/dinitrogen); the closest candidate 'nitrogen(.)' refers to atomic nitrogen radical (CHEBI), not the dinitrogen gas relevant to nitrogen washout lung function testing.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "None of the candidate terms appropriately represent the biological object in nitrogen washout lung volume measurement, which should be lung tissue or the respiratory system (UBERON), not functional brain parts, megaspores, or non-connected functional systems.",
+        "source": "llm_rejection"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "None of the candidate terms describe the physiological process of nitrogen washout or lung volume measurement, which relates to respiratory function/gas exchange rather than lung development or morphogenesis.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0015669",
+        "label": "gas transport",
+        "ontology": "GO",
+        "reason": "Gas transport is the most relevant biological process term for nitrogen washout, which involves the movement and exchange of gases (nitrogen) within the lungs during lung volume measurement.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 9,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0002141",
+      "label": "volume measurement assay",
+      "ontology": "OBI",
+      "reason": "The nitrogen washout technique is fundamentally a volume measurement assay used to determine lung volumes by measuring exhaled nitrogen concentrations.",
+      "source": "llm_recommendation"
+    }
+  },
+  "108": {
+    "ke_id": "1250",
+    "aop_ids": [
+      "302",
+      "148",
+      "411",
+      "418",
+      "419",
+      "424",
+      "425"
+    ],
+    "title": "Helium Dilution - Lung Volume Measurement",
+    "description": "Measures lung volumes including functional residual capacity using helium dilution technique.",
+    "citations": [],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Helium dilution lung volume measurement assesses the total lung as the anatomical entity, making 'lung' (UBERON) the most appropriate biological object term.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_33681",
+        "label": "helium(0)",
+        "ontology": "CHEBI",
+        "reason": "Helium(0) represents elemental helium gas (He), which is the inert tracer gas used in helium dilution lung volume measurement techniques.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "None of the candidate terms appropriately represent the biological object in a helium dilution lung volume measurement, which would ideally be annotated with a lung or respiratory system term from UBERON (e.g., lung, pulmonary system), but no such relevant term is present among the candidates.",
+        "source": "llm_rejection"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "None of the candidate terms accurately describe the biological process of lung volume measurement via helium dilution, which relates to respiratory physiology/function rather than lung development or morphogenesis.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0015669",
+        "label": "gas transport",
+        "ontology": "GO",
+        "reason": "Gas transport best describes the biological process underlying helium dilution lung volume measurement, which involves the movement and distribution of gas (helium) through the respiratory system.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 10,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0002141",
+      "label": "volume measurement assay",
+      "ontology": "OBI",
+      "reason": "The KE involves measuring lung volume using helium dilution, which is a type of volume measurement assay.",
+      "source": "llm_recommendation"
+    }
+  },
+  "109": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Constrained Drop Surfactometer (CDS)",
+    "description": "A droplet of lung surfactant is deposited on a sharp-edged pedestal, forming a surfactant film at its air-water surface. The film is cycled continuously to mimic breathing. A camera takes pictures of the droplet before and during exposure to aerosols of the test substance or after mixing with the test substance. Surface tension values (minimum and maximum) are obtained by real-time drop shape analysis.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Zuo, Veldhuizen et al.",
+        "year": 2008,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Valle, Wu et al.",
+        "year": 2015,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "S\u00f8rli, Da Silva et al.",
+        "year": 2016,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Yang, Wu et al.",
+        "year": 2018,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "S\u00f8rli, L\u00e5g et al.",
+        "year": 2020,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Yu, Yang et al.",
+        "year": 2016,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": "antagonist",
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "The Constrained Drop Surfactometer (CDS) measures the biophysical function of pulmonary surfactant, making 'pulmonary surfactant' (UBERON) the most specific and appropriate biological object term for this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "The Constrained Drop Surfactometer (CDS) is specifically used to measure the biophysical properties of pulmonary surfactant, making 'pulmonary surfactant' (UBERON) the most precise biological object term for this key event.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "processes": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Surfactant homeostasis (including regulation of liquid surface tension) best matches the biological process measured by a Constrained Drop Surfactometer, which assesses the ability of surfactants to regulate surface tension at air-liquid interfaces.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0101029",
+        "label": "obsolete negative regulation of liquid surface tension",
+        "ontology": "GO",
+        "reason": "The Constrained Drop Surfactometer (CDS) measures surfactant function, specifically the reduction of surface tension, which aligns with 'negative regulation of liquid surface tension' as the relevant biological process.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "The Constrained Drop Surfactometer measures surface tension regulation by surfactants, which aligns best with 'surfactant homeostasis' (regulation of liquid surface tension/regulation of surface tension of a liquid).",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 1,
+    "assay_type": null
+  },
+  "110": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Captive Bubble Surfactometer (CBS)",
+    "description": "A lung surfactant film is formed at the air-liquid interface of an air bubble suspended in liquid. The test substance is injected near the surfactant layer or mixed with surfactant prior to injection. The method studies rapid initial adsorption, post-expansion adsorption, surface activity during dynamic and quasi-static cycles, and stability of the surfactant film.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Autilio and Perez-Gil",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": "antagonist",
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "The Captive Bubble Surfactometer (CBS) is specifically used to measure the surface tension properties of pulmonary surfactant, making 'pulmonary surfactant' (UBERON) the most precise biological object being acted upon in this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "The Captive Bubble Surfactometer (CBS) measures the surface tension properties of pulmonary surfactant, making pulmonary surfactant (UBERON) the most specific and appropriate biological object term for this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "The Captive Bubble Surfactometer (CBS) is a laboratory instrument used to measure surfactant activity at an air-liquid interface, and none of the candidate terms (which all refer to anatomical air sacs in birds/cetaceans) represent an appropriate biological object for this measurement device context.",
+        "source": "llm_rejection"
+      }
+    ],
+    "processes": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "The Captive Bubble Surfactometer (CBS) measures surface tension regulation by pulmonary surfactants, which directly corresponds to surfactant homeostasis, including regulation of liquid surface tension.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Surfactant homeostasis best captures the biological process of maintaining and regulating surfactant activity at liquid surfaces, which is what the Captive Bubble Surfactometer measures by assessing surface tension regulation by pulmonary surfactants.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "The CBS measures lung surfactant function and surface tension regulation, making 'surfactant homeostasis' (which includes regulation of liquid surface tension) the best match for the biological process underlying this key event.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 2,
+    "assay_type": null
+  },
+  "111": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Pulsating Bubble Surfactometer (PBS)",
+    "description": "An air bubble suspended on a capillary tube is formed in a chamber containing lung surfactant and is periodically compressed and expanded by a piston pulsator. Used to study effects of nanoparticles, bacterial lipopolysaccharides, glucocorticoids, meconium, and clinical samples on lung surfactant function.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Enhorning",
+        "year": 2001,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Autilio and Perez-Gil",
+        "year": 2019,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Schleh, Muhlfeld et al.",
+        "year": 2009,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Kolomaznik, Liskayova et al.",
+        "year": 2018,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Cimato, Facorro et al.",
+        "year": 2018,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Stichtenoth, Jung et al.",
+        "year": 2006,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Gregory, Longmore et al.",
+        "year": 1991,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Markart, Ruppert et al.",
+        "year": 2007,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": "antagonist",
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "The Pulsating Bubble Surfactometer (PBS) measures the surface tension properties of pulmonary surfactant, making 'pulmonary surfactant' (UBERON) the most specific and appropriate biological object term for this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "The Pulsating Bubble Surfactometer (PBS) is a laboratory instrument used to measure surfactant activity (particularly pulmonary surfactant), not a biological object itself; none of the candidate air sac terms from UBERON appropriately represent the biological object being acted upon in this context.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "The Pulsating Bubble Surfactometer (PBS) is an instrument/assay device used to measure surfactant activity, not a biological object such as a cell type, tissue, molecule, or anatomical entity; none of the candidate nanoparticle terms are relevant to this KE title.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "The KE title 'Pulsating Bubble Surfactometer (PBS)' refers to a measurement device/assay for pulmonary surfactant function, and none of the candidate terms (bacterial metabolite or bacterial xenobiotic metabolite) are relevant biological objects for this key event.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "The KE title 'Pulsating Bubble Surfactometer (PBS)' refers to a measurement device/assay for pulmonary surfactant function, and none of the candidate terms (glucocorticoid) meaningfully represent the biological object being acted upon in this context.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "The Pulsating Bubble Surfactometer (PBS) is a measurement device/assay method used to assess surfactant function, and none of the candidate terms (meconium) appropriately represent the biological object being acted upon in this key event context.",
+        "source": "llm_rejection"
+      }
+    ],
+    "processes": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Pulsating Bubble Surfactometer (PBS) measures surfactant activity at an air-liquid interface, which corresponds to the regulation of liquid surface tension, a synonym for surfactant homeostasis in GO.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0101029",
+        "label": "obsolete negative regulation of liquid surface tension",
+        "ontology": "GO",
+        "reason": "The Pulsating Bubble Surfactometer measures surfactant function by assessing surface tension reduction, and pulmonary surfactant (like surfactin) works by negatively regulating liquid surface tension at the air-liquid interface in the lung.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "The Pulsating Bubble Surfactometer measures surfactant activity by cycling bubble size to assess surface tension regulation, which aligns with 'surfactant homeostasis' encompassing the regulation of liquid surface tension.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "Homo sapiens"
+      }
+    ],
+    "id": 3,
+    "assay_type": {
+      "rejection_reason": "The Pulsating Bubble Surfactometer (PBS) is a biophysical assay instrument used to measure surface tension properties of surfactants, which does not match 'phosphate buffered saline solution' - a chemical buffer reagent.",
+      "source": "llm_rejection"
+    }
+  },
+  "112": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Capillary Surfactometer (CS)",
+    "description": "Surfactant is deposited in a capillary tube of uneven diameter simulating terminal conducting airways, and a constant airflow is led through the capillary. The percent of time with an open passage is used to assess lung surfactant functionality.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Enhorning",
+        "year": 2001,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Larsen, Dallot et al.",
+        "year": 2014,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "S\u00f8rli, Da Silva et al.",
+        "year": 2016,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": "antagonist",
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "The Capillary Surfactometer measures pulmonary surfactant function, making pulmonary surfactant (UBERON) the most specific and appropriate biological object being acted upon in this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0001982",
+        "label": "capillary",
+        "ontology": "UBERON",
+        "reason": "The Capillary Surfactometer is a device that measures surfactant function in capillary tubes, making 'capillary' the most appropriate biological object term, as the instrument models capillary airways/vessels.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002187",
+        "label": "terminal bronchiole",
+        "ontology": "UBERON",
+        "reason": "The Capillary Surfactometer (CS) is an instrument used to measure surfactant function in small airways, specifically the terminal bronchioles, making 'terminal bronchiole' the most relevant biological object.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "The Capillary Surfactometer (CS) is a measurement device/assay for assessing surfactant function, not a biological process like cell differentiation.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Capillary Surfactometer measures surfactant function/activity related to surface tension regulation, which best aligns with 'surfactant homeostasis' encompassing the regulation of liquid surface tension.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 4,
+    "assay_type": {
+      "rejection_reason": "None of the candidate terms accurately describe a Capillary Surfactometer, which is an instrument used to measure surfactant activity in lung fluid by assessing surface tension properties in a capillary tube system.",
+      "source": "llm_rejection"
+    }
+  },
+  "113": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Surfactant Adsorption Test",
+    "description": "A fluorescence-based high-throughput method measuring the extent and rate of adsorption of lung surfactant at the air-liquid interface. Lung surfactant labelled with a fluorescent probe is injected into multi-well plates containing a light-absorbing agent (brilliant black). Fluorescence of surfactant reaching the surface is measured; bulk fluorescence is quenched by the light-absorbing agent.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Ravasio, Cruz et al.",
+        "year": 2008,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": "antagonist",
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_35195",
+        "label": "surfactant",
+        "ontology": "CHEBI",
+        "reason": "The biological object in a 'Surfactant Adsorption Test' is the surfactant molecule itself, which is the chemical entity being acted upon, best matched by the general ChEBI term for surfactant.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "None of the candidate terms (fluorescent probes/dyes) appropriately represent the biological object in a 'Surfactant Adsorption Test' KE, which would involve a membrane, cell surface, or specific molecular target like a lipid bilayer or protein rather than a fluorescent labeling tool.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "The 'Surfactant Adsorption Test' KE does not clearly correspond to any of the candidate biological object terms (dyes like Brilliant Black BN, brilliant green, or Brilliant Blue), as surfactant adsorption typically involves membrane lipids, proteins, or gill surfaces rather than these specific dye chemicals.",
+        "source": "llm_rejection"
+      }
+    ],
+    "processes": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Surfactant homeostasis best represents the biological process underlying a surfactant adsorption test, which measures the ability of surfactants to regulate surface tension at liquid interfaces.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "Surfactant adsorption is a physicochemical process, not a biological process, and none of the candidate GO biological process terms (only 'chlorophyll fluorescence' is offered) appropriately describe surfactant adsorption to biological membranes or surfaces.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 5,
+    "assay_type": {
+      "rejection_reason": "None of the candidate terms appropriately describe a surfactant adsorption test assay type, as the options are either laboratory vessels, statistical tests, or unrelated assessments.",
+      "source": "llm_rejection"
+    }
+  },
+  "114": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Atomic Force Microscopy (AFM) of Surfactant Films",
+    "description": "The topography of surfactant structures formed at respiratory-like air-liquid interfaces upon exposure to test substances is studied by atomic force microscopy on fixed samples, providing nanoscale structural information about the surfactant film.",
+    "citations": [],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "Pulmonary surfactant (UBERON) best represents the biological object being studied by AFM in this context, as surfactant films in AOP-Wiki typically refer to the alveolar/lung surfactant layer that can be disrupted by inhaled substances.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0008826",
+        "label": "pulmonary surfactant",
+        "ontology": "UBERON",
+        "reason": "Pulmonary surfactant (UBERON) best represents the biological object in this KE, as AFM of surfactant films in an AOP context most likely refers to the lung/alveolar surfactant films relevant to biological/toxicological pathways, rather than a generic chemical surfactant.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "processes": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Surfactant homeostasis (regulation of surface tension of a liquid) best captures the biological process underlying AFM measurement of surfactant films, which assesses the structural and functional integrity of surfactant layers at liquid surfaces.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Surfactant homeostasis (which includes regulation of surface tension of a liquid) best describes the biological process represented by AFM measurement of surfactant films, as this KE relates to the maintenance and functional state of surfactant films at liquid surfaces.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 6,
+    "assay_type": {
+      "rejection_reason": "Atomic emission detector (AED) is a chromatography detector and does not match Atomic Force Microscopy (AFM), which is a surface imaging/measurement technique with no suitable candidate term provided.",
+      "source": "llm_rejection"
+    }
+  },
+  "115": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Langmuir-Blodgett Film / Langmuir Trough",
+    "description": "Interfacial films of surfactant are transferred from the air-liquid interface onto solid supports or studied in a Langmuir trough. Surfactant films are compressed by reducing surface area, and a sensor plate measures surface pressure variations to yield surface pressure-area isotherms. Comparison in the presence or absence of test substances reveals interactions with lung surfactant at the molecular level. Can be combined with epifluorescence or atomic force microscopy.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Cruz and Perez-Gil",
+        "year": 2007,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Xu, Yang et al.",
+        "year": 2020,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_35195",
+        "label": "surfactant",
+        "ontology": "CHEBI",
+        "reason": "A Langmuir-Blodgett film/Langmuir trough system studies the behavior of surfactant molecules (amphiphilic compounds) at air-water interfaces, making 'surfactant' the best biological object term for this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_72999",
+        "label": "1,2-dihexadecanoyl-sn-glycero-3-phosphocholine",
+        "ontology": "CHEBI",
+        "reason": "1,2-dihexadecanoyl-sn-glycero-3-phosphocholine (DPPC) is the canonical phospholipid monolayer molecule used in Langmuir-Blodgett film/Langmuir trough experiments as the biological object being manipulated.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_35195",
+        "label": "surfactant",
+        "ontology": "CHEBI",
+        "reason": "A Langmuir-Blodgett film/Langmuir trough system studies the behavior of surfactant molecules (surface active agents) at air-water interfaces, making 'surfactant' the most appropriate biological object term for this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_16247",
+        "label": "phospholipid",
+        "ontology": "CHEBI",
+        "reason": "Langmuir-Blodgett films and Langmuir troughs are used to study phospholipid monolayers/bilayers, making phospholipid (CHEBI) the best match for the biological object being acted upon in this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_35195",
+        "label": "surfactant",
+        "ontology": "CHEBI",
+        "reason": "A Langmuir-Blodgett film/Langmuir trough involves surfactant molecules spread at an air-water interface, making 'surfactant' (CHEBI) the best match for the biological object being acted upon in this key event.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "processes": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Langmuir-Blodgett films and Langmuir troughs are used to study surfactant behavior at liquid interfaces, which directly corresponds to surfactant homeostasis/regulation of surface tension of a liquid.",
+        "source": "llm_recommendation"
+      },
+      {
+        "rejection_reason": "None of the candidate terms match the KE 'Langmuir-Blodgett Film / Langmuir Trough', which describes a physical chemistry technique for forming thin films at an air-water interface, not a biological process.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/GO_0043129",
+        "label": "surfactant homeostasis",
+        "ontology": "GO",
+        "reason": "Langmuir-Blodgett films and Langmuir troughs are used to study surfactant behavior at liquid interfaces, directly relating to the regulation of surface tension of a liquid, which is a synonym for surfactant homeostasis.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 7,
+    "assay_type": {
+      "rejection_reason": "Neither candidate term describes a Langmuir-Blodgett Film / Langmuir Trough assay type, which is a surface chemistry technique for studying monolayers at air-water interfaces; both candidates refer to antibiotic drug level assays in blood.",
+      "source": "llm_rejection"
+    }
+  },
+  "116": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Cryogenic Transmission Electron Microscopy (Cryo-TEM)",
+    "description": "Lung surfactant vesicles in aqueous dispersions are incubated with test substance, applied onto a carbon grid, and vitrified in liquid ethane cooled by liquid nitrogen. Morphological and structural changes at the single membrane vesicle level (size, circularity, lamellarity) are visualized to indicate disruption of three-dimensional surfactant structures.",
+    "citations": [],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "rejection_reason": "Cryo-TEM is an imaging/measurement technique, not a biological object being acted upon, and none of the candidate terms (surfactants, pulmonary surfactant) appropriately represent the biological object associated with this key event title.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "Cryo-TEM is an imaging/measurement technique used to visualize nanostructures and biological specimens, not a biological object that can be meaningfully represented by any of the candidate ontology terms (surfactants or pulmonary surfactant).",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_18059",
+        "label": "lipid",
+        "ontology": "CHEBI",
+        "reason": "Cryo-TEM is used to visualize lipid-based nanostructures (such as liposomes, lipid nanoparticles, and lipid bilayers), making 'lipid' the most appropriate biological object term for this key event.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "Cryo-TEM is an imaging/microscopy technique, not a biological process, and none of the candidate GO biological process terms accurately describe this analytical method.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "Cryo-TEM is an imaging/microscopy technique, not a biological process, and none of the candidate GO biological process terms appropriately describe it.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 8,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0001631",
+      "label": "electron microscopy imaging assay",
+      "ontology": "OBI",
+      "reason": "Cryo-TEM is an imaging technique that uses electron microscopy to visualize samples, making 'electron microscopy imaging assay' the best match as it describes the general assay type of acquiring images via electron microscopy.",
+      "source": "llm_recommendation"
+    }
+  },
+  "117": {
+    "ke_id": "1672",
+    "aop_ids": [
+      "14",
+      "302"
+    ],
+    "title": "Differential Scanning Calorimetry (DSC)",
+    "description": "Phase transitions occurring in lipid membranes (such as lung surfactant models) are studied over changes in temperature. Thermotropic phase behaviours of phospholipids in surfactant models are characterized in the absence or presence of interacting substances. Associated enthalpy, transition temperature, and cooperativity are estimated from thermograms.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Demetzos",
+        "year": 2008,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "rejection_reason": "Differential Scanning Calorimetry (DSC) is an analytical measurement technique that assesses thermal properties of materials/biomolecules, and none of the candidate terms (surfactants, pulmonary surfactant) adequately represent the biological object being measured in this key event context.",
+        "source": "llm_rejection"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_16247",
+        "label": "phospholipid",
+        "ontology": "CHEBI",
+        "reason": "Differential Scanning Calorimetry (DSC) in the context of membrane biology measures thermal phase transitions of phospholipids, making phospholipid (CHEBI) the best match for the biological object being acted upon.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_72999",
+        "label": "1,2-dihexadecanoyl-sn-glycero-3-phosphocholine",
+        "ontology": "CHEBI",
+        "reason": "DPPC (1,2-dipalmitoylphosphatidylcholine) is the phospholipid molecule commonly used as the biological object in DSC membrane studies, and option 5 represents the canonical ester-linked DPPC structure most relevant to membrane thermodynamic measurements.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/CHEBI_18059",
+        "label": "lipid",
+        "ontology": "CHEBI",
+        "reason": "DSC measures thermal transitions in lipid membranes, and 'lipid' (CHEBI) is the most appropriate general biological object term for the molecular entity being analyzed in this technique.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "Differential Scanning Calorimetry (DSC) is a thermodynamic measurement technique used to detect thermal transitions in biological molecules (e.g., protein unfolding, membrane phase transitions), which does not correspond to any cell cycle phase transition biological process in GO.",
+        "source": "llm_rejection"
+      },
+      {
+        "rejection_reason": "Differential Scanning Calorimetry (DSC) is a physicochemical measurement technique, not a biological process, and none of the candidate GO terms (apoptosis, necroptosis, or cell cycle phases) appropriately describe this thermodynamic analytical method.",
+        "source": "llm_rejection"
+      }
+    ],
+    "taxon_terms": [],
+    "id": 9,
+    "assay_type": {
+      "rejection_reason": "None of the candidate terms match Differential Scanning Calorimetry (DSC), which is a thermal analysis technique measuring heat flow differences; the closest candidate (differential pressure gauge) is related to pressure measurement, not calorimetry.",
+      "source": "llm_rejection"
+    }
+  },
+  "118": {
+    "ke_id": "1673",
+    "aop_ids": [
+      "302"
+    ],
+    "title": "Histological detection of atelectasis in lung tissue",
+    "description": "Lung tissue from exposed experimental animals is stained and examined histologically to identify areas of alveolar collapse (atelectasis). Individual alveoli cannot be measured directly due to their small size (~200 \u00b5m diameter), but regions of atelectasis are observable at the tissue level.",
+    "citations": [
+      {
+        "title": null,
+        "authors": "Jefferies, Kawano et al.",
+        "year": 1988,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "Yamashita and Tanaka",
+        "year": 1995,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      },
+      {
+        "title": null,
+        "authors": "N\u00f8rgaard, Larsen et al.",
+        "year": 2010,
+        "doi": null,
+        "pmid": null,
+        "journal": null
+      }
+    ],
+    "effect_specificity": null,
+    "objects": [
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "label": "lung",
+        "ontology": "UBERON",
+        "reason": "Atelectasis is a condition affecting the lung as a whole organ (collapse of lung tissue), making 'lung' the most appropriate biological object for this key event.",
+        "source": "llm_recommendation"
+      },
+      {
+        "term_id": "http://purl.obolibrary.org/obo/UBERON_0002299",
+        "label": "alveolus of lung",
+        "ontology": "UBERON",
+        "reason": "Atelectasis is the collapse of lung alveoli, making 'alveolus of lung' (UBERON) the most appropriate biological object for this key event involving histological detection of atelectasis in lung tissue.",
+        "source": "llm_recommendation"
+      }
+    ],
+    "processes": [
+      {
+        "rejection_reason": "None of the candidate terms appropriately describe the biological process underlying atelectasis (lung collapse/alveolar collapse), which would involve processes like surfactant production, alveolar stability, or lung inflation; the closest candidates relate to alveolar development or unrelated processes.",
+        "source": "llm_rejection"
+      },
+      {
+        "label": "atelectasis"
+      }
+    ],
+    "taxon_terms": [
+      {
+        "label": "experimental animals"
+      }
+    ],
+    "id": 1,
+    "assay_type": {
+      "term_id": "http://purl.obolibrary.org/obo/OBI_0600020",
+      "label": "histological assay",
+      "ontology": "OBI",
+      "reason": "The KE involves histological detection of atelectasis in lung tissue, which is directly described by a histological assay (histopathology/histology).",
+      "source": "llm_recommendation"
+    }
   }
 }

@@ -45,7 +45,7 @@ wheels = [
 [[package]]
 name = "aop-wiki-cli"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "anthropic" },
     { name = "bs4" },
