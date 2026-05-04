@@ -6021,11 +6021,19 @@
         "title": "T cell Activation Measured by IL-2 ELISA",
         "objects": [
           {
+            "label": "T cell",
+            "source": "manual_entry"
+          },
+          {
             "label": "IL-2",
             "source": "manual_entry"
           }
         ],
         "processes": [
+          {
+            "label": "T cell Activation",
+            "source": "manual_entry"
+          },
           {
             "label": "IL-2 production",
             "source": "manual_entry"
@@ -6045,6 +6053,12 @@
             "label": "T cell",
             "source": "manual_entry"
           }
+        ],
+        "processes": [
+          {
+            "label": "T cell proliferation",
+            "source": "manual_entry"
+          }
         ]
       },
       {
@@ -6052,6 +6066,12 @@
         "objects": [
           {
             "label": "T cell",
+            "source": "manual_entry"
+          }
+        ],
+        "processes": [
+          {
+            "label": "T cell proliferation",
             "source": "manual_entry"
           }
         ]
