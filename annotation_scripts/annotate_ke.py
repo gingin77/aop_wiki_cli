@@ -23,8 +23,6 @@ Usage:
     # Re-annotate only the assays
     uv run python scripts/annotate_ke.py --ke-id 68 --force-on assays --date 04-28-2026
 
-    # Add a comment to a KE
-    uv run python scripts/annotate_ke.py --ke-id 68 --add-comment "Needs review"
 """
 
 import argparse
