@@ -7641,5 +7641,279 @@
       "biological_organization",
       "ec_annotations['Reduced tidal volume'].phenotype"
     ]
+  },
+  "613": {
+    "ke_id": "613",
+    "title": "Occurrence, Epileptic seizure",
+    "biological_organization": "Individual",
+    "cell_term": null,
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "Epileptic seizure",
+        "biological_object": null,
+        "biological_process": null,
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/HP_0001250",
+          "label": "Seizure",
+          "ontology": "HP",
+          "reason": "HP term 'Seizure' with synonym 'Epileptic seizure' directly matches the KE title 'Occurrence, Epileptic seizure'.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "occurrence",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Electrophysiological Measurements for Seizure Detection",
+        "description": "Electrophysiological recordings used to detect epileptic seizure-related electrical activity in neurons and brain tissue.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ulate-Campos et al.",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000540",
+            "label": "neuron",
+            "ontology": "CL",
+            "reason": "Electrophysiological measurements for seizure detection directly involve neurons (nerve cells) as the primary biological objects whose electrical activity is measured.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000955",
+            "label": "brain",
+            "ontology": "UBERON",
+            "reason": "Electrophysiological measurements for seizure detection are performed on the brain, making 'brain' [UBERON] the most appropriate biological object for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "epileptic seizure"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to electrophysiological measurements or seizure detection; the KE involves neuronal electrical activity and seizure-related biological processes, which are not represented by any of the provided GO terms (acetylcholinesterase, acylphosphatase, deubiquitinase, guanidinopropionase, or guanidinopropionase activities).",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003368",
+          "label": "detection technique",
+          "ontology": "OBI",
+          "reason": "Electrophysiological measurements for seizure detection is a detection technique, as it involves measuring electrical activity to identify seizure events, which aligns with the general 'detection technique' OBI term better than the more specific radioactivity detection or substance detection assay terms.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Physical (Visual) Observation for Mortality",
+        "description": "Visual observation of subjects to detect mortality and overt seizure-related behavioral phenotypes.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Ulate-Campos et al.",
+            "year": "2016",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [],
+        "processes": [
+          {
+            "label": "mortality"
+          },
+          {
+            "label": "epileptic seizure"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0300311",
+          "label": "observation design",
+          "ontology": "OBI",
+          "reason": "Physical visual observation for mortality is an observational study design where animals are visually inspected for signs of death, making 'observation design' the best match for this assay type.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Micro-Electrode Array (MEA) Recording \u2013 In Vitro",
+        "description": "Microfabricated devices with spatially arranged microelectrodes used to simultaneously stimulate and record field potentials and action potentials from multiple neurons in vitro, enabling study of spontaneous interictal and evoked seizure-like events and electrophysiological responses to chemical exposures.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Novellino et al.",
+            "year": "2011",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000540",
+            "label": "neuron",
+            "ontology": "CL",
+            "reason": "MEA recordings measure electrical activity of neurons (nerve cells) in vitro, making 'neuron' the most appropriate biological object for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "Neither candidate term (photoreceptor array) is appropriate for a Micro-Electrode Array (MEA) recording key event, which involves neural/neuronal cell cultures or brain tissue slices measured for electrical activity, not photoreceptor tissue.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0003876",
+            "label": "hippocampal field",
+            "ontology": "UBERON",
+            "reason": "MEA recordings in vitro are most commonly performed on hippocampal neuronal cultures/networks, making hippocampal field the most relevant biological object among the candidates.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "action potential"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0098814",
+            "label": "spontaneous synaptic transmission",
+            "ontology": "GO",
+            "reason": "Spontaneous synaptic transmission best represents the biological process measured by MEA recordings in vitro, which capture spontaneous electrical activity reflecting network-level synaptic communication between neurons.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms describe a biological process relevant to MEA recording, which involves neuronal electrical activity/action potential firing or network electrophysiology.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "seizure onset"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0019227",
+            "label": "neuronal action potential propagation",
+            "ontology": "GO",
+            "reason": "MEA recordings capture neuronal action potential activity across electrode arrays, making 'neuronal action potential propagation' the best match as it specifically describes the electrical signaling process being measured in neural networks.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (acetylcholinesterase activity, acylphosphatase activity, deubiquitinase activity, guanidinbutyrase activity, guanidinopropionase activity) appropriately describe the biological process represented by MEA recording in vitro, which relates to electrical/neuronal network activity measurement such as action potential firing or network burst activity.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003808",
+          "label": "multi-electrode array plate",
+          "ontology": "OBI",
+          "reason": "A multi-electrode array (MEA) plate is the specific device/assay type used in MEA recordings to measure electrophysiological activity of cells in vitro, directly matching the key event title.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Micro-Electrode Array (MEA) Recording \u2013 Ex Vivo",
+        "description": "Microfabricated devices with spatially arranged microelectrodes used to simultaneously stimulate and record field potentials and action potentials from multiple neurons in ex vivo tissue, enabling study of spatio-temporal patterns of spontaneous interictal and evoked seizure-like events and electrophysiological responses to chemical exposures.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Dossi et al.",
+            "year": "2014",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CL_0000540",
+            "label": "neuron",
+            "ontology": "CL",
+            "reason": "MEA ex vivo recordings measure electrical activity from neurons (nerve cells) in tissue slices or preparations, making 'neuron' the most appropriate biological object term.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "Neither candidate term (photoreceptor array) matches the biological object of a Micro-Electrode Array (MEA) Recording ex vivo KE, which typically involves neural tissue, brain slices, or neuronal cell cultures rather than light-sensitive photoreceptor tissue.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0003876",
+            "label": "hippocampal field",
+            "ontology": "UBERON",
+            "reason": "MEA ex vivo recordings are most commonly performed on hippocampal slices/tissue, and 'hippocampal field' (hippocampal region) directly corresponds to the anatomical biological object being measured in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "label": "action potential"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0000955",
+            "label": "brain",
+            "ontology": "UBERON",
+            "reason": "MEA ex vivo recordings are performed on brain tissue slices or preparations, making 'brain' (UBERON) the best match for the biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0098814",
+            "label": "spontaneous synaptic transmission",
+            "ontology": "GO",
+            "reason": "MEA recording ex vivo measures spontaneous synaptic transmission (basal synaptic activity) across neuronal networks, making 'spontaneous synaptic transmission' the best match for the biological process underlying this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the biological process of neural/electrophysiological activity measured by Micro-Electrode Array recording; the candidates describe unrelated cellular structures and complexes.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "seizure onset"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0019227",
+            "label": "neuronal action potential propagation",
+            "ontology": "GO",
+            "reason": "MEA recording ex vivo measures electrical activity in neural tissue, specifically neuronal action potential propagation across networks, making this GO term the best match for the biological process underlying this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (acetylcholinesterase activity, acylphosphatase activity, deubiquitinase activity, guanidinopropionase activity, guanidinobutyrase activity) are appropriate biological process terms for describing MEA recording, which involves electrophysiological measurement of neural network activity.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0003808",
+          "label": "multi-electrode array plate",
+          "ontology": "OBI",
+          "reason": "A multi-electrode array plate directly corresponds to the MEA recording assay type described in the key event, as MEA technology uses arrays of electrodes to record electrical activity from cells or tissue.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "assays",
+      "ec_annotations['Epileptic seizure'].phenotype",
+      "ec_annotations['Epileptic seizure'].biological_action"
+    ]
   }
 }
