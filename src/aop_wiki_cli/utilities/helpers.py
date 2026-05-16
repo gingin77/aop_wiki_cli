@@ -226,3 +226,11 @@ def format_elapsed(seconds: float) -> str:
     hours, remainder = divmod(seconds, 3600)
     minutes, secs = divmod(remainder, 60)
     return f"{int(hours):02d}:{int(minutes):02d}:{secs:06.3f}"
+
+def insert_after(d: dict, after_key: str, new_key: str, new_value) -> dict:
+    result = {}
+    for k, v in d.items():
+        result[k] = v
+        if k == after_key:
+            result[new_key] = new_value
+    return result
