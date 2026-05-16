@@ -10,6 +10,9 @@ wheels/
 .venv
 .vscode
 
+# Secrets
+.env
+
 # Miscellaneous
 .DS_Store
 *.log
