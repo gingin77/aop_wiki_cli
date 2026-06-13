@@ -7915,5 +7915,49 @@
       "ec_annotations['Epileptic seizure'].phenotype",
       "ec_annotations['Epileptic seizure'].biological_action"
     ]
+  },
+  "177": {
+    "ke_id": "177",
+    "title": "Increase, Mitochondrial dysfunction",
+    "biological_organization": "Cellular",
+    "cell_term": null,
+    "organ_term": {
+      "rejection_reason": "The candidate term 'obsolete mitochondrial aggregate' is not an appropriate organ or tissue term for this KE, which primarily concerns mitochondrial dysfunction in the context of cellular/organ systems, and the term itself is obsolete and refers to a specific developmental structure (Balbiani body) rather than a general anatomical organ or tissue.",
+      "source": "llm_rejection"
+    },
+    "ec_annotations": [
+      {
+        "subject": "Mitochondrial dysfunction",
+        "biological_object": {
+          "rejection_reason": "None of the candidates appropriately represent the biological object for mitochondrial dysfunction; the relevant biological object would be the mitochondrion itself (an organelle, best represented by GO:0005739 or UBERON terms), not mitochondrial ribosomes (a ChEBI term for a chemical/molecular entity).",
+          "source": "llm_rejection"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms describe mitochondrial dysfunction as a biological process; the closest relevant GO biological process would be something like 'mitochondrial dysfunction' or 'mitochondrial membrane permeability' rather than mitochondrial transport, transcription, or structural/complex terms like crista, degradosome, or nucleoid.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/HP_0003287",
+          "label": "Abnormality of mitochondrial metabolism",
+          "ontology": "HP",
+          "reason": "HP 'Abnormality of mitochondrial metabolism' has the exact synonym 'Mitochondrial dysfunction', directly matching the KE title 'Increase, Mitochondrial dysfunction', and is a dedicated human phenotype term preferred over the UPHENO structural term.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "biological_organization",
+      "ec_annotations['Mitochondrial dysfunction'].phenotype",
+      "ec_annotations['Mitochondrial dysfunction'].biological_action"
+    ]
   }
 }

@@ -30,6 +30,23 @@ def _make_client() -> anthropic.Anthropic | None:
     return anthropic.Anthropic(api_key=api_key)
 
 
+def _call_llm_json(client: anthropic.Anthropic, prompt: str, max_tokens: int) -> dict | None:
+    """Call the LLM with prompt and parse the first JSON object from the response."""
+    try:
+        message = client.messages.create(
+            model=LLM_MODEL,
+            max_tokens=max_tokens,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = message.content[0].text.strip()
+        json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+        if not json_match:
+            return None
+        return json.loads(json_match.group())
+    except Exception:
+        return None
+
+
 def llm_rank_term(
     ke_title: str,
     component: str,
