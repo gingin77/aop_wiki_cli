@@ -106,7 +106,13 @@ def llm_rank_term(
     reason = parsed_resp.get("reason", "")
     if idx_1based is None:
         return None, reason
-    return int(idx_1based) - 1, reason
+    try:
+        idx_0based = int(idx_1based) - 1
+    except (TypeError, ValueError):
+        return None, f"LLM returned non-integer index: {idx_1based!r}"
+    if not (0 <= idx_0based < len(candidates)):
+        return None, f"LLM returned out-of-range index: {idx_1based!r}"
+    return idx_0based, reason
 
 
 def display_candidates(candidates: list, query_used: str) -> None:

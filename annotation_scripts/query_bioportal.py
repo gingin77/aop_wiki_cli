@@ -6,6 +6,7 @@ import json
 import re
 import urllib.parse
 import urllib.request
+import urllib.error
 
 BIOPORTAL_SEARCH_URL = "https://data.bioontology.org/search"
 STOPWORDS = {"type", "the", "a", "an", "of", "in", "and", "or", "with", "by"}
@@ -44,8 +45,18 @@ def search_bioportal(phrase: str, ontologies: str, api_key: str) -> list:
         f"{BIOPORTAL_SEARCH_URL}?{params}",
         headers={"Accept": "application/json"},
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        data = json.loads(resp.read())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        print(f"  BioPortal HTTP error {e.code}: {e.reason} — returning empty results.")
+        return []
+    except urllib.error.URLError as e:
+        print(f"  BioPortal connection error: {e.reason} — returning empty results.")
+        return []
+    except TimeoutError:
+        print("  BioPortal request timed out — returning empty results.")
+        return []
 
     results = []
     for item in data.get("collection", []):

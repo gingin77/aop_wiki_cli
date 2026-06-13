@@ -65,7 +65,6 @@ from query_bioportal import (
 )
 from structure_ke_how_is_it_measured_text import annotate_ke_assays
 
-load_dotenv(override=True)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -85,7 +84,7 @@ WIKI_ACTION_WORDS = [
     "premature",
 ]
 
-ALTERATIVE_ACTION_WORDS = {
+ALTERNATIVE_ACTION_WORDS = {
     "loss": "decreased",
     "gain": "increased",
     "impairment": "abnormal",
@@ -149,7 +148,7 @@ def _detect_biological_action(direction: str) -> str | None:
     for word in sorted(WIKI_ACTION_WORDS, key=len, reverse=True):
         if re.search(rf'\b{re.escape(word)}\b', direction, re.IGNORECASE):
             return word
-    for alt, canonical in sorted(ALTERATIVE_ACTION_WORDS.items(), key=lambda x: len(x[0]), reverse=True):
+    for alt, canonical in sorted(ALTERNATIVE_ACTION_WORDS.items(), key=lambda x: len(x[0]), reverse=True):
         if re.search(rf'\b{re.escape(alt)}\b', direction, re.IGNORECASE):
             return canonical
     return None
@@ -922,4 +921,5 @@ def main():
 
 
 if __name__ == "__main__":
+    load_dotenv()
     main()
