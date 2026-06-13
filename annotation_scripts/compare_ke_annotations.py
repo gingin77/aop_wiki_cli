@@ -20,11 +20,31 @@ Usage:
 import argparse
 import csv
 import json
+from datetime import datetime
 from pathlib import Path
 
 ANNOTATIONS_FILE = "outputs_for_vc/annotations/ke_annotations.json"
-CACHE_FILE = "outputs/cache/04-28-2026/all_events_04-28-2026.json"
-OUTPUT_FILE = "outputs/ke_annotation_comparison.csv"
+OUTPUT_FILE = "outputs/ke_annotation_comparison.csv"  # TODO: consider outputs_for_vc/ if results should be committed
+
+def _latest_cache_file() -> str:
+    """Return the path to the most recent cache file, or '' if none found."""
+    cache_root = Path("outputs/cache")
+    if not cache_root.exists():
+        return ""
+    dated = []
+    for d in cache_root.iterdir():
+        if d.is_dir():
+            try:
+                dated.append((datetime.strptime(d.name, "%m-%d-%Y"), d))
+            except ValueError:
+                pass
+    if not dated:
+        return ""
+    latest = max(dated, key=lambda x: x[0])[1]
+    return str(latest / f"all_events_{latest.name}.json")
+
+
+CACHE_FILE = _latest_cache_file()
 
 COLUMNS = [
     "ke_id",
