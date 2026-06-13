@@ -4,8 +4,10 @@ against existing annotations in the AOP-Wiki cache.
 
 Writes a CSV with one row per KE:
   - ke_id, title
-  - divergent_field_count   : fields where both files have a value but they differ
-  - new_only_fields         : fields populated in the annotation but blank in the cache
+  - new_over_null_count     : number of fields populated in the annotation but blank in the cache
+  - new_over_null_fields    : which fields those are
+  - divergent_content_count : number of fields where both files have a value but they differ
+  - divergent_content_fields: which fields those are
 
 Usage:
     uv run python scripts/compare_ke_annotations.py
@@ -49,7 +51,7 @@ def _label(term_dict: dict | None) -> str:
 
 
 def _compare_field(new_val: str, existing_val: str) -> str:
-    """Return 'divergent', 'new_only', 'match', or 'both_null'."""
+    """Return 'divergent', 'new_only', 'existing_only', 'match', or 'both_null'."""
     new_val = (new_val or "").strip()
     existing_val = (existing_val or "").strip()
     if not new_val and not existing_val:
