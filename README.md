@@ -239,21 +239,47 @@ Outputs are written to `<data-dir>/outputs/seizure_aops/{date}/`:
 
 ## LLM-based annotation options
 
-The `scripts` directory includes an annotation script that runs a series of content parsing steps,
+The `annotation_scripts` directory includes scripts that run a series of content parsing steps,
 followed by a combination of calls to BioPortal and the Anthropic API for the purpose of structuring
 free text to align with the KE and Assay data model, while also adding bio-ontology annotations.
 
 ```sh
+# Annotate all KEs for an AOP (uses cached date by default)
+uv run python annotation_scripts/annotate_ke.py --aop 173
 
-# Update on 5/4/26 - modules imported 
-PYTHONPATH=. uv run python scripts/annotate_ke.py --ke-id 1702 --force-on assays
+# Annotate a single KE by ID
+uv run python annotation_scripts/annotate_ke.py --ke-id 1702
+
+# Re-annotate a specific field while keeping all other values
+uv run python annotation_scripts/annotate_ke.py --ke-id 1702 --force-on assays
+
+# Re-annotate all fields from scratch
+uv run python annotation_scripts/annotate_ke.py --ke-id 1702 --force
+
+# Add a comment to an existing KE annotation
+uv run python annotation_scripts/annotate_ke.py --ke-id 1702 --add-comment "needs review"
+
+# Specify a cache date (default: today)
+uv run python annotation_scripts/annotate_ke.py --aop 173 --date 04-28-2026
 
 # Collects summary stats from the annotations & produces a standalone assays file
-uv run python scripts/summarize_annotations.py
+uv run python annotation_scripts/summarize_annotations.py
 
-# Converst the assays JSON to a CSV
-uv run python scripts/export_assays_to_csv.py
+# Converts the assays JSON to a CSV
+uv run python annotation_scripts/export_assays_to_csv.py
+
+# Compare KE annotations against the AOP-Wiki cache
+uv run python annotation_scripts/compare_ke_annotations.py
 ```
+
+Valid `--force-on` fields: `biological_organization`, `cell_term`, `organ_term`,
+`biological_object`, `biological_process`, `phenotype`, `biological_action`, `assays`.
+
+### Interactive annotation via Claude Code
+
+When working in Claude Code, use the `/annotate-aop-ke-ontology <aop_id>` slash command to
+interactively annotate all Key Events for an AOP one at a time, with the opportunity to review
+and comment after each KE.
 
 ## Development
 
