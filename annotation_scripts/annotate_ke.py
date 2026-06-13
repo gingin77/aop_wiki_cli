@@ -1,9 +1,12 @@
 """
 Annotate AOP-Wiki Key Events with bio-ontology terms using BioPortal + Claude.
 
-Storage model:
-  - ke_annotations.json       — shared store, one entry per KE (single source of truth)
-  - aop_based_ke_store.json   — AOP index, maps AOP ID → list of KE IDs
+This script is designed to make use of LLM annotations that have already been stored
+and are under version control in `outputs_for_vc/annotations/`.
+
+Storage model within `outputs_for_vc/annotations/` includees:
+  - ke_annotations.json  — one entry per KE (single source of truth)
+  - aop_ke_index.json    — AOP index, maps AOP ID → list of KE IDs
 
 KEs already in the shared store are skipped during annotation (use --force to re-annotate).
 
@@ -44,10 +47,10 @@ from src.analysis.collect_event_rankings import collect_and_rank_events
 logger = set_up_logger('aop-wiki-annotate', level=logging.INFO)
 
 from collect_aop_kes import (
-    AOP_STORE_PATH,
-    SHARED_STORE_PATH,
-    _load_shared_store,
-    _save_shared_store,
+    AOP_KE_INDEX_PATH,
+    KE_ANNOTATIONS_PATH,
+    load_ke_annotations,
+    save_ke_annotations,
     list_aop_kes,
     register_ke_in_aop,
 )
@@ -624,7 +627,7 @@ def _annotate_structured_ke_fields_min(
 # ---------------------------------------------------------------------------
 # Annotation & Orchestration helpers
 # ---------------------------------------------------------------------------
-def _get_cache_file(date_str: str) -> str:
+def _get_events_cache_file(date_str: str) -> str:
     return os.path.join(CACHE_DIR_ROOT, date_str, f"all_events_{date_str}.json")
 
 
@@ -647,14 +650,14 @@ def _flat_ref_comments(raw) -> list[str]:
 
 
 def _add_comment(ke_id: str, comment: str) -> None:
-    store = _load_shared_store()
+    store = load_ke_annotations()
     if ke_id not in store:
         print(f"KE {ke_id} not found in shared store — annotate it first.")
         sys.exit(1)
     store[ke_id].setdefault("comments", {"carried": [], "new": []})
     store[ke_id]["comments"]["new"].append(comment)
-    _save_shared_store(store)
-    print(f"Comment added to KE {ke_id}. Saved to {SHARED_STORE_PATH}")
+    save_ke_annotations(store)
+    print(f"Comment added to KE {ke_id}. Saved to {KE_ANNOTATIONS_PATH}")
 
 
 def _strip_carried_suffix(comment: str) -> str:
@@ -763,7 +766,7 @@ def _print_ke_summary(
         print(f"\n  Newly annotated: {new_fields}")
     if ref_comments:
         print(f"\n  Carried comments: {ref_comments}")
-    print(f"\nSaved to {SHARED_STORE_PATH}")
+    print(f"\nSaved to {KE_ANNOTATIONS_PATH}")
     print("=" * 60)
 
 
@@ -796,7 +799,7 @@ def annotate_ke(
         print(f"KE {ke_id} not found in cache — skipping.")
         return ""
 
-    store = _load_shared_store()
+    store = load_ke_annotations()
     ref_ke = store.get(ke_id)
     if ref_ke:
         print(f"  (KE {ke_id} found in shared store — using as reference)")
@@ -822,21 +825,21 @@ def annotate_ke(
     annotated_ke, ref_comments = _build_annotation_metadata(ref_ke, annotated_ke)
 
     store[ke_id] = annotated_ke
-    _save_shared_store(store)
+    save_ke_annotations(store)
     for aop in events[ke_id].get("aop_ids", []):
         register_ke_in_aop(str(aop), ke_id)
 
-    store = _load_shared_store()
+    store = load_ke_annotations()
     stored = store.get(ke_id, {})
     new_fields = _compute_newly_updated_fields(effective_ref, stored)
     if new_fields:
         stored["newly_annotated_fields"] = new_fields
     else:
         stored.pop("newly_annotated_fields", None)
-    _save_shared_store(store)
+    save_ke_annotations(store)
 
     _print_ke_summary(ke_id, title, annotated_ke, new_fields, ref_comments)
-    return SHARED_STORE_PATH
+    return KE_ANNOTATIONS_PATH
 
 def get_fresh_event_cache():
     work_date = date.today()
@@ -872,11 +875,11 @@ def main():
     )
     args = parser.parse_args()
 
-    cache = _get_cache_file(args.date)
+    cache = _get_events_cache_file(args.date)
     if not os.path.exists(cache):
         print(f"Cache file not found: {cache}")
         get_fresh_event_cache()
-        cache = _get_cache_file(args.date)
+        cache = _get_events_cache_file(args.date)
 
     if args.add_comment:
         if not args.ke_id:
@@ -894,10 +897,10 @@ def main():
         if not kes:
             print(f"No KEs found for AOP {args.aop}")
             sys.exit(1)
-        store = _load_shared_store()
+        store = load_ke_annotations()
         print(f"\nAOP {args.aop} — {len(kes)} KEs")
-        print(f"Shared KE store: {SHARED_STORE_PATH}")
-        print(f"AOP store:       {AOP_STORE_PATH}")
+        print(f"KE annotations: {KE_ANNOTATIONS_PATH}")
+        print(f"AOP KE index:   {AOP_KE_INDEX_PATH}")
         print()
         for ke_id, _ in kes:
             ke_entry = store.get(ke_id)
@@ -908,7 +911,7 @@ def main():
             annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields)
         return
 
-    store = _load_shared_store()
+    store = load_ke_annotations()
     # The check for existing annotation is based on the presence of "assays" as a proxy for a complete annotation.
     # since that's the last step in the workflow, *currently*. This allows --force-on to work on specific fields
     # without being blocked by the presence of other annotated fields.   

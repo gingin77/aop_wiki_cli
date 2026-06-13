@@ -6,22 +6,30 @@ and maintain the AOP → KE index store.
 import json
 import os
 
-AOP_ANNOTATIONS_DIR = "outputs_for_vc/annotations"
-AOP_STORE_PATH = os.path.join(AOP_ANNOTATIONS_DIR, "aop_based_ke_store.json")
-SHARED_STORE_PATH = os.path.join(AOP_ANNOTATIONS_DIR, "ke_annotations.json")
+ANNOTATIONS_DIR = "outputs_for_vc/annotations"
+KE_ANNOTATIONS_PATH = os.path.join(ANNOTATIONS_DIR, "ke_annotations.json")
+AOP_KE_INDEX_PATH = os.path.join(ANNOTATIONS_DIR, "aop_ke_index.json")
 
 
-def _load_shared_store() -> dict:
-    if os.path.exists(SHARED_STORE_PATH):
-        with open(SHARED_STORE_PATH) as f:
+def _load_json(path: str) -> dict:
+    if os.path.exists(path):
+        with open(path) as f:
             return json.load(f)
     return {}
 
 
-def _save_shared_store(store: dict) -> None:
-    os.makedirs(AOP_ANNOTATIONS_DIR, exist_ok=True)
-    with open(SHARED_STORE_PATH, "w") as f:
-        json.dump(store, f, indent=2)
+def _save_json(path: str, data: dict) -> None:
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
+
+
+def load_ke_annotations() -> dict:
+    return _load_json(KE_ANNOTATIONS_PATH)
+
+
+def save_ke_annotations(store: dict) -> None:
+    _save_json(KE_ANNOTATIONS_PATH, store)
 
 
 def list_aop_kes(aop_id: str, cache_file: str) -> list[tuple[str, str]]:
@@ -36,23 +44,10 @@ def list_aop_kes(aop_id: str, cache_file: str) -> list[tuple[str, str]]:
     return sorted(kes, key=lambda x: int(x[0]))
 
 
-def _load_aop_store() -> dict:
-    if os.path.exists(AOP_STORE_PATH):
-        with open(AOP_STORE_PATH) as f:
-            return json.load(f)
-    return {}
-
-
-def _save_aop_store(aop_store: dict) -> None:
-    os.makedirs(AOP_ANNOTATIONS_DIR, exist_ok=True)
-    with open(AOP_STORE_PATH, "w") as f:
-        json.dump(aop_store, f, indent=2)
-
-
 def register_ke_in_aop(aop_id: str, ke_id: str) -> None:
     """Add ke_id to the AOP index under aop_id if not already present."""
-    aop_store = _load_aop_store()
+    aop_store = _load_json(AOP_KE_INDEX_PATH)
     ke_ids = aop_store.setdefault(aop_id, [])
     if ke_id not in ke_ids:
         ke_ids.append(ke_id)
-        _save_aop_store(aop_store)
+        _save_json(AOP_KE_INDEX_PATH, aop_store)
