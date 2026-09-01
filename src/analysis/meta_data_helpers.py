@@ -82,6 +82,7 @@ def apply_ranking_to_events_dict(events_dict):
 
         events_dict[event_id]['integration_score'] = score_for_retention
         events_dict[event_id]['max_i_score_sans_aop_count'] = max_score
+        events_dict[event_id]['percent_integration_score'] = (score_for_retention / max_score) * 100 if max_score > 0 else 0
         events_dict[event_id]['has_method'] = has_method
 
     return events_dict
