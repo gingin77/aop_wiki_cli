@@ -224,7 +224,10 @@ def find_kers_for_events(
             'events', collect_events_from_xml, work_date, cache_dir, force_refresh, logger
         )
         matched_events = find_events_by_title_terms(all_events, title_terms)
-        event_ids = list(matched_events.keys())
+        # Coerce to str: event IDs are only summarized and joined for display
+        # here, so this command must not depend on the key type of whatever
+        # events_dict it was handed
+        event_ids = [str(event_id) for event_id in matched_events]
     else:
         title_terms = []
         event_ids = [ke_id.strip() for ke_id in ke_ids.split(',') if ke_id.strip()]
