@@ -41,7 +41,15 @@ from src.parsers import (
 )
 from src.parsers.parse_behl_seizure_aop_workbook import parse_seizure_aop_workbook
 from src.collection.collect_associated_aop_wiki_entities import collect_events_from_matched_aops
-from src.search import search_entity_data, serialize_search_results, filter_by_co_occurrence, sort_by_priority_field, search_events_to_aops
+from src.search import (
+    search_entity_data,
+    serialize_search_results,
+    filter_by_co_occurrence,
+    sort_by_priority_field,
+    search_events_to_aops,
+    find_events_by_title_terms,
+    find_kers_containing_events,
+)
 
 from configs.harmonize_ker_evidence import (
     AOPS_SELECTED_FOR_HARMONIZED_KERS_WORKBOOKS, CONCORDANCE_SEARCH_PARAMS
@@ -60,6 +68,7 @@ today = date.today()
 CACHE_DIR_ROOT = 'outputs/cache/'
 EVENT_RANKINGS_OUTPUT_DIR = 'outputs/event_rankings'
 KER_HARMONIZATION_OUTPUT_DIR = 'outputs/ker_evidence'
+KER_LOOKUP_OUTPUT_DIR = 'outputs/ker_lookups'
 
 
 @app.command()
@@ -155,6 +164,100 @@ def collect_ker_analytics(
     }
     
     _print_ker_statistics(stats)
+
+@app.command()
+def find_kers_for_events(
+    ke_ids: Optional[str] = typer.Option(
+        None,
+        "--ke-ids",
+        help="Comma-separated key event IDs, e.g. 1346,55"
+    ),
+    ke_terms: Optional[str] = typer.Option(
+        None,
+        "--ke-terms",
+        help="Comma-separated terms matched against key event titles, e.g. 'oxidative stress,cell death'"
+    ),
+    limit: int = typer.Option(
+        25,
+        "--limit",
+        "-l",
+        help="Maximum number of KERs to print; all matches are still written to JSON"
+    ),
+    cache_date: Optional[str] = typer.Option(
+        None,
+        "--date",
+        "-d",
+        help="Date of cached data to use (MM-DD-YYYY). Defaults to today."
+    ),
+    force_refresh: bool = typer.Option(
+        False,
+        "--force",
+        "-f",
+        help="Force fresh data collection, ignoring cached files"
+    )
+):
+    """Find the KERs that have a given key event as an upstream or downstream endpoint.
+
+    Takes key events either directly by ID (--ke-ids) or by searching KE titles
+    (--ke-terms); exactly one of the two is required. Each matched KER reports
+    which side the key event sits on, so the results separate what a KE leads to
+    from what leads to it.
+
+    Note that KER collection parses the full XML the first time it runs for a
+    given date, which is slow; later runs for that date read the cache.
+    """
+    if bool(ke_ids) == bool(ke_terms):
+        typer.echo("❌ Provide exactly one of --ke-ids or --ke-terms")
+        raise typer.Exit(code=1)
+
+    # Setup
+    work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
+    work_date_str = work_date.strftime('%m-%d-%Y')
+    cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
+    output_dir = f'{KER_LOOKUP_OUTPUT_DIR}/{work_date_str}'
+
+    # Resolve the key events to search for. Term matching reuses the same
+    # title search that drives the event_to_aop search mode.
+    if ke_terms:
+        title_terms = [term.strip() for term in ke_terms.split(',') if term.strip()]
+        all_events = collect_entity_with_cache(
+            'events', collect_events_from_xml, work_date, cache_dir, force_refresh, logger
+        )
+        matched_events = find_events_by_title_terms(all_events, title_terms)
+        event_ids = list(matched_events.keys())
+    else:
+        title_terms = []
+        event_ids = [ke_id.strip() for ke_id in ke_ids.split(',') if ke_id.strip()]
+        matched_events = {}
+
+    if not event_ids:
+        typer.echo(f"❌ No key events matched terms: {', '.join(title_terms)}")
+        raise typer.Exit(code=1)
+
+    # Collect all KERs with automatic caching from centralized cache
+    all_kers = collect_entity_with_cache(
+        'kers', collect_kers_from_xml, work_date, cache_dir, force_refresh, logger
+    )
+
+    matched_kers = find_kers_containing_events(all_kers, event_ids)
+
+    summary = {
+        'collection_date': work_date_str,
+        'ke_title_terms': title_terms,
+        'key_event_ids': event_ids,
+        'total_kers_searched': len(all_kers),
+        'total_kers_matched': len(matched_kers),
+        'kers_by_key_event': _count_kers_by_key_event(matched_kers),
+    }
+
+    _print_ker_lookup_summary(summary, matched_kers, limit)
+
+    output_data = {
+        'summary': summary,
+        'matched_events': matched_events,
+        'matched_kers': matched_kers,
+    }
+    write_dict_to_json(output_data, output_dir, f'ker_lookup_{work_date_str}.json')
 
 @app.command()
 def search_kers_for_concordance_text(
@@ -823,6 +926,44 @@ def _print_event_to_aop_summary(summary, total_aop_events=0):
         typer.echo(f"\nEvents by search term:")
         for term, count in summary['events_by_term'].items():
             typer.echo(f"  - '{term}': {count} events")
+    typer.echo(f"{'='*60}\n")
+
+
+def _count_kers_by_key_event(matched_kers):
+    """Count how many KERs each key event was found in, split by endpoint role."""
+    counts = {}
+    for ker_data in matched_kers.values():
+        for event_id, role in ker_data["roles"].items():
+            tally = counts.setdefault(event_id, {"upstream": 0, "downstream": 0})
+            tally[role] += 1
+    return counts
+
+
+def _print_ker_lookup_summary(summary: dict, matched_kers: dict, limit: int) -> None:
+    """Print formatted key-event-to-KER lookup summary to console."""
+    typer.echo(f"\n{'='*60}")
+    typer.echo(f"KERS CONTAINING KEY EVENTS")
+    typer.echo(f"{'='*60}")
+    if summary['ke_title_terms']:
+        typer.echo(f"KE title terms: {', '.join(summary['ke_title_terms'])}")
+    typer.echo(f"Key events: {', '.join(summary['key_event_ids'])}")
+    typer.echo(f"Total KERs searched: {summary['total_kers_searched']}")
+    typer.echo(f"Total KERs matched: {summary['total_kers_matched']}")
+
+    typer.echo(f"\nKERs by key event:")
+    for event_id, tally in summary['kers_by_key_event'].items():
+        typer.echo(
+            f"  - KE{event_id}: upstream in {tally['upstream']} KERs, "
+            f"downstream in {tally['downstream']} KERs"
+        )
+
+    if matched_kers:
+        typer.echo(f"\nMatched KERs ({len(matched_kers)}):")
+        for ker_id, ker_data in list(matched_kers.items())[:limit]:
+            roles = ', '.join(f'KE{eid} {role}' for eid, role in ker_data['roles'].items())
+            typer.echo(f"  - KER{ker_id}: {ker_data['title'][:70]} ({roles})")
+        if len(matched_kers) > limit:
+            typer.echo(f"  ... and {len(matched_kers) - limit} more (raise --limit to see them)")
     typer.echo(f"{'='*60}\n")
 
 

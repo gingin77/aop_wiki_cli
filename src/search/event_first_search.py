@@ -1,8 +1,10 @@
 """
-Event-to-AOP iterative search functionality.
+Event-first iterative search functionality.
 
-Supports finding AOPs by searching key event titles first, then collecting
-the AOPs that contain those events. This enables flexible "event-first" searches
+Supports finding the entities attached to a key event by searching KE titles
+first, then collecting what contains those events -- the AOPs they belong to
+(find_aops_containing_events) or the KERs they are an endpoint of
+(find_kers_containing_events). This enables flexible "event-first" searches
 using term lists instead of hard-coded event IDs.
 """
 import re
@@ -84,6 +86,56 @@ def find_aops_containing_events(aops_dict, event_ids):
             }
     
     return matched_aops
+
+
+def find_kers_containing_events(kers_dict, event_ids):
+    """
+    Find KERs that have any of the specified events as an endpoint.
+
+    A KER has exactly two endpoints, so a KER is returned when either its
+    upstream or its downstream KE is in event_ids. Both endpoints can match
+    when the search covers a run of connected events.
+
+    Args:
+        kers_dict: Dictionary of KERs keyed by KER ID
+        event_ids: List/set of event IDs to search for
+
+    Returns:
+        dict: Matching KERs with endpoint role mapping
+              {ker_id: {"ker_info": {...}, "source_events": [...],
+                        "roles": {event_id: "upstream" | "downstream"},
+                        "title": "upstream title -> downstream title",
+                        "upstream_ke_id": ..., "downstream_ke_id": ...}}
+    """
+    event_ids_str = {str(eid) for eid in event_ids}
+    matched_kers = {}
+
+    for ker_id, ker_info in kers_dict.items():
+        upstream = ker_info.get("upstream_ke", {})
+        downstream = ker_info.get("downstream_ke", {})
+        upstream_id = str(upstream.get("id", ""))
+        downstream_id = str(downstream.get("id", ""))
+
+        # Record which side each target event sits on; a KE can be the
+        # upstream of one KER and the downstream of another. A KER missing an
+        # endpoint yields an empty ID, which must never count as a match.
+        roles = {}
+        if upstream_id and upstream_id in event_ids_str:
+            roles[upstream_id] = "upstream"
+        if downstream_id and downstream_id in event_ids_str:
+            roles[downstream_id] = "downstream"
+
+        if roles:
+            matched_kers[ker_id] = {
+                "ker_info": ker_info,
+                "source_events": list(roles.keys()),
+                "roles": roles,
+                "title": f'{upstream.get("title", "?")} -> {downstream.get("title", "?")}',
+                "upstream_ke_id": upstream_id,
+                "downstream_ke_id": downstream_id,
+            }
+
+    return matched_kers
 
 
 def filter_aops_by_title_exclusion(aops_dict, exclusion_terms):
