@@ -183,6 +183,19 @@ SEARCH_RESULTS_EVENT_FIELDS = FieldConfigSet(
     ]
 )
 
+SEARCH_RESULTS_KER_FIELDS = FieldConfigSet(
+    name="search_results_ker",
+    fields=[
+        FieldConfig('entity_id', 'entity_id', description='KER ID'),
+        FieldConfig('title', 'title', description='Upstream KE -> downstream KE'),
+        FieldConfig('terms_found', 'terms_found', transformer='join_list', description='Search terms found'),
+        FieldConfig('matched_fields', 'matched_fields', transformer='join_list', description='Fields with matches'),
+        FieldConfig('snippet_count', 'snippet_count', description='Total number of snippets'),
+        FieldConfig('has_any_tables', 'has_any_tables', transformer='yes_no', description='Has tabulated evidence'),
+        FieldConfig('completion_percent', 'completion_percent', transformer='round_2', description='Completion percentage'),
+    ]
+)
+
 SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS = FieldConfigSet(
     name="search_results_event_with_flags",
     fields=[

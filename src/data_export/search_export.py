@@ -9,7 +9,12 @@ from pathlib import Path
 from typing import Dict, Union, Optional
 
 from .csv_writer import write_csv
-from .field_definitions import SEARCH_RESULTS_AOP_FIELDS, SEARCH_RESULTS_EVENT_FIELDS, SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS
+from .field_definitions import (
+    SEARCH_RESULTS_AOP_FIELDS,
+    SEARCH_RESULTS_EVENT_FIELDS,
+    SEARCH_RESULTS_KER_FIELDS,
+    SEARCH_RESULTS_EVENT_WITH_FLAGS_FIELDS,
+)
 
 
 def generate_search_results_filename(
@@ -159,8 +164,38 @@ def write_search_results_csv(
         
         field_config = SEARCH_RESULTS_AOP_FIELDS
         
-    else:  # events or kers
-        # Events/KERs: Simpler structure without co-occurrence details
+    elif entity_type == "kers":
+        # KERs: no ranking metadata of their own, so carry the two KER-shaped
+        # fields instead of the event columns that would always be defaults
+        for entity_id, result in results.items():
+            snippet_count = sum(
+                len(snippets)
+                for snippets in result.get("snippets_by_field", {}).values()
+            )
+
+            entity_info = entity_dict.get(entity_id, {})
+            upstream = entity_info.get('upstream_ke', {})
+            downstream = entity_info.get('downstream_ke', {})
+
+            row_data = {
+                'entity_id': result.get('entity_id', entity_id),
+                # KERs carry no title of their own; label them by the KE pair
+                'title': (
+                    f"{upstream.get('title', '?')} -> {downstream.get('title', '?')}"
+                    if entity_info else result.get('title', 'N/A')
+                ),
+                'terms_found': result.get('terms_found', []),
+                'matched_fields': result.get('matched_fields', []),
+                'snippet_count': snippet_count,
+                'has_any_tables': entity_info.get('has_any_tables', False),
+                'completion_percent': entity_info.get('completion_score', {}).get('percent', 0),
+            }
+            rows.append(row_data)
+
+        field_config = SEARCH_RESULTS_KER_FIELDS
+
+    else:  # events
+        # Events: Simpler structure without co-occurrence details
         for entity_id, result in results.items():
             # Count total snippets
             snippet_count = sum(
