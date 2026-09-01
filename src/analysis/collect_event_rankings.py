@@ -47,7 +47,7 @@ def collect_and_rank_events(
     # Calculate summary statistics
     summary = calculate_event_summary_statistics(event_dict)
     
-    # Sort events by retention score
+    # Sort events by integration score
     event_dict = dict(sorted(
         event_dict.items(),
         key=lambda x: x[1].get('integration_score', 0),

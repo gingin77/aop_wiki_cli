@@ -26,12 +26,12 @@ def get_average_completion_score(entities_dict):
 
 def apply_ranking_to_events_dict(events_dict):
     """
-    Applies a retention ranking score to each event in the events_dict based on percent complete,
-    OECD status, license type, and match to search terms if applicable. A lower score indicates 
-    lower priority for retention.
+    Applies an integration ranking score to each event in the events_dict based on percent
+    complete, OECD status, license type, and match to search terms if applicable. A lower score
+    indicates lower priority for integration.
     """
     for event_id, event in events_dict.items():
-        score_for_retention = 0
+        score_for_integration = 0
         max_score = 0
         percent_complete = event['completion_score']['percent']
         oecd_program = event['summary_oecd_statuses']['in_oecd_aop_program']
@@ -43,7 +43,7 @@ def apply_ranking_to_events_dict(events_dict):
         # licenses. This criterion only ever penalizes -- there is no branch that
         # awards points for it -- so it contributes nothing to max_score
         if license_only_open_adoption:
-            score_for_retention -= 4
+            score_for_integration -= 4
 
         # Promote Events that have high aop_counts. This is unbounded, so it
         # is held out of the running total and added to the raw score only
@@ -52,40 +52,40 @@ def apply_ranking_to_events_dict(events_dict):
         # Promote Events based on percent complete
         max_score += 3
         if percent_complete >= 80:
-            score_for_retention += 3
+            score_for_integration += 3
         elif percent_complete >= 50:
-            score_for_retention += 2
+            score_for_integration += 2
         elif percent_complete >= 25:
-            score_for_retention += 1
+            score_for_integration += 1
 
         # Promote Events based on AOP being in OECD program and being OECD endorsed
         max_score += 3
         if oecd_program and not oecd_endorsed:
-            score_for_retention += 2
+            score_for_integration += 2
         elif oecd_program and oecd_endorsed:
-            score_for_retention += 3
+            score_for_integration += 3
         
         # Promote Events that have text in the methods section
         method = event.get('measurement_method', None)
         max_score += 1
         has_method = method is not None and method.strip() != ""
         if has_method:
-            score_for_retention += 1
+            score_for_integration += 1
         
         # Promote Events based on how well they meet any search criteria
         search_source = event.get('source', None)
         if search_source is not None:
             max_score += 2
             if search_source == 'title_search':
-                score_for_retention += 2
+                score_for_integration += 2
             elif search_source == 'full_text_search':
-                score_for_retention += 1
+                score_for_integration += 1
 
         # Only the bounded criteria have a max to be a percentage of; adding
         # the unbounded aop_count to the numerator would let it exceed 100
-        percent_sans_aop_count = (score_for_retention / max_score) * 100 if max_score > 0 else 0
+        percent_sans_aop_count = (score_for_integration / max_score) * 100 if max_score > 0 else 0
 
-        events_dict[event_id]['integration_score'] = score_for_retention + aop_count
+        events_dict[event_id]['integration_score'] = score_for_integration + aop_count
         events_dict[event_id]['max_i_score_sans_aop_count'] = max_score
         events_dict[event_id]['percent_i_score_sans_aop_count'] = percent_sans_aop_count
         events_dict[event_id]['has_method'] = has_method
@@ -113,7 +113,7 @@ def calculate_event_summary_statistics(event_dict):
     """Calculate summary statistics from a dictionary of events.
     
     Args:
-        event_dict: Dictionary of events with retention scores and metadata
+        event_dict: Dictionary of events with integration scores and metadata
         
     Returns:
         Dictionary with summary statistics
@@ -137,7 +137,7 @@ def calculate_event_summary_statistics(event_dict):
         sum(e.get('completion_score', {}).get('percent', 0) for e in event_dict.values()) / total_events, 
         2
     )
-    avg_retention = round(
+    avg_integration = round(
         sum(e.get('integration_score', 0) for e in event_dict.values()) / total_events, 
         2
     )
@@ -174,7 +174,7 @@ def calculate_event_summary_statistics(event_dict):
     return {
         'total_events': total_events,
         'average_completion_percent': avg_completion,
-        'average_integration_score': avg_retention,
+        'average_integration_score': avg_integration,
         'events_with_methods': events_with_methods,
         'events_only_open_for_adoption': only_open_for_adoption,
         'events_in_oecd_program': oecd_program_events,

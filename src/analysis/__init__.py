@@ -15,7 +15,7 @@ Public API
 ----------
 
 Ranking & Filtering:
-    apply_ranking_to_events_dict: Apply retention rankings to events
+    apply_ranking_to_events_dict: Apply integration rankings to events
     filter_kers_by_tables: Filter KERs by presence of tabulated evidence
 
 Event Statistics:

@@ -33,7 +33,7 @@ def collect_events_from_xml(root, xml_namespace, refs):
     """
     Collect all event (Key Event) data from XML.
     
-    Note: This function automatically adds completion scores and retention ranking
+    Note: This function automatically adds completion scores and integration ranking
     scores to all events before returning.
     
     Args:
@@ -42,7 +42,7 @@ def collect_events_from_xml(root, xml_namespace, refs):
         refs: Reference dictionaries for ID mapping
     
     Returns:
-        Dictionary of events with completion scores and retention rankings
+        Dictionary of events with completion scores and integration rankings
     """
     ecs_dict = collect_ecs_from_xml(root, xml_namespace)
     taxonomy_dict = collect_taxonomies_from_xml(root, xml_namespace)
