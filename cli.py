@@ -922,9 +922,9 @@ def _print_event_to_aop_summary(summary, total_aop_events=0):
     typer.echo(f"Total AOPs matched: {summary['total_aops_matched']}")
     typer.echo(f"Total Events in matched AOPs: {total_aop_events}")
     
-    if summary.get('events_by_term'):
+    if summary.get('event_totals_by_term'):
         typer.echo(f"\nEvents by search term:")
-        for term, count in summary['events_by_term'].items():
+        for term, count in summary['event_totals_by_term'].items():
             typer.echo(f"  - '{term}': {count} events")
     typer.echo(f"{'='*60}\n")
 
