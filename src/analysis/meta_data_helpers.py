@@ -44,9 +44,9 @@ def apply_ranking_to_events_dict(events_dict):
         if license_only_open_adoption:
             score_for_retention -= 4
 
-        # Promote Events that have high aop_counts
+        # Promote Events that have high aop_counts. This is unbounded, so it
+        # is held out of the running total and added to the raw score only
         aop_count = event.get('aop_count', 0)
-        score_for_retention += aop_count
         
         # Promote Events based on percent complete
         max_score += 3
@@ -80,9 +80,13 @@ def apply_ranking_to_events_dict(events_dict):
             elif search_source == 'full_text_search':
                 score_for_retention += 1
 
-        events_dict[event_id]['integration_score'] = score_for_retention
+        # Only the bounded criteria have a max to be a percentage of; adding
+        # the unbounded aop_count to the numerator would let it exceed 100
+        percent_sans_aop_count = (score_for_retention / max_score) * 100 if max_score > 0 else 0
+
+        events_dict[event_id]['integration_score'] = score_for_retention + aop_count
         events_dict[event_id]['max_i_score_sans_aop_count'] = max_score
-        events_dict[event_id]['percent_integration_score'] = (score_for_retention / max_score) * 100 if max_score > 0 else 0
+        events_dict[event_id]['percent_i_score_sans_aop_count'] = percent_sans_aop_count
         events_dict[event_id]['has_method'] = has_method
 
     return events_dict
@@ -182,9 +186,9 @@ if __name__ == "__main__":
     events_dict = get_dict_from_json(input_event_file)["key_events"]
     events_dict = apply_ranking_to_events_dict(events_dict)
     
-    ranked_events = sorted(events_dict.items(), key=lambda x: x[1]['percent_integration_score'], reverse=True)
+    ranked_events = sorted(events_dict.items(), key=lambda x: x[1]['integration_score'], reverse=True)
     for event_id, event in ranked_events:
-        print(f"{event_id}: {event.get('title', 'N/A')}, %Score: {event['percent_integration_score']}, Has Method: {event['has_method']}, AOP Count: {event.get('aop_count', 0)}, %Complete: {event['completion_score']['percent']}")
+        print(f"{event_id}: {event.get('title', 'N/A')}, Score: {event['integration_score']}, %Score (sans AOP count): {event['percent_i_score_sans_aop_count']}, Has Method: {event['has_method']}, AOP Count: {event.get('aop_count', 0)}, %Complete: {event['completion_score']['percent']}")
 
     # Example output line:
-    # 1532: Decrease, Cardiac contractility , %Score: 90.0, Has Method: False, AOP Count: 6, %Complete: 27.27
+    # 1532: Decrease, Cardiac contractility , Score: 10, %Score (sans AOP count): 44.44, Has Method: False, AOP Count: 6, %Complete: 27.27
