@@ -198,7 +198,9 @@ def _event_row(event_id, title, found_in_event_search, found_through_aops,
                terms_found, matched_fields, snippet_count, entity_info):
     """Build a single row dict for write_combined_search_events_csv."""
     return {
-        'entity_id': event_id,
+        # str so the column stays sortable when the two source dicts disagree
+        # on key type; write_csv sorts on this and cannot order int against str
+        'entity_id': str(event_id),
         'title': title,
         'found_in_event_search': found_in_event_search,
         'found_through_aops': found_through_aops,
@@ -231,7 +233,9 @@ def write_combined_search_events_csv(
         entity_dict: Full events dictionary for metadata lookups
         output_path: Path where CSV will be saved
     """
-    aop_event_ids = set(aop_events.keys())
+    # Membership tests run on stringified IDs so the two dicts compare correctly
+    # regardless of key type; metadata lookups keep each dict's own key
+    aop_event_ids = {str(event_id) for event_id in aop_events}
     rows = []
     seen = set()
 
@@ -240,16 +244,16 @@ def write_combined_search_events_csv(
             event_id=result.get('entity_id', event_id),
             title=result.get('title', 'N/A'),
             found_in_event_search=True,
-            found_through_aops=event_id in aop_event_ids,
+            found_through_aops=str(event_id) in aop_event_ids,
             terms_found=result.get('terms_found', []),
             matched_fields=result.get('matched_fields', []),
             snippet_count=sum(len(s) for s in result.get('snippets_by_field', {}).values()),
             entity_info=entity_dict.get(event_id, {}),
         ))
-        seen.add(event_id)
+        seen.add(str(event_id))
 
     for event_id, aop_event_data in aop_events.items():
-        if event_id in seen:
+        if str(event_id) in seen:
             continue
         entity_info = aop_event_data.get('event_info', entity_dict.get(event_id, {}))
         rows.append(_event_row(

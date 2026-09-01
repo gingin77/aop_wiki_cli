@@ -758,7 +758,9 @@ def _run_entities_and_fields_search(config, search_params, output_config, work_d
     event_search_params = {**search_params, "fields_to_search": entities_and_fields.get("events", [])}
     event_summary, event_results_raw = search_entity_data(events_dict, event_search_params)
     event_results = serialize_search_results(event_results_raw)
-    matched_event_ids = set(event_results.keys())
+    # collect_events_from_matched_aops stringifies its keys, so normalize this
+    # side too rather than relying on both dicts happening to agree on key type
+    matched_event_ids = {str(event_id) for event_id in event_results}
 
     # --- Step 2: Search AOPs ---
     aops_dict = collect_entity_with_cache(
@@ -770,7 +772,7 @@ def _run_entities_and_fields_search(config, search_params, output_config, work_d
 
     # --- Step 3: Collect all events from matched AOPs ---
     aop_events = collect_events_from_matched_aops(aop_results, events_dict, aops_dict=aops_dict)
-    aop_event_ids = set(aop_events.keys())
+    aop_event_ids = {str(event_id) for event_id in aop_events}
 
     # --- Step 4: Compare ---
     events_in_both = matched_event_ids & aop_event_ids
@@ -996,7 +998,7 @@ def _print_event_summary(summary: dict) -> None:
     typer.echo(f"{'='*60}")
     typer.echo(f"Total events: {summary['total_events']}")
     typer.echo(f"Average completion: {summary['average_completion_percent']}%")
-    typer.echo(f"Average retention score: {summary['average_integration_score']}")
+    typer.echo(f"Average integration score: {summary['average_integration_score']}")
     typer.echo(f"Events with methods: {summary['events_with_methods']}")
     typer.echo(f"Events only open for adoption: {summary['events_only_open_for_adoption']}")
     typer.echo(f"Events in OECD AOP program: {summary['events_in_oecd_program']}")
