@@ -39,8 +39,9 @@ def apply_ranking_to_events_dict(events_dict):
 
         license_only_open_adoption = event["summary_licenses"]["only_open_for_adoption"]
         
-        # Demote events that are only associated with AOPs with Open for Adoption licenses
-        max_score += 2
+        # Demote events that are only associated with AOPs with Open for Adoption
+        # licenses. This criterion only ever penalizes -- there is no branch that
+        # awards points for it -- so it contributes nothing to max_score
         if license_only_open_adoption:
             score_for_retention -= 4
 
