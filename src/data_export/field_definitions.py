@@ -90,7 +90,7 @@ EVENT_FIELDS_MIN = FieldConfigSet(
     fields=[
         FieldConfig('Event ID', 'ke_id', description='Key event identifier'),
         FieldConfig('Title', 'title', transformer='clean_text', description='Event title'),
-        FieldConfig('Retention Score', 'integration_score', default=0, description='Integration ranking score'),
+        FieldConfig('Integration Score', 'integration_score', default=0, description='Integration ranking score'),
         FieldConfig('Completion %', 'completion_score.percent', transformer='round_2', description='Completion percentage'),
         FieldConfig('AOP Count', 'aop_count', default=0, description='Number of associated AOPs'),
         FieldConfig('Has Method', 'has_method', transformer='yes_no', description='Has measurement method'),
