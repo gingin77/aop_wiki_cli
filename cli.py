@@ -137,13 +137,14 @@ def collect_ker_analytics(
     
     This is a simpler analysis focused on KER metadata, completion scores,
     and basic statistics. Use this before diving into harmonization.
+    
+    Prints its statistics and writes nothing; the collected KERs are still
+    cached under outputs/cache/<date>/ for later KER commands to reuse.
     """
     # Setup
     work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
     work_date_str = work_date.strftime('%m-%d-%Y')
     cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
-    output_dir = f'outputs/ker_analytics/{work_date_str}'
-    os.makedirs(output_dir, exist_ok=True)
     
     # Collect all KERs with automatic caching from centralized cache
     all_kers = collect_entity_with_cache('kers', collect_kers_from_xml, work_date, cache_dir, force_refresh, logger)
