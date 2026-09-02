@@ -40,7 +40,13 @@ def collect_events_from_matched_aops(matched_aops, events_dict, aops_dict=None):
             if event_id_str in aop_events:
                 aop_events[event_id_str]["found_in_aops"].append(aop_id)
             else:
-                event_info = events_dict.get(event_id_str, events_dict.get(int(event_id), {}))
+                # events_dict may be keyed by either str or int event IDs, so fall
+                # back to the int key. Only attempt that for an ID that is actually
+                # numeric: int() on anything else raises rather than missing.
+                event_info = events_dict.get(event_id_str)
+                if event_info is None and event_id_str.isdigit():
+                    event_info = events_dict.get(int(event_id_str))
+                event_info = event_info or {}
                 aop_events[event_id_str] = {
                     "event_info": event_info,
                     "title": event_info.get("title", "Unknown"),
