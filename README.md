@@ -207,6 +207,10 @@ bash test_cli_integration.sh
 bash test_cli_integration.sh 2>&1 | grep -E "(Testing:|PASSED|FAILED|Test Summary)"
 ```
 
+Packaging itself is not covered by the test suite. To verify that the tool still installs and runs from outside a
+clone — after any change to the package layout, the entry point, or `src/aop_wiki_cli/paths.py` — work through
+[docs/module_testing.md](docs/module_testing.md).
+
 ## Project Structure ()
 
 ```sh
