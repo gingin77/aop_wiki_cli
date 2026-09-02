@@ -37,7 +37,7 @@ References to `<group>.data` throughout this document refer to this `data` key.
 ### Step 1 — Parse Workbook → `seizure_content`
 
 **Function:** `parse_seizure_aop_workbook(workbook_path)`
-**Source:** `src/parsers/parse_behl_seizure_aop_workbook.py`
+**Source:** `src/aop_wiki_cli/parsers/parse_behl_seizure_aop_workbook.py`
 
 Reads 3 sheets from `inputs/seizure_aops/behl_seizure_supp_data.xlsx`:
 harmonization, assays, and chemicals. Extracts and organizes content into the
@@ -68,7 +68,7 @@ Initial `seizure_content` root groups populated here:
 ### Step 2 — Fuzzy Match KE Descriptions → Harmonized KE Titles
 
 **Function:** `map_ke_descriptions_to_harmonized_kes(ke_description_mapping, harmonized_kes_list, threshold=0.6)`
-**Source:** `src/analysis/map_ke_descriptions_to_harmonized.py`
+**Source:** `src/aop_wiki_cli/analysis/map_ke_descriptions_to_harmonized.py`
 
 The Behl workbook links assays to KE *descriptions* rather than exact KE titles. This step
 uses prefix-weighted fuzzy matching to find the best harmonized KE title for each
@@ -84,7 +84,7 @@ description (threshold: 0.6).
 ### Human Review — Stage 1: KE Description ↔ Harmonized KE
 
 **Function:** `review_matches(enhanced_ke_description_mapping, score_threshold=0.9)`
-**Source:** `src/analysis/manual_match_review.py`
+**Source:** `src/aop_wiki_cli/analysis/manual_match_review.py`
 
 Interactive terminal review of matches below the 0.9 confidence threshold.
 High-confidence matches (≥ 0.9) are auto-approved.
@@ -100,7 +100,7 @@ Review item: "KE description" → "Harmonized KE" (score: X.XX)
 ```
 
 **Checkpoint:** Results are saved to
-`outputs_for_vc/reviewed_ke_description_to_harmonized_ke_mapping.json`.
+`src/aop_wiki_cli/data/curated/reviewed_ke_description_to_harmonized_ke_mapping.json` (overridable at `<data-dir>/curated/`).
 If this file exists and `--skip-curated` is not set, this stage is skipped on re-runs.
 
 **Output stored in:** `seizure_content['enriched']['data']['ke_description_to_harmonized_ke_mapping']`
@@ -110,7 +110,7 @@ If this file exists and `--skip-curated` is not set, this stage is skipped on re
 ### Step 3 — Collect AOP-Wiki Data (Cached)
 
 **Function:** `collect_entity_with_cache('aops', ...)` and `collect_entity_with_cache('events', ...)`
-**Source:** `src/parsers/parse_aop_wiki_xml_data.py`
+**Source:** `src/aop_wiki_cli/parsers/parse_aop_wiki_xml_data.py`
 
 Checks `outputs/cache/{date}/all_aops_{date}.json` and
 `outputs/cache/{date}/all_events_{date}.json`. On a cache miss, parses the AOP-Wiki XML
@@ -123,7 +123,7 @@ export from `xml_inputs/` and saves results to cache.
 ### Step 4 — Fuzzy Match Target Families → Wiki Events
 
 **Function:** `enrich_target_families(target_families_to_h_events_and_assays, all_events)`
-**Source:** `src/analysis/map_ke_descriptions_to_harmonized.py`
+**Source:** `src/aop_wiki_cli/analysis/map_ke_descriptions_to_harmonized.py`
 
 For each biological target family from the workbook, checks for an existing manual mapping
 to harmonized events. If none exists, fuzzy-matches the target family name against Wiki
@@ -137,7 +137,7 @@ family, sorted by score descending.
 ### Human Review — Stage 2: Target Family ↔ Wiki Event
 
 **Function:** `review_matches(tfs_to_events, score_threshold=0.9)`
-**Source:** `src/analysis/manual_match_review.py`
+**Source:** `src/aop_wiki_cli/analysis/manual_match_review.py`
 
 Same interactive review process as Stage 1, applied to target family → event matches.
 After review, the CLI renames fields for clarity:
@@ -146,7 +146,7 @@ After review, the CLI renames fields for clarity:
 - `matched_term` → `event`
 - `suggested_match` → `suggested_event`
 
-**Checkpoint:** Results saved to `outputs_for_vc/curated_event-target_family_mappings.json`.
+**Checkpoint:** Results saved to `src/aop_wiki_cli/data/curated/curated_event-target_family_mappings.json` (overridable at `<data-dir>/curated/`).
 If this file exists and `--skip-curated` is not set, this stage is skipped on re-runs.
 
 **Output stored in:** `seizure_content['enriched']['data']['biological_target_families_enriched']`
@@ -156,7 +156,7 @@ If this file exists and `--skip-curated` is not set, this stage is skipped on re
 ### Step 5 — Map Assays to Events via Target Families
 
 **Function:** `map_assays_to_events_via_target_families(enriched_target_families_reviewed, target_families_to_h_events_and_assays)`
-**Source:** `src/analysis/map_ke_descriptions_to_harmonized.py`
+**Source:** `src/aop_wiki_cli/analysis/map_ke_descriptions_to_harmonized.py`
 
 Creates a two-step linking chain: assays → target families → events. For each target
 family, builds an event list from three sources (in priority order):
@@ -180,7 +180,7 @@ and `['event_to_assays_summary']`
 ### Step 6 — Organize and Enrich Harmonized Events
 
 **Function:** `organize_and_enrich_harmonized_events(seizure_aop_curations, all_aops, all_events)`
-**Source:** `src/analysis/analyze_seizure_aop_content.py`
+**Source:** `src/aop_wiki_cli/analysis/analyze_seizure_aop_content.py`
 
 Two-stage enrichment:
 
@@ -208,7 +208,7 @@ unassigned ("nan") events.
 ### Step 7 — Export All Results
 
 **Function:** `export_seizure_aop_results(seizure_content, output_dir, work_date_str)`
-**Source:** `src/data_export/seizure_aop_export.py`
+**Source:** `src/aop_wiki_cli/data_export/seizure_aop_export.py`
 
 Iterates over `seizure_content` root groups and writes each dataset based on its declared
 `export_types` (`json`, `csv`, `xlsx`). All files written to
@@ -236,8 +236,8 @@ Iterates over `seizure_content` root groups and writes each dataset based on its
 
 | Stage | Data reviewed | Auto-approve threshold | Checkpoint file |
 | --- | --- | --- | --- |
-| 1 | KE description ↔ harmonized KE | score ≥ 0.9 | `outputs_for_vc/reviewed_ke_description_to_harmonized_ke_mapping.json` |
-| 2 | Target family ↔ Wiki event title | score ≥ 0.9 | `outputs_for_vc/curated_event-target_family_mappings.json` |
+| 1 | KE description ↔ harmonized KE | score ≥ 0.9 | `src/aop_wiki_cli/data/curated/reviewed_ke_description_to_harmonized_ke_mapping.json` (overridable at `<data-dir>/curated/`) |
+| 2 | Target family ↔ Wiki event title | score ≥ 0.9 | `src/aop_wiki_cli/data/curated/curated_event-target_family_mappings.json` (overridable at `<data-dir>/curated/`) |
 
 If either checkpoint file is present, the corresponding review stage is skipped on re-runs.
 Use `--skip-curated` to force interactive review regardless.

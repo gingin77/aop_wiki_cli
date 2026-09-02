@@ -23,46 +23,89 @@ XML data export. The CLI functions extract Adverse Outcome Pathways (AOPs), Key 
 
 ## Installation
 
+### As a tool (no clone needed)
+
+```bash
+# Run without installing
+uvx --from git+https://github.com/gingin77/aop_wiki_cli aop-wiki-cli --help
+
+# Or install the `aop-wiki-cli` command onto your PATH
+uv tool install git+https://github.com/gingin77/aop_wiki_cli
+pip install git+https://github.com/gingin77/aop_wiki_cli   # equivalent with pip
+```
+
+### From a clone (development)
+
 ```bash
 # Optional: Drop dependencies dir
 rm -rf .venv
 
-# Install dependencies with uv
+# Install dependencies (and the project itself) with uv
 uv sync
 
 # Run CLI with help flag to view available commands
-uv run python cli.py --help
+uv run aop-wiki-cli --help
 ```
+
+## Where files are read and written
+
+Every input, output, cache and log path is resolved against a single **data
+directory**, chosen in this order:
+
+1. `--data-dir <path>`, a global option that comes before the command name
+2. the `AOP_WIKI_CLI_DATA_DIR` environment variable
+3. the current working directory (the default)
+
+Under that directory the tool uses `outputs/`, `outputs/cache/`, `xml_inputs/`,
+`logs/`, and looks in `inputs/` and `curated/` for files you supply yourself.
+
+```bash
+# Write everything under ~/aop-work instead of the current directory
+aop-wiki-cli --data-dir ~/aop-work collect-event-integration-rankings
+
+# Same thing via the environment
+export AOP_WIKI_CLI_DATA_DIR=~/aop-work
+aop-wiki-cli collect-event-integration-rankings
+```
+
+The seizure workbook and the curated review files ship inside the package, so
+the commands that need them work from any directory. To use your own copies,
+place them at `<data-dir>/inputs/seizure_aops/behl_seizure_supp_data.xlsx` and
+`<data-dir>/curated/<filename>.json`; those take precedence over the shipped ones.
 
 ## CLI Commands
 
+Installed, the command is `aop-wiki-cli`. From a clone, prefix it with
+`uv run` (`uv run aop-wiki-cli …`) or use `uv run python -m aop_wiki_cli …`.
+
 ```bash
 # Collect all events and calculate integration rankings
-uv run python cli.py collect-event-integration-rankings
+aop-wiki-cli collect-event-integration-rankings
 
 # Collect KER analytics
-uv run python cli.py collect-ker-analytics
+aop-wiki-cli collect-ker-analytics
+
+# Find the KERs a key event participates in
+aop-wiki-cli find-kers-for-events --ke-ids 1346
 
 # Search KERs for concordance evidence
-uv run python cli.py search-kers-for-concordance-text
+aop-wiki-cli search-kers-for-concordance-text
 
 # Harmonize KER evidence tables
-uv run python cli.py harmonize-ker-evidence
+aop-wiki-cli harmonize-ker-evidence
 
 # Search entities using a config file
-uv run python cli.py search-with-config <config_name>
+aop-wiki-cli search-with-config <config_name>
 
 # Collect and harmonize seizure AOP data (interactive review)
-uv run python cli.py collect-harmonized-seizure-aops
-uv run python -m cli collect-harmonized-seizure-aops --date 02-20-2026
+aop-wiki-cli collect-harmonized-seizure-aops
+aop-wiki-cli collect-harmonized-seizure-aops --date 02-20-2026
 
 # Manually review match results from a JSON file
-uv run python cli.py manually-review-matches <input_file.json> [--threshold 0.9]
+aop-wiki-cli manually-review-matches <input_file.json> [--threshold 0.9]
 
 # Concrete example - with future oriented date
-uv run python cli.py manually-review-matches outputs/seizure_aops/03-14-2026/mapping_ke_description_to_harmonized_ke_03-14-2026.json --threshold 0.9
-
-uv run python cli.py manually-review-matches outputs/seizure_aops/{date}/mapping_ke_description_to_harmonized_ke_{date}.json --threshold 0.9
+aop-wiki-cli manually-review-matches outputs/seizure_aops/03-14-2026/mapping_ke_description_to_harmonized_ke_03-14-2026.json --threshold 0.9
 ```
 
 ## Seizure AOP Workflow
@@ -83,13 +126,16 @@ below the confidence threshold. Rejected matches allow you to suggest a better m
 
 ### Seizure AOP Workflow-Specific Caching Behavior
 
-The workflow checks for previously curated input files in `outputs_for_vc/`:
+The workflow uses two curated input files:
 
-- **KE description mappings**: `outputs_for_vc/reviewed_ke_description_to_harmonized_ke_mapping.json`
-- **Event-target family mappings**: `outputs_for_vc/curated_event-target_family_mappings.json`
+- **KE description mappings**: `reviewed_ke_description_to_harmonized_ke_mapping.json`
+- **Event-target family mappings**: `curated_event-target_family_mappings.json`
 
-If these files exist, they are loaded and the interactive review is skipped. These files must be
-manually placed there after review (e.g., by copying from dated output folders).
+Both ship with the tool (`src/aop_wiki_cli/data/curated/`). A copy placed at
+`<data-dir>/curated/<filename>` overrides the shipped one, which is how a fresh
+round of review is adopted: copy the reviewed file out of the dated output
+folder into `<data-dir>/curated/` (and into `src/aop_wiki_cli/data/curated/` to
+ship it). Whenever a curated file is found, interactive review is skipped.
 
 To regenerate matches (bypass curated inputs), use `--skip-curated`.
 
@@ -97,16 +143,16 @@ To regenerate matches (bypass curated inputs), use `--skip-curated`.
 
 ```bash
 # Basic usage (uses cached curations if available)
-uv run python cli.py collect-harmonized-seizure-aops
+aop-wiki-cli collect-harmonized-seizure-aops
 
 # Specify a cache date for AOP-Wiki data
-uv run python cli.py collect-harmonized-seizure-aops --date MM-DD-YYYY
+aop-wiki-cli collect-harmonized-seizure-aops --date MM-DD-YYYY
 
 # Force refresh of AOP-Wiki XML data
-uv run python cli.py collect-harmonized-seizure-aops --force-refresh
+aop-wiki-cli collect-harmonized-seizure-aops --force-refresh
 
 # Skip curated inputs and regenerate via fuzzy matching + review
-uv run python cli.py collect-harmonized-seizure-aops --skip-curated
+aop-wiki-cli collect-harmonized-seizure-aops --skip-curated
 ```
 
 ### Export to Target Project
@@ -121,7 +167,7 @@ uv run python cli.py collect-harmonized-seizure-aops --skip-curated
 
 ### Output Files
 
-Outputs are written to `outputs/seizure_aops/{date}/`:
+Outputs are written to `<data-dir>/outputs/seizure_aops/{date}/`:
 
 | File | Description |
 | ---- | ----------- |
@@ -138,9 +184,11 @@ Outputs are written to `outputs/seizure_aops/{date}/`:
 
 ### Project Organization
 
-- **Entry point**: `cli.py` provides the main CLI interface
-- **Source code**: All production code is in `src/` organized by functional domain
-- **Configuration**: Analysis configurations are in `configs/`
+- **Entry point**: the `aop-wiki-cli` console script, defined by `aop_wiki_cli.cli:app`
+- **Source code**: all production code is in `src/aop_wiki_cli/`, organized by functional domain
+- **Configuration**: analysis configurations are in `src/aop_wiki_cli/configs/`
+- **Path resolution**: `src/aop_wiki_cli/paths.py` resolves every input, output,
+  cache and log root; modules never build paths from bare relative strings
 - **Tests**:
   - Unit and integration tests are in `tests/` at project root
   - One test has been created as a shell script at project root
@@ -149,8 +197,8 @@ Outputs are written to `outputs/seizure_aops/{date}/`:
 ### Testing
 
 ```bash
-# Run tests on content search functions
-uv run python -m tests.test_search_text_by_field
+# Run the test suite
+uv run pytest
 
 # Run a test that all CLI functions are running with standard params
 bash test_cli_integration.sh
@@ -163,44 +211,46 @@ bash test_cli_integration.sh 2>&1 | grep -E "(Testing:|PASSED|FAILED|Test Summar
 
 ```sh
 aop_wiki_cli/
-├── cli.py                              # Main CLI entry point
-├── pyproject.toml                      # Project dependencies
+├── pyproject.toml                      # Project metadata, dependencies, entry point
 ├── test_cli_integration.sh             # CLI integration tests
 ├── export_ready_for_emod_upload.sh     # Seizure output export script
 │
-├── src/                          # Source code modules
+├── src/aop_wiki_cli/             # The installable package
+│   ├── cli.py                    # Typer app; the `aop-wiki-cli` entry point
+│   ├── __main__.py               # `python -m aop_wiki_cli`
+│   ├── paths.py                  # Data-directory and package-data resolution
 │   ├── analysis/                 # Post-extraction analytics
-│   ├── collection/               # Needs refactoring 
+│   ├── collection/               # Needs refactoring
 │   ├── parsers/                  # Parser for the XML and other sources
 │   ├── search/                   # Text and reference searching
 │   ├── harmonization/            # KER Evidence table standardization
 │   ├── data_export/              # File generation (CSV, Excel, JSON)
-│   ├── visualization/            # Graphical outputs
 │   ├── utilities/                # Shared helper functions
-│   └── standalone/               # Needs refactoring 
+│   ├── configs/                  # Analysis configuration files
+│   └── data/                     # Files shipped in the wheel
+│       ├── seizure_aops/         # Behl seizure AOP workbook
+│       └── curated/              # Human-reviewed mapping inputs
 │
-├── configs/                      # Analysis configuration files
 ├── tests/                        # Unit and integration tests
 ├── docs/                         # Project documentation
-│
-├── inputs/                       # Input data
-│   ├── seizure_aops/             # Seizure AOP workbook inputs
-│   ├── annotated_manually/       # Manual annotations
-│   └── from_emod_prototypes/     # From earlier EMOD prototypes
-│
-├── outputs/                      # Generated outputs (git-ignored)
+├── outputs_for_vc/               # Curated outputs for version control
+└── ...
+```
+
+At runtime, under the data directory (`--data-dir`, `$AOP_WIKI_CLI_DATA_DIR`, or cwd):
+
+```sh
+<data-dir>/
+├── inputs/                       # Optional user-supplied inputs
+├── curated/                      # Optional overrides of the shipped curated files
+├── outputs/                      # Generated outputs
 │   ├── seizure_aops/             # Seizure workflow outputs
 │   ├── event_rankings/           # Event ranking results
 │   ├── ker_evidence/             # KER evidence data
-│   ├── ker_analytics/            # KER analytics
+│   ├── ker_lookups/              # KER lookups by key event
 │   └── cache/                    # Cached XML/JSON data
-│
-├── outputs_for_vc/               # Curated outputs for version control
-│
 ├── xml_inputs/                   # Downloaded AOP-Wiki XML files
-├── logs/                         # Log files
-├── archived/                     # Deprecated scripts
-└── scratch/                      # Experimental code
+└── logs/                         # Log files
 ```
 
 

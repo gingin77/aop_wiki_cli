@@ -19,9 +19,12 @@ NC='\033[0m' # No Color
 # Test date - dynamically set to today
 TEST_DATE=$(date +%m-%d-%Y)
 
-# Create test output directory
-TEST_OUTPUT_DIR="outputs/test_run_$(date +%s)"
-mkdir -p "$TEST_OUTPUT_DIR"
+# The CLI under test. Override to exercise an installed copy, e.g.
+#   CLI="aop-wiki-cli" bash test_cli_integration.sh
+CLI="${CLI:-uv run aop-wiki-cli}"
+
+# Where the CLI reads and writes; must match what the CLI itself resolves
+DATA_DIR="${AOP_WIKI_CLI_DATA_DIR:-$(pwd)}"
 
 # Counter for passed/failed tests
 PASSED=0
@@ -50,55 +53,55 @@ run_test() {
 
 # Test 1: Help command (should always work)
 run_test "CLI Help" \
-    "uv run python cli.py --help"
+    "$CLI --help"
 
 # Test 2: Collect event integration rankings
 run_test "Collect Event Integration Rankings" \
-    "uv run python cli.py collect-event-integration-rankings --date $TEST_DATE"
+    "$CLI collect-event-integration-rankings --date $TEST_DATE"
 
 # Test 3: Collect event rankings with force refresh
 run_test "Event Rankings (Force Refresh)" \
-    "uv run python cli.py collect-event-integration-rankings --date $TEST_DATE --force-refresh"
+    "$CLI collect-event-integration-rankings --date $TEST_DATE --force-refresh"
 
 # Test 4: Collect KER analytics
 run_test "Collect KER Analytics" \
-    "uv run python cli.py collect-ker-analytics --date $TEST_DATE"
+    "$CLI collect-ker-analytics --date $TEST_DATE"
 
 # Test 5: Search KERs for concordance text
 run_test "Search KERs for Concordance" \
-    "uv run python cli.py search-kers-for-concordance-text --date $TEST_DATE"
+    "$CLI search-kers-for-concordance-text --date $TEST_DATE"
 
 # Test 6: Harmonize KER evidence
 run_test "Harmonize KER Evidence" \
-    "uv run python cli.py harmonize-ker-evidence --date $TEST_DATE"
+    "$CLI harmonize-ker-evidence --date $TEST_DATE"
 
 # Test 7: Search with config (regulatory_relevance)
 run_test "Search with Config: Regulatory Relevance" \
-    "uv run python cli.py search-with-config regulatory_relevance --date $TEST_DATE"
+    "$CLI search-with-config regulatory_relevance --date $TEST_DATE"
 
 # Test 8: Search with config (methods_nams)
 run_test "Search with Config: Methods NAMS" \
-    "uv run python cli.py search-with-config methods_nams --date $TEST_DATE"
+    "$CLI search-with-config methods_nams --date $TEST_DATE"
 
 # Test 9: Search with config (lung_and_immune_aops)
 run_test "Search with Config: Lung and Immune AOPs" \
-    "uv run python cli.py search-with-config lung_and_immune_aops --date $TEST_DATE"
+    "$CLI search-with-config lung_and_immune_aops --date $TEST_DATE"
 
 # Test 10: Search with config and --co-occurrence-only flag
 run_test "Search with Co-occurrence Only Flag" \
-    "uv run python cli.py search-with-config lung_and_immune_aops --co-occurrence-only --date $TEST_DATE"
+    "$CLI search-with-config lung_and_immune_aops --co-occurrence-only --date $TEST_DATE"
 
 # Test 11: Search with config and force refresh
 run_test "Search with Config (Force Refresh)" \
-    "uv run python cli.py search-with-config regulatory_relevance --force-refresh --date $TEST_DATE"
+    "$CLI search-with-config regulatory_relevance --force-refresh --date $TEST_DATE"
 
 # Test 12: Check help for each command
 echo -e "${YELLOW}Testing: Command Help Pages${NC}"
-COMMANDS=("collect-event-integration-rankings" "collect-ker-analytics" "search-kers-for-concordance-text" "harmonize-ker-evidence" "search-with-config")
+COMMANDS=("collect-event-integration-rankings" "collect-ker-analytics" "find-kers-for-events" "search-kers-for-concordance-text" "harmonize-ker-evidence" "search-with-config")
 
 for cmd in "${COMMANDS[@]}"; do
     echo "  Checking: $cmd --help"
-    if uv run python cli.py "$cmd" --help > /dev/null 2>&1; then
+    if $CLI "$cmd" --help > /dev/null 2>&1; then
         echo -e "  ${GREEN}✓${NC} $cmd help works"
         ((PASSED++))
     else
@@ -110,7 +113,7 @@ echo ""
 
 # Test 13: Verify JSON output structure for co-occurrence-only
 echo -e "${YELLOW}Testing: JSON Output Verification${NC}"
-LUNG_IMMUNE_JSON=$(find outputs/lung_and_immune_aops -name "lung_and_immune_aops_*.json" -type f | head -n 1)
+LUNG_IMMUNE_JSON=$(find "$DATA_DIR/outputs/lung_and_immune" -name "lung_and_immune_aops_*.json" -type f 2>/dev/null | head -n 1)
 if [ -f "$LUNG_IMMUNE_JSON" ]; then
     echo "  Checking JSON structure in: $LUNG_IMMUNE_JSON"
     
@@ -172,13 +175,12 @@ echo "Output File Verification"
 echo "=================================="
 
 OUTPUT_DIRS=(
-    "outputs/event_rankings"
-    "outputs/json"
-    "outputs/ker_analytics"
-    "outputs/ker_evidence"
-    "outputs/lung_and_immune_aops"
-    "outputs/reference_search_results"
-    "outputs/regulatory_relevance_screening"
+    "$DATA_DIR/outputs/event_rankings"
+    "$DATA_DIR/outputs/ker_evidence"
+    "$DATA_DIR/outputs/ker_lookups"
+    "$DATA_DIR/outputs/lung_and_immune"
+    "$DATA_DIR/outputs/nams_methods"
+    "$DATA_DIR/outputs/regulatory_relevance_screening"
 )
 
 for dir in "${OUTPUT_DIRS[@]}"; do

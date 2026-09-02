@@ -10,7 +10,7 @@ This note summarizes existing caching utilities in the codebase.
 
 ### 1) `generic_cache_wrapper`
 
-- Location: `src/utilities/helpers.py`
+- Location: `src/aop_wiki_cli/utilities/helpers.py`
 - Signature:
   - `generic_cache_wrapper(cache_key, cache_dir, data_collector, force_refresh=False, logger=None)`
 - Current behavior:
@@ -24,7 +24,7 @@ This note summarizes existing caching utilities in the codebase.
 
 ### 2) `collect_entity_with_cache`
 
-- Location: `src/parsers/parse_aop_wiki_xml_data.py`
+- Location: `src/aop_wiki_cli/parsers/parse_aop_wiki_xml_data.py`
 - Purpose:
   - Specialized wrapper for XML entity collection (`events`, `kers`, `aops`)
   - Delegates to `generic_cache_wrapper`
@@ -33,7 +33,7 @@ This note summarizes existing caching utilities in the codebase.
 
 ### 3) `harmonize_kers_with_cache`
 
-- Location: `src/harmonization/helpers_for_ker_evidence_harmonization.py`
+- Location: `src/aop_wiki_cli/harmonization/helpers_for_ker_evidence_harmonization.py`
 - Purpose:
   - Caches harmonized KER evidence output
   - Delegates to `generic_cache_wrapper`
@@ -44,6 +44,6 @@ This note summarizes existing caching utilities in the codebase.
 
 ## Quick Reference Paths
 
-- `src/utilities/helpers.py` (`generic_cache_wrapper`)
-- `src/parsers/parse_aop_wiki_xml_data.py` (`collect_entity_with_cache`)
-- `src/harmonization/helpers_for_ker_evidence_harmonization.py` (`harmonize_kers_with_cache`)
+- `src/aop_wiki_cli/utilities/helpers.py` (`generic_cache_wrapper`)
+- `src/aop_wiki_cli/parsers/parse_aop_wiki_xml_data.py` (`collect_entity_with_cache`)
+- `src/aop_wiki_cli/harmonization/helpers_for_ker_evidence_harmonization.py` (`harmonize_kers_with_cache`)

@@ -19,7 +19,7 @@ Examples:
 
 # Import directly from submodule since package-level import would trigger
 # circular import: src.parsers <-> src.analysis
-from src.search.search_text_by_field import (
+from aop_wiki_cli.search.search_text_by_field import (
     seek_search_phrase_in_field_text,
     search_entity_data,
     add_search_result

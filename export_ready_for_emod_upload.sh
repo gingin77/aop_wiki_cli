@@ -97,7 +97,9 @@ else
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SRC_BASE="$SCRIPT_DIR/outputs/seizure_aops/$WORK_DATE"
+# Read from the same data directory the CLI writes to; defaults to the clone
+DATA_DIR="${AOP_WIKI_CLI_DATA_DIR:-$SCRIPT_DIR}"
+SRC_BASE="$DATA_DIR/outputs/seizure_aops/$WORK_DATE"
 
 muted "Source base: $SRC_BASE"
 muted "Destination base: $OUTPUT_DIR"

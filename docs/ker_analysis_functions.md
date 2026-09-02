@@ -12,7 +12,7 @@ raw AOP-Wiki XML into structured Excel workbooks with harmonized evidence tables
 **Function:** `collect_entity_with_cache('kers', collect_kers_from_xml, ...)`
 
 Checks `outputs/cache/{date}/all_kers_{date}.json` for a cached result. On a cache miss,
-loads the AOP-Wiki XML from `xml_inputs/`, parses every `<key-event-relationship>` element,
+loads the AOP-Wiki XML from `<data-dir>/xml_inputs/`, parses every `<key-event-relationship>` element,
 and builds a dict keyed by KER ID.
 
 Each KER entry contains:
@@ -77,7 +77,7 @@ A KER is considered **harmonizable** only if its tables resolve to all three req
 
 **Function:** `initiate_workbook_creation_for_harmonized_kers(...)`
 
-Uses `AOPS_SELECTED_FOR_HARMONIZED_KERS_WORKBOOKS` from `configs/harmonize_ker_evidence.py`
+Uses `AOPS_SELECTED_FOR_HARMONIZED_KERS_WORKBOOKS` from `src/aop_wiki_cli/configs/harmonize_ker_evidence.py`
 to scope output to 5 specific AOPs:
 
 | AOP ID | Title |

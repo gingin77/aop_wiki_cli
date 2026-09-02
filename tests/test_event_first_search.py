@@ -20,7 +20,7 @@ Examples:
 
 # Import directly from submodule since package-level import would trigger
 # circular import: src.parsers <-> src.analysis
-from src.search.event_first_search import (
+from aop_wiki_cli.search.event_first_search import (
     find_kers_containing_events,
     find_events_by_title_terms,
 )

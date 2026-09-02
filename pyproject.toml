@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "aop-wiki-cli"
 version = "0.1.0"
@@ -15,6 +19,20 @@ dependencies = [
     "pyyaml>=6.0",
 ]
 
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+aop-wiki-cli = "aop_wiki_cli.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aop_wiki_cli"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/aop_wiki_cli", "tests", "README.md", "LICENSE"]
+
 [tool.pytest.ini_options]
-pythonpath = "."
+pythonpath = ["src"]
 testpaths = ["tests"]
