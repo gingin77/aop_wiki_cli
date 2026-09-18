@@ -588,6 +588,15 @@ def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
     if reg_field is not None:
         ke_to_aop_info[ke_id]["regulatory_relevance"] = reg_field
 
+    # The role is per AOP, so the AOP keeps its own MIEs and AOs as well:
+    # pairing MIEs with AOs needs them per pathway, not per Key Event.
+    if role == ROLE_MIE:
+        if ke_id not in aop_base_info[aop_id]["mie_ids"]:
+            aop_base_info[aop_id]["mie_ids"].append(ke_id)
+    elif role == ROLE_AO:
+        if ke_id not in aop_base_info[aop_id]["ao_ids"]:
+            aop_base_info[aop_id]["ao_ids"].append(ke_id)
+
     ke_to_aop_info[ke_id]["aop_ids"].append(aop_id)
     aop_base_info[aop_id]["event_ids"].append(ke_id)
 
@@ -649,7 +658,9 @@ def collect_base_aop_info_from_xml(root, xml_namespace, refs):
         aop_id = refs['AOP'][aop.get('id')]
         aop_base_info[aop_id] = { 
             'id': aop_id,
-            "event_ids": [] 
+            "event_ids": [],
+            "mie_ids": [],
+            "ao_ids": []
         }
         
         # Status information for AOPs
