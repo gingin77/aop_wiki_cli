@@ -85,7 +85,7 @@ uv run aop-wiki-cli find-kers-for-events --ke-terms "cholestasis,hepatic steatos
 - **Organ and cell types** — liver, hepatic, hepatocyte(s), hepatocellular, hepatotoxicity, hepatitis,
   hepatobiliary, hepatotoxicant, Kupffer, stellate cell, cholangiocyte(s), sinusoidal
 - **Hepatic adverse outcomes** — steatosis, steatohepatitis, cholestasis, cholestatic, cirrhosis, NAFLD,
-  NASH, MASLD, MASH, fatty liver
+  NASH, MASLD, MASH, fatty liver, DILI
 - **Hepatic processes and receptors** — bile, bile acid, bile salt, biliary, BSEP, bile salt export pump,
   bile duct, LXR, liver X receptor, FXR, farnesoid X receptor, PXR, pregnane X receptor, constitutive
   androstane receptor
@@ -96,6 +96,13 @@ both spellings and both plurals have to be listed.
 Generic injury words (necrosis, fibrosis, apoptosis, inflammation) are deliberately **left out**. They
 match key events in every organ, and a hepatic instance of them is collected anyway once the AOP it
 belongs to is reached through one of the terms above.
+
+The terms describe hepatic **biology**, not the drug stressor, which is broader than DILI on purpose:
+AOP-Wiki key event titles describe mechanism ("Increase, Hepatic steatosis"), and rarely name the agent
+class, so requiring a drug qualifier would drop liver AOPs that are squarely DILI-relevant. For the same
+reason `drug-induced` is not a term -- it would match every organ ("Drug-induced QT prolongation"). The
+acronym `DILI` is listed because it matches nothing else; the spelled-out "drug-induced liver injury" is
+already caught by `liver`.
 
 `aop_title_exclusion_terms` is empty by default, so the collection stays inclusive. To drop
 ecotoxicology AOPs that reach the liver in fish or invertebrates, add terms to that list in the config —
