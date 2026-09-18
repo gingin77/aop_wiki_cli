@@ -97,6 +97,9 @@ aop-wiki-cli harmonize-ker-evidence
 # Search entities using a config file
 aop-wiki-cli search-with-config <config_name>
 
+# Collect the AOPs, KEs and KERs for a term set, then pair each AOP's MIEs with its AOs
+aop-wiki-cli pair-mies-and-aos dili_aops
+
 # Collect and harmonize seizure AOP data (interactive review)
 aop-wiki-cli collect-harmonized-seizure-aops
 aop-wiki-cli collect-harmonized-seizure-aops --date 02-20-2026
@@ -107,6 +110,13 @@ aop-wiki-cli manually-review-matches <input_file.json> [--threshold 0.9]
 # Concrete example - with future oriented date
 aop-wiki-cli manually-review-matches outputs/seizure_aops/03-14-2026/mapping_ke_description_to_harmonized_ke_03-14-2026.json --threshold 0.9
 ```
+
+## DILI AOP Collection
+
+`aop-wiki-cli pair-mies-and-aos dili_aops` collects every AOP whose key events include a hepatic term,
+along with those AOPs' key events and KERs, and writes a table pairing each AOP's molecular initiating
+events with its adverse outcomes. See [docs/dili_aop_collection.md](docs/dili_aop_collection.md) for the
+search terms, the outputs, and how to adapt the config to another organ or disease area.
 
 ## Seizure AOP Workflow
 
@@ -256,7 +266,6 @@ At runtime, under the data directory (`--data-dir`, `$AOP_WIKI_CLI_DATA_DIR`, or
 ├── xml_inputs/                   # Downloaded AOP-Wiki XML files
 └── logs/                         # Log files
 ```
-
 
 ## License
 

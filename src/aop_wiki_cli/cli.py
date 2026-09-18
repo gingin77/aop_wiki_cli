@@ -1,5 +1,6 @@
 """CLI interface for AOP-Wiki CLI using Typer."""
 import typer
+import csv
 import os
 import logging
 import importlib
@@ -17,6 +18,12 @@ from aop_wiki_cli.analysis import (
     organize_and_enrich_harmonized_events,
     enrich_target_families,
     map_assays_to_events_via_target_families,
+)
+from aop_wiki_cli.analysis.pair_mies_and_aos import (
+    build_mie_ao_pairs,
+    summarize_mie_ao_pairs,
+    filter_kers_by_aop_ids,
+    render_mie_ao_markdown_table,
 )
 from aop_wiki_cli.analysis.manual_match_review import review_matches, calculate_review_summary
 from aop_wiki_cli.analysis.collect_event_rankings import collect_and_rank_events
@@ -527,6 +534,145 @@ def search_with_config(
 
 
 @app.command()
+def pair_mies_and_aos(
+    config: str = typer.Argument(
+        ...,
+        help="Config module name from aop_wiki_cli.configs that uses the event_to_aop search mode (e.g., 'dili_aops')"
+    ),
+    cache_date: Optional[str] = typer.Option(
+        None,
+        "--date",
+        "-d",
+        help="Date of cached data to use (MM-DD-YYYY). Defaults to today."
+    ),
+    force_refresh: bool = typer.Option(
+        False,
+        "--force-refresh",
+        "-f",
+        help="Force fresh data collection, ignoring cached files"
+    ),
+    limit: int = typer.Option(
+        25,
+        "--limit",
+        "-l",
+        help="Maximum number of pair rows to print; all rows are still written to file"
+    )
+):
+    """Collect the AOPs, key events and KERs for a term set, then pair MIEs with AOs.
+
+    Runs the same event-first search as `search-with-config` for a config in
+    event_to_aop mode, then adds the two things that search does not produce:
+    the KERs belonging to the matched AOPs, and a table pairing each AOP's
+    molecular initiating events with its adverse outcomes.
+
+    Outputs land in `<data-dir>/outputs/<config directory>/`:
+
+    \b
+      <config>_entities_<date>.json      AOPs, key events and KERs collected
+      <config>_mie_ao_pairs_<date>.csv   one row per AOP/MIE/AO combination
+      <config>_mie_ao_pairs_<date>.md    the same table in markdown
+
+    Note that KER collection parses the full XML the first time it runs for a
+    given date, which is slow; later runs for that date read the cache.
+    """
+    try:
+        config_module = importlib.import_module(f'aop_wiki_cli.configs.{config}')
+        search_params = config_module.SEARCH_PARAMS
+        output_config = config_module.OUTPUT_CONFIG
+    except (ImportError, AttributeError) as e:
+        typer.echo(f"❌ Error loading config '{config}': {e}")
+        typer.echo(f"Available configs: {', '.join(_available_search_configs())}")
+        raise typer.Exit(code=1)
+
+    if search_params.get("search_mode") != "event_to_aop":
+        typer.echo(f"❌ Config '{config}' does not use the event_to_aop search mode")
+        typer.echo("   MIE/AO pairing needs the AOP set that an event-first search produces.")
+        raise typer.Exit(code=1)
+
+    work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
+    work_date_str = work_date.strftime('%m-%d-%Y')
+    cache_dir = get_dated_cache_dir(cache_root(), work_date)
+    output_dir = ensure_dir(outputs_dir(output_config["directory"]))
+
+    # Step 1-3: key events matching the term list, the AOPs holding them, and
+    # every other key event in those AOPs.
+    search_results = search_events_to_aops(
+        search_params,
+        work_date=work_date,
+        cache_dir=cache_dir,
+        force_refresh=force_refresh,
+        logger=logger
+    )
+    summary = search_results["summary"]
+    matched_events = search_results["matched_events"]
+    matched_aops = search_results["matched_aops"]
+    events_dict = search_results["events_dict"]
+
+    aop_events = collect_events_from_matched_aops(matched_aops, events_dict)
+    summary["total_aop_events"] = len(aop_events)
+
+    _print_event_to_aop_summary(summary, len(aop_events))
+
+    # Step 4: the KERs of the matched AOPs. KER records name the AOPs they
+    # belong to, so membership is read off the KER rather than inferred from
+    # its endpoints.
+    all_kers = collect_entity_with_cache(
+        'kers', collect_kers_from_xml, work_date, cache_dir, force_refresh, logger
+    )
+    aop_kers = filter_kers_by_aop_ids(all_kers, matched_aops.keys())
+    summary["total_kers_searched"] = len(all_kers)
+    summary["total_kers_in_matched_aops"] = len(aop_kers)
+
+    # Step 5: pair each AOP's MIEs with its AOs.
+    aop_records = {aop_id: data["aop_info"] for aop_id, data in matched_aops.items()}
+    pair_rows = build_mie_ao_pairs(aop_records, events_dict, matched_event_ids=matched_events.keys())
+    pair_summary = summarize_mie_ao_pairs(pair_rows)
+    summary["mie_ao_pairs"] = pair_summary
+
+    _print_mie_ao_summary(pair_summary, pair_rows, limit)
+
+    # Export: entities as JSON, pair table as CSV and markdown
+    entities_filename = f"{config}_entities_{work_date_str}.json"
+    write_dict_to_json(
+        {
+            "search_config": config,
+            "search_date": work_date_str,
+            "summary": summary,
+            "matched_events": matched_events,
+            "matched_aops": matched_aops,
+            "aop_events": aop_events,
+            "aop_kers": aop_kers,
+            "mie_ao_pairs": pair_rows,
+        },
+        output_dir,
+        entities_filename
+    )
+
+    csv_path = os.path.join(output_dir, f"{config}_mie_ao_pairs_{work_date_str}.csv")
+    md_path = os.path.join(output_dir, f"{config}_mie_ao_pairs_{work_date_str}.md")
+
+    fieldnames = list(pair_rows[0].keys()) if pair_rows else ["aop_id", "mie_id", "ao_id"]
+    with open(csv_path, 'w', newline='', encoding='utf-8') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(pair_rows)
+
+    with open(md_path, 'w', encoding='utf-8') as md_file:
+        md_file.write(f"# MIE/AO pairs for `{config}` ({work_date_str})\n\n")
+        md_file.write(
+            f"{pair_summary['total_pairs']} pairs across {pair_summary['total_aops']} AOPs: "
+            f"{pair_summary['unique_mies']} distinct MIEs, {pair_summary['unique_aos']} distinct AOs.\n\n"
+        )
+        md_file.write(render_mie_ao_markdown_table(pair_rows))
+        md_file.write("\n")
+
+    typer.echo(f"\n✓ Collection complete. Results in {output_dir}")
+    typer.echo(f"  - {entities_filename}")
+    typer.echo(f"  - {os.path.basename(csv_path)}")
+    typer.echo(f"  - {os.path.basename(md_path)}")
+
+
+@app.command()
 def collect_harmonized_seizure_aops(
     cache_date: Optional[str] = typer.Option(
         None,
@@ -978,6 +1124,31 @@ def _print_event_to_aop_summary(summary, total_aop_events=0):
         for term, count in summary['event_totals_by_term'].items():
             typer.echo(f"  - '{term}': {count} events")
     typer.echo(f"{'='*60}\n")
+
+
+def _print_mie_ao_summary(pair_summary, pair_rows, limit):
+    """Print the MIE/AO pairing summary and a sample of the pair rows."""
+    typer.echo(f"\n{'='*60}")
+    typer.echo("MIE / AO PAIRING SUMMARY")
+    typer.echo(f"{'='*60}")
+    typer.echo(f"Total MIE/AO pairs: {pair_summary['total_pairs']}")
+    typer.echo(f"AOPs covered: {pair_summary['total_aops']}")
+    typer.echo(f"Distinct MIEs: {pair_summary['unique_mies']}")
+    typer.echo(f"Distinct AOs: {pair_summary['unique_aos']}")
+    typer.echo(f"AOPs with no declared MIE: {pair_summary['aops_without_mie']}")
+    typer.echo(f"AOPs with no declared AO: {pair_summary['aops_without_ao']}")
+    typer.echo(f"{'='*60}\n")
+
+    if not pair_rows:
+        return
+
+    typer.echo(f"MIE → AO pairs (showing {min(limit, len(pair_rows))} of {len(pair_rows)}):")
+    for row in pair_rows[:limit]:
+        mie = f"KE{row['mie_id']} {row['mie_title']}" if row['mie_id'] else "(no MIE declared)"
+        ao = f"KE{row['ao_id']} {row['ao_title']}" if row['ao_id'] else "(no AO declared)"
+        typer.echo(f"  AOP{row['aop_id']}: {mie[:50]} → {ao[:50]}")
+    if len(pair_rows) > limit:
+        typer.echo(f"  ... and {len(pair_rows) - limit} more")
 
 
 def _count_kers_by_key_event(matched_kers):

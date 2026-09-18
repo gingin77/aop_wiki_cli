@@ -503,16 +503,36 @@ def collect_doa_fields(element, xml_namespace, taxonomy_dict):
 def safe_text(element, default=''):
     return element.text if element is not None and element.text else default
 
-def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field=None):
+def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field=None, role=None):
+    """Record one AOP's use of a key event, tracking the role it plays there.
+
+    `role` is 'mie' or 'ao' when the key event came from the AOP's
+    <molecular-initiating-event> or <adverse-outcome> element, and None for a
+    plain <key-event>. The role is per AOP: the same key event can be an MIE in
+    one AOP and an intermediate KE in another, so it is recorded on the AOP
+    (mie_ids / ao_ids) as well as flagged on the key event.
+    """
     ke_id = refs['KE'][ke.get('key-event-id')]
     if ke_id not in ke_to_aop_info:
         ke_to_aop_info[ke_id] = {"aop_ids": []}
         ke_to_aop_info[ke_id]["is_ao"] = False
+        ke_to_aop_info[ke_id]["is_mie"] = False
         ke_to_aop_info[ke_id]["regulatory_relevance"] = False
         
     if reg_field is not None:
         ke_to_aop_info[ke_id]["is_ao"] = True
         ke_to_aop_info[ke_id]["regulatory_relevance"] = reg_field
+
+    if role == 'mie':
+        ke_to_aop_info[ke_id]["is_mie"] = True
+        if ke_id not in aop_base_info[aop_id]["mie_ids"]:
+            aop_base_info[aop_id]["mie_ids"].append(ke_id)
+    elif role == 'ao':
+        # An <adverse-outcome> is an AO whether or not it carries <examples>,
+        # which is the only thing reg_field reports on.
+        ke_to_aop_info[ke_id]["is_ao"] = True
+        if ke_id not in aop_base_info[aop_id]["ao_ids"]:
+            aop_base_info[aop_id]["ao_ids"].append(ke_id)
 
     ke_to_aop_info[ke_id]["aop_ids"].append(aop_id)
     aop_base_info[aop_id]["event_ids"].append(ke_id)
@@ -574,7 +594,9 @@ def collect_base_aop_info_from_xml(root, xml_namespace, refs):
         aop_id = refs['AOP'][aop.get('id')]
         aop_base_info[aop_id] = { 
             'id': aop_id,
-            "event_ids": [] 
+            "event_ids": [],
+            "mie_ids": [],
+            "ao_ids": []
         }
         
         # Status information for AOPs
@@ -588,10 +610,10 @@ def collect_base_aop_info_from_xml(root, xml_namespace, refs):
             for key_event in aop.find(xml_namespace + 'key-events').findall(xml_namespace + 'key-event'):
                 aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(key_event, refs, aop_id, aop_base_info, ke_to_aop_info)
         for mie in aop.findall(xml_namespace + 'molecular-initiating-event'):
-            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(mie, refs, aop_id, aop_base_info, ke_to_aop_info)
+            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(mie, refs, aop_id, aop_base_info, ke_to_aop_info, role='mie')
         for ao in aop.findall(xml_namespace + 'adverse-outcome'):
             reg_field = ao.find(xml_namespace + 'examples').text if ao.find(xml_namespace + 'examples') is not None else None
-            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(ao, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field)
+            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(ao, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field, role='ao')
 
     ke_to_aop_info = add_aop_status_info_to_kes(ke_to_aop_info, aop_base_info)
 

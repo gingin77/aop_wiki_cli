@@ -30,6 +30,12 @@ KE Description Mapping:
     generate_match_metrics: Generate statistics on matching results
     map_assays_to_events_via_target_families: Link assays to events through target family associations
 
+MIE/AO Pairing:
+    build_mie_ao_pairs: Pair each AOP's MIEs with its AOs, one row per combination
+    summarize_mie_ao_pairs: Summary counts over a set of pair rows
+    filter_kers_by_aop_ids: Select the KERs belonging to a set of AOPs
+    render_mie_ao_markdown_table: Render pair rows as a markdown table
+
 Metadata Helpers:
     get_average_completion_score: Calculate average completion across entities
     
@@ -59,6 +65,15 @@ from aop_wiki_cli.analysis.map_ke_descriptions_to_harmonized import (
     map_assays_to_events_via_target_families,
 )
 
+# MIE/AO pairing
+from aop_wiki_cli.analysis.pair_mies_and_aos import (
+    build_mie_ao_pairs,
+    summarize_mie_ao_pairs,
+    filter_kers_by_aop_ids,
+    render_mie_ao_markdown_table,
+    MIE_AO_PAIR_COLUMNS,
+)
+
 # Note: collect_and_rank_events not exposed to avoid circular import
 # Import directly: from aop_wiki_cli.analysis.collect_event_rankings import collect_and_rank_events
 
@@ -76,4 +91,10 @@ __all__ = [
     'generate_match_metrics',
     'enrich_target_families',
     'map_assays_to_events_via_target_families',
+    # MIE/AO pairing
+    'build_mie_ao_pairs',
+    'summarize_mie_ao_pairs',
+    'filter_kers_by_aop_ids',
+    'render_mie_ao_markdown_table',
+    'MIE_AO_PAIR_COLUMNS',
 ]
