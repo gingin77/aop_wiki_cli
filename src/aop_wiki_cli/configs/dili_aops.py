@@ -50,6 +50,12 @@ SEARCH_PARAMS = {
         "MASLD",
         "MASH",
         "fatty liver",
+        # The spelled-out "drug-induced liver injury" is already caught by
+        # "liver"; the bare acronym is not, so it is listed separately. The
+        # stressor qualifier "drug-induced" is deliberately not a term -- it
+        # would pull in every organ ("Drug-induced QT prolongation") while
+        # dropping the liver AOPs whose key events never name a drug.
+        "DILI",
         # Hepatic processes and transporters
         "bile",
         "bile acid",
