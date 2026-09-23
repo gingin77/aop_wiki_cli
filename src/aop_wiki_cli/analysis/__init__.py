@@ -10,6 +10,7 @@ This module provides:
 - Metadata helpers for averaging and filtering
 - Seizure AOP content analysis and harmonization
 - KE description fuzzy matching to harmonized KE titles
+- Internal alignment checks between an Event's structured properties and its text
 
 Public API
 ----------
@@ -59,6 +60,23 @@ from aop_wiki_cli.analysis.map_ke_descriptions_to_harmonized import (
     map_assays_to_events_via_target_families,
 )
 
+# Event content internal alignment: structured properties against the Event's own text
+from aop_wiki_cli.analysis.event_content_internal_alignment import (
+    check_event,
+    check_events,
+    check_level,
+    finding_rows,
+    level_cues,
+    REPORT_COLUMNS,
+)
+
+# Opt-in LLM second opinion on an Event's level of biological organization.
+# Importing this module does not import the Anthropic SDK; review_event does.
+from aop_wiki_cli.analysis.event_level_llm_review import (
+    review_event,
+    review_events,
+)
+
 # Note: collect_and_rank_events not exposed to avoid circular import
 # Import directly: from aop_wiki_cli.analysis.collect_event_rankings import collect_and_rank_events
 
@@ -76,4 +94,14 @@ __all__ = [
     'generate_match_metrics',
     'enrich_target_families',
     'map_assays_to_events_via_target_families',
+    # Event content internal alignment
+    'check_event',
+    'check_events',
+    'check_level',
+    'finding_rows',
+    'level_cues',
+    'REPORT_COLUMNS',
+    # LLM level review (opt-in)
+    'review_event',
+    'review_events',
 ]
