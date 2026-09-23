@@ -3,6 +3,7 @@ import typer
 import os
 import logging
 import importlib
+import csv
 import json
 import pprint as pp
 from datetime import date, datetime
@@ -40,6 +41,15 @@ from aop_wiki_cli.parsers import (
     collect_entity_with_cache,
 )
 from aop_wiki_cli.parsers.parse_behl_seizure_aop_workbook import parse_seizure_aop_workbook
+from aop_wiki_cli.analysis.event_level_llm_review import (
+    DEFAULT_MODEL as EVENT_LEVEL_REVIEW_MODEL,
+    review_events as review_event_levels_with_llm,
+)
+from aop_wiki_cli.analysis.event_content_internal_alignment import (
+    REPORT_COLUMNS as EVENT_ALIGNMENT_COLUMNS,
+    check_events as check_event_alignment,
+    finding_rows as event_alignment_rows,
+)
 from aop_wiki_cli.collection.collect_associated_aop_wiki_entities import collect_events_from_matched_aops
 from aop_wiki_cli.search import (
     search_entity_data,
@@ -762,6 +772,175 @@ def manually_review_matches(
 # - Use aop_wiki_xml_ref_search.py and search_references.py
 # - Export results to CSV/JSON
 
+
+
+@app.command()
+def event_content_internal_alignment(
+    cache_date: Optional[str] = typer.Option(
+        None,
+        "--date",
+        "-d",
+        help="Date of cached data to use (MM-DD-YYYY). Defaults to today."
+    ),
+    ke_ids: Optional[str] = typer.Option(
+        None,
+        "--ke-ids",
+        help="Comma-separated Key Event IDs to check. Defaults to every Event."
+    ),
+    force_refresh: bool = typer.Option(
+        False,
+        "--force-refresh",
+        "-f",
+        help="Force fresh data collection, ignoring cached files"
+    ),
+):
+    """Screen Events for structured properties their own text contradicts.
+
+    Prototype scope: the level of biological organization against the Event's
+    description. Both the permitted levels and the words the check searches for
+    come from the AOP-Wiki EMOD LinkML schema's definition of each level. Checks
+    for taxa, sex and life stage are written but commented out, pending
+    definitions for those enum values.
+
+    Findings are a screening report for a person to read, not a verdict: a flag
+    means the level and the description look inconsistent, a note is weaker.
+    """
+    work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
+    work_date_str = work_date.strftime('%m-%d-%Y')
+    cache_dir = get_dated_cache_dir(cache_root(), work_date)
+    output_dir = ensure_dir(outputs_dir('event_alignment', work_date_str))
+
+    events = collect_entity_with_cache(
+        entity_type='events',
+        collection_function=collect_events_from_xml,
+        work_date=work_date,
+        output_dir=cache_dir,
+        force_refresh=force_refresh,
+        logger=logger,
+    )
+    ids = [k.strip() for k in ke_ids.split(',') if k.strip()] if ke_ids else None
+    result = check_event_alignment(events, ids)
+
+    # A run over a subset gets its own filenames, so screening one Event cannot
+    # overwrite the whole-snapshot report.
+    suffix = f"_subset_{datetime.now().strftime('%H%M%S')}" if ids else ""
+    json_path = Path(output_dir) / f"event_alignment_{work_date_str}{suffix}.json"
+    with open(json_path, 'w', encoding='utf-8') as fh:
+        json.dump(result, fh, indent=2, ensure_ascii=False)
+
+    csv_path = Path(output_dir) / f"event_alignment_{work_date_str}{suffix}.csv"
+    with open(csv_path, 'w', newline='', encoding='utf-8') as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(EVENT_ALIGNMENT_COLUMNS), extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(event_alignment_rows(result["findings"], events))
+
+    summary = result["summary"]
+    read = summary['events_read']
+    unchecked = summary['events_unchecked']
+    typer.echo(f"\nEvents read: {read}")
+    typer.echo(f"Events no check could read (empty text): {unchecked}")
+    typer.echo(f"Events with at least one flag: {summary['events_with_flags']}")
+    for check, counts in summary["findings_by_check"].items():
+        typer.echo(f"  {check}: {counts['flag']} flag(s), {counts['note']} note(s), "
+                   f"{counts['unchecked']} unchecked")
+    if summary["events_not_found"]:
+        typer.echo(f"Not found in the snapshot: {', '.join(summary['events_not_found'])}")
+    typer.echo(f"\n✓ Outputs written:\n  - {json_path}\n  - {csv_path}")
+
+
+@app.command()
+def event_level_llm_review(
+    cache_date: Optional[str] = typer.Option(
+        None,
+        "--date",
+        "-d",
+        help="Date of cached data to use (MM-DD-YYYY). Defaults to today."
+    ),
+    ke_ids: Optional[str] = typer.Option(
+        None,
+        "--ke-ids",
+        help="Comma-separated Key Event IDs to review. Required unless --limit is given."
+    ),
+    limit: Optional[int] = typer.Option(
+        None,
+        "--limit",
+        help="Review at most this many Events, in snapshot order. Use with care: one API request each."
+    ),
+    model: str = typer.Option(
+        EVENT_LEVEL_REVIEW_MODEL,
+        "--model",
+        help="Model to review with."
+    ),
+    force_refresh: bool = typer.Option(
+        False,
+        "--force-refresh",
+        "-f",
+        help="Force fresh data collection, ignoring cached files"
+    ),
+):
+    """Ask a model whether an Event's description fits its assigned level.
+
+    A second opinion on the level check in `event-content-internal-alignment`,
+    which searches the description for words drawn from the schema's definitions
+    and so misses alignment it has no words for. This sends the definitions and
+    the description to the model and records where the two disagree.
+
+    Costs one API request per Event reviewed and needs Anthropic credentials
+    (ANTHROPIC_API_KEY, or a profile from `ant auth login`). Events with no
+    description are skipped without a request. Either --ke-ids or --limit is
+    required, so a whole-snapshot run is never accidental.
+    """
+    if not ke_ids and limit is None:
+        raise typer.BadParameter(
+            "Pass --ke-ids to review named Events, or --limit N to review the first N. "
+            "Reviewing every Event costs one API request each."
+        )
+
+    work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
+    work_date_str = work_date.strftime('%m-%d-%Y')
+    cache_dir = get_dated_cache_dir(cache_root(), work_date)
+    output_dir = ensure_dir(outputs_dir('event_level_llm_review', work_date_str))
+
+    events = collect_entity_with_cache(
+        entity_type='events',
+        collection_function=collect_events_from_xml,
+        work_date=work_date,
+        output_dir=cache_dir,
+        force_refresh=force_refresh,
+        logger=logger,
+    )
+    ids = [k.strip() for k in ke_ids.split(',') if k.strip()] if ke_ids else list(events)[:limit]
+    if limit is not None and ke_ids:
+        ids = ids[:limit]
+
+    typer.echo(f"Reviewing {len(ids)} Event(s) with {model}; one request each.")
+    result = review_event_levels_with_llm(events, ids, model=model)
+
+    stamp = datetime.now().strftime('%H%M%S')
+    json_path = Path(output_dir) / f"event_level_llm_review_{work_date_str}_{stamp}.json"
+    with open(json_path, 'w', encoding='utf-8') as fh:
+        json.dump(result, fh, indent=2, ensure_ascii=False)
+
+    csv_path = Path(output_dir) / f"event_level_llm_review_{work_date_str}_{stamp}.csv"
+    fields = ["ke_id", "severity", "assigned_level", "best_fit_level", "confidence",
+              "message", "reasoning", "evidence", "model", "definitions_digest", "reviewed_at"]
+    with open(csv_path, 'w', newline='', encoding='utf-8') as fh:
+        writer = csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore")
+        writer.writeheader()
+        for f in result["findings"]:
+            writer.writerow({**f, "evidence": "; ".join(f.get("evidence") or [])})
+
+    summary = result["summary"]
+    typer.echo(f"\nEvents read: {summary['events_read']}")
+    typer.echo(f"Model agreed with the assigned level: {summary['events_model_agreed']}")
+    typer.echo(f"Events with at least one flag: {summary['events_with_flags']}")
+    for severity, count in summary["findings_by_severity"].items():
+        typer.echo(f"  {severity}: {count}")
+    if summary["request_errors"]:
+        typer.echo(f"Failed requests: {summary['request_errors']}")
+    if summary["events_not_found"]:
+        typer.echo(f"Not found in the snapshot: {', '.join(summary['events_not_found'])}")
+    typer.echo(f"\n✓ Outputs written:\n  - {json_path}\n  - {csv_path}")
 
 
 def _available_search_configs():

@@ -1,0 +1,195 @@
+{
+  "1908": {
+    "ke_id": "1908",
+    "title": "Cilia Beat Frequency, Decreased",
+    "level_of_biological_organization": "Cellular",
+    "cell_term": {
+      "source": "CL",
+      "term": "multi-ciliated epithelial cell"
+    },
+    "organ_term": {
+      "source": "UBERON",
+      "term": "lung epithelium"
+    },
+    "ecs": [
+      {
+        "biological_process": {
+          "source": "HP",
+          "source_id": "HP:0012262",
+          "term": "Abnormal ciliary motility"
+        },
+        "biological_object": {
+          "source": "GO",
+          "source_id": "GO:0031514",
+          "term": "motile cilium"
+        },
+        "biological_action": {
+          "source_id": "3",
+          "term": "occurrence"
+        }
+      }
+    ],
+    "sex_terms": [
+      "Mixed"
+    ],
+    "life_stage_terms": [
+      "All life stages"
+    ],
+    "taxonomy_terms": [
+      {
+        "source": "NCBI",
+        "source-id": "9606",
+        "title": "Homo sapiens"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "10090",
+        "title": "Mus musculus"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "10116",
+        "title": "Rattus norvegicus"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "9986",
+        "title": "Oryctolagus cuniculus"
+      },
+      {
+        "source": "common ecological species",
+        "source-id": "WCS_9913",
+        "title": "Bos taurus"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "10141",
+        "title": "Cavia porcellus"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "8400",
+        "title": "Lithobates catesbeianus"
+      }
+    ],
+    "is_ao": false,
+    "description": "<p>Cohesive beating of cilia lining the upper and lower respiratory tract is critical for efficient MCC. CBF is influenced by several factors including changes in the physical and chemical properties of the ASL (especially the periciliary fluid), structural modulation in the cilia, concentration of cyclic nucleotides cAMP and cGMP, and intracellular calcium (Ca<sup>2+</sup>). Formation of cyclic nucleotides such as cGMP is mediated by nitric oxide (NO), which is released by an enzyme family of nitric oxide synthases (NOSs) when the substrate L-arginine (L-Arg) is transformed to L-citrulline. NO activates its receptor protein, soluble guanylate cyclase (sGC), which catalyzes formation of cGMP from guanosine triphosphate (GTP). cGMP then activates protein kinase G (PKG) which has been implicated in the regulation of CBF (Jiao et al., 2011; Li et al., 2000). NO-dependent stimulation of CBF has also been associated with an increase in cAMP-dependent protein kinase A (PKA) (Di Benedetto et al., 1991; Lansley et al., 1992; Salathe et al., 1993; Sanderson and Dirksen, 1989; Schmid et al., 2007; Sisson et al., 1999; Uzlaner and Priel, 1999). An increase in intracellular endogenous cAMP was observed after treatment with isobutyl-1-methylxanthine that also increased CBF (Tamaoki et al., 1989). cAMP accumulation in the airway cilia has been shown to be dependent on Ca2+&ndash;calmodulin-dependent PDE1A and indirectly regulates CBF (Kogiso et al., 2018). Increase in CBF after treatment with NO substrate, L-arginine and inhibition of CBF by a NOS inhibitor, N-omega-nitro-L-arginine methyl ester (L-NAME) further provides evidence for the role of NO in increasing CBF (Jiao J. et al., 2011; Sisson J. H., 1995; Uzlaner and Priel, 1999; Yang et al., 1997).&nbsp;<br />\nModulation of CBF is not always accompanied by changes in cAMP levels. PKC activators, phorbol 12-myristate 13-acetate and L-o~-dioctanoylglycerol have been shown to decrease CBF in a concentration- and time-dependent manner in rabbit tracheal epithelial cells (Kobayashi et al., 1989). CBF has been shown to decrease after exposure to inhaled oxidants such as cigarette smoke across different species. A study with 120 subjects showed a significant decrease in nasal CBF following exposure to tobacco smoke (Agius et al., 1998). Exposure to cigarette smoke extract lead to reduction in forskolin-induced CBF in human sinonasal epithelium (Cohen et al., 2009) and &nbsp;isoproterenol- and methacholine-induced CBF in human adenoid tissues (Wang et al., 2012). This decrease in CBF and unresponsiveness to beta-agonist stimulation occurs in parallel to PKC activation and has been shown to be dependent on the duration of exposure to cigarette smoke in mice (Simet et al., 2010). Normal human bronchial epithelial cells exposed to aerosolized nicotine showed decreased CFTR and BK conductance, impaired CBF, ASL volume, and decreased expression of FOXJ1 and KCNMA1 (Garcia-Arcos et al., 2016).&nbsp;<br />\nA concentration-dependent decrease in CBF has been observed after treatment with aldehydes. For example inhibition of cilia ATPase activity was observed after treatment with acetaldehyde, in ciliated bovine bronchial epithelial cells (Sisson et al., 1991). Acrolein, an aldehyde in the gas phase of cigarette smoke, induced ciliostasis at high concentrations (&gt; 1 mM), after 5 min of treatment, and cellular necrosis after 3 hr. However, at lower concentrations (from 0.5‒1 mM), acrolein transiently reduced the CBF to 4 Hz (Romet et al., 1990).<br />\n&nbsp;</p>\n",
+    "doa_free_text": "<p>Age-dependent decreases in CBF have been demonstrated in several species (e.g. guinea pigs, mice, and human) (Bailey et al., 2014; Grubb et al., 2016; Ho et al., 2001; Joki and Saano, 1997; Paul et al., 2013). In a study with 46 healthy subjects with a wide age distribution (mean 42, range 19&ndash;81 years), age was found to be negatively associated with airway clearance of inhaled 6-&mu;m Teflon particles (Svartengren et al., 2005).</p>\n\n<p>Female hormones, i.e. progesterone and estrogen, have been shown to have direct effect on CBF, i.e., progesterone reduces CBF, 17&beta;-estradiol and progesterone receptor antagonists counteract progesterone effects, but estradiol alone has also been shown to have no effect on CBF. However,&nbsp;the mechanism by which these hormones modulate CBF is yet to be elucidated (Jain et al., 2012; Jia et al., 2011).</p>\n"
+  },
+  "1909": {
+    "ke_id": "1909",
+    "title": "Mucociliary Clearance, Decreased",
+    "level_of_biological_organization": "Individual",
+    "cell_term": {
+      "source": null,
+      "term": null
+    },
+    "organ_term": {
+      "source": null,
+      "term": null
+    },
+    "ecs": [
+      {
+        "biological_process": {
+          "source": "VT",
+          "source_id": "VT:0001947",
+          "term": "mucociliary clearance trait"
+        },
+        "biological_object": {},
+        "biological_action": {
+          "source_id": "2",
+          "term": "decreased"
+        }
+      }
+    ],
+    "sex_terms": [
+      "Mixed"
+    ],
+    "life_stage_terms": [
+      "All life stages"
+    ],
+    "taxonomy_terms": [
+      {
+        "source": "NCBI",
+        "source-id": "9606",
+        "title": "Homo sapiens"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "9825",
+        "title": "Sus scrofa domesticus"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "9940",
+        "title": "Ovis aries"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "10141",
+        "title": "Cavia porcellus"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "9612",
+        "title": "Canis lupus"
+      },
+      {
+        "source": "common ecological species",
+        "source-id": "WCS_8400",
+        "title": "Rana catesbeiana"
+      },
+      {
+        "source": "NCBI",
+        "source-id": "9986",
+        "title": "Oryctolagus cuniculus"
+      }
+    ],
+    "is_ao": false,
+    "description": "<p>In healthy adults, tracheal mucus movement varies from 4 to &gt;20 mm/min (Stannard and O&#39;Callaghan, 2006), whereas mucociliary clearance (MCC) in the small airways is slower due to the lower number of ciliated cells (fewer cilia) and their shorter length (Foster et al., 1980; Iravani, 1969; Wanner et al., 1996).<br />\nSince optimal MCC is dependent in multiple factors, including cilia number and structure as well as ASL and mucus properties, any disturbances of these can lead to impaired MCC. While high humidity or infection can enhance MCC, long-term exposure to noxious substances (e.g. cigarette smoke) lead to decreased mucus clearance from the airways. In most instances this is reflected by decreased mucus transport rates or velocities.<br />\n&nbsp;</p>\n",
+    "doa_free_text": null
+  },
+  "1250": {
+    "ke_id": "1250",
+    "title": "Decrease, Lung function",
+    "level_of_biological_organization": "Individual",
+    "cell_term": {
+      "source": null,
+      "term": null
+    },
+    "organ_term": {
+      "source": null,
+      "term": null
+    },
+    "ecs": [
+      {
+        "biological_process": {
+          "source": "VT",
+          "source_id": "VT:0002327",
+          "term": "respiratory function trait"
+        },
+        "biological_object": {},
+        "biological_action": {
+          "source_id": "2",
+          "term": "decreased"
+        }
+      }
+    ],
+    "sex_terms": [
+      "Mixed"
+    ],
+    "life_stage_terms": [
+      "Adult"
+    ],
+    "taxonomy_terms": [
+      {
+        "source": "common toxicological species",
+        "source-id": "WCS_9606",
+        "title": "human"
+      }
+    ],
+    "is_ao": true,
+    "description": "<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">Lung function is a clinical term referring to the physiological functioning of the lungs, most often in association with the tests used to assess it. Lung function loss can be caused by acute or chronic exposure to airborne toxicants or by an intrinsic disease of the respiratory system.&nbsp; </span></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"background-color:white\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\"><span style=\"color:black\">Although signs of cellular injury are typically exhibited first in the nose and larynx, alveolar-capillary barrier breakdown may ultimately arise and result in local edema (Miller and Chang, 2003). Clinically, bronchoconstriction and hypoxia are seen in the acute phase, with affected subjects exhibiting shortness of breath (dyspnea) and low blood oxygen saturation, and with reduced lung function indices of airflow, lung volume and gas exchange (Hert and Albert, 1994; and How it is Measured or Detected;). When alveolar damage is extensive, the reduced lung function can develop into acute respiratory distress syndrome (ARDS). This severe compromise of lung function is reflected by decreased gas exchange indices (PaO<sub>2</sub>/FIO<sub>2</sub> &le;200 mmHg, due to hypoxemia and impaired excretion of carbon dioxide), increased pulmonary dead space and decreased respiratory compliance (Matthay et al., 2019). Acute inhalation exposures to chemical irritants such as ammonia, hydrogen chloride, nitrogen oxides and ozone typically cause local edema that manifests as dyspnea and hypoxia. In cases where a breakdown of the alveolar capillary function ensues, ARDS develops. ARDS has a particularly high risk of mortality, estimated to be 30-40% (Gorguner and Akgun, 2010; Matthay et al., 2018; Reilly et al., 2019).</span></span></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"background-color:white\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\"><span style=\"color:black\">Lung function decrease due to reduction in lung volume is seen in pulmonary fibrosis, which can be linked to chronic exposures to e.g. silica, asbestos, metals, agricultural and animal dusts (Meltzer and Noble, 2008; Cheresh et al., 2013; Cosgrove, 2015; Trethewey and Walters, 2018). Additionally. decreased lung function occurs in pleural disease, chest wall and neuromuscular disorders, because of obesity and following pneumectomy (Moore, 2012). Decreased lung function can also be a result of narrowing of the airways by inflammation and mucus plugging resulting in airflow limitation. Decreased lung function is a feature of obstructive pulmonary diseases (e.g. asthma, COPD) and linked to a multitude of causes, including chronic exposure to cigarette smoke, dust, metals, organic solvents, asbestos, pathogens or genetic factors. </span></span></span></span></span></p>\n\n<p style=\"text-align:justify\">&nbsp;</p>\n",
+    "doa_free_text": "<p><span style=\"font-size:12pt\"><span style=\"background-color:white\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\"><span style=\"color:black\">Pulmonary function tests reflect the physiological working of the lungs. Therefore, the AO is applicable to a variety of species, including (but not limited to) rodents, rabbits, pigs, cats, dogs, horses and humans, independent of life stage and gender.</span></span></span></span></span></p>\n"
+  }
+}

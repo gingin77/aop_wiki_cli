@@ -17,12 +17,27 @@ dependencies = [
     "tabulate>=0.9.0",
     "typer>=0.21.0",
     "pyyaml>=6.0",
+    "linkml-aop",
+    # Used only by the opt-in LLM review (analysis/event_level_llm_review.py);
+    # the deterministic checks import nothing from it.
+    "anthropic>=0.40",
 ]
 
 [dependency-groups]
 dev = [
     "pytest>=8.0",
 ]
+
+[tool.uv.sources]
+# The AOP-Wiki EMOD schema. Pinned to a commit because the schema is still being
+# revised; bump the rev deliberately and rerun the tests when it changes.
+# TEMPORARY: a local checkout, because the level definitions this package's level
+# check derives its vocabulary from are on the unpushed linkml-aop branch
+# update-schema-new-emod-tables-2 (commit 278a192). Restore the pinned git source
+# below once that work is pushed and merged; a local path source does not install
+# for anyone else.
+linkml-aop = { path = "../linkml-aop", editable = true }
+# linkml-aop = { git = "https://github.com/EHS-Data-Standards/linkml-aop", rev = "dc1245a1e40a70fec2e616bb3078c0c78b583368" }
 
 [project.scripts]
 aop-wiki-cli = "aop_wiki_cli.cli:app"
