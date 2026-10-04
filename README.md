@@ -143,6 +143,27 @@ aop-wiki-cli manually-review-matches outputs/seizure_aops/03-14-2026/mapping_ke_
 along with those AOPs' key events and KERs, and writes a table pairing each AOP's molecular initiating
 events with its adverse outcomes. See [docs/dili_aop_collection.md](docs/dili_aop_collection.md) for the
 search terms, the outputs, and how to adapt the config to another organ or disease area.
+## Database identifiers
+
+The XML export gives an Event's level of biological organization by name only. The
+AOP-Wiki production database identifies each level by an integer, which a record
+written for that database needs. The ids are kept in
+`src/aop_wiki_cli/database_ids.py`:
+
+| Database id | Level of biological organization |
+|---|---|
+| 1 | Molecular |
+| 2 | Cellular |
+| 3 | Tissue |
+| 4 | Organ |
+| 5 | Individual |
+| 6 | Population |
+
+```python
+from aop_wiki_cli.database_ids import LEVEL_OF_BIOLOGICAL_ORGANIZATION_IDS
+
+LEVEL_OF_BIOLOGICAL_ORGANIZATION_IDS["Organ"]  # 4
+```
 
 ## Seizure AOP Workflow
 
