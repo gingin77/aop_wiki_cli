@@ -503,15 +503,53 @@ def collect_doa_fields(element, xml_namespace, taxonomy_dict):
 def safe_text(element, default=''):
     return element.text if element is not None and element.text else default
 
-def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field=None):
+def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
+                               reg_field=None, event_type='KE'):
+    """Record one Key Event's membership of one AOP, and the role it plays there.
+
+    Args:
+        ke: The element the AOP lists the Key Event under, carrying key-event-id.
+        refs: Reference dictionaries for ID mapping.
+        aop_id: AOP-Wiki id of the AOP being read.
+        aop_base_info: AOP accumulator; the Key Event is appended to its event_ids.
+        ke_to_aop_info: Key Event accumulator; is_mie, is_ao and
+            regulatory_relevance are set on it.
+        reg_field: The adverse outcome's regulatory-relevance text, or None.
+        event_type: The role this AOP gives the Key Event - 'MIE', 'AO' or 'KE' -
+            matching the type column of the aop_events table.
+
+    The XML has no attribute for the role. It is expressed by which element the
+    Key Event sits under: molecular-initiating-event, adverse-outcome, or a
+    key-event inside key-events. Only the caller knows which, so the caller
+    passes it.
+
+    is_ao was previously derived from reg_field being present, which conflated
+    two unrelated facts. reg_field is the text of the adverse outcome's
+    <examples> element, and that text is absent on 325 of the 656
+    adverse-outcome entries in the 2026-10-03 export, so 172 of the 241 Key
+    Events that are an adverse outcome somewhere were left is_ao=False.
+
+    Both flags remain properties of the Key Event, so they answer "is this ever
+    an adverse outcome", not "is this the adverse outcome of this AOP". 111 of
+    1602 Key Events hold more than one role across AOPs, and 59 are an adverse
+    outcome in one AOP and something else in another, so the per-AOP role still
+    needs recording separately.
+    """
     ke_id = refs['KE'][ke.get('key-event-id')]
     if ke_id not in ke_to_aop_info:
         ke_to_aop_info[ke_id] = {"aop_ids": []}
+        ke_to_aop_info[ke_id]["is_mie"] = False
         ke_to_aop_info[ke_id]["is_ao"] = False
         ke_to_aop_info[ke_id]["regulatory_relevance"] = False
-        
-    if reg_field is not None:
+
+    if event_type == 'MIE':
+        ke_to_aop_info[ke_id]["is_mie"] = True
+    elif event_type == 'AO':
         ke_to_aop_info[ke_id]["is_ao"] = True
+
+    # Independent of the role: an adverse outcome may carry no examples text,
+    # and once set by one AOP it is not cleared by another that has none.
+    if reg_field is not None:
         ke_to_aop_info[ke_id]["regulatory_relevance"] = reg_field
 
     ke_to_aop_info[ke_id]["aop_ids"].append(aop_id)
@@ -583,15 +621,19 @@ def collect_base_aop_info_from_xml(root, xml_namespace, refs):
             aop_base_info[aop_id]["oecd_status"] = safe_text(status_elem.find(xml_namespace + 'oecd-status'))
             aop_base_info[aop_id]["wiki_license"] = safe_text(status_elem.find(xml_namespace + 'wiki-license'))
         
-        # Event Information - KEs, MIEs, AOs
+        # Event Information - KEs, MIEs, AOs. The element a Key Event sits under
+        # is the only record of its role, so each loop names the role it reads.
         if aop.find(xml_namespace + 'key-events') is not None:
             for key_event in aop.find(xml_namespace + 'key-events').findall(xml_namespace + 'key-event'):
-                aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(key_event, refs, aop_id, aop_base_info, ke_to_aop_info)
+                aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(
+                    key_event, refs, aop_id, aop_base_info, ke_to_aop_info, event_type='KE')
         for mie in aop.findall(xml_namespace + 'molecular-initiating-event'):
-            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(mie, refs, aop_id, aop_base_info, ke_to_aop_info)
+            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(
+                mie, refs, aop_id, aop_base_info, ke_to_aop_info, event_type='MIE')
         for ao in aop.findall(xml_namespace + 'adverse-outcome'):
             reg_field = ao.find(xml_namespace + 'examples').text if ao.find(xml_namespace + 'examples') is not None else None
-            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(ao, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field)
+            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(
+                ao, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field, event_type='AO')
 
     ke_to_aop_info = add_aop_status_info_to_kes(ke_to_aop_info, aop_base_info)
 
