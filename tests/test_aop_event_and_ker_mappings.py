@@ -5,21 +5,18 @@ These are the functions that break, or silently change answers, when
 
 - keep `<evidence>` and `<quantitative-understanding-value>` beside `<adjacency>`
   on each AOP's copy of a Key Event Relationship, and
-- record a Key Event's role (MIE, KE, AO) per AOP instead of setting `is_ao`
-  on the Key Event itself.
+- record a Key Event's role (MIE, KE, AO) per AOP, which is now done.
 
-Nothing in `src/` reads `is_ao` today, so the risk of those changes sits in the
+Nothing in `src/` reads the role flags, so the risk of those changes sits in the
 consumers of the three structures that do get read: `aop['kers']`,
 `aop['event_ids']` and the `regulatory_relevance` field on an event. Each test
 below pins one of those so a parser change that alters them is caught here
 rather than in an output file.
 
-`is_mie` and `is_ao` are now read from the role the AOP gives a Key Event, so
-the tests for those pass. The last test is still `xfail(strict=True)`: it
-states the behaviour the remaining fix should produce, recording the role per
-AOP rather than per Key Event. When that lands it starts passing, the strict
-marker turns that into a failure, and the marker has to be removed
-deliberately.
+The role an AOP gives a Key Event is now kept on `role_in_aop`, an
+`{aop_id: role}` map shaped like `aops_to_oecd`, and `serves_as_mie` and
+`serves_as_ao` are derived from it. Nothing here is an expected failure any
+more.
 
 Examples:
     Run all tests::
@@ -333,7 +330,7 @@ def test_an_adverse_outcome_with_no_examples_text_is_still_an_adverse_outcome():
     """The flag follows the role, not the presence of regulatory-relevance text.
 
     `<examples>` is empty on 325 of the 656 adverse-outcome entries in the
-    2026-10-03 export. While `is_ao` was derived from that text, 172 of the 241
+    2026-10-03 export. While `serves_as_ao` was derived from that text, 172 of the 241
     Key Events that are an adverse outcome somewhere were left False.
     """
     aop_base = {"344": {"id": "344", "event_ids": []}}
@@ -342,8 +339,8 @@ def test_an_adverse_outcome_with_no_examples_text_is_still_an_adverse_outcome():
         key_event_element("ke-c"), REFS, "344", aop_base, ke_to_aop,
         reg_field=None, event_type="AO",
     )
-    assert ke_to_aop["1786"]["is_ao"] is True
-    assert ke_to_aop["1786"]["is_mie"] is False
+    assert ke_to_aop["1786"]["serves_as_ao"] is True
+    assert ke_to_aop["1786"]["serves_as_mie"] is False
     # No examples text means no regulatory relevance, which is a separate fact.
     assert ke_to_aop["1786"]["regulatory_relevance"] is False
 
@@ -355,19 +352,19 @@ def test_regulatory_relevance_is_kept_when_the_text_is_there():
         key_event_element("ke-c"), REFS, "344", aop_base, ke_to_aop,
         reg_field="OECD TG 443 endpoint", event_type="AO",
     )
-    assert ke_to_aop["1786"]["is_ao"] is True
+    assert ke_to_aop["1786"]["serves_as_ao"] is True
     assert ke_to_aop["1786"]["regulatory_relevance"] == "OECD TG 443 endpoint"
 
 
 def test_a_molecular_initiating_event_is_flagged():
-    """`is_mie` had no equivalent at all; the role was read and discarded."""
+    """`serves_as_mie` had no equivalent at all; the role was read and discarded."""
     aop_base = {"344": {"id": "344", "event_ids": []}}
     ke_to_aop = {}
     update_ke_and_aop_mappings(
         key_event_element("ke-a"), REFS, "344", aop_base, ke_to_aop, event_type="MIE"
     )
-    assert ke_to_aop["26"]["is_mie"] is True
-    assert ke_to_aop["26"]["is_ao"] is False
+    assert ke_to_aop["26"]["serves_as_mie"] is True
+    assert ke_to_aop["26"]["serves_as_ao"] is False
 
 
 def test_an_intermediate_key_event_is_flagged_as_neither():
@@ -376,8 +373,8 @@ def test_an_intermediate_key_event_is_flagged_as_neither():
     update_ke_and_aop_mappings(
         key_event_element("ke-b"), REFS, "344", aop_base, ke_to_aop, event_type="KE"
     )
-    assert ke_to_aop["1614"]["is_mie"] is False
-    assert ke_to_aop["1614"]["is_ao"] is False
+    assert ke_to_aop["1614"]["serves_as_mie"] is False
+    assert ke_to_aop["1614"]["serves_as_ao"] is False
 
 
 def test_the_default_role_is_an_intermediate_key_event():
@@ -385,8 +382,8 @@ def test_the_default_role_is_an_intermediate_key_event():
     aop_base = {"344": {"id": "344", "event_ids": []}}
     ke_to_aop = {}
     update_ke_and_aop_mappings(key_event_element("ke-b"), REFS, "344", aop_base, ke_to_aop)
-    assert ke_to_aop["1614"]["is_mie"] is False
-    assert ke_to_aop["1614"]["is_ao"] is False
+    assert ke_to_aop["1614"]["serves_as_mie"] is False
+    assert ke_to_aop["1614"]["serves_as_ao"] is False
 
 
 def test_a_flag_set_by_one_aop_survives_another_aop():
@@ -404,20 +401,19 @@ def test_a_flag_set_by_one_aop_survives_another_aop():
     update_ke_and_aop_mappings(
         key_event_element("ke-c"), REFS, "344", aop_base, ke_to_aop, event_type="MIE"
     )
-    assert ke_to_aop["1786"]["is_ao"] is True
-    assert ke_to_aop["1786"]["is_mie"] is True
+    assert ke_to_aop["1786"]["serves_as_ao"] is True
+    assert ke_to_aop["1786"]["serves_as_mie"] is True
     assert ke_to_aop["1786"]["aop_ids"] == ["26", "344"]
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="role is stored on the Key Event, not on the (Key Event, AOP) pair, "
-    "so a Key Event that is an adverse outcome in one AOP and an "
-    "intermediate event in another cannot be represented. 111 of 1602 "
-    "events hold more than one role; 59 mix adverse outcome with another.",
-)
 def test_a_key_event_can_hold_a_different_role_in_each_aop():
-    aop_base = {"26": {"id": "26", "event_ids": []}, "344": {"id": "344", "event_ids": []}}
+    """role_in_aop keys the role by AOP, which the flags cannot express.
+
+    KE1065 is the live case: an adverse outcome in AOPs 504 and 561, an
+    ordinary Key Event in 565, and the molecular initiating event of the other
+    eight AOPs it belongs to.
+    """
+    aop_base = {aop: {"id": aop, "event_ids": []} for aop in ("26", "344", "307")}
     ke_to_aop = {}
     update_ke_and_aop_mappings(
         key_event_element("ke-c"), REFS, "26", aop_base, ke_to_aop, event_type="AO"
@@ -425,4 +421,68 @@ def test_a_key_event_can_hold_a_different_role_in_each_aop():
     update_ke_and_aop_mappings(
         key_event_element("ke-c"), REFS, "344", aop_base, ke_to_aop, event_type="KE"
     )
-    assert ke_to_aop["1786"]["roles"] == {"26": "AO", "344": "KE"}
+    update_ke_and_aop_mappings(
+        key_event_element("ke-c"), REFS, "307", aop_base, ke_to_aop, event_type="MIE"
+    )
+    assert ke_to_aop["1786"]["role_in_aop"] == {"26": "ao", "344": "ke", "307": "mie"}
+    assert ke_to_aop["1786"]["serves_as_ao"] is True
+    assert ke_to_aop["1786"]["serves_as_mie"] is True
+
+
+def test_the_flags_are_derived_from_the_roles():
+    """The flags cannot disagree with role_in_aop, because they are read off it."""
+    aop_base = {"344": {"id": "344", "event_ids": []}}
+    ke_to_aop = {}
+    update_ke_and_aop_mappings(
+        key_event_element("ke-b"), REFS, "344", aop_base, ke_to_aop, event_type="KE"
+    )
+    event = ke_to_aop["1614"]
+    assert event["role_in_aop"] == {"344": "ke"}
+    assert event["serves_as_mie"] is ("mie" in event["role_in_aop"].values())
+    assert event["serves_as_ao"] is ("ao" in event["role_in_aop"].values())
+
+
+def test_role_in_aop_is_shaped_like_aops_to_oecd():
+    """Both map an AOP id to one value, so they can be read side by side."""
+    aop_base = {"344": {"id": "344", "event_ids": []}, "307": {"id": "307", "event_ids": []}}
+    ke_to_aop = {}
+    for aop, role in (("344", "MIE"), ("307", "KE")):
+        update_ke_and_aop_mappings(
+            key_event_element("ke-a"), REFS, aop, aop_base, ke_to_aop, event_type=role
+        )
+    enriched = add_aop_status_info_to_kes(
+        ke_to_aop,
+        {
+            "344": {"oecd_status": "Under Development", "wiki_license": "BY-SA"},
+            "307": {"oecd_status": "Under Review", "wiki_license": "BY-SA"},
+        },
+    )["26"]
+    assert set(enriched["role_in_aop"]) == set(enriched["aops_to_oecd"])
+    assert enriched["role_in_aop"] == {"344": "mie", "307": "ke"}
+
+
+def test_an_ordinary_role_does_not_overwrite_a_specific_one():
+    """If one AOP ever listed an event twice, 'ke' must not win.
+
+    No AOP in the 2026-10-03 export does, so this guards the invariant rather
+    than a live case.
+    """
+    aop_base = {"344": {"id": "344", "event_ids": []}}
+    ke_to_aop = {}
+    update_ke_and_aop_mappings(
+        key_event_element("ke-a"), REFS, "344", aop_base, ke_to_aop, event_type="MIE"
+    )
+    update_ke_and_aop_mappings(
+        key_event_element("ke-a"), REFS, "344", aop_base, ke_to_aop, event_type="KE"
+    )
+    assert ke_to_aop["26"]["role_in_aop"] == {"344": "mie"}
+    assert ke_to_aop["26"]["serves_as_mie"] is True
+
+
+def test_an_unknown_role_is_rejected():
+    """A typo must fail loudly instead of being filed as an ordinary Key Event."""
+    aop_base = {"344": {"id": "344", "event_ids": []}}
+    with pytest.raises(ValueError, match="event_type must be one of"):
+        update_ke_and_aop_mappings(
+            key_event_element("ke-a"), REFS, "344", aop_base, {}, event_type="AOP"
+        )

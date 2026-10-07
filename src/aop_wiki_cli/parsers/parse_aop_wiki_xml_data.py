@@ -503,6 +503,12 @@ def collect_doa_fields(element, xml_namespace, taxonomy_dict):
 def safe_text(element, default=''):
     return element.text if element is not None and element.text else default
 
+# The role an AOP gives a Key Event, matching the type column of the aop_events
+# table. Stored lowercase on role_in_aop; 'ke' is any event that is neither the
+# molecular initiating event nor an adverse outcome of that AOP.
+EVENT_ROLES = ('mie', 'ao', 'ke')
+
+
 def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
                                reg_field=None, event_type='KE'):
     """Record one Key Event's membership of one AOP, and the role it plays there.
@@ -512,43 +518,64 @@ def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
         refs: Reference dictionaries for ID mapping.
         aop_id: AOP-Wiki id of the AOP being read.
         aop_base_info: AOP accumulator; the Key Event is appended to its event_ids.
-        ke_to_aop_info: Key Event accumulator; is_mie, is_ao and
-            regulatory_relevance are set on it.
+        ke_to_aop_info: Key Event accumulator; role_in_aop, serves_as_mie,
+            serves_as_ao and regulatory_relevance are set on it.
         reg_field: The adverse outcome's regulatory-relevance text, or None.
         event_type: The role this AOP gives the Key Event - 'MIE', 'AO' or 'KE' -
-            matching the type column of the aop_events table.
+            matching the type column of the aop_events table. Case insensitive.
+
+    Raises:
+        ValueError: If event_type is not one of MIE, AO or KE. A typo would
+            otherwise be silently filed as an ordinary Key Event.
+
+    Sets three things on the Key Event:
+
+    - role_in_aop: {aop_id: role}, the role in each AOP the event belongs to,
+      shaped like aops_to_oecd. This is the only place the role survives, since
+      event_ids flattens all three kinds into one list.
+    - serves_as_mie, serves_as_ao: whether the event holds that role in at
+      least one AOP, derived from role_in_aop so the two cannot disagree. They
+      are named for what they claim: 111 of 1602 Key Events hold more than one
+      role across AOPs and 59 are an adverse outcome in one AOP and something
+      else in another, so "serves as" is true of the event while "is" would be
+      read as a property of a single pathway.
+    - regulatory_relevance: the adverse outcome's examples text, independent of
+      the role. It is absent on 325 of the 656 adverse-outcome entries in the
+      2026-10-03 export, which is why deriving the role from it left 172 of the
+      241 adverse outcomes unflagged.
 
     The XML has no attribute for the role. It is expressed by which element the
     Key Event sits under: molecular-initiating-event, adverse-outcome, or a
     key-event inside key-events. Only the caller knows which, so the caller
     passes it.
-
-    is_ao was previously derived from reg_field being present, which conflated
-    two unrelated facts. reg_field is the text of the adverse outcome's
-    <examples> element, and that text is absent on 325 of the 656
-    adverse-outcome entries in the 2026-10-03 export, so 172 of the 241 Key
-    Events that are an adverse outcome somewhere were left is_ao=False.
-
-    Both flags remain properties of the Key Event, so they answer "is this ever
-    an adverse outcome", not "is this the adverse outcome of this AOP". 111 of
-    1602 Key Events hold more than one role across AOPs, and 59 are an adverse
-    outcome in one AOP and something else in another, so the per-AOP role still
-    needs recording separately.
     """
+    role = str(event_type).lower()
+    if role not in EVENT_ROLES:
+        raise ValueError(
+            f"event_type must be one of {', '.join(r.upper() for r in EVENT_ROLES)}, got {event_type!r}"
+        )
+
     ke_id = refs['KE'][ke.get('key-event-id')]
     if ke_id not in ke_to_aop_info:
         ke_to_aop_info[ke_id] = {"aop_ids": []}
-        ke_to_aop_info[ke_id]["is_mie"] = False
-        ke_to_aop_info[ke_id]["is_ao"] = False
+        ke_to_aop_info[ke_id]["role_in_aop"] = {}
+        ke_to_aop_info[ke_id]["serves_as_mie"] = False
+        ke_to_aop_info[ke_id]["serves_as_ao"] = False
         ke_to_aop_info[ke_id]["regulatory_relevance"] = False
 
-    if event_type == 'MIE':
-        ke_to_aop_info[ke_id]["is_mie"] = True
-    elif event_type == 'AO':
-        ke_to_aop_info[ke_id]["is_ao"] = True
+    # No AOP in the 2026-10-03 export lists the same Key Event under two
+    # elements, but if one did, the specific role is the informative one and
+    # must not be overwritten by a later plain 'ke'.
+    roles = ke_to_aop_info[ke_id]["role_in_aop"]
+    if role != 'ke' or aop_id not in roles:
+        roles[aop_id] = role
 
-    # Independent of the role: an adverse outcome may carry no examples text,
-    # and once set by one AOP it is not cleared by another that has none.
+    recorded = set(roles.values())
+    ke_to_aop_info[ke_id]["serves_as_mie"] = 'mie' in recorded
+    ke_to_aop_info[ke_id]["serves_as_ao"] = 'ao' in recorded
+
+    # Set independently of the role, and once set by one AOP it is not cleared
+    # by another that has no examples text.
     if reg_field is not None:
         ke_to_aop_info[ke_id]["regulatory_relevance"] = reg_field
 
@@ -556,6 +583,7 @@ def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
     aop_base_info[aop_id]["event_ids"].append(ke_id)
 
     return aop_base_info, ke_to_aop_info
+
 
 def add_aop_status_info_to_kes(ke_to_aop_info, aop_base_info):
     # Enrich KEs with OECD and license summary info from associated AOPs
