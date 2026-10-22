@@ -218,11 +218,16 @@ def aop_completion_score(aop):
     conditional_fields = ['development_strategy', 'known_modulating_factors']
     
     required_structured_fields = [
-        'event_ids', 'kers', 'stressors',
+        'stressors',
         'sex_applicability', 'life_stage_applicability', 'taxonomy_applicability'
     ]
+
+    # Minimum counts, as in AOP-Wiki EMOD: the smallest AOP that passes is
+    # MIE -> KE -> AO, with 3 events (MIE and AO included) and 2 KERs
+    minimum_counts = {'event_ids': 3, 'kers': 2}
+
     # Max score includes conditional fields only for new handbooks
-    max_score = len(required_free_text_fields) + len(required_structured_fields)
+    max_score = len(required_free_text_fields) + len(required_structured_fields) + len(minimum_counts)
     if is_new_handbook:
         max_score += len(conditional_fields)
     
@@ -239,15 +244,20 @@ def aop_completion_score(aop):
     
     # Check conditional fields (always track, only score for new handbooks)
     for field in conditional_fields:
-        if _has_content(aop.get(field)):
-            if is_new_handbook:
-                score += 1
-            else:
-                empty_free.append(field)
+        if not _has_content(aop.get(field)):
+            empty_free.append(field)
+        elif is_new_handbook:
+            score += 1
     
     # Check structured fields
     for field in required_structured_fields:
         if _has_content(aop.get(field)):
+            score += 1
+        else:
+            empty_struct.append(field)
+
+    for field, minimum in minimum_counts.items():
+        if len(set(aop.get(field) or [])) >= minimum:
             score += 1
         else:
             empty_struct.append(field)
