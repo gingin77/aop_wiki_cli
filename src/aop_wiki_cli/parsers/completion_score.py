@@ -4,9 +4,11 @@ completion_score.py
 Python script to compute completion scores for AOPs, Events, and Relationships (KERs).
 """
 
+import html
+import re
+
 from aop_wiki_cli.paths import outputs_dir
 from aop_wiki_cli.utilities import get_dict_from_json
-
 
 # ============================================================================
 # Shared Helpers
@@ -21,6 +23,20 @@ def _has_content(value):
     if isinstance(value, (list, dict)):
         return len(value) > 0
     return True
+
+
+def _has_visible_content(value):
+    """Check if a value has content a reader would see.
+
+    Like _has_content, but HTML with no text and no image, such as
+    '<p>&nbsp;</p>', counts as empty. An image alone counts as content.
+    """
+    if not isinstance(value, str):
+        return _has_content(value)
+    if re.search(r'<img\b', value, re.IGNORECASE):
+        return True
+    text = html.unescape(re.sub(r'<[^>]+>', '', value)).replace('\xa0', ' ')
+    return bool(text.strip())
 
 
 # ============================================================================
@@ -211,14 +227,14 @@ def aop_completion_score(aop):
         'title', 'short_name', 'abstract', 'authors', 'background',
         'overall_assessment_description', 'doa_free_text',
         'ke_essentiality', 'woe_evidence', 'quantitative_considerations',
-        'potential_applications'
+        'potential_applications', 'references'
     ]
-    
+
     # Handbook 2.5+ fields that are tracked but only scored for new handbooks
     conditional_fields = ['development_strategy', 'known_modulating_factors']
-    
+
     required_structured_fields = [
-        'stressors',
+        'point_of_contact', 'stressors',
         'sex_applicability', 'life_stage_applicability', 'taxonomy_applicability'
     ]
 
@@ -237,21 +253,21 @@ def aop_completion_score(aop):
     
     # Check free text fields
     for field in required_free_text_fields:
-        if _has_content(aop.get(field)):
+        if _has_visible_content(aop.get(field)):
             score += 1
         else:
             empty_free.append(field)
-    
+
     # Check conditional fields (always track, only score for new handbooks)
     for field in conditional_fields:
-        if not _has_content(aop.get(field)):
+        if not _has_visible_content(aop.get(field)):
             empty_free.append(field)
         elif is_new_handbook:
             score += 1
-    
+
     # Check structured fields
     for field in required_structured_fields:
-        if _has_content(aop.get(field)):
+        if _has_visible_content(aop.get(field)):
             score += 1
         else:
             empty_struct.append(field)
