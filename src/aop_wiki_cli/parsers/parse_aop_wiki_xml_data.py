@@ -275,8 +275,9 @@ def collect_aops_from_xml(root, xml_namespace, refs):
         short_name = safe_text(aop.find(xml_namespace + 'short-name'))
         abstract = safe_text(aop.find(xml_namespace + 'abstract'))
         
-        # Authors and coaches
+        # Authors, point of contact (the corresponding author) and coaches
         authors = safe_text(aop.find(xml_namespace + 'authors'))
+        point_of_contact = safe_text(aop.find(xml_namespace + 'point-of-contact'))
         coaches_elem = aop.find(xml_namespace + 'coaches')
         coaches = []
         if coaches_elem is not None:
@@ -353,6 +354,7 @@ def collect_aops_from_xml(root, xml_namespace, refs):
             'short_name': short_name,
             'abstract': abstract,
             'authors': authors,
+            'point_of_contact': point_of_contact,
             'coaches': coaches,
             'handbook_version': handbook_version,
             'background': background,
