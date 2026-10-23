@@ -88,6 +88,19 @@ aop-wiki-cli collect-ker-analytics
 # Find the KERs a key event participates in
 aop-wiki-cli find-kers-for-events --ke-ids 1346
 
+# Search a chosen set of AOPs, and their key events and KERs, for terms.
+# Writes a markdown summary organized by term, a CSV of matching snippets,
+# and the full JSON as the provenance record.
+aop-wiki-cli search-within-aops --aop-ids 10,215 -t "patch clamp" -t "patch-clamp"
+aop-wiki-cli search-within-aops --ke-title-terms seizure,epilepsy -t "microelectrode array"
+
+# The seizure AOPs from the shipped Behl workbook, asking whether microelectrode
+# arrays and iPSCs appear in the same record. Prefix an acronym with cs: to match
+# case-sensitively: cs:iPSCs does not match IPSCs, inhibitory postsynaptic currents.
+aop-wiki-cli search-within-aops --behl-seizure-aops \
+  -g "mea=microelectrode array|micro-electrode array|cs:MEA" \
+  -g "ipsc=cs:iPSC|cs:hiPSC|induced pluripotent"
+
 # Search KERs for concordance evidence
 aop-wiki-cli search-kers-for-concordance-text
 

@@ -51,6 +51,11 @@ from .csv_writer import (
     get_nested_value,
 )
 
+from .within_aop_report import (
+    write_within_aop_markdown,
+    write_within_aop_matches_csv,
+)
+
 from .transformers import (
     clean_text,
     round_2,
@@ -128,7 +133,11 @@ __all__ = [
     'write_ke_description_to_harmonized_mapping_csv',
     'write_summary_stats_csv',
     'get_nested_value',
-    
+
+    # Within-AOP search report
+    'write_within_aop_markdown',
+    'write_within_aop_matches_csv',
+
     # Transformers
     'clean_text',
     'round_2',
