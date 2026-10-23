@@ -52,11 +52,13 @@ from aop_wiki_cli.search import (
 )
 from aop_wiki_cli.search.within_aops import (
     TEXT_FIELDS as WITHIN_AOP_TEXT_FIELDS,
+    parse_term_groups,
     select_aops,
     search_within_aops as search_within_aops_text,
 )
 from aop_wiki_cli.data_export.within_aop_report import (
     ENTITY_LABELS as WITHIN_AOP_ENTITY_LABELS,
+    count_phrase as within_aop_count_phrase,
     tally as within_aop_tally,
     write_within_aop_markdown,
     write_within_aop_matches_csv,
@@ -300,15 +302,30 @@ def find_kers_for_events(
 @app.command()
 def search_within_aops(
     terms: list[str] = typer.Option(
-        ...,
+        [],
         "--term",
         "-t",
-        help="A term to search for; repeat for several. Terms may contain commas."
+        help=("A term to search for; repeat for several. Terms may contain commas. "
+              "Prefix with cs: to match case-sensitively, which acronyms need: "
+              "cs:iPSCs does not match IPSCs (inhibitory postsynaptic currents).")
+    ),
+    term_groups: list[str] = typer.Option(
+        [],
+        "--term-group",
+        "-g",
+        help=("One concept spelled several ways, as name=term|term, e.g. "
+              "mea='microelectrode array|micro-electrode array|MEA'. Repeat for several; "
+              "every pair of groups is checked for records matching both.")
     ),
     aop_ids: Optional[str] = typer.Option(
         None,
         "--aop-ids",
         help="Comma-separated AOP IDs to search within, e.g. 10,214,215"
+    ),
+    behl_seizure_aops: bool = typer.Option(
+        False,
+        "--behl-seizure-aops",
+        help="Add the seizure AOPs from the Behl supplementary workbook shipped with the tool"
     ),
     aop_title_terms: Optional[str] = typer.Option(
         None,
@@ -335,23 +352,48 @@ def search_within_aops(
 ):
     """Search a chosen set of AOPs, and their key events and KERs, for terms.
 
-    AOPs are chosen by ID (--aop-ids), by title (--aop-title-terms), or by
-    holding a key event whose title matches (--ke-title-terms); the three are
-    unioned and at least one is required. Every free-text field of each AOP,
-    KE and KER is searched with the same word-boundary matcher as
-    search-with-config. KER evidence tables are not searched.
+    AOPs are chosen by ID (--aop-ids), from the Behl seizure workbook
+    (--behl-seizure-aops), by title (--aop-title-terms), or by holding a key
+    event whose title matches (--ke-title-terms); the selectors are unioned and
+    at least one is required. Every free-text field of each AOP, KE and KER is
+    searched with the same word-boundary matcher as search-with-config. KER
+    evidence tables are not searched.
+
+    Terms are given singly (--term) or as named groups of spellings
+    (--term-group); with two or more groups, every pair is checked for records
+    where both groups matched, which is how to ask whether two concepts appear
+    together rather than merely both being present.
 
     Every term is reported, including those with no match. Three files are
     written to <data-dir>/outputs/within_aop_searches/<date>/: a markdown
-    summary organized by term, a CSV of one row per matching snippet, and the
-    full JSON as the provenance record.
+    summary, a CSV of one row per matching snippet, and the full JSON as the
+    provenance record.
     """
     def split(value):
         return [item.strip() for item in (value or '').split(',') if item.strip()]
 
+    try:
+        groups = parse_term_groups(term_groups)
+    except ValueError as error:
+        typer.echo(f"❌ {error}")
+        raise typer.Exit(code=1)
+
+    if not (terms or groups):
+        typer.echo("❌ Provide at least one --term or --term-group")
+        raise typer.Exit(code=1)
+
     id_list, aop_terms, ke_terms = split(aop_ids), split(aop_title_terms), split(ke_title_terms)
+    if behl_seizure_aops:
+        logger.info("Reading seizure AOP IDs from the Behl supplementary workbook...")
+        workbook = parse_seizure_aop_workbook(seizure_workbook_path())
+        behl_ids = sorted(
+            workbook['ready_for_emod']['data']['aop_to_harmonized_events_dict'], key=int
+        )
+        typer.echo(f"Behl workbook seizure AOPs: {', '.join(behl_ids)}")
+        id_list = list(dict.fromkeys(id_list + behl_ids))
     if not (id_list or aop_terms or ke_terms):
-        typer.echo("❌ Provide at least one of --aop-ids, --aop-title-terms or --ke-title-terms")
+        typer.echo("❌ Provide at least one of --aop-ids, --behl-seizure-aops, "
+                   "--aop-title-terms or --ke-title-terms")
         raise typer.Exit(code=1)
 
     work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
@@ -370,11 +412,15 @@ def search_within_aops(
         typer.echo("❌ No AOPs selected")
         raise typer.Exit(code=1)
 
-    result = search_within_aops_text(all_aops, all_events, all_kers, list(selected), terms)
+    result = search_within_aops_text(
+        all_aops, all_events, all_kers, list(selected), terms, groups
+    )
     output = {
         'summary': {
             'collection_date': work_date_str,
             'terms': terms,
+            'term_groups': groups,
+            'behl_seizure_aops': behl_seizure_aops,
             'aop_ids_requested': id_list,
             'aop_ids_missing': missing_ids,
             'aop_title_terms': aop_terms,
@@ -387,13 +433,23 @@ def search_within_aops(
 
     typer.echo(f"\nSnapshot {work_date_str}: searched {len(result['scope']['aops'])} AOPs, "
                f"{len(result['scope']['events'])} KEs and {len(result['scope']['kers'])} KERs "
-               f"for {len(terms)} terms")
+               f"for {len(result['findings']) + len(result['terms_not_found'])} terms")
     for entity, missing in result['scope']['missing'].items():
         if missing:
             typer.echo(f"  ⚠️  {entity} referenced by these AOPs but absent from the export: {', '.join(missing)}")
 
+    for pair in result['co_occurrence']:
+        first, second = pair['groups']
+        typer.echo(f"\nTOGETHER IN ONE RECORD — {first} + {second}: {len(pair['records'])}")
+        typer.echo(f"  {first}: {within_aop_count_phrase(result, first)}; "
+                   f"{second}: {within_aop_count_phrase(result, second)}")
+        for record in pair['records']:
+            typer.echo(f"    {WITHIN_AOP_ENTITY_LABELS[record['entity']]} {record['id']} "
+                       f"{record['label'][:60]} (AOPs {', '.join(record['aop_ids'])})")
+
+    searched_terms = len(result['findings']) + len(result['terms_not_found'])
     if result['findings']:
-        typer.echo(f"\nFOUND — {len(result['findings'])} of {len(terms)} terms:")
+        typer.echo(f"\nFOUND — {len(result['findings'])} of {searched_terms} terms:")
         for term, hits in result['findings'].items():
             typer.echo(f"\n  {term!r} — {within_aop_tally(result['term_counts'][term])}")
             for hit in hits:

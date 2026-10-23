@@ -26,6 +26,12 @@ def tally(term_counts):
     )
 
 
+def count_phrase(result, group):
+    """"3 records" / "no records" — how many records a term group matched."""
+    count = result["group_counts"][group]
+    return f"{count} record{'s' if count != 1 else ''}" if count else "no records"
+
+
 def match_rows(result):
     """Flatten a search result into one row per (term, record, field, snippet)."""
     rows = []
@@ -73,10 +79,53 @@ def render_within_aop_markdown(result, summary, selected_aops):
         f"# Within-AOP search — AOP-Wiki snapshot {summary['collection_date']}",
         "",
         f"Searched **{len(scope['aops'])} AOPs**, **{len(scope['events'])} key events** and "
-        f"**{len(scope['kers'])} KERs** for **{len(summary['terms'])} terms**. "
+        f"**{len(scope['kers'])} KERs** for "
+        f"**{len(findings) + len(result['terms_not_found'])} terms**. "
         f"{len(findings)} matched; {len(result['terms_not_found'])} did not.",
         "",
     ]
+
+    if result.get("co_occurrence"):
+        lines.append("## Term groups together in one record")
+        lines.append("")
+        for pair in result["co_occurrence"]:
+            first, second = pair["groups"]
+            lines.append(f"### {first} + {second} — {len(pair['records'])} records")
+            lines.append("")
+            if not pair["records"]:
+                absence = (
+                    f"No AOP, key event or KER in scope matched both *{first}* "
+                    f"({count_phrase(result, first)}) and *{second}* "
+                    f"({count_phrase(result, second)})."
+                )
+                if result["group_counts"][first] and result["group_counts"][second]:
+                    absence += " Each group is present in scope, but never in the same record."
+                lines.append(absence)
+                lines.append("")
+                continue
+            for record in pair["records"]:
+                aops = ", ".join(f"AOP {i}" for i in record["aop_ids"])
+                lines.append(
+                    f"- **{ENTITY_LABELS[record['entity']]} {record['id']}** "
+                    f"{record['label']} ({aops})"
+                )
+                for group in pair["groups"]:
+                    terms = ", ".join(repr(term) for term in record["terms_by_group"][group])
+                    fields = ", ".join(f"`{field}`" for field in record["fields_by_group"][group])
+                    lines.append(f"  - {group}: {terms} in {fields}")
+            lines.append("")
+
+    if result.get("groups"):
+        lines.append("### Group membership")
+        lines.append("")
+        for name, terms in result["groups"].items():
+            matched = [term for term in terms if term in findings]
+            lines.append(
+                f"- **{name}** — {count_phrase(result, name)}; "
+                f"spellings searched: {', '.join(repr(term) for term in terms)}"
+                + (f"; matched: {', '.join(repr(term) for term in matched)}" if matched else "")
+            )
+        lines.append("")
 
     if findings:
         lines.append("## Found")
@@ -104,9 +153,17 @@ def render_within_aop_markdown(result, summary, selected_aops):
             lines.append(f"- {term!r}")
         lines.append("")
         lines.append(
-            "The matcher is word-boundary and case-insensitive over HTML-stripped text, "
-            "so punctuation differences do not match: a term absent here may be present "
-            "under another spelling."
+            "The matcher is word-boundary over HTML-stripped text, so punctuation "
+            "differences do not match: a term absent here may be present under "
+            "another spelling."
+        )
+        lines.append("")
+
+    if result.get("case_sensitive_terms"):
+        lines.append(
+            "Matched case-sensitively: "
+            + ", ".join(repr(term) for term in result["case_sensitive_terms"])
+            + ". Every other term was matched case-insensitively."
         )
         lines.append("")
 
