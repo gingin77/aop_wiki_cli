@@ -87,9 +87,21 @@ def select_aops(aops_dict, events_dict, aop_ids=(), aop_title_terms=(), ke_title
     return selected, missing_ids
 
 
+def entity_label(entity, record):
+    """A one-line human label for a matched record: KERs read as a relationship."""
+    if entity == "kers":
+        upstream = (record.get("upstream_ke") or {}).get("title", "?")
+        downstream = (record.get("downstream_ke") or {}).get("title", "?")
+        return f"{upstream} -> {downstream}"
+    return record.get("title", "")
+
+
 def search_within_aops(aops_dict, events_dict, kers_dict, selected_aop_ids, terms):
     """
     Search the selected AOPs, their key events and their KERs for terms.
+
+    Each term is searched separately so that every snippet is attributable to
+    the term that matched it; a summary can then be organized by term.
 
     Args:
         aops_dict, events_dict, kers_dict: collected entities keyed by string ID
@@ -100,8 +112,10 @@ def search_within_aops(aops_dict, events_dict, kers_dict, selected_aop_ids, term
         dict with:
             "scope": the AOP, KE and KER IDs searched, and KE/KER IDs the AOPs
                      reference but the export lacks
-            "term_counts": {entity: {term: matching field count}}, zeros included
-            "matches": {entity: {id: serialized match + "aop_ids" in scope}}
+            "term_counts": {term: {entity: matching field count}}, zeros included
+            "findings": {term: [hit, ...]} for terms that matched, where a hit is
+                     {entity, id, label, aop_ids, snippets_by_field}
+            "terms_not_found": terms that matched nothing anywhere
     """
     selected = [str(i) for i in selected_aop_ids]
     owners = {"aops": {i: [i] for i in selected}, "events": {}, "kers": {}}
@@ -114,20 +128,37 @@ def search_within_aops(aops_dict, events_dict, kers_dict, selected_aop_ids, term
 
     source = {"aops": aops_dict, "events": events_dict, "kers": kers_dict}
     scope = {"missing": {}}
-    term_counts = {}
-    matches = {}
+    in_scope = {}
     for entity, id_owners in owners.items():
-        in_scope = {i: source[entity][i] for i in id_owners if i in source[entity]}
-        scope[entity] = sorted(in_scope, key=int)
-        scope["missing"][entity] = sorted(set(id_owners) - set(in_scope), key=int)
+        in_scope[entity] = {i: source[entity][i] for i in id_owners if i in source[entity]}
+        scope[entity] = sorted(in_scope[entity], key=int)
+        scope["missing"][entity] = sorted(set(id_owners) - set(in_scope[entity]), key=int)
 
-        summary, results = search_entity_data(
-            in_scope, {"fields_to_search": TEXT_FIELDS[entity], "terms": list(terms)}
-        )
-        serialize_search_results(results)
-        for entity_id, result in results.items():
-            result["aop_ids"] = sorted(id_owners[entity_id], key=int)
-        term_counts[entity] = summary["terms_searched"]
-        matches[entity] = dict(sorted(results.items(), key=lambda item: int(item[0])))
+    term_counts = {}
+    findings = {}
+    for term in terms:
+        term_counts[term] = {}
+        hits = []
+        for entity, records in in_scope.items():
+            summary, results = search_entity_data(
+                records, {"fields_to_search": TEXT_FIELDS[entity], "terms": [term]}
+            )
+            serialize_search_results(results)
+            term_counts[term][entity] = summary["terms_searched"][term]
+            for entity_id, result in sorted(results.items(), key=lambda item: int(item[0])):
+                hits.append({
+                    "entity": entity,
+                    "id": entity_id,
+                    "label": entity_label(entity, records[entity_id]),
+                    "aop_ids": sorted(owners[entity][entity_id], key=int),
+                    "snippets_by_field": result["snippets_by_field"],
+                })
+        if hits:
+            findings[term] = hits
 
-    return {"scope": scope, "term_counts": term_counts, "matches": matches}
+    return {
+        "scope": scope,
+        "term_counts": term_counts,
+        "findings": findings,
+        "terms_not_found": [term for term in terms if term not in findings],
+    }

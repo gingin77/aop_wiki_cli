@@ -55,6 +55,12 @@ from aop_wiki_cli.search.within_aops import (
     select_aops,
     search_within_aops as search_within_aops_text,
 )
+from aop_wiki_cli.data_export.within_aop_report import (
+    ENTITY_LABELS as WITHIN_AOP_ENTITY_LABELS,
+    tally as within_aop_tally,
+    write_within_aop_markdown,
+    write_within_aop_matches_csv,
+)
 
 from aop_wiki_cli.configs.harmonize_ker_evidence import (
     AOPS_SELECTED_FOR_HARMONIZED_KERS_WORKBOOKS, CONCORDANCE_SEARCH_PARAMS
@@ -335,8 +341,10 @@ def search_within_aops(
     KE and KER is searched with the same word-boundary matcher as
     search-with-config. KER evidence tables are not searched.
 
-    Every term is reported, including those with no match, and the result is
-    written to <data-dir>/outputs/within_aop_searches/<date>/.
+    Every term is reported, including those with no match. Three files are
+    written to <data-dir>/outputs/within_aop_searches/<date>/: a markdown
+    summary organized by term, a CSV of one row per matching snippet, and the
+    full JSON as the provenance record.
     """
     def split(value):
         return [item.strip() for item in (value or '').split(',') if item.strip()]
@@ -378,21 +386,37 @@ def search_within_aops(
     }
 
     typer.echo(f"\nSnapshot {work_date_str}: searched {len(result['scope']['aops'])} AOPs, "
-               f"{len(result['scope']['events'])} KEs, {len(result['scope']['kers'])} KERs")
-    for aop_id, info in output['selected_aops'].items():
-        typer.echo(f"  AOP {aop_id}: {info['title'][:80]}  [{', '.join(info['selected_by'])}]")
+               f"{len(result['scope']['events'])} KEs and {len(result['scope']['kers'])} KERs "
+               f"for {len(terms)} terms")
     for entity, missing in result['scope']['missing'].items():
         if missing:
             typer.echo(f"  ⚠️  {entity} referenced by these AOPs but absent from the export: {', '.join(missing)}")
-    typer.echo("\nFields matching each term (AOPs / KEs / KERs):")
-    for term in terms:
-        counts = [result['term_counts'][entity][term] for entity in ('aops', 'events', 'kers')]
-        typer.echo(f"  {term!r}: {counts[0]} / {counts[1]} / {counts[2]}")
-    for entity, matched in result['matches'].items():
-        for entity_id, match in matched.items():
-            typer.echo(f"  {entity} {entity_id} (AOPs {', '.join(match['aop_ids'])}): "
-                       f"{', '.join(match['terms_found'])} in {', '.join(match['matched_fields'])}")
 
+    if result['findings']:
+        typer.echo(f"\nFOUND — {len(result['findings'])} of {len(terms)} terms:")
+        for term, hits in result['findings'].items():
+            typer.echo(f"\n  {term!r} — {within_aop_tally(result['term_counts'][term])}")
+            for hit in hits:
+                label = WITHIN_AOP_ENTITY_LABELS[hit['entity']]
+                typer.echo(f"    {label} {hit['id']} {hit['label'][:60]} (AOPs {', '.join(hit['aop_ids'])}): "
+                           f"{', '.join(sorted(hit['snippets_by_field']))}")
+    else:
+        typer.echo("\nFOUND — no term matched any field")
+
+    if result['terms_not_found']:
+        typer.echo(f"\nNOT FOUND — {len(result['terms_not_found'])} terms: "
+                   f"{', '.join(repr(term) for term in result['terms_not_found'])}")
+
+    markdown_path = write_within_aop_markdown(
+        result, output['summary'], output['selected_aops'],
+        Path(ensure_dir(output_dir)) / f'within_aop_search_{work_date_str}.md'
+    )
+    typer.echo(f"\n✓ Summary written to {markdown_path}")
+    csv_path = write_within_aop_matches_csv(
+        result, Path(output_dir) / f'within_aop_search_matches_{work_date_str}.csv'
+    )
+    if csv_path:
+        typer.echo(f"✓ Matching snippets written to {csv_path}")
     write_dict_to_json(output, output_dir, f'within_aop_search_{work_date_str}.json')
 
 @app.command()

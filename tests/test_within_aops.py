@@ -117,9 +117,20 @@ def test_search_is_confined_to_the_selected_aops_entities():
     assert result["scope"]["events"] == ["613", "616"]
     assert result["scope"]["kers"] == ["630"]
     # KE 388 and 1348 also mention an array, but belong to AOPs not selected
-    assert sorted(result["matches"]["events"]) == ["613", "616"]
-    assert result["matches"]["events"]["613"]["terms_found"] == ["micro-electrode array"]
-    assert result["matches"]["events"]["616"]["terms_found"] == ["patch-clamp"]
+    assert [hit["id"] for hit in result["findings"]["micro-electrode array"]] == ["10", "613"]
+    assert [hit["id"] for hit in result["findings"]["patch-clamp"]] == ["616"]
+
+
+def test_each_snippet_is_attributed_to_the_term_that_matched_it():
+    result = search_within_aops(
+        MOCK_AOPS, MOCK_EVENTS, MOCK_KERS, ["10"], ["micro-electrode array", "patch-clamp"]
+    )
+
+    hit = result["findings"]["patch-clamp"][0]
+    assert hit["entity"] == "events"
+    assert hit["label"] == "Occurrence, A paroxysmal depolarizing shift"
+    assert hit["aop_ids"] == ["10"]
+    assert "patch-clamp" in hit["snippets_by_field"]["measurement_method"][0]
 
 
 def test_every_term_is_counted_including_terms_with_no_match():
@@ -127,8 +138,10 @@ def test_every_term_is_counted_including_terms_with_no_match():
         MOCK_AOPS, MOCK_EVENTS, MOCK_KERS, ["10"], ["patch-clamp", "hiPSC"]
     )
 
-    assert result["term_counts"]["events"] == {"patch-clamp": 1, "hiPSC": 0}
-    assert result["term_counts"]["kers"] == {"patch-clamp": 0, "hiPSC": 0}
+    assert result["term_counts"]["patch-clamp"] == {"aops": 0, "events": 1, "kers": 0}
+    assert result["term_counts"]["hiPSC"] == {"aops": 0, "events": 0, "kers": 0}
+    assert result["terms_not_found"] == ["hiPSC"]
+    assert "hiPSC" not in result["findings"]
 
 
 def test_punctuation_differences_do_not_match():
@@ -136,14 +149,19 @@ def test_punctuation_differences_do_not_match():
         MOCK_AOPS, MOCK_EVENTS, MOCK_KERS, ["10"], ["microelectrode array", "patch clamp"]
     )
 
-    assert result["term_counts"]["events"] == {"microelectrode array": 0, "patch clamp": 0}
-    assert result["matches"]["events"] == {}
+    assert result["findings"] == {}
+    assert result["terms_not_found"] == ["microelectrode array", "patch clamp"]
 
 
 def test_ker_evidence_blocks_are_searched_through_free_text():
     result = search_within_aops(MOCK_AOPS, MOCK_EVENTS, MOCK_KERS, ["10"], ["electrophysiological"])
 
-    assert result["matches"]["kers"]["630"]["matched_fields"] == ["empirical_support"]
+    hit = result["findings"]["electrophysiological"][0]
+    assert (hit["entity"], hit["id"]) == ("kers", "630")
+    assert list(hit["snippets_by_field"]) == ["empirical_support"]
+    assert hit["label"] == (
+        "Occurrence, Epileptic seizure -> Occurrence, A paroxysmal depolarizing shift"
+    )
 
 
 def test_entities_absent_from_the_export_are_reported_as_missing():
@@ -161,4 +179,4 @@ def test_matches_record_every_selected_aop_that_owns_the_entity():
     }
     result = search_within_aops(aops, MOCK_EVENTS, MOCK_KERS, ["281", "10"], ["MEA"])
 
-    assert result["matches"]["events"]["613"]["aop_ids"] == ["10", "281"]
+    assert result["findings"]["MEA"][0]["aop_ids"] == ["10", "281"]
