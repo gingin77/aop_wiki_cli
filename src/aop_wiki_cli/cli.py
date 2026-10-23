@@ -60,6 +60,11 @@ from aop_wiki_cli.search import (
     find_events_by_title_terms,
     find_kers_containing_events,
 )
+from aop_wiki_cli.search.within_aops import (
+    TEXT_FIELDS as WITHIN_AOP_TEXT_FIELDS,
+    select_aops,
+    search_within_aops as search_within_aops_text,
+)
 
 from aop_wiki_cli.configs.harmonize_ker_evidence import (
     AOPS_SELECTED_FOR_HARMONIZED_KERS_WORKBOOKS, CONCORDANCE_SEARCH_PARAMS
@@ -295,6 +300,110 @@ def find_kers_for_events(
         'matched_kers': matched_kers,
     }
     write_dict_to_json(output_data, output_dir, f'ker_lookup_{work_date_str}.json')
+
+@app.command()
+def search_within_aops(
+    terms: list[str] = typer.Option(
+        ...,
+        "--term",
+        "-t",
+        help="A term to search for; repeat for several. Terms may contain commas."
+    ),
+    aop_ids: Optional[str] = typer.Option(
+        None,
+        "--aop-ids",
+        help="Comma-separated AOP IDs to search within, e.g. 10,214,215"
+    ),
+    aop_title_terms: Optional[str] = typer.Option(
+        None,
+        "--aop-title-terms",
+        help="Comma-separated terms; AOPs whose title matches any are searched"
+    ),
+    ke_title_terms: Optional[str] = typer.Option(
+        None,
+        "--ke-title-terms",
+        help="Comma-separated terms; AOPs holding a key event whose title matches any are searched"
+    ),
+    cache_date: Optional[str] = typer.Option(
+        None,
+        "--date",
+        "-d",
+        help="Date of cached data to use (MM-DD-YYYY). Defaults to today."
+    ),
+    force_refresh: bool = typer.Option(
+        False,
+        "--force-refresh",
+        "-f",
+        help="Force fresh data collection, ignoring cached files"
+    )
+):
+    """Search a chosen set of AOPs, and their key events and KERs, for terms.
+
+    AOPs are chosen by ID (--aop-ids), by title (--aop-title-terms), or by
+    holding a key event whose title matches (--ke-title-terms); the three are
+    unioned and at least one is required. Every free-text field of each AOP,
+    KE and KER is searched with the same word-boundary matcher as
+    search-with-config. KER evidence tables are not searched.
+
+    Every term is reported, including those with no match, and the result is
+    written to <data-dir>/outputs/within_aop_searches/<date>/.
+    """
+    def split(value):
+        return [item.strip() for item in (value or '').split(',') if item.strip()]
+
+    id_list, aop_terms, ke_terms = split(aop_ids), split(aop_title_terms), split(ke_title_terms)
+    if not (id_list or aop_terms or ke_terms):
+        typer.echo("❌ Provide at least one of --aop-ids, --aop-title-terms or --ke-title-terms")
+        raise typer.Exit(code=1)
+
+    work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
+    work_date_str = work_date.strftime('%m-%d-%Y')
+    cache_dir = get_dated_cache_dir(cache_root(), work_date)
+    output_dir = outputs_dir('within_aop_searches', work_date_str)
+
+    all_aops = collect_entity_with_cache('aops', collect_aops_from_xml, work_date, cache_dir, force_refresh, logger)
+    all_events = collect_entity_with_cache('events', collect_events_from_xml, work_date, cache_dir, force_refresh, logger)
+    all_kers = collect_entity_with_cache('kers', collect_kers_from_xml, work_date, cache_dir, force_refresh, logger)
+
+    selected, missing_ids = select_aops(all_aops, all_events, id_list, aop_terms, ke_terms)
+    if missing_ids:
+        typer.echo(f"⚠️  AOP IDs not in the {work_date_str} export: {', '.join(missing_ids)}")
+    if not selected:
+        typer.echo("❌ No AOPs selected")
+        raise typer.Exit(code=1)
+
+    result = search_within_aops_text(all_aops, all_events, all_kers, list(selected), terms)
+    output = {
+        'summary': {
+            'collection_date': work_date_str,
+            'terms': terms,
+            'aop_ids_requested': id_list,
+            'aop_ids_missing': missing_ids,
+            'aop_title_terms': aop_terms,
+            'ke_title_terms': ke_terms,
+            'fields_searched': WITHIN_AOP_TEXT_FIELDS,
+        },
+        'selected_aops': dict(sorted(selected.items(), key=lambda item: int(item[0]))),
+        **result,
+    }
+
+    typer.echo(f"\nSnapshot {work_date_str}: searched {len(result['scope']['aops'])} AOPs, "
+               f"{len(result['scope']['events'])} KEs, {len(result['scope']['kers'])} KERs")
+    for aop_id, info in output['selected_aops'].items():
+        typer.echo(f"  AOP {aop_id}: {info['title'][:80]}  [{', '.join(info['selected_by'])}]")
+    for entity, missing in result['scope']['missing'].items():
+        if missing:
+            typer.echo(f"  ⚠️  {entity} referenced by these AOPs but absent from the export: {', '.join(missing)}")
+    typer.echo("\nFields matching each term (AOPs / KEs / KERs):")
+    for term in terms:
+        counts = [result['term_counts'][entity][term] for entity in ('aops', 'events', 'kers')]
+        typer.echo(f"  {term!r}: {counts[0]} / {counts[1]} / {counts[2]}")
+    for entity, matched in result['matches'].items():
+        for entity_id, match in matched.items():
+            typer.echo(f"  {entity} {entity_id} (AOPs {', '.join(match['aop_ids'])}): "
+                       f"{', '.join(match['terms_found'])} in {', '.join(match['matched_fields'])}")
+
+    write_dict_to_json(output, output_dir, f'within_aop_search_{work_date_str}.json')
 
 @app.command()
 def search_kers_for_concordance_text(
