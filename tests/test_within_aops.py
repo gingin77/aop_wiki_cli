@@ -8,6 +8,8 @@ Tests cover:
 - Reporting every term, including terms with no match
 - Punctuation sensitivity of the word-boundary matcher
 - KE and KER IDs an AOP references but the export lacks
+- Case-sensitive terms, which acronyms need (iPSCs vs IPSCs)
+- Term groups and record-level co-occurrence between two groups
 
 Examples:
     Run directly::
@@ -15,7 +17,13 @@ Examples:
         $ python -m pytest tests/test_within_aops.py
 """
 
-from aop_wiki_cli.search.within_aops import search_within_aops, select_aops
+from aop_wiki_cli.search.within_aops import (
+    parse_term_groups,
+    search_within_aops,
+    select_aops,
+)
+
+import pytest
 
 
 MOCK_AOPS = {
@@ -180,3 +188,90 @@ def test_matches_record_every_selected_aop_that_owns_the_entity():
     result = search_within_aops(aops, MOCK_EVENTS, MOCK_KERS, ["281", "10"], ["MEA"])
 
     assert result["findings"]["MEA"][0]["aop_ids"] == ["10", "281"]
+
+
+MOCK_CASE_EVENTS = {
+    "388": {
+        "title": "Overactivation, NMDARs",
+        "measurement_method": (
+            "Microelectrode array (MEA) recordings of network activity. Whole-cell patch "
+            "clamp was used to study inhibitory postsynaptic currents (EPSCs and IPSCs, "
+            "respectively) in brain slices."
+        ),
+    },
+    "2078": {
+        "title": "Loss of drebrin",
+        "references": "Synapse maturation in human iPSC-derived neurons.",
+    },
+}
+
+MOCK_CASE_AOPS = {
+    "900": {
+        "title": "Case sensitivity fixture",
+        "event_ids": ["388", "2078"],
+        "kers": {},
+    }
+}
+
+
+def test_case_insensitive_acronym_matches_the_wrong_capitalization():
+    result = search_within_aops(
+        MOCK_CASE_AOPS, MOCK_CASE_EVENTS, {}, ["900"], ["iPSCs"]
+    )
+
+    # IPSCs, inhibitory postsynaptic currents, is not a stem cell
+    assert [hit["id"] for hit in result["findings"]["iPSCs"]] == ["388"]
+
+
+def test_a_cs_prefixed_term_rejects_the_wrong_capitalization():
+    result = search_within_aops(
+        MOCK_CASE_AOPS, MOCK_CASE_EVENTS, {}, ["900"], ["cs:iPSCs", "cs:iPSC"]
+    )
+
+    assert "iPSCs" in result["terms_not_found"]
+    assert result["term_counts"]["iPSCs"] == {"aops": 0, "events": 0, "kers": 0}
+    # The same acronym in its own capitalization still matches
+    assert [hit["id"] for hit in result["findings"]["iPSC"]] == ["2078"]
+    assert result["case_sensitive_terms"] == ["iPSCs", "iPSC"]
+
+
+def test_a_cs_prefix_inside_a_group_does_not_leak_into_the_keys():
+    result = search_within_aops(
+        MOCK_CASE_AOPS, MOCK_CASE_EVENTS, {}, ["900"],
+        [], {"ipsc": ["cs:iPSC", "cs:iPSCs"], "mea": ["cs:MEA"]},
+    )
+
+    assert result["groups"] == {"ipsc": ["iPSC", "iPSCs"], "mea": ["MEA"]}
+    assert result["group_counts"] == {"ipsc": 1, "mea": 1}
+    # KE 2078 has the iPSC, KE 388 has the MEA: no record has both
+    assert result["co_occurrence"][0]["groups"] == ["ipsc", "mea"]
+    assert result["co_occurrence"][0]["records"] == []
+
+
+def test_co_occurrence_reports_a_record_matching_both_groups():
+    result = search_within_aops(
+        MOCK_CASE_AOPS, MOCK_CASE_EVENTS, {}, ["900"],
+        [], {"mea": ["cs:MEA"], "clamp": ["patch clamp"]},
+    )
+
+    record = result["co_occurrence"][0]["records"][0]
+    assert (record["entity"], record["id"]) == ("events", "388")
+    assert record["terms_by_group"] == {"mea": ["MEA"], "clamp": ["patch clamp"]}
+    assert record["fields_by_group"]["mea"] == ["measurement_method"]
+
+
+def test_conflicting_case_sensitivity_for_one_term_is_refused():
+    with pytest.raises(ValueError, match="both case-sensitively"):
+        search_within_aops(MOCK_CASE_AOPS, MOCK_CASE_EVENTS, {}, ["900"], ["MEA", "cs:MEA"])
+
+
+def test_parse_term_groups_reads_name_and_spellings():
+    groups = parse_term_groups(["mea=microelectrode array|MEA", "ipsc=cs:iPSC"])
+
+    assert groups == {"mea": ["microelectrode array", "MEA"], "ipsc": ["cs:iPSC"]}
+
+
+def test_parse_term_groups_refuses_a_malformed_spec():
+    for spec in ["microelectrode array", "=MEA", "mea="]:
+        with pytest.raises(ValueError, match="name=term"):
+            parse_term_groups([spec])
