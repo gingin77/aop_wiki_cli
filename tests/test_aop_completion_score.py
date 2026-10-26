@@ -1,9 +1,15 @@
 """
 Unit tests for aop_completion_score.
 
+Each field is worth 1 point. An AOP from before handbook 2.5 has a maximum
+of 19 points: 12 free text fields, 5 structured fields and the 2 minimum
+counts (events and KERs). From handbook 2.5, development_strategy and
+known_modulating_factors are also scored, for a maximum of 21 points.
+
 Tests cover:
 - The minimum event and KER counts, matching AOP-Wiki EMOD
 - A complete AOP scoring 100
+- Handbook 2.5 fields listed as empty for any handbook version, but scored only from 2.5
 - References and point of contact being scored
 - HTML with no visible text counting as empty, and an image alone as content
 
@@ -68,7 +74,11 @@ def test_handbook_fields_listed_when_empty():
 
 
 def test_handbook_fields_scored_only_from_2_5():
-    """Filled handbook 2.5 fields are never listed as empty, and only score from 2.5."""
+    """Filled handbook 2.5 fields are never listed as empty, and only score from 2.5.
+
+    A complete AOP scores 19 of 19 before handbook 2.5, and 21 of 21 from 2.5,
+    where the 2 handbook 2.5 fields add a point each.
+    """
     for version, max_score in ((2.0, 19), (2.5, 21)):
         aop = make_aop(['1', '2', '3'], {'10': {}, '11': {}})
         aop.update({'handbook_version': version, 'development_strategy': 'text',
