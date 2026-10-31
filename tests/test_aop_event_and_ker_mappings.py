@@ -424,7 +424,7 @@ def test_a_key_event_can_hold_a_different_role_in_each_aop():
     update_ke_and_aop_mappings(
         key_event_element("ke-c"), REFS, "307", aop_base, ke_to_aop, event_type="MIE"
     )
-    assert ke_to_aop["1786"]["role_in_aop"] == {"26": "ao", "344": "ke", "307": "mie"}
+    assert ke_to_aop["1786"]["role_in_aop"] == {"26": "AdverseOutcome", "344": "KeyEvent", "307": "MolecularInitiatingEvent"}
     assert ke_to_aop["1786"]["serves_as_ao"] is True
     assert ke_to_aop["1786"]["serves_as_mie"] is True
 
@@ -437,9 +437,9 @@ def test_the_flags_are_derived_from_the_roles():
         key_event_element("ke-b"), REFS, "344", aop_base, ke_to_aop, event_type="KE"
     )
     event = ke_to_aop["1614"]
-    assert event["role_in_aop"] == {"344": "ke"}
-    assert event["serves_as_mie"] is ("mie" in event["role_in_aop"].values())
-    assert event["serves_as_ao"] is ("ao" in event["role_in_aop"].values())
+    assert event["role_in_aop"] == {"344": "KeyEvent"}
+    assert event["serves_as_mie"] is ("MolecularInitiatingEvent" in event["role_in_aop"].values())
+    assert event["serves_as_ao"] is ("AdverseOutcome" in event["role_in_aop"].values())
 
 
 def test_role_in_aop_is_shaped_like_aops_to_oecd():
@@ -458,11 +458,11 @@ def test_role_in_aop_is_shaped_like_aops_to_oecd():
         },
     )["26"]
     assert set(enriched["role_in_aop"]) == set(enriched["aops_to_oecd"])
-    assert enriched["role_in_aop"] == {"344": "mie", "307": "ke"}
+    assert enriched["role_in_aop"] == {"344": "MolecularInitiatingEvent", "307": "KeyEvent"}
 
 
 def test_an_ordinary_role_does_not_overwrite_a_specific_one():
-    """If one AOP ever listed an event twice, 'ke' must not win.
+    """If one AOP ever listed an event twice, KeyEvent must not win.
 
     No AOP in the 2026-10-03 export does, so this guards the invariant rather
     than a live case.
@@ -475,7 +475,7 @@ def test_an_ordinary_role_does_not_overwrite_a_specific_one():
     update_ke_and_aop_mappings(
         key_event_element("ke-a"), REFS, "344", aop_base, ke_to_aop, event_type="KE"
     )
-    assert ke_to_aop["26"]["role_in_aop"] == {"344": "mie"}
+    assert ke_to_aop["26"]["role_in_aop"] == {"344": "MolecularInitiatingEvent"}
     assert ke_to_aop["26"]["serves_as_mie"] is True
 
 

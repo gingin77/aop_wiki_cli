@@ -505,10 +505,16 @@ def collect_doa_fields(element, xml_namespace, taxonomy_dict):
 def safe_text(element, default=''):
     return element.text if element is not None and element.text else default
 
-# The role an AOP gives a Key Event, matching the type column of the aop_events
-# table. Stored lowercase on role_in_aop; 'ke' is any event that is neither the
-# molecular initiating event nor an adverse outcome of that AOP.
-EVENT_ROLES = ('mie', 'ao', 'ke')
+# The role an AOP gives a Key Event. Callers name it as the type column of the
+# aop_events table does (MIE, AO, KE); role_in_aop stores the matching value of
+# KeyEventTypeEnum in the linkml-aop schema
+# (EHS-Data-Standards/linkml-aop, src/linkml_aop/schema/aop_emod_linkml.yaml).
+# KeyEvent is any event that is neither the molecular initiating event nor an
+# adverse outcome of that AOP.
+ROLE_MIE = 'MolecularInitiatingEvent'
+ROLE_AO = 'AdverseOutcome'
+ROLE_KE = 'KeyEvent'
+EVENT_ROLES = {'MIE': ROLE_MIE, 'AO': ROLE_AO, 'KE': ROLE_KE}
 
 
 def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
@@ -533,7 +539,8 @@ def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
     Sets three things on the Key Event:
 
     - role_in_aop: {aop_id: role}, the role in each AOP the event belongs to,
-      shaped like aops_to_oecd. This is the only place the role survives, since
+      as a KeyEventTypeEnum value (MolecularInitiatingEvent, AdverseOutcome or
+      KeyEvent), shaped like aops_to_oecd. This is the only place the role survives, since
       event_ids flattens all three kinds into one list.
     - serves_as_mie, serves_as_ao: whether the event holds that role in at
       least one AOP, derived from role_in_aop so the two cannot disagree. They
@@ -551,10 +558,10 @@ def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
     key-event inside key-events. Only the caller knows which, so the caller
     passes it.
     """
-    role = str(event_type).lower()
-    if role not in EVENT_ROLES:
+    role = EVENT_ROLES.get(str(event_type).upper())
+    if role is None:
         raise ValueError(
-            f"event_type must be one of {', '.join(r.upper() for r in EVENT_ROLES)}, got {event_type!r}"
+            f"event_type must be one of {', '.join(EVENT_ROLES)}, got {event_type!r}"
         )
 
     ke_id = refs['KE'][ke.get('key-event-id')]
@@ -567,14 +574,14 @@ def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info,
 
     # No AOP in the 2026-10-03 export lists the same Key Event under two
     # elements, but if one did, the specific role is the informative one and
-    # must not be overwritten by a later plain 'ke'.
+    # must not be overwritten by a later plain KeyEvent.
     roles = ke_to_aop_info[ke_id]["role_in_aop"]
-    if role != 'ke' or aop_id not in roles:
+    if role != ROLE_KE or aop_id not in roles:
         roles[aop_id] = role
 
     recorded = set(roles.values())
-    ke_to_aop_info[ke_id]["serves_as_mie"] = 'mie' in recorded
-    ke_to_aop_info[ke_id]["serves_as_ao"] = 'ao' in recorded
+    ke_to_aop_info[ke_id]["serves_as_mie"] = ROLE_MIE in recorded
+    ke_to_aop_info[ke_id]["serves_as_ao"] = ROLE_AO in recorded
 
     # Set independently of the role, and once set by one AOP it is not cleared
     # by another that has no examples text.
