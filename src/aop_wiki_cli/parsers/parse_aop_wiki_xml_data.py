@@ -505,7 +505,13 @@ def collect_doa_fields(element, xml_namespace, taxonomy_dict):
 def safe_text(element, default=''):
     return element.text if element is not None and element.text else default
 
-def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field=None):
+# The role of a Key Event within an AOP, from the XML element that lists it.
+KE_ROLE_KEY_EVENT = "KeyEvent"
+KE_ROLE_MIE = "MolecularInitiatingEvent"
+KE_ROLE_AO = "AdverseOutcome"
+
+
+def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field=None, role=KE_ROLE_KEY_EVENT):
     ke_id = refs['KE'][ke.get('key-event-id')]
     if ke_id not in ke_to_aop_info:
         ke_to_aop_info[ke_id] = {"aop_ids": []}
@@ -518,6 +524,9 @@ def update_ke_and_aop_mappings(ke, refs, aop_id, aop_base_info, ke_to_aop_info, 
 
     ke_to_aop_info[ke_id]["aop_ids"].append(aop_id)
     aop_base_info[aop_id]["event_ids"].append(ke_id)
+    # An MIE or AO listed again among the key events keeps its MIE or AO role.
+    if aop_base_info[aop_id]["event_roles"].get(ke_id, KE_ROLE_KEY_EVENT) == KE_ROLE_KEY_EVENT:
+        aop_base_info[aop_id]["event_roles"][ke_id] = role
 
     return aop_base_info, ke_to_aop_info
 
@@ -576,7 +585,8 @@ def collect_base_aop_info_from_xml(root, xml_namespace, refs):
         aop_id = refs['AOP'][aop.get('id')]
         aop_base_info[aop_id] = { 
             'id': aop_id,
-            "event_ids": [] 
+            "event_ids": [],
+            "event_roles": {},
         }
         
         # Status information for AOPs
@@ -590,10 +600,10 @@ def collect_base_aop_info_from_xml(root, xml_namespace, refs):
             for key_event in aop.find(xml_namespace + 'key-events').findall(xml_namespace + 'key-event'):
                 aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(key_event, refs, aop_id, aop_base_info, ke_to_aop_info)
         for mie in aop.findall(xml_namespace + 'molecular-initiating-event'):
-            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(mie, refs, aop_id, aop_base_info, ke_to_aop_info)
+            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(mie, refs, aop_id, aop_base_info, ke_to_aop_info, role=KE_ROLE_MIE)
         for ao in aop.findall(xml_namespace + 'adverse-outcome'):
             reg_field = ao.find(xml_namespace + 'examples').text if ao.find(xml_namespace + 'examples') is not None else None
-            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(ao, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field)
+            aop_base_info, ke_to_aop_info = update_ke_and_aop_mappings(ao, refs, aop_id, aop_base_info, ke_to_aop_info, reg_field, role=KE_ROLE_AO)
 
     ke_to_aop_info = add_aop_status_info_to_kes(ke_to_aop_info, aop_base_info)
 
