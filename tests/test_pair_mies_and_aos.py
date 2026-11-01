@@ -97,7 +97,7 @@ def test_adverse_outcome_without_examples_is_still_an_ao():
     print("✓ serves_as_ao set from the element, regulatory_relevance from <examples>")
 
 
-def test_key_event_is_mie_flag():
+def test_key_event_serves_as_mie_flag():
     """A KE used as an MIE is flagged; a plain KE is not."""
     print("\n=== Test 3: serves_as_mie flag ===")
 
