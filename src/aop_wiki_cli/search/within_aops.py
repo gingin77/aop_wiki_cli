@@ -246,7 +246,7 @@ def search_within_aops(aops_dict, events_dict, kers_dict, selected_aop_ids, term
     """
     groups = groups or {}
     specs = {}
-    for spec in list(terms) + [term for terms in groups.values() for term in terms]:
+    for spec in list(terms) + [term for group_terms in groups.values() for term in group_terms]:
         term, case_sensitive = split_case_flag(spec)
         if specs.setdefault(term, case_sensitive) != case_sensitive:
             raise ValueError(
