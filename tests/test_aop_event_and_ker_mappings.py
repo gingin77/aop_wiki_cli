@@ -100,14 +100,17 @@ def test_aop_to_ker_mapping_omits_an_aop_with_no_relationships():
 
 
 def test_completion_score_is_unmoved_by_richer_ker_entries():
-    """`kers` is scored for emptiness only, so the inner fields cannot shift it.
+    """`kers` is scored by how many there are, so the inner fields cannot shift it.
 
-    `aop_completion_score` lists 'kers' among the structured fields it checks.
-    If it ever looked inside, adding evidence fields would silently move every
-    AOP's percentage, which is published in reports.
+    `aop_completion_score` gives the 'kers' point to an AOP with at least two
+    KERs, the minimum for MIE -> KE -> AO. If it ever looked inside, adding
+    evidence fields would silently move every AOP's percentage, which is
+    published in reports.
     """
-    thin = {"title": "An AOP", "kers": {"2130": {"type": "adjacent"}}}
-    rich = {"title": "An AOP", "kers": {"2130": {"type": "adjacent", "evidence": "High"}}}
+    thin = {"title": "An AOP", "kers": {"2130": {"type": "adjacent"},
+                                        "2124": {"type": "adjacent"}}}
+    rich = {"title": "An AOP", "kers": {"2130": {"type": "adjacent", "evidence": "High"},
+                                        "2124": {"type": "adjacent", "evidence": "High"}}}
     assert aop_completion_score(rich) == aop_completion_score(thin)
     assert "kers" not in aop_completion_score(thin)["empty_structured"]
 
@@ -115,14 +118,15 @@ def test_completion_score_is_unmoved_by_richer_ker_entries():
 def test_completion_score_is_unmoved_by_a_new_top_level_field():
     """Recording roles as a new AOP field must not change the denominator.
 
-    The score's max is built from two fixed field lists. A new field such as
-    `event_roles` is not in either, so the percentage has to stay put until
-    someone adds it on purpose.
+    The score's max is built from fixed lists: 12 free-text fields, 5 structured
+    fields and 2 minimum counts (events and KERs), so 19 for an AOP with no
+    handbook version. A new field such as `event_roles` is in none of them, so
+    the percentage has to stay put until someone adds it on purpose.
     """
     without = {"title": "An AOP", "kers": {"2130": {"type": "adjacent"}}, "event_ids": ["26"]}
     with_roles = dict(without, event_roles={"26": "MIE"})
     assert aop_completion_score(with_roles) == aop_completion_score(without)
-    assert aop_completion_score(without)["max_score"] == 17
+    assert aop_completion_score(without)["max_score"] == 19
 
 
 # ---------------------------------------------------------------------------

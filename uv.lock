@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.13"
 
 [[package]]
@@ -68,7 +68,7 @@ dev = [
 requires-dist = [
     { name = "anthropic", specifier = ">=0.40" },
     { name = "bs4", specifier = ">=0.0.2" },
-    { name = "linkml-aop", editable = "../linkml-aop" },
+    { name = "linkml-aop", git = "https://github.com/EHS-Data-Standards/linkml-aop?rev=11e16e4e283d90e6f445e2ea57a29778900cda8a" },
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pandas", specifier = ">=2.3.3" },
@@ -621,22 +621,10 @@ wheels = [
 
 [[package]]
 name = "linkml-aop"
-source = { editable = "../linkml-aop" }
+version = "0.0.0.post48.dev0+11e16e4"
+source = { git = "https://github.com/EHS-Data-Standards/linkml-aop?rev=11e16e4e283d90e6f445e2ea57a29778900cda8a#11e16e4e283d90e6f445e2ea57a29778900cda8a" }
 dependencies = [
     { name = "linkml-runtime" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "linkml-runtime", specifier = ">=1.1.24" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "jupyter", specifier = ">=1.0.0" },
-    { name = "linkml", specifier = ">=1.3.5" },
-    { name = "mkdocs-material", specifier = ">=8.2.8" },
-    { name = "mkdocs-mermaid2-plugin", specifier = ">=1.1.1" },
-    { name = "mknotebooks", specifier = ">=0.8.0" },
-    { name = "schemasheets", specifier = ">=0.1.14" },
 ]
 
 [[package]]
