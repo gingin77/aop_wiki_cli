@@ -282,10 +282,13 @@ def review_events(
 ) -> dict:
     """Review a collection of Events, one request each.
 
+    ``ke_ids`` of None reviews every Event; an empty list reviews none, so a
+    caller whose selection came out empty never pays for the whole snapshot.
+
     ``on_error`` decides what a failed request does: ``record`` keeps an error
     finding and carries on, ``raise`` stops the run.
     """
-    ids = [str(k) for k in ke_ids] if ke_ids else list(events)
+    ids = [str(k) for k in ke_ids] if ke_ids is not None else list(events)
     findings: list[dict] = []
     missing: list[str] = []
     agreed = 0

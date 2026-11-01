@@ -197,6 +197,14 @@ def test_review_events_summarises(events):
     assert summary["request_errors"] == 0
 
 
+def test_an_empty_id_list_reviews_nothing(events):
+    """Only None means the whole snapshot; an empty selection must cost nothing."""
+    client = FakeClient(verdict())
+    result = review_events(events, ke_ids=[], client=client)
+    assert client.messages.calls == []
+    assert result["summary"]["events_read"] == 0
+
+
 def test_review_events_counts_agreement_without_findings(events):
     result = review_events(events, ke_ids=["1908", "1909"], client=FakeClient(verdict()))
     assert result["findings"] == []

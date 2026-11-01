@@ -864,6 +864,7 @@ def event_level_llm_review(
     limit: Optional[int] = typer.Option(
         None,
         "--limit",
+        min=1,
         help="Review at most this many Events, in snapshot order. Use with care: one API request each."
     ),
     model: str = typer.Option(
@@ -895,6 +896,9 @@ def event_level_llm_review(
             "Pass --ke-ids to review named Events, or --limit N to review the first N. "
             "Reviewing every Event costs one API request each."
         )
+    named = [k.strip() for k in ke_ids.split(',') if k.strip()] if ke_ids else None
+    if named == []:
+        raise typer.BadParameter(f"--ke-ids {ke_ids!r} names no Key Event IDs.")
 
     work_date = datetime.strptime(cache_date, '%m-%d-%Y').date() if cache_date else today
     work_date_str = work_date.strftime('%m-%d-%Y')
@@ -909,9 +913,7 @@ def event_level_llm_review(
         force_refresh=force_refresh,
         logger=logger,
     )
-    ids = [k.strip() for k in ke_ids.split(',') if k.strip()] if ke_ids else list(events)[:limit]
-    if limit is not None and ke_ids:
-        ids = ids[:limit]
+    ids = (named if named is not None else list(events))[:limit]
 
     typer.echo(f"Reviewing {len(ids)} Event(s) with {model}; one request each.")
     result = review_event_levels_with_llm(events, ids, model=model)

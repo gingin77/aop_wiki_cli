@@ -203,3 +203,16 @@ def test_llm_review_failed_request_is_reported_not_raised(data_dir, monkeypatch)
     _, [row] = llm_outputs(root)
     assert row["severity"] == "error"
     assert "no credentials" in row["message"]
+
+
+@pytest.mark.parametrize("args", [
+    ["--limit", "0"],
+    ["--limit", "-1"],
+    ["--ke-ids", " , "],
+])
+def test_llm_review_refuses_a_selection_that_names_no_events(data_dir, fake_client, args):
+    """An empty selection must not fall through to reviewing the whole snapshot."""
+    root, _ = data_dir
+    result = invoke(root, "event-level-llm-review", "--date", DATE, *args)
+    assert result.exit_code != 0
+    assert fake_client.messages.calls == []
