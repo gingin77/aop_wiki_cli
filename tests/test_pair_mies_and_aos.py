@@ -154,6 +154,35 @@ def test_aop_missing_one_side_still_gets_a_row():
     print("✓ gaps stay visible instead of dropping the AOP")
 
 
+def test_aop_record_without_mie_and_ao_lists_reads_event_roles():
+    """A cache written before mie_ids/ao_ids existed still pairs, from role_in_aop.
+
+    Both role spellings occur in caches: the KeyEventTypeEnum names, and the
+    short forms written before the parser adopted that enum. The role is read
+    for this AOP only: 11 is an MIE in 600 and a plain Key Event in 700.
+    """
+    print("\n=== Test 5b: AOP record that predates mie_ids/ao_ids ===")
+
+    events = {
+        '11': {'title': 'Activation of the pregnane X receptor',
+               'role_in_aop': {'600': 'MolecularInitiatingEvent', '700': 'KeyEvent'}},
+        '22': {'title': 'Hepatocyte hypertrophy', 'role_in_aop': {'600': 'ke', '700': 'mie'}},
+        '33': {'title': 'Liver injury', 'role_in_aop': {'600': 'ao', '700': 'AdverseOutcome'}},
+    }
+    aops = {
+        '600': {'title': 'Old cache, new roles', 'event_ids': ['11', '22', '33']},
+        '700': {'title': 'Old cache, old roles', 'event_ids': ['11', '22', '33']},
+    }
+
+    rows = build_mie_ao_pairs(aops, events)
+
+    assert [(r['aop_id'], r['mie_id'], r['ao_id']) for r in rows] == [
+        ('600', '11', '33'),
+        ('700', '22', '33'),
+    ]
+    print("✓ MIEs and AOs read from each Event's role in that AOP")
+
+
 def test_filter_kers_by_aop_ids():
     """KERs are selected by the AOPs they name, across str/int ID types."""
     print("\n=== Test 6: Filter KERs by AOP ===")

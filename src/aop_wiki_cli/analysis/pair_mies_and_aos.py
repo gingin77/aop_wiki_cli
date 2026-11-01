@@ -8,6 +8,11 @@ The functions here turn that into one row per MIE/AO combination, which is the
 shape needed to see which molecular starting points converge on which adverse
 outcomes across a collection of AOPs.
 
+An AOP cache written before the parser recorded ``mie_ids`` and ``ao_ids`` has
+neither key. For such a record the MIEs and AOs are read instead from each of the
+AOP's Events' ``role_in_aop`` entry for that AOP, which every events cache holds;
+without that, every AOP in an existing cache would read as declaring neither.
+
 AOPs with no MIE, no AO, or neither still get a row, with the missing side left
 blank, so that gaps in the collected set stay visible rather than dropping out.
 """
@@ -15,13 +20,37 @@ blank, so that gaps in the collected set stay visible rather than dropping out.
 # Placeholder used in a pair row when an AOP declares no MIE or no AO.
 UNDECLARED = ""
 
+# role_in_aop values: the KeyEventTypeEnum names, and the short forms caches
+# written before the parser adopted that enum carry.
+MIE_ROLES = {"MolecularInitiatingEvent", "mie"}
+AO_ROLES = {"AdverseOutcome", "ao"}
 
-def _event_title(events_dict, event_id):
-    """Look up an event title, tolerating str/int key mismatches."""
+
+def _event_record(events_dict, event_id):
+    """Look up an event record, tolerating str/int key mismatches."""
     event_id_str = str(event_id)
     event_info = events_dict.get(event_id_str)
     if event_info is None and event_id_str.isdigit():
         event_info = events_dict.get(int(event_id_str))
+    return event_info
+
+
+def _ids_with_role(aop_id, aop, events_dict, field, roles):
+    """The AOP's own list if it has one, else its Events whose role here is in ``roles``."""
+    if field in aop:
+        return [str(eid) for eid in aop[field] or []]
+    found = []
+    for event_id in aop.get("event_ids", []):
+        record = _event_record(events_dict, event_id) or {}
+        role = (record.get("role_in_aop") or {}).get(str(aop_id))
+        if role in roles and str(event_id) not in found:
+            found.append(str(event_id))
+    return found
+
+
+def _event_title(events_dict, event_id):
+    """Look up an event title, tolerating str/int key mismatches."""
+    event_info = _event_record(events_dict, event_id)
     if event_info is None:
         return "Unknown"
     # collect_events_from_matched_aops wraps the raw event record
@@ -35,9 +64,10 @@ def build_mie_ao_pairs(aops_dict, events_dict, matched_event_ids=None):
     """Build one row per (AOP, MIE, AO) combination.
 
     Args:
-        aops_dict: {aop_id: aop_record} where each record carries 'mie_ids',
-            'ao_ids', 'title' and 'event_ids'
-        events_dict: Event records for title lookups, keyed by event ID
+        aops_dict: {aop_id: aop_record} where each record carries 'title' and
+            'event_ids', and 'mie_ids' and 'ao_ids' unless it predates them
+        events_dict: Event records for title lookups, and for the roles of an
+            AOP record with no 'mie_ids' or 'ao_ids', keyed by event ID
         matched_event_ids: Optional collection of the event IDs that caused
             these AOPs to be collected. Used to flag whether the MIE or the AO
             of a pair was itself a search hit.
@@ -49,8 +79,8 @@ def build_mie_ao_pairs(aops_dict, events_dict, matched_event_ids=None):
     rows = []
 
     for aop_id, aop in aops_dict.items():
-        mie_ids = [str(eid) for eid in aop.get("mie_ids", [])] or [UNDECLARED]
-        ao_ids = [str(eid) for eid in aop.get("ao_ids", [])] or [UNDECLARED]
+        mie_ids = _ids_with_role(aop_id, aop, events_dict, "mie_ids", MIE_ROLES) or [UNDECLARED]
+        ao_ids = _ids_with_role(aop_id, aop, events_dict, "ao_ids", AO_ROLES) or [UNDECLARED]
 
         for mie_id in mie_ids:
             for ao_id in ao_ids:

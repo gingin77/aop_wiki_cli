@@ -135,7 +135,9 @@ MIE and AO are **roles within one AOP**, not properties of a key event: the same
 AOP and an intermediate KE in another. The roles are read from the AOP's own
 `<molecular-initiating-event>` and `<adverse-outcome>` XML elements and stored per AOP as `mie_ids` and
 `ao_ids` by `collect_base_aop_info_from_xml`
-(`src/aop_wiki_cli/parsers/parse_aop_wiki_xml_data.py`).
+(`src/aop_wiki_cli/parsers/parse_aop_wiki_xml_data.py`). An AOP cache written before those two fields
+existed has neither; for its AOPs the pairing reads each key event's `role_in_aop` entry for that AOP
+instead, so an existing cache gives the same pairs without `--force-refresh`.
 
 An AOP that declares no MIE, no AO, or neither still gets a row with the missing side blank, so gaps in
 the collected set stay visible. `summary.mie_ao_pairs` counts them as `aops_without_mie` and
