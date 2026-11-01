@@ -1,6 +1,5 @@
 """CLI interface for AOP-Wiki CLI using Typer."""
 import typer
-import csv
 import os
 import logging
 import importlib
