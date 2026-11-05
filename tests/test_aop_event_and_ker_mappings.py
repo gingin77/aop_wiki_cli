@@ -118,15 +118,21 @@ def test_completion_score_is_unmoved_by_richer_ker_entries():
 def test_completion_score_is_unmoved_by_a_new_top_level_field():
     """Recording roles as a new AOP field must not change the denominator.
 
-    The score's max is built from fixed lists: 12 free-text fields, 5 structured
-    fields and 2 minimum counts (events and KERs), so 19 for an AOP with no
-    handbook version. A new field such as `event_roles` is in none of them, so
-    the percentage has to stay put until someone adds it on purpose.
+    The score's max is built from fixed lists of free-text fields, structured
+    fields and minimum counts. A new field such as `event_roles` is in none of
+    them, so the percentage has to stay put until someone adds it on purpose.
+
+    The max is compared with and without the field rather than with a fixed
+    number, so a deliberate change to the scoring does not fail this test.
     """
     without = {"title": "An AOP", "kers": {"2130": {"type": "adjacent"}}, "event_ids": ["26"]}
     with_roles = dict(without, event_roles={"26": "MIE"})
-    assert aop_completion_score(with_roles) == aop_completion_score(without)
-    assert aop_completion_score(without)["max_score"] == 19
+
+    baseline = aop_completion_score(without)
+    with_new_field = aop_completion_score(with_roles)
+
+    assert with_new_field["max_score"] == baseline["max_score"]
+    assert with_new_field == baseline
 
 
 # ---------------------------------------------------------------------------
