@@ -88,10 +88,18 @@ uv run aop-wiki-cli find-kers-for-events --ke-terms "cholestasis,hepatic steatos
   NASH, MASLD, MASH, fatty liver, DILI
 - **Hepatic processes and receptors** — bile, bile acid, bile salt, biliary, BSEP, bile salt export pump,
   bile duct, LXR, liver X receptor, FXR, farnesoid X receptor, PXR, pregnane X receptor, constitutive
-  androstane receptor
+  androstane receptor, PPAR, peroxisome proliferator-activated receptor
+- **Nuclear receptor isoform spellings** — PPARα, PPARalpha, PPAR alpha, PPARγ, PPARgamma, PPAR gamma,
+  LXRα, LXRalpha, LXR alpha
 
 Terms are matched case-insensitively with word boundaries, so `hepatic` does not match `hepatocyte` —
 both spellings and both plurals have to be listed.
+
+The isoform spellings are **not** redundant with the bare acronyms. A Greek letter is a word character,
+so the pattern `\bppar\b` finds no word boundary in `pparα` and `PPAR` never matches
+`Activation, PPARα` — the spelling AOP-Wiki key event titles use more often than the bare one. The same
+holds for `LXR` and `LXRα`. `tests/test_dili_config_terms.py` pins this so the spellings are not pruned
+as duplicates.
 
 Generic injury words (necrosis, fibrosis, apoptosis, inflammation) are deliberately **left out**. They
 match key events in every organ, and a hepatic instance of them is collected anyway once the AOP it

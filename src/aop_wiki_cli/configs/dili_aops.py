@@ -71,6 +71,23 @@ SEARCH_PARAMS = {
         "PXR",
         "pregnane X receptor",
         "constitutive androstane receptor",
+        # Nuclear receptor isoform spellings are listed individually, and are
+        # not redundant with the bare acronyms above: terms match on word
+        # boundaries, and a Greek letter is a word character, so "LXR" does
+        # not match "Activation, LXRα" and "PPAR" does not match
+        # "Activation, PPARα". AOP-Wiki key event titles use the isoform form
+        # for these receptors more often than the bare one.
+        "PPAR",
+        "peroxisome proliferator-activated receptor",
+        "PPARα",
+        "PPARalpha",
+        "PPAR alpha",
+        "PPARγ",
+        "PPARgamma",
+        "PPAR gamma",
+        "LXRα",
+        "LXRalpha",
+        "LXR alpha",
     ],
     # Left empty so the collection stays inclusive, which is what "all AOPs
     # covering DILI" asks for. To narrow the set -- e.g. to drop ecotoxicology
