@@ -127,8 +127,12 @@ def test_completion_score_is_unmoved_by_a_new_top_level_field():
     """
     without = {"title": "An AOP", "kers": {"2130": {"type": "adjacent"}}, "event_ids": ["26"]}
     with_roles = dict(without, event_roles={"26": "MIE"})
-    assert aop_completion_score(with_roles)["max_score"] == aop_completion_score(without)["max_score"]
-    assert aop_completion_score(with_roles) == aop_completion_score(without)
+
+    baseline = aop_completion_score(without)
+    with_new_field = aop_completion_score(with_roles)
+
+    assert with_new_field["max_score"] == baseline["max_score"]
+    assert with_new_field == baseline
 
 
 # ---------------------------------------------------------------------------
