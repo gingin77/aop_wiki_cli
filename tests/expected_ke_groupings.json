@@ -1,0 +1,56 @@
+{
+  "_README": [
+    "Expected KE groupings — regression/monitoring fixture for collect_similar_events.py.",
+    "",
+    "Each entry in 'expectations' asserts that a set of Key Event IDs must land in the",
+    "SAME group in the pipeline output. Use this to catch regressions when prompts,",
+    "batch sizes, or the model change and a pairing you rely on silently breaks apart.",
+    "",
+    "Fields per expectation:",
+    "  label         (required) short human-readable name, shown in test output.",
+    "  event_ids     (required) 2+ KE ID strings that must share one group.",
+    "  expected_type (optional) one of: merge | soda | same_object_different_process",
+    "                | similar_event_different_biological_context.",
+    "                When set, the shared group must also be of this type.",
+    "                Omit it to check co-grouping only (any type).",
+    "  note          (optional) why you expect this pairing; not checked.",
+    "",
+    "The test checks the newest ke_similar_events_*_pass3.json (falling back to _pass2)",
+    "under outputs/ke_groupings and outputs_for_vc/ke_groupings. Override with the",
+    "KE_GROUPINGS_FILE environment variable to point at a specific run.",
+    "",
+    "Add your own pairings below. IDs are stable AOP-Wiki Event IDs."
+  ],
+  "expectations": [
+    {
+      "label": "PXR activation synonyms",
+      "event_ids": ["239", "245"],
+      "expected_type": "merge",
+      "note": "Pregnane-X receptor / PXR / SXR / NR1I2 — same receptor, same direction."
+    },
+    {
+      "label": "Hepatocellular carcinoma synonyms",
+      "event_ids": ["334", "378"],
+      "expected_type": "merge",
+      "note": "Promotion vs tumorigenesis of hepatocellular carcinoma. Excludes KE 1395 'Liver Cancer', which is the broader category (HCC is one type of liver cancer), not a synonym."
+    },
+    {
+      "label": "NMDAR directional opposites",
+      "event_ids": ["195", "388"],
+      "expected_type": "soda",
+      "note": "Inhibition vs overactivation of NMDA receptors — strictly opposite directions."
+    },
+    {
+      "label": "Complex I binding vs inhibition",
+      "event_ids": ["887", "888"],
+      "expected_type": "same_object_different_process",
+      "note": "Binding of inhibitor vs inhibition of the same Complex I — review needed, not a merge."
+    },
+    {
+      "label": "Aromatase general vs granulosa-specific",
+      "event_ids": ["36", "408"],
+      "expected_type": "similar_event_different_biological_context",
+      "note": "Aromatase inhibition general vs specified in ovarian granulosa cells."
+    }
+  ]
+}
