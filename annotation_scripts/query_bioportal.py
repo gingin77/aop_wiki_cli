@@ -4,9 +4,9 @@ BioPortal ontology search utilities.
 
 import json
 import re
+import urllib.error
 import urllib.parse
 import urllib.request
-import urllib.error
 
 BIOPORTAL_SEARCH_URL = "https://data.bioontology.org/search"
 STOPWORDS = {"type", "the", "a", "an", "of", "in", "and", "or", "with", "by"}
@@ -48,14 +48,8 @@ def search_bioportal(phrase: str, ontologies: str, api_key: str) -> list:
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
             data = json.loads(resp.read())
-    except urllib.error.HTTPError as e:
-        print(f"  BioPortal HTTP error {e.code}: {e.reason} — returning empty results.")
-        return []
-    except urllib.error.URLError as e:
-        print(f"  BioPortal connection error: {e.reason} — returning empty results.")
-        return []
-    except TimeoutError:
-        print("  BioPortal request timed out — returning empty results.")
+    except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError) as e:
+        print(f"  BioPortal search failed for {phrase!r}: {e}")
         return []
 
     results = []

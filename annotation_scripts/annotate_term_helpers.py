@@ -118,18 +118,23 @@ def llm_rank_term(
     json_match = re.search(r'\{.*\}', raw, re.DOTALL)
     if not json_match:
         return None, f"Could not parse LLM response: {raw!r}"
-    parsed_resp = json.loads(json_match.group())
+    try:
+        parsed_resp = json.loads(json_match.group())
+    except json.JSONDecodeError:
+        return None, f"Could not parse LLM response: {raw!r}"
+    if not isinstance(parsed_resp, dict):
+        return None, f"Unexpected LLM response: {raw!r}"
     idx_1based = parsed_resp.get("index")
     reason = parsed_resp.get("reason", "")
     if idx_1based is None:
         return None, reason
     try:
-        idx_0based = int(idx_1based) - 1
+        idx = int(idx_1based)
     except (TypeError, ValueError):
-        return None, f"LLM returned non-integer index: {idx_1based!r}"
-    if not (0 <= idx_0based < len(candidates)):
-        return None, f"LLM returned out-of-range index: {idx_1based!r}"
-    return idx_0based, reason
+        return None, f"Invalid index {idx_1based!r} from LLM: {reason}"
+    if not 1 <= idx <= len(candidates):
+        return None, f"Out-of-range index {idx} from LLM (expected 1-{len(candidates)}): {reason}"
+    return idx - 1, reason
 
 
 def display_candidates(candidates: list, query_used: str) -> None:

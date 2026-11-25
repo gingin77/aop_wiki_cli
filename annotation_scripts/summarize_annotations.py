@@ -8,7 +8,7 @@ SELECTED_AOPS = [14, 39, 173, 277, 302]
 
 # Input files
 INPUT_KE_FILE = "outputs_for_vc/annotations/ke_annotations.json"
-INPUT_AOP_FILE = "outputs_for_vc/annotations/aop_based_ke_store.json"
+INPUT_AOP_FILE = "outputs_for_vc/annotations/aop_ke_index.json"
 
 # Output files
 OUTPUT_ASSAYS = "outputs_for_vc/annotations/assays_from_wiki_kes.json"

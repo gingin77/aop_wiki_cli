@@ -10,8 +10,8 @@ Writes a CSV with one row per KE:
   - divergent_content_fields: which fields those are
 
 Usage:
-    uv run python scripts/compare_ke_annotations.py
-    uv run python scripts/compare_ke_annotations.py \
+    uv run python annotation_scripts/compare_ke_annotations.py
+    uv run python annotation_scripts/compare_ke_annotations.py \
         --annotations outputs_for_vc/annotations/ke_annotations.json \
         --cache outputs/cache/04-28-2026/all_events_04-28-2026.json \
         --output outputs/ke_annotation_comparison.csv

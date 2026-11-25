@@ -39,6 +39,9 @@ ALTERNATIVE_ACTION_WORDS = {
     "changes": "functional change",
 }
 
+# Backwards-compatible alias for the previous (misspelled) name
+ALTERATIVE_ACTION_WORDS = ALTERNATIVE_ACTION_WORDS
+
 _OBJECT_PREPOSITIONS = ["of", "in", "by", "on", "to", "from"]
 _PROCESS_NOUN_SUFFIXES = ("ation", "tion", "sis", "ment", "ing", "ance", "ence", "al")
 

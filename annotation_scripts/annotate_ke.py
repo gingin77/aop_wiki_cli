@@ -12,19 +12,19 @@ KEs already in the shared store are skipped during annotation (use --force to re
 
 Usage:
     # Annotate a standalone KE (no AOP required)
-    uv run python scripts/annotate_ke.py --ke-id 14 --date 04-28-2026
+    uv run python annotation_scripts/annotate_ke.py --ke-id 14 --date 04-28-2026
 
     # Annotate a KE and register it under an AOP
-    uv run python scripts/annotate_ke.py --aop 173 --ke-id 68 --date 04-28-2026
+    uv run python annotation_scripts/annotate_ke.py --aop 173 --ke-id 68 --date 04-28-2026
 
     # List KEs for an AOP with annotation status
-    uv run python scripts/annotate_ke.py --aop 173 --date 04-28-2026
+    uv run python annotation_scripts/annotate_ke.py --aop 173 --date 04-28-2026
 
     # Re-annotate all fields from scratch
-    uv run python scripts/annotate_ke.py --ke-id 68 --force --date 04-28-2026
+    uv run python annotation_scripts/annotate_ke.py --ke-id 68 --force --date 04-28-2026
 
     # Re-annotate only the assays
-    uv run python scripts/annotate_ke.py --ke-id 68 --force-on assays --date 04-28-2026
+    uv run python annotation_scripts/annotate_ke.py --ke-id 68 --force-on assays --date 04-28-2026
 
 """
 
@@ -477,11 +477,11 @@ def _build_ke_annotation(
 
     annotation["cell_term"] = _annotate_location_term(
         "cell_term", CELL_TERM_ONTOLOGIES, _CELL_TERM_LEVELS,
-        parsed["full_subject"], description, api_key, client, ref_ke, org_level,
+        parsed["full_subject"], title, api_key, client, ref_ke, org_level,
     )
     annotation["organ_term"] = _annotate_location_term(
         "organ_term", ORGAN_TERM_ONTOLOGIES, _ORGAN_TERM_LEVELS,
-        parsed["full_subject"], description, api_key, client, ref_ke, org_level,
+        parsed["full_subject"], title, api_key, client, ref_ke, org_level,
     )
 
     # --- ECS annotation ---
@@ -714,8 +714,11 @@ def annotate_ke(
     _print_ke_summary(ke_id, title, annotated_ke, new_fields, ref_comments)
     return KE_ANNOTATIONS_PATH
 
-def get_fresh_event_cache():
-    work_date = date.today()
+def get_fresh_event_cache(date_str: str | None = None):
+    """Collect events for the given date (MM-DD-YYYY), defaulting to today."""
+    work_date = (
+        datetime.datetime.strptime(date_str, "%m-%d-%Y").date() if date_str else date.today()
+    )
     cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
     output_dir = 'outputs/event_rankings'
     os.makedirs(output_dir, exist_ok=True)
@@ -751,8 +754,11 @@ def main():
     cache = _get_events_cache_file(args.date)
     if not os.path.exists(cache):
         print(f"Cache file not found: {cache}")
-        get_fresh_event_cache()
+        get_fresh_event_cache(args.date)
         cache = _get_events_cache_file(args.date)
+        if not os.path.exists(cache):
+            print(f"Unable to generate cache file for {args.date}: {cache}")
+            sys.exit(1)
 
     if args.add_comment:
         if not args.ke_id:
