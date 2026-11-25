@@ -100,6 +100,18 @@ _CELL_TERM_LEVELS = {"Molecular", "Cellular"}
 _ORGAN_TERM_LEVELS = {"Cellular", "Tissue", "Organ"}
 _CELLULAR_COMPONENT_LEVELS = {"Molecular", "Cellular"}
 
+# Completeness marker. A KE finished by annotate_ke() is stamped with this
+# version; the batch/single-KE gates skip a KE only when its stored
+# schema_version equals this. Bump it whenever the workflow changes in a way
+# that should re-process KEs previously marked complete — a bump makes the next
+# run re-annotate stale KEs (filling nulls and new fields, honoring existing
+# ref values). Entries without the field (annotated before versioning, when
+# completeness was proxied by the presence of 'assays') are treated as stale.
+# History:
+#   2 — versioned completeness; adds cellular_component + subcellular-location
+#       extraction (replaces the 'assays'-presence proxy)
+ANNOTATION_SCHEMA_VERSION = 2
+
 # GO terms may be valid phenotype terms (e.g. "hypersensitivity" is included in UPHENO),
 # but many are biological processes and not appropriate as phenotype annotations.
 # Flag for manual review when a GO term is selected as phenotype.
@@ -419,7 +431,7 @@ def _annotate_location_term(
         print(f"  (reference) {_ref_term_label(ref_val)!r} — skipping query")
         print()
         return ref_val
-    if org_level in trigger_levels:
+    if query and org_level in trigger_levels:
         print(f"--- {field} ---")
         result = _annotate_term(query, ontologies, field, context, api_key, client)
         print()
@@ -490,9 +502,14 @@ def _build_ke_annotation(
         "organ_term", ORGAN_TERM_ONTOLOGIES, _ORGAN_TERM_LEVELS,
         parsed["full_subject"], title, api_key, client, ref_ke, org_level,
     )
+    # cellular_component is queried on the extracted subcellular-location noun
+    # (e.g. "mitochondrion"), NOT the full subject — the location is an adjective
+    # embedded in a process phrase, so querying the whole phrase returns the
+    # process/complex, not the organelle. When no location word is present the
+    # hint is None and _annotate_location_term skips the query.
     annotation["cellular_component"] = _annotate_location_term(
         "cellular_component", CELLULAR_COMPONENT_ONTOLOGIES, _CELLULAR_COMPONENT_LEVELS,
-        parsed["full_subject"], title, api_key, client, ref_ke, org_level,
+        parsed.get("cellular_component"), title, api_key, client, ref_ke, org_level,
     )
 
     # --- ECS annotation ---
@@ -720,6 +737,7 @@ def annotate_ke(
     else:
         annotated_ke.pop("newly_annotated_fields", None)
 
+    annotated_ke["schema_version"] = ANNOTATION_SCHEMA_VERSION
     store[ke_id] = annotated_ke
     save_ke_annotations(store)
     for aop in events[ke_id].get("aop_ids", []):
@@ -798,20 +816,21 @@ def main():
         print()
         for ke_id, _ in kes:
             ke_entry = store.get(ke_id)
-            already_complete = ke_entry and ke_entry.get("assays") is not None
+            already_complete = ke_entry and ke_entry.get("schema_version") == ANNOTATION_SCHEMA_VERSION
             if already_complete and not args.force and not force_fields:
-                print(f"KE {ke_id} is already fully annotated.")
+                print(f"KE {ke_id} is already fully annotated (schema v{ANNOTATION_SCHEMA_VERSION}).")
                 continue
             annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields)
         return
 
     store = load_ke_annotations()
-    # The check for existing annotation is based on the presence of "assays" as a proxy for a complete annotation.
-    # since that's the last step in the workflow, *currently*. This allows --force-on to work on specific fields
-    # without being blocked by the presence of other annotated fields.   
-    # TODO: When DOA annotation is implemented, this should be updated. 
-    if args.ke_id in store and not args.force and not force_fields and store[args.ke_id].get("assays") is not None:
-        print(f"KE {args.ke_id} is fully annotated. Use --force to re-annotate or --force-on <field> to re-annotate specific fields.")
+    # A KE is "complete" when it carries the current ANNOTATION_SCHEMA_VERSION,
+    # stamped by annotate_ke() as its final step. A plain run skips complete KEs;
+    # --force / --force-on bypass this to re-annotate all or specific fields.
+    if (args.ke_id in store and not args.force and not force_fields
+            and store[args.ke_id].get("schema_version") == ANNOTATION_SCHEMA_VERSION):
+        print(f"KE {args.ke_id} is fully annotated (schema v{ANNOTATION_SCHEMA_VERSION}). "
+              f"Use --force to re-annotate or --force-on <field> to re-annotate specific fields.")
         return
 
     annotate_ke(args.ke_id, cache, force=args.force, force_fields=force_fields)

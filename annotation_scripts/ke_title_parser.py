@@ -45,6 +45,39 @@ ALTERATIVE_ACTION_WORDS = ALTERNATIVE_ACTION_WORDS
 _OBJECT_PREPOSITIONS = ["of", "in", "by", "on", "to", "from"]
 _PROCESS_NOUN_SUFFIXES = ("ation", "tion", "sis", "ment", "ing", "ance", "ence", "al")
 
+# Subcellular-location words that, when they modify a process in a KE subject
+# (e.g. "Mitochondrial fatty acid beta-oxidation"), denote a GO cellular_component
+# rather than part of the object name. Each maps to the organelle NOUN to query
+# BioPortal with. Deliberately conservative: "nuclear" and "membrane" are omitted
+# because they are frequently part of protein names ("nuclear receptor",
+# "nuclear factor", "plasma membrane receptor") — those are curated by hand if a
+# cellular_component is wanted. Multi-word phrases are matched before single words.
+_SUBCELLULAR_LOCATIONS = {
+    "mitochondrial": "mitochondrion",
+    "mitochondria": "mitochondrion",
+    "mitochondrion": "mitochondrion",
+    "peroxisomal": "peroxisome",
+    "peroxisome": "peroxisome",
+    "lysosomal": "lysosome",
+    "lysosome": "lysosome",
+    "endoplasmic reticulum": "endoplasmic reticulum",
+    "sarcoplasmic reticulum": "sarcoplasmic reticulum",
+    "cytosolic": "cytosol",
+    "cytoplasmic": "cytoplasm",
+    "golgi": "Golgi apparatus",
+}
+
+
+def _detect_cellular_component(subject: str) -> str | None:
+    """Return the organelle noun named by a subcellular-location word in the
+    subject, or None. Longest phrases win so 'endoplasmic reticulum' is not
+    shadowed by a single word."""
+    lowered = subject.lower()
+    for term in sorted(_SUBCELLULAR_LOCATIONS, key=len, reverse=True):
+        if re.search(rf'\b{re.escape(term)}\b', lowered):
+            return _SUBCELLULAR_LOCATIONS[term]
+    return None
+
 
 def _detect_biological_action(direction: str) -> str | None:
     for word in sorted(WIKI_ACTION_WORDS, key=len, reverse=True):
@@ -104,6 +137,8 @@ def parse_ke_title(title: str) -> dict:
         biological_action  – matched AOP-Wiki controlled-vocab term, or None
         subjects           – list of subject phrases (split on ' and ' conjunctions)
         full_subject       – full subject phrase (unmodified)
+        cellular_component – organelle noun for a subcellular-location word in the
+                             subject (e.g. "mitochondrion"), or None
     """
     cleaned = re.sub(r'\s*\([^)]{1,4}\)', '', title).strip()
     parts = cleaned.split(',', 1)
@@ -121,4 +156,5 @@ def parse_ke_title(title: str) -> dict:
         "biological_action": _detect_biological_action(direction),
         "subjects": subjects,
         "full_subject": subject,
+        "cellular_component": _detect_cellular_component(subject),
     }
