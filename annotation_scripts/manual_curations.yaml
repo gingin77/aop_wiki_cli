@@ -21,6 +21,8 @@
 #     biological_organization   a level string: Molecular | Cellular | Tissue | Organ | Individual | Population
 #     cell_term                 a CL term
 #     organ_term                a UBERON term
+#     cellular_component        a GO cellular_component term (subcellular structure /
+#                               organelle, e.g. mitochondrion GO:0005739)
 #   Per-subject (under `fields:` — applied to the KE's parsed subject phrase):
 #     biological_object         protein/gene/chemical/anatomy object
 #     biological_process        a GO process
@@ -62,6 +64,74 @@ curations:
         curie: PR:000011170
         label: nuclear factor erythroid 2-related factor 2
         subject: "NFE2/Nrf2 repression"
+
+
+  "458":
+    rationale: >-
+      Title "Increased, De Novo FA synthesis" breaks into: "Increased" = the
+      action (recomputed from the title by annotate_ke.py); "De Novo FA
+      synthesis" = the biological process; and the entity acted upon = fatty
+      acid. "FA" is an abbreviation BioPortal does not resolve (a "De Novo FA
+      synthesis" GO query returns unrelated terms like "de novo centriole
+      assembly"), so both are pinned to their ontology terms directly:
+      GO:0006633 fatty acid biosynthetic process (there is no distinct "de
+      novo" GO child) and CHEBI:35366 fatty acid.
+    fields:
+      biological_process:
+        curie: GO:0006633
+        label: fatty acid biosynthetic process
+      biological_object:
+        curie: CHEBI:35366
+        label: fatty acid
+      phenotype:
+        curie: MP:0020867
+        label: increased lipogenesis
+
+  # KE 459 — "Increase, Liver steatosis". Steatosis is a pathological state, not
+  # a GO process, so "steatosis" has no GO term and a "liver steatosis" GO query
+  # returns only liver morphogenesis/development terms (the annotator correctly
+  # rejected them). The condition itself is captured as a phenotype (HP:0001397
+  # Hepatic steatosis) by the normal pipeline. Here we pin the underlying
+  # mechanistic process GO does model: lipid storage.
+  "459":
+    rationale: >-
+      Steatosis is a phenotype (abnormal hepatic lipid accumulation), not a GO
+      biological process, so no "steatosis" GO term exists and the automated
+      process query returned only unrelated liver-development terms. Pinning the
+      underlying GO process that produces the condition: lipid storage
+      (GO:0019915). Object (liver) and phenotype (HP:0001397 hepatic steatosis)
+      are left to the normal pipeline.
+    fields:
+      biological_process:
+        curie: GO:0019915
+        label: lipid storage
+
+  # KE 451 — "Inhibition, Mitochondrial fatty acid beta-oxidation": no curation
+  # needed. ke_title_parser now extracts the subcellular-location word
+  # ("Mitochondrial" -> "mitochondrion") and the annotation workflow resolves
+  # cellular_component to GO:0005739 automatically.
+
+  # KE 878 — "Inhibition, SREBP1c". "SREBP1c" is a lab abbreviation BioPortal
+  # does not match (0 hits); it is sterol regulatory element-binding protein 1.
+  "878":
+    rationale: >-
+      "SREBP1c" is a lab abbreviation BioPortal does not resolve; it is sterol
+      regulatory element-binding protein 1. Pinned to the species-neutral PR term.
+    fields:
+      biological_object:
+        curie: PR:000015611
+        label: sterol regulatory element-binding protein 1
+
+  # KE 880 — "Increased, ApoB100". "ApoB100" is a lab abbreviation BioPortal
+  # does not match (0 hits); it is apolipoprotein B-100.
+  "880":
+    rationale: >-
+      "ApoB100" is a lab abbreviation BioPortal does not resolve; it is
+      apolipoprotein B-100. Pinned to the species-neutral PR term.
+    fields:
+      biological_object:
+        curie: PR:000004145
+        label: apolipoprotein B-100
 
   # ---------------------------------------------------------------------------
   # Examples of the other styles (remove or adapt). Commented out so they do not

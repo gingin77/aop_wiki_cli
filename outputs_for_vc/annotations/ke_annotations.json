@@ -7959,5 +7959,1274 @@
       "ec_annotations['Mitochondrial dysfunction'].phenotype",
       "ec_annotations['Mitochondrial dysfunction'].biological_action"
     ]
+  },
+  "227": {
+    "ke_id": "227",
+    "title": "Activation, PPAR\u03b1",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "PPAR\u03b1",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_Q07869",
+          "label": "peroxisome proliferator-activated receptor alpha (human)",
+          "ontology": "PR",
+          "reason": "The biological object acted upon in 'Activation, PPAR\u03b1' is the peroxisome proliferator-activated receptor alpha protein, and the human form (PR term) is the most appropriate general representative when species is not specified, as AOP-Wiki KEs are typically described in a human-relevant context.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Molecular Modelling / Docking Simulation",
+        "description": "Computational simulation of ligand binding to PPAR\u03b1 to predict binding interactions through quantitative virtual screening.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_52214",
+            "label": "ligand",
+            "ontology": "CHEBI",
+            "reason": "In molecular docking simulations, the biological object being acted upon or interacting is generically a 'ligand' (CHEBI), which best represents the chemical entity being docked into a receptor binding site.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_52214",
+            "label": "ligand",
+            "ontology": "CHEBI",
+            "reason": "In molecular docking simulations, the biological object being acted upon is a ligand (small molecule) that is docked into a receptor binding site, making the generic 'ligand' ChEBI term the best match.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process of molecular modelling/docking simulation, which represents computational prediction of ligand-receptor interactions rather than any specific biological ligand binding event covered by these GO terms.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "None of the candidate terms match 'Molecular Modelling / Docking Simulation', which refers to a computational/in silico method for predicting molecular interactions, not a biological process occurring in cells.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": null
+      },
+      {
+        "title": "Scintillation Proximity Binding Assay",
+        "description": "Direct binding assay measuring whether a ligand binds to PPAR\u03b1 in vitro, used as a qualitative screening tool to identify compounds that bind to PPAR\u03b1.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "PPAR\u03b1"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_52214",
+            "label": "ligand",
+            "ontology": "CHEBI",
+            "reason": "In a Scintillation Proximity Binding Assay, the biological object acted upon is a ligand (the radiolabeled molecule that binds to the target), making the general 'ligand' ChEBI term the best match among the candidates.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms appropriately describe the biological process represented by a Scintillation Proximity Binding Assay, which is a radioligand binding assay technique used to measure ligand-receptor binding interactions; the candidates are all highly specific ligand binding terms unrelated to this general binding assay context.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001146",
+          "label": "binding assay",
+          "ontology": "OBI",
+          "reason": "A Scintillation Proximity Assay (SPA) is fundamentally a binding assay that measures molecular interactions, making 'binding assay' the best match for the assay type, even though no single term captures the scintillation proximity aspect specifically.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "PPAR\u03b1 Reporter Gene Transactivation Assay",
+        "description": "Transient or stable transfection-based assay using a PPAR\u03b1 expression plasmid and a reporter plasmid to quantify changes in PPAR\u03b1 activation by measuring activity of genes linked to a PPAR\u03b1 response element. Can be performed in vitro or ex vivo.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Yu and Reddy",
+            "year": "2007",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Viswakarma et al.",
+            "year": "2010",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "LeBlanc, Norris, and Kloas",
+            "year": "2011",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": "agonist",
+        "objects": [
+          {
+            "label": "PPAR\u03b1"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (bacterial virulence gene, calcitonin gene-related peptides, or lymphocyte activation gene 3 protein) represent the biological object acted upon in a PPAR\u03b1 Reporter Gene Transactivation Assay, which would involve PPAR\u03b1 (a nuclear receptor/transcription factor) or a reporter gene construct.",
+            "source": "llm_rejection"
+          },
+          {
+            "label": "PPAR\u03b1 expression plasmid"
+          },
+          {
+            "rejection_reason": "None of the candidate terms (which are specific plasmid vaccine constructs) appropriately represent the biological object in a PPAR\u03b1 Reporter Gene Transactivation Assay; the relevant biological object would be PPAR\u03b1 (a nuclear receptor protein/gene) or a reporter gene construct, neither of which is represented by these candidates.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms accurately describe the biological process of PPAR\u03b1-mediated transcriptional activation/reporter gene transactivation, which involves nuclear receptor-mediated gene regulation and transcription factor activity.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0004879",
+            "label": "nuclear receptor activity",
+            "ontology": "GO",
+            "reason": "PPAR\u03b1 is a nuclear receptor that functions as a ligand-dependent transcription factor, and 'nuclear receptor activity' (synonymous with ligand-dependent transcription factor activity) best describes the biological process of PPAR\u03b1 mediating transcriptional activation in a reporter gene assay.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0001228",
+            "label": "DNA-binding transcription activator activity, RNA polymerase II-specific",
+            "ontology": "GO",
+            "reason": "PPAR\u03b1 is a nuclear receptor that acts as an RNA polymerase II-specific DNA-binding transcription activator, and the reporter gene transactivation assay measures exactly this activity of PPAR\u03b1 binding to PPRE elements and activating transcription via RNA polymerase II machinery.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002082",
+          "label": "reporter gene assay",
+          "ontology": "OBI",
+          "reason": "The PPAR\u03b1 Reporter Gene Transactivation Assay is a reporter gene assay measuring transcriptional activation of PPAR\u03b1, which directly matches the general 'reporter gene assay' term without implying a specific fluorescence-based or promoter-activity-specific methodology.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Electrophoretic Mobility Shift Assay (EMSA)",
+        "description": "In vitro assay that determines whether a protein or protein mixture (e.g. PPAR\u03b1 with cofactors) binds to a specific DNA or RNA sequence, measuring cofactor binding by changes in gel mobility.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "PPAR\u03b1"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16991",
+            "label": "deoxyribonucleic acid",
+            "ontology": "CHEBI",
+            "reason": "EMSA (Electrophoretic Mobility Shift Assay) is a technique used to study protein-DNA (or protein-RNA) interactions, where the biological object acted upon is deoxyribonucleic acid (DNA), making ChEBI's 'deoxyribonucleic acid' the best match.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "EMSA is an assay technique used to study protein-DNA or protein-RNA interactions, and none of the candidate terms (which are all cofactor-related ChEBI terms) appropriately represent the biological object involved, which would be DNA, RNA, or protein complexes.",
+            "source": "llm_rejection"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0003677",
+            "label": "DNA binding",
+            "ontology": "GO",
+            "reason": "EMSA measures the binding of proteins (or other molecules) to DNA by detecting shifts in electrophoretic mobility, so 'DNA binding' is the most appropriate biological process term.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to Electrophoretic Mobility Shift Assay (EMSA), which is a technique used to study protein-DNA or protein-RNA interactions; the candidates all pertain to cofactor binding or molybdenum-related processes.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001671",
+          "label": "electrophoretic mobility shift assay",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly names 'Electrophoretic Mobility Shift Assay (EMSA)', which directly matches the OBI term 'electrophoretic mobility shift assay' including its common synonyms like gel shift assay and gel mobility shift assay.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "PPAR\u03b1 Transcription Factor Assay Kit",
+        "description": "Commercially available kit-based assay to measure PPAR\u03b1 transcription factor activity.",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "PPAR\u03b1"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0098531",
+            "label": "ligand-modulated transcription factor activity",
+            "ontology": "GO",
+            "reason": "PPAR\u03b1 is a nuclear receptor that functions as a ligand-activated transcription factor, where its activity is modulated by binding of fatty acids and other ligands, making 'ligand-modulated transcription factor activity' the best match.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0000291",
+          "label": "transcription factor binding site assay",
+          "ontology": "OBI",
+          "reason": "The KE title describes a PPAR\u03b1 Transcription Factor Assay Kit, which measures transcription factor binding activity, best matching 'transcription factor binding site assay'.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Microarray Gene Expression Profiling with Running Fisher Test",
+        "description": "In vivo microarray profiling using large gene expression databases (TG-GATEs and DrugMatrix) to develop a PPAR\u03b1-specific gene expression signature of 131 PPAR\u03b1-dependent genes built from livers of wild-type and PPAR\u03b1-null mice. The Running Fisher test provides a quantitative measure of similarity/correlation between the PPAR\u03b1 signature and positive/negative test sets for classification of PPAR\u03b1 biomarker genes.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Svoboda et al.",
+            "year": "2019",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Igarashi et al.",
+            "year": "2015",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Corton et al.",
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Hill et al.",
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Kupershmidt et al.",
+            "year": "2010",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Lewis et al.",
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Rooney et al.",
+            "year": "2018",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Gaillard et al.",
+            "year": "2006",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Koppen et al.",
+            "year": "2009",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Ong et al.",
+            "year": "2010",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Chow et al.",
+            "year": "2011",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "De Vos et al.",
+            "year": "2011",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          },
+          {
+            "title": null,
+            "authors": "Simon et al.",
+            "year": "2015",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "label": "PPAR\u03b1"
+          },
+          {
+            "rejection_reason": "None of the candidate terms relate to the biological object in microarray gene expression profiling, which would involve nucleic acids (mRNA/DNA), genes, or genomic material rather than these unrelated chemical compounds.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "Microarray Gene Expression Profiling with Running Fisher Test acts upon mRNA/gene expression data (transcriptome), not specifically a liver anatomical structure or chemical entity; none of the candidate terms represent the biological object (RNA/gene expression) relevant to this key event.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_33699",
+            "label": "messenger RNA",
+            "ontology": "CHEBI",
+            "reason": "Microarray gene expression profiling measures mRNA levels across the genome, making messenger RNA (mRNA) the most appropriate biological object being acted upon in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0010467",
+            "label": "gene expression",
+            "ontology": "GO",
+            "reason": "Microarray gene expression profiling directly measures gene expression, making 'gene expression' [GO] the best match for the biological process represented by this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "rejection_reason": "Microarray gene expression profiling with running Fisher test describes a transcriptomic measurement/analytical method, not a biological process captured by any of the offered GO terms which all relate to post-transcriptional gene silencing or transcriptional attenuation.",
+            "source": "llm_rejection"
+          },
+          {
+            "rejection_reason": "The KE describes a gene expression profiling technique (Microarray with Running Fisher Test), which is a measurement/analytical process, not a biological process represented by any of the candidate GO terms related to cell activation.",
+            "source": "llm_rejection"
+          }
+        ],
+        "taxon_terms": [
+          {
+            "label": "Mus musculus"
+          }
+        ],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0400147",
+          "label": "microarray",
+          "ontology": "OBI",
+          "reason": "The KE title explicitly refers to 'Microarray Gene Expression Profiling', which directly corresponds to the microarray assay type in OBI.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "PPAR\u03b1 Ligand Binding Domain Characterization",
+        "description": "Structural and functional characterization of the PPAR\u03b1 ligand binding domain to understand ligand interactions, aimed at next-generation metabolic disease drug development.",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Kamata et al.",
+            "year": "2020",
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_52214",
+            "label": "ligand",
+            "ontology": "CHEBI",
+            "reason": "The KE involves PPAR\u03b1 ligand binding domain characterization, where the biological object being acted upon is a ligand that binds to the PPAR\u03b1 receptor, making the general 'ligand' ChEBI term the best match.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_52214",
+            "label": "ligand",
+            "ontology": "CHEBI",
+            "reason": "The KE involves PPAR\u03b1 ligand binding domain characterization, where the biological object being acted upon is a ligand (the molecule that binds to the PPAR\u03b1 receptor's ligand binding domain), making the generic 'ligand' term from ChEBI the best match.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "rejection_reason": "None of the candidate terms describe PPAR\u03b1 ligand binding domain characterization or nuclear receptor ligand binding, which would require a GO term related to nuclear receptor activity or PPAR ligand binding specifically.",
+            "source": "llm_rejection"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0048018",
+            "label": "receptor ligand activity",
+            "ontology": "GO",
+            "reason": "PPAR\u03b1 ligand binding domain characterization involves a ligand binding to a receptor (PPAR\u03b1), which is best described by 'receptor ligand activity' as the biological process.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 7,
+        "assay_type": null
+      }
+    ],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "451": {
+    "ke_id": "451",
+    "title": "Inhibition, Mitochondrial fatty acid beta-oxidation",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": {
+      "term_id": "http://purl.obolibrary.org/obo/GO_0005739",
+      "label": "mitochondrion",
+      "ontology": "GO",
+      "reason": "Mitochondrion is the genuine GO cellular component term representing the organelle where fatty acid beta-oxidation occurs, while all other candidates are GO biological process terms describing mitochondrial localization, distribution, inheritance, or organization.",
+      "source": "llm_recommendation"
+    },
+    "ec_annotations": [
+      {
+        "subject": "Mitochondrial fatty acid beta-oxidation",
+        "biological_object": {
+          "rejection_reason": "None of the candidate terms represent the biological object relevant to mitochondrial fatty acid beta-oxidation inhibition, which would ideally be a fatty acid, acyl-CoA molecule, or mitochondrial beta-oxidation enzyme complex, not any of the listed mitochondrial proteins (neurolysin, oligoribonuclease, thioredoxin, aminomethyltransferase, or adrenodoxin).",
+          "source": "llm_rejection"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0006635",
+          "label": "fatty acid beta-oxidation",
+          "ontology": "GO",
+          "reason": "Fatty acid beta-oxidation [GO] directly describes the biological process being inhibited in this key event, matching the KE subject phrase most precisely as a GO biological process term.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0014174",
+          "label": "decreased fatty acid beta-oxidation",
+          "ontology": "MP",
+          "reason": "The KE describes inhibition of mitochondrial fatty acid beta-oxidation, which directly corresponds to 'decreased fatty acid beta-oxidation' as the phenotypic outcome.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [
+        "[manual curation 2026-11-25] cellular_component \u2190 mitochondrion. Title \"Inhibition, Mitochondrial fatty acid beta-oxidation\" qualifies the process by subcellular location. GO:0006635 fatty acid beta-oxidation is not mitochondrion-restricted (peroxisomes also perform it), so the \"Mitochondrial\" qualifier is meaningful; captured as cellular_component mitochondrion (GO:0005739). [carried from reference]"
+      ],
+      "new": []
+    },
+    "newly_annotated_fields": [
+      "cellular_component"
+    ],
+    "schema_version": 2
+  },
+  "458": {
+    "ke_id": "458",
+    "title": "Increased, De Novo FA synthesis",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "De Novo FA synthesis",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CHEBI_35366",
+          "label": "fatty acid",
+          "ontology": "CHEBI",
+          "source": "manual_curation",
+          "curie": "CHEBI:35366"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0006633",
+          "label": "fatty acid biosynthetic process",
+          "ontology": "GO",
+          "source": "manual_curation",
+          "curie": "GO:0006633"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0020867",
+          "label": "increased lipogenesis",
+          "ontology": "MP",
+          "source": "manual_curation",
+          "curie": "MP:0020867"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [
+        "[manual curation 2026-11-25] biological_process \u2190 fatty acid biosynthetic process. Title \"Increased, De Novo FA synthesis\" breaks into: \"Increased\" = the action (recomputed from the title by annotate_ke.py); \"De Novo FA synthesis\" = the biological process; and the entity acted upon = fatty acid. \"FA\" is an abbreviation BioPortal does not resolve (a \"De Novo FA synthesis\" GO query returns unrelated terms like \"de novo centriole assembly\"), so both are pinned to their ontology terms directly: GO:0006633 fatty acid biosynthetic process (there is no distinct \"de novo\" GO child) and CHEBI:35366 fatty acid. [carried from reference]",
+        "[manual curation 2026-11-25] biological_object \u2190 fatty acid. Title \"Increased, De Novo FA synthesis\" breaks into: \"Increased\" = the action (recomputed from the title by annotate_ke.py); \"De Novo FA synthesis\" = the biological process; and the entity acted upon = fatty acid. \"FA\" is an abbreviation BioPortal does not resolve (a \"De Novo FA synthesis\" GO query returns unrelated terms like \"de novo centriole assembly\"), so both are pinned to their ontology terms directly: GO:0006633 fatty acid biosynthetic process (there is no distinct \"de novo\" GO child) and CHEBI:35366 fatty acid. [carried from reference]",
+        "[manual curation 2026-11-25] phenotype \u2190 increased lipogenesis. Title \"Increased, De Novo FA synthesis\" breaks into: \"Increased\" = the action (recomputed from the title by annotate_ke.py); \"De Novo FA synthesis\" = the biological process; and the entity acted upon = fatty acid. \"FA\" is an abbreviation BioPortal does not resolve (a \"De Novo FA synthesis\" GO query returns unrelated terms like \"de novo centriole assembly\"), so both are pinned to their ontology terms directly: GO:0006633 fatty acid biosynthetic process (there is no distinct \"de novo\" GO child) and CHEBI:35366 fatty acid. [carried from reference]"
+      ],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "459": {
+    "ke_id": "459",
+    "title": "Increase, Liver steatosis",
+    "biological_organization": "Organ",
+    "cell_term": null,
+    "organ_term": {
+      "term_id": "http://purl.obolibrary.org/obo/UBERON_0002107",
+      "label": "liver",
+      "ontology": "UBERON",
+      "reason": "Liver steatosis is a condition affecting the liver as a whole organ, making 'liver [UBERON]' the most appropriate and general anatomical term for this key event.",
+      "source": "llm_recommendation"
+    },
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "Liver steatosis",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/UBERON_0002107",
+          "label": "liver",
+          "ontology": "UBERON",
+          "reason": "Liver steatosis is a condition affecting the liver organ as a whole, making UBERON 'liver' the most appropriate biological object term for this key event.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0019915",
+          "label": "lipid storage",
+          "ontology": "GO",
+          "source": "manual_curation",
+          "curie": "GO:0019915"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/HP_0001397",
+          "label": "Hepatic steatosis",
+          "ontology": "HP",
+          "reason": "Hepatic steatosis (HP) directly matches 'Liver steatosis' as listed in its synonyms, making it the best match for this key event describing increased liver fat accumulation.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [
+      {
+        "title": "Lipidomics for Steatosis",
+        "description": "Measurement of lipid levels using lipidomics approaches to assess steatosis",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Yang and Han",
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_17855",
+            "label": "triglyceride",
+            "ontology": "CHEBI",
+            "reason": "Triglyceride (triacylglycerol) is the most appropriate biological object for steatosis, as hepatic steatosis is characterized by abnormal accumulation of triglycerides in liver cells, and the KE involves lipidomics measurement of triglycerides as the key molecular entity.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16113",
+            "label": "cholesterol",
+            "ontology": "CHEBI",
+            "reason": "Cholesterol is the most relevant biological object for a lipidomics KE related to steatosis, as cholesterol accumulation is a key lipid measured in hepatic steatosis assessments.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_35366",
+            "label": "fatty acid",
+            "ontology": "CHEBI",
+            "reason": "Fatty acids are the primary biological molecules measured in lipidomics analyses for steatosis, as hepatic lipid accumulation (steatosis) is fundamentally characterized by abnormal fatty acid and lipid accumulation in liver cells.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_18059",
+            "label": "lipid",
+            "ontology": "CHEBI",
+            "reason": "Lipidomics for Steatosis involves the measurement and analysis of lipids broadly, making the general 'lipid' term from CHEBI the best biological object match for this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "steatosis"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0055088",
+            "label": "lipid homeostasis",
+            "ontology": "GO",
+            "reason": "Lipid homeostasis best represents the biological process underlying steatosis, which involves dysregulation of lipid balance and accumulation in cells, as measured by lipidomics approaches.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 1,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms appropriately describe a lipidomics assay type for steatosis assessment; the closest would be a mass spectrometry-based lipidomics assay, which is not represented among the options.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Histology for Steatosis",
+        "description": "Histological examination of tissue to detect and assess steatosis",
+        "citations": [],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/UBERON_0001280",
+            "label": "liver parenchyma",
+            "ontology": "UBERON",
+            "reason": "Steatosis (fatty liver) is a condition affecting the hepatic parenchyma, the functional tissue of the liver where lipid accumulation occurs in hepatocytes, making liver parenchyma the most precise biological object for histological assessment of steatosis.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "label": "steatosis"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 2,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms accurately represent histological assessment/staining for steatosis, which is a microscopy-based tissue examination assay.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "High Throughput Enzymatic Analysis of Lipids",
+        "description": "Biochemical enzymatic assays to measure concentrations of triglycerides, cholesterols, fatty acids, and related compounds",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Schaefer et al.",
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_17855",
+            "label": "triglyceride",
+            "ontology": "CHEBI",
+            "reason": "Triglyceride (triacylglycerol) is the most general and appropriate biological object for a high throughput enzymatic analysis of lipids, as enzymatic lipid assays commonly target triglycerides as the primary analyte measured.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_16113",
+            "label": "cholesterol",
+            "ontology": "CHEBI",
+            "reason": "The KE describes high throughput enzymatic analysis of lipids, which most directly involves cholesterol as the primary biological molecule measured in standard enzymatic lipid assays.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_35366",
+            "label": "fatty acid",
+            "ontology": "CHEBI",
+            "reason": "The KE involves high throughput enzymatic analysis of lipids, and fatty acids are the primary lipid molecules that would be analyzed in such enzymatic assays, making 'fatty acid [CHEBI]' the best match as the biological object being acted upon.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006629",
+            "label": "lipid metabolic process",
+            "ontology": "GO",
+            "reason": "High throughput enzymatic analysis of lipids involves the metabolic processing of lipids, which is best captured by 'lipid metabolic process' as a broad GO biological process term encompassing enzymatic reactions involving lipids.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 3,
+        "assay_type": {
+          "rejection_reason": "None of the candidate terms match 'High Throughput Enzymatic Analysis of Lipids', as all options relate to nucleic acid sequencing assays rather than enzymatic lipid analysis.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Analytical Ultracentrifugation for Lipid Measurement",
+        "description": "Analytical ultracentrifugation to measure lipid concentrations including triglycerides, cholesterols, and fatty acids",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Schaefer et al.",
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_17855",
+            "label": "triglyceride",
+            "ontology": "CHEBI",
+            "reason": "Triglyceride (triacylglycerol) is the most general and appropriate biological object for a KE involving analytical ultracentrifugation for lipid measurement, as this technique is commonly used to measure triglyceride-containing lipoprotein fractions.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_50404",
+            "label": "lipoprotein cholesterol",
+            "ontology": "CHEBI",
+            "reason": "Analytical ultracentrifugation is a standard method used to separate and measure lipoprotein fractions (HDL, LDL, VLDL) and their associated cholesterol, making lipoprotein cholesterol the best match for the biological object being measured in this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_35366",
+            "label": "fatty acid",
+            "ontology": "CHEBI",
+            "reason": "Analytical ultracentrifugation for lipid measurement is most directly associated with fatty acids as the broad class of lipid molecules being measured, making 'fatty acid' the best match among the candidates.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006629",
+            "label": "lipid metabolic process",
+            "ontology": "GO",
+            "reason": "Analytical ultracentrifugation for lipid measurement relates to the broader biological process of lipid metabolic process, as it is used to analyze lipid components (such as lipoproteins) involved in lipid metabolism.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 4,
+        "assay_type": {
+          "rejection_reason": "None of the candidates specifically represent analytical ultracentrifugation as an assay type; while lipid profiling assay (5) relates to lipid measurement, it does not capture the ultracentrifugation methodology described in the KE title.",
+          "source": "llm_rejection"
+        }
+      },
+      {
+        "title": "Gradient Gel Electrophoresis for Lipid Measurement",
+        "description": "Gradient gel electrophoresis to separate and measure lipid species including triglycerides, cholesterols, and fatty acids",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Schaefer et al.",
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_17855",
+            "label": "triglyceride",
+            "ontology": "CHEBI",
+            "reason": "Triglyceride is the most general and appropriate biological object term for a KE involving gradient gel electrophoresis for lipid measurement, as this technique measures triglyceride (triacylglycerol) levels in lipoproteins.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_50404",
+            "label": "lipoprotein cholesterol",
+            "ontology": "CHEBI",
+            "reason": "Gradient gel electrophoresis is a method used to measure lipoprotein particles and their associated cholesterol, making lipoprotein cholesterol the most appropriate biological object for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_35366",
+            "label": "fatty acid",
+            "ontology": "CHEBI",
+            "reason": "Gradient gel electrophoresis for lipid measurement is commonly used to analyze lipid particles and fatty acids, making 'fatty acid' the most broadly applicable biological object among the candidates for this lipid measurement context.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006629",
+            "label": "lipid metabolic process",
+            "ontology": "GO",
+            "reason": "Gradient gel electrophoresis for lipid measurement is a technique used to analyze lipids, which falls under the broader biological process of lipid metabolic process/lipid metabolism.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 5,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0001121",
+          "label": "gel electrophoresis system",
+          "ontology": "OBI",
+          "reason": "Gradient gel electrophoresis is a form of gel electrophoresis using a concentration gradient in the gel matrix, making 'gel electrophoresis system' the best matching term among the candidates.",
+          "source": "llm_recommendation"
+        }
+      },
+      {
+        "title": "Nuclear Magnetic Resonance (NMR) for Lipid Measurement",
+        "description": "NMR spectroscopy to directly measure concentrations of triglycerides, cholesterols, fatty acids, and related lipid compounds",
+        "citations": [
+          {
+            "title": null,
+            "authors": "Schaefer et al.",
+            "year": 2016,
+            "doi": null,
+            "pmid": null,
+            "journal": null
+          }
+        ],
+        "effect_specificity": null,
+        "objects": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_17855",
+            "label": "triglyceride",
+            "ontology": "CHEBI",
+            "reason": "Triglyceride (triacylglycerol) is the most general and directly relevant biological molecule measured by NMR for lipid measurement, matching the broad lipid analyte context of this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_50404",
+            "label": "lipoprotein cholesterol",
+            "ontology": "CHEBI",
+            "reason": "NMR-based lipid measurement in biological contexts primarily quantifies lipoprotein-associated cholesterol (lipoprotein cholesterol) fractions such as LDL-C and HDL-C, making lipoprotein cholesterol the most relevant biological object for this key event.",
+            "source": "llm_recommendation"
+          },
+          {
+            "term_id": "http://purl.obolibrary.org/obo/CHEBI_35366",
+            "label": "fatty acid",
+            "ontology": "CHEBI",
+            "reason": "Fatty acids are the primary biological molecules measured by NMR-based lipid measurement techniques, making 'fatty acid' the most appropriate and general term for the biological object in this key event.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "processes": [
+          {
+            "term_id": "http://purl.obolibrary.org/obo/GO_0006629",
+            "label": "lipid metabolic process",
+            "ontology": "GO",
+            "reason": "NMR for lipid measurement relates to the broader biological process of lipid metabolic process, as NMR is used to quantify and characterize lipids involved in metabolism.",
+            "source": "llm_recommendation"
+          }
+        ],
+        "taxon_terms": [],
+        "id": 6,
+        "assay_type": {
+          "term_id": "http://purl.obolibrary.org/obo/OBI_0002985",
+          "label": "magnetic resonance imaging assay",
+          "ontology": "OBI",
+          "reason": "NMR for lipid measurement is a type of magnetic resonance imaging assay, as NMR spectroscopy used for quantifying lipids falls under the broader category of MRI/NMR-based assay methods captured by this OBI term.",
+          "source": "llm_recommendation"
+        }
+      }
+    ],
+    "comments": {
+      "carried": [
+        "[manual curation 2026-11-25] biological_process \u2190 lipid storage. Steatosis is a phenotype (abnormal hepatic lipid accumulation), not a GO biological process, so no \"steatosis\" GO term exists and the automated process query returned only unrelated liver-development terms. Pinning the underlying GO process that produces the condition: lipid storage (GO:0019915). Object (liver) and phenotype (HP:0001397 hepatic steatosis) are left to the normal pipeline. [carried from reference]"
+      ],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "478": {
+    "ke_id": "478",
+    "title": "Activation, NRF2",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "NRF2",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_000011170",
+          "label": "nuclear factor erythroid 2-related factor 2",
+          "ontology": "PR",
+          "reason": "The generic, species-neutral PR term for nuclear factor erythroid 2-related factor 2 (NRF2) best represents the biological object in this KE, which is not restricted to a specific organism.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "479": {
+    "ke_id": "479",
+    "title": "Activation, NR1H4",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "NR1H4",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_Q96RI1",
+          "label": "bile acid receptor (human)",
+          "ontology": "PR",
+          "reason": "The KE 'Activation, NR1H4' refers to the human bile acid receptor NR1H4, and the human-specific PR term (synonyms: NR1H4, RIP14, BAR) is the best match for the biological object being acted upon in an AOP-Wiki context, which typically focuses on human-relevant biology.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "480": {
+    "ke_id": "480",
+    "title": "Activation, SHP",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "SHP",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_000011391",
+          "label": "nuclear receptor subfamily 0 group B member 2",
+          "ontology": "PR",
+          "reason": "SHP (Small Heterodimer Partner) refers to nuclear receptor subfamily 0 group B member 2, and the species-generic PR term is the best match for the biological object being activated in this KE without specifying a particular species.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms are GO biological process terms; they are all molecular complex terms, and none appropriately describes the biological process of SHP activation.",
+          "source": "llm_rejection"
+        },
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "482": {
+    "ke_id": "482",
+    "title": "Decreased, DHB4/HSD17B4",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "DHB4/HSD17B4",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_P51659",
+          "label": "peroxisomal multifunctional enzyme type 2 (human)",
+          "ontology": "PR",
+          "reason": "The KE references HSD17B4 (human gene symbol), and the human-specific PR term for peroxisomal multifunctional enzyme type 2 with synonyms EDH17B4/HSD17B4/SDR8C1 is the best match for the biological object being acted upon.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "483": {
+    "ke_id": "483",
+    "title": "Activation, LXR alpha",
+    "biological_organization": "Molecular",
+    "cell_term": {
+      "rejection_reason": "None of the candidate cell types are relevant to LXR alpha activation, which typically involves hepatocytes, macrophages, or intestinal cells, not T cells, motor neurons, or renal intercalated cells.",
+      "source": "llm_rejection"
+    },
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "LXR alpha",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_000011395",
+          "label": "oxysterols receptor LXR-alpha",
+          "ontology": "PR",
+          "reason": "The KE describes activation of LXR alpha in a general (non-species-specific) context, making the generic 'oxysterols receptor LXR-alpha' term the best match as the biological object being acted upon.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms relate to LXR alpha (Liver X Receptor alpha) activation, which is a nuclear receptor transcription factor activation process; appropriate GO terms would be something like 'nuclear receptor activity' or 'transcription factor binding' or 'lipid metabolic process regulation'.",
+          "source": "llm_rejection"
+        },
+        "phenotype": {
+          "rejection_reason": "None of the candidate terms match the phenotype associated with 'Activation, LXR alpha' \u2014 Alpha-EEG is an electroencephalography finding unrelated to LXR alpha receptor activation.",
+          "source": "llm_rejection"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "878": {
+    "ke_id": "878",
+    "title": "Inhibition, SREBP1c",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "SREBP1c",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_000015611",
+          "label": "sterol regulatory element-binding protein 1",
+          "ontology": "PR",
+          "source": "manual_curation",
+          "curie": "PR:000015611"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "decreased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [
+        "[manual curation 2026-11-25] biological_object \u2190 sterol regulatory element-binding protein 1. \"SREBP1c\" is a lab abbreviation BioPortal does not resolve; it is sterol regulatory element-binding protein 1. Pinned to the species-neutral PR term. [carried from reference]"
+      ],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "879": {
+    "ke_id": "879",
+    "title": "Activation, MTTP",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "MTTP",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_P55157",
+          "label": "microsomal triglyceride transfer protein large subunit (human)",
+          "ontology": "PR",
+          "reason": "The biological object being activated is the microsomal triglyceride transfer protein (MTTP), and the PR term for the human large subunit best represents this protein molecule with the synonyms MTTP/MTP matching the KE title.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "880": {
+    "ke_id": "880",
+    "title": "Increased, ApoB100",
+    "biological_organization": "Molecular",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "ApoB100",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_000004145",
+          "label": "apolipoprotein B-100",
+          "ontology": "PR",
+          "source": "manual_curation",
+          "curie": "PR:000004145"
+        },
+        "biological_process": null,
+        "phenotype": null,
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [
+        "[manual curation 2026-11-25] biological_object \u2190 apolipoprotein B-100. \"ApoB100\" is a lab abbreviation BioPortal does not resolve; it is apolipoprotein B-100. Pinned to the species-neutral PR term. [carried from reference]"
+      ],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "881": {
+    "ke_id": "881",
+    "title": "Increased, Triglyceride",
+    "biological_organization": "Tissue",
+    "cell_term": null,
+    "organ_term": null,
+    "cellular_component": null,
+    "ec_annotations": [
+      {
+        "subject": "Triglyceride",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/CHEBI_17855",
+          "label": "triglyceride",
+          "ontology": "CHEBI",
+          "reason": "The KE describes increased triglyceride levels generally, and the generic 'triglyceride' ChEBI term is the best match for the biological object being acted upon.",
+          "source": "llm_recommendation"
+        },
+        "biological_process": {
+          "term_id": "http://purl.obolibrary.org/obo/GO_0070328",
+          "label": "triglyceride homeostasis",
+          "ontology": "GO",
+          "reason": "Triglyceride homeostasis best represents the biological process underlying 'Increased, Triglyceride' as a key event, since an increase in triglyceride levels reflects a disruption or change in the homeostatic regulation of triglycerides.",
+          "source": "llm_recommendation"
+        },
+        "phenotype": {
+          "term_id": "http://purl.obolibrary.org/obo/MP_0005317",
+          "label": "increased triglyceride level",
+          "ontology": "MP",
+          "reason": "The KE 'Increased, Triglyceride' directly corresponds to 'increased triglyceride level' in the Mammalian Phenotype Ontology, which precisely captures the elevated triglyceride phenotype described.",
+          "source": "llm_recommendation"
+        },
+        "biological_action": {
+          "term": "increased",
+          "source": "controlled_vocab"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": []
+    },
+    "schema_version": 2
+  },
+  "1417": {
+    "ke_id": "1417",
+    "title": "NFE2/Nrf2 repression",
+    "biological_organization": null,
+    "cell_term": null,
+    "organ_term": null,
+    "ec_annotations": [
+      {
+        "subject": "NFE2/Nrf2 repression",
+        "biological_object": {
+          "term_id": "http://purl.obolibrary.org/obo/PR_000011170",
+          "label": "nuclear factor erythroid 2-related factor 2",
+          "ontology": "PR",
+          "source": "manual_curation",
+          "curie": "PR:000011170"
+        },
+        "biological_process": {
+          "rejection_reason": "None of the candidate terms describe the repression of NFE2/Nrf2 transcription factor activity; all candidates relate to catabolite repression mechanisms in microorganisms or translational repression by sucrose, which are unrelated to the Nrf2/NFE2 pathway in mammalian stress response.",
+          "source": "llm_rejection"
+        },
+        "phenotype": null,
+        "biological_action": {
+          "term": "decreased",
+          "source": "llm_normalization"
+        }
+      }
+    ],
+    "assays": [],
+    "comments": {
+      "carried": [],
+      "new": [
+        "[manual curation 2026-11-25] biological_object \u2190 nuclear factor erythroid 2-related factor 2. AOP-Wiki title pairs NFE2 with Nrf2, but the KE content cites no evidence or references for NFE2 (a distinct gene, HGNC:7780, from NFE2L2/NRF2). Curating the biological object as NRF2 (NFE2L2)."
+      ]
+    }
   }
 }
