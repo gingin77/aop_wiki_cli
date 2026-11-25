@@ -11,6 +11,50 @@ import urllib.request
 BIOPORTAL_SEARCH_URL = "https://data.bioontology.org/search"
 STOPWORDS = {"type", "the", "a", "an", "of", "in", "and", "or", "with", "by"}
 
+# Greek letters in KE titles (e.g. "PPARα", "LXRβ", "TNFα") get zero BioPortal
+# hits because ontology labels spell the letter out or fold it into a Latin gene
+# suffix. We retry with Latin transliterations. Two forms per letter, tried in
+# order: the single Latin letter attached to the stem first (α→"a", so
+# "PPARα"→"PPARa", which matches gene symbols like PPARA [HGNC] and the
+# receptor's Protein Ontology label), then the spelled-out word (α→"alpha").
+# The single-letter form is deliberately first: for receptor names the
+# spelled-out, space-separated form ("PPAR alpha") tends to surface the wrong
+# paralog (e.g. PPAR-gamma terms), whereas the attached single letter does not.
+_GREEK_SINGLE = {
+    "α": "a", "β": "b", "γ": "g", "δ": "d", "ε": "e", "ζ": "z", "η": "h",
+    "θ": "th", "ι": "i", "κ": "k", "λ": "l", "μ": "u", "ν": "n", "ξ": "x",
+    "ο": "o", "π": "p", "ρ": "r", "σ": "s", "ς": "s", "τ": "t", "υ": "y",
+    "φ": "f", "χ": "ch", "ψ": "ps", "ω": "w",
+}
+_GREEK_WORD = {
+    "α": "alpha", "β": "beta", "γ": "gamma", "δ": "delta", "ε": "epsilon",
+    "ζ": "zeta", "η": "eta", "θ": "theta", "ι": "iota", "κ": "kappa",
+    "λ": "lambda", "μ": "mu", "ν": "nu", "ξ": "xi", "ο": "omicron",
+    "π": "pi", "ρ": "rho", "σ": "sigma", "ς": "sigma", "τ": "tau",
+    "υ": "upsilon", "φ": "phi", "χ": "chi", "ψ": "psi", "ω": "omega",
+}
+# Fold uppercase Greek onto the same transliterations.
+_GREEK_SINGLE.update({k.upper(): v for k, v in list(_GREEK_SINGLE.items())})
+_GREEK_WORD.update({k.upper(): v for k, v in list(_GREEK_WORD.items())})
+
+
+def _greek_variants(phrase: str) -> list:
+    """Latin transliterations of a phrase containing Greek letters.
+
+    Returns an ordered, de-duplicated list of candidate query strings (never
+    including the original), or [] when the phrase has no Greek letters. Order:
+    single Latin letter attached (α→"a"), then spelled-out word (α→"alpha").
+    """
+    if not any(ch in _GREEK_WORD for ch in phrase):
+        return []
+    single = "".join(_GREEK_SINGLE.get(ch, ch) for ch in phrase)
+    word = "".join(_GREEK_WORD.get(ch, ch) for ch in phrase)
+    variants = []
+    for v in (single, word):
+        if v and v != phrase and v not in variants:
+            variants.append(v)
+    return variants
+
 
 # ---------------------------------------------------------------------------
 # BioPortal search
@@ -81,13 +125,19 @@ def search_bioportal_with_fallback(phrase: str, ontologies: str, api_key: str) -
     """
     Search BioPortal with progressive fallback:
       1. Full phrase
-      2. Normalized phrase (stopwords removed)
-      3. Noun phrase after 'of'
+      2. Greek letters transliterated to Latin (e.g. "PPARα" → "PPARa")
+      3. Normalized phrase (stopwords removed)
+      4. Noun phrase after 'of'
     Returns (results, query_used).
     """
     results = search_bioportal(phrase, ontologies, api_key)
     if results:
         return results, phrase
+
+    for variant in _greek_variants(phrase):
+        results = search_bioportal(variant, ontologies, api_key)
+        if results:
+            return results, f"{variant!r} (Greek transliterated)"
 
     normalized = normalize_phrase(phrase)
     if normalized != phrase:
