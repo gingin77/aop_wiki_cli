@@ -23,12 +23,25 @@ def normalize_phrase(phrase: str) -> str:
 
 def _iri_prefix(iri: str) -> str:
     """
-    Extract the true ontology prefix from an OBO IRI.
-    e.g. 'http://purl.obolibrary.org/obo/GO_0042921' → 'GO'
-    Falls back to empty string for non-OBO IRIs.
+    Extract the ontology prefix from a BioPortal term IRI.
+
+    Handles:
+      - OBO PURL, numeric local id:       '.../obo/GO_0042921'            → 'GO'
+      - OBO PURL, UniProt-style local id: '.../obo/PR_Q16236'             → 'PR'
+        (species-specific Protein Ontology terms use a letter+digits local
+        id, which the old digits-only pattern missed and silently dropped)
+      - CURIE-tailed IRI (e.g. HGNC):     '.../hgnc_id/HGNC:7782'         → 'HGNC'
+    Falls back to empty string when no prefix can be determined.
     """
-    m = re.search(r"/([A-Z]+)_\d+$", iri)
-    return m.group(1) if m else ""
+    # OBO PURL: PREFIX before '_', local id may be digits or alphanumerics.
+    m = re.search(r"/([A-Za-z]+)_[A-Za-z0-9]+$", iri)
+    if m:
+        return m.group(1).upper()
+    # CURIE-style tail, e.g. genenames '.../HGNC:7782'.
+    m = re.search(r"([A-Za-z]+):[A-Za-z0-9]+$", iri)
+    if m:
+        return m.group(1).upper()
+    return ""
 
 
 def search_bioportal(phrase: str, ontologies: str, api_key: str) -> list:
