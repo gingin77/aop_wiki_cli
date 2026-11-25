@@ -39,7 +39,7 @@ AOP_INDEX_FILE = "outputs_for_vc/annotations/aop_ke_index.json"
 
 # Ontology-term fields, classified resolved/rejected/null.
 EC_TERM_FIELDS = ["biological_object", "biological_process", "phenotype"]
-TOP_TERM_FIELDS = ["cell_term", "organ_term"]
+TOP_TERM_FIELDS = ["cell_term", "organ_term", "cellular_component"]
 TERM_FIELDS = EC_TERM_FIELDS + TOP_TERM_FIELDS
 
 

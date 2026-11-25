@@ -8,7 +8,8 @@ and skips re-querying them (its "(reference) ... skipping query" path), so the
 corrections survive every future annotation run.
 
 Only fields the annotator reads back from the store are curatable:
-  top-level:    biological_organization (level string), cell_term, organ_term
+  top-level:    biological_organization (level string), cell_term, organ_term,
+                cellular_component
   per-subject:  biological_object, biological_process, phenotype
 (biological_action is recomputed from the title by annotate_ke.py, so it is not
 curatable here.)
@@ -39,7 +40,7 @@ DEFAULT_CURATIONS = os.path.join(os.path.dirname(__file__), "manual_curations.ya
 CACHE_DIR_ROOT = "outputs/cache"
 
 # Fields the annotator honors from the store (see module docstring).
-TOP_LEVEL_TERM_FIELDS = {"cell_term", "organ_term"}
+TOP_LEVEL_TERM_FIELDS = {"cell_term", "organ_term", "cellular_component"}
 EC_TERM_FIELDS = {"biological_object", "biological_process", "phenotype"}
 STRING_TOP_FIELDS = {"biological_organization"}
 CURATABLE_FIELDS = TOP_LEVEL_TERM_FIELDS | EC_TERM_FIELDS | STRING_TOP_FIELDS
@@ -51,6 +52,7 @@ FIELD_ONTOLOGIES = {
     "phenotype": "UPHENO,HP,MP",
     "cell_term": "CL",
     "organ_term": "UBERON",
+    "cellular_component": "GO",
 }
 
 # Prefixes that resolve to an OBO PURL IRI; anything else keeps its CURIE as id.
@@ -152,6 +154,7 @@ def _blank_entry(ke_id: str, title: str | None) -> dict:
         "biological_organization": None,
         "cell_term": None,
         "organ_term": None,
+        "cellular_component": None,
         "ec_annotations": [],
         "comments": {"carried": [], "new": []},
     }

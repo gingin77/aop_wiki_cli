@@ -83,6 +83,13 @@ def llm_rank_term(
             "Organ terms must be anatomical structures or tissues from UBERON. "
             "Reject any term that is a biological process or molecular function."
         ),
+        "cellular_component": (
+            "Cellular component terms must be subcellular structures or organelles from the "
+            "GO cellular_component branch (e.g. mitochondrion, endoplasmic reticulum, nucleus, "
+            "lipid droplet). GO process and molecular-function terms often appear in the "
+            "candidate list — reject them. If no candidate is a genuine cellular component, "
+            "return null."
+        ),
         "biological_process": (
             "Biological process terms should be GO biological process terms describing "
             "the activity or process represented by the KE subject phrase."

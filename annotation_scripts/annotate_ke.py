@@ -82,6 +82,11 @@ from structure_ke_how_is_it_measured_text import annotate_ke_assays
 
 CELL_TERM_ONTOLOGIES = "CL"
 ORGAN_TERM_ONTOLOGIES = "UBERON"
+# Subcellular structures / organelles (e.g. "Mitochondrial ...") are GO
+# cellular_component terms. BioPortal exposes GO as a single ontology spanning
+# process/function/component, so selection is steered by LLM guidance that
+# rejects non-cellular-component GO terms (see annotate_term_helpers.py).
+CELLULAR_COMPONENT_ONTOLOGIES = "GO"
 
 BIOLOGICAL_ORGANIZATION_LEVELS = [
     "Molecular",
@@ -93,6 +98,7 @@ BIOLOGICAL_ORGANIZATION_LEVELS = [
 ]
 _CELL_TERM_LEVELS = {"Molecular", "Cellular"}
 _ORGAN_TERM_LEVELS = {"Cellular", "Tissue", "Organ"}
+_CELLULAR_COMPONENT_LEVELS = {"Molecular", "Cellular"}
 
 # GO terms may be valid phenotype terms (e.g. "hypersensitivity" is included in UPHENO),
 # but many are biological processes and not appropriate as phenotype annotations.
@@ -447,6 +453,7 @@ def _build_ke_annotation(
         "biological_organization": None,
         "cell_term": None,
         "organ_term": None,
+        "cellular_component": None,
         "ec_annotations": [],
     }
 
@@ -481,6 +488,10 @@ def _build_ke_annotation(
     )
     annotation["organ_term"] = _annotate_location_term(
         "organ_term", ORGAN_TERM_ONTOLOGIES, _ORGAN_TERM_LEVELS,
+        parsed["full_subject"], title, api_key, client, ref_ke, org_level,
+    )
+    annotation["cellular_component"] = _annotate_location_term(
+        "cellular_component", CELLULAR_COMPONENT_ONTOLOGIES, _CELLULAR_COMPONENT_LEVELS,
         parsed["full_subject"], title, api_key, client, ref_ke, org_level,
     )
 
@@ -548,7 +559,8 @@ def _mask_ref(ref_ke: dict, force_fields: set[str]) -> dict:
     the field is nulled in every subject within ec_annotations.
     """
     masked = copy.deepcopy(ref_ke)
-    top_level_fields = {"biological_organization", "cell_term", "organ_term", "assays"}
+    top_level_fields = {"biological_organization", "cell_term", "organ_term",
+                        "cellular_component", "assays"}
     ecs_fields = {"biological_object", "biological_process", "phenotype", "biological_action"}
     for field in force_fields:
         if field in top_level_fields and field in masked:
@@ -584,7 +596,7 @@ def _compute_newly_updated_fields(effective_ref: dict | None, final_stored: dict
     new_fields: list[str] = []
 
     # Top-level fields: newly populated if ref was None and stored is now a real annotation
-    for key in ("biological_organization", "cell_term", "organ_term"):
+    for key in ("biological_organization", "cell_term", "organ_term", "cellular_component"):
         stored_val = final_stored.get(key)
         if stored_val is not None and not _is_rejection(stored_val) and ref.get(key) is None:
             new_fields.append(key)
@@ -622,8 +634,10 @@ def _print_ke_summary(
     print(f"  biological_organization: {annotation.get('biological_organization')}")
     cell = annotation.get("cell_term")
     organ = annotation.get("organ_term")
+    cellcomp = annotation.get("cellular_component")
     print(f"  cell_term:  {cell.get('label') if cell else None}")
     print(f"  organ_term: {organ.get('label') if organ else None}")
+    print(f"  cellular_component: {cellcomp.get('label') if cellcomp else None}")
     for subj in annotation.get("ec_annotations", []):
         action = subj.get("biological_action", {})
         obj = subj.get("biological_object")
@@ -741,7 +755,8 @@ def main():
         help=(
             "Re-annotate a specific field while keeping all other reference values. "
             "Can be repeated. Valid fields: biological_organization, cell_term, organ_term, "
-            "biological_object, biological_process, phenotype, biological_action, assays."
+            "cellular_component, biological_object, biological_process, phenotype, "
+            "biological_action, assays."
         ),
     )
     parser.add_argument(
