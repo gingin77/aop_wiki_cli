@@ -767,22 +767,28 @@ def run_pass3(
                 messages=[{"role": "user", "content": prompt}],
             )
             if message.stop_reason == "max_tokens":
+                # Genuinely skip a truncated batch: its JSON is incomplete, so
+                # parsing it would yield partial/invalid assignments. Leave it
+                # uncached so a later run (e.g. with a higher max_tokens) retries.
                 logger.warning(
-                    "Pass 3 batch %d: response truncated (max_tokens reached) — batch will be skipped.",
+                    "Pass 3 batch %d: response truncated (max_tokens reached) — "
+                    "batch skipped and not cached (will be retried on re-run).",
                     batch_idx,
                 )
-            raw = message.content[0].text.strip()
-            parsed = _parse_json_from_response(raw)
-            if not isinstance(parsed, dict):
-                logger.warning("Pass 3 batch %d: unexpected response shape, skipping.", batch_idx)
                 result = {"existing_group_assignments": [], "new_groups": []}
             else:
-                result = {
-                    "existing_group_assignments": parsed.get("existing_group_assignments", []),
-                    "new_groups": parsed.get("new_groups", []),
-                }
-            with open(cache_path, "w") as f:
-                json.dump(result, f, indent=2)
+                raw = message.content[0].text.strip()
+                parsed = _parse_json_from_response(raw)
+                if not isinstance(parsed, dict):
+                    logger.warning("Pass 3 batch %d: unexpected response shape, skipping.", batch_idx)
+                    result = {"existing_group_assignments": [], "new_groups": []}
+                else:
+                    result = {
+                        "existing_group_assignments": parsed.get("existing_group_assignments", []),
+                        "new_groups": parsed.get("new_groups", []),
+                    }
+                with open(cache_path, "w") as f:
+                    json.dump(result, f, indent=2)
 
         # Filter assignments: only keep valid IDs not already assigned
         valid_ids_in_batch = {ke_id for ke_id, _ in batch}
@@ -860,7 +866,12 @@ def _slugify(text: str) -> str:
 
 def _statement_for_shared_aop_check(non_ofa, ofa):
     if len(non_ofa) > 0:
-        return f"Co-occur in one or more AOPs, total AOPs with co-occurrence: {len(non_ofa)}"
+        # Count only non-OFA AOPs here (OFA ones are surfaced separately) — the
+        # label is explicit so it is not read as the full shared-AOP total.
+        statement = f"Co-occur in one or more AOPs, non-OFA AOPs with co-occurrence: {len(non_ofa)}"
+        if ofa:
+            statement += f" (plus {len(ofa)} OFA AOP(s))"
+        return statement
     elif len(ofa) != 0 and len(non_ofa) == 0:
         return "Co-occur in an AOP that is OFA but no other AOPs"
     else:
