@@ -281,6 +281,28 @@ When working in Claude Code, use the `/annotate-aop-ke-ontology <aop_id>` slash 
 interactively annotate all Key Events for an AOP one at a time, with the opportunity to review
 and comment after each KE.
 
+### Grouping similar Key Events
+
+`collect_similar_events.py` groups AOP-Wiki Key Events that describe the same underlying
+biology, using a three-pass LLM workflow: intra-batch grouping, cross-batch consolidation,
+and a straggler sweep. Each group is classified as `merge`, `soda` (same object, directionally
+opposite), `same_object_different_process`, or `similar_event_different_biological_context`,
+and records whether its members co-occur in the same AOP (distinguishing non-OFA from
+open-for-adoption AOPs). Results are written to `outputs/ke_groupings/<date>/`; per-batch
+caches let interrupted runs resume without re-calling the LLM.
+
+```sh
+# Group similar KEs (uses today's event cache by default)
+uv run python annotation_scripts/collect_similar_events.py
+uv run python annotation_scripts/collect_similar_events.py --date 05-06-2026
+
+# Compare the Pass 2 and Pass 3 groupings, optionally exporting the changes (JSON/CSV)
+uv run python annotation_scripts/compare_pass_2_vs_pass_3.py \
+    <path>/ke_similar_events_<date>_pass2.json \
+    <path>/ke_similar_events_<date>_pass3.json \
+    --changes-json changes_pass2_to_pass3.json --changes-csv changes_pass2_to_pass3.csv
+```
+
 ## Development
 
 ### Project Organization
