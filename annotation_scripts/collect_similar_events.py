@@ -712,6 +712,7 @@ def run_pass3(
     final_groups: list[dict],
     pass3_dir: str,
     pass3_cache_path: str,
+    all_events: dict[str, str] | None = None,
 ) -> dict:
     """
     Sweep ungrouped events against existing groups (and each other).
@@ -722,6 +723,10 @@ def run_pass3(
       }
     Uses per-batch caches under pass3_dir; final merged result cached at
     pass3_cache_path.
+
+    ``all_events`` should map every known event ID to its title so that
+    existing-group members are rendered by title (not bare ID) in the
+    prompt. Ungrouped events are always included in the lookup.
     """
     if not ungrouped_events:
         logger.info("Pass 3: no ungrouped events to sweep.")
@@ -734,7 +739,9 @@ def run_pass3(
 
     os.makedirs(pass3_dir, exist_ok=True)
     items = list(ungrouped_events.items())
-    events_lookup = dict(items)  # for title lookup in prompt builder
+    # Title lookup for the prompt builder: must cover existing-group members
+    # (from all_events) as well as the ungrouped events being swept.
+    events_lookup = {**(all_events or {}), **ungrouped_events}
 
     all_assignments: list[dict] = []
     all_new_groups: list[dict] = []
@@ -853,7 +860,7 @@ def _slugify(text: str) -> str:
 
 def _statement_for_shared_aop_check(non_ofa, ofa):
     if len(non_ofa) > 0:
-        return f"Co-occur in one or more AOPs, total AOPs with co-occurence: {len(non_ofa)}"
+        return f"Co-occur in one or more AOPs, total AOPs with co-occurrence: {len(non_ofa)}"
     elif len(ofa) != 0 and len(non_ofa) == 0:
         return "Co-occur in an AOP that is OFA but no other AOPs"
     else:
@@ -879,7 +886,7 @@ def _compute_shared_aop_check(
         return {}
     return {
         "statement": statement,
-        "total_non_ofa_aops_with_co-occurence": len(non_ofa),
+        "total_non_ofa_aops_with_co-occurrence": len(non_ofa),
         "non_open_for_adoption_aops_holding_grouped_events": non_ofa,
         "open_for_adoption_aops_holding_grouped_events": ofa,
     }
@@ -1148,7 +1155,9 @@ def main() -> None:
         )
         pass3_dir = os.path.join(output_dir, "pass3")
         pass3_cache = os.path.join(output_dir, "pass3_straggler_sweep.json")
-        pass3_result = run_pass3(client, ungrouped_after_p2, final_groups, pass3_dir, pass3_cache)
+        pass3_result = run_pass3(
+            client, ungrouped_after_p2, final_groups, pass3_dir, pass3_cache, all_events=events
+        )
         final_groups = apply_pass3_results(final_groups, pass3_result)
         _dedupe_group_keys(final_groups)
 
