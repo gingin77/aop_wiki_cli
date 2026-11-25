@@ -1,0 +1,85 @@
+# =============================================================================
+# Manual KE curations — applied BEFORE running annotate_ke.py
+# =============================================================================
+#
+# WHY THIS FILE EXISTS
+#   AOP-Wiki authors sometimes record KE titles that are wrong, unsupported, or
+#   ambiguous. Rather than let the annotation scripts faithfully (mis)annotate
+#   them, record the corrected value here. `apply_manual_curations.py` seeds
+#   these into the shared store (outputs_for_vc/annotations/ke_annotations.json)
+#   marked `source: manual_curation`; annotate_ke.py then treats them as
+#   reference values and skips re-querying, so your corrections persist on every
+#   future run.
+#
+# HOW TO RUN
+#   uv run python annotation_scripts/apply_manual_curations.py --dry-run   # preview
+#   uv run python annotation_scripts/apply_manual_curations.py             # apply
+#   then run annotate_ke.py as usual.
+#
+# WHICH FIELDS CAN BE CURATED (only fields annotate_ke.py reads back from the store)
+#   Top-level:
+#     biological_organization   a level string: Molecular | Cellular | Tissue | Organ | Individual | Population
+#     cell_term                 a CL term
+#     organ_term                a UBERON term
+#   Per-subject (under `fields:` — applied to the KE's parsed subject phrase):
+#     biological_object         protein/gene/chemical/anatomy object
+#     biological_process        a GO process
+#     phenotype                 a UPHENO/HP/MP phenotype
+#   (biological_action is NOT curatable here — annotate_ke.py always recomputes
+#    it from the title, so a value set here would be overwritten.)
+#
+# HOW TO SPECIFY A CORRECTED VALUE (per field, pick ONE):
+#     curie:  PR:000011170           # exact ontology ID; pair with `label:` for a readable summary
+#     label:  "..."                  # optional with curie; recommended
+#   — or —
+#     query:  "NRF2"                 # a phrase the applier resolves via BioPortal
+#     ontologies: "PR,HGNC"          # optional; defaults to the field's normal ontology set
+#   — or —
+#     no_term: true                  # assert there is NO valid ontology term for this field
+#     reason:  "..."                 # why (recommended)
+#   — and for biological_organization only —
+#     value:  "Molecular"            # the level string
+#
+# Optional per field:
+#     subject: "NFE2/Nrf2 repression"  # which parsed subject this applies to;
+#                                      # omit when the KE has a single subject.
+#
+# Always include a KE-level `rationale:` — it is written into the KE's comments
+# as provenance for the correction.
+# =============================================================================
+
+curations:
+
+  # KE 1417 — "NFE2/Nrf2 repression". Curator review: nothing in the KE content
+  # substantiates NFE2; no references are cited. The object is NRF2 (NFE2L2).
+  "1417":
+    rationale: >-
+      AOP-Wiki title pairs NFE2 with Nrf2, but the KE content cites no evidence
+      or references for NFE2 (a distinct gene, HGNC:7780, from NFE2L2/NRF2).
+      Curating the biological object as NRF2 (NFE2L2).
+    fields:
+      biological_object:
+        curie: PR:000011170
+        label: nuclear factor erythroid 2-related factor 2
+        subject: "NFE2/Nrf2 repression"
+
+  # ---------------------------------------------------------------------------
+  # Examples of the other styles (remove or adapt). Commented out so they do not
+  # apply. Copy a block up into `curations:` and edit.
+  # ---------------------------------------------------------------------------
+  #
+  # "<ke_id>":
+  #   rationale: "Title phrasing doesn't match any ontology term; resolved by phrase."
+  #   fields:
+  #     biological_object:
+  #       query: "liver X receptor alpha"
+  #       ontologies: "PR,HGNC"
+  #
+  # "<ke_id>":
+  #   rationale: "Author outcome has no valid ontology representation."
+  #   fields:
+  #     phenotype:
+  #       no_term: true
+  #       reason: "Composite clinical description with no single HP/MP/UPHENO term."
+  #     biological_organization:
+  #       value: "Molecular"

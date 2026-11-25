@@ -16,7 +16,10 @@ from query_bioportal import search_bioportal_with_fallback
 LLM_MODEL = "claude-sonnet-4-6"
 
 ECS_ONTOLOGIES = {
-    "biological_object": "CL,UBERON,CHEBI",
+    # PR (Protein Ontology) and HGNC (gene nomenclature) cover molecular-level
+    # objects such as receptors, proteins, and genes (e.g. LXR alpha / NR1H3)
+    # that CL/UBERON/CHEBI do not.
+    "biological_object": "CL,UBERON,CHEBI,PR,HGNC",
     "biological_process": "GO",
     "phenotype": "UPHENO,HP,MP",
 }
