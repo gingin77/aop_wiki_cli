@@ -19,7 +19,7 @@ Or under pytest::
 
 from __future__ import annotations
 
-from src.utilities.helpers import insert_after
+from aop_wiki_cli.utilities.helpers import insert_after
 
 
 def test_inserts_after_existing_anchor():

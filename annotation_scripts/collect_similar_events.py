@@ -74,8 +74,8 @@ from dotenv import load_dotenv
 
 # Add project root so src.* imports work when run from any directory
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from src.utilities import set_up_logger, get_dated_cache_dir
-from src.parsers import collect_entity_with_cache, collect_aops_from_xml, collect_events_from_xml
+from aop_wiki_cli.utilities import set_up_logger, get_dated_cache_dir
+from aop_wiki_cli.parsers import collect_entity_with_cache, collect_aops_from_xml, collect_events_from_xml
 
 load_dotenv(override=True)
 

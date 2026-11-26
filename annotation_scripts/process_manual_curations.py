@@ -29,7 +29,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from src.utilities.helpers import insert_after
+from aop_wiki_cli.utilities.helpers import insert_after
 
 
 TYPE_TO_BUCKET: dict[str, str] = {

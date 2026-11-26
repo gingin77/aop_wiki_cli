@@ -40,8 +40,8 @@ import logging
 from dotenv import load_dotenv
 from datetime import date
 
-from src.utilities import set_up_logger, get_dated_cache_dir
-from src.analysis.collect_event_rankings import collect_and_rank_events
+from aop_wiki_cli.utilities import set_up_logger, get_dated_cache_dir
+from aop_wiki_cli.analysis.collect_event_rankings import collect_and_rank_events
 
 
 logger = set_up_logger('aop-wiki-annotate', level=logging.INFO)
