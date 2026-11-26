@@ -55,11 +55,11 @@ Initial `seizure_content` root groups populated here:
   - `ke_description_mappings_from_assays_df`: KE descriptions (needs fuzzy matching)
   - `aop_id_to_assays_and_target_families`, `dict_of_target_family_lists`
 - `to_analyze.data`: Raw nested structures for enrichment
-  - `harmonization_dict`: AOP-centric event mappings (input to Step 8)
+  - `harmonization_dict`: AOP-centric event mappings (input to Step 6)
   - `assays`: raw assay list
-  - `target_families_to_h_events_and_assays`: TF → events/assays (input to Steps 5–7)
+  - `target_families_to_h_events_and_assays`: TF → events/assays (input to Steps 4–5)
 - `for_xlsx_export_only.data`: Validation metadata (merged events, discrepancies)
-- `enriched.data`: Empty at this point; populated in Steps 3–8
+- `enriched.data`: Empty at this point; first populated in Step 2 and filled out through Step 6
 
 **Output:** Populated `seizure_content` dict.
 
@@ -116,7 +116,7 @@ Checks `outputs/cache/{date}/all_aops_{date}.json` and
 `outputs/cache/{date}/all_events_{date}.json`. On a cache miss, parses the AOP-Wiki XML
 export from `xml_inputs/` and saves results to cache.
 
-**Output:** `all_aops` and `all_events` dicts used for Wiki-side enrichment in Steps 5–8.
+**Output:** `all_aops` and `all_events` dicts used for Wiki-side enrichment in Steps 4–6.
 
 ---
 
