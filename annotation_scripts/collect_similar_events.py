@@ -31,7 +31,9 @@ outputs/ke_groupings/<date>/ke_similar_events_<date>_pass2.json  (always written
 outputs/ke_groupings/<date>/ke_similar_events_<date>_pass3.json  (when Pass 3 runs)
 
 Top-level JSON keys:
-  metadata          — run statistics and per-type group/event counts
+  metadata          — run statistics, per-type group/event counts, and a
+                       run_provenance block (script commit, LLM model, batch
+                       sizes and per-pass token budgets that produced the run)
   events_to_merge   — "merge" groups: {group_key: {merged_event_titles, rationale,
                        shared_aop_check}}
   soda_events       — "soda" groups (Same Object, Directionally Opposite):
@@ -63,8 +65,9 @@ import json
 import logging
 import os
 import re
+import subprocess
 import sys
-from datetime import date
+from datetime import date, datetime, timezone
 
 import anthropic
 from dotenv import load_dotenv
@@ -88,6 +91,60 @@ OUTPUT_DIR_ROOT = "outputs/ke_groupings"
 LLM_MODEL = "claude-sonnet-4-6"
 DEFAULT_BATCH_SIZE = 200
 PASS_3_BATCH_SIZE = 50  # ungrouped events per Pass 3 LLM call (keep low to avoid output token truncation)
+
+# Output token budgets per pass, referenced both at the LLM call sites and in the
+# run-provenance stamp so the recorded value can never drift from what actually ran.
+PASS_1_MAX_TOKENS = 8192
+PASS_2_MAX_TOKENS = 4096
+PASS_3_MAX_TOKENS = 8192
+
+_SCRIPT_PATH = os.path.abspath(__file__)
+
+
+def _git_commit() -> tuple[str | None, bool | None]:
+    """Return (short_commit_sha, dirty) for this checkout, or (None, None).
+
+    `dirty` is True when the working tree has uncommitted changes (so the running
+    code may differ from the recorded commit). Both are None when git is
+    unavailable or this is not a repository — provenance degrades gracefully
+    rather than failing a run.
+    """
+    repo_dir = os.path.dirname(_SCRIPT_PATH)
+    try:
+        sha = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            cwd=repo_dir, capture_output=True, text=True, check=True,
+        ).stdout.strip()
+        status = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=repo_dir, capture_output=True, text=True, check=True,
+        ).stdout
+        return sha or None, bool(status.strip())
+    except (OSError, subprocess.CalledProcessError):
+        return None, None
+
+
+def _run_provenance(batch_size: int) -> dict:
+    """Record the code and parameters that produced a grouping run.
+
+    Stamped into the output metadata so a snapshot is self-documenting: which
+    script commit, LLM model, batch sizes and per-pass token budgets ran. The
+    model and token budgets were previously only hardcoded constants, invisible
+    in the output.
+    """
+    sha, dirty = _git_commit()
+    return {
+        "script": os.path.relpath(_SCRIPT_PATH, os.path.dirname(os.path.dirname(_SCRIPT_PATH))),
+        "git_commit": sha,
+        "git_dirty": dirty,
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "llm_model": LLM_MODEL,
+        "pass_1_batch_size": batch_size,
+        "pass_3_batch_size": PASS_3_BATCH_SIZE,
+        "pass_1_max_tokens": PASS_1_MAX_TOKENS,
+        "pass_2_max_tokens": PASS_2_MAX_TOKENS,
+        "pass_3_max_tokens": PASS_3_MAX_TOKENS,
+    }
 
 # ---------------------------------------------------------------------------
 # Cache helpers
@@ -418,7 +475,7 @@ def _run_batch(
     message = _call_with_retry(
         client,
         model=LLM_MODEL,
-        max_tokens=8192,
+        max_tokens=PASS_1_MAX_TOKENS,
         system=BATCH_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": prompt}],
     )
@@ -615,7 +672,7 @@ def run_pass2(
     message = _call_with_retry(
         client,
         model=LLM_MODEL,
-        max_tokens=4096,
+        max_tokens=PASS_2_MAX_TOKENS,
         system=CONSOLIDATION_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": prompt}],
     )
@@ -762,7 +819,7 @@ def run_pass3(
             message = _call_with_retry(
                 client,
                 model=LLM_MODEL,
-                max_tokens=8192,
+                max_tokens=PASS_3_MAX_TOKENS,
                 system=PASS3_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": prompt}],
             )
@@ -988,6 +1045,7 @@ def assemble_output(
         "metadata": {
             "date": date_str,
             "source_cache": cache_path,
+            "run_provenance": _run_provenance(batch_size),
             "total_events": len(events),
             "events_processed": len(processed_ids),
             "events_unprocessed": unprocessed_count,
