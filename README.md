@@ -310,7 +310,18 @@ uv run python annotation_scripts/compare_pass_2_vs_pass_3.py \
     <path>/ke_similar_events_<date>_pass2.json \
     <path>/ke_similar_events_<date>_pass3.json \
     --changes-json changes_pass2_to_pass3.json --changes-csv changes_pass2_to_pass3.csv
+
+# Compare two full grouping runs (e.g. different models or dates) by member overlap
+uv run python annotation_scripts/compare_grouping_runs.py \
+    --file-a <path>/ke_similar_events_<date>_pass3.json \
+    --file-b <path>/ke_similar_events_<date>_pass3.json \
+    --crosswalk-csv crosswalk.csv
 ```
+
+For the November 2026 comparison of the Opus 4.5 baseline against
+`claude-sonnet-5-5` (thinking off vs on) — methodology, results, caveats, and the
+decision on which run feeds downstream steps — see
+[docs/ke_grouping_model_comparison.md](docs/ke_grouping_model_comparison.md).
 
 ## Development
 
