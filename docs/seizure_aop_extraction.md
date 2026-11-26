@@ -2,9 +2,11 @@
 
 ## `collect_harmonized_seizure_aops` — Data Flow
 
-The `collect_harmonized_seizure_aops` CLI command orchestrates a 9-function pipeline that
-transforms a seizure AOP Excel workbook into enriched, harmonized data with two stages of
-human-in-the-loop review.
+The `collect_harmonized_seizure_aops` CLI command orchestrates a 7-step pipeline that
+transforms a seizure AOP Excel workbook into enriched, harmonized data. Two of those steps
+include a human-in-the-loop review stage (Steps 2 and 4), so the orchestrator calls eight
+distinct functions in all (`collect_entity_with_cache` and `review_matches` each run twice).
+The steps are documented individually below.
 
 The input seizure AOP Excel workbook is the supplemental data published by Behl, et al (2025) and
 the following worksheets were used:
