@@ -209,6 +209,14 @@ def _case_id(expectation: dict) -> str:
 
 
 if _HAS_PYTEST:
+    @pytest.mark.skipif(
+        not os.environ.get("KE_GROUPINGS_FILE"),
+        reason=(
+            "opt-in LLM-grouping evaluation: set KE_GROUPINGS_FILE to a specific "
+            "ke_similar_events_*.json run to evaluate it. Skipped by default so the "
+            "suite does not assert on an arbitrary (mtime-discovered) grouping run."
+        ),
+    )
     @pytest.mark.skipif(not _EXPECTATIONS, reason="no expectations defined in expected_ke_groupings.json")
     @pytest.mark.skipif(
         _OUTPUT_FILE is None,

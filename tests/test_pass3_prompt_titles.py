@@ -35,7 +35,7 @@ def test_pass3_prompt_includes_existing_group_member_titles(tmp_path, monkeypatc
         captured.append(kwargs["messages"][0]["content"])
         return SimpleNamespace(
             stop_reason="end_turn",
-            content=[SimpleNamespace(text='{"existing_group_assignments": [], "new_groups": []}')],
+            content=[SimpleNamespace(type="text", text='{"existing_group_assignments": [], "new_groups": []}')],
         )
 
     monkeypatch.setattr(cse, "_call_with_retry", fake_call)
