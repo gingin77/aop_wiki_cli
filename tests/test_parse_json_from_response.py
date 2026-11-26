@@ -28,6 +28,8 @@ MODULE_PATH = REPO_ROOT / "annotation_scripts" / "collect_similar_events.py"
 def _load_module():
     """Import collect_similar_events.py by path (annotation_scripts is not a package)."""
     spec = importlib.util.spec_from_file_location("collect_similar_events", MODULE_PATH)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Could not load module spec from {MODULE_PATH}")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
