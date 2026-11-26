@@ -89,22 +89,25 @@ CACHE_DIR_ROOT = "outputs/cache"
 OUTPUT_DIR_ROOT = "outputs/ke_groupings"
 
 LLM_MODEL = "claude-sonnet-5-5"
-# claude-sonnet-5-5 runs adaptive thinking by default, which shares the per-pass
-# max_tokens budget with the JSON output — on the first run that truncated Pass 1
-# batch_000 and several Pass 3 batches. This task issues no tool calls, so
-# "between_tools" effectively disables thinking (there are no tool calls to think
-# between), handing the full token budget back to the JSON response.
-# NOTE: "between_tools" is sonnet-5-5-specific; Opus/Haiku 5.x disable thinking
-# with {"type": "disabled"} instead (accepted only at effort <= high).
-LLM_THINKING = {"type": "between_tools"}
+# Thinking configuration for the grouping calls.
+#   {"type": "adaptive"}      — thinking on (claude-sonnet-5-5 default)
+#   {"type": "between_tools"} — thinking off for this no-tool task (sonnet-5-5
+#                               syntax; Opus/Haiku 5.x use {"type": "disabled"})
+# Adaptive thinking shares the per-pass max_tokens budget with the JSON output,
+# so the PASS_*_MAX_TOKENS below are sized with headroom for thinking; if thinking
+# is turned off, they can be lowered back toward the JSON-only sizes (~8192/4096).
+LLM_THINKING = {"type": "adaptive"}
 DEFAULT_BATCH_SIZE = 200
 PASS_3_BATCH_SIZE = 50  # ungrouped events per Pass 3 LLM call (keep low to avoid output token truncation)
 
 # Output token budgets per pass, referenced both at the LLM call sites and in the
 # run-provenance stamp so the recorded value can never drift from what actually ran.
-PASS_1_MAX_TOKENS = 8192
-PASS_2_MAX_TOKENS = 4096
-PASS_3_MAX_TOKENS = 8192
+# Sized with headroom for adaptive thinking (which shares this budget with the JSON
+# output); at the prior JSON-only sizes (8192/4096/8192) thinking truncated Pass 1
+# and Pass 3 responses.
+PASS_1_MAX_TOKENS = 16384
+PASS_2_MAX_TOKENS = 8192
+PASS_3_MAX_TOKENS = 16384
 
 _SCRIPT_PATH = os.path.abspath(__file__)
 
