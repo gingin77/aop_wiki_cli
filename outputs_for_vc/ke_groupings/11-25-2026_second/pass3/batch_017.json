@@ -1,0 +1,30 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2065",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Inhibition of fatty acid oxidation is the same endpoint as decreased fatty acid beta-oxidation, so it fits this group, which already pairs the increase and decrease directions."
+    },
+    {
+      "event_id": "2010",
+      "group_key": "inflammation_contexts",
+      "rationale": "Pulmonary inflammation is the same process (inflammation) as the group's other events, set in a lung-specific context."
+    },
+    {
+      "event_id": "2009",
+      "group_key": "inflammation_contexts",
+      "rationale": "Activation of the inflammation pathway is a general increased-inflammation event and fits the group's mix of general and context-specific events."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "folate_transport_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2025",
+        "2026"
+      ],
+      "rationale": "Both concern the folate transporter, one as an affected transporter and the other as decreased folate uptake, which are distinct processes."
+    }
+  ]
+}

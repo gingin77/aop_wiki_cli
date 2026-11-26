@@ -88,7 +88,7 @@ logger = set_up_logger("collect-similar-events", level=logging.INFO)
 CACHE_DIR_ROOT = "outputs/cache"
 OUTPUT_DIR_ROOT = "outputs/ke_groupings"
 
-LLM_MODEL = "claude-sonnet-4-6"
+LLM_MODEL = "claude-sonnet-5-5"
 DEFAULT_BATCH_SIZE = 200
 PASS_3_BATCH_SIZE = 50  # ungrouped events per Pass 3 LLM call (keep low to avoid output token truncation)
 
@@ -214,6 +214,17 @@ def _call_with_retry(
                 attempt + 1, max_retries, exc, delay,
             )
             time.sleep(delay)
+
+
+def _response_text(message: anthropic.types.Message) -> str:
+    """Return the text of the first text block in a response.
+
+    Current-generation models (Sonnet 5.5, Opus 5.5, Haiku 5.5) run adaptive
+    thinking by default, so content[0] may be a thinking block rather than the
+    text — select the text block explicitly instead of indexing position 0.
+    Returns "" if the response carries no text block.
+    """
+    return next((b.text for b in message.content if b.type == "text"), "")
 
 
 def _parse_json_from_response(raw: str) -> dict | list | None:
@@ -481,7 +492,7 @@ def _run_batch(
     )
     if message.stop_reason == "max_tokens":
         logger.warning("  Batch %d: response truncated (max_tokens reached) — output may be incomplete.", batch_idx)
-    raw = message.content[0].text.strip()
+    raw = _response_text(message).strip()
     parsed = _parse_json_from_response(raw)
     if not isinstance(parsed, list):
         logger.warning("  Batch %d: unexpected response shape, skipping.", batch_idx)
@@ -678,7 +689,7 @@ def run_pass2(
     )
     if message.stop_reason == "max_tokens":
         logger.warning("Pass 2: response truncated (max_tokens reached) — consolidation may be incomplete.")
-    raw = message.content[0].text.strip()
+    raw = _response_text(message).strip()
     parsed = _parse_json_from_response(raw)
     if isinstance(parsed, list):
         consolidated = _apply_consolidation_merges(all_groups, parsed)
@@ -834,7 +845,7 @@ def run_pass3(
                 )
                 result = {"existing_group_assignments": [], "new_groups": []}
             else:
-                raw = message.content[0].text.strip()
+                raw = _response_text(message).strip()
                 parsed = _parse_json_from_response(raw)
                 if not isinstance(parsed, dict):
                     logger.warning("Pass 3 batch %d: unexpected response shape, skipping.", batch_idx)

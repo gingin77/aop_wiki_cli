@@ -1,0 +1,38 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1104",
+      "group_key": "pgf2a_ovary_vs_plasma",
+      "rationale": "Decreased plasma PGF2alpha concentration is the same reduction as the existing plasma member, with the same wording variant as the ovary-synthesis members."
+    },
+    {
+      "event_id": "1176",
+      "group_key": "sodium_channel_inhibition_modulation",
+      "rationale": "Decreased sodium conductance 2 is related to the existing decreased sodium conductance 1 and sodium channel function events, for curator review."
+    },
+    {
+      "event_id": "1153",
+      "group_key": "deiodinase_inhibition",
+      "rationale": "Inhibition of deiodinase 3 is another deiodinase isoform alongside the existing isoform-specific inhibition events."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "t3_tissue_direction",
+      "type": "soda",
+      "member_ids": [
+        "1116",
+        "1154"
+      ],
+      "rationale": "Decreased vs increased T3 in tissues are opposite directions of the same endpoint."
+    },
+    {
+      "group_key": "apoptosis_epithelial_vs_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1183"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2350",
+      "group_key": "glycolysis_opposite",
+      "rationale": "\"Decreased, Glycolysis\" is the same endpoint and direction as \"Decrease, Glycolysis\", and the group already pairs it with the opposite \"Increase, Glycolysis\"."
+    },
+    {
+      "event_id": "2336",
+      "group_key": "srebp1_activation_inhibition",
+      "rationale": "\"Increase, SREBF1\" concerns the same protein as \"Activation, SREBF1\" and is opposite in direction to \"Inhibition, SREBP1c\"."
+    },
+    {
+      "event_id": "2347",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "\"Increase, Lipid degradation\" is closely related to increased fatty acid beta-oxidation, with the same direction as \"Increase, Fatty acid beta-oxidation\" and the opposite direction to the decrease member."
+    },
+    {
+      "event_id": "2327",
+      "group_key": "cell_proliferation_general_vs_context",
+      "rationale": "\"Decrease, Cell growth\" is a general cell-level decrease similar to \"Decrease, Cell proliferation\"."
+    },
+    {
+      "event_id": "2391",
+      "group_key": "fertility_decrease",
+      "rationale": "\"Reduced fertility / fecundity\" describes decreased fertility, the same as \"Decrease, Fertility\"."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "transthyretin_thyroid_transporters_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2258",
+        "2376"
+      ],
+      "rationale": "Inhibition of different thyroid hormone transporters (MCT8 and OATP1C1), which are distinct isoforms of the same event type."
+    },
+    {
+      "group_key": "b_lymphocyte_diminished",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2394",
+        "2395",
+        "2396"
+      ],
+      "rationale": "Diminished survival, proliferation and differentiation of B lymphocytes are different processes in the same cell type, grouped for curator review."
+    },
+    {
+      "group_key": "dopamine_transcription_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2380",
+        "2381"
+      ],
+      "rationale": "Increased transcription of different dopamine signaling genes (transporter and receptor)."
+    }
+  ]
+}

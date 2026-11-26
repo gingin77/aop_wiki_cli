@@ -1,0 +1,24 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1555",
+      "group_key": "cell_proliferation_general_vs_context",
+      "rationale": "Increase cell proliferation is the general form of the same process, which the group lists with cell-type-specific variants."
+    },
+    {
+      "event_id": "1863",
+      "group_key": "fecundity_decrease",
+      "rationale": "Decrease, Reproduction is a closely related general reproductive output decrease, but this is a stretch, so only the clear matches are kept."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "photosystem_ii_efficiency_vs_electron_transport",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1862"
+      ],
+      "rationale": "Placeholder removed."
+    }
+  ]
+}

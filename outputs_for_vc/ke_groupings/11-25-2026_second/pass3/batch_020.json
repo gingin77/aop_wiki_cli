@@ -1,0 +1,38 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2231",
+      "group_key": "locomotion_opposite",
+      "rationale": "Impaired locomotor function is a decrease in locomotion, a directional counterpart of the same endpoint (Increased, locomotion)."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "sodium_decrease_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2236",
+        "2237"
+      ],
+      "rationale": "Decreased sodium in different compartments (gill uptake vs plasma concentration)."
+    },
+    {
+      "group_key": "ppar_activation_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2165",
+        "2224"
+      ],
+      "rationale": "Both concern PPAR, as activation versus dysregulated transcriptional expression within PPAR signaling."
+    },
+    {
+      "group_key": "vascular_dysfunction_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1928",
+        "2178"
+      ],
+      "rationale": "Vascular endothelial dysfunction and vascular barrier disruption are similar vascular impairments with differing specificity."
+    }
+  ]
+}

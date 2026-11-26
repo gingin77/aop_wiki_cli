@@ -1,0 +1,34 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1607",
+      "group_key": "necrosis",
+      "rationale": "Increase, Necrosis is the same process as the Necrosis / Necrotic Tissue events in that group, differing only in wording or specificity."
+    },
+    {
+      "event_id": "1741",
+      "group_key": "angiotensin_II_increase",
+      "rationale": "Induced Ang II accumulation describes increased angiotensin II, the same as the other members of that group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "cilia_function_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1908",
+        "1912"
+      ],
+      "rationale": "Both describe decreased motile cilia function or structure in airway epithelium, at different levels of specificity (beat frequency vs number/length)."
+    },
+    {
+      "group_key": "qt_action_potential_prolongation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1961",
+        "1962"
+      ],
+      "rationale": "Prolonged action potential duration at the cellular level and QT interval prolongation at the organ/ECG level describe the same repolarization delay at different scales."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1528",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Same endpoint as 'Decrease, Fatty acid \u03b2-oxidation' (decreased fatty acid beta oxidation), so it is a same-direction synonym of that member."
+    },
+    {
+      "event_id": "406",
+      "group_key": "fertility_decrease",
+      "rationale": "Decreased fertility is the same event as 'Decrease, Fertility'."
+    },
+    {
+      "event_id": "245",
+      "group_key": "car_activation",
+      "rationale": "placeholder"
+    }
+  ],
+  "new_groups": []
+}

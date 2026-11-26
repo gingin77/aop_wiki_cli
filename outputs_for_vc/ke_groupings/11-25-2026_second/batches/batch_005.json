@@ -1,0 +1,110 @@
+[
+  {
+    "group_key": "population_size_trajectory_decrease",
+    "type": "merge",
+    "member_ids": [
+      "997",
+      "442"
+    ],
+    "rationale": "Both describe a decrease in population-level size/trajectory."
+  },
+  {
+    "group_key": "er_activation_general",
+    "type": "merge",
+    "member_ids": [
+      "1065",
+      "748"
+    ],
+    "rationale": "Both describe increased estrogen receptor activation/activity."
+  },
+  {
+    "group_key": "er_disruption_vs_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2141",
+      "1065"
+    ],
+    "rationale": "Both concern the estrogen receptor but disruption is not clearly equivalent to activation."
+  },
+  {
+    "group_key": "herg_block_vs_ikr_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2099",
+      "2100"
+    ],
+    "rationale": "hERG channel blockade and inhibition of the rapid delayed rectifier current share the same channel target but may differ in process (blockade vs functional current inhibition)."
+  },
+  {
+    "group_key": "ace2_expression_vs_shedding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1948",
+      "1938"
+    ],
+    "rationale": "Both concern ACE2 but expression increase and shedding are distinct processes."
+  },
+  {
+    "group_key": "cyp26b1_inhibition_ra_receptor",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1888",
+      "2420"
+    ],
+    "rationale": "Retinoic acid concentration vs retinoic acid receptor activation relate to the same signaling axis but are distinct processes."
+  },
+  {
+    "group_key": "tau_hyperphosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1943",
+      "1942"
+    ],
+    "rationale": "Both concern Tau but hyperphosphorylation and oligomer accumulation are distinct processes."
+  },
+  {
+    "group_key": "mitochondrial_etc_vs_sdh_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "105",
+      "2118"
+    ],
+    "rationale": "SDH (Complex II) inhibition is a specific case of general inhibition of mitochondrial electron transport chain complexes."
+  },
+  {
+    "group_key": "neural_cell_death_loss",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2195",
+      "1890"
+    ],
+    "rationale": "Both describe cell loss, in CNS neural cells vs fetal male germ cells."
+  },
+  {
+    "group_key": "thyroid_hormone_decrease_serum_brain",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "771",
+      "2093"
+    ],
+    "rationale": "Both describe decreased thyroid hormone, in serum versus brain."
+  },
+  {
+    "group_key": "learning_memory_impairment",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "637",
+      "1941"
+    ],
+    "rationale": "Memory loss and impaired learning and memory describe closely related cognitive impairment."
+  },
+  {
+    "group_key": "glucose_homeostasis_uptake",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1951",
+      "1952"
+    ],
+    "rationale": "Decreased glucose uptake is a specific aspect of abnormal glucose homeostasis."
+  }
+]

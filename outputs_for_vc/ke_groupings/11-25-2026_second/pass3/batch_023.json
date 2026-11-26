@@ -1,0 +1,39 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2446",
+      "group_key": "lipid_accumulation_droplet",
+      "rationale": "'Increase, lipid accumulation' is a synonym of 'increased lipid accumulation'."
+    },
+    {
+      "event_id": "2404",
+      "group_key": "fibrosis_organ_contexts",
+      "rationale": "Kidney fibrosis is the same fibrosis process in another organ context, like liver and pulmonary fibrosis."
+    },
+    {
+      "event_id": "1507",
+      "group_key": "ppar_activation_inhibition",
+      "rationale": "Activation of PPAR\u03b3 concerns PPAR signalling, like the PPAR-gamma activation / PPAR alpha inhibition group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "hsd11b_activity_direction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2410",
+        "2409"
+      ],
+      "rationale": "Both concern 11\u03b2-HSD activity, but they involve different isozymes (type 1 vs type 2) and opposite directions, so they are flagged for review."
+    },
+    {
+      "group_key": "bile_acid_burden_related",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2425",
+        "2427"
+      ],
+      "rationale": "Both describe altered bile acid levels or composition in different compartments."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "685",
+      "group_key": "pgf2a_ovary_vs_plasma",
+      "rationale": "Reduced prostaglandins in the ovary is the same decrease as reduced PGF2alpha in plasma or ovary synthesis, but the compartment or specificity differs."
+    },
+    {
+      "event_id": "675",
+      "group_key": "reproductive_success_opposite",
+      "rationale": "Reduced reproductive success is the same endpoint as 'Decreased, Reproductive Success' and the opposite of 'Increased, Reproductive Success'."
+    },
+    {
+      "event_id": "472",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "CPT1A down-regulation is not a synonym of fatty acid beta-oxidation; omitted."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fetal_leydig_glucocorticoid_receptor_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "494",
+        "654"
+      ],
+      "rationale": "Both concern glucocorticoid receptor agonist activation, one in the context of fetal Leydig cell testosterone reduction."
+    },
+    {
+      "group_key": "adult_leydig_apoptosis_steroidogenesis_relationships",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "648",
+        "525"
+      ],
+      "rationale": "Both relate adult Leydig cell apoptosis to decreased steroidogenesis or testosterone, with differently specified KERs."
+    }
+  ]
+}

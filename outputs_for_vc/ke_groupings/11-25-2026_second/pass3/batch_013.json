@@ -1,0 +1,49 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1634",
+      "group_key": "dna_damage_increase",
+      "rationale": "Oxidative DNA damage is a specific form of increased DNA damage, same direction, so it fits the general-versus-specific context group."
+    },
+    {
+      "event_id": "1669",
+      "group_key": "dna_damage_increase",
+      "rationale": "Increased DNA damage and mutation is the same direction as general DNA damage increase, with added specificity (mutation)."
+    },
+    {
+      "event_id": "679",
+      "group_key": "population_decline_vs_increase",
+      "rationale": "Population trajectory decline is the same endpoint as Decline, Population, and is opposite in direction to Increased, Population."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "atra_retinoic_acid_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1881",
+        "2419",
+        "1880"
+      ],
+      "rationale": "Decreased atRA concentration, decreased RAR activation and decreased ALDH1A activity all concern the retinoic acid signaling axis but are distinct molecules and processes, so they are flagged for curator review."
+    },
+    {
+      "group_key": "gnrhr_expression_methylation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1698",
+        "1699"
+      ],
+      "rationale": "Both concern the GnRH receptor; promoter hypermethylation and decreased expression are distinct processes."
+    },
+    {
+      "group_key": "ovulation_impaired_vs_existing",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1695",
+        "1691"
+      ],
+      "rationale": "LH receptor antagonism and impaired ovulation are not the same object, so this should be omitted."
+    }
+  ]
+}

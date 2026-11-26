@@ -1,0 +1,25 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1276",
+      "group_key": "fibrosis_organ_contexts",
+      "rationale": "Lung fibrosis is the same process as the existing 'Pulmonary fibrosis' member, in a different organ context from liver fibrosis."
+    },
+    {
+      "event_id": "1280",
+      "group_key": "hif1_alpha_arnt_dimer",
+      "rationale": "HIF-1 activation concerns the same HIF-1 object as the HIF-1 heterodimer events, but is a distinct process."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "collagen_deposition_vs_ecm_modulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1275",
+        "1195"
+      ],
+      "rationale": "Collagen deposition is a specific ECM change, whereas modulation of ECM composition is a general ECM process, so they differ in specificity."
+    }
+  ]
+}

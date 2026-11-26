@@ -1,0 +1,20 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1924",
+      "group_key": "fibrosis_organ_contexts",
+      "rationale": "Cardiac fibrosis is the same fibrosis process in a different organ context from liver and pulmonary fibrosis."
+    },
+    {
+      "event_id": "1541",
+      "group_key": "complex_iii_binding_vs_inhibition",
+      "rationale": "Mitochondrial Complex I inhibition is a sibling of other complex-specific inhibition events, but it is a different complex."
+    },
+    {
+      "event_id": "2307",
+      "group_key": "photosystem_ii_inhibition_vs_electron_transport",
+      "rationale": "Binding of QB site in D1 protein of Photosystem II shares the Photosystem II object with the inhibition events but is a binding process."
+    }
+  ],
+  "new_groups": []
+}

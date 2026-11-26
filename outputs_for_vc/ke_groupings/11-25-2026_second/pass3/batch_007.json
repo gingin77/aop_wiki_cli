@@ -1,0 +1,20 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "933",
+      "group_key": "enos_activity",
+      "rationale": "Nitric oxide depletion is not the same object as eNOS, so this is not assigned."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "ne_receptor_binding_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "848",
+        "849"
+      ],
+      "rationale": "Both concern norepinephrine receptors on GnRH neurons, with binding reduced versus receptor antagonism, which are distinct processes."
+    }
+  ]
+}

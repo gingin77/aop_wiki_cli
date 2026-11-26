@@ -1,0 +1,28 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "754",
+      "group_key": "lh_increase_secretion",
+      "rationale": "Increased LH is the same event in the same direction as 'Increased, Leutinizing hormone (LH)' (spelling differs)."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "lh_plasma_reduced_vs_increased",
+      "type": "soda",
+      "member_ids": [
+        "690",
+        "754"
+      ],
+      "rationale": "Reduced plasma LH vs increased LH are opposite directions of the same hormone endpoint."
+    },
+    {
+      "group_key": "progesterone_decrease_corpus_luteum",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "749"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1177",
+      "group_key": "gaba_glutamate_chloride_channel",
+      "rationale": "Decreased ionotropic GABA receptor chloride channel conductance shares the same GABA-gated chloride channel object as the increased chloride conductance and activation events but is a distinct process and direction, so it is flagged for curator review."
+    },
+    {
+      "event_id": "2034",
+      "group_key": "liver_injury_hepatotoxicity",
+      "rationale": "Liver dysfunction is closely related to liver injury/hepatotoxicity, although it is not a strict synonym, so this is a borderline assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "gaba_a_receptor_inhibition_vs_conductance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2039",
+        "1177"
+      ],
+      "rationale": "Both concern the ionotropic GABA-A receptor, one as inhibition and the other as decreased chloride channel conductance."
+    },
+    {
+      "group_key": "hemocyanin_mrna_vs_oxygen_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2076",
+        "2074",
+        "2073"
+      ],
+      "rationale": "All concern hemocyanin but describe distinct processes (mRNA expression, oxygen binding capacity, oxidation of the active site)."
+    }
+  ]
+}
