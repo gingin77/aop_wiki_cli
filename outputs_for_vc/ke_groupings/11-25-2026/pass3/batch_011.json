@@ -1,0 +1,279 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1555",
+      "group_key": "cell_proliferation_hyperplasia",
+      "rationale": "Increase cell proliferation describes the same biological event as the existing group members (cellular proliferation/hyperplasia) using equivalent wording."
+    },
+    {
+      "event_id": "1879",
+      "group_key": "dna_adduct_formation",
+      "rationale": "Bulky DNA adducts increase describes the same process as formation of pro-mutagenic DNA adducts, both referring to increased DNA adduct formation as a key event."
+    },
+    {
+      "event_id": "1896",
+      "group_key": "mutations_increase",
+      "rationale": "Genomic instability is closely related to increased mutations in critical genes, but represents a broader outcome \u2014 however, it is more appropriately assigned to the mutations_increase group as genomic instability encompasses increased mutations."
+    },
+    {
+      "event_id": "1607",
+      "group_key": "necrosis_necrotic_tissue",
+      "rationale": "Increase, Necrosis describes the same biological outcome as Necrosis and Necrotic Tissue in the existing group using equivalent wording."
+    },
+    {
+      "event_id": "17",
+      "group_key": "ah\u0631_activation_dimerization",
+      "rationale": "Altered gene expression via AHR/ARNT-dependent pathway is downstream of AhR activation and dimerization with ARNT, sharing the same biological object (AhR/ARNT) but describing a distinct downstream transcriptional process."
+    },
+    {
+      "event_id": "1922",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "Increased reactive metabolites production contributes to and is closely synonymous with increased oxidative stress/reactive oxygen species in the existing merge group."
+    },
+    {
+      "event_id": "1816",
+      "group_key": "mitochondrial_dysfunction",
+      "rationale": "Mitochondrial dysfunction EMPTY describes the same biological outcome as the existing mitochondrial dysfunction merge group members."
+    },
+    {
+      "event_id": "1950",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "Increase, TNF is a pro-inflammatory mediator consistent with the existing oxidative_stress_increase group which already includes increased pro-inflammatory mediators and secretion of proinflammatory mediators."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fibrinolysis_bradykinin_coagulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1866",
+        "1867"
+      ],
+      "rationale": "Decreased fibrinolysis and hyperactivated bradykinin system both describe dysregulation of plasma protease systems involved in coagulation/inflammation but represent distinct biological processes on different molecular objects."
+    },
+    {
+      "group_key": "sustentacular_cell_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1870",
+        "1883"
+      ],
+      "rationale": "Decrease in sustentacular cells and decreased size of the ovarian reserve both describe depletion of specialized somatic support cell populations in reproductive tissues but in different organs and cell types."
+    },
+    {
+      "group_key": "meiosis_initiation_disruption",
+      "type": "soda",
+      "member_ids": [
+        "1882",
+        "1889"
+      ],
+      "rationale": "Disrupted initiation of meiosis of oogonia in the ovary and increased premature meiotic initiation in fetal male germ cells describe opposite directional disruptions of meiotic timing in different sexes."
+    },
+    {
+      "group_key": "fetal_germ_cell_meiosis_loss",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1889",
+        "1890"
+      ],
+      "rationale": "Increased premature meiotic initiation in fetal male germ cells and decrease (loss of) fetal male germ cells share the same biological context (fetal male germ cells) but describe distinct processes \u2014 aberrant meiosis initiation versus cell loss."
+    },
+    {
+      "group_key": "cyp26b1_retinoic_acid_meiosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1887",
+        "1889"
+      ],
+      "rationale": "Inhibition of CYP26B1 activity (which degrades retinoic acid) and increased premature meiotic initiation in fetal male germ cells are causally linked \u2014 CYP26B1 inhibition leads to excess retinoic acid driving premature meiosis \u2014 but represent distinct processes on different biological objects."
+    },
+    {
+      "group_key": "plxna2_fyna_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1885",
+        "1884"
+      ],
+      "rationale": "Inhibition of Plxna2 and inhibition of Fyna both describe inhibition of signaling proteins that may act in the same developmental pathway but are distinct molecular targets."
+    },
+    {
+      "group_key": "neuroblast_migration_heterotopia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2094",
+        "2095"
+      ],
+      "rationale": "Abnormal neuroblast migration and periventricular heterotopia formation are causally linked \u2014 failed neuronal migration results in heterotopia \u2014 but describe distinct events at the cellular process versus structural/pathological outcome level."
+    },
+    {
+      "group_key": "bbb_cerebrovascular_disease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1874",
+        "1875"
+      ],
+      "rationale": "Blood-brain barrier disruption and cerebrovascular disease (stroke) are causally related but represent distinct events \u2014 a molecular/cellular barrier failure versus an organ-level disease outcome."
+    },
+    {
+      "group_key": "parp1_aif_apoptosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2030",
+        "2031"
+      ],
+      "rationale": "Activation of PARP1 and release of Apoptosis-Inducing Factor (AIF) are sequential steps in parthanatos/necroptosis cell death pathway but are distinct molecular events on different proteins."
+    },
+    {
+      "group_key": "cftr_airway_surface_liquid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1906",
+        "1907"
+      ],
+      "rationale": "Decreased CFTR function and decreased airway surface liquid height are causally linked \u2014 CFTR controls ion/fluid transport maintaining ASL \u2014 but represent distinct events at the protein function versus tissue fluid level."
+    },
+    {
+      "group_key": "angiotensin_1_7_diminished_adam17",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1935",
+        "1937"
+      ],
+      "rationale": "Diminished Angiotensin (1-7) levels and ADAM17 expression induction both relate to ACE2/renin-angiotensin system dysregulation but describe distinct molecular processes \u2014 peptide levels versus protease expression."
+    },
+    {
+      "group_key": "tau_hyperphosphorylation_oligomers",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1943",
+        "1942"
+      ],
+      "rationale": "Hyperphosphorylation of Tau and accumulation of cytosolic toxic Tau oligomers both involve Tau protein but describe distinct sequential processes \u2014 post-translational modification versus oligomeric aggregation."
+    },
+    {
+      "group_key": "tau_synaptic_memory",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1944",
+        "1941"
+      ],
+      "rationale": "Synaptic dysfunction and memory loss are causally linked neurological outcomes but represent distinct events at the cellular synapse level versus the cognitive/organismal level."
+    },
+    {
+      "group_key": "autophagy_tau_dysfunction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1945",
+        "1942"
+      ],
+      "rationale": "Dysfunctional autophagy and accumulation of cytosolic toxic Tau oligomers are causally related \u2014 impaired autophagy leads to Tau accumulation \u2014 but describe distinct processes on different biological objects."
+    },
+    {
+      "group_key": "glut4_decrease_insulin_resistance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1949",
+        "1953"
+      ],
+      "rationale": "Decrease in GLUT4 and gestational diabetes mellitus are causally linked \u2014 reduced GLUT4 impairs glucose uptake contributing to gestational diabetes \u2014 but represent distinct events at the molecular versus disease outcome level."
+    },
+    {
+      "group_key": "foxi1_six1b_eya1_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1903",
+        "1904",
+        "1905"
+      ],
+      "rationale": "Increased foxi1 expression, increased six1b expression, and inhibited eya1 expression all describe altered expression of transcription factors involved in otic/sensory placode development but in different regulatory directions and for different gene targets."
+    },
+    {
+      "group_key": "gbx2_repression_sensory_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1902",
+        "1905"
+      ],
+      "rationale": "Repression of Gbx2 expression and inhibition of eya1 expression both describe repressed transcription factor expression in the context of inner ear/otic placode development but target different genes."
+    },
+    {
+      "group_key": "gsk3beta_wnt_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1647",
+        "1886"
+      ],
+      "rationale": "GSK3beta inactivation and overexpression of rasl11b are distinct molecular events that may converge on shared signaling pathways but involve different biological objects and processes."
+    },
+    {
+      "group_key": "endothelial_dysfunction_vascular",
+      "type": "merge",
+      "member_ids": [
+        "1913"
+      ],
+      "rationale": "Endothelial cell dysfunction is equivalent to the existing vascular_endothelial_dysfunction group members \u2014 keeping as single-member note; no merge partner among ungrouped events distinct enough."
+    },
+    {
+      "group_key": "intestinal_barrier_disruption",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1931",
+        "1874"
+      ],
+      "rationale": "Intestinal barrier disruption and blood-brain barrier disruption both describe barrier integrity failure but in different anatomical compartments (gut vs. brain vasculature)."
+    },
+    {
+      "group_key": "myocardial_infarction_cardiac_outcome",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1934",
+        "1875"
+      ],
+      "rationale": "Myocardial infarction and cerebrovascular disease (stroke) are both ischemic organ-level disease outcomes driven by vascular pathology but occurring in different organs (heart vs. brain)."
+    },
+    {
+      "group_key": "abnormal_lipid_metabolism_vs_accumulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1995",
+        "1953"
+      ],
+      "rationale": "Abnormal lipid metabolism and gestational diabetes mellitus are metabolic disorders that co-occur in the same disease context but describe distinct pathological endpoints."
+    },
+    {
+      "group_key": "pyroptosis_vs_apoptosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1967",
+        "1607"
+      ],
+      "rationale": "Pyroptosis and increased necrosis both describe inflammatory cell death but via distinct mechanisms \u2014 pyroptosis is caspase-1/gasdermin-mediated while necrosis is non-programmed \u2014 in potentially different biological contexts."
+    },
+    {
+      "group_key": "gper_activation_er",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2029"
+      ],
+      "rationale": "Protein-coupled estrogen receptor 1 (GPER) activation is a membrane estrogen receptor event distinct from nuclear estrogen receptor agonism/antagonism described in existing groups, warranting separate curator review."
+    },
+    {
+      "group_key": "deposition_ionizing_energy_dna_damage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1550",
+        "1879"
+      ],
+      "rationale": "Deposition of ionizing energy and increased bulky DNA adducts are causally linked \u2014 ionizing energy causes DNA damage including adducts \u2014 but represent distinct processes at the physical energy deposition versus molecular DNA damage level."
+    },
+    {
+      "group_key": "gut_microbiota_intestinal_barrier",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1954",
+        "1931"
+      ],
+      "rationale": "Gut microbiota alteration and intestinal barrier disruption are causally related gastrointestinal events but describe distinct processes \u2014 microbial community changes versus epithelial barrier integrity loss."
+    }
+  ]
+}

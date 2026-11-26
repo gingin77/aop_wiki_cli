@@ -1,0 +1,316 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "671",
+      "group_key": "prostaglandins_ovary_vs_pgf2a_synthesis_ovary",
+      "rationale": "ID 671 describes reduced plasma PGF2alpha concentration, which is closely related to reduced PGF2alpha synthesis in the ovary (ID 672) and reduced prostaglandins generally (ID 685), but specifies plasma compartment rather than ovary \u2014 fits the same biological context group for different PGF2alpha endpoints."
+    },
+    {
+      "event_id": "739",
+      "group_key": "hyperplasia_terminal_bronchiolar_vs_follicular_vs_renal",
+      "rationale": "ID 739 describes hypertrophy and proliferation of follicular cells, overlapping with ID 740 (Increase, Hyperplasia follicular cells) in the same tissue context, fitting the similar_event_different_biological_context group for tissue-specific hyperplasia events."
+    },
+    {
+      "event_id": "766",
+      "group_key": "urod_inhibition_porphyrin_accumulation",
+      "rationale": "ID 766 describes inhibition of HPPD enzyme, which is involved in the same porphyrin/tyrosine catabolism pathway context as UROD inhibition and porphyrin accumulation \u2014 however these are different enzymes, so this does not fit cleanly; withdrawing."
+    },
+    {
+      "event_id": "840",
+      "group_key": "liver_fibrosis_vs_collagen",
+      "rationale": "ID 840 (Formation, Liver fibrosis) describes the same organ-level fibrotic outcome as ID describing liver fibrosis \u2014 it belongs in the existing liver_fibrosis_vs_collagen group as another liver fibrosis event."
+    },
+    {
+      "event_id": "765",
+      "group_key": "survival_decrease",
+      "rationale": "ID 765 (Decreased, population 1) describes a decrease in population/survival, fitting with the existing survival_decrease merge group of reduced/decreased survival events."
+    },
+    {
+      "event_id": "1023",
+      "group_key": "thyroid_hormone_synthesis_decrease",
+      "rationale": "ID 1023 (Increased, Thyroid-stimulating hormone TSH) is a compensatory response to decreased thyroid hormone synthesis, but it describes a different molecule (TSH, not thyroid hormone synthesis or TPO) \u2014 does not fit cleanly; withdrawing."
+    },
+    {
+      "event_id": "868",
+      "group_key": "necrosis_necrotic_tissue",
+      "rationale": "ID 868 (Increase, Tissue Degeneration, Necrosis & Atrophy) includes necrosis as a component, overlapping with the necrosis_necrotic_tissue merge group, but also includes degeneration and atrophy making it broader \u2014 does not fit cleanly; withdrawing."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "pgf2alpha_plasma_vs_synthesis_ovary",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "671",
+        "672",
+        "681"
+      ],
+      "rationale": "ID 671 (reduced plasma PGF2alpha concentration), ID 672 (reduced PGF2alpha synthesis, ovary), and ID 681 (decreased PGF2alpha synthesis, ovary) all describe reduced PGF2alpha but differ in biological compartment (plasma vs. ovarian synthesis)."
+    },
+    {
+      "group_key": "maturation_inducing_steroid_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "691",
+        "692"
+      ],
+      "rationale": "ID 691 (reduced maturation inducing steroid in plasma) and ID 692 (reduced maturation inducing steroid receptor signalling in oocyte) both involve the maturation inducing steroid but one describes the ligand level and the other describes receptor signalling \u2014 distinct processes on the same biological object."
+    },
+    {
+      "group_key": "meiotic_chromosome_segregation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "694",
+        "695",
+        "696"
+      ],
+      "rationale": "ID 694 (reduced meiotic prophase I/metaphase I transition), ID 695 (upregulated spindle assembly checkpoint protein Mad2), and ID 696 (increased chromosome missegregation) describe sequential distinct processes in meiotic progression leading to aneuploidy \u2014 related but distinct events."
+    },
+    {
+      "group_key": "aneuploidy_offspring",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "696",
+        "728"
+      ],
+      "rationale": "ID 696 (increased chromosome missegregation) and ID 728 (increase, aneuploid offspring) describe related chromosomal abnormality events \u2014 missegregation is the cellular process and aneuploid offspring is the organismal outcome."
+    },
+    {
+      "group_key": "alpha2u_microglobulin_binding_accumulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "714",
+        "708"
+      ],
+      "rationale": "ID 714 (increased binding of chemicals to alpha2u microglobulin in serum) and ID 708 (increased accumulation of alpha2u microglobulin in proximal tubular epithelium) both involve alpha2u microglobulin but describe binding in serum versus accumulation in renal tubules \u2014 distinct processes on the same protein."
+    },
+    {
+      "group_key": "hppd_inhibition_tyrosine_accumulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "766",
+        "775"
+      ],
+      "rationale": "ID 766 (inhibition of HPPD enzyme) and ID 775 (increased plasma tyrosine) both involve the HPPD pathway \u2014 HPPD catabolizes tyrosine derivatives, so its inhibition leads to tyrosine accumulation, but enzyme inhibition and metabolite accumulation are distinct events on different biological objects."
+    },
+    {
+      "group_key": "decreased_prolactin",
+      "type": "soda",
+      "member_ids": [
+        "747",
+        "1051"
+      ],
+      "rationale": "Decreased prolactin (ID 747) is directionally opposite to increased prolactin secretion/exposure found in the prolactin_secretion_increase merge group \u2014 however since 1051 is already grouped, flagging ID 747 alone as a soda candidate against that group."
+    },
+    {
+      "group_key": "corpus_luteum_progesterone_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "749",
+        "1620"
+      ],
+      "rationale": "ID 749 (decreased progesterone from corpus luteum) specifies the corpus luteum as the source of progesterone reduction, fitting within the same directional outcome as the existing progesterone_reduction group but adding tissue context \u2014 assigning to similar_event_different_biological_context with the existing progesterone_reduction group members."
+    },
+    {
+      "group_key": "endometrial_hyperplasia_adenocarcinoma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "772",
+        "773"
+      ],
+      "rationale": "ID 772 (increase, hyperplasia of glandular epithelial cells of endometrium) and ID 773 (increase, endometrial adenocarcinomas) describe sequential stages of the same pathological progression in the endometrium \u2014 hyperplasia preceding malignant transformation."
+    },
+    {
+      "group_key": "neuron_hyperpolarization_vs_ataxia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "763",
+        "764"
+      ],
+      "rationale": "ID 763 (hyperpolarisation, neuron) and ID 764 (ataxia, paralysis, or hyperactivity) describe a neuronal electrophysiological event and its resulting behavioral/functional consequences \u2014 distinct processes at different levels of biological organization."
+    },
+    {
+      "group_key": "renal_function_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "819",
+        "820",
+        "821",
+        "825"
+      ],
+      "rationale": "ID 819 (decreased glomerular filtration), ID 820 (decreased renal plasma flow), ID 821 (decreased sodium reabsorption), and ID 825 (decreased renal ability to dilute urine) all describe distinct aspects of decreased renal function in the same organ context."
+    },
+    {
+      "group_key": "renal_toxicity_kidney_injury",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "814",
+        "813"
+      ],
+      "rationale": "ID 814 (occurrence, kidney toxicity) and ID 813 (increased serum creatinine) describe kidney injury at different levels \u2014 the toxicity event itself versus a systemic biomarker of renal dysfunction."
+    },
+    {
+      "group_key": "renal_tubular_structural_changes",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "823",
+        "814"
+      ],
+      "rationale": "ID 823 (occurrence, cystic dilatation of renal tubule) and ID 814 (occurrence, kidney toxicity) describe renal tubular pathological changes \u2014 one specific structural change and the other a broader toxicity designation in the same organ."
+    },
+    {
+      "group_key": "hepatic_steatosis_microvesicular",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "838",
+        "835"
+      ],
+      "rationale": "ID 838 (induction, microvesicular fat) and ID 835 (occurrence, ballooning degeneration of hepatocyte) describe distinct hepatocellular injury phenotypes \u2014 lipid accumulation versus cellular swelling \u2014 in the same tissue context."
+    },
+    {
+      "group_key": "liver_fibrosis_formation",
+      "type": "merge",
+      "member_ids": [
+        "840",
+        "1272"
+      ],
+      "rationale": "ID 840 (Formation, Liver fibrosis) describes the same organ-level fibrotic outcome as 'Increase, Liver fibrosis' already in the liver_fibrosis_vs_collagen group, using equivalent wording."
+    },
+    {
+      "group_key": "uroporphyrinogen_oxidation_uroporphyria",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "844",
+        "369"
+      ],
+      "rationale": "ID 844 (oxidation of uroporphyrinogen) and ID 369 (uroporphyria) both involve uroporphyrinogen/porphyrin accumulation \u2014 oxidation of uroporphyrinogen is the biochemical process leading to uroporphyria, but the enzyme event and the clinical/pathological syndrome are distinct."
+    },
+    {
+      "group_key": "porphyrin_accumulation_uroporphyria",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "844",
+        "369"
+      ],
+      "rationale": "ID 844 (oxidation of uroporphyrinogen) and ID 369 (uroporphyria) describe the same porphyrin pathway disruption \u2014 the biochemical oxidation event and the resulting disease state \u2014 in the same biological context but at different levels."
+    },
+    {
+      "group_key": "cyp1a_induction",
+      "type": "merge",
+      "member_ids": [
+        "850"
+      ],
+      "rationale": "ID 850 (Induction, CYP1A2/CYP1A5) is a single event describing CYP1A induction \u2014 no existing group covers this, flagging as a potential partner for AhR activation downstream events."
+    },
+    {
+      "group_key": "male_reproductive_tract_malformation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "809",
+        "657"
+      ],
+      "rationale": "ID 809 (malformed, male reproductive tract) and fetal Leydig cell dysgenesis events (ID 657) both describe male reproductive developmental abnormalities but at different levels \u2014 tract morphology versus cell-specific dysgenesis."
+    },
+    {
+      "group_key": "5alpha_reductase_inhibition_dht_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1617",
+        "1316"
+      ],
+      "rationale": "ID 1617 (Inhibition, 5\u03b1-reductase) and ID 1316 (Decrease, dihydrotestosterone DHT levels, already in intratesticular_testosterone_vs_dht group) involve the same steroidogenesis pathway \u2014 5\u03b1-reductase converts testosterone to DHT, so enzyme inhibition and decreased DHT are distinct processes on related but different objects."
+    },
+    {
+      "group_key": "urinary_bladder_calculi_urothelial_carcinoma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "793",
+        "797"
+      ],
+      "rationale": "ID 793 (increase, urinary bladder calculi) and ID 797 (increase, adenomas/carcinomas of urothelial cells) describe sequential pathological events in the urinary bladder \u2014 calculi formation preceding urothelial carcinogenesis in the same organ context."
+    },
+    {
+      "group_key": "phospholipase_inhibition_lipid_bilayer_damage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "828",
+        "829"
+      ],
+      "rationale": "ID 828 (inhibition of phospholipase A) and ID 829 (damage to lipid bilayer) both involve membrane phospholipids \u2014 phospholipase A inhibition and lipid bilayer damage are distinct processes where the former affects membrane remodeling and the latter describes structural membrane injury."
+    },
+    {
+      "group_key": "hepatic_pathology_mallory_body",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "839",
+        "835",
+        "838"
+      ],
+      "rationale": "ID 839 (Formation, Mallory body), ID 835 (Occurrence, ballooning degeneration hepatocyte), and ID 838 (Induction, microvesicular fat) all describe distinct hepatocellular pathological changes (protein aggregation, cellular swelling, lipid accumulation) occurring in the same hepatocyte context."
+    },
+    {
+      "group_key": "oxidative_metabolism_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "769",
+        "774"
+      ],
+      "rationale": "ID 769 (Increase, Oxidative metabolism) and ID 774 (Increase, Preneoplastic foci in hepatocytes) describe related but distinct hepatic events \u2014 increased oxidative metabolism can contribute to hepatic preneoplastic foci formation, but they represent different biological processes in the same organ context."
+    },
+    {
+      "group_key": "prostaglandin_e2_hypothalamus_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "687",
+        "671"
+      ],
+      "rationale": "ID 687 (reduced prostaglandin E2 concentration in hypothalamus) and ID 671 (reduced plasma PGF2alpha concentration) both describe reduced prostaglandin levels but involve different prostaglandin species (PGE2 vs PGF2alpha) in different compartments (hypothalamus vs. plasma)."
+    },
+    {
+      "group_key": "follicular_cell_hypertrophy_hyperplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "739",
+        "740"
+      ],
+      "rationale": "ID 739 (Increase, Hypertrophy and proliferation of follicular cells) and ID 740 (Increase, Hyperplasia of follicular cells) describe overlapping but distinct pathological responses in thyroid follicular cells \u2014 hypertrophy/proliferation versus hyperplasia specifically."
+    },
+    {
+      "group_key": "tissue_degeneration_necrosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "868",
+        "814"
+      ],
+      "rationale": "ID 868 (Increase, Tissue Degeneration, Necrosis & Atrophy) and ID 814 (Occurrence, Kidney toxicity) both describe tissue-level damage outcomes \u2014 one is a broader multi-tissue degeneration/necrosis event and the other is organ-specific kidney toxicity."
+    },
+    {
+      "group_key": "cholesterol_decrease_vs_synthesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "807",
+        "466"
+      ],
+      "rationale": "ID 807 (Decreased, cholesterol) and increased LDL uptake (ID 467 in ldlr_upregulation_vs_ldl_uptake group) involve cholesterol metabolism \u2014 however ID 807 describes decreased cholesterol levels generally, which could pair with existing cholesterol synthesis groups but specifies the outcome endpoint differently."
+    },
+    {
+      "group_key": "meiotic_prophase_spindle_chromosome",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "694",
+        "695"
+      ],
+      "rationale": "ID 694 (reduced meiotic prophase I/metaphase I transition) and ID 695 (upregulated spindle assembly checkpoint protein Mad2) both describe distinct molecular events during meiosis \u2014 cell cycle transition failure and checkpoint protein upregulation are distinct processes in the same meiotic context."
+    },
+    {
+      "group_key": "corpus_luteum_progesterone_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "749",
+        "1252",
+        "1251"
+      ],
+      "rationale": "ID 749 (Decreased, Progesterone from corpus luteum) specifies the corpus luteum as the biological source of progesterone reduction, complementing the existing progesterone_reduction group members (Reduction, Progesterone synthesis and Decreased, Progesterone levels) with added tissue context."
+    }
+  ]
+}

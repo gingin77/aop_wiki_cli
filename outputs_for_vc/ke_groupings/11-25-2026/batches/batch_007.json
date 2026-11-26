@@ -1,0 +1,130 @@
+[
+  {
+    "group_key": "fatty_acid_beta_oxidation_increase",
+    "type": "soda",
+    "member_ids": [
+      "1312",
+      "1824"
+    ],
+    "rationale": "Both describe fatty acid beta-oxidation but in opposite directions: one is an increase and the other a decrease."
+  },
+  {
+    "group_key": "fatty_acid_synthesis_vs_lipid_accumulation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2441",
+      "2446"
+    ],
+    "rationale": "Both describe increased lipid-related processes (fatty acid synthesis/transport and lipid accumulation) but represent distinct processes that may occur in different cellular or tissue contexts."
+  },
+  {
+    "group_key": "11beta_hsd_activity",
+    "type": "soda",
+    "member_ids": [
+      "2410",
+      "2409"
+    ],
+    "rationale": "Both involve 11\u03b2-Hydroxysteroid dehydrogenase activity but on different isoforms (type 1 increased vs. type 2 decreased), which are directionally opposite in terms of glucocorticoid metabolism."
+  },
+  {
+    "group_key": "b_lymphocyte_diminished_function",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2394",
+      "2395",
+      "2396"
+    ],
+    "rationale": "All three describe diminished B lymphocyte processes (survival, proliferation, differentiation) in different activation states or functional contexts of the same cell type."
+  },
+  {
+    "group_key": "photosystem_ii_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2456",
+      "2457"
+    ],
+    "rationale": "Both describe inhibition/decrease of electron transport in Photosystem II, with one being the general inhibition event and the other specifying the electron transport process within PSII."
+  },
+  {
+    "group_key": "reduced_photosynthetic_output",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2458",
+      "2459",
+      "2460"
+    ],
+    "rationale": "All three describe reduced photosynthetic downstream outputs (assimilatory power, carbon fixation, biomass accumulation) in the same directional process but at different biological scales."
+  },
+  {
+    "group_key": "grain_yield_loss",
+    "type": "merge",
+    "member_ids": [
+      "2461",
+      "2462"
+    ],
+    "rationale": "Reduced grain filling and yield loss in rice describe essentially the same agronomic outcome at the same biological scale in the same crop context."
+  },
+  {
+    "group_key": "renal_tubular_injury_phenotype",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2465",
+      "2464"
+    ],
+    "rationale": "Both describe renal tubular epithelial cell damage\u2014one as acute injury and the other as a failed-repair phenotype\u2014representing the same cell type at different stages of the same pathological process."
+  },
+  {
+    "group_key": "brain_amyloid_ide_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2448",
+      "2449"
+    ],
+    "rationale": "IDE inhibition and A\u03b2 accumulation share the same pathway (IDE degrades A\u03b2), but inhibition of IDE and accumulation of A\u03b2 are distinct processes on different molecular objects."
+  },
+  {
+    "group_key": "mtp_inhibition_lipid_efflux",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2452",
+      "2453"
+    ],
+    "rationale": "MTP inhibition and reduced lipid efflux are causally linked but represent distinct processes\u2014enzyme inhibition versus a transport/efflux outcome\u2014on related but different biological objects."
+  },
+  {
+    "group_key": "preputial_morphogenesis_separation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2400",
+      "2401"
+    ],
+    "rationale": "Disrupted preputial epithelial morphogenesis and failed/delayed preputial separation describe the same tissue-level developmental process and its observable phenotypic outcome."
+  },
+  {
+    "group_key": "early_vaginal_opening_precocious_puberty",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2463",
+      "2415"
+    ],
+    "rationale": "Early vaginal opening is a specific phenotypic indicator of precocious puberty, sharing the same biological context but differing in specificity of the endpoint."
+  },
+  {
+    "group_key": "hepatic_bile_acid_cyp7a1_burden",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2424",
+      "2425"
+    ],
+    "rationale": "Increased hepatic CYP7A1 (the rate-limiting enzyme in bile acid synthesis) and increased intrahepatic bile acid burden describe causally linked but distinct hepatic processes involving bile acid metabolism."
+  },
+  {
+    "group_key": "dopamine_transporter_receptor_transcription",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2380",
+      "2381"
+    ],
+    "rationale": "Both describe increased transcription of dopamine signaling component genes (transporter SLC6A3 and receptor drd), representing the same type of regulatory event on different but related dopaminergic targets."
+  }
+]

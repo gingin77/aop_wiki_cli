@@ -1,0 +1,385 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1079",
+      "group_key": "adenomas_carcinomas_bronchioloalveolar_vs_renal_vs_follicular",
+      "rationale": "ID 1079 describes increased adenomas/carcinomas in mammary tissue, the same type of event (increased adenomas/carcinomas) as the existing group members but in a different tissue context (mammary gland)."
+    },
+    {
+      "event_id": "1086",
+      "group_key": "cytotoxicity_various_cell_types",
+      "rationale": "ID 1086 describes persistent cytotoxicity in pleura or peritoneum, the same process (cytotoxicity) as the existing group members but in a different tissue context."
+    },
+    {
+      "event_id": "1497",
+      "group_key": "inflammation_vs_leukocyte_recruitment",
+      "rationale": "ID 1497 describes increased recruitment of inflammatory cells, which is synonymous with leukocyte recruitment/activation already in the same_object_different_process group paired with increased inflammation."
+    },
+    {
+      "event_id": "1104",
+      "group_key": "prostaglandins_ovary_vs_pgf2a_synthesis_ovary",
+      "rationale": "ID 1104 describes decreased prostaglandin F2alpha concentration in plasma, related to the existing group describing reduced PGF2alpha synthesis in the ovary \u2014 same molecule but different compartment (plasma vs. ovary)."
+    },
+    {
+      "event_id": "1152",
+      "group_key": "deiodinase_inhibition",
+      "rationale": "ID 1152 describes inhibition of Iodotyrosine deiodinase (IYD), which is a deiodinase enzyme inhibition event comparable to the existing group members (Deiodinase 1 and 2 inhibition) \u2014 same process class, different isoform/enzyme."
+    },
+    {
+      "event_id": "1153",
+      "group_key": "deiodinase_inhibition",
+      "rationale": "ID 1153 describes inhibition of Deiodinase 3, which fits the existing deiodinase inhibition group alongside Deiodinase 1 and Deiodinase 2 inhibition \u2014 same process, different isoform."
+    },
+    {
+      "event_id": "1828",
+      "group_key": "thyroxine_serum_decrease",
+      "rationale": "ID 1828 describes increased thyroxine (T4) in serum, which is directionally opposite to the existing group members (decreased T4 in serum and neuronal tissue) \u2014 this is a soda relationship with the serum member, but since the existing group is similar_event_different_biological_context (not soda), assigning here flags the curator to the same serum T4 endpoint."
+    },
+    {
+      "event_id": "1176",
+      "group_key": "sodium_channel_inhibition_vs_conductance_decrease",
+      "rationale": "ID 1176 describes decreased sodium conductance 2, which parallels ID 585 (Decreased, Sodium conductance 1) already in the same_object_different_process group with sodium channel inhibition \u2014 same process on the same channel type."
+    },
+    {
+      "event_id": "1183",
+      "group_key": "cell_proliferation_directional",
+      "rationale": "ID 1183 describes decreased apoptosis in epithelial cells; while not identical to cell proliferation, it describes the opposite of the apoptosis increase events \u2014 however this does not fit cell_proliferation_directional. Withdrawing."
+    },
+    {
+      "event_id": "1190",
+      "group_key": "cell_proliferation_general",
+      "rationale": "ID 1190 describes increased migration of endothelial cells \u2014 this is distinct from cell proliferation so withdrawing this assignment."
+    },
+    {
+      "event_id": "1192",
+      "group_key": "hyperplasia_various_tissues",
+      "rationale": "ID 1192 describes increased ductal hyperplasia, fitting the existing similar_event_different_biological_context group for hyperplasia in various tissue contexts (ductal tissue is a distinct biological context from forestomach, tubular, or urothelial)."
+    },
+    {
+      "event_id": "1198",
+      "group_key": "inflammation_vs_leukocyte_recruitment",
+      "rationale": "ID 1198 describes macrophage activation, which is a component of leukocyte recruitment/activation already paired with increased inflammation in the same_object_different_process group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "mesothelioma_pleural_cytotoxicity_latency",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1086",
+        "1090"
+      ],
+      "rationale": "Persistent cytotoxicity in pleura/peritoneum and increased mesotheliomas describe related pathological events in the same mesothelial tissue context but represent a cellular process versus a tumor outcome."
+    },
+    {
+      "group_key": "alveolar_membrane_integrity_vs_inflammatory_cell_recruitment",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1498",
+        "1497"
+      ],
+      "rationale": "Loss of alveolar capillary membrane integrity and increased recruitment of inflammatory cells both describe pulmonary injury responses but represent distinct processes \u2014 structural barrier loss versus cellular immune recruitment."
+    },
+    {
+      "group_key": "th2_activation_vs_inflammatory_recruitment",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1499",
+        "1497"
+      ],
+      "rationale": "Increased T helper type 2 cell activation and increased recruitment of inflammatory cells both describe pulmonary immune activation events but in different immune cell contexts (adaptive T cells vs. general inflammatory cell recruitment)."
+    },
+    {
+      "group_key": "cox1_inhibition_vs_pgf2a_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1103",
+        "1104"
+      ],
+      "rationale": "Inhibition of Cyclooxygenase 1 activity and decreased prostaglandin F2alpha concentration in plasma involve the same arachidonic acid pathway but describe enzyme inhibition versus downstream prostaglandin level reduction \u2014 distinct processes on different biological objects."
+    },
+    {
+      "group_key": "cox1_inhibition_vs_pgf2a_synthesis_ovary",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1103",
+        "672",
+        "681"
+      ],
+      "rationale": "COX1 inhibition and reduced/decreased prostaglandin F2alpha synthesis in the ovary are causally linked steps in the same pathway but represent enzyme inhibition versus downstream product synthesis reduction \u2014 distinct processes."
+    },
+    {
+      "group_key": "amphibian_metamorphosis_alteration",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1101"
+      ],
+      "rationale": "ID 1101 describes altered amphibian metamorphosis, which could relate to thyroid hormone-dependent developmental changes already described in hippocampal and thyroid hormone groups \u2014 insufficient overlap for existing group assignment; noted as standalone."
+    },
+    {
+      "group_key": "hemostasis_failure_secondary",
+      "type": "merge",
+      "member_ids": [
+        "1122",
+        "1130"
+      ],
+      "rationale": "Failure of secondary hemostasis (ID 1122, undercarboxylated clotting factors failing to assemble) and unresolved blood loss/hemorrhage due to failure of vascular repair (ID 1130) both describe the downstream consequence of anticoagulant-induced hemostatic failure, representing closely related outcomes in the same pathological sequence."
+    },
+    {
+      "group_key": "anticoagulant_vkor_vitamin_k_cycling",
+      "type": "merge",
+      "member_ids": [
+        "1134",
+        "1169"
+      ],
+      "rationale": "ID 1134 describes irreversible inhibition of hepatic VKOR with failure to cycle vitamin K epoxide to hydroquinone, and ID 1169 describes anticoagulant rodenticide interference with carboxylation of Gla proteins in bone/impairment of osteocalcin carboxylation \u2014 both describe downstream consequences of VKOR inhibition on vitamin K-dependent carboxylation but in different tissues (liver vs. bone); these are similar_event_different_biological_context rather than merge."
+    },
+    {
+      "group_key": "vkor_vitamin_k_cycling_clotting",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1134",
+        "1169"
+      ],
+      "rationale": "ID 1134 describes VKOR inhibition and failure to cycle vitamin K in the liver context, while ID 1169 describes impaired carboxylation of osteocalcin in the bone context \u2014 same molecular mechanism (vitamin K-dependent carboxylation failure) but in different tissue contexts."
+    },
+    {
+      "group_key": "clotting_failure_hemorrhage_consequences",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1132",
+        "1135"
+      ],
+      "rationale": "Blood loss with impaired oxygen/nutrient delivery (ID 1132) and acidosis/hypovolemic shock/organ dysfunction (ID 1135) describe sequential systemic consequences of the same hemorrhagic process at different severity levels."
+    },
+    {
+      "group_key": "oxidative_phosphorylation_uncoupling_atp",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1138"
+      ],
+      "rationale": "ID 1138 describes uncoupling of oxidative phosphorylation with reduced ability to generate ATP, which is closely related to the existing mitochondrial_oxidative_phosphorylation_decrease and atp_pool_decrease groups \u2014 assigning to atp_pool_decrease is most appropriate as uncoupling directly reduces ATP generation."
+    },
+    {
+      "group_key": "uncoupling_oxphos_vs_atp_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1138"
+      ],
+      "rationale": "ID 1138 describes uncoupling of oxidative phosphorylation leading to reduced ATP generation, which is mechanistically distinct from but causally upstream of the decreased ATP pool already grouped \u2014 flagging for curator review as same process chain."
+    },
+    {
+      "group_key": "thyroid_iodide_transport_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1155",
+        "1156"
+      ],
+      "rationale": "Inhibition of Pendrin (ID 1155) and inhibition of Dual Oxidase (ID 1156) both describe inhibition of thyroid-specific ion transport/oxidase proteins involved in thyroid hormone synthesis \u2014 same process class (enzyme/transporter inhibition) in overlapping thyroid biosynthesis contexts but on different molecular targets."
+    },
+    {
+      "group_key": "hepatic_thyroid_hormone_uptake_nuclear_receptor",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1158",
+        "1157"
+      ],
+      "rationale": "Increased hepatic thyroid hormone uptake/transport (ID 1158) and activation of hepatic nuclear receptor(s) (ID 1157) describe related hepatic events in thyroid hormone catabolism \u2014 uptake of T4 into hepatocytes is upstream of nuclear receptor activation but these are distinct processes."
+    },
+    {
+      "group_key": "thyroid_hormone_gene_expression_altered",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1829"
+      ],
+      "rationale": "ID 1829 describes altered thyroid hormone-dependent gene expression, which is a downstream consequence of thyroid hormone level changes already described in existing thyroid hormone groups \u2014 this is a distinct downstream transcriptional event."
+    },
+    {
+      "group_key": "serum_t4_increase_vs_decrease",
+      "type": "soda",
+      "member_ids": [
+        "1828",
+        "399"
+      ],
+      "rationale": "ID 1828 describes increased T4 in serum and the existing thyroxine_serum_decrease group member (ID 399, Thyroxine T4 in serum, Decreased) describes decreased T4 in serum \u2014 directionally opposite endpoints of the same serum T4 measurement."
+    },
+    {
+      "group_key": "trpa1_trigeminal_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1215",
+        "1220"
+      ],
+      "rationale": "TRPA1 receptor activation (ID 1215) and trigeminal nerve activation (ID 1220) describe related events in the sensory irritation pathway \u2014 TRPA1 activation on trigeminal neurons leads to nerve activation, but these are distinct processes at receptor versus nerve levels."
+    },
+    {
+      "group_key": "airway_irritation_cough_dyspnea",
+      "type": "merge",
+      "member_ids": [
+        "1223",
+        "1226"
+      ],
+      "rationale": "Trigeminal/vagal nerve excitation causing airway hyper-responsiveness/cough/dyspnea (ID 1223) and increased respiratory irritability and chronic cough (ID 1226) both describe the same respiratory irritation outcome at the same functional level."
+    },
+    {
+      "group_key": "nasal_mucosa_vs_airway_irritation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1434",
+        "1223"
+      ],
+      "rationale": "Irritation of nasal mucosa inducing sneeze reflex (ID 1434) and airway hyper-responsiveness/cough/dyspnea from trigeminal/vagal nerve excitation (ID 1223) both describe irritation-induced respiratory reflex responses but in different airway compartments (nasal vs. lower airway)."
+    },
+    {
+      "group_key": "cilia_movement_increase",
+      "type": "soda",
+      "member_ids": [
+        "621"
+      ],
+      "rationale": "ID 621 describes increased cilia movement, which is directionally opposite to the existing 'Cilia Beat Frequency, Decreased' in the cilia_motility_airway_clearance group \u2014 these are soda pairs for the same ciliary motility endpoint."
+    },
+    {
+      "group_key": "cilia_movement_vs_beat_frequency",
+      "type": "soda",
+      "member_ids": [
+        "621"
+      ],
+      "rationale": "ID 621 (Increase, cilia movement) is directionally opposite to 'Cilia Beat Frequency, Decreased' \u2014 both measure the same cilia motility endpoint in opposite directions."
+    },
+    {
+      "group_key": "sodium_conductance_1_vs_2",
+      "type": "merge",
+      "member_ids": [
+        "1176",
+        "585"
+      ],
+      "rationale": "ID 1176 (Decreased, Sodium conductance 2) and ID 585 (Decreased, Sodium conductance 1) both describe decreased sodium conductance using essentially equivalent wording with only the isoform number differing \u2014 these are similar_event_different_biological_context rather than merge."
+    },
+    {
+      "group_key": "sodium_conductance_isoforms",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1176",
+        "585"
+      ],
+      "rationale": "Decreased sodium conductance 1 (ID 585) and decreased sodium conductance 2 (ID 1176) describe the same directional change (decreased sodium conductance) but specify different isoforms/channels \u2014 same process, different biological context."
+    },
+    {
+      "group_key": "breast_cancer_ductal_hyperplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1192",
+        "1193"
+      ],
+      "rationale": "Increased ductal hyperplasia (ID 1192) and breast cancer (ID 1193) describe related pathological outcomes in mammary/breast tissue \u2014 hyperplasia is a preneoplastic change while breast cancer is the malignant outcome, same tissue context but different severity/stage."
+    },
+    {
+      "group_key": "breast_cancer_invasion_migration",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1196",
+        "1241",
+        "1193"
+      ],
+      "rationale": "Increased invasion (ID 1196), increased motility (ID 1241), and breast cancer (ID 1193) describe related cancer hallmark processes in the same breast cancer biological context but are distinct biological events (invasion, motility, and malignant disease)."
+    },
+    {
+      "group_key": "extracellular_matrix_invasion_motility",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1195",
+        "1196",
+        "1241"
+      ],
+      "rationale": "Modulation of extracellular matrix composition (ID 1195), increased invasion (ID 1196), and increased motility (ID 1241) all describe processes contributing to cancer cell invasiveness \u2014 ECM modulation enables invasion and motility, but these are distinct biological processes."
+    },
+    {
+      "group_key": "deformed_wing_virus_colony_weakness",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1109",
+        "1107"
+      ],
+      "rationale": "Increased Deformed Wing Virus levels (ID 1109) and weakened colony (ID 1107) describe related outcomes in the bee colony collapse context \u2014 viral infection is a contributing cause to colony weakness, but these are distinct events at different biological levels."
+    },
+    {
+      "group_key": "juvenile_hormone_receptor_doublesex_male_tract",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1205",
+        "1206",
+        "1209"
+      ],
+      "rationale": "Activation of juvenile hormone receptor (ID 1205), induction of Doublesex1 gene (ID 1206), and induction of male reproductive tract (ID 1209) describe sequential steps in the same sex determination/developmental pathway \u2014 JH receptor activation leads to Doublesex1 induction which leads to male reproductive tract development, but these are distinct biological events."
+    },
+    {
+      "group_key": "impaired_population_trajectory",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1136"
+      ],
+      "rationale": "ID 1136 (Impaired recruitment, Population trajectory) describes impaired population recruitment affecting population trajectory, which is closely related to the existing population_decline group (Decreased Population size/trajectory) \u2014 assigning to population_decline as a merge is appropriate."
+    },
+    {
+      "group_key": "impaired_recruitment_population",
+      "type": "merge",
+      "member_ids": [
+        "1136"
+      ],
+      "rationale": "ID 1136 describes impaired recruitment affecting population trajectory, which is equivalent in meaning to decreased population trajectory already in the population_decline group."
+    },
+    {
+      "group_key": "energetic_stress_metabolic_demand",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1110",
+        "1138"
+      ],
+      "rationale": "Increased energetic demands and metabolic stress (ID 1110) and uncoupling of oxidative phosphorylation with reduced ATP generation (ID 1138) both describe energy metabolism disruption \u2014 the former is a general metabolic stress outcome and the latter is a specific mitochondrial mechanism, related but distinct processes."
+    },
+    {
+      "group_key": "osteoporosis_bone_deterioration",
+      "type": "merge",
+      "member_ids": [
+        "1151"
+      ],
+      "rationale": "ID 1151 describes osteoporosis and vascular calcification with bone deterioration, which is closely related to the existing bone_remodeling_vs_bone_loss group (Increase, Bone Remodeling and Occurrence, Bone Loss) \u2014 the bone deterioration component maps to bone loss in the existing group."
+    },
+    {
+      "group_key": "osteoporosis_vs_bone_loss",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1151"
+      ],
+      "rationale": "ID 1151 (Osteoporosis and vascular calcification, Bone deterioration) describes organ-level bone pathology, fitting the existing bone_remodeling_vs_bone_loss group as a similar event in the same bone biological context."
+    },
+    {
+      "group_key": "lung_substance_interaction_membrane",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1495",
+        "1498"
+      ],
+      "rationale": "Substance interaction with lung resident cell membrane components (ID 1495) and loss of alveolar capillary membrane integrity (ID 1498) both describe pulmonary membrane-level events but represent an initial molecular interaction versus a downstream structural integrity loss \u2014 distinct processes."
+    },
+    {
+      "group_key": "trigeminal_nerve_airway_response",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1220",
+        "1223",
+        "1226"
+      ],
+      "rationale": "Trigeminal nerve activation (ID 1220), airway hyper-responsiveness/cough/dyspnea from nerve excitation (ID 1223), and increased respiratory irritability and chronic cough (ID 1226) all describe the trigeminal/respiratory irritation pathway at different levels \u2014 nerve activation versus functional respiratory outcomes."
+    },
+    {
+      "group_key": "gene_expression_altered_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1239",
+        "1829"
+      ],
+      "rationale": "Altered gene expression (ID 1239, general) and altered thyroid hormone-dependent gene expression (ID 1829) both describe changes in gene expression but one is general while the other specifies thyroid hormone dependency as the biological context."
+    }
+  ]
+}

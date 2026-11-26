@@ -1,0 +1,442 @@
+[
+  {
+    "group_key": "glutamate_gated_chloride_channel_activation",
+    "type": "merge",
+    "member_ids": [
+      "760",
+      "1018"
+    ],
+    "rationale": "Both describe activation of glutamate-gated chloride channels using nearly identical wording."
+  },
+  {
+    "group_key": "chloride_conductance_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "761",
+      "762"
+    ],
+    "rationale": "Both describe increased chloride conductance through ligand-gated ion channels but via different receptor types (glutamate-gated vs. GABA receptor)."
+  },
+  {
+    "group_key": "inhibitory_postsynaptic_potential_vs_neuronal_inhibition",
+    "type": "merge",
+    "member_ids": [
+      "1012",
+      "1015"
+    ],
+    "rationale": "Increased inhibitory postsynaptic potential and increased neuronal synaptic inhibition describe the same electrophysiological outcome at the neuronal level."
+  },
+  {
+    "group_key": "ne_receptor_binding_vs_antagonism",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "848",
+      "849"
+    ],
+    "rationale": "Both involve NE receptors on GnRH neurons but one describes decreased binding and the other describes antagonism, which are related but distinct processes."
+  },
+  {
+    "group_key": "cytoplasmic_vacuolization_renal_tubule_vs_podocyte",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "818",
+      "824"
+    ],
+    "rationale": "Both describe cytoplasmic vacuolization in renal cells but in different cell types (renal tubule vs. podocyte)."
+  },
+  {
+    "group_key": "cytoplasmic_vacuolization_hepatic_cells",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "833",
+      "837",
+      "836"
+    ],
+    "rationale": "All describe cytoplasmic vacuolization in liver cells but in different cell types (hepatocyte, Kupffer cell, bile duct cell)."
+  },
+  {
+    "group_key": "cytotoxicity_various_cell_types",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "776",
+      "780",
+      "783",
+      "786",
+      "794"
+    ],
+    "rationale": "All describe increased cytotoxicity but in different cell/tissue contexts (corneal cells, epithelial cells, tubular epithelial cells, hepatocytes, urothelial cells)."
+  },
+  {
+    "group_key": "regenerative_cell_proliferation_various_tissues",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "778",
+      "781",
+      "787",
+      "795"
+    ],
+    "rationale": "All describe increased regenerative cell proliferation but in different tissue contexts (corneal cells, forestomach epithelial cells, hepatocytes, urothelial cells)."
+  },
+  {
+    "group_key": "hyperplasia_various_tissues",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "782",
+      "784",
+      "796"
+    ],
+    "rationale": "All describe increased hyperplasia but in different tissue contexts (forestomach epithelial cells, tubular epithelial cells, urothelial)."
+  },
+  {
+    "group_key": "lysosomal_disruption",
+    "type": "merge",
+    "member_ids": [
+      "831",
+      "898"
+    ],
+    "rationale": "Both describe disruption/disturbance of lysosomal function using different wording for the same cellular process."
+  },
+  {
+    "group_key": "hif1_activation",
+    "type": "merge",
+    "member_ids": [
+      "799",
+      "802"
+    ],
+    "rationale": "Increased HIF-1 heterodimer and increased HIF-1 alpha transcription both describe activation of the HIF-1 pathway, with the heterodimer being the functional form of the transcription factor."
+  },
+  {
+    "group_key": "prolyl_hydroxylase_inhibition_vs_hif1",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "798",
+      "799"
+    ],
+    "rationale": "Prolyl hydroxylase inhibition leads to HIF-1 stabilization, but inhibition of PHDs is a distinct process from HIF-1 heterodimer formation."
+  },
+  {
+    "group_key": "hmgcoa_reductase_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "804",
+      "805"
+    ],
+    "rationale": "HMG-CoA reductase inhibition and decreased mevalonate share the same target pathway but inhibition of the enzyme and reduction of its product are distinct events."
+  },
+  {
+    "group_key": "aromatase_mrna_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "800",
+      "964"
+    ],
+    "rationale": "Both involve inhibition/decrease of aromatase (Cyp19a1) activity but one specifies mRNA level and the other specifies enzyme inhibition during estrous cycle."
+  },
+  {
+    "group_key": "gnrh_release_decrease",
+    "type": "merge",
+    "member_ids": [
+      "969",
+      "1071"
+    ],
+    "rationale": "Both describe decreased GnRH pulsatility/release from the hypothalamus using different wording."
+  },
+  {
+    "group_key": "lh_surge_decrease",
+    "type": "merge",
+    "member_ids": [
+      "970",
+      "1072"
+    ],
+    "rationale": "Both describe decreased LH release/surge from the anterior pituitary in the context of GnRH stimulation."
+  },
+  {
+    "group_key": "lh_increase_vs_decrease",
+    "type": "soda",
+    "member_ids": [
+      "791",
+      "1072"
+    ],
+    "rationale": "Both measure LH from the anterior pituitary but in strictly opposite directions (increase vs. decrease/surge failure)."
+  },
+  {
+    "group_key": "ovulation_reduction",
+    "type": "merge",
+    "member_ids": [
+      "971",
+      "1074"
+    ],
+    "rationale": "Both describe interruption or reduction/delay of ovulation as a key event."
+  },
+  {
+    "group_key": "fertility_decrease",
+    "type": "merge",
+    "member_ids": [
+      "330",
+      "972"
+    ],
+    "rationale": "Both describe decreased fertility (reduced oocytes ovulated leads to decreased fertility), using different levels of specificity for the same outcome."
+  },
+  {
+    "group_key": "kisspeptin_release_decrease",
+    "type": "merge",
+    "member_ids": [
+      "968",
+      "969"
+    ],
+    "rationale": "Both describe decreased kisspeptin stimulation leading to decreased GnRH, with 969 being a more explicit statement of the same event chain initiated in 968."
+  },
+  {
+    "group_key": "prolactin_secretion_increase",
+    "type": "merge",
+    "member_ids": [
+      "1077",
+      "1084"
+    ],
+    "rationale": "Both describe increased prolactin exposure/secretion as a key event."
+  },
+  {
+    "group_key": "mammary_hyperplasia",
+    "type": "merge",
+    "member_ids": [
+      "1078",
+      "1085"
+    ],
+    "rationale": "Both describe hyperplasia of the mammary gland using slightly different wording."
+  },
+  {
+    "group_key": "dopaminergic_activity_direction",
+    "type": "soda",
+    "member_ids": [
+      "746",
+      "1083"
+    ],
+    "rationale": "Both measure dopaminergic activity but in strictly opposite directions (increase vs. decrease)."
+  },
+  {
+    "group_key": "sine_oculis_homeobox_expression",
+    "type": "merge",
+    "member_ids": [
+      "2329",
+      "2330"
+    ],
+    "rationale": "Both describe increased Sine oculis homeobox 1 (SOX1) expression, one at the gene/mRNA level and one at the protein level, representing the same biological event."
+  },
+  {
+    "group_key": "nfat_calcineurin_pathway",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "979",
+      "981"
+    ],
+    "rationale": "Both involve NFAT but one describes interference with nuclear localization and the other describes reduction of NFAT/AP-1 complex formation, which are related but distinct molecular processes."
+  },
+  {
+    "group_key": "enos_uncoupling_pathway",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "927",
+      "932"
+    ],
+    "rationale": "Both involve eNOS but S-glutathionylation and uncoupling are distinct molecular events affecting the same protein."
+  },
+  {
+    "group_key": "deiodinase_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1002",
+      "1009"
+    ],
+    "rationale": "Both describe inhibition of deiodinase enzymes but of different isoforms (Deiodinase 2 vs. Deiodinase 1)."
+  },
+  {
+    "group_key": "swim_bladder_inflation_reduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1004",
+      "1007"
+    ],
+    "rationale": "Both describe reduced swim bladder inflation but in different anatomical compartments (posterior vs. anterior swim bladder)."
+  },
+  {
+    "group_key": "beta2_adrenergic_receptor_activation",
+    "type": "merge",
+    "member_ids": [
+      "1038",
+      "1039"
+    ],
+    "rationale": "Both describe activation/increased activity of the beta-2 adrenergic receptor using different wording for the same event."
+  },
+  {
+    "group_key": "ovarian_e2_decrease_vs_er_suppression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1045",
+      "1046"
+    ],
+    "rationale": "Decreased ovarian E2 and suppression of estrogen receptor activity are related but distinct events \u2014 lower ligand levels do not confirm receptor suppression without additional context."
+  },
+  {
+    "group_key": "gnrh_secretion_increase",
+    "type": "merge",
+    "member_ids": [
+      "1047",
+      "1049"
+    ],
+    "rationale": "Increased GnRH from hypothalamus and increased FSH secretion from anterior pituitary are sequential events; however, 1047 and 1050 describe the same upstream GnRH signal leading to different pituitary outputs \u2014 grouping 1047 alone with 1049 is not synonym-level. Withdrawing this grouping."
+  },
+  {
+    "group_key": "lh_secretion_increase_anterior_pituitary",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "791",
+      "1050"
+    ],
+    "rationale": "Both describe increased LH secretion/levels but one specifies the anterior pituitary as the source while the other measures it as a serum endpoint."
+  },
+  {
+    "group_key": "ovarian_tumor_promotion",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1053",
+      "1054"
+    ],
+    "rationale": "Both describe promotion of ovarian tumors but of different cell types (adenomas vs. granular cell tumors)."
+  },
+  {
+    "group_key": "ovarian_hyperplasia",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1051",
+      "1052"
+    ],
+    "rationale": "Both describe hyperplasia in the ovary but in different cell types (stromal cells vs. epithelial cells)."
+  },
+  {
+    "group_key": "inflammation_general_vs_corneal",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "777",
+      "1087"
+    ],
+    "rationale": "Both describe increased inflammation but one specifies corneal cells while the other is general."
+  },
+  {
+    "group_key": "inflammation_vs_leukocyte_recruitment",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1087",
+      "1494"
+    ],
+    "rationale": "Increased inflammation and leukocyte recruitment/activation are related inflammatory processes but leukocyte recruitment is a component mechanism of inflammation, not a synonym."
+  },
+  {
+    "group_key": "mucin_goblet_cell",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "962",
+      "2117"
+    ],
+    "rationale": "Increased mucin production and increased goblet cell number are related but distinct events \u2014 more goblet cells may produce more mucin but they are not synonymous."
+  },
+  {
+    "group_key": "pulmonary_fibrosis_vs_fibroblast_proliferation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1458",
+      "1500"
+    ],
+    "rationale": "Pulmonary fibrosis is an organ-level outcome while fibroblast proliferation and myofibroblast differentiation is the cellular process contributing to it."
+  },
+  {
+    "group_key": "renal_tubular_necrosis_vs_ischemia",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1097",
+      "1105"
+    ],
+    "rationale": "Renal proximal tubular necrosis and renal ischemia affect the kidney but represent different pathological processes (structural damage vs. perfusion failure)."
+  },
+  {
+    "group_key": "transthyretin_binding_vs_displacement",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "957",
+      "958"
+    ],
+    "rationale": "Both involve transthyretin in serum but one describes binding to it and the other describes displacement of T4 from it, which are distinct molecular events."
+  },
+  {
+    "group_key": "serum_t4_increase",
+    "type": "merge",
+    "member_ids": [
+      "959",
+      "960"
+    ],
+    "rationale": "Increased free serum T4 and increased uptake of thyroxine into tissue are sequential consequences of the same T4 displacement event but represent different biological endpoints; not merging."
+  },
+  {
+    "group_key": "cell_proliferation_general",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "870",
+      "1089"
+    ],
+    "rationale": "Both describe increased cell proliferation but one is general and the other specifies mesothelium as the biological context."
+  },
+  {
+    "group_key": "urod_inhibition_porphyrin_accumulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "845",
+      "846"
+    ],
+    "rationale": "UROD inhibition and accumulation of highly carboxylated porphyrins are related but represent distinct events (enzyme inhibition vs. substrate accumulation)."
+  },
+  {
+    "group_key": "clotting_factor_carboxylation_failure",
+    "type": "merge",
+    "member_ids": [
+      "1131",
+      "1133"
+    ],
+    "rationale": "Both describe failure of gamma-glutamyl carboxylation of clotting factors and depletion of functional carboxylated clotting factors, representing the same downstream outcome of VKOR inhibition."
+  },
+  {
+    "group_key": "smooth_muscle_proliferation_hypertrophy",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1042",
+      "1043"
+    ],
+    "rationale": "Both describe growth responses in smooth muscle cells (proliferation/clonal expansion vs. hypertrophy/hyperplasia) which are related but distinct cellular processes."
+  },
+  {
+    "group_key": "placental_vascular_insufficiency",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1891",
+      "1892"
+    ],
+    "rationale": "Abnormal placental vasculature morphology and increased placental insufficiency are related but represent distinct events (structural vs. functional outcome)."
+  },
+  {
+    "group_key": "sarcoma_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1035",
+      "1036",
+      "1037"
+    ],
+    "rationale": "All describe increased sarcomas but of different tissue types (fibrosarcoma, liposarcoma, hemangiosarcoma)."
+  },
+  {
+    "group_key": "pituitary_lactotroph_vs_adenoma",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1081",
+      "1082"
+    ],
+    "rationale": "Both describe pathological changes in the pituitary (lactotroph hyperplasia/hypertrophy vs. adenomas) representing related but distinct stages of the same pathological progression in the same organ."
+  }
+]

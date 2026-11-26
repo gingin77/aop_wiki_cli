@@ -1,0 +1,283 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "414",
+      "group_key": "lh_increase_vs_decrease",
+      "rationale": "ID 414 'Increase, Luteinizing hormone (LH)' describes increased LH, which is directionally opposite to 'Decreased, LH Surge' in this soda group measuring the same hormone."
+    },
+    {
+      "event_id": "675",
+      "group_key": "reproductive_success",
+      "rationale": "ID 675 'Reduced, Reproductive Success' describes reduced reproductive success, matching the soda group that pairs decreased vs. increased reproductive success."
+    },
+    {
+      "event_id": "451",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "ID 451 'Inhibition, Mitochondrial fatty acid beta-oxidation' describes inhibition/decrease of fatty acid beta-oxidation, equivalent to the other merge group members."
+    },
+    {
+      "event_id": "477",
+      "group_key": "circulating_ketone_bodies",
+      "rationale": "ID 477 'Decreased, Ketogenesis' describes decreased ketone body production, equivalent to the existing merge group members describing decreased ketogenesis and not-increased circulating ketone bodies."
+    },
+    {
+      "event_id": "494",
+      "group_key": "androgen_receptor_decrease_vs_activation_decrease",
+      "rationale": "ID 494 'Glucocorticoid Receptor Agonist, Activation' does not fit the androgen receptor group \u2014 withdrawing this assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "lh_increase_multiple",
+      "type": "merge",
+      "member_ids": [
+        "414"
+      ],
+      "rationale": "ID 414 is already handled by assignment to lh_increase_vs_decrease soda group; no new merge group needed here."
+    },
+    {
+      "group_key": "fatty_acid_synthesis_upregulation",
+      "type": "merge",
+      "member_ids": [
+        "458",
+        "463",
+        "470"
+      ],
+      "rationale": "ID 458 'Increased, De Novo FA synthesis', ID 463 'Up Regulation, FAS' (fatty acid synthase), and ID 470 'Up Regulation, Acetyl-CoA carboxylase-1 (ACC-1)' all describe distinct enzymes/processes in de novo fatty acid synthesis and cannot be merged as synonyms \u2014 withdrawing."
+    },
+    {
+      "group_key": "glucocorticoid_receptor_activation",
+      "type": "merge",
+      "member_ids": [
+        "494",
+        "654"
+      ],
+      "rationale": "ID 494 'Glucocorticoid Receptor Agonist, Activation' and ID 654 'Decreased testosterone by the fetal Leydig cells, Activation by other glucocorticoid receptor agonists' both describe activation of the glucocorticoid receptor, though ID 654 includes the downstream fetal Leydig cell testosterone context."
+    },
+    {
+      "group_key": "decreased_cholesterol_testosterone_leydig",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "645",
+        "644"
+      ],
+      "rationale": "ID 645 'Decreased Cholesterol, Decreased Testosterone Production by Adult Leydig Cells' and ID 644 'Decreased Cholesterol, Decreased Transport of Cholesterol to the Inner Mitochondrial Membrane' both describe downstream consequences of decreased cholesterol in Leydig cells but represent distinct biological processes (steroidogenesis vs. intracellular cholesterol transport)."
+    },
+    {
+      "group_key": "decreased_cholesterol_sources",
+      "type": "merge",
+      "member_ids": [
+        "642",
+        "643"
+      ],
+      "rationale": "ID 642 'Decreased Cholesterol, Decreased De Novo Biosynthesis of Cholesterol' and ID 643 'Decreased Cholesterol, Decreased Uptake of Lipoproteins' both describe reduced cholesterol supply to Leydig cells via different mechanisms \u2014 these are distinct processes (biosynthesis vs. uptake) so this is not a merge."
+    },
+    {
+      "group_key": "cholesterol_supply_decrease_sources",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "642",
+        "643"
+      ],
+      "rationale": "ID 642 'Decreased Cholesterol, Decreased De Novo Biosynthesis of Cholesterol' and ID 643 'Decreased Cholesterol, Decreased Uptake of Lipoproteins' both describe reduced cholesterol availability but via distinct processes (biosynthesis vs. lipoprotein uptake) in the same Leydig cell context."
+    },
+    {
+      "group_key": "leydig_cell_apoptosis_testosterone_decrease",
+      "type": "merge",
+      "member_ids": [
+        "496",
+        "648"
+      ],
+      "rationale": "ID 496 'Increased apoptosis, decreased fetal/adult Leydig Cells' and ID 648 'Decreased steroidogenesis, Increased Apoptosis of Adult Leydig Cells' both describe increased apoptosis of Leydig cells associated with decreased steroidogenesis/testosterone."
+    },
+    {
+      "group_key": "steroidogenic_enzyme_repression",
+      "type": "merge",
+      "member_ids": [
+        "495",
+        "647"
+      ],
+      "rationale": "ID 495 'Repressed expression of steroidogenic enzymes' and ID 647 'Decreased, steroidogenic protein expression' both describe decreased expression of steroidogenic enzymes/proteins using equivalent wording."
+    },
+    {
+      "group_key": "coup_tfii_fetal_leydig",
+      "type": "soda",
+      "member_ids": [
+        "655",
+        "656"
+      ],
+      "rationale": "ID 655 'Decreased testosterone by the fetal Leydig cells, Increased COUP-TFII in fetal Leydig cells' describes increased COUP-TFII and ID 656 (in existing group fetal_leydig_testosterone_decrease_coup_tfii) describes decreased COUP-TFII \u2014 opposite directions for the same molecule in the same cell context."
+    },
+    {
+      "group_key": "fetal_leydig_estradiol_agonism",
+      "type": "merge",
+      "member_ids": [
+        "658",
+        "659"
+      ],
+      "rationale": "ID 658 'Decreased testosterone by the fetal Leydig cells, Increased estradiol' and ID 659 'Decreased testosterone by the fetal Leydig cells, Activation by other estradiol agonists' both describe estrogenic activation in the context of fetal Leydig cell testosterone suppression."
+    },
+    {
+      "group_key": "fetal_leydig_corticosterone_glucocorticoid",
+      "type": "merge",
+      "member_ids": [
+        "653",
+        "654"
+      ],
+      "rationale": "ID 653 'Decreased testosterone by the fetal Leydig cells, Increased corticosterone' and ID 654 'Decreased testosterone by the fetal Leydig cells, Activation by other glucocorticoid receptor agonists' both describe glucocorticoid-mediated suppression of fetal Leydig cell testosterone in the same context."
+    },
+    {
+      "group_key": "adult_leydig_testosterone_decrease_mechanisms",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "651",
+        "652",
+        "525"
+      ],
+      "rationale": "ID 651 'Glucocorticoid Receptor mediated alterations in steroidogenic enzymes, Decreased testosterone by adult Leydig cells', ID 652 'Direct effects of Corticosterone on steroidogenesis, Decreased testosterone by adult Leydig cells', and ID 525 'Apoptosis of adult Leydig cells, Decreased testosterone by adult Leydig cells' all describe decreased testosterone production by adult Leydig cells but via distinct upstream mechanisms."
+    },
+    {
+      "group_key": "leydig_cell_proteome_cytoskeleton_alterations",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "640",
+        "649",
+        "661"
+      ],
+      "rationale": "ID 640 'Decreased steroidogenesis, Proteomic alterations in the adult Leydig cell', ID 649 'Decreased steroidogenesis, Alterations in the Leydig Cell Cytoskeleton', and ID 661 'Decreased testosterone by the fetal Leydig cells, Alterations in the fetal testis proteome' all describe molecular/structural alterations in Leydig cells or testis as consequences of decreased steroidogenesis, in different cellular or generational contexts."
+    },
+    {
+      "group_key": "decreased_sperm_cholesterol_leydig",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "646",
+        "645"
+      ],
+      "rationale": "ID 646 'Decreased Cholesterol, Decreased sperm quantity and/or quality in the adult testis' and ID 645 'Decreased Cholesterol, Decreased Testosterone Production by Adult Leydig Cells' both stem from decreased cholesterol in Leydig cells but describe distinct downstream outcomes (sperm quality vs. testosterone production)."
+    },
+    {
+      "group_key": "cyp1a1_upregulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "80"
+      ],
+      "rationale": "ID 80 'Up Regulation, CYP1A1' is a standalone event describing AhR-mediated CYP1A1 induction; no clear existing group match, and no other ungrouped event is synonymous."
+    },
+    {
+      "group_key": "hepatic_lipid_transcription_factors",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "457",
+        "461",
+        "480",
+        "483",
+        "484"
+      ],
+      "rationale": "ID 457 'Activation, SREBF1', ID 461 'Suppression, HNF4alpha', ID 480 'Activation, SHP', ID 483 'Activation, LXR alpha', and ID 484 'Activation, AKT2' all describe activation or suppression of distinct transcription factors and signaling proteins involved in hepatic lipid metabolism \u2014 these are different molecular objects so they cannot be merged or grouped as soda/sodp; no grouping justified."
+    },
+    {
+      "group_key": "de_novo_lipogenesis_enzymes",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "458",
+        "462",
+        "463",
+        "470"
+      ],
+      "rationale": "ID 458 'Increased, De Novo FA synthesis', ID 462 'Up Regulation, SCD-1', ID 463 'Up Regulation, FAS', and ID 470 'Up Regulation, Acetyl-CoA carboxylase-1 (ACC-1)' all describe upregulation of distinct enzymes/processes in de novo fatty acid synthesis \u2014 same pathway direction but different molecular objects."
+    },
+    {
+      "group_key": "hepatic_fatty_acid_oxidation_transcription_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "471",
+        "472",
+        "474"
+      ],
+      "rationale": "ID 471 'Inhibition, FoxA2', ID 472 'Down Regulation, CPT1A', and ID 474 'Down Regulation, HMGCS2' all describe downregulation of distinct transcription factors/enzymes involved in fatty acid oxidation and ketogenesis \u2014 same pathway direction but different molecular objects."
+    },
+    {
+      "group_key": "nrf2_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "478"
+      ],
+      "rationale": "ID 478 'Activation, NRF2' is an isolated event; NRF2 activation is distinct from the oxidative stress increase group members and no ungrouped event is synonymous."
+    },
+    {
+      "group_key": "vldl_export_fatty_acid_influx",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "450",
+        "465"
+      ],
+      "rationale": "ID 450 'Decrease, Very low-density lipoprotein export capacity' and ID 465 'Increased, Fatty acid influx' both describe altered hepatic lipid flux but in opposite directions and involving different lipid transport processes \u2014 no grouping justified."
+    },
+    {
+      "group_key": "pcg1_glycolysis_gluconeogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "216"
+      ],
+      "rationale": "ID 216 'Decreased, PCK1 expression (control point for glycolysis/gluconeogenesis pathway)' is a standalone event; no synonymous ungrouped event exists."
+    },
+    {
+      "group_key": "ionotropic_glutamate_receptor_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "875"
+      ],
+      "rationale": "ID 875 'Binding of agonist, Ionotropic glutamate receptors' is a standalone binding event; no synonymous ungrouped event describing inhibition or functional outcome of the same receptor exists among ungrouped events."
+    },
+    {
+      "group_key": "nr1h4_activation_shp",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "479",
+        "480"
+      ],
+      "rationale": "ID 479 'Activation, NR1H4' (FXR) and ID 480 'Activation, SHP' describe activation of related but distinct nuclear receptors in the bile acid signaling pathway \u2014 NR1H4/FXR activates SHP, so these are different biological objects."
+    },
+    {
+      "group_key": "dhb4_hsd17b4_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "482"
+      ],
+      "rationale": "ID 482 'Decreased, DHB4/HSD17B4' is a standalone event describing decreased peroxisomal fatty acid oxidation enzyme; no synonymous ungrouped event exists."
+    },
+    {
+      "group_key": "gaba_interneuron_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "851"
+      ],
+      "rationale": "ID 851 'Decrease of GABAergic interneurons' is a standalone event; no synonymous ungrouped event exists."
+    },
+    {
+      "group_key": "sex_ratio_skewed",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "417"
+      ],
+      "rationale": "ID 417 'skewed, sex ratio' is a standalone population-level event; no synonymous ungrouped event exists."
+    },
+    {
+      "group_key": "renal_hemorrhage_nephropathy",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "421",
+        "422"
+      ],
+      "rationale": "ID 421 'Increased, glomerular rupture and renal hemorrhaging' and ID 422 'Increased, nephropathy' both describe renal pathological outcomes but at different levels of specificity \u2014 glomerular rupture/hemorrhage is a specific acute lesion while nephropathy is a broader renal disease outcome."
+    },
+    {
+      "group_key": "systemic_inflammation_steatosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "486"
+      ],
+      "rationale": "ID 486 'systemic inflammation leading to hepatic steatosis' describes a causal link between inflammation and steatosis; it is a standalone compound event not synonymous with any single ungrouped event."
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "669",
+      "group_key": "inhibitory_postsynaptic_potential_vs_neuronal_inhibition",
+      "rationale": "Reduction in neuronal synaptic inhibition is the directional opposite of increased neuronal synaptic inhibition already in the merge group, so it should be assigned as a soda; however, since the group is a merge of increases, ID 669 (reduction) is the opposite direction and belongs in a soda relationship with that group \u2014 but since the group type is merge (not soda), ID 669 is directionally opposite to the merge group members and should not be assigned there; leaving for new_groups."
+    },
+    {
+      "event_id": "406",
+      "group_key": "fertility_decrease",
+      "rationale": "ID 406 'decreased, Fertility' describes the same outcome as the existing fertility_decrease merge group members using equivalent wording."
+    },
+    {
+      "event_id": "864",
+      "group_key": "decrease_growth",
+      "rationale": "ID 864 'Decreased, Body Weight' describes a decrease in body/organismal mass, which is closely related to growth reduction, but body weight and growth are distinct biological endpoints \u2014 withdrawing this assignment."
+    },
+    {
+      "event_id": "40",
+      "group_key": "atp_pool_decrease",
+      "rationale": "ID 40 'Mitochondrial ATP production, decreased' describes decreased ATP production, the same outcome as the existing atp_pool_decrease merge group members."
+    },
+    {
+      "event_id": "613",
+      "group_key": "seizure_epilepsy",
+      "rationale": "ID 613 'Occurrence, Epileptic seizure' describes an epileptic seizure event, equivalent to 'Increased, epilepsy' already in the seizure_epilepsy group."
+    },
+    {
+      "event_id": "309",
+      "group_key": "renal_vitellogenin_deposition",
+      "rationale": "ID 309 'Reduction, Vitellogenin accumulation into oocytes and oocyte growth/development' concerns vitellogenin accumulation but in oocytes rather than renal tissue, so it does not belong in the renal_vitellogenin_deposition group \u2014 withdrawing."
+    },
+    {
+      "event_id": "78",
+      "group_key": "fecundity_decrease",
+      "rationale": "ID 78 'Reduction, Cumulative fecundity and spawning' describes reduced fecundity and spawning, equivalent in direction to the fecundity_decrease group members."
+    },
+    {
+      "event_id": "129",
+      "group_key": "gnrh_hypothalamus_decrease",
+      "rationale": "ID 129 'Reduction, Gonadotropins, circulating concentrations' describes reduced circulating gonadotropins, which is a downstream consequence of GnRH decrease; however gonadotropins \u2260 GnRH, so this does not belong in the gnrh_hypothalamus_decrease group \u2014 withdrawing."
+    },
+    {
+      "event_id": "188",
+      "group_key": "inflammation_cytokine",
+      "rationale": "ID 188 'Neuroinflammation' is a tissue-specific form of inflammation rather than a synonym for general inflammation/cytokine release \u2014 withdrawing this assignment in favor of a new context-specific group."
+    },
+    {
+      "event_id": "155",
+      "group_key": "dna_adduct_formation",
+      "rationale": "ID 155 'Inadequate DNA repair' is related to but distinct from pro-mutagenic DNA adduct formation and mis-repair \u2014 it describes a failure of repair capacity rather than adduct formation; withdrawing."
+    },
+    {
+      "event_id": "336",
+      "group_key": "mutations_increase",
+      "rationale": "ID 336 'Increase, Heritable mutations in offspring' describes increased heritable mutations, equivalent in meaning to the existing mutations_increase merge group members."
+    },
+    {
+      "event_id": "12",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "ID 12 'Acetylcholinesterase (AchE) Inhibition' targets a completely different enzyme (AChE) from Complex I \u2014 withdrawing."
+    },
+    {
+      "event_id": "1264",
+      "group_key": "ecdysone_receptor_cascade_direction",
+      "rationale": "ID 1264 'Increase, Nuclear receptor E75b gene expression' is a downstream target of ecdysone receptor signaling but is not synonymous with mis-timed ecdysone receptor cascade \u2014 withdrawing."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "neuroinflammation_vs_general_inflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "188"
+      ],
+      "rationale": "ID 188 'Neuroinflammation' describes inflammation specifically in the nervous system, a tissue-specific context distinct from general inflammation events already grouped elsewhere; noted as singleton pending additional similar events."
+    },
+    {
+      "group_key": "dopaminergic_neuron_degeneration_parkinson",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "890",
+        "896"
+      ],
+      "rationale": "ID 890 'Degeneration of dopaminergic neurons of the nigrostriatal pathway' and ID 896 'Parkinsonian motor deficits' describe the same neurodegenerative process (nigrostriatal dopaminergic degeneration) and its functional motor outcome \u2014 same biological context but different levels (cellular vs. behavioral)."
+    },
+    {
+      "group_key": "proteostasis_neurodegeneration",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "889",
+        "352"
+      ],
+      "rationale": "ID 889 'Proteostasis, impaired' and ID 352 'N/A, Neurodegeneration' are causally linked in neurodegeneration AOPs (impaired proteostasis contributes to neurodegeneration) but represent distinct biological processes at different levels."
+    },
+    {
+      "group_key": "ecdysis_hormone_peptide_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "988",
+        "1266"
+      ],
+      "rationale": "ID 988 'Decrease, Circulating ecdysis triggering hormone' and ID 1266 'Decrease, Circulating crustacean cardioactive peptide' both describe decreases in circulating neuropeptides regulating ecdysis but are distinct molecules in the same hormonal cascade."
+    },
+    {
+      "group_key": "ecdysis_motor_program_vs_triggering_hormone",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1267",
+        "988"
+      ],
+      "rationale": "ID 1267 'Decrease, Ecdysis motor program activity' and ID 988 'Decrease, Circulating ecdysis triggering hormone' are causally linked steps in ecdysis regulation but represent different biological events (hormone level vs. motor program activity)."
+    },
+    {
+      "group_key": "nuclear_receptor_e75b_ftz_f1_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1264",
+        "1265"
+      ],
+      "rationale": "ID 1264 'Increase, Nuclear receptor E75b gene expression' and ID 1265 'Decrease, Fushi tarazu factor-1 gene expression' both describe ecdysone-responsive nuclear receptor gene expression changes in the same insect molting context but on different genes in opposite directions \u2014 grouping for curator review."
+    },
+    {
+      "group_key": "ppar_alpha_corepressor_vs_transactivation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1000"
+      ],
+      "rationale": "ID 1000 'stabilization, PPAR alpha co-repressor' involves PPARalpha signaling but describes stabilization of a co-repressor rather than direct receptor binding or transactivation \u2014 it is related to the existing ppar_alpha_binding_vs_inhibition group but involves a distinct molecular process (co-repressor stabilization) on a different object; noted as singleton."
+    },
+    {
+      "group_key": "muscle_catabolism_body_weight_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "863",
+        "864"
+      ],
+      "rationale": "ID 863 'Increased, Catabolism of Muscle Protein' and ID 864 'Decreased, Body Weight' describe related catabolic outcomes \u2014 increased muscle protein catabolism as a cellular process and decreased body weight as the organismal consequence in the same wasting context."
+    },
+    {
+      "group_key": "ovarian_cycle_disruption_vs_fertility_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "405",
+        "406"
+      ],
+      "rationale": "ID 405 'disrupted, ovarian cycle' and ID 406 'decreased, Fertility' describe related reproductive impairments \u2014 disrupted ovarian cycling is a mechanistic event and decreased fertility is the downstream outcome in the same female reproductive context."
+    },
+    {
+      "group_key": "glucuronyltransferase_vs_thyroxine_clearance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "295",
+        "961"
+      ],
+      "rationale": "ID 295 'Induction, Upregulation of glucuronyltransferase activity' and ID 961 'Increased, Clearance of thyroxine from serum' are causally linked \u2014 glucuronyltransferase upregulation leads to increased T4 conjugation and clearance \u2014 but represent distinct molecular and pharmacokinetic events."
+    },
+    {
+      "group_key": "neuronal_inhibition_direction",
+      "type": "soda",
+      "member_ids": [
+        "669"
+      ],
+      "rationale": "ID 669 'Reduction, Neuronal synaptic inhibition' is directionally opposite to 'Increased, Neuronal synaptic inhibition' in the inhibitory_postsynaptic_potential_vs_neuronal_inhibition merge group, representing a soda relationship; noted as singleton opposite of that group."
+    },
+    {
+      "group_key": "excitatory_postsynaptic_amplification_seizure",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "682",
+        "616",
+        "613"
+      ],
+      "rationale": "ID 682 'Generation, Amplified excitatory postsynaptic potential', ID 616 'Occurrence, A paroxysmal depolarizing shift', and ID 613 'Occurrence, Epileptic seizure' describe a cascade of increasing neuronal excitation leading to seizure \u2014 same biological context (epileptogenesis) but at different mechanistic levels."
+    },
+    {
+      "group_key": "calcium_influx_decrease",
+      "type": "soda",
+      "member_ids": [
+        "52"
+      ],
+      "rationale": "ID 52 'Decreased, Calcium influx' is directionally opposite to 'Opening of calcium channel, Calcium influx'/'Increase, intracellular calcium' in the calcium_channel_opening_influx merge group, representing a soda relationship; noted as singleton."
+    },
+    {
+      "group_key": "bdnf_synaptic_plasticity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "381",
+        "385",
+        "383"
+      ],
+      "rationale": "ID 381 'Reduced levels of BDNF', ID 385 'Decrease of synaptogenesis', and ID 383 'Reduced, Presynaptic release of glutamate' all describe neuronal plasticity impairments in the same synaptic context but at different levels (growth factor, structural, and neurotransmitter release)."
+    },
+    {
+      "group_key": "dendritic_morphology_synaptogenesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "382",
+        "385"
+      ],
+      "rationale": "ID 382 'Aberrant, Dendritic morphology' and ID 385 'Decrease of synaptogenesis' both describe structural neuronal impairments affecting synaptic connectivity in the same developmental neurotoxicity context but represent distinct cellular processes."
+    },
+    {
+      "group_key": "learning_memory_neurodegeneration",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "341",
+        "352"
+      ],
+      "rationale": "ID 341 'Impairment, Learning and memory' and ID 352 'N/A, Neurodegeneration' describe related neurological outcomes \u2014 learning/memory impairment as a functional consequence and neurodegeneration as a structural process \u2014 in the same neurotoxicity context."
+    },
+    {
+      "group_key": "cell_injury_death_vs_apoptosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "55"
+      ],
+      "rationale": "ID 55 'Increase, Cell injury/death' describes a general cell damage/death event that encompasses but is broader than specific apoptosis events already grouped in apoptosis_increase \u2014 noted as singleton pending curator review of whether to merge with apoptosis_increase."
+    },
+    {
+      "group_key": "lymphocyte_decrease_immune",
+      "type": "merge",
+      "member_ids": [
+        "168"
+      ],
+      "rationale": "ID 168 'Decreased, Lymphocytes' describes decreased lymphocyte numbers, related to immune suppression in the existing immune_suppression group, but lymphocyte decrease is a specific measurable endpoint distinct from general immune suppression \u2014 noted as singleton."
+    },
+    {
+      "group_key": "glucocorticoid_receptor_activation",
+      "type": "merge",
+      "member_ids": [
+        "122"
+      ],
+      "rationale": "ID 122 'Increase, Glucocorticoid receptor activation' describes glucocorticoid receptor activation; noted as singleton with no existing group match."
+    },
+    {
+      "group_key": "disease_susceptibility_increase",
+      "type": "merge",
+      "member_ids": [
+        "323"
+      ],
+      "rationale": "ID 323 'Increased, Disease susceptibility' is a broad outcome endpoint; noted as singleton."
+    },
+    {
+      "group_key": "dna_repair_inadequacy_vs_mutations",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "155",
+        "336"
+      ],
+      "rationale": "ID 155 'Inadequate DNA repair' and ID 336 'Increase, Heritable mutations in offspring' are causally linked \u2014 inadequate DNA repair leads to heritable mutations \u2014 but represent distinct biological events (repair failure vs. mutational outcome)."
+    },
+    {
+      "group_key": "respiratory_distress_arrest",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "445",
+        "1703"
+      ],
+      "rationale": "ID 445 'Respiratory distress/arrest' and ID 1703 'Dysregulation of heart rate and vascular tone' both describe acute cardiorespiratory functional impairments in the same autonomic/cholinergic toxicity context but are distinct physiological endpoints."
+    },
+    {
+      "group_key": "acetylcholinesterase_inhibition_cholinergic",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "12"
+      ],
+      "rationale": "ID 12 'Acetylcholinesterase (AchE) Inhibition' is the initiating molecular event upstream of acetylcholine accumulation already in the acetylcholine_accumulation merge group; AChE inhibition and acetylcholine accumulation are distinct processes on different biological objects (enzyme vs. neurotransmitter)."
+    },
+    {
+      "group_key": "population_growth_rate_decrease",
+      "type": "merge",
+      "member_ids": [
+        "360"
+      ],
+      "rationale": "ID 360 'Decrease, Population growth rate' describes decreased population-level trajectory, equivalent to the existing population_decline merge group members ('Decreased, Population size' and 'Decreased, Population trajectory')."
+    },
+    {
+      "group_key": "glutamate_dyshomeostasis_vs_excitatory_potential",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1488",
+        "682"
+      ],
+      "rationale": "ID 1488 'Glutamate dyshomeostasis' and ID 682 'Generation, Amplified excitatory postsynaptic potential (EPSP)' both involve glutamatergic signaling dysregulation but describe distinct processes \u2014 neurotransmitter homeostasis vs. postsynaptic electrical amplification."
+    },
+    {
+      "group_key": "tissue_resident_cell_activation_inflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1492"
+      ],
+      "rationale": "ID 1492 'Tissue resident cell activation' describes activation of tissue-resident immune cells, related to but distinct from general inflammation events already grouped \u2014 noted as singleton."
+    },
+    {
+      "group_key": "male_reproductive_tract_malformation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "348"
+      ],
+      "rationale": "ID 348 'Malformation, Male reproductive tract' describes structural malformation of the male reproductive tract, an organ-level developmental outcome; noted as singleton."
+    },
+    {
+      "group_key": "androgen_receptor_transcription_vs_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "286"
+      ],
+      "rationale": "ID 286 'Altered, Transcription of genes by the androgen receptor' describes AR-mediated transcriptional changes, related to but distinct from androgen receptor activation events already grouped in androgen_receptor_binding_vs_activation \u2014 transcription is a downstream consequence of receptor activation."
+    },
+    {
+      "group_key": "cox2_expression_inflammation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1269"
+      ],
+      "rationale": "ID 1269 'Increase, COX-2 expression' describes upregulation of cyclooxygenase-2, an inflammatory enzyme; it is related to but distinct from general inflammation/cytokine events already grouped \u2014 noted as singleton."
+    },
+    {
+      "group_key": "cardiovascular_development_function_altered",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "317"
+      ],
+      "rationale": "ID 317 'Altered, Cardiovascular development/function' describes broad cardiovascular alterations; related to cardiac structure/function groups already existing but broader in scope \u2014 noted as singleton."
+    },
+    {
+      "group_key": "early_life_stage_mortality",
+      "type": "merge",
+      "member_ids": [
+        "947"
+      ],
+      "rationale": "ID 947 'Increase, Early Life Stage Mortality' describes increased mortality specifically in early life stages, related to the existing mortality_increase merge group but specifying a developmental context \u2014 belongs in similar_event_different_biological_context with mortality_increase."
+    },
+    {
+      "group_key": "early_life_mortality_vs_general_mortality",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "947"
+      ],
+      "rationale": "ID 947 'Increase, Early Life Stage Mortality' describes increased mortality specifically in early life stages, while the mortality_increase group contains general increased mortality events \u2014 same process but different biological context (developmental stage)."
+    },
+    {
+      "group_key": "gonadotropin_reduction_circulating",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "129"
+      ],
+      "rationale": "ID 129 'Reduction, Gonadotropins, circulating concentrations' describes reduced circulating gonadotropins (LH and FSH collectively), related to but distinct from the lh_plasma_decrease and lh_increase_vs_decrease groups which are LH-specific \u2014 noted as singleton."
+    },
+    {
+      "group_key": "theca_cell_testosterone_reduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "274"
+      ],
+      "rationale": "ID 274 'Reduction, Testosterone synthesis by ovarian theca cells' describes testosterone reduction specifically in ovarian theca cells, parallel to the testosterone_synthesis_leydig group but in a different cell/tissue context (ovary vs. testes)."
+    },
+    {
+      "group_key": "vitellogenin_oocyte_accumulation_reduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "309"
+      ],
+      "rationale": "ID 309 'Reduction, Vitellogenin accumulation into oocytes and oocyte growth/development' describes reduced vitellogenin accumulation in oocytes, related to the vitellogenin_plasma_decrease soda group but specifying the oocyte compartment as the biological context."
+    },
+    {
+      "group_key": "mitochondrial_atp_production_decrease",
+      "type": "merge",
+      "member_ids": [
+        "40"
+      ],
+      "rationale": "ID 40 'Mitochondrial ATP production, decreased' describes decreased mitochondrial ATP production, equivalent to the existing atp_pool_decrease merge group members ('Decrease, Adenosine triphosphate pool' and 'Decrease, ATP production')."
+    }
+  ]
+}

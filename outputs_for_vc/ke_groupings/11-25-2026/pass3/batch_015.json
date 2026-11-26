@@ -1,0 +1,326 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1541",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "ID 1541 'Mitochondrial Complex I inhibition' describes functional inhibition of Complex I, the same object (NADH-ubiquinone oxidoreductase / Complex I) already in this group, warranting curator review alongside the binding event."
+    },
+    {
+      "event_id": "2271",
+      "group_key": "ldlr_upregulation_vs_ldl_uptake",
+      "rationale": "ID 2271 'Increased, plasma low-density lipoprotein (LDL) cholesterol' describes a downstream consequence of altered LDL receptor/uptake activity, sharing the same LDL object but as a plasma level outcome distinct from receptor upregulation and uptake \u2014 same object different process."
+    },
+    {
+      "event_id": "2350",
+      "group_key": "glycolysis_directional",
+      "rationale": "ID 2350 'Decreased, Glycolysis' describes decreased glycolysis, the same endpoint as the existing soda group members (Increase vs. Decrease, Glycolysis)."
+    },
+    {
+      "event_id": "2355",
+      "group_key": "spermatogenesis_decrease",
+      "rationale": "ID 2355 'Disrupted, Spermatogenesis and Sperm quality' describes impaired spermatogenesis in the same direction as 'Impaired, Spermatogenesis' and 'Decreased spermatogenesis' already in this merge group."
+    },
+    {
+      "event_id": "2301",
+      "group_key": "hippocampal_alterations",
+      "rationale": "ID 2301 'Abnormal, Behavior' is a downstream behavioral outcome related to altered hippocampal function but is not synonymous with hippocampal gene expression, anatomy, or physiology alterations \u2014 withdrawing this assignment as it is not the same biological event."
+    },
+    {
+      "event_id": "2336",
+      "group_key": "ppar_alpha_binding_vs_inhibition",
+      "rationale": "ID 2336 'Increase, SREBF1' is a different transcription factor from PPARalpha and does not belong in this group \u2014 withdrawing."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "mitochondrial_complex_i_inhibition_merge",
+      "type": "merge",
+      "member_ids": [
+        "1541"
+      ],
+      "rationale": "Placeholder \u2014 see existing_group_assignments for Complex I inhibition assignment; no new merge partner found among ungrouped events."
+    },
+    {
+      "group_key": "pcsk9_ldl_cholesterol_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2276",
+        "2271"
+      ],
+      "rationale": "Increased PCSK9 protein expression (2276) and increased plasma LDL cholesterol (2271) are causally related \u2014 PCSK9 reduces LDL receptor recycling leading to higher plasma LDL \u2014 but they describe distinct biological events on different molecular objects."
+    },
+    {
+      "group_key": "lamin_ac_mutation_vs_structural_change",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2278",
+        "2279"
+      ],
+      "rationale": "Increased LMNA mutation (2278) and structural changes in lamin A/C (2279) both involve the lamin A/C protein but describe distinct processes \u2014 a genetic mutation event versus downstream structural protein changes."
+    },
+    {
+      "group_key": "pde_inhibition_vs_camp_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2288",
+        "2284"
+      ],
+      "rationale": "Phosphodiesterase inhibition (2288) and increased intracellular cAMP levels (2284) are causally linked \u2014 PDE inhibition prevents cAMP degradation \u2014 but represent distinct processes: enzyme inhibition versus second messenger accumulation."
+    },
+    {
+      "group_key": "cardiac_contraction_rate_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2281",
+        "2291"
+      ],
+      "rationale": "Increased uncoordinated cardiac contraction (2281) and slowed heart rate (2291) both describe cardiac functional abnormalities but measure different electromechanical parameters (coordination/rhythm vs. rate)."
+    },
+    {
+      "group_key": "ovarian_insufficiency_vs_cornification",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2305",
+        "2306"
+      ],
+      "rationale": "Premature ovarian insufficiency (2305) and persistent vaginal cornification (2306) both describe female reproductive endocrine disruption outcomes but at different anatomical levels (ovarian function vs. vaginal epithelium phenotype)."
+    },
+    {
+      "group_key": "photosystem_ii_qb_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2307"
+      ],
+      "rationale": "ID 2307 'Binding of plastoquinone B (QB) within D1 protein of Photosystem II' involves the same PSII object as events in the photosystem_ii_inhibition group but describes a specific binding event rather than functional inhibition or electron transport decrease \u2014 assigning to a new group for curator review as a binding-vs-inhibition distinction on the same object."
+    },
+    {
+      "group_key": "pi3k_akt_pathway_directional",
+      "type": "soda",
+      "member_ids": [
+        "2311"
+      ],
+      "rationale": "ID 2311 'Inhibition of PI3K-Akt pathway' is directionally opposite to 'Activation, PI3K' and 'Activation, AKT' describing the same pathway in opposite directions; flagged as a soda-type candidate for curator review against existing PI3K/AKT activation events."
+    },
+    {
+      "group_key": "dgat1_srebf1_perilipin_lipid_synthesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2334",
+        "2336",
+        "2337"
+      ],
+      "rationale": "Increase in DGAT1 (2334), SREBF1 (2336), and perilipin-2 (2337) all describe upregulation of distinct lipid metabolism/storage regulators in the same lipogenic pathway context, but each targets a different molecular object."
+    },
+    {
+      "group_key": "mineralocorticoid_receptor_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2331"
+      ],
+      "rationale": "ID 2331 'Activation, Mineralocorticoid Receptor' describes activation of the mineralocorticoid receptor; no direct synonym found among ungrouped events, but noted as a single candidate for curator review as an orphan activation event analogous to other nuclear receptor activation groups."
+    },
+    {
+      "group_key": "dlat_oligomerization_iron_sulfur_cuproptosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2340",
+        "2342",
+        "2343"
+      ],
+      "rationale": "Increased DLAT oligomerization (2340), impaired iron-sulfur cluster assembly (2342), and increased cuproptosis (2343) are mechanistically linked steps in copper-induced cell death but describe distinct molecular events on different biological objects."
+    },
+    {
+      "group_key": "intracellular_copper_vs_cuproptosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2339",
+        "2343"
+      ],
+      "rationale": "Increased intracellular copper (2339) and increased cuproptosis (2343) are causally linked \u2014 excess copper drives cuproptosis \u2014 but represent distinct events: ion accumulation versus a cell death mechanism."
+    },
+    {
+      "group_key": "oxphos_increase_vs_glycolysis_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2351",
+        "2350"
+      ],
+      "rationale": "Increased OXPHOS (2351) and decreased glycolysis (2350) describe a metabolic shift toward oxidative phosphorylation and away from glycolysis, representing opposite changes in related but distinct metabolic processes."
+    },
+    {
+      "group_key": "mmp_increase_vs_mitochondrial_function",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2352"
+      ],
+      "rationale": "ID 2352 'Increased, MMP' (mitochondrial membrane potential) is a mitochondrial functional parameter related to but distinct from mitochondrial oxidative phosphorylation and dysfunction events already grouped \u2014 flagged as an orphan for curator review."
+    },
+    {
+      "group_key": "apoptosis_signaling_activation",
+      "type": "merge",
+      "member_ids": [
+        "2354"
+      ],
+      "rationale": "ID 2354 'Activation, Apoptosis signaling' describes the same biological process as the apoptosis_increase merge group ('Increase, Apoptosis', 'Apoptotic cell death', 'Increase, Programmed cell death') and should be considered for inclusion in that group."
+    },
+    {
+      "group_key": "ldh_inhibition_vs_glycolysis_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2349",
+        "2350"
+      ],
+      "rationale": "Inhibition of LDH activity (2349) and decreased glycolysis (2350) are related metabolic events \u2014 LDH catalyzes the final step of anaerobic glycolysis \u2014 but describe distinct processes: enzyme inhibition versus pathway-level reduction."
+    },
+    {
+      "group_key": "lipid_degradation_vs_fat_mass",
+      "type": "soda",
+      "member_ids": [
+        "2347"
+      ],
+      "rationale": "ID 2347 'Increase, Lipid degradation' describes increased lipid catabolism, which is directionally opposite to events describing increased lipid accumulation/fat mass in the existing fat_mass_increase_merge and lipid_accumulation_increase groups."
+    },
+    {
+      "group_key": "17beta_hsd2_inhibition_estrogen_dominance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2250",
+        "2303"
+      ],
+      "rationale": "Inhibition of 17\u03b2-Hydroxysteroid dehydrogenase 2 (2250) and increased plasma estradiol to progesterone ratio/estrogen dominance (2303) are causally linked \u2014 17\u03b2-HSD2 inactivates estradiol, so its inhibition raises estradiol \u2014 but describe distinct events: enzyme inhibition versus a hormonal ratio outcome."
+    },
+    {
+      "group_key": "anogenital_distance_increased",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2365"
+      ],
+      "rationale": "ID 2365 'Anogenital distance (AGD), increased' is a developmental morphological endpoint related to androgen signaling; increased AGD is associated with increased androgenization and is a distinct phenotypic endpoint without a clear synonym among ungrouped events, flagged as an orphan."
+    },
+    {
+      "group_key": "insig1_pcsk9_cholesterol_regulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2268",
+        "2276"
+      ],
+      "rationale": "Decreased INSIG1 protein activity (2268) and increased PCSK9 protein expression (2276) both regulate cholesterol homeostasis \u2014 INSIG1 inhibits SREBP processing while PCSK9 degrades LDLR \u2014 but target different molecular objects in the same pathway."
+    },
+    {
+      "group_key": "olfactory_loss_function",
+      "type": "merge",
+      "member_ids": [
+        "2317"
+      ],
+      "rationale": "ID 2317 'Loss of olfactory function' describes the same impaired olfactory function endpoint as 'impaired olfactory function (anosmia)' already in the olfactory_function_impairment group and should be considered for inclusion there."
+    },
+    {
+      "group_key": "gadd45b_pcna_dna_damage_response",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2344",
+        "2346"
+      ],
+      "rationale": "Upregulation of GADD45B (growth arrest and DNA-damage-inducible beta, 2344) and decrease in PCNA (proliferating cell nuclear antigen, 2346) both describe DNA damage response-related changes but on different molecular targets with distinct functional roles."
+    },
+    {
+      "group_key": "liver_regeneration_inhibition_vs_hepatotoxicity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2348"
+      ],
+      "rationale": "ID 2348 'Inhibition, Liver regeneration' describes a specific hepatic functional deficit that is related to but distinct from hepatotoxicity/liver injury events in the liver_injury_hepatotoxicity group \u2014 same organ but different process (regenerative capacity vs. acute injury)."
+    },
+    {
+      "group_key": "serotonin_receptor_stimulation",
+      "type": "merge",
+      "member_ids": [
+        "2308"
+      ],
+      "rationale": "ID 2308 'Increased, stimulation of brain serotonin 5-HT1a, 5-HT2c receptors' describes increased serotonergic receptor stimulation in brain; flagged as an orphan without a clear synonym among ungrouped events."
+    },
+    {
+      "group_key": "pulmonary_edema_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2316"
+      ],
+      "rationale": "ID 2316 'Increased, pulmonary edema' describes lung-level fluid accumulation related to vascular barrier disruption; this is causally downstream of vascular_endothelial_dysfunction group events but represents a distinct organ-level pathological outcome."
+    },
+    {
+      "group_key": "pd_l1_treg_th17_immune_evasion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2323",
+        "2324",
+        "2326"
+      ],
+      "rationale": "Over-expression of PD-L1 in cancer cells (2323), increased Treg/Th17 cell ratio (2324), and CTL cytotoxic activity disruption (2326) all describe immune evasion/immunosuppression mechanisms in the tumor microenvironment but involve distinct molecular and cellular processes."
+    },
+    {
+      "group_key": "redox_homeostasis_vs_oxidative_stress",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2299"
+      ],
+      "rationale": "ID 2299 'Altered, Redox Homeostasis' describes disrupted redox balance, which is closely related to but broader than the specific oxidative stress increase events in the oxidative_stress_increase merge group \u2014 same general process but different specificity."
+    },
+    {
+      "group_key": "glucolipid_metabolism_disruption",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2300"
+      ],
+      "rationale": "ID 2300 'Disruption, Glucolipid metabolism' describes broad glucose and lipid metabolism disruption, related to but distinct from specific events like decreased fatty acid beta-oxidation or increased triglyceride formation already grouped \u2014 same metabolic domain but broader scope."
+    },
+    {
+      "group_key": "microcephaly_brain_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2211"
+      ],
+      "rationale": "ID 2211 'Microcephaly' describes a specific neurodevelopmental structural outcome related to impaired brain development; no direct synonym found among ungrouped events, flagged as an orphan for curator review."
+    },
+    {
+      "group_key": "delayed_neuropathy_neurological",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2267"
+      ],
+      "rationale": "ID 2267 'Delayed neuropathy, increased' describes a specific neurological outcome (organophosphate-induced delayed neuropathy) without a clear synonym among ungrouped events; flagged as an orphan for curator review."
+    },
+    {
+      "group_key": "altered_signaling_pathways_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2066"
+      ],
+      "rationale": "ID 2066 'Altered Signaling Pathways' is a highly general descriptor that overlaps with many existing groups but is not synonymous with any single one; flagged as an orphan for curator review."
+    },
+    {
+      "group_key": "sodium_calcium_exchanger_vs_camp_pde",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2287",
+        "2288"
+      ],
+      "rationale": "Impaired Sodium-Calcium Exchange (2287) and Phosphodiesterase inhibition (2288) both affect cardiac ion/second messenger homeostasis but target entirely different molecular objects (NCX exchanger vs. PDE enzyme)."
+    },
+    {
+      "group_key": "body_mass_index_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2335"
+      ],
+      "rationale": "ID 2335 'Increase, body mass index' describes an organism-level anthropometric outcome related to increased fat mass; BMI increase is distinct from but related to events in fat_mass_increase_merge and adipocyte_fat_mass_increase groups, representing a different biological scale."
+    },
+    {
+      "group_key": "malformation_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2302"
+      ],
+      "rationale": "ID 2302 'Increase, Malformations' is a broad developmental outcome descriptor without a close synonym among ungrouped events; flagged as an orphan for curator review."
+    }
+  ]
+}

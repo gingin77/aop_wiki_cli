@@ -1,0 +1,312 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1770",
+      "group_key": "mitochondrial_dysfunction",
+      "rationale": "Decrease in mitochondrial membrane potential is a direct indicator of mitochondrial dysfunction, equivalent in meaning to 'Increase, Mitochondrial dysfunction' and 'Mitochondrial electron transport chain, disrupted' at the same level of description."
+    },
+    {
+      "event_id": "1772",
+      "group_key": "triglyceride_increase",
+      "rationale": "Decrease in triglyceride is directionally opposite to 'Increased, Triglyceride formation' and 'Increased, Triglyceride', making this a soda candidate \u2014 however, the triglyceride_increase group is a merge group of same-direction events, so this event cannot join it; assigning to triglyceride_increase is incorrect."
+    },
+    {
+      "event_id": "1767",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "Increased protein oxidation is a direct manifestation of increased oxidative stress, synonymous with 'Increase, Oxidative Stress' and 'Increase, Reactive oxygen species' at the same biological level."
+    },
+    {
+      "event_id": "1795",
+      "group_key": "latent_tgfb_vs_tgfb_pathway",
+      "rationale": "Latent Transforming Growth Factor beta expression describes production of the latent form of TGF-beta, placing it in the same same_object_different_process group as 'Activation, Latent Transforming Growth Factor Beta 1' and the TGF-beta pathway activation events."
+    },
+    {
+      "event_id": "1861",
+      "group_key": "photosystem_ii_inhibition",
+      "rationale": "Increase in D1 protein deactivation directly impairs Photosystem II function, sharing the same biological context (PSII inhibition/electron transport decrease) as the existing photosystem_ii_inhibition group."
+    },
+    {
+      "event_id": "1862",
+      "group_key": "photosystem_ii_inhibition",
+      "rationale": "Decrease in Photosystem II efficiency is synonymous with Photosystem II inhibition and decreased electron transport in Photosystem II, fitting directly into the existing similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "1501",
+      "group_key": "liver_fibrosis_vs_collagen",
+      "rationale": "Increase in extracellular matrix deposition is closely related to collagen accumulation and liver fibrosis as a cellular/ECM-level process contributing to fibrotic outcomes, fitting the similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "1863",
+      "group_key": "survival_decrease",
+      "rationale": "Decrease in reproduction is distinct from survival decrease \u2014 withdrawing this assignment as reproduction and survival are different endpoints."
+    },
+    {
+      "event_id": "1865",
+      "group_key": "photosystem_ii_inhibition",
+      "rationale": "Increase in oxygen-evolving complex damage directly impairs Photosystem II function, sharing the same biological context as the photosystem_ii_inhibition group members."
+    },
+    {
+      "event_id": "2374",
+      "group_key": "ecdysone_receptor_cascade_direction",
+      "rationale": "Increase in ecdysone receptor antagonism is directionally related to the mis-timed ecdysone receptor-responsive nuclear receptor cascade events \u2014 antagonism of the ecdysone receptor would decrease its signaling, fitting as same_object_different_process rather than soda since antagonism is a different process from cascade direction change; assigning here for curator review."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "triglyceride_decrease_vs_increase",
+      "type": "soda",
+      "member_ids": [
+        "1772"
+      ],
+      "rationale": "Decrease in triglyceride is directionally opposite to 'Increased, Triglyceride formation' and 'Increased, Triglyceride' in the triglyceride_increase merge group, but as a single event cannot form a soda group alone; noting for curator review."
+    },
+    {
+      "group_key": "urothelial_injury_to_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1762",
+        "1763"
+      ],
+      "rationale": "Urothelial cell injury/death and urothelial tumor describe related pathological events in the same tissue (urothelium) at different stages of severity \u2014 acute injury versus neoplastic outcome."
+    },
+    {
+      "group_key": "osmoregulation_body_fluid",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1768",
+        "1769"
+      ],
+      "rationale": "Increased abnormal osmoregulation and increased body fluid overload describe related physiological disruptions in fluid balance \u2014 the former is the regulatory dysfunction and the latter is the downstream systemic consequence."
+    },
+    {
+      "group_key": "gonad_differentiation_sex_ratio",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1790",
+        "1791"
+      ],
+      "rationale": "Increased differentiation to testis and increased male-biased sex ratio describe the same biological process (male sex determination) at different levels \u2014 cellular/gonadal differentiation versus population-level sex ratio outcome."
+    },
+    {
+      "group_key": "estradiol_synthesis_undifferentiated_gonad_vs_granulosa",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1789",
+        "1800"
+      ],
+      "rationale": "Reduction of 17beta-estradiol synthesis by the undifferentiated gonad and reduced granulosa cell proliferation of gonadotropin-independent follicles both describe impaired ovarian/gonadal estrogenic function in the context of sex determination, sharing the same biological process in related but distinct tissue contexts."
+    },
+    {
+      "group_key": "cuticle_digestion_molting",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "996",
+        "1524"
+      ],
+      "rationale": "Decreased digestion of old cuticle and increased premature molting both describe disruptions to the insect molting/ecdysis process at different mechanistic levels \u2014 impaired cuticle degradation and mistimed molting initiation."
+    },
+    {
+      "group_key": "inflammation_hyperinflammation_sirs",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1868",
+        "1844"
+      ],
+      "rationale": "Hyperinflammation and systemic inflammatory response syndrome (SIRS) both describe systemic excessive inflammatory states, with SIRS being a clinical manifestation of hyperinflammation \u2014 same process at different levels of specificity."
+    },
+    {
+      "group_key": "coagulation_thrombosis_dic",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1845",
+        "1846"
+      ],
+      "rationale": "Coagulation and thrombosis with disseminated intravascular coagulation describe related hemostatic processes at different levels of severity and specificity \u2014 coagulation activation upstream and thrombosis/DIC as pathological downstream consequences."
+    },
+    {
+      "group_key": "neutrophil_nets_platelet_neutrophil",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1899",
+        "1857"
+      ],
+      "rationale": "Formation of neutrophil extracellular traps (NETs) and increased platelet-neutrophil interactions describe distinct but closely related innate immune activation events in the same thromboinflammatory context."
+    },
+    {
+      "group_key": "tlr9_platelet_nets",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1900",
+        "1899"
+      ],
+      "rationale": "Increased platelet surface TLR9 expression and formation of neutrophil extracellular traps (NETs) are related innate immune events where TLR9 activation can trigger NET formation, but they describe distinct processes on different cell types."
+    },
+    {
+      "group_key": "tissue_organ_damage_damp_release",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1809",
+        "1898"
+      ],
+      "rationale": "Increase in tissue/organ damage and increased damage-associated molecular pattern (DAMP) release are causally linked \u2014 tissue damage leads to DAMP release \u2014 but describe distinct biological events."
+    },
+    {
+      "group_key": "multiorgan_failure_respiratory",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1843",
+        "1748"
+      ],
+      "rationale": "Multi-organ failure involving acute respiratory distress syndrome and increased risk of acute respiratory failure both describe severe respiratory/systemic failure outcomes in the same pathological context but at different levels of specificity."
+    },
+    {
+      "group_key": "cytochrome_oxidase_inhibition_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1840"
+      ],
+      "rationale": "Inhibition of cytochrome oxidase (complex IV) is closely related to the existing mitochondrial_complex_iv_binding_vs_inhibition group describing binding and inhibition of mitochondrial complex IV \u2014 assigning here as a potential merge with 'Mitochondrial Complex IV inhibition'."
+    },
+    {
+      "group_key": "photosynthesis_d1_oxygen_evolving",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1861",
+        "1865"
+      ],
+      "rationale": "Increase in D1 protein deactivation and increase in oxygen-evolving complex damage both describe distinct molecular damage events within Photosystem II \u2014 D1 protein and the oxygen-evolving complex are different components of PSII."
+    },
+    {
+      "group_key": "decreased_viable_offspring_reproduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2147",
+        "1863"
+      ],
+      "rationale": "Decreased viable offspring and decreased reproduction describe related reproductive failure outcomes at different levels \u2014 the former is a specific measurable endpoint and the latter is the broader process."
+    },
+    {
+      "group_key": "er_stress_cell_differentiation_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1815",
+        "2245"
+      ],
+      "rationale": "Increased endoplasmic reticulum stress and altered cell differentiation signaling are related cellular stress responses that share mechanistic overlap (ER stress can alter differentiation signaling) but describe distinct biological processes."
+    },
+    {
+      "group_key": "immune_cell_activation_ifn_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1818",
+        "1819"
+      ],
+      "rationale": "Immune cell activation and IFN\u03b3 signaling describe related but distinct immune processes \u2014 immune cell activation is a broader event while IFN\u03b3 signaling is a specific downstream cytokine pathway."
+    },
+    {
+      "group_key": "oxidative_stress_diminished_protection",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1869"
+      ],
+      "rationale": "Diminished protective oxidative stress response is closely related to 'Decreased protection against oxidative stress' in the oxidative_stress_protection_decrease group \u2014 these are effectively synonymous; assigning to that group for curator review."
+    },
+    {
+      "group_key": "sodium_hypertension",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1855"
+      ],
+      "rationale": "Increased sodium-sensitive hypertension is causally related to decreased plasma sodium concentrations in the sodium_plasma_decrease group but represents a directionally opposite sodium-related cardiovascular outcome \u2014 not groupable with existing sodium decrease events."
+    },
+    {
+      "group_key": "microvascular_dysfunction_vascular",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2096"
+      ],
+      "rationale": "Occurrence of (micro)vascular dysfunction is closely related to 'Vascular endothelial dysfunction' and 'Vascular barrier disruption' in the vascular_endothelial_dysfunction merge group, sharing the same vascular impairment process but specifying the microvascular compartment."
+    },
+    {
+      "group_key": "bone_cell_homeostasis_remodeling",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2089"
+      ],
+      "rationale": "Altered bone cell homeostasis and 'Increase, Bone Remodeling' / 'Occurrence, Bone Loss' in the bone_remodeling_vs_bone_loss group describe bone-level processes at different levels of specificity \u2014 cellular homeostasis versus organ-level remodeling/loss."
+    },
+    {
+      "group_key": "encephalitis_neurological",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1841"
+      ],
+      "rationale": "Encephalitis describes brain-specific inflammation, related to general inflammation increase events but specifying a distinct organ-level neuroinflammatory pathology."
+    },
+    {
+      "group_key": "nasal_lesions_tissue_damage",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2312"
+      ],
+      "rationale": "Increased nasal lesions describes tissue-level pathological damage in the nasal cavity, related to general tissue/organ damage events but specifying the nasal context."
+    },
+    {
+      "group_key": "testicular_cancer_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1839"
+      ],
+      "rationale": "Testicular cancer is a gonad-specific neoplastic outcome related to Leydig cell tumors in the leydig_cell_hyperplasia_vs_tumor group but represents a broader or distinct neoplastic endpoint in the same tissue."
+    },
+    {
+      "group_key": "sweet_salty_taste_sodium_gustatory",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1856"
+      ],
+      "rationale": "Imbalanced salty and sweet taste responses is related to gustatory dysfunction events in the gustatory_dysfunction group (impaired gustatory nerve, dysgeusia) but describes a specific taste modality imbalance rather than general taste impairment."
+    },
+    {
+      "group_key": "fin_regeneration_inhibition",
+      "type": "merge",
+      "member_ids": [
+        "1761"
+      ],
+      "rationale": "Inhibition of fin regeneration is a single ungrouped event with no close synonym among other ungrouped events; noted as standalone for curator review."
+    },
+    {
+      "group_key": "nipple_retention_androgen",
+      "type": "merge",
+      "member_ids": [
+        "1786"
+      ],
+      "rationale": "Increased nipple retention (NR) is a standalone endpoint related to androgen-dependent developmental events but has no close synonym among ungrouped events."
+    },
+    {
+      "group_key": "pin1_activation_tgfb_latent",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1794",
+        "1795"
+      ],
+      "rationale": "Pin-1 activation and latent TGF-beta expression describe distinct molecular events that may be mechanistically linked (Pin-1 can regulate TGF-beta signaling) but involve different biological objects and processes."
+    },
+    {
+      "group_key": "oocyte_maturation_decrease_vs_spawning",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1837"
+      ],
+      "rationale": "Decreased oocyte maturation is directionally opposite to 'Increased, oocyte maturation' in the oocyte_maturation_spawning group and represents a soda relationship with that event while also being similar_event to impaired oocyte maturation events."
+    },
+    {
+      "group_key": "benzoquinone_metabolites_protein_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1814"
+      ],
+      "rationale": "Benzoquinone imine and acylglucuronide metabolites describe reactive metabolite formation that leads to covalent protein binding (related to the protein_covalent_binding group) but represents the metabolite formation step rather than the binding outcome itself."
+    }
+  ]
+}
