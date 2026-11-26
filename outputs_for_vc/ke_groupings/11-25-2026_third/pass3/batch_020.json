@@ -1,0 +1,20 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2347",
+      "group_key": "fatty_acid_beta_oxidation_opposite",
+      "rationale": "Increased lipid degradation is closest to increased fatty acid beta-oxidation but is a broader process, so it is flagged as a different-context variant rather than a merge."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fam50b_ptchd3_methylation_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2310",
+        "2309"
+      ],
+      "rationale": "Both concern FAM50B/PTCHD3 but describe expression increase versus DNA methylation decrease, distinct processes of the same gene targets."
+    }
+  ]
+}

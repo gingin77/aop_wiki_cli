@@ -1,0 +1,93 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2097",
+      "group_key": "proinflammatory_mediators",
+      "rationale": "Increase, Pro-Inflammatory Mediators is the same event as the existing increased pro-inflammatory mediators members, differing only in wording."
+    },
+    {
+      "event_id": "2105",
+      "group_key": "decreased_myelin_placeholder_none",
+      "rationale": "placeholder"
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "bone_remodeling_loss",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2090",
+        "2091"
+      ],
+      "rationale": "Both concern bone tissue but bone remodeling and bone loss are distinct processes."
+    },
+    {
+      "group_key": "bcl2_bax_apoptosis_regulators",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2123",
+        "2124"
+      ],
+      "rationale": "Bcl-2 and Bax are different proteins in the same apoptosis regulatory axis, flagged for curator review."
+    },
+    {
+      "group_key": "oligodendrocyte_myelination_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2105",
+        "2106",
+        "2116",
+        "2107"
+      ],
+      "rationale": "These all concern oligodendrocyte maturation/differentiation and myelination but describe distinct processes of the same cell lineage."
+    },
+    {
+      "group_key": "neural_progenitor_laminin_radial_glia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2112",
+        "2113",
+        "2111"
+      ],
+      "rationale": "Radial glia and neural progenitor laminin adhesion events concern related neural progenitor/radial glia biology but are distinct processes."
+    },
+    {
+      "group_key": "dendritic_spine_drebrin",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2078",
+        "2242"
+      ],
+      "rationale": "Loss of drebrin and abnormal dendritic spine morphology involve the same dendritic spine structure but are distinct processes."
+    },
+    {
+      "group_key": "neuronal_gene_expression_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2196",
+        "2197",
+        "2198"
+      ],
+      "rationale": "Decreased expression of different neural/glial marker genes (elavl3, sox10, mbp) are the same process type on different gene objects, flagged for review."
+    },
+    {
+      "group_key": "respiratory_epithelial_airway_inflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2085",
+        "2086"
+      ],
+      "rationale": "Pulmonary epithelial injury and airway inflammation are related respiratory tissue-level events at different specificity."
+    },
+    {
+      "group_key": "chitin_cuticle_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2060",
+        "2061",
+        "2059"
+      ],
+      "rationale": "These events concern chitin organization and protection in the insect cuticle but are distinct processes."
+    }
+  ]
+}

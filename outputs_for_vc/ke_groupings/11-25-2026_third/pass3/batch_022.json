@@ -1,0 +1,14 @@
+{
+  "existing_group_assignments": [],
+  "new_groups": [
+    {
+      "group_key": "photosystem_ii_inhibition_vs_electron_transport",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2456",
+        "2457"
+      ],
+      "rationale": "Both concern photosystem II, but inhibition of the complex and decreased electron transport through it are distinct processes needing curator review."
+    }
+  ]
+}

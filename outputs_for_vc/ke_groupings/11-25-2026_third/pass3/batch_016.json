@@ -1,0 +1,65 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2188",
+      "group_key": "caspase_transcription_f0_f3",
+      "rationale": "Activation of caspases is related to caspase transcription but is a distinct process on the same object, flagged for curator review."
+    },
+    {
+      "event_id": "2119",
+      "group_key": "tnf_and_glut4_glucose",
+      "rationale": "Insulin resistance is the same glucose-uptake/insulin signalling theme as GLUT4/glucose uptake decrease but a distinct process, flagged for curator review."
+    },
+    {
+      "event_id": "2019",
+      "group_key": "liver_steatosis",
+      "rationale": "Non-alcoholic fatty liver disease is a hepatic steatosis-related pathology; this is a broader disease-level event rather than a synonym, but closest existing group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "inflammation_pulmonary_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2009",
+        "2010"
+      ],
+      "rationale": "Both describe inflammation, one general pathway activation and one specific to the lung."
+    },
+    {
+      "group_key": "vitellogenin_mrna_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2046"
+      ],
+      "rationale": "placeholder"
+    },
+    {
+      "group_key": "decreased_folate_transport_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2025",
+        "2026"
+      ],
+      "rationale": "Both concern folate handling (transporter affected vs decreased uptake), related but distinct processes of the same object."
+    },
+    {
+      "group_key": "cuticle_tanning_sclerotization",
+      "type": "merge",
+      "member_ids": [
+        "2053",
+        "2054"
+      ],
+      "rationale": "Defects in tanning of new cuticle and impaired cuticle sclerotization describe the same cuticle hardening/tanning impairment."
+    },
+    {
+      "group_key": "gaba_glutamate_receptor_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2036",
+        "2037"
+      ],
+      "rationale": "Metabotropic glutamate receptor activation and IP3 receptor activation are linked signalling steps but distinct receptors; flagged for curator review."
+    }
+  ]
+}

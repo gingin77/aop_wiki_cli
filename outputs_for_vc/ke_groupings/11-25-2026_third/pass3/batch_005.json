@@ -1,0 +1,56 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "773",
+      "group_key": "tumors_carcinomas_different_tissues",
+      "rationale": "Increased endometrial adenocarcinomas is the same carcinoma-increase process in another tissue (endometrium)."
+    },
+    {
+      "event_id": "745",
+      "group_key": "tumors_carcinomas_different_tissues",
+      "rationale": "Increased Leydig cell tumors is the same tumor-increase process in another tissue context."
+    },
+    {
+      "event_id": "733",
+      "group_key": "cytotoxicity_general_vs_cell_specific",
+      "rationale": "Necrosis in terminal bronchiolar cells is a cell-type-specific cytotoxic cell injury event like the other cytotoxicity contexts."
+    },
+    {
+      "event_id": "804",
+      "group_key": "hmgcoa_mevalonate_cholesterol",
+      "rationale": "HMG-CoA reductase inhibition shares the same mevalonate/cholesterol synthesis pathway object but is a distinct process."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "gnrh_ne_receptor_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "848",
+        "849"
+      ],
+      "rationale": "Both concern norepinephrine receptor signaling on GnRH neurons, as decreased NE binding versus NE receptor antagonism, which are distinct processes."
+    },
+    {
+      "group_key": "tubulin_microtubule_spindle_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "718",
+        "720",
+        "721"
+      ],
+      "rationale": "Tubulin binding, microtubule dynamics disruption, and meiotic spindle disorganization share the tubulin/microtubule object but are distinct processes."
+    },
+    {
+      "group_key": "renal_function_decrease_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "819",
+        "820",
+        "821",
+        "825"
+      ],
+      "rationale": "Several decreased renal functional measures (GFR, plasma flow, sodium reabsorption, urine dilution) concern the kidney but are distinct processes; flagged for curator review."
+    }
+  ]
+}

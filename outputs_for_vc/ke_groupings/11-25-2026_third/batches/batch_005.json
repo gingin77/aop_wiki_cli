@@ -1,0 +1,196 @@
+[
+  {
+    "group_key": "gli_target_and_translocation_context",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2028",
+      "2040"
+    ],
+    "rationale": "Both concern GLI1/2 but one is nuclear translocation and the other is target gene expression, distinct processes of the same object."
+  },
+  {
+    "group_key": "smoothened_antagonism_vs_relocation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2027",
+      "2044"
+    ],
+    "rationale": "Both involve Smoothened but receptor antagonism and decreased relocation/activation are distinct processes requiring curator review."
+  },
+  {
+    "group_key": "herg_blockade_vs_ikr_inhibition",
+    "type": "merge",
+    "member_ids": [
+      "2100",
+      "2099"
+    ],
+    "rationale": "hERG channel blockade and inhibition of rapid delayed rectifier potassium current (IKr, carried by hERG) describe the same event."
+  },
+  {
+    "group_key": "estrogen_receptor_activity_increase",
+    "type": "merge",
+    "member_ids": [
+      "748",
+      "1065"
+    ],
+    "rationale": "Increased ER activity and activation of estrogen receptor alpha describe the same ER activation event."
+  },
+  {
+    "group_key": "estrogen_receptor_disruption_vs_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2141",
+      "748"
+    ],
+    "rationale": "Generic ER disruption is non-directional and shares the ER object with increased ER activity; curator review needed."
+  },
+  {
+    "group_key": "population_decline",
+    "type": "merge",
+    "member_ids": [
+      "997",
+      "442"
+    ],
+    "rationale": "Decreased population size and decreased population trajectory both describe population-level decline."
+  },
+  {
+    "group_key": "tgfb_fibrosis_gene_expression",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1920",
+      "1921",
+      "1923",
+      "1917",
+      "17"
+    ],
+    "rationale": "All are altered gene expression events but for different pathways; flagged only as shared generic process type."
+  },
+  {
+    "group_key": "il6_expression_vs_production",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1921",
+      "1933"
+    ],
+    "rationale": "NF-kB dependent IL-6 pathway gene expression change and increased IL-6 production share IL-6 as object but are different processes."
+  },
+  {
+    "group_key": "angiotensin_ii_accumulation_vs_degradation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1741",
+      "1936"
+    ],
+    "rationale": "Ang II accumulation and reduced Ang II degradation concern the same peptide but different processes."
+  },
+  {
+    "group_key": "ace2_expression_vs_shedding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1948",
+      "1938"
+    ],
+    "rationale": "Both involve ACE2 but expression increase and increased shedding are different processes."
+  },
+  {
+    "group_key": "tnf_and_glut4_glucose",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1949",
+      "1951"
+    ],
+    "rationale": "GLUT4 decrease and glucose uptake decrease are related but distinct objects/processes; flagged for curator review."
+  },
+  {
+    "group_key": "cilia_decrease_events",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1911",
+      "1912",
+      "1908"
+    ],
+    "rationale": "FOXJ1 protein, cilia number/length and cilia beat frequency concern cilia but distinct objects/processes."
+  },
+  {
+    "group_key": "cytochrome_c_release_aif_release",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1812",
+      "2031"
+    ],
+    "rationale": "Both are mitochondrial pro-apoptotic factor release but of different molecules."
+  },
+  {
+    "group_key": "mitochondrial_complex_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "105",
+      "2118"
+    ],
+    "rationale": "Inhibition of ETC complexes in general and of succinate dehydrogenase (Complex II) specifically share the object at different specificity."
+  },
+  {
+    "group_key": "fatty_acid_oxidation_lipid_metab",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1995",
+      "2065"
+    ],
+    "rationale": "Abnormal lipid metabolism is a general process while inhibition of fatty acid oxidation is a specific one."
+  },
+  {
+    "group_key": "pericyte_dysfunction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1946",
+      "1947"
+    ],
+    "rationale": "Impaired mechanotransduction of pericytes is a specific form of pericyte dysfunction."
+  },
+  {
+    "group_key": "endothelial_dysfunction",
+    "type": "merge",
+    "member_ids": [
+      "1913",
+      "2068"
+    ],
+    "rationale": "Both describe endothelial cell dysfunction."
+  },
+  {
+    "group_key": "chronic_neurodegen_neuronal_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "191",
+      "2150"
+    ],
+    "rationale": "Neuronal dysfunction and neurological disorder are the same broad theme at different scales."
+  },
+  {
+    "group_key": "hemocyanin_mrna_vs_oxygen_capacity",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2074",
+      "2076",
+      "2073"
+    ],
+    "rationale": "All concern hemocyanin but involve oxidation, oxygen binding capacity and mRNA expression as distinct processes."
+  },
+  {
+    "group_key": "testosterone_estrogens_androgen",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "446",
+      "1987"
+    ],
+    "rationale": "Both describe reduced androgen levels, one fetal/adult testosterone and one androgen and progestin in different context."
+  },
+  {
+    "group_key": "pi3k_akt_mtor_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1310",
+      "1299"
+    ],
+    "rationale": "Activation of PI3K and AKT are distinct molecules in the same pathway; flagged for curator review rather than merged."
+  }
+]

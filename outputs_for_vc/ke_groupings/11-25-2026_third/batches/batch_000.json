@@ -1,0 +1,330 @@
+[
+  {
+    "group_key": "complex_i_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "887",
+      "888"
+    ],
+    "rationale": "Both target NADH-ubiquinone oxidoreductase (Complex I) but binding of an inhibitor does not by itself confirm functional inhibition."
+  },
+  {
+    "group_key": "ppar_alpha_antagonist_binding_vs_decreased_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "998",
+      "231"
+    ],
+    "rationale": "Both concern PPAR-alpha, but antagonist binding is distinct from decreased activation and requires curator review of the functional link."
+  },
+  {
+    "group_key": "pxr_activation",
+    "type": "merge",
+    "member_ids": [
+      "239",
+      "245"
+    ],
+    "rationale": "Both describe activation of the pregnane-X receptor (NR1I2/PXR/SXR) with different naming."
+  },
+  {
+    "group_key": "nmda_receptor_antagonist_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "201",
+      "195"
+    ],
+    "rationale": "Both concern NMDA receptors, but antagonist binding is distinct from functional inhibition."
+  },
+  {
+    "group_key": "ache_inhibition_and_ach_accumulation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "351",
+      "350"
+    ],
+    "rationale": "Both describe increased mortality; one is generic and the other is a general/AOP-specific variant, flagged for curator review."
+  },
+  {
+    "group_key": "estrogen_receptor_agonism_vs_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "111",
+      "112"
+    ],
+    "rationale": "Agonism and antagonism of the estrogen receptor are directional opposites for the same receptor."
+  },
+  {
+    "group_key": "androgen_receptor_agonism_vs_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "25",
+      "26"
+    ],
+    "rationale": "Agonism and antagonism of the androgen receptor are directional opposites for the same receptor."
+  },
+  {
+    "group_key": "plasma_vitellogenin_increase_vs_reduction",
+    "type": "soda",
+    "member_ids": [
+      "220",
+      "221"
+    ],
+    "rationale": "Both measure plasma vitellogenin concentrations in opposite directions."
+  },
+  {
+    "group_key": "vitellogenin_liver_synthesis_increase_vs_reduction",
+    "type": "soda",
+    "member_ids": [
+      "307",
+      "285"
+    ],
+    "rationale": "Both measure hepatic vitellogenin synthesis in opposite directions."
+  },
+  {
+    "group_key": "increased_vitellogenin_synthesis_general_vs_liver",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "418",
+      "307"
+    ],
+    "rationale": "Both describe increased vitellogenin synthesis, one general and one specific to the liver."
+  },
+  {
+    "group_key": "renal_vtg_deposition",
+    "type": "merge",
+    "member_ids": [
+      "252",
+      "419"
+    ],
+    "rationale": "Both describe increased renal pathology/deposition of vitellogenin in the kidney."
+  },
+  {
+    "group_key": "leydig_cell_hyperplasia_proliferation",
+    "type": "merge",
+    "member_ids": [
+      "415",
+      "416"
+    ],
+    "rationale": "Both describe increased Leydig cell proliferation/hyperplasia."
+  },
+  {
+    "group_key": "hepatocyte_proliferation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "716",
+      "57",
+      "269",
+      "854"
+    ],
+    "rationale": "All describe increased cell proliferation, with varying specificity (hepatocytes vs. general vs. hyperplasia context)."
+  },
+  {
+    "group_key": "hepatic_foci_clonal_expansion",
+    "type": "merge",
+    "member_ids": [
+      "1171",
+      "491"
+    ],
+    "rationale": "Both describe clonal expansion/proliferation forming altered hepatic foci."
+  },
+  {
+    "group_key": "hepatocellular_tumor_formation",
+    "type": "merge",
+    "member_ids": [
+      "719",
+      "378",
+      "347"
+    ],
+    "rationale": "All describe formation of liver tumors, namely hepatocellular adenomas and carcinomas."
+  },
+  {
+    "group_key": "liver_tumor_bile_duct",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "856",
+      "347"
+    ],
+    "rationale": "Both describe liver tumor formation, but one also includes bile duct tumors."
+  },
+  {
+    "group_key": "liver_steatosis",
+    "type": "merge",
+    "member_ids": [
+      "345",
+      "459"
+    ],
+    "rationale": "Both describe liver steatosis."
+  },
+  {
+    "group_key": "ppar_activation_alpha",
+    "type": "soda",
+    "member_ids": [
+      "227",
+      "231"
+    ],
+    "rationale": "Activation of PPAR\u03b1 versus decreased PPAR-alpha activation are directional opposites for the same receptor."
+  },
+  {
+    "group_key": "pparalpha_transactivation_vs_activation",
+    "type": "merge",
+    "member_ids": [
+      "858",
+      "231"
+    ],
+    "rationale": "Both describe decreased PPAR-alpha activity/transactivation."
+  },
+  {
+    "group_key": "fatty_acid_beta_oxidation_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1528",
+      "179"
+    ],
+    "rationale": "Both describe decreased fatty acid beta-oxidation."
+  },
+  {
+    "group_key": "ppar_isoform_decreased_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "232",
+      "233"
+    ],
+    "rationale": "Decreased activation of different PPAR isoforms (beta, gamma) are related but distinct receptors; flagged for curator review."
+  },
+  {
+    "group_key": "tgf_collagen_fibrosis_liver",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "344",
+      "68"
+    ],
+    "rationale": "Liver fibrosis is an organ-level outcome while collagen accumulation is a cellular/ECM process."
+  },
+  {
+    "group_key": "protein_alkylation_covalent_binding",
+    "type": "merge",
+    "member_ids": [
+      "244",
+      "396"
+    ],
+    "rationale": "Both describe covalent modification of proteins by reactive chemicals."
+  },
+  {
+    "group_key": "proinflammatory_mediators",
+    "type": "merge",
+    "member_ids": [
+      "1496",
+      "1493"
+    ],
+    "rationale": "Both describe increased pro-inflammatory mediator secretion/levels."
+  },
+  {
+    "group_key": "inflammation_cytokine_release",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "149",
+      "188"
+    ],
+    "rationale": "Both describe inflammation, with neuroinflammation specific to the nervous system."
+  },
+  {
+    "group_key": "mutations_dna",
+    "type": "merge",
+    "member_ids": [
+      "185",
+      "376"
+    ],
+    "rationale": "Both describe increased mutations, the latter in critical genes."
+  },
+  {
+    "group_key": "dna_repair_inadequate",
+    "type": "merge",
+    "member_ids": [
+      "155",
+      "493"
+    ],
+    "rationale": "Both describe inadequate or mis-repair of DNA damage."
+  },
+  {
+    "group_key": "dna_adduct_alkylation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "97",
+      "373"
+    ],
+    "rationale": "Both describe DNA modification by reactive agents, with differing specificity (alkylation vs. pro-mutagenic adducts)."
+  },
+  {
+    "group_key": "estradiol_reduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "219",
+      "3"
+    ],
+    "rationale": "Both describe reduced 17beta-estradiol, one in plasma and one synthesis in ovarian granulosa cells."
+  },
+  {
+    "group_key": "testosterone_reduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "413",
+      "274",
+      "1690"
+    ],
+    "rationale": "All describe reduced testosterone, with differing tissue/cell contexts (Leydig, theca, circulating)."
+  },
+  {
+    "group_key": "aromatase_inhibition_general_vs_granulosa",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "36",
+      "408"
+    ],
+    "rationale": "Both describe aromatase inhibition/reduction, one general and one specific to ovarian granulosa cells."
+  },
+  {
+    "group_key": "thyroxine_decrease_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "281",
+      "280"
+    ],
+    "rationale": "Both describe decreased thyroxine, in serum vs. neuronal tissue."
+  },
+  {
+    "group_key": "mortality_increase",
+    "type": "merge",
+    "member_ids": [
+      "350",
+      "351"
+    ],
+    "rationale": "Both describe increased mortality."
+  },
+  {
+    "group_key": "oxidative_stress",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1392",
+      "1115"
+    ],
+    "rationale": "Both relate to increased oxidative stress/ROS, differing in specificity; flagged for curator review."
+  },
+  {
+    "group_key": "nmda_neuronal_network_function",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "386",
+      "618"
+    ],
+    "rationale": "Both describe decreased neuronal network function, one specific to the adult brain."
+  },
+  {
+    "group_key": "bile_accumulation_cholestasis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "214",
+      "357"
+    ],
+    "rationale": "Bile accumulation and cholestasis are closely related; flagged for curator review of specificity."
+  }
+]

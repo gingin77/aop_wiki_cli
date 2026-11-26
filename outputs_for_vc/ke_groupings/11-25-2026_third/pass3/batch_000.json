@@ -1,0 +1,114 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "142",
+      "group_key": "hyperplasia_tissue_contexts",
+      "rationale": "Generic 'Hyperplasia' is the same process as the tissue-specific hyperplasia events in this group, lacking a context qualifier."
+    },
+    {
+      "event_id": "334",
+      "group_key": "hepatocellular_tumor_formation",
+      "rationale": "Promotion of hepatocellular carcinoma is the same liver tumor endpoint as the events in this group; flagged here due to the 'promotion' wording."
+    },
+    {
+      "event_id": "406",
+      "group_key": "decreased_fertility",
+      "rationale": "'decreased, Fertility' is the same event as 'Decrease, Fertility'."
+    },
+    {
+      "event_id": "55",
+      "group_key": "apoptosis_cell_death",
+      "rationale": "Increase in cell injury/death is a general cell-death event that fits this apoptosis/cell death context group."
+    },
+    {
+      "event_id": "10",
+      "group_key": "ache_inhibition_and_ach_accumulation",
+      "rationale": "Acetylcholine accumulation in synapses is a cholinergic event related to the AChE-inhibition-linked group; flagged for curator review."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "ecdysis_hormone_cascade_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "988",
+        "1266"
+      ],
+      "rationale": "Both describe decreased circulating neuropeptide hormones (ETH, CCAP) in the ecdysis cascade."
+    },
+    {
+      "group_key": "ecdysone_receptor_activity_direction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "103",
+        "1264"
+      ],
+      "rationale": "Ecdysone receptor hyperactivation and E75b nuclear receptor gene expression share the ecdysone signaling axis but are distinct processes."
+    },
+    {
+      "group_key": "ketone_bodies_ketogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "861",
+        "862"
+      ],
+      "rationale": "Decreased ketogenesis and not-increased circulating ketone bodies concern ketone bodies but are production versus level."
+    },
+    {
+      "group_key": "thyroxine_clearance_glucuronidation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "295",
+        "961"
+      ],
+      "rationale": "Glucuronyltransferase upregulation and increased T4 clearance are linked thyroid hormone metabolism events but distinct processes."
+    },
+    {
+      "group_key": "hippocampal_alterations",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "756",
+        "757",
+        "758"
+      ],
+      "rationale": "All describe altered hippocampal features (gene expression, anatomy, physiology) at different levels."
+    },
+    {
+      "group_key": "igabar_chloride_channel_binding_vs_conductance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "64",
+        "667"
+      ],
+      "rationale": "Binding at the picrotoxin site and reduced chloride channel conductance concern the same iGABAR channel but binding does not confirm functional reduction."
+    },
+    {
+      "group_key": "nfkb_inhibition_vs_ikb_induction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "202",
+        "145"
+      ],
+      "rationale": "NF-kB inhibition and induction of IkB inhibitory protein share the NF-kB axis but are different processes."
+    },
+    {
+      "group_key": "cholinergic_signaling_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "10",
+        "39"
+      ],
+      "rationale": "Acetylcholine accumulation and increased cholinergic signaling concern the cholinergic system but are distinct processes."
+    },
+    {
+      "group_key": "immune_suppression_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "403",
+        "152",
+        "168"
+      ],
+      "rationale": "Suppression of the immune system generally versus suppression of inflammatory cytokines and decreased lymphocytes are the same theme at different specificity."
+    }
+  ]
+}

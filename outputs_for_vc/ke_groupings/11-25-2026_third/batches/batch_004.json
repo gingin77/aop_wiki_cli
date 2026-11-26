@@ -1,0 +1,205 @@
+[
+  {
+    "group_key": "increased_angiotensin_ii",
+    "type": "merge",
+    "member_ids": [
+      "1752",
+      "1743"
+    ],
+    "rationale": "Both describe increased angiotensin II levels."
+  },
+  {
+    "group_key": "at1r_increase_and_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1851",
+      "1852"
+    ],
+    "rationale": "Both concern AT1R but one is agonist binding and the other is increased receptor level/expression."
+  },
+  {
+    "group_key": "ace2_dysregulation",
+    "type": "merge",
+    "member_ids": [
+      "1854",
+      "1740"
+    ],
+    "rationale": "Both describe dysregulation of ACE2."
+  },
+  {
+    "group_key": "ace2_binding_vs_downregulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1739",
+      "1787",
+      "1854"
+    ],
+    "rationale": "All target ACE2 but binding, downregulation and dysregulation are distinct processes."
+  },
+  {
+    "group_key": "homocysteine_increase",
+    "type": "merge",
+    "member_ids": [
+      "1661",
+      "1665"
+    ],
+    "rationale": "Both describe increased homocysteine levels (plasma being the usual compartment)."
+  },
+  {
+    "group_key": "tlr_dysregulation_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1848",
+      "1792",
+      "1842"
+    ],
+    "rationale": "Toll-like receptor related events with different specific processes (dysregulation, TLR4 activation, prolonged TLR9 activation) needing curator review."
+  },
+  {
+    "group_key": "caspase_transcription_f0_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1774",
+      "1779"
+    ],
+    "rationale": "Same event of increased caspase transcription, but F3 generation specified for one."
+  },
+  {
+    "group_key": "fecundity_f0_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "328",
+      "1781"
+    ],
+    "rationale": "Decrease in fecundity, one specific to F3 generation."
+  },
+  {
+    "group_key": "ovarian_somatic_apoptosis_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1776",
+      "1783"
+    ],
+    "rationale": "Increase in ovarian somatic cell apoptosis, one specific to F3 generation."
+  },
+  {
+    "group_key": "follicle_breakdown_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1777",
+      "1784"
+    ],
+    "rationale": "Increase in ovarian follicle breakdown, one specific to F3 generation."
+  },
+  {
+    "group_key": "dna_methylation_decrease_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1773",
+      "1778"
+    ],
+    "rationale": "Decrease in DNA methylation, one specific to heritable F3 generation."
+  },
+  {
+    "group_key": "ecdysone_cascade_direction",
+    "type": "soda",
+    "member_ids": [
+      "2373",
+      "2375"
+    ],
+    "rationale": "Mis-timed ecdysone receptor-responsive cascade increased vs decreased."
+  },
+  {
+    "group_key": "lipid_peroxidation_membrane_lipid_oxidation",
+    "type": "merge",
+    "member_ids": [
+      "1445",
+      "1594"
+    ],
+    "rationale": "Lipid peroxidation and oxidation of membrane lipids describe the same oxidative process."
+  },
+  {
+    "group_key": "protein_oxidation",
+    "type": "merge",
+    "member_ids": [
+      "1767",
+      "1595"
+    ],
+    "rationale": "Increased protein oxidation and oxidation/denaturation of membrane proteins describe the same process."
+  },
+  {
+    "group_key": "apoptosis_cell_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1365",
+      "1825",
+      "1817",
+      "1864"
+    ],
+    "rationale": "Apoptosis/cell death/programmed cell death events with differing specificity."
+  },
+  {
+    "group_key": "thyroid_binding_proteins",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1830",
+      "1831"
+    ],
+    "rationale": "Both relate to serum thyroid hormone carrier protein binding but involve displacement vs binding."
+  },
+  {
+    "group_key": "inflammation_general_vs_liver",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1633",
+      "902"
+    ],
+    "rationale": "Increase in inflammation general versus liver-specific inflammation."
+  },
+  {
+    "group_key": "hyperinflammation_inflammatory_responses",
+    "type": "merge",
+    "member_ids": [
+      "1868",
+      "1750"
+    ],
+    "rationale": "Hyperinflammation and increased inflammatory immune responses describe the same increased inflammatory state."
+  },
+  {
+    "group_key": "tyrosinase_pigmentation_cascade_not_grouped_placeholder_ros",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1632",
+      "1634"
+    ],
+    "rationale": "Increase in RONS and oxidative DNA damage are not identical; flagged for review of oxidative stress context."
+  },
+  {
+    "group_key": "retinoic_acid_decrease",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1881",
+      "2419",
+      "1880"
+    ],
+    "rationale": "Related retinoic acid pathway events (concentration, receptor activation, synthetic enzyme activity) share the RA object but are distinct processes."
+  },
+  {
+    "group_key": "chitin_inhibition_enzymes",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1522",
+      "1523"
+    ],
+    "rationale": "Chitin synthase inhibition and reduced chitin content concern chitin but are different processes."
+  },
+  {
+    "group_key": "oogenesis_oocyte_apoptosis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1780",
+      "1782"
+    ],
+    "rationale": "Both F3 oocyte-related events (oocyte apoptosis, oogenesis) share object but differ in process; flagged for review."
+  }
+]

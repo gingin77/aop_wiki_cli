@@ -1,0 +1,61 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1607",
+      "group_key": "apoptosis_cell_death",
+      "rationale": "Increase, Necrosis is a form of increased cell death, matching the cell death/apoptosis group of varying specificity."
+    },
+    {
+      "event_id": "1950",
+      "group_key": "proinflammatory_mediators",
+      "rationale": "Increase, TNF is a specific increased pro-inflammatory mediator and fits the increased mediators group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "six1_eya1_expression_direction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1904",
+        "1905"
+      ],
+      "rationale": "Both describe altered expression of otic development genes (six1b increased, eya1 inhibited) in the same developmental pathway; flagged for curator review."
+    },
+    {
+      "group_key": "qt_ape_prolongation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1961",
+        "1962"
+      ],
+      "rationale": "Prolongation of action potential duration (cellular) and QT interval prolongation (organ-level ECG) are the same process at different biological scales."
+    },
+    {
+      "group_key": "neutrophil_platelet_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1914",
+        "1915"
+      ],
+      "rationale": "Increased activation of platelets versus neutrophils: the same process in different cell types."
+    },
+    {
+      "group_key": "microcephaly_progenitor_decline",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2200",
+        "1979"
+      ],
+      "rationale": "Decline of neural progenitor cells and premature differentiation are related neural progenitor events; flagged for curator review of specificity."
+    },
+    {
+      "group_key": "tumor_growth_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1971",
+        "1982"
+      ],
+      "rationale": "Increased tumor growth (general) and metastatic breast cancer (tissue-specific) describe related tumor progression at different specificity."
+    }
+  ]
+}

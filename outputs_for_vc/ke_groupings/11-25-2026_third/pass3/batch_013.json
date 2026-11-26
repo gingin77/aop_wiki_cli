@@ -1,0 +1,89 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1772",
+      "group_key": "hepatic_triglyceride_increase_vs_decrease",
+      "rationale": "Decrease, Triglyceride shares the triglyceride object with the existing increased-triglyceride events but differs in direction/process, warranting curator review."
+    },
+    {
+      "event_id": "1800",
+      "group_key": "estradiol_reduction",
+      "rationale": "Reduced granulosa cell proliferation placeholder not valid; omitted."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "decreased_sperm_count_spermatogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1757",
+        "1758",
+        "1798"
+      ],
+      "rationale": "Sperm count, impaired spermatogenesis and decreased spermatogenesis concern the male germ cell production axis with distinct endpoints; 1758 and 1798 are near-synonyms but sperm count is a distinct measure."
+    },
+    {
+      "group_key": "impaired_decreased_spermatogenesis",
+      "type": "merge",
+      "member_ids": [
+        "1758",
+        "1798"
+      ],
+      "rationale": "Impaired spermatogenesis and decreased spermatogenesis describe the same reduced spermatogenesis event."
+    },
+    {
+      "group_key": "cortisol_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1835",
+        "1836"
+      ],
+      "rationale": "Both describe decreased cortisol, one also including 11\u03b2-(OH) testosterone."
+    },
+    {
+      "group_key": "chitin_degrading_enzymes_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1806",
+        "1807"
+      ],
+      "rationale": "Inhibition of different chitin-degrading enzymes (chitinase vs chitobiase) share the chitin degradation context but are distinct enzymes."
+    },
+    {
+      "group_key": "urothelial_injury_tumor",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1762",
+        "1763"
+      ],
+      "rationale": "Urothelial cell injury/death and urothelial tumor share the urothelial tissue object but are distinct processes."
+    },
+    {
+      "group_key": "reduced_estradiol_synthesis_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1789",
+        "1800"
+      ],
+      "rationale": "Both concern reduced estrogen-related ovarian/gonadal function but in different contexts; flagged for review."
+    },
+    {
+      "group_key": "gonad_sex_differentiation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1790",
+        "1791"
+      ],
+      "rationale": "Increased differentiation to testis and male-biased sex ratio are related sex determination endpoints at different levels."
+    },
+    {
+      "group_key": "abnormal_osmoregulation_fluid_overload",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1768",
+        "1769"
+      ],
+      "rationale": "Abnormal osmoregulation and body fluid overload are related but distinct processes."
+    }
+  ]
+}

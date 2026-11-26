@@ -1,0 +1,43 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1104",
+      "group_key": "pgf2a_plasma_vs_ovary",
+      "rationale": "Decreased plasma PGF2alpha concentration is the same event as the plasma member of this group, differing only in wording."
+    },
+    {
+      "event_id": "1057",
+      "group_key": "ppar_activation_alpha",
+      "rationale": "Increased PPAR-alpha activation is the directional opposite of the decreased PPAR-alpha activation member for the same receptor."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "smooth_muscle_proliferation_hypertrophy",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1042",
+        "1043"
+      ],
+      "rationale": "Both concern smooth muscle but describe proliferation/clonal expansion versus hypertrophy/hyperplasia, which are related but distinct processes."
+    },
+    {
+      "group_key": "ovarian_hyperplasia_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1051",
+        "1052"
+      ],
+      "rationale": "Hyperplasia in different ovarian cell types (stromal cells vs epithelium)."
+    },
+    {
+      "group_key": "cholestasis_bile_flow",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1058",
+        "1059"
+      ],
+      "rationale": "Decreased bile flow and increased cholestasis share the bile object but are distinct events needing curator review."
+    }
+  ]
+}

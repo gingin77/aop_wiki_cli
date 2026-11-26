@@ -1,0 +1,43 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "527",
+      "group_key": "fecundity_f0_f3",
+      "rationale": "Decreased fecundity is the same event as 'Decrease, Fecundity' and the F3-specific variant, differing only in generation context."
+    },
+    {
+      "event_id": "587",
+      "group_key": "decreased_locomotion_vs_increased",
+      "rationale": "placeholder"
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "mitochondrial_dna_damage_accumulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "570",
+        "664"
+      ],
+      "rationale": "Accumulation of damaged mitochondrial DNA and overwhelmed mtDNA repair concern the same mtDNA damage theme; flagged for curator review."
+    },
+    {
+      "group_key": "reduced_prostaglandin_hypothalamus_vs_ovary",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "687"
+      ],
+      "rationale": "placeholder"
+    },
+    {
+      "group_key": "reduced_spawning_behavior_attraction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "673",
+        "674",
+        "678"
+      ],
+      "rationale": "Reduced spawning behavior, mate attraction and pheromone release are related reduced reproductive behavior events; flagged for curator review."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1541",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "Mitochondrial Complex I inhibition is the same event as 'Inhibition, NADH-ubiquinone oxidoreductase (complex I)', and the group tracks Complex I binding vs inhibition."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "lysolecithin_demyelination_chain_placeholder_omitted",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2263",
+        "2264"
+      ],
+      "rationale": "Both concern increased lysolecithin, one general and one specifically as membrane integration; flagged for curator review of specificity."
+    },
+    {
+      "group_key": "plasma_estradiol_increase_vs_ratio",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2294",
+        "2303"
+      ],
+      "rationale": "Both describe increased estrogen status in plasma, one as estradiol concentration and one as estradiol-to-progesterone ratio."
+    },
+    {
+      "group_key": "srebp2_insig1_cholesterol_pathway_same_object",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2268",
+        "2269"
+      ],
+      "rationale": "Both concern the INSIG1-SREBP2 regulatory axis but describe different molecules and processes; flagged for curator review."
+    },
+    {
+      "group_key": "decreased_sodium_uptake_vs_plasma_sodium",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2236",
+        "2237"
+      ],
+      "rationale": "Both concern sodium homeostasis in fish but gill uptake and plasma concentration are distinct processes/compartments."
+    }
+  ]
+}

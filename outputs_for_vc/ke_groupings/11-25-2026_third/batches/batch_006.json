@@ -1,0 +1,147 @@
+[
+  {
+    "group_key": "laminin_binding_vs_disrupted_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2109",
+      "2110"
+    ],
+    "rationale": "Both concern laminin binding interactions but one is binding of laminin and the other is disrupted laminin-integrin binding, which are distinct processes."
+  },
+  {
+    "group_key": "gsh_depletion_vs_conjugation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "130",
+      "2131"
+    ],
+    "rationale": "Both involve glutathione but depletion and conjugation are distinct processes that cannot be assumed equivalent."
+  },
+  {
+    "group_key": "fat_mass_increase",
+    "type": "merge",
+    "member_ids": [
+      "2125",
+      "2333"
+    ],
+    "rationale": "Both describe increased fat mass."
+  },
+  {
+    "group_key": "lipid_accumulation_droplet",
+    "type": "merge",
+    "member_ids": [
+      "2130",
+      "2332"
+    ],
+    "rationale": "Increased lipid accumulation and increased lipid droplets describe the same increase in cellular lipid storage."
+  },
+  {
+    "group_key": "ppar_stressor_binding_vs_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2226",
+      "2227",
+      "2224"
+    ],
+    "rationale": "All concern PPAR isoforms but describe binding, disrupted nuclear signaling, and transcriptional dysregulation, which are distinct processes."
+  },
+  {
+    "group_key": "ppar_activation_vs_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2165",
+      "2226"
+    ],
+    "rationale": "PPAR activation versus stressor binding PPAR isoforms; binding does not confirm activation."
+  },
+  {
+    "group_key": "microcephaly_cortical_architecture",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2203",
+      "2327"
+    ],
+    "rationale": "Both describe decreased proliferation/growth, one specifically in cortical neural progenitor cells and the other general."
+  },
+  {
+    "group_key": "estrogen_receptor_alpha_inactivation_vs_erab_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2126",
+      "2233"
+    ],
+    "rationale": "Both describe reduced estrogen receptor function, one for ERalpha inactivation and one for decreased ERalpha/beta heterodimers."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_induction",
+    "type": "soda",
+    "member_ids": [
+      "2277",
+      "2293"
+    ],
+    "rationale": "Both concern aromatase activity in opposite directions (inhibition vs induction)."
+  },
+  {
+    "group_key": "androgen_receptor_activation_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2134",
+      "2274"
+    ],
+    "rationale": "Both concern androgen receptor but one is protein expression/abundance and the other is activation."
+  },
+  {
+    "group_key": "cardiac_fibrosis_remodelling",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1924",
+      "2084"
+    ],
+    "rationale": "Cardiac fibrosis and cardiac remodelling are related cardiac tissue-level processes at different specificity."
+  },
+  {
+    "group_key": "mapk_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2146",
+      "2345"
+    ],
+    "rationale": "Both describe activation in the MAPK/ERK pathway but at different specificity (MEK-ERK1/2 vs MAPK general)."
+  },
+  {
+    "group_key": "mitochondrial_ros_oxidative_stress",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2363",
+      "1238"
+    ],
+    "rationale": "Both describe oxidative stress, one specifically mitochondrial ROS and dysfunction, the other general pathway activation."
+  },
+  {
+    "group_key": "ryr_activation_hyperphosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2186",
+      "2289"
+    ],
+    "rationale": "Both target ryanodine receptor but activation and hyperphosphorylation are distinct processes."
+  },
+  {
+    "group_key": "dysfunction_of_respiratory_system_disease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2087",
+      "2088"
+    ],
+    "rationale": "Both describe respiratory adverse outcomes at different specificity (incidence of respiratory disease vs system dysfunction)."
+  },
+  {
+    "group_key": "sulfotransferase_estradiol_availability",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2250",
+      "2155"
+    ],
+    "rationale": "Both are inhibition of estrogen-metabolizing enzymes (17bHSD2 and SULT1E1), different enzymes so grouped only for curator review of shared estrogen metabolism context."
+  }
+]
