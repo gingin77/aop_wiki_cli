@@ -48,7 +48,7 @@ Reduces the full set to only KERs that have at least one tabulated evidence entr
 
 **Function:** `harmonize_kers_with_cache(kers_with_tables, ...)`
 
-Checks for `outputs/cache/{date}/kers_with_harmonized_evi_tables_{date}.json`. On a miss,
+Checks for `outputs/ker_evidence/kers_with_harmonized_evi_tables_{date}.json`. On a miss,
 applies a 4-step header resolution pipeline to each evidence table's column headers:
 
 1. **Direct mapping** via `COLUMN_HARMONIZER` dict (e.g., `"dose"` → `"Dose"`)
