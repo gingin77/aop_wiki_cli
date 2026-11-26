@@ -1,17 +1,31 @@
 #!/usr/bin/env python3
 """Parse and merge the LLM groupings output with the manually curated review CSV.
 
+Pass a grouping run by date (resolved under outputs_for_vc/ke_groupings/<date>/),
+or point at an LLM file explicitly:
+
 Usage:
+    # By date — resolves ke_similar_events_<date>_pass3.json in the groupings dir
     uv run python annotation_scripts/process_manual_curations.py \
-        --llm-file outputs_for_vc/ke_groupings/05-07-2026_with_updated_prompts_200_NA_50/ke_similar_events_05-07-2026_pass2.json \
+        --date 11-25-2026 \
         --mc-file "inputs/manual_curations/KE groupings manual review - ALL_GROUPS.csv"
+
+    # Choose the pass 2 snapshot instead
+    uv run python annotation_scripts/process_manual_curations.py \
+        --date 11-25-2026 --pass 2 --mc-file "inputs/manual_curations/....csv"
+
+    # Explicit LLM file (overrides --date resolution)
+    uv run python annotation_scripts/process_manual_curations.py \
+        --llm-file outputs_for_vc/ke_groupings/05-07-2026_.../ke_similar_events_05-07-2026_pass2.json \
+        --mc-file "inputs/manual_curations/....csv"
 """
 
 import argparse
+import copy
 import csv
 import json
+import re
 import sys
-import copy
 from datetime import date
 from pathlib import Path
 
@@ -24,6 +38,37 @@ TYPE_TO_BUCKET: dict[str, str] = {
     "same_object_different_process": "same_object_different_process_events",
     "similar_event_different_biological_context": "similar_event_different_biological_context_events",
 }
+
+DEFAULT_GROUPINGS_DIR = Path("outputs_for_vc/ke_groupings")
+MANUAL_REVIEW_OUTPUT_DIR = Path("outputs/ke_groupings/manual_review_outputs")
+_LLM_NAME_RE = re.compile(r"ke_similar_events_(\d{2}-\d{2}-\d{4})_pass\d+\.json$")
+
+
+def resolve_llm_file(date_str: str, pass_num: int, base_dir: Path) -> Path:
+    """Resolve the grouping snapshot for <date_str> under base_dir/<date_str>/.
+
+    Returns the path to ke_similar_events_<date_str>_pass<pass_num>.json. Raises
+    SystemExit with a helpful message if the directory or that snapshot is
+    missing, listing the snapshots that are present.
+    """
+    group_dir = base_dir / date_str
+    target = group_dir / f"ke_similar_events_{date_str}_pass{pass_num}.json"
+    if target.exists():
+        return target
+    if not group_dir.is_dir():
+        sys.exit(f"Error: no groupings directory for date {date_str!r}: {group_dir}")
+    available = sorted(p.name for p in group_dir.glob(f"ke_similar_events_{date_str}_pass*.json"))
+    hint = f" Available: {', '.join(available)}" if available else " No pass snapshots found there."
+    sys.exit(f"Error: {target.name} not found in {group_dir}.{hint}")
+
+
+def _run_date_for(args, llm_path: Path) -> str:
+    """Date used to stamp output filenames: --date, else parsed from the LLM
+    filename, else today."""
+    if args.date:
+        return args.date
+    m = _LLM_NAME_RE.search(llm_path.name)
+    return m.group(1) if m else date.today().strftime("%m-%d-%Y")
 
 
 def parse_manual_curations(csv_path: Path) -> list[dict]:
@@ -96,11 +141,31 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Parse and merge the LLM groupings output with the manually curated review CSV."
     )
-    parser.add_argument(
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument(
+        "--date",
+        metavar="MM-DD-YYYY",
+        help="Grouping run date; resolves the LLM file under "
+             "<groupings-dir>/<date>/ke_similar_events_<date>_pass<N>.json",
+    )
+    source.add_argument(
         "--llm-file",
-        required=True,
         metavar="FILE",
-        help="Path to the LLM pass 3 output JSON (e.g. ke_similar_events_*_pass3.json)",
+        help="Explicit path to an LLM grouping JSON (overrides --date resolution)",
+    )
+    parser.add_argument(
+        "--pass",
+        dest="pass_num",
+        type=int,
+        choices=(2, 3),
+        default=3,
+        help="Which grouping snapshot to use with --date (default: 3)",
+    )
+    parser.add_argument(
+        "--groupings-dir",
+        metavar="DIR",
+        default=str(DEFAULT_GROUPINGS_DIR),
+        help=f"Base directory holding <date> grouping folders (default: {DEFAULT_GROUPINGS_DIR})",
     )
     parser.add_argument(
         "--mc-file",
@@ -115,21 +180,27 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    llm_path = Path(args.llm_file)
+    if args.llm_file:
+        llm_path = Path(args.llm_file)
+    else:
+        llm_path = resolve_llm_file(args.date, args.pass_num, Path(args.groupings_dir))
+    print(f"LLM grouping file: {llm_path}")
+
     mc_path = Path(args.mc_file)
     for label, path in (("llm_file", llm_path), ("mc_file", mc_path)):
         if not path.exists():
             print(f"Error: file not found ({label}): {path}", file=sys.stderr)
             sys.exit(1)
 
+    run_date = _run_date_for(args, llm_path)
+
     manual_curations = parse_manual_curations(mc_path)
     print(f"Parsed {len(manual_curations)} group manual_curations.")
 
-    today = date.today().strftime("%m-%d-%Y")
     if args.json_out:
         tmp_out_path = Path(args.json_out)
     else:
-        tmp_out_path = Path(f"outputs/ke_groupings/manual_review_outputs/{today}_manual_curations.json")
+        tmp_out_path = MANUAL_REVIEW_OUTPUT_DIR / f"{run_date}_manual_curations.json"
 
     export_manual_curations_to_json(manual_curations, tmp_out_path)
 
@@ -141,17 +212,17 @@ def main() -> None:
     integrated["metadata"] = insert_after(
         integrated["metadata"],
         "source_cache",
-        "llm_annotation_file", args.llm_file
+        "llm_annotation_file", str(llm_path)
     )
-    
+
     integrated["metadata"] = insert_after(
         integrated["metadata"],
         "llm_annotation_file",
-        "manual_annotation_file", args.mc_file
+        "manual_annotation_file", str(mc_path)
     )
 
-    integrated_annotations_output_path = Path(
-        f"outputs/ke_groupings/manual_review_outputs/{today}_integrated_llm_and_manual_annotations.json"
+    integrated_annotations_output_path = (
+        MANUAL_REVIEW_OUTPUT_DIR / f"{run_date}_integrated_llm_and_manual_annotations.json"
     )
     integrated_annotations_output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(integrated_annotations_output_path, "w") as f:
