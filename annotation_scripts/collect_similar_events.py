@@ -240,23 +240,32 @@ def _response_text(message: anthropic.types.Message) -> str:
 def _parse_json_from_response(raw: str) -> dict | list | None:
     """Extract and parse the first JSON object or array from an LLM response.
 
-    Handles responses wrapped in markdown code fences (```json ... ```) as well
-    as bare JSON embedded in prose.
+    Handles responses wrapped in markdown code fences (```json ... ```), bare
+    JSON embedded in prose, and JSON followed by trailing commentary. The last
+    case matters for current-generation models run with thinking off: they
+    sometimes append a note after the JSON (e.g. a `[...]` array then
+    "Correction: ... Final answer:"), which a plain json.loads rejects as
+    "Extra data". We decode only the first complete JSON value and ignore
+    whatever follows it.
     """
-    # Prefer content inside a markdown code fence
+    # Prefer content inside a markdown code fence.
     fence_match = re.search(r'```(?:json)?\s*(\[[\s\S]*?\]|\{[\s\S]*?\})\s*```', raw)
     if fence_match:
-        candidate = fence_match.group(1)
-    else:
-        # Fall back: find the first [ or { and take everything from there
-        first = re.search(r'[\[\{]', raw)
-        if not first:
-            logger.error("Could not find JSON in LLM response: %r", raw[:200])
-            return None
-        candidate = raw[first.start():]
+        try:
+            return json.loads(fence_match.group(1))
+        except json.JSONDecodeError:
+            pass  # fall through to raw_decode on the raw text
 
+    # Fall back: decode the first complete JSON value starting at the first
+    # [ or {, ignoring any trailing prose the model appended. raw_decode stops
+    # at the end of that value rather than requiring the whole string be JSON.
+    first = re.search(r'[\[\{]', raw)
+    if not first:
+        logger.error("Could not find JSON in LLM response: %r", raw[:200])
+        return None
     try:
-        return json.loads(candidate)
+        obj, _end = json.JSONDecoder().raw_decode(raw, first.start())
+        return obj
     except json.JSONDecodeError as exc:
         logger.error("JSON parse error: %s — raw: %r", exc, raw[:200])
         return None
