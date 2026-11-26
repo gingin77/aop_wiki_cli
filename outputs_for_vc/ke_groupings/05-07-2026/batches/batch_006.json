@@ -1,0 +1,438 @@
+[
+  {
+    "group_key": "gsh_depletion_vs_conjugation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "130",
+      "2131"
+    ],
+    "rationale": "Both involve GSH (glutathione) but depletion describes loss of GSH while conjugation describes a chemical reaction using GSH \u2014 same object, different processes."
+  },
+  {
+    "group_key": "fat_mass_increase",
+    "type": "merge",
+    "member_ids": [
+      "2125",
+      "2333"
+    ],
+    "rationale": "Both describe increased fat mass using nearly identical wording."
+  },
+  {
+    "group_key": "lipid_accumulation_vs_droplet",
+    "type": "merge",
+    "member_ids": [
+      "2130",
+      "2332"
+    ],
+    "rationale": "Increased lipid accumulation and increased lipid droplets describe the same cellular process of lipid storage accumulation."
+  },
+  {
+    "group_key": "adipocyte_obesity_metabolic",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2127",
+      "2128"
+    ],
+    "rationale": "Both describe adipocyte changes contributing to obesity but one specifies increased size and the other increased numbers \u2014 same object, different biological processes at the cellular level."
+  },
+  {
+    "group_key": "oligodendrocyte_differentiation_maturation",
+    "type": "merge",
+    "member_ids": [
+      "2116",
+      "2106"
+    ],
+    "rationale": "Decreased oligodendrocyte differentiation and impaired oligodendrocyte maturation describe the same biological process of oligodendrocyte developmental failure."
+  },
+  {
+    "group_key": "hypomyelination_white_matter",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2107",
+      "2108"
+    ],
+    "rationale": "Hypomyelination is the cellular/molecular process while altered white brain matter is the tissue-level manifestation in a specific brain compartment."
+  },
+  {
+    "group_key": "demyelination_axonal_insulation",
+    "type": "merge",
+    "member_ids": [
+      "2266",
+      "2378"
+    ],
+    "rationale": "Increased demyelination and impaired axonal insulation both describe loss of the myelin sheath around axons."
+  },
+  {
+    "group_key": "influenza_binding_entry",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2158",
+      "2159"
+    ],
+    "rationale": "IAV binding to sialic acid receptor and IAV cell entry share the same virus-host interface but binding and entry are distinct sequential processes."
+  },
+  {
+    "group_key": "influenza_production_budding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2192",
+      "2193"
+    ],
+    "rationale": "IAV production and IAV budding both describe viral replication output but production is broader while budding is the specific egress process."
+  },
+  {
+    "group_key": "vascular_endothelial_dysfunction",
+    "type": "merge",
+    "member_ids": [
+      "1928",
+      "2161"
+    ],
+    "rationale": "Vascular endothelial dysfunction and vascular disrupting effects both describe dysfunction/disruption of the vascular endothelium."
+  },
+  {
+    "group_key": "radial_glia_alignment_density",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2112",
+      "2113"
+    ],
+    "rationale": "Disturbed radial glia cell alignment/migration and decreased radial glia cell density describe related but distinct aspects of radial glia pathology."
+  },
+  {
+    "group_key": "laminin_binding_vs_adhesion",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2109",
+      "2110",
+      "2111"
+    ],
+    "rationale": "These events all involve laminin but describe distinct processes: extracellular matrix laminin binding, disrupted integrin-laminin receptor binding, and decreased neural progenitor cell adhesion to laminin."
+  },
+  {
+    "group_key": "plasma_estradiol_increase",
+    "type": "merge",
+    "member_ids": [
+      "2294",
+      "2251"
+    ],
+    "rationale": "Plasma estradiol increased and estradiol availability increased both describe elevated estradiol levels in plasma/systemic availability."
+  },
+  {
+    "group_key": "aromatase_induction_vs_inhibition_plasma",
+    "type": "soda",
+    "member_ids": [
+      "2293",
+      "2277"
+    ],
+    "rationale": "Aromatase induction describes increased aromatase activity while inhibition of aromatase activity in plasma describes the opposite direction on the same enzyme."
+  },
+  {
+    "group_key": "ppar_binding_vs_signaling_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2226",
+      "2227",
+      "2224",
+      "2165"
+    ],
+    "rationale": "These events all involve PPAR isoforms but describe distinct processes: stressor binding, disrupted nuclear signaling, dysregulation of transcriptional expression, and activation \u2014 same object, different processes."
+  },
+  {
+    "group_key": "cardiac_remodelling_structure_function",
+    "type": "merge",
+    "member_ids": [
+      "2084",
+      "2157"
+    ],
+    "rationale": "Cardiac remodelling and abnormal cardiac structure and function both describe pathological changes to heart structure and function."
+  },
+  {
+    "group_key": "cardiac_electrical_conduction",
+    "type": "merge",
+    "member_ids": [
+      "2280",
+      "2292"
+    ],
+    "rationale": "Increased delay in heart electrical conduction and altered cardiac electrical conduction both describe the same pathological change in cardiac conduction."
+  },
+  {
+    "group_key": "afterdepolarizations_early_premature",
+    "type": "merge",
+    "member_ids": [
+      "2283",
+      "2285"
+    ],
+    "rationale": "Increased early premature depolarizations during repolarization and increased delayed and early afterdepolarizations describe overlapping cardiac electrophysiological disturbances."
+  },
+  {
+    "group_key": "ryanodine_receptor_activation_vs_hyperphosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2186",
+      "2289"
+    ],
+    "rationale": "Ryanodine receptor activation and hyperphosphorylation of RyR2 both target the ryanodine receptor but through distinct processes (functional activation vs. post-translational modification)."
+  },
+  {
+    "group_key": "respiratory_disease_dysfunction",
+    "type": "merge",
+    "member_ids": [
+      "2087",
+      "2088"
+    ],
+    "rationale": "Increased incidence of respiratory disease and dysfunction of respiratory system both describe adverse respiratory outcomes at the organ/system level."
+  },
+  {
+    "group_key": "bone_remodeling_vs_bone_loss",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2090",
+      "2091"
+    ],
+    "rationale": "Increased bone remodeling and occurrence of bone loss share the same biological object (bone) but remodeling is a process while bone loss is an outcome \u2014 distinct processes requiring curator review."
+  },
+  {
+    "group_key": "testosterone_reduction_fetal_adult",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "446",
+      "2214"
+    ],
+    "rationale": "Reduction of fetal/adult testosterone and decreased insulin-like peptide 3 (INSL3) both relate to testicular endocrine function but measure different hormones produced by Leydig cells."
+  },
+  {
+    "group_key": "estrogen_receptor_disruption_inactivation",
+    "type": "merge",
+    "member_ids": [
+      "2141",
+      "2126"
+    ],
+    "rationale": "Disruption of estrogen receptor and estrogen receptor alpha inactivation both describe loss of estrogen receptor function, with the latter being more specific to ER\u03b1."
+  },
+  {
+    "group_key": "pro_inflammatory_cytokines",
+    "type": "merge",
+    "member_ids": [
+      "2097",
+      "2132"
+    ],
+    "rationale": "Increase in pro-inflammatory mediators and increased pro-inflammatory cytokine expression both describe elevated inflammatory signaling molecules."
+  },
+  {
+    "group_key": "spermatogenesis_testis_histology",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2355",
+      "2206"
+    ],
+    "rationale": "Disrupted spermatogenesis and sperm quality and increased histomorphological alteration of testis both describe testicular pathology but at different levels \u2014 functional vs. morphological."
+  },
+  {
+    "group_key": "blood_testis_barrier_ectoplasmic_specialization",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2080",
+      "2142"
+    ],
+    "rationale": "Impaired blood-testis barrier and depletion of ectoplasmic specialization describe related but distinct structures \u2014 ectoplasmic specializations are part of the BTB architecture."
+  },
+  {
+    "group_key": "sodium_plasma_gills",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2236",
+      "2237"
+    ],
+    "rationale": "Decreased sodium uptake in gills and decreased plasma sodium concentrations describe the same ionic imbalance at different biological levels (organ vs. systemic)."
+  },
+  {
+    "group_key": "energy_metabolism_disruption",
+    "type": "merge",
+    "member_ids": [
+      "2341",
+      "2353"
+    ],
+    "rationale": "Disrupted TCA cycle and disrupted energy metabolism both describe impairment of core mitochondrial/cellular energy production processes."
+  },
+  {
+    "group_key": "cholesterol_synthesis_enzymes_srebp2",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2269",
+      "2270",
+      "2271"
+    ],
+    "rationale": "Increased SREBP2 expression, increased cholesterol synthesis enzymes, and increased plasma LDL cholesterol describe sequential steps in the same cholesterol synthesis pathway at different biological levels."
+  },
+  {
+    "group_key": "androgen_receptor_activation_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2134",
+      "2274"
+    ],
+    "rationale": "Increase in androgen receptor protein expression/abundance and increased androgen receptor activation describe the same receptor but through different processes (expression level vs. functional activation)."
+  },
+  {
+    "group_key": "gluten_b_cell_receptor_generation",
+    "type": "merge",
+    "member_ids": [
+      "2253",
+      "2254"
+    ],
+    "rationale": "Generation of gluten-reactive T cell receptors and generation of gluten-reactive and transglutaminase 2 reactive B cell receptors both describe antigen-specific receptor generation in celiac disease context, though involving different lymphocyte types."
+  },
+  {
+    "group_key": "gluten_t_cell_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2260",
+      "2275"
+    ],
+    "rationale": "Gluten-reactive CD4+ T cell activation and co-localization of gluten-reactive adaptive T cells with antigen presenting cells describe related but distinct events in gluten-specific T cell responses."
+  },
+  {
+    "group_key": "mapk_erk_activation",
+    "type": "merge",
+    "member_ids": [
+      "2146",
+      "2345"
+    ],
+    "rationale": "Activation of MEK/ERK1/2 and activation of MAPK describe the same mitogen-activated protein kinase signaling cascade."
+  },
+  {
+    "group_key": "lmna_mutation_structural_changes",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2278",
+      "2279"
+    ],
+    "rationale": "Increased LMNA mutation and structural changes in lamin A/C both involve lamin A/C but mutation is a genetic event while structural changes are a protein-level consequence."
+  },
+  {
+    "group_key": "cuproptosis_copper",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2339",
+      "2343"
+    ],
+    "rationale": "Increased intracellular copper and increased cuproptosis describe cause and distinct biological outcome of copper toxicity \u2014 related but not synonymous processes."
+  },
+  {
+    "group_key": "dna_methylation_gene_expression_fam50b",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2309",
+      "2310"
+    ],
+    "rationale": "Decreased DNA methylation of FAM50B/PTCHD3 and elevated gene expression of FAM50B/PTCHD3 involve the same gene locus but describe an epigenetic modification vs. a transcriptional outcome."
+  },
+  {
+    "group_key": "mitochondrial_ros_redox_cycling",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2362",
+      "2363"
+    ],
+    "rationale": "Redox cycling by mitochondria and elevated mitochondrial ROS and dysfunction describe related mitochondrial processes \u2014 redox cycling is a mechanism that can generate ROS, but they are distinct events."
+  },
+  {
+    "group_key": "oxidative_stress_pathways",
+    "type": "merge",
+    "member_ids": [
+      "1238",
+      "2299"
+    ],
+    "rationale": "Activation of oxidative stress pathway and altered redox homeostasis both describe disruption of the cellular oxidative stress/redox balance."
+  },
+  {
+    "group_key": "lysolecithin_membrane_integration",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2263",
+      "2264"
+    ],
+    "rationale": "Increased lysolecithin and increased lysolecithin cell membrane integration describe the same molecule at different stages \u2014 systemic increase vs. membrane-level integration."
+  },
+  {
+    "group_key": "prostate_cancer_neoplasia",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2136",
+      "2135"
+    ],
+    "rationale": "Prostatic intraepithelial neoplasia and prostate cancer describe progressive stages of the same pathological process in the same organ."
+  },
+  {
+    "group_key": "cardiac_fibrosis_remodeling_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1924",
+      "2084"
+    ],
+    "rationale": "Increased cardiac fibrosis and increased cardiac remodeling both describe structural cardiac pathology but fibrosis is a specific ECM process while remodeling is broader."
+  },
+  {
+    "group_key": "hcn_channel_pacemaker",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2295",
+      "2296"
+    ],
+    "rationale": "HCN channel inhibition and reduced pacemaker activity in the SA node describe the same functional consequence at different levels \u2014 molecular channel vs. tissue-level pacemaker output."
+  },
+  {
+    "group_key": "heart_rate_slowed_pacemaker",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2291",
+      "2296"
+    ],
+    "rationale": "Slowed heart rate and reduced pacemaker activity in SA node both describe decreased cardiac rate but at different biological scales \u2014 systemic output vs. nodal mechanism."
+  },
+  {
+    "group_key": "steroidogenesis_dysregulation_granulosa",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2367",
+      "2369"
+    ],
+    "rationale": "Steroidogenesis dysregulation and granulosa cell damage both describe ovarian pathology but one is a functional/biochemical process and the other is a cellular injury event."
+  },
+  {
+    "group_key": "innate_immune_activation_general",
+    "type": "merge",
+    "member_ids": [
+      "2255",
+      "1998"
+    ],
+    "rationale": "Innate immune response activation and microglia activation both describe innate immune activation, though microglia activation is CNS-specific \u2014 grouping for curator review."
+  },
+  {
+    "group_key": "bcl2_bax_apoptosis",
+    "type": "soda",
+    "member_ids": [
+      "2123",
+      "2124"
+    ],
+    "rationale": "Decreased Bcl-2 expression (anti-apoptotic) and increased Bax expression (pro-apoptotic) are directionally opposite changes in apoptosis-regulating proteins that together promote apoptosis."
+  },
+  {
+    "group_key": "estrogen_dominance_ratio",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2303",
+      "2139"
+    ],
+    "rationale": "Increased estradiol to progesterone ratio (estrogen dominance) and reduction of 17\u03b2-estradiol/11-keto testosterone ratio both describe altered sex hormone ratios but in different species/hormonal contexts."
+  },
+  {
+    "group_key": "urethral_hypospadias",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2082",
+      "2213"
+    ],
+    "rationale": "Hypospadias and impaired urethral tube closure describe the same developmental defect at different levels of description \u2014 outcome vs. developmental process."
+  }
+]

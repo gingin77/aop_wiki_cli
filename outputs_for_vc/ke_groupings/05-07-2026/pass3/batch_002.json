@@ -1,0 +1,592 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "744",
+      "group_key": "leydig_cell_hyperplasia_proliferation",
+      "rationale": "ID 744 describes increased hyperplasia of Leydig cells, which is the same biological outcome as the existing group members describing Leydig cell hyperplasia and proliferation."
+    },
+    {
+      "event_id": "876",
+      "group_key": "dna_mutations_increase",
+      "rationale": "ID 876 'Increase, Mutations in Critical Genes' is synonymous with the existing group members describing increased mutations in critical genes."
+    },
+    {
+      "event_id": "765",
+      "group_key": "population_level_decline",
+      "rationale": "ID 765 'Decreased, population 1' describes a decreased population, consistent with the existing group describing decreased population size/trajectory."
+    },
+    {
+      "event_id": "1059",
+      "group_key": "bile_cholestasis",
+      "rationale": "ID 1059 'Increased, cholestasis' describes the same pathological condition of bile accumulation/cholestasis as the existing group members."
+    },
+    {
+      "event_id": "1057",
+      "group_key": "ppar_alpha_activation",
+      "rationale": "ID 1057 'Increased, PPAR-alpha activation' describes activation of PPAR\u03b1, which shares the same object as the existing group involving PPAR\u03b1 activation and decreased transactivation \u2014 these are opposite functional outcomes warranting grouping under same_object_different_process."
+    },
+    {
+      "event_id": "1046",
+      "group_key": "estrogen_receptor_agonism_antagonism",
+      "rationale": "ID 1046 'Suppression, Estrogen receptor (ER) activity' describes inhibition/suppression of estrogen receptor activity, which is directionally opposite to agonism of the estrogen receptor in the existing soda group."
+    },
+    {
+      "event_id": "369",
+      "group_key": "urod_inhibition_vs_uroporphyrinogen_oxidation",
+      "rationale": "ID 369 'Uroporphyria' is the downstream pathological outcome of uroporphyrinogen metabolism disruption described in the existing group involving UROD inhibition and uroporphyrinogen oxidation."
+    },
+    {
+      "event_id": "952",
+      "group_key": "enos_related_events",
+      "rationale": "ID 952 'Hypertension' is a downstream consequence of the eNOS-related events (impaired vasodilation, increased vascular resistance) described in the existing group, but hypertension is a distinct systemic outcome \u2014 however this is better handled as a new group."
+    },
+    {
+      "event_id": "807",
+      "group_key": "ldlr_upregulation_ldl_uptake",
+      "rationale": "ID 807 'Decreased, cholesterol' describes a downstream consequence of LDLR/LDL uptake changes but is a distinct biological object (cholesterol levels vs. receptor/uptake) \u2014 this is better handled as a new group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "leydig_cell_tumors_vs_hyperplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "744",
+        "745"
+      ],
+      "rationale": "ID 744 describes Leydig cell hyperplasia (benign proliferation) and ID 745 describes Leydig cell tumors (neoplastic transformation) \u2014 same cell type but distinct pathological processes representing progressive stages."
+    },
+    {
+      "group_key": "follicular_cell_hypertrophy_hyperplasia_vs_hyperplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "739",
+        "740"
+      ],
+      "rationale": "ID 739 describes hypertrophy and proliferation of follicular cells and ID 740 (existing group member) describes hyperplasia of follicular cells \u2014 same cell type with overlapping but distinct cellular processes."
+    },
+    {
+      "group_key": "necrosis_bronchiolar_vs_tissue",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "733",
+        "868"
+      ],
+      "rationale": "ID 733 describes necrosis in terminal bronchiolar cells and ID 868 describes tissue degeneration/necrosis/atrophy generally \u2014 same process (necrosis) in different biological contexts."
+    },
+    {
+      "group_key": "tsh_increase",
+      "type": "merge",
+      "member_ids": [
+        "1023",
+        "1047"
+      ],
+      "rationale": "Wait \u2014 ID 1047 describes increased GnRH secretion from the hypothalamus, not TSH; these are different hormones and should not be grouped together."
+    },
+    {
+      "group_key": "prolactin_decrease_vs_increase",
+      "type": "soda",
+      "member_ids": [
+        "747",
+        "1077"
+      ],
+      "rationale": "ID 747 describes decreased prolactin and ID 1077 (existing merge group member for prolactin_secretion_vs_exposure) describes increased prolactin secretion \u2014 strictly opposite directions of the same hormonal endpoint."
+    },
+    {
+      "group_key": "progesterone_decrease_corpus_luteum_vs_synthesis",
+      "type": "merge",
+      "member_ids": [
+        "749",
+        "1692"
+      ],
+      "rationale": "ID 749 'Decreased, Progesterone from corpus luteum' and ID 1692 (existing merge group member for progesterone_synthesis_reduction) both describe reduction in progesterone levels/synthesis as the same directional biological outcome."
+    },
+    {
+      "group_key": "endometrial_hyperplasia_adenocarcinoma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "772",
+        "773"
+      ],
+      "rationale": "ID 772 describes hyperplasia of glandular epithelial cells of the endometrium and ID 773 describes endometrial adenocarcinomas \u2014 same tissue but distinct pathological stages (benign proliferation vs. malignant transformation)."
+    },
+    {
+      "group_key": "neuronal_hyperpolarization_vs_depolarization",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "763",
+        "1015"
+      ],
+      "rationale": "ID 763 describes neuronal hyperpolarization and ID 1015 (existing merge group member) describes increased inhibitory postsynaptic potential \u2014 both describe increased neuronal inhibition but through different electrophysiological descriptions."
+    },
+    {
+      "group_key": "hppd_inhibition_tyrosine_accumulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "766",
+        "775"
+      ],
+      "rationale": "ID 766 describes inhibition of HPPD enzyme and ID 775 describes increased plasma tyrosine \u2014 enzyme inhibition and substrate accumulation are causally related but distinct biological processes on different objects (enzyme vs. metabolite)."
+    },
+    {
+      "group_key": "hmgcoa_reductase_mevalonate_cholesterol",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "804",
+        "805",
+        "807"
+      ],
+      "rationale": "ID 804 describes HMG-CoA reductase inhibition, ID 805 describes decreased mevalonate, and ID 807 describes decreased cholesterol \u2014 these are sequential steps in the same biosynthetic pathway but involve distinct biological objects (enzyme, intermediate metabolite, final product)."
+    },
+    {
+      "group_key": "squamous_papillomas_carcinomas_forestomach_vs_squamous",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "779",
+        "784"
+      ],
+      "rationale": "ID 779 describes papillomas/carcinomas of squamous cells and ID 784 (existing group member for hyperplasia_various_tissues) describes tubular epithelial hyperplasia \u2014 these are different tissue contexts; however 779 is better paired with other squamous cell neoplasia events."
+    },
+    {
+      "group_key": "five_alpha_reductase_inhibition_dht",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1617",
+        "1613"
+      ],
+      "rationale": "ID 1617 describes inhibition of 5\u03b1-reductase and ID 1613 (existing group member) describes decreased DHT levels \u2014 enzyme inhibition and downstream hormone reduction are causally linked but distinct biological processes on different objects."
+    },
+    {
+      "group_key": "urinary_bladder_calculi_adenocarcinoma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "793",
+        "797"
+      ],
+      "rationale": "ID 793 describes urinary bladder calculi and ID 797 describes adenomas/carcinomas of urothelial cells \u2014 both are pathological outcomes in the urinary bladder/urothelium but represent distinct processes (calculi formation vs. neoplastic transformation)."
+    },
+    {
+      "group_key": "prolyl_hydroxylase_inhibition_hif1",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "798",
+        "799"
+      ],
+      "rationale": "ID 798 describes inhibition of prolyl hydroxylases and ID 799 (existing group member) describes increased HIF-1 heterodimer formation \u2014 PHD inhibition leads to HIF-1 stabilization, but these are distinct processes on different molecular objects."
+    },
+    {
+      "group_key": "renal_function_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "819",
+        "820",
+        "821",
+        "825"
+      ],
+      "rationale": "IDs 819, 820, 821, and 825 all describe decreased renal function parameters (glomerular filtration, renal plasma flow, sodium reabsorption, urine dilution capacity) \u2014 same organ but distinct physiological measurement endpoints."
+    },
+    {
+      "group_key": "kidney_toxicity_renal_tubular_necrosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "814",
+        "1097"
+      ],
+      "rationale": "ID 814 describes kidney toxicity generally and ID 1097 describes renal proximal tubular necrosis specifically \u2014 same organ but one is general toxicity and the other specifies a cell-type-specific pathological process."
+    },
+    {
+      "group_key": "serum_creatinine_increase_renal_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "813",
+        "814"
+      ],
+      "rationale": "ID 813 describes increased serum creatinine (a biomarker of renal impairment) and ID 814 describes kidney toxicity \u2014 related indicators of renal dysfunction but one is a biomarker endpoint and the other is a pathological outcome."
+    },
+    {
+      "group_key": "cystic_dilatation_renal_tubule_vs_necrosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "823",
+        "1097"
+      ],
+      "rationale": "ID 823 describes cystic dilatation of renal tubules and ID 1097 describes renal proximal tubular necrosis \u2014 both are renal tubular pathologies but describe distinct morphological processes in the same cell type."
+    },
+    {
+      "group_key": "lipid_bilayer_membrane_damage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "829",
+        "1594"
+      ],
+      "rationale": "ID 829 describes damage to the lipid bilayer and ID 1594 (existing group member) describes oxidation of membrane lipids \u2014 both involve membrane lipids but damage is a broader outcome while oxidation is a specific chemical process."
+    },
+    {
+      "group_key": "hepatocyte_ballooning_microvesicular_fat_mallory",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "835",
+        "838",
+        "839"
+      ],
+      "rationale": "IDs 835, 838, and 839 all describe hepatocyte pathological changes (ballooning degeneration, microvesicular fat, Mallory body formation) \u2014 same cell type but distinct morphological processes in hepatocytes."
+    },
+    {
+      "group_key": "phospholipase_inhibition_membrane",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "828",
+        "829"
+      ],
+      "rationale": "ID 828 describes inhibition of phospholipase A and ID 829 describes damage to the lipid bilayer \u2014 phospholipase inhibition and lipid bilayer damage are related but distinct processes sharing the same membrane substrate."
+    },
+    {
+      "group_key": "cyp1a2_induction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "850",
+        "1391"
+      ],
+      "rationale": "ID 850 describes induction of CYP1A2/CYP1A5 and ID 1391 (existing merge group member for cyp2e1_activation) describes CYP2E1 activation \u2014 these are distinct CYP isoforms and should not be grouped."
+    },
+    {
+      "group_key": "porphyrin_accumulation_uroporphyria",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "846",
+        "369"
+      ],
+      "rationale": "ID 846 describes accumulation of highly carboxylated porphyrins and ID 369 describes uroporphyria \u2014 porphyrin accumulation is the cellular/biochemical process while uroporphyria is the resulting pathological condition."
+    },
+    {
+      "group_key": "nasal_tumors_respiratory_metaplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "872",
+        "869"
+      ],
+      "rationale": "ID 872 describes site-of-contact nasal tumors and ID 869 describes respiratory or squamous metaplasia \u2014 both are nasal/upper airway pathologies but represent distinct biological processes (neoplastic transformation vs. metaplastic change)."
+    },
+    {
+      "group_key": "uric_acid_gout_tophi",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1096",
+        "1102"
+      ],
+      "rationale": "ID 1096 describes increased blood uric acid concentration and ID 1102 describes occurrence of tophi (urate) deposition \u2014 elevated uric acid is the biochemical cause and tophi deposition is the downstream tissue manifestation."
+    },
+    {
+      "group_key": "blood_potassium_uric_acid_renal",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1098",
+        "1096"
+      ],
+      "rationale": "ID 1098 describes increased blood potassium concentration and ID 1096 describes increased blood uric acid \u2014 both are serum biomarker changes associated with renal dysfunction but involve different analytes."
+    },
+    {
+      "group_key": "oat1_inhibition_uric_acid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "877",
+        "1096"
+      ],
+      "rationale": "ID 877 describes inhibition of organic anion transporter 1 (OAT1) and ID 1096 describes increased blood uric acid \u2014 OAT1 inhibition leads to uric acid retention, but transporter inhibition and metabolite accumulation are distinct processes on different biological objects."
+    },
+    {
+      "group_key": "cardiac_arrhythmia_events",
+      "type": "merge",
+      "member_ids": [
+        "1106",
+        "699"
+      ],
+      "rationale": "ID 1106 'Occurrence, cardiac arrhythmia' and ID 699 (existing group member for action_potential_cardiac_arrhythmia) 'Increased cardiac arrhythmia' both describe the same pathological cardiac rhythm disturbance."
+    },
+    {
+      "group_key": "cancer_increase_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "885",
+        "378"
+      ],
+      "rationale": "ID 885 describes increased cancer generally and ID 378 (existing group member) describes hepatocellular carcinoma specifically \u2014 general cancer is broader while HCC is organ-specific."
+    },
+    {
+      "group_key": "leukocyte_recruitment_inflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1494",
+        "1087"
+      ],
+      "rationale": "ID 1494 describes leukocyte recruitment/activation and ID 1087 (existing group member) describes increased inflammation generally \u2014 leukocyte recruitment is a specific cellular component of the broader inflammatory response."
+    },
+    {
+      "group_key": "endocytotic_lysosomal_uptake_disruption",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1539",
+        "831"
+      ],
+      "rationale": "ID 1539 describes endocytotic lysosomal uptake and ID 831 (existing merge group member for lysosomal_disruption) describes lysosomal disruption \u2014 endocytotic uptake into lysosomes and lysosomal disruption are related but distinct processes in the same organelle."
+    },
+    {
+      "group_key": "egfr_activation_proliferation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "941",
+        "1299"
+      ],
+      "rationale": "ID 941 describes EGFR activation and ID 1299 (existing group member for pi3k_akt_mtorc1_pathway) describes PI3K activation \u2014 EGFR is upstream of PI3K but they are distinct molecular objects and processes."
+    },
+    {
+      "group_key": "gtpch1_tetrahydrobiopterin_enos",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "935",
+        "934",
+        "933"
+      ],
+      "rationale": "IDs 935 (decreased GTPCH-1), 934 (decreased tetrahydrobiopterin), and 933 (nitric oxide depletion) are sequential steps in the BH4/eNOS pathway \u2014 each involves a distinct molecular object (enzyme, cofactor, signaling molecule) and cannot be merged."
+    },
+    {
+      "group_key": "vasodilation_vascular_resistance_hypertension",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "937",
+        "951",
+        "952"
+      ],
+      "rationale": "ID 937 describes impaired vasodilation, ID 951 describes increased vascular resistance, and ID 952 describes hypertension \u2014 these are sequential physiological events at different levels (vascular tone \u2192 resistance \u2192 systemic pressure) in the same cardiovascular system."
+    },
+    {
+      "group_key": "vegf_reduction_placental_vasculature",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "948",
+        "1891"
+      ],
+      "rationale": "ID 948 describes reduced VEGF production and ID 1891 describes abnormal placental vasculature morphology \u2014 VEGF reduction and placental vascular defects are causally related but represent distinct biological processes at different levels."
+    },
+    {
+      "group_key": "placental_insufficiency_preeclampsia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1892",
+        "1893"
+      ],
+      "rationale": "ID 1892 describes increased placental insufficiency and ID 1893 describes increased preeclampsia \u2014 placental insufficiency is a pathophysiological process while preeclampsia is the clinical syndrome, representing related conditions in the same pregnancy context."
+    },
+    {
+      "group_key": "free_t4_increase_tissue_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "959",
+        "960"
+      ],
+      "rationale": "ID 959 describes increased free serum thyroxine (T4) and ID 960 describes increased uptake of thyroxine into tissue \u2014 elevated circulating T4 and its tissue uptake are related but distinct processes involving the same hormone in different compartments."
+    },
+    {
+      "group_key": "e2_hypothalamus_kisspeptin",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1056",
+        "968"
+      ],
+      "rationale": "ID 1056 describes decreased E2 blood concentrations at the hypothalamus and ID 968 describes decreased kisspeptin release from AVPV neurons \u2014 reduced estrogenic signaling and kisspeptin reduction are related but involve distinct molecular objects and biological processes."
+    },
+    {
+      "group_key": "il2_il4_suppression_t_cell",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1202",
+        "984"
+      ],
+      "rationale": "ID 1202 describes suppression of IL-2 and IL-4 production and ID 984 describes impairment of T-cell dependent antibody response \u2014 cytokine suppression and impaired antibody response are related immune events but represent distinct biological processes."
+    },
+    {
+      "group_key": "triiodothyronine_t3_decrease",
+      "type": "merge",
+      "member_ids": [
+        "1003",
+        "1154"
+      ],
+      "rationale": "ID 1003 'Decreased, Triiodothyronine (T3)' and ID 1154 (existing soda group member describing decreased T3 in tissues) both describe decreased T3 levels \u2014 these are the same directional change in the same hormone."
+    },
+    {
+      "group_key": "swim_bladder_inflation_decrease",
+      "type": "merge",
+      "member_ids": [
+        "1004",
+        "1007"
+      ],
+      "rationale": "ID 1004 describes reduced posterior swim bladder inflation and ID 1007 describes reduced anterior swim bladder inflation \u2014 both describe the same directional outcome of impaired swim bladder inflation in different anatomical compartments of the same organ."
+    },
+    {
+      "group_key": "swim_bladder_performance",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1004",
+        "1005"
+      ],
+      "rationale": "ID 1004 describes reduced swim bladder inflation and ID 1005 describes reduced swimming performance \u2014 impaired swim bladder is a structural defect while reduced swimming performance is the functional consequence at different biological levels."
+    },
+    {
+      "group_key": "adipogenesis_mesenchymal_proliferation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1029",
+        "1033"
+      ],
+      "rationale": "ID 1029 describes increased adipogenesis and ID 1033 describes increased proliferation of mesenchymal cells \u2014 mesenchymal cell proliferation precedes adipogenic differentiation but these are distinct cellular processes."
+    },
+    {
+      "group_key": "sarcoma_tumor_types",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1035",
+        "1036",
+        "1037"
+      ],
+      "rationale": "IDs 1035 (fibrosarcoma), 1036 (liposarcoma), and 1037 (hemangiosarcoma) all describe increased tumor formation but in different tissue/cell type contexts (fibrous tissue, adipose, and vascular respectively)."
+    },
+    {
+      "group_key": "smooth_muscle_relaxation_vs_proliferation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1040",
+        "1042",
+        "1043"
+      ],
+      "rationale": "IDs 1040 (smooth muscle relaxation), 1042 (smooth muscle proliferation/clonal expansion), and 1043 (smooth muscle hypertrophy/hyperplasia) all involve smooth muscle but describe distinct cellular processes \u2014 relaxation, proliferation, and hypertrophy/hyperplasia."
+    },
+    {
+      "group_key": "gnrh_hypothalamus_secretion_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1047",
+        "530"
+      ],
+      "rationale": "ID 1047 describes increased GnRH secretion from the hypothalamus and ID 530 (existing group member for gnrh_hypothalamus) describes decreased GnRH \u2014 these are opposite directions of the same hormonal endpoint in the same tissue context."
+    },
+    {
+      "group_key": "fsh_secretion_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1049",
+        "1050"
+      ],
+      "rationale": "ID 1049 describes increased FSH secretion from anterior pituitary and ID 1050 (existing group member for lh_increase) describes increased LH from anterior pituitary \u2014 both describe increased gonadotropin secretion from the same gland but are distinct hormones."
+    },
+    {
+      "group_key": "ovarian_hyperplasia_tumor_promotion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1051",
+        "1052",
+        "1053",
+        "1054"
+      ],
+      "rationale": "IDs 1051 (ovarian stromal hyperplasia), 1052 (ovarian epithelial hyperplasia), 1053 (ovarian adenomas), and 1054 (ovarian granular cell tumors) all describe ovarian pathology but at different cell types and stages of progression from hyperplasia to neoplasia."
+    },
+    {
+      "group_key": "bile_flow_decrease_cholestasis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1058",
+        "1059"
+      ],
+      "rationale": "ID 1058 describes decreased bile flow and ID 1059 describes increased cholestasis \u2014 reduced bile flow is a functional parameter while cholestasis is the resulting pathological condition, causally related but distinct processes."
+    },
+    {
+      "group_key": "intracellular_ph_decrease_membrane_damage",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "867",
+        "829"
+      ],
+      "rationale": "ID 867 describes decreased intracellular pH and ID 829 describes lipid bilayer damage \u2014 both reflect cellular membrane/homeostasis disruption but involve distinct biological objects and processes."
+    },
+    {
+      "group_key": "preneoplastic_foci_hepatocyte_vs_ahf",
+      "type": "merge",
+      "member_ids": [
+        "774",
+        "491"
+      ],
+      "rationale": "ID 774 describes preneoplastic foci in hepatocytes and ID 491 (existing merge group member for clonal_expansion_ahf) describes clonal expansion/formation of altered hepatic foci \u2014 both describe the same pre-neoplastic hepatic lesion using different terminology."
+    },
+    {
+      "group_key": "oxidative_metabolism_increase_ros",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "769",
+        "1392"
+      ],
+      "rationale": "ID 769 describes increased oxidative metabolism and ID 1392 (existing merge group member for oxidative_stress_increase) describes increased oxidative stress/ROS \u2014 increased oxidative metabolism can contribute to oxidative stress but these are distinct biological processes."
+    },
+    {
+      "group_key": "lung_function_decrease_respiratory",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1250",
+        "2087"
+      ],
+      "rationale": "ID 1250 describes decreased lung function and ID 2087 (existing merge group member for respiratory_disease_dysfunction) describes increased incidence of respiratory disease \u2014 lung function decrease and respiratory disease are related outcomes in the same organ but at different levels of description."
+    },
+    {
+      "group_key": "malformed_male_reproductive_tract_cryptorchidism",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "809",
+        "1615"
+      ],
+      "rationale": "ID 809 describes malformed male reproductive tract broadly and ID 1615 (existing merge group member for cryptorchidism_testicular_descent) describes impaired inguinoscrotal testicular descent \u2014 male reproductive tract malformation is a general outcome while cryptorchidism is a specific anatomical defect."
+    },
+    {
+      "group_key": "lipid_metabolism_alteration_triglyceride",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1060",
+        "454"
+      ],
+      "rationale": "ID 1060 describes alteration in lipid metabolism generally and ID 454 (existing merge group member for triglyceride_increase) describes increased triglycerides specifically \u2014 lipid metabolism alteration is a broader process of which triglyceride increase is a specific outcome."
+    },
+    {
+      "group_key": "tsh_thyroid_stimulating_hormone_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1023",
+        "281"
+      ],
+      "rationale": "ID 1023 describes increased TSH and ID 281 (existing group member for thyroxine_t4_decrease) describes decreased T4 \u2014 TSH increase and T4 decrease are physiologically related via the pituitary-thyroid axis but measure different hormones and are thus different biological objects."
+    },
+    {
+      "group_key": "inhibition_feeding_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1016",
+        "635"
+      ],
+      "rationale": "ID 1016 describes inhibition of feeding and ID 635 (existing soda group member for locomotion_increase_decrease) describes decreased locomotion \u2014 both describe decreased behavioral outputs but feeding inhibition and locomotor decrease are distinct behavioral endpoints."
+    },
+    {
+      "group_key": "igf1_growth_factor_secretion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1032",
+        "1034"
+      ],
+      "rationale": "ID 1032 describes increased secretion of local growth factors and ID 1034 describes increased IGF-1 specifically \u2014 IGF-1 is a specific growth factor that falls within the broader category of local growth factors."
+    },
+    {
+      "group_key": "mesovarian_leiomyoma_smooth_muscle",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1044",
+        "1043"
+      ],
+      "rationale": "ID 1044 describes promotion of mesovarian leiomyomas and ID 1043 describes smooth muscle hypertrophy/hyperplasia \u2014 leiomyomas are smooth muscle tumors, making these related but distinct processes (neoplastic promotion vs. hypertrophic/hyperplastic response)."
+    }
+  ]
+}

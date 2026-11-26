@@ -1,0 +1,288 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "662",
+      "group_key": "fetal_leydig_testosterone_dysgenesis",
+      "rationale": "Hypermethylation in the fetal testis associated with decreased testosterone by fetal Leydig cells describes the same directional biological outcome in fetal Leydig cells as the other members of this group."
+    },
+    {
+      "event_id": "671",
+      "group_key": "pgf2alpha_synthesis_ovary",
+      "rationale": "Reduced plasma PGF2alpha concentration describes the same directional reduction in prostaglandin F2alpha as the other members describing reduced PGF2alpha synthesis in the ovary, though one specifies plasma \u2014 close enough for curator review under this group."
+    },
+    {
+      "event_id": "690",
+      "group_key": "circulating_testosterone_decrease",
+      "rationale": "Reduced plasma LH describes decreased circulating gonadotropin levels, which parallels the decreased circulating hormone levels described in this group \u2014 however LH is not testosterone; withdrawing this assignment."
+    },
+    {
+      "event_id": "696",
+      "group_key": "chromosome_number_altered",
+      "rationale": "Increased chromosome missegregation is the direct cellular process leading to altered chromosome number (aneuploidy), and both describe the same meiotic/chromosomal error event."
+    },
+    {
+      "event_id": "708",
+      "group_key": "cytoplasmic_vacuolization_renal_tubule",
+      "rationale": "Accumulation of alpha2u microglobulin in the proximal tubular epithelium is a renal tubule-specific cellular accumulation event; however this describes protein accumulation not vacuolization \u2014 withdrawing this assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "dopamine_beta_hydroxylase_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "526"
+      ],
+      "rationale": "Single event describing inhibition of dopamine-beta-hydroxylase; no pairing partner found among ungrouped events."
+    },
+    {
+      "group_key": "bee_colony_foraging_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "560",
+        "565",
+        "561",
+        "580"
+      ],
+      "rationale": "All describe impaired colony-level behavioral and resource activities in bees (foraging, brood care, food storage, antiseptic in food) representing the same colony functional decline in different behavioral/resource contexts."
+    },
+    {
+      "group_key": "bee_colony_development_stress",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "566",
+        "577"
+      ],
+      "rationale": "Both describe impaired development but one specifies larval development and the other is general impaired development \u2014 same process in different specificity contexts."
+    },
+    {
+      "group_key": "bee_colony_worker_energetics",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "572",
+        "573",
+        "571"
+      ],
+      "rationale": "Decreased number of worker bees, increased energetic demands/metabolic stress, and accelerated aging all describe colony-level consequences of worker bee physiological decline in related but distinct biological processes."
+    },
+    {
+      "group_key": "bee_thermoregulation_hive",
+      "type": "merge",
+      "member_ids": [
+        "568"
+      ],
+      "rationale": "Single event describing impaired hive thermoregulation; no close synonym found among ungrouped events."
+    },
+    {
+      "group_key": "bee_appetite_viral_susceptibility",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "574",
+        "576"
+      ],
+      "rationale": "Increased appetite/hunger and increased viral susceptibility both describe altered physiological states in bees under stress but are distinct biological processes in the same organismal context."
+    },
+    {
+      "group_key": "swimming_feeding_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "586",
+        "587"
+      ],
+      "rationale": "Reduced swimming speed and reduced feeding both describe impaired locomotor/behavioral endpoints in aquatic organisms in different behavioral contexts."
+    },
+    {
+      "group_key": "atrioventricular_block_bradycardia",
+      "type": "merge",
+      "member_ids": [
+        "444",
+        "593"
+      ],
+      "rationale": "Increased atrioventricular block and bradycardia and inhibition of ERG voltage-gated potassium channel are related cardiac electrophysiology events; however ERG inhibition is a molecular initiating event while AV block/bradycardia is a downstream outcome \u2014 these are distinct processes and should not be merged."
+    },
+    {
+      "group_key": "erg_channel_cardiac_arrhythmia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "593",
+        "444"
+      ],
+      "rationale": "Inhibition of ERG (hERG) voltage-gated potassium channel and increased atrioventricular block/bradycardia share the same cardiac electrophysiology axis but represent molecular channel inhibition vs. downstream cardiac conduction pathology."
+    },
+    {
+      "group_key": "neuronal_depolarization_neurotransmitter_release",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "599",
+        "600"
+      ],
+      "rationale": "Prolonged depolarization of neuronal membrane and overactivation of neurotransmitter release are causally sequential events in the same neurotoxic pathway but represent distinct biological processes."
+    },
+    {
+      "group_key": "muscle_contraction_overactivation_ataxia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "601",
+        "602"
+      ],
+      "rationale": "Overactivation of muscle contraction and increased ataxia/paralysis/hyperactivity are causally related but represent distinct biological events \u2014 muscle-level overactivation vs. organismal motor dysfunction."
+    },
+    {
+      "group_key": "mussel_foot_movement_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "625",
+        "624",
+        "1139",
+        "1142"
+      ],
+      "rationale": "Increased muscular waves in foot, increased foot detachment, increased water retention in foot, and increased valve movement all describe distinct behavioral/mechanical responses of bivalve mussel foot and valve mechanics in the same organismal context."
+    },
+    {
+      "group_key": "energy_reserve_depletion",
+      "type": "merge",
+      "member_ids": [
+        "1143",
+        "573"
+      ],
+      "rationale": "Depletion of energy reserves and increased energetic demands/metabolic stress both describe the same directional outcome of energy deficit, with demands increase leading to depletion \u2014 however these are distinct processes (cause vs. consequence); flagging as same_object_different_process."
+    },
+    {
+      "group_key": "energy_depletion_vs_demands",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1143",
+        "573"
+      ],
+      "rationale": "Depletion of energy reserves and increased energetic demands/metabolic stress share the same biological object (energy/metabolic status) but represent distinct processes \u2014 increased demand vs. depleted supply."
+    },
+    {
+      "group_key": "anxiety_sheltering_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "627",
+        "629"
+      ],
+      "rationale": "Decreased anxiety and decreased sheltering behavior both describe reduced defensive/avoidance behavioral responses in the same organismal behavioral context."
+    },
+    {
+      "group_key": "histamine_receptor_h2_antagonism_vs_neuron_excitation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "638",
+        "633"
+      ],
+      "rationale": "Antagonism of histamine receptor H2 and decreased histaminergic neuron excitation share the same histaminergic signaling axis but represent receptor-level antagonism vs. downstream neuronal excitation \u2014 distinct processes on related objects."
+    },
+    {
+      "group_key": "sedation_histaminergic",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "634",
+        "633"
+      ],
+      "rationale": "Sedation and decreased histaminergic neuron excitation are causally related \u2014 reduced histaminergic tone leads to sedation \u2014 but represent distinct biological events at neuronal vs. behavioral/systemic levels."
+    },
+    {
+      "group_key": "prostaglandin_f2alpha_plasma_vs_ovary",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "671",
+        "681"
+      ],
+      "rationale": "Reduced plasma PGF2alpha concentration and reduced PGF2alpha synthesis in the ovary describe the same directional reduction in PGF2alpha but in different biological compartments (systemic plasma vs. ovarian synthesis)."
+    },
+    {
+      "group_key": "prostaglandin_e2_hypothalamus",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "687",
+        "671"
+      ],
+      "rationale": "Reduced hypothalamic prostaglandin E2 and reduced plasma PGF2alpha both describe decreased prostaglandins but in different compartments and for different prostaglandin subtypes."
+    },
+    {
+      "group_key": "spawning_pheromone_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "673",
+        "674",
+        "678"
+      ],
+      "rationale": "Reduced spawning behavior, reduced ability to attract spawning mates, and reduced pheromone release all describe distinct but related reproductive behavioral impairments in the same fish reproductive context."
+    },
+    {
+      "group_key": "lh_plasma_reduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "690",
+        "531"
+      ],
+      "rationale": "Reduced plasma LH and decreased LH surge both describe reduced circulating luteinizing hormone but one specifies plasma levels generally while the other specifies the preovulatory surge context."
+    },
+    {
+      "group_key": "maturation_inducing_steroid_oocyte",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "691",
+        "692"
+      ],
+      "rationale": "Reduced plasma maturation inducing steroid and reduced maturation inducing steroid receptor signaling in oocyte involve the same steroid hormone system but represent ligand availability vs. receptor signaling \u2014 distinct processes on related objects."
+    },
+    {
+      "group_key": "oocyte_meiosis_spindle_chromosome",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "694",
+        "695",
+        "696"
+      ],
+      "rationale": "Reduced meiotic prophase I/metaphase I transition, upregulated spindle assembly checkpoint protein Mad2, and increased chromosome missegregation all describe sequential events in the same oocyte meiotic error pathway but are distinct biological processes."
+    },
+    {
+      "group_key": "cyclic_amp_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "693",
+        "692"
+      ],
+      "rationale": "Increased cAMP and reduced maturation inducing steroid receptor signaling are causally linked in oocyte maturation (elevated cAMP suppresses MIS signaling) but represent distinct molecular events."
+    },
+    {
+      "group_key": "ion_channel_impairment_general",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "697",
+        "593"
+      ],
+      "rationale": "Impaired ion channels generally and inhibition of ERG voltage-gated potassium channel specifically both describe ion channel dysfunction but one is general and the other specifies a particular channel subtype."
+    },
+    {
+      "group_key": "alpha2u_microglobulin_serum_tubule",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "708",
+        "714"
+      ],
+      "rationale": "Increased binding of chemicals to alpha2u in serum and increased accumulation of alpha2u microglobulin in proximal tubular epithelium both involve the same protein (alpha2u microglobulin) but describe distinct processes \u2014 serum binding vs. tubular accumulation."
+    },
+    {
+      "group_key": "calcium_calmodulin_signal_transduction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1243",
+        "52"
+      ],
+      "rationale": "Altered Ca2+-calmodulin activated signal transduction and decreased calcium influx both involve calcium signaling but signal transduction alteration and calcium influx change are distinct processes in the same pathway."
+    },
+    {
+      "group_key": "hypoxia_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "590",
+        "1590"
+      ],
+      "rationale": "Single event describing hypoxia; no clear pairing partner found among ungrouped events."
+    }
+  ]
+}

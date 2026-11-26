@@ -1,0 +1,455 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1389",
+      "group_key": "locomotion_increase_decrease",
+      "rationale": "Locomotor activity decreased is the same endpoint as decreased locomotion (ID 635) already in the soda group, but since 622 (increased) and 635 (decreased) are already paired as soda, 1389 is a merge candidate with 635 \u2014 however the soda group is the existing group; 1389 describes decreased locomotor activity matching ID 635's direction, so it merges directionally with the decrease side."
+    },
+    {
+      "event_id": "1395",
+      "group_key": "hepatocellular_carcinoma",
+      "rationale": "Liver Cancer describes the same hepatic malignancy outcome as hepatocellular carcinoma/tumorigenesis in the existing merge group."
+    },
+    {
+      "event_id": "1511",
+      "group_key": "lipid_peroxidation_membrane",
+      "rationale": "Lipid Peroxidation (ID 1511) describes the same process as oxidation of membrane lipids / increase in lipid peroxidation already in the same_object_different_process group."
+    },
+    {
+      "event_id": "1514",
+      "group_key": "neurodegeneration_dopaminergic",
+      "rationale": "Neurodegeneration (general, ID 1514) pairs with the existing group that includes general neurodegeneration vs. dopaminergic-specific neurodegeneration as similar events in different biological contexts."
+    },
+    {
+      "event_id": "1547",
+      "group_key": "mitochondrial_dysfunction",
+      "rationale": "Mitochondrial Injury describes the same underlying mitochondrial impairment as mitochondrial dysfunction/disruption of the electron transport chain in the existing merge group."
+    },
+    {
+      "event_id": "1579",
+      "group_key": "proinflammatory_mediators_increase",
+      "rationale": "Increase in proinflammatory mediators (TNFalpha) describes the same directional increase in pro-inflammatory mediators as the existing merge group members."
+    },
+    {
+      "event_id": "1636",
+      "group_key": "dna_strand_breaks_increase",
+      "rationale": "Increase in chromosomal aberrations is closely related to DNA damage/strand breaks; however chromosomal aberrations are a distinct downstream structural outcome rather than a synonym for DNA strand breaks \u2014 withdrawing this assignment."
+    },
+    {
+      "event_id": "1585",
+      "group_key": "misfolded_protein_er_stress",
+      "rationale": "Proteasomal dysfunction is causally related to misfolded protein accumulation and ER stress but involves a distinct biological process (proteasome) rather than the same object \u2014 withdrawing this assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "locomotor_activity_decreased_merge",
+      "type": "merge",
+      "member_ids": [
+        "1389",
+        "635"
+      ],
+      "rationale": "Both describe decreased locomotor/locomotion activity as the same directional behavioral endpoint using different wording."
+    },
+    {
+      "group_key": "liver_cancer_hcc_merge",
+      "type": "merge",
+      "member_ids": [
+        "1395",
+        "334",
+        "378"
+      ],
+      "rationale": "Liver Cancer, hepatocellular carcinoma promotion, and hepatocellular carcinoma tumorigenesis all describe the same hepatic malignancy outcome."
+    },
+    {
+      "group_key": "lipid_peroxidation_increase_merge",
+      "type": "merge",
+      "member_ids": [
+        "1511",
+        "1445"
+      ],
+      "rationale": "Lipid Peroxidation and Increase in lipid peroxidation describe the same directional biological event of lipid oxidative damage."
+    },
+    {
+      "group_key": "neurodegeneration_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1514",
+        "352",
+        "890"
+      ],
+      "rationale": "All describe neurodegeneration but at different levels of specificity \u2014 general neurodegeneration vs. dopaminergic neuron-specific degeneration in the nigrostriatal pathway."
+    },
+    {
+      "group_key": "mitochondrial_injury_dysfunction_merge",
+      "type": "merge",
+      "member_ids": [
+        "1547",
+        "177",
+        "178"
+      ],
+      "rationale": "Mitochondrial Injury and mitochondrial dysfunction/disruption of electron transport chain all describe the same underlying mitochondrial impairment."
+    },
+    {
+      "group_key": "proinflammatory_tnfalpha_merge",
+      "type": "merge",
+      "member_ids": [
+        "1579",
+        "1493",
+        "1496",
+        "2097",
+        "2132"
+      ],
+      "rationale": "Increase in proinflammatory mediators (TNFalpha) describes the same directional increase in pro-inflammatory mediators as the existing merge group members."
+    },
+    {
+      "group_key": "cyp7b_7alpha_hydroxypregnenolone",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1386",
+        "1387"
+      ],
+      "rationale": "CYP7B activity inhibition and decreased 7\u03b1-hydroxypregnenolone synthesis in the brain involve the same enzymatic pathway \u2014 enzyme inhibition vs. the resulting substrate/product change are distinct processes on the same object."
+    },
+    {
+      "group_key": "dopamine_sexual_locomotor_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1388",
+        "1389",
+        "1390"
+      ],
+      "rationale": "Decreased dopamine release, decreased locomotor activity, and decreased sexual behavior all describe downstream behavioral/neurochemical consequences in the same dopaminergic signaling context but at different biological levels \u2014 neurotransmitter release vs. behavioral outputs."
+    },
+    {
+      "group_key": "dopamine_release_decrease_vs_activity",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1388",
+        "1083"
+      ],
+      "rationale": "Decreased dopamine release in the brain and decreased dopaminergic activity both involve dopamine/dopaminergic signaling but release is a specific synaptic process while activity is a broader functional measure of the same system."
+    },
+    {
+      "group_key": "n_type_calcium_channel_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1429",
+        "1430"
+      ],
+      "rationale": "Inhibition of N-type Ca ion channels and inhibition of neurotransmitter vesicle release are causally linked sequential events \u2014 channel inhibition reduces calcium influx needed for vesicle release \u2014 but they are distinct biological processes."
+    },
+    {
+      "group_key": "mu_opioid_downstream_analgesia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1427",
+        "1428"
+      ],
+      "rationale": "Opening of G protein gated inward rectifying K channels and analgesia are causally linked downstream events of mu opioid receptor activation but represent distinct biological processes \u2014 ion channel gating vs. behavioral/pharmacological outcome."
+    },
+    {
+      "group_key": "opioid_k_channel_analgesia_cascade",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1427",
+        "1430"
+      ],
+      "rationale": "Opening of G protein gated inward rectifying K channels and inhibition of neurotransmitter vesicle release are both downstream of mu opioid receptor activation but describe distinct cellular electrophysiological and secretory processes."
+    },
+    {
+      "group_key": "uncoupling_photophosphorylation_chlorophyll",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1471",
+        "1473"
+      ],
+      "rationale": "Uncoupling of photophosphorylation and decreased chlorophyll synthesis both describe photosynthetic impairment but at distinct biological levels \u2014 energy coupling vs. pigment biosynthesis."
+    },
+    {
+      "group_key": "photophosphorylation_uncoupling_vs_photosynthesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1471",
+        "1475"
+      ],
+      "rationale": "Increase in uncoupling of photophosphorylation and decrease in photosynthesis describe related but distinct events in the photosynthetic process \u2014 energy coupling disruption vs. overall photosynthetic output."
+    },
+    {
+      "group_key": "chlorophyll_synthesis_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1473",
+        "1474"
+      ],
+      "rationale": "Decreased chlorophyll synthesis and decrease in light harvest capacity describe related photosynthetic impairments \u2014 pigment production vs. light capture efficiency \u2014 in the same biological context."
+    },
+    {
+      "group_key": "unfolded_protein_response_er_stress",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1512",
+        "1605",
+        "1815"
+      ],
+      "rationale": "Unfolded Protein Response, accumulation of misfolded proteins, and ER stress all involve the same ER protein quality control axis but describe distinct sequential events \u2014 misfolded protein accumulation triggers UPR which manifests as ER stress."
+    },
+    {
+      "group_key": "protein_adduct_alkylation_merge",
+      "type": "merge",
+      "member_ids": [
+        "1509",
+        "244",
+        "396"
+      ],
+      "rationale": "Protein Adduct Formation and covalent binding/alkylation to proteins all describe the same class of chemical-protein interaction event."
+    },
+    {
+      "group_key": "intracellular_calcium_mobilization_disruption",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1536",
+        "52"
+      ],
+      "rationale": "Disruption of intracellular calcium mobilization and decreased calcium influx both involve intracellular calcium dynamics but disruption of mobilization (internal stores) and decreased influx (membrane channels) are distinct processes."
+    },
+    {
+      "group_key": "sarcomere_heart_failure",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1537",
+        "1535"
+      ],
+      "rationale": "Disruption of sarcomere assembly and heart failure are causally related but represent distinct biological events \u2014 sarcomere structural disruption at the molecular level vs. organ-level functional failure."
+    },
+    {
+      "group_key": "sarcomere_contractility_calcium",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1537",
+        "1532"
+      ],
+      "rationale": "Disruption of sarcomere assembly and decreased cardiac contractility share the cardiac muscle context but sarcomere assembly is a structural process while contractility is a functional measurement."
+    },
+    {
+      "group_key": "heart_failure_vs_contractility",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1535",
+        "1532"
+      ],
+      "rationale": "Heart failure and decreased cardiac contractility describe the same cardiac system but at different biological scales \u2014 organ-level failure vs. cellular/tissue-level contractile function."
+    },
+    {
+      "group_key": "glucose_pool_glycolysis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2071",
+        "2070"
+      ],
+      "rationale": "Decrease in glucose pool and increase in glycolysis describe related but directionally distinct changes \u2014 reduced glucose availability vs. increased metabolic consumption of glucose in the same metabolic context."
+    },
+    {
+      "group_key": "mitochondrial_swelling_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2072",
+        "177"
+      ],
+      "rationale": "Mitochondrial swelling and mitochondrial dysfunction both describe mitochondrial pathology but swelling is a specific structural change while dysfunction is a broader functional impairment."
+    },
+    {
+      "group_key": "lung_cancer_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1556",
+        "736",
+        "741"
+      ],
+      "rationale": "Increased lung cancer, bronchioloalveolar adenomas/carcinomas, and follicular cell adenomas/carcinomas all describe increased cancer incidence but in different tissue/cell-type contexts."
+    },
+    {
+      "group_key": "necrotic_tissue_cell_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1548",
+        "1262"
+      ],
+      "rationale": "Necrotic tissue and increased apoptosis both describe cell death but through distinct mechanisms \u2014 necrosis vs. apoptosis \u2014 in potentially different tissue contexts."
+    },
+    {
+      "group_key": "facial_cartilage_neural_crest",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1559",
+        "1557",
+        "1558"
+      ],
+      "rationale": "Facial cartilage reduction/distortion, reduced neural crest cell migration, and reduced collagen production all describe aspects of craniofacial developmental defects at different biological levels."
+    },
+    {
+      "group_key": "cell_differentiation_altered_neural_tube",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1560",
+        "1561"
+      ],
+      "rationale": "Altered cell differentiation and neural tube defects are related developmental outcomes but one is a general cellular process and the other is a specific structural developmental defect."
+    },
+    {
+      "group_key": "proximal_tubule_fanconi_syndrome",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1563",
+        "1564"
+      ],
+      "rationale": "Decreased proximal tubular vectorial transport and chemical-induced Fanconi syndrome are causally linked \u2014 impaired proximal tubule transport is the mechanistic basis of Fanconi syndrome \u2014 but represent a cellular process vs. clinical syndrome."
+    },
+    {
+      "group_key": "t_cell_il1r1_suppression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1700",
+        "1702"
+      ],
+      "rationale": "Impaired IL-1R1 signaling in T cells and suppression of T cell activation are causally linked events in the same cell type \u2014 impaired IL-1R1 signaling leads to suppressed T cell activation \u2014 but represent distinct biological processes."
+    },
+    {
+      "group_key": "caspase8_tissue_resident_kuppfer",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1575",
+        "1576"
+      ],
+      "rationale": "Activation of Caspase 8 pathway and activation of tissue resident Kupffer cells are related hepatic inflammatory/apoptotic events but involve distinct molecular and cellular processes."
+    },
+    {
+      "group_key": "ikk_nfkb_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1574",
+        "202"
+      ],
+      "rationale": "Inhibition of IKK complex and inhibition of NF-kB are sequential events in the same signaling pathway \u2014 IKK phosphorylates I\u03baB to activate NF-\u03baB, so IKK inhibition leads to NF-\u03baB inhibition \u2014 but represent distinct molecular targets."
+    },
+    {
+      "group_key": "axonal_transport_neuropathy",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1582",
+        "1583"
+      ],
+      "rationale": "Impaired axonal transport and sensory axonal peripheral neuropathy are causally linked \u2014 impaired transport contributes to axonal neuropathy \u2014 but represent a cellular process vs. a clinical/pathological outcome."
+    },
+    {
+      "group_key": "airway_injury_fibroproliferative",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1586",
+        "1587"
+      ],
+      "rationale": "Airway epithelial injury and fibroproliferative airway lesions describe sequential stages of airway pathology \u2014 initial injury leading to fibroproliferative response \u2014 but are distinct biological events in the same tissue."
+    },
+    {
+      "group_key": "airway_fibroproliferative_vs_pulmonary_fibrosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1587",
+        "1458"
+      ],
+      "rationale": "Fibroproliferative airway lesions and pulmonary fibrosis both describe fibrotic changes in the lung but in different anatomical compartments \u2014 airways vs. parenchyma."
+    },
+    {
+      "group_key": "epilepsy_seizure",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1363",
+        "1623",
+        "1788"
+      ],
+      "rationale": "Increased epilepsy, focal seizure, and status epilepticus all describe epileptic neurological events but at different severity levels and specificity \u2014 general epilepsy vs. specific seizure types."
+    },
+    {
+      "group_key": "angiogenesis_vascular_related",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1376",
+        "28"
+      ],
+      "rationale": "Increase in angiogenesis and reduction in angiogenesis describe the same biological process but in strictly opposite directions \u2014 these are soda candidates."
+    },
+    {
+      "group_key": "angiogenesis_soda",
+      "type": "soda",
+      "member_ids": [
+        "1376",
+        "28"
+      ],
+      "rationale": "Increase in angiogenesis and reduction in angiogenesis describe the same biological process (angiogenesis) in strictly opposite directions."
+    },
+    {
+      "group_key": "intestinal_fxr_inhibition_vs_bile_acid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2421",
+        "2425"
+      ],
+      "rationale": "Inhibition of intestinal FXR and altered hepatic bile acid burden are related through bile acid signaling but FXR inhibition is a receptor-level molecular event while bile acid burden is a downstream metabolic consequence in a different compartment."
+    },
+    {
+      "group_key": "nrf2_nfe2_repression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1417",
+        "1917"
+      ],
+      "rationale": "NFE2/Nrf2 repression and altered NRF2-dependent antioxidant gene expression both involve the NRF2 transcription factor but repression of the factor vs. altered downstream gene expression are distinct processes on the same object."
+    },
+    {
+      "group_key": "na_k_atpase_depolarization",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1562",
+        "1527"
+      ],
+      "rationale": "Decreased Na/K ATPase activity and increased cell membrane depolarization are causally linked \u2014 reduced pump activity leads to ion imbalance and depolarization \u2014 but represent distinct molecular vs. electrophysiological events."
+    },
+    {
+      "group_key": "deposition_of_energy_dna_damage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1686",
+        "1461"
+      ],
+      "rationale": "Deposition of energy (ionizing radiation) and DNA double-strand breaks are causally linked \u2014 energy deposition causes DNA strand breaks \u2014 but represent distinct initiating vs. molecular damage events."
+    },
+    {
+      "group_key": "atherosclerosis_vascular_disease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1443",
+        "1928"
+      ],
+      "rationale": "Atherosclerosis and vascular endothelial dysfunction both describe vascular pathology but atherosclerosis is a specific arterial disease outcome while endothelial dysfunction is a cellular/functional state contributing to it."
+    },
+    {
+      "group_key": "endocytic_receptor_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1486",
+        "467"
+      ],
+      "rationale": "Binding of substrate to endocytic receptor and increased LDL uptake are related receptor-mediated endocytosis events but binding is an initial molecular interaction while uptake is the functional consequence \u2014 distinct processes."
+    },
+    {
+      "group_key": "chromosomal_aberrations_aneuploidy",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1636",
+        "723",
+        "536"
+      ],
+      "rationale": "Increased chromosomal aberrations and altered chromosome number (aneuploidy/polyploidy) both describe chromosomal instability but aberrations is broader (structural and numerical) while aneuploidy/polyploidy specifies numerical changes."
+    }
+  ]
+}

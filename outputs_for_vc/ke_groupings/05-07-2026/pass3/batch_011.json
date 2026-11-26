@@ -1,0 +1,336 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1879",
+      "group_key": "dna_alkylation",
+      "rationale": "Bulky DNA adducts increase describes the same class of pro-mutagenic DNA damage as DNA alkylation/adduct formation."
+    },
+    {
+      "event_id": "1995",
+      "group_key": "liver_steatosis",
+      "rationale": "Abnormal lipid metabolism is a broader metabolic disruption that is related to but not synonymous with liver steatosis \u2014 withdrawing this assignment as they are distinct events."
+    },
+    {
+      "event_id": "1913",
+      "group_key": "vascular_endothelial_dysfunction",
+      "rationale": "Endothelial cell dysfunction describes the same vascular endothelial impairment as vascular endothelial dysfunction and vascular disrupting effects."
+    },
+    {
+      "event_id": "1920",
+      "group_key": "tgf_beta_pathway_activation",
+      "rationale": "Altered gene expression in the TGF-\u03b2 dependent fibrosis pathway describes activation of TGF-beta signaling, consistent with the existing merge group for TGF-beta pathway activation."
+    },
+    {
+      "event_id": "17",
+      "group_key": "ahr_activation_dimerization",
+      "rationale": "Altered gene expression via the AHR nuclear translocator (ARNT)-dependent pathway directly involves the AhR/ARNT dimerization product and its transcriptional output, sharing the same biological object with the existing group."
+    },
+    {
+      "event_id": "105",
+      "group_key": "mitochondrial_dysfunction",
+      "rationale": "Inhibition of Mitochondrial Electron Transport Chain Complexes describes the same underlying mitochondrial impairment captured in the mitochondrial dysfunction merge group."
+    },
+    {
+      "event_id": "1963",
+      "group_key": "action_potential_cardiac_arrhythmia",
+      "rationale": "Torsades de Pointes is a specific type of cardiac arrhythmia, sharing the same biological object and outcome space as increased cardiac arrhythmia and altered action potential."
+    },
+    {
+      "event_id": "1964",
+      "group_key": "mortality_increase",
+      "rationale": "Sudden cardiac death describes increased mortality as the same population/organism-level outcome, consistent with the mortality increase merge group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "cyp26b1_retinoic_acid_meiosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1887",
+        "1882",
+        "1889"
+      ],
+      "rationale": "CYP26B1 inhibition leads to disrupted initiation of meiosis of oogonia and increased premature meiotic initiation in fetal male germ cells \u2014 these share the same retinoic acid/meiosis initiation pathway but represent enzyme inhibition versus downstream meiotic dysregulation in different sexes, warranting curator review."
+    },
+    {
+      "group_key": "ovarian_reserve_fetal_germ_cell_loss",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1883",
+        "1890"
+      ],
+      "rationale": "Decreased size of the ovarian reserve and decrease (loss) of fetal male germ cells both describe loss of gonadal germ cell pools but in different sexes/biological contexts."
+    },
+    {
+      "group_key": "plxna2_fyna_inhibition",
+      "type": "merge",
+      "member_ids": [
+        "1885",
+        "1884"
+      ],
+      "rationale": "Inhibition of Plxna2 and inhibition of Fyna both describe inhibition of signaling proteins in the same semaphorin/axon guidance pathway and are co-listed as molecular initiating events in the same AOP context."
+    },
+    {
+      "group_key": "foxi1_six1b_eya1_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1903",
+        "1904",
+        "1905"
+      ],
+      "rationale": "foxi1 expression increased, six1b expression increased, and eya1 expression inhibited all describe altered expression of transcription factors in the same otic/cranial placode developmental pathway but involve distinct molecular targets and opposite directions."
+    },
+    {
+      "group_key": "six1b_vs_six1_expression",
+      "type": "merge",
+      "member_ids": [
+        "1904",
+        "2330"
+      ],
+      "rationale": "six1b expression increased and increased Sine oculis homeobox 1 (Six1) protein expression both describe increased Six1/six1b expression \u2014 six1b is the zebrafish ortholog of Six1."
+    },
+    {
+      "group_key": "parp1_aif_apoptosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2030",
+        "2031"
+      ],
+      "rationale": "PARP1 activation and release of Apoptosis-Inducing Factor (AIF) are sequential steps in the same parthanatos/caspase-independent cell death pathway but represent distinct molecular processes."
+    },
+    {
+      "group_key": "intestinal_gut_barrier_disruption",
+      "type": "merge",
+      "member_ids": [
+        "1931",
+        "1954"
+      ],
+      "rationale": "Intestinal barrier disruption and gut microbiota alteration are related but distinct biological events \u2014 withdrawing this grouping as barrier disruption and microbiota alteration are not synonymous."
+    },
+    {
+      "group_key": "cftr_foxj1_cilia_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1906",
+        "1911"
+      ],
+      "rationale": "Decreased CFTR function and decreased FOXJ1 protein both relate to airway epithelial function \u2014 CFTR governs ion transport and FOXJ1 governs ciliogenesis \u2014 but are distinct molecular processes contributing to the same airway pathology context."
+    },
+    {
+      "group_key": "cftr_mucociliary_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1906",
+        "1909"
+      ],
+      "rationale": "Decreased CFTR function and decreased mucociliary clearance both describe impairment of airway epithelial defense functions but at the molecular channel level versus the tissue physiological level."
+    },
+    {
+      "group_key": "foxj1_cilia_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1911",
+        "1908"
+      ],
+      "rationale": "Decreased FOXJ1 protein (a master regulator of motile ciliogenesis) and decreased cilia function/number both describe impairment of cilia in the same biological context but at the molecular regulator vs. functional output level."
+    },
+    {
+      "group_key": "myocardial_infarction_cardiac_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1934",
+        "1964"
+      ],
+      "rationale": "Myocardial infarction and sudden cardiac death describe related but distinct cardiac events \u2014 MI is an acute ischemic event while sudden cardiac death is an arrhythmic/terminal outcome that may follow MI."
+    },
+    {
+      "group_key": "angiotensin_1_7_ace2_ang_balance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1935",
+        "1752"
+      ],
+      "rationale": "Diminished Angiotensin (1-7) levels and increased Angiotensin II both describe disruption of the ACE/ACE2 axis but involve different peptide products in strictly opposite directions of the same renin-angiotensin system balance."
+    },
+    {
+      "group_key": "adam17_ace2_shedding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1937",
+        "1948"
+      ],
+      "rationale": "ADAM17 expression induction and increased ACE2 shedding describe sequential events in the same ectodomain shedding process \u2014 ADAM17 is the sheddase responsible for ACE2 shedding, so induction of ADAM17 is an upstream cause of ACE2 shedding."
+    },
+    {
+      "group_key": "glut4_decrease_glucose_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1949",
+        "1951"
+      ],
+      "rationale": "Decreased GLUT4 (glucose transporter 4) and decreased glucose uptake describe the same biological axis but GLUT4 is the transporter protein while glucose uptake is the functional outcome \u2014 related but distinct processes."
+    },
+    {
+      "group_key": "tnf_proinflammatory",
+      "type": "merge",
+      "member_ids": [
+        "1950",
+        "1493"
+      ],
+      "rationale": "Increased TNF describes increased production of a pro-inflammatory mediator, which is the same directional biological event as increased secretion of pro-inflammatory mediators in the existing group."
+    },
+    {
+      "group_key": "gestational_diabetes_glucose_homeostasis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1953",
+        "1952"
+      ],
+      "rationale": "Gestational diabetes mellitus and abnormal glucose homeostasis describe the same metabolic dysregulation but one specifies the pregnancy context (gestational) while the other is general."
+    },
+    {
+      "group_key": "dna_damage_genomic_instability",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1896",
+        "1194"
+      ],
+      "rationale": "Genomic instability and increased DNA damage/strand breaks both involve genomic integrity but genomic instability is a broader cellular state while DNA strand breaks are a specific molecular lesion."
+    },
+    {
+      "group_key": "neuroblast_migration_periventricular_heterotopia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2094",
+        "2095"
+      ],
+      "rationale": "Abnormal neuroblast migration and periventricular heterotopia formation are causally linked \u2014 impaired neuronal migration leads to heterotopia \u2014 but represent distinct biological events (cellular migration failure vs. structural brain malformation)."
+    },
+    {
+      "group_key": "pyroptosis_apoptosis_cell_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1967",
+        "1262"
+      ],
+      "rationale": "Pyroptosis and apoptosis both describe programmed cell death but through mechanistically distinct pathways (inflammasome-mediated vs. caspase-3-mediated), representing the same general process in different molecular contexts."
+    },
+    {
+      "group_key": "synaptic_memory_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1944",
+        "1941"
+      ],
+      "rationale": "Synaptic dysfunction and memory loss describe the same neurodegenerative axis but at different biological scales \u2014 synaptic molecular dysfunction vs. cognitive behavioral outcome."
+    },
+    {
+      "group_key": "autophagy_mitochondrial_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1945",
+        "1816"
+      ],
+      "rationale": "Dysfunctional autophagy and mitochondrial dysfunction are related but distinct cellular processes \u2014 impaired autophagy can cause mitochondrial dysfunction but they are not synonymous events."
+    },
+    {
+      "group_key": "ionizing_energy_dna_damage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1550",
+        "1194"
+      ],
+      "rationale": "Deposition of ionizing energy is a physical initiating event that leads to DNA strand breaks \u2014 these are causally linked but represent distinct biological processes (energy deposition vs. resulting DNA damage)."
+    },
+    {
+      "group_key": "cerebrovascular_stroke_disease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1875",
+        "1843"
+      ],
+      "rationale": "Cerebrovascular disease/stroke and multi-organ failure are both severe vascular/systemic outcomes but occur in different organ contexts \u2014 brain vasculature vs. multi-organ systemic failure."
+    },
+    {
+      "group_key": "rasl11b_gbx2_expression_neural",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1886",
+        "1902"
+      ],
+      "rationale": "Overexpression of rasl11b and repression of Gbx2 expression both describe altered gene expression in the context of developmental signaling pathways but involve distinct molecular targets and opposite directions."
+    },
+    {
+      "group_key": "gsk3beta_inactivation_wnt",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1647",
+        "1754"
+      ],
+      "rationale": "GSK3beta inactivation and Wnt/beta-catenin activation share the same signaling pathway \u2014 GSK3beta inactivation is a key step enabling beta-catenin stabilization \u2014 but represent distinct molecular processes on different proteins."
+    },
+    {
+      "group_key": "altered_gene_expression_p53_apoptosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1923",
+        "1262"
+      ],
+      "rationale": "Altered gene expression in the P53-dependent apoptosis pathway and increased apoptosis are causally related but represent distinct biological events \u2014 gene expression alteration vs. the resulting cell death process."
+    },
+    {
+      "group_key": "transposition_great_arteries_cardiac_outflow",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1970",
+        "1684"
+      ],
+      "rationale": "Transposition of the great arteries and abnormalities in cardiac outflow tract formation both describe congenital cardiac structural defects involving the great vessels/outflow tract but at different levels of anatomical specificity."
+    },
+    {
+      "group_key": "gper_er_receptor_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2029",
+        "1065"
+      ],
+      "rationale": "GPER (G protein-coupled estrogen receptor 1) activation and estrogen receptor alpha activation both describe estrogen receptor activation but through distinct receptor types \u2014 GPER is a membrane GPCR while ER\u03b1 is a nuclear receptor."
+    },
+    {
+      "group_key": "necrosis_cytotoxicity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1607",
+        "768"
+      ],
+      "rationale": "Increased necrosis and general cytotoxicity both describe cell death outcomes but necrosis is a specific non-programmed cell death mode while cytotoxicity is a broader measure of cell damage/death."
+    },
+    {
+      "group_key": "viral_transmission_infection",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1939",
+        "2159"
+      ],
+      "rationale": "Proliferated viral infection and host-to-host transmission and IAV cell entry both describe viral infectious processes but at different scales \u2014 organismal transmission vs. cellular entry \u2014 and involving different viruses."
+    },
+    {
+      "group_key": "acute_myeloid_leukemia_neoplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1955",
+        "1896"
+      ],
+      "rationale": "Acute myeloid leukemia and genomic instability are causally related \u2014 genomic instability can drive leukemogenesis \u2014 but represent distinct biological events at different biological levels (cellular genomic state vs. hematological malignancy)."
+    },
+    {
+      "group_key": "pollen_abnormality_reproductive",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1965",
+        "1163"
+      ],
+      "rationale": "Increased pollen abnormality and reduced reproductive success both describe adverse reproductive outcomes but one specifies plant male gametophyte defects while the other describes general reproductive success reduction."
+    }
+  ]
+}

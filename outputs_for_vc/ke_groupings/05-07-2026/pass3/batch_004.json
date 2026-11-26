@@ -1,0 +1,313 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "744",
+      "group_key": "leydig_cell_hyperplasia_proliferation",
+      "rationale": "Increase in Leydig cell hyperplasia (ID 744) describes the same directional biological outcome as Leydig cell hyperplasia and increased Leydig cell proliferation already in this merge group."
+    },
+    {
+      "event_id": "876",
+      "group_key": "dna_mutations_increase",
+      "rationale": "Increase in Mutations in Critical Genes (ID 876) describes the same directional biological outcome as the other members of this merge group."
+    },
+    {
+      "event_id": "739",
+      "group_key": "hyperplasia_renal_bronchiolar_follicular",
+      "rationale": "Increase in Hypertrophy and proliferation of follicular cells (ID 739) describes increased follicular cell proliferation/hyperplasia, matching the follicular cell hyperplasia member already in this group."
+    },
+    {
+      "event_id": "869",
+      "group_key": "hyperplasia_various_tissues",
+      "rationale": "Increase in Respiratory or Squamous Metaplasia (ID 869) describes hyperplastic/metaplastic changes in a tissue context distinct from the existing members, fitting the similar_event_different_biological_context group for hyperplasia in various tissues."
+    },
+    {
+      "event_id": "733",
+      "group_key": "adenocarcinoma_renal_bronchial_follicular",
+      "rationale": "Increase in Necrosis of terminal bronchiolar cells (ID 733) is not adenocarcinoma \u2014 withdrawing this assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "leydig_cell_tumor_vs_hyperplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "744",
+        "745"
+      ],
+      "rationale": "Increase in Leydig cell hyperplasia and increase in Leydig cell tumors describe progressive pathological states in the same cell type but hyperplasia is a pre-neoplastic proliferative process while tumors are neoplastic outcomes."
+    },
+    {
+      "group_key": "hppd_inhibition_vs_tyrosine_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "766",
+        "775"
+      ],
+      "rationale": "Inhibition of HPPD enzyme and increased plasma tyrosine involve the same metabolic pathway \u2014 HPPD catalyzes tyrosine catabolism so its inhibition leads to tyrosine accumulation \u2014 but enzyme inhibition and substrate accumulation are distinct biological processes."
+    },
+    {
+      "group_key": "hmgcoa_reductase_inhibition_vs_mevalonate_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "804",
+        "805"
+      ],
+      "rationale": "Inhibition of HMG-CoA reductase and decreased mevalonate involve the same metabolic step \u2014 HMG-CoA reductase produces mevalonate \u2014 but enzyme inhibition and downstream metabolite decrease are distinct biological processes."
+    },
+    {
+      "group_key": "hmgcoa_reductase_mevalonate_cholesterol",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "804",
+        "807"
+      ],
+      "rationale": "Inhibition of HMG-CoA reductase and decreased cholesterol are causally linked through the mevalonate pathway but represent distinct biological processes \u2014 enzyme inhibition versus downstream sterol endpoint."
+    },
+    {
+      "group_key": "mevalonate_vs_cholesterol_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "805",
+        "807"
+      ],
+      "rationale": "Decreased mevalonate and decreased cholesterol are sequential downstream events in the same biosynthetic pathway but represent distinct metabolite changes at different pathway nodes."
+    },
+    {
+      "group_key": "prolyl_hydroxylase_inhibition_vs_hif",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "798",
+        "799"
+      ],
+      "rationale": "Inhibition of prolyl hydroxylases and increased HIF-1 heterodimer formation are causally linked \u2014 PHD inhibition stabilizes HIF-1\u03b1 \u2014 but enzyme inhibition and downstream transcription factor complex formation are distinct biological processes."
+    },
+    {
+      "group_key": "urod_porphyrin_uroporphyria",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "846",
+        "369"
+      ],
+      "rationale": "Accumulation of highly carboxylated porphyrins and uroporphyria describe the same porphyrin accumulation pathology at different levels \u2014 cellular/biochemical accumulation versus the clinical/pathological disease outcome."
+    },
+    {
+      "group_key": "urod_inhibition_porphyrin_uroporphyria",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "844",
+        "846"
+      ],
+      "rationale": "UROD inhibition and accumulation of highly carboxylated porphyrins are causally linked steps in the same pathway \u2014 enzyme inhibition leading to substrate accumulation \u2014 but represent distinct biological processes."
+    },
+    {
+      "group_key": "renal_function_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "819",
+        "820",
+        "821",
+        "825"
+      ],
+      "rationale": "Decreased glomerular filtration, decreased renal plasma flow, decreased sodium reabsorption, and decreased renal ability to dilute urine all describe distinct aspects of impaired renal function in the same organ but measuring different physiological parameters."
+    },
+    {
+      "group_key": "renal_toxicity_markers",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "813",
+        "814",
+        "823"
+      ],
+      "rationale": "Increased serum creatinine, occurrence of kidney toxicity, and cystic dilatation of renal tubules all describe renal injury/toxicity outcomes at different levels \u2014 biochemical marker, organ-level toxicity, and morphological change."
+    },
+    {
+      "group_key": "hepatocyte_lipid_degeneration",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "835",
+        "838"
+      ],
+      "rationale": "Ballooning degeneration of hepatocytes and induction of microvesicular fat both describe hepatocyte pathological changes but one is a structural degenerative change and the other is lipid accumulation \u2014 same cell type, distinct processes."
+    },
+    {
+      "group_key": "mallory_body_hepatocyte_injury",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "839",
+        "835"
+      ],
+      "rationale": "Formation of Mallory bodies and ballooning degeneration both describe hepatocyte injury/degeneration phenotypes in the same cell type but through distinct morphological processes."
+    },
+    {
+      "group_key": "prolactin_decrease_vs_increase",
+      "type": "soda",
+      "member_ids": [
+        "747",
+        "1077"
+      ],
+      "rationale": "Decreased prolactin (ID 747) and increased prolactin secretion/exposure (ID 1077, member of prolactin_secretion_vs_exposure merge group) are strictly opposite directions of the same hormonal endpoint."
+    },
+    {
+      "group_key": "progesterone_corpus_luteum_vs_synthesis_reduction",
+      "type": "merge",
+      "member_ids": [
+        "749",
+        "1692"
+      ],
+      "rationale": "Decreased progesterone from corpus luteum and reduction in progesterone synthesis both describe the same directional decrease in progesterone production/levels."
+    },
+    {
+      "group_key": "endometrial_hyperplasia_vs_adenocarcinoma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "772",
+        "773"
+      ],
+      "rationale": "Increase in glandular epithelial cell hyperplasia of endometrium and increase in endometrial adenocarcinomas describe progressive pathological states in the same tissue \u2014 hyperplasia as a pre-neoplastic process and adenocarcinoma as the neoplastic outcome."
+    },
+    {
+      "group_key": "necrosis_bronchiolar_vs_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "733",
+        "868"
+      ],
+      "rationale": "Increase in necrosis of terminal bronchiolar cells and increase in tissue degeneration/necrosis/atrophy describe the same degenerative process with one specifying a cell-type context and the other being general."
+    },
+    {
+      "group_key": "neuron_hyperpolarization_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "763",
+        "1012"
+      ],
+      "rationale": "Neuronal hyperpolarization and increased inhibitory postsynaptic potential both describe increased neuronal inhibition but one specifies the cellular membrane voltage change and the other the synaptic mechanism."
+    },
+    {
+      "group_key": "population_decrease",
+      "type": "merge",
+      "member_ids": [
+        "765",
+        "997"
+      ],
+      "rationale": "Decreased population (ID 765) and decreased population size/trajectory (ID 997, member of population_level_decline merge group) describe the same directional population-level outcome."
+    },
+    {
+      "group_key": "squamous_papilloma_carcinoma_vs_adenocarcinoma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "779",
+        "797"
+      ],
+      "rationale": "Increase in papillomas/carcinomas of squamous cells and increase in adenomas/carcinomas of urothelial cells both describe tumor formation but in different cell types \u2014 squamous vs. urothelial/transitional epithelium."
+    },
+    {
+      "group_key": "urinary_bladder_calculi_vs_urothelial_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "793",
+        "797"
+      ],
+      "rationale": "Increase in urinary bladder calculi and increase in urothelial adenomas/carcinomas both describe pathological outcomes in the urinary bladder but calculi are physical deposits while tumors are neoplastic growths \u2014 same organ, distinct processes."
+    },
+    {
+      "group_key": "5alpha_reductase_inhibition_dht",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1617",
+        "1613"
+      ],
+      "rationale": "Inhibition of 5\u03b1-reductase and decreased DHT levels involve the same enzymatic pathway \u2014 5\u03b1-reductase converts testosterone to DHT \u2014 but enzyme inhibition and downstream hormone level change are distinct biological processes."
+    },
+    {
+      "group_key": "phospholipase_a_inhibition_lipid_bilayer",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "828",
+        "829"
+      ],
+      "rationale": "Inhibition of Phospholipase A and damage to lipid bilayer share the same biological substrate (membrane lipids) but represent enzyme inhibition versus the resulting structural membrane damage \u2014 distinct processes."
+    },
+    {
+      "group_key": "cyp1a_induction_oxidative_metabolism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "850",
+        "769"
+      ],
+      "rationale": "Induction of CYP1A2/CYP1A5 and increase in oxidative metabolism are causally related \u2014 CYP1A induction drives increased oxidative/metabolic activity \u2014 but enzyme induction and metabolic pathway increase are distinct biological processes."
+    },
+    {
+      "group_key": "preneoplastic_foci_hepatocyte_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "774",
+        "334"
+      ],
+      "rationale": "Increase in preneoplastic foci in hepatocytes and hepatocellular carcinoma describe progressive stages of the same hepatocarcinogenic process \u2014 pre-neoplastic lesions vs. frank malignancy."
+    },
+    {
+      "group_key": "tsh_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1023",
+        "281"
+      ],
+      "rationale": "Increased TSH and decreased serum T4 describe related but distinct events in the hypothalamic-pituitary-thyroid axis \u2014 TSH increase is a compensatory response to T4 decrease but they are different hormones and distinct biological endpoints."
+    },
+    {
+      "group_key": "male_reproductive_tract_malformation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "809",
+        "2082"
+      ],
+      "rationale": "Malformed male reproductive tract and hypospadias both describe developmental defects of male urogenital structures but one is broadly defined while the other specifies a particular anatomical defect."
+    },
+    {
+      "group_key": "intracellular_ph_decrease_vs_acid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "867",
+        "829"
+      ],
+      "rationale": "Decreased intracellular pH and damage to lipid bilayer are related events in the context of cellular acidosis and membrane disruption but describe distinct biological processes \u2014 pH change versus structural membrane damage."
+    },
+    {
+      "group_key": "nasal_tumor_site_of_contact",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "872",
+        "869"
+      ],
+      "rationale": "Increase in site of contact nasal tumors and increase in respiratory or squamous metaplasia describe pathological outcomes in the nasal/respiratory epithelium at different stages \u2014 metaplasia as a pre-neoplastic change and nasal tumors as the neoplastic outcome."
+    },
+    {
+      "group_key": "uric_acid_gout_tophi",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1096",
+        "1102"
+      ],
+      "rationale": "Increased blood uric acid concentration and occurrence of tophi (urate) deposition describe the same urate excess at different biological levels \u2014 systemic hyperuricemia versus tissue-level crystal deposition."
+    },
+    {
+      "group_key": "renal_proximal_tubular_necrosis_vs_toxicity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1097",
+        "814"
+      ],
+      "rationale": "Occurrence of renal proximal tubular necrosis and occurrence of kidney toxicity both describe renal injury but one specifies proximal tubular necrosis as the cell-type and injury-type context while the other is a general kidney toxicity outcome."
+    },
+    {
+      "group_key": "blood_potassium_uric_acid_renal",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1098",
+        "813"
+      ],
+      "rationale": "Increased blood potassium concentration and increased serum creatinine both describe systemic biochemical markers of renal dysfunction but measure different analytes reflecting distinct aspects of impaired renal clearance."
+    }
+  ]
+}

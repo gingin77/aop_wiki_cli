@@ -1,0 +1,8125 @@
+[
+  {
+    "group_name": "pxr_activation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "239",
+        "Activation, Pregnane-X receptor, NR1l2"
+      ],
+      [
+        "245",
+        "Activation, PXR/SXR"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "plasma_vitellogenin_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "220",
+        "Increase, Plasma vitellogenin concentrations"
+      ],
+      [
+        "418",
+        "Increased, Vitellogenin synthesis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "renal_vitellogenin_deposition",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "252",
+        "Increase, Renal pathology due to VTG deposition"
+      ],
+      [
+        "419",
+        "Increased, renal vitellogenin deposition"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "thyroid_hormone_synthesis_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "277",
+        "Thyroid hormone synthesis, Decreased"
+      ],
+      [
+        "279",
+        "Thyroperoxidase, Inhibition"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cell_proliferation_hyperplasia",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "142",
+        "Hyperplasia, Hyperplasia"
+      ],
+      [
+        "854",
+        "Alterations, Cellular proliferation / hyperplasia"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cholinergic_signaling_ach_accumulation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "10",
+        "Acetylcholine accumulation in synapses"
+      ],
+      [
+        "39",
+        "Increased Cholinergic Signaling"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "inflammatory_cytokines_suppression",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "152",
+        "Suppression, Inflammatory cytokines"
+      ],
+      [
+        "202",
+        "Inhibition, Nuclear factor kappa B (NF-kB)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cytokine_release_vs_proinflammatory",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "87",
+        "Release, Cytokine"
+      ],
+      [
+        "1493",
+        "Increased Pro-inflammatory mediators"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "neuronal_network_function_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "386",
+        "Decrease of neuronal network function"
+      ],
+      [
+        "618",
+        "Decreased, Neuronal network function in adult brain"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "protein_alkylation_covalent_binding",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "244",
+        "Alkylation, Protein"
+      ],
+      [
+        "396",
+        "Covalent Binding, Protein"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "clonal_expansion_ahf",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "491",
+        "Clonal Expansion/Cell Proliferation, to form Altered Hepatic Foci (AHF)"
+      ],
+      [
+        "1171",
+        "Increase, Clonal Expansion of Altered Hepatic Foci"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sperm_quantity_quality_fertility",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "505",
+        "Decreased sperm quantity / quality in the adult, Decreased fertility"
+      ],
+      [
+        "520",
+        "Decreased sperm quantity or quality in the adult, Decreased fertility"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "fetal_leydig_testosterone_coup_tfii",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "541",
+        "Decreased testosterone by the fetal Leydig cells, Decreased COUP-TFII stem Leydig cells"
+      ],
+      [
+        "655",
+        "Decreased testosterone by the fetal Leydig cells, Increased COUP-TFII in fetal Leydig cells"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "role_change_caste",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "564",
+        "Abnormal, Roll change within caste"
+      ],
+      [
+        "1108",
+        "Abnormal, Role change within caste"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "predation_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "588",
+        "Increased, predation"
+      ],
+      [
+        "623",
+        "Increase, predation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "survival_reduced",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "592",
+        "Reduced, survival"
+      ],
+      [
+        "636",
+        "Decreased, survival"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "glutamate_gated_chloride_channel_activation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "760",
+        "Activation, Glutamate-gated chloride channel"
+      ],
+      [
+        "1018",
+        "Activation, Glutamate-gated chloride channels"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lysosomal_disruption",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "831",
+        "Disturbance, Lysosomal function"
+      ],
+      [
+        "898",
+        "Disruption, Lysosome"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lh_surge_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "970",
+        "Decreased LH release from Anterior Pituitary, Decreased GnRH stimulation of Anterior Pituitary Gonadotrophs"
+      ],
+      [
+        "1072",
+        "Decreased, LH Surge from anterior pituitary"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "beta2_adrenergic_receptor_activation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1038",
+        "Activation, beta-2 adrenergic receptor"
+      ],
+      [
+        "1039",
+        "Increased activity, beta-2 adrenergic receptor"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "inhibitory_postsynaptic_potential_vs_synaptic_inhibition",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1012",
+        "Increased, Inhibitory postsynaptic potential"
+      ],
+      [
+        "1015",
+        "Increased, Neuronal synaptic inhibition"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "prolactin_secretion_vs_exposure",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1077",
+        "Increased, prolactin exposure"
+      ],
+      [
+        "1084",
+        "Increased, prolactin secretion"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_oxidative_phosphorylation_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1477",
+        "Oxidative phosphorylation, decreased"
+      ],
+      [
+        "1545",
+        "Decreased, mitochondrial oxidative phosphorylation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cyp2e1_activation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1391",
+        "Activation of Cyp2E1"
+      ],
+      [
+        "1508",
+        "CYP2E1 Activation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "atp_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1472",
+        "Decrease, ATP production"
+      ],
+      [
+        "1771",
+        "Decrease, Adenosine triphosphate pool"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "substance_p_release_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1222",
+        "SP (Substance P) release, Local increase of SP"
+      ],
+      [
+        "1435",
+        "Increased neurokinin A (NKA) by neuronal cells"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "homocysteine_level_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1661",
+        "Increased Homocysteine level"
+      ],
+      [
+        "1665",
+        "Increased, Plasma HCY level"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "progesterone_synthesis_reduction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1692",
+        "Reduction, Progesterone synthesis"
+      ],
+      [
+        "1693",
+        "Decreased, Progesterone levels"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "melanin_melanosome_reduction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1629",
+        "Reduction in melanin level"
+      ],
+      [
+        "1630",
+        "Reduction of melanosome level"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ace2_dysregulation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1740",
+        "Induced dysregulation of ACE2"
+      ],
+      [
+        "1854",
+        "Dysregulation, ACE2 expression and activity"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ang_ii_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1743",
+        "Increase plasma Ang II"
+      ],
+      [
+        "1752",
+        "Increased Angiotensin II"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "retinoic_acid_synthesis_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1641",
+        "Decreased retinoic acid (RA) synthesis"
+      ],
+      [
+        "1642",
+        "Decreased plasma RA level"
+      ],
+      [
+        "1880",
+        "Decreased, ALDH1A (RALDH) enzyme activity"
+      ],
+      [
+        "1881",
+        "Decreased, all-trans retinoic acid (atRA) concentration"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "spermatogenesis_impairment",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1758",
+        "Impaired, Spermatogenesis"
+      ],
+      [
+        "1798",
+        "Decreased spermatogenesis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "stat5_blockade_binding",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1716",
+        "Blockade of STAT5 phosphorylation"
+      ],
+      [
+        "1717",
+        "Suppression of STAT5 binding to cytokine gene promoters"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "chitinase_chitobiase_inhibition",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1806",
+        "Inhibition, Chitinase"
+      ],
+      [
+        "1807",
+        "Inhibition, Chitobiase"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "dht_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1613",
+        "Decrease, dihydrotestosterone (DHT) levels"
+      ],
+      [
+        "1688",
+        "anogenital distance (AGD), decreased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cryptorchidism_testicular_descent",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1615",
+        "Impaired inguinoscrotal testicular descent phase"
+      ],
+      [
+        "1616",
+        "Malformation, cryptorchidism - maldescended testis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "melanin_reduction_pigmentation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1629",
+        "Reduction in melanin level"
+      ],
+      [
+        "1631",
+        "Reduction fo Pigmentation pattern"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cardiac_outflow_tract_conotruncal",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1684",
+        "Abnormalities, Cardiac outflow tract formation"
+      ],
+      [
+        "1685",
+        "Anomalies, Congenital cardiac conotruncal"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "inflammatory_immune_responses",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1750",
+        "Increased inflammatory immune responses"
+      ],
+      [
+        "1868",
+        "Hyperinflammation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "gonadotropin_releasing_hormone_receptor",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1698",
+        "Increase, hypermethylation of the promotor region of gonadotropin releasing hormone receptor"
+      ],
+      [
+        "1699",
+        "Decrease, expression of gonadotropin releasing hormone receptor"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "retinoic_acid_receptor_activation_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1888",
+        "Increased (ectopic) all-trans retinoic acid concentration"
+      ],
+      [
+        "2420",
+        "Increased, Retinoic Acid Receptor Activation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "angiotensin_ii_accumulation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1741",
+        "Induced, Angiotensin (Ang) II accumulation"
+      ],
+      [
+        "1936",
+        "Angiotensin II degradation reduced"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "herg_blockade_vs_ikr_inhibition",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2099",
+        "hERG channel blockade"
+      ],
+      [
+        "2100",
+        "Inhibition of rapid delayed rectifying potassium current"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "action_potential_prolongation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1961",
+        "Prolongation of Action Potential Duration"
+      ],
+      [
+        "1962",
+        "Prolongation of QT interval"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "pericyte_dysfunction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1946",
+        "Impaired mechanotransduction of pericytes"
+      ],
+      [
+        "1947",
+        "Pericyte dysfunction"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cuticle_sclerotization_tanning",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2053",
+        "Increase, Defects in tanning of new cuticle"
+      ],
+      [
+        "2054",
+        "Increase,  impairment of cuticle sclerotization"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "er_receptor_activation_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "748",
+        "Increased, Estrogen receptor (ER) activity"
+      ],
+      [
+        "1065",
+        "Activation, estrogen receptor alpha"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "fat_mass_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2125",
+        "Increased fat mass"
+      ],
+      [
+        "2333",
+        "Increase, Fat mass"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lipid_accumulation_vs_droplet",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2130",
+        "increased lipid accumulation"
+      ],
+      [
+        "2332",
+        "Increase, Lipid droplet"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "demyelination_axonal_insulation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2266",
+        "Demyelination, increased"
+      ],
+      [
+        "2378",
+        "Impaired axonal insulation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "plasma_estradiol_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2251",
+        "Estradiol availability, increased"
+      ],
+      [
+        "2294",
+        "Plasma estradiol, increased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cardiac_remodelling_structure_function",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2084",
+        "Increase, Cardiac remodelling"
+      ],
+      [
+        "2157",
+        "Abnormal Cardiac Structure and Function"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cardiac_electrical_conduction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2280",
+        "Increased delay in heart electrical conduction"
+      ],
+      [
+        "2292",
+        "Altered Cardiac Electrical Conduction"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "afterdepolarizations_early_premature",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2283",
+        "Increased the early premature depolarizations during repolarization"
+      ],
+      [
+        "2285",
+        "Increased the delayed and early afterdepolarizations"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "respiratory_disease_dysfunction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2087",
+        "Increased incidence of respiratory disease"
+      ],
+      [
+        "2088",
+        "Dysfunction of respiratory system"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "estrogen_receptor_disruption_inactivation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2126",
+        "Estrogen receptor alpha inactivation"
+      ],
+      [
+        "2141",
+        "Disruption, Estrogen receptor"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "energy_metabolism_disruption",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2341",
+        "Tricarboxylic acid (TCA) cycle, disrupted"
+      ],
+      [
+        "2353",
+        "Disrupted, energy metabolism"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "gluten_b_cell_receptor_generation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2253",
+        "Gluten-reactive T cell receptors, generation"
+      ],
+      [
+        "2254",
+        "Gluten-reactive and transglutaminase 2 reactive B cell receptors, generation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mapk_erk_activation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2146",
+        "Activation of mitogen-activated protein kinase kinase, extracellular signal-regulated kinase 1/2"
+      ],
+      [
+        "2345",
+        "Activation, MAPK"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nmda_receptor_inhibition_vs_overactivation",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "195",
+        "Inhibition, NMDARs"
+      ],
+      [
+        "388",
+        "Overactivation, NMDARs"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "estrogen_receptor_agonism_antagonism",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "111",
+        "Agonism, Estrogen receptor"
+      ],
+      [
+        "112",
+        "Antagonism, Estrogen receptor"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "androgen_receptor_agonism_antagonism",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "25",
+        "Agonism, Androgen receptor"
+      ],
+      [
+        "26",
+        "Antagonism, Androgen receptor"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "plasma_vitellogenin_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "220",
+        "Increase, Plasma vitellogenin concentrations"
+      ],
+      [
+        "221",
+        "Reduction, Plasma vitellogenin concentrations"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "vitellogenin_synthesis_liver",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "285",
+        "Reduction, Vitellogenin synthesis in liver"
+      ],
+      [
+        "307",
+        "Increase, Vitellogenin synthesis in liver"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "calcium_influx_decrease_vs_overload",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "52",
+        "Decreased, Calcium influx"
+      ],
+      [
+        "389",
+        "Increased, Intracellular Calcium overload"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nicotinic_achr_activation_desensitization",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "559",
+        "Activation, Nicotinic acetylcholine receptor"
+      ],
+      [
+        "663",
+        "Desensitization, Nicotinic acetylcholine receptor"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lh_luteinizing_hormone",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "531",
+        "Decreased, LH Surge"
+      ],
+      [
+        "754",
+        "Increased, Luteinizing hormone (LH)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "dopaminergic_activity",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "746",
+        "Increase, Dopaminergic activity"
+      ],
+      [
+        "1083",
+        "Decreased, Dopaminergic activity"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ovarian_e2_vs_circulating_estrogen",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "1045",
+        "Decreased, Ovarian E2"
+      ],
+      [
+        "1076",
+        "Increased, circulating estrogen levels"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "reproductive_success_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "1141",
+        "Decreased, Reproductive Success"
+      ],
+      [
+        "1163",
+        "Increased, Reproductive Success"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "population_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "361",
+        "Decline, Population"
+      ],
+      [
+        "1164",
+        "Increased, Population"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cell_proliferation_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "1182",
+        "Increase, Cell Proliferation (Epithelial Cells)"
+      ],
+      [
+        "1821",
+        "Decrease, Cell proliferation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "dna_methyltransferase_expression_vs_inhibition",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "1619",
+        "Increase, DNA methyltransferase inhibition"
+      ],
+      [
+        "1697",
+        "Increase, DNA methyltransferase expression"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ecdysone_receptor_cascade_increase_decrease",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "2373",
+        "Increase, Mis-timed ecdysone receptor-responsive nuclear receptor cascade"
+      ],
+      [
+        "2375",
+        "Decrease, Mis-timed ecdysone receptor-responsive nuclear receptor cascade"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "retinoic_acid_concentration_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "1881",
+        "Decreased, all-trans retinoic acid (atRA) concentration"
+      ],
+      [
+        "1888",
+        "Increased (ectopic) all-trans retinoic acid concentration"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "retinoic_acid_receptor_activation_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "2419",
+        "Decreased, Retinoic Acid Receptor Activation"
+      ],
+      [
+        "2420",
+        "Increased, Retinoic Acid Receptor Activation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "aromatase_induction_vs_inhibition_plasma",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "2277",
+        "Inhibition, aromatase activity in plasma"
+      ],
+      [
+        "2293",
+        "Aromatase, induction"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "bcl2_bax_apoptosis",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "2123",
+        "decreased, Bcl-2 expression"
+      ],
+      [
+        "2124",
+        "increased, Bax expression"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "11beta_hsd_activity",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "2409",
+        "Decrease, 11\u03b2-Hydroxysteroid dehydrogenase type 2 activity"
+      ],
+      [
+        "2410",
+        "Increase, 11\u03b2-Hydroxysteroid dehydrogenase type 1 activity"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ppar_alpha_binding_vs_activation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "227",
+        "Activation, PPAR\u03b1"
+      ],
+      [
+        "998",
+        "Binding of antagonist, PPAR alpha"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nmda_receptor_antagonism_binding",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "195",
+        "Inhibition, NMDARs"
+      ],
+      [
+        "201",
+        "Binding of antagonist, NMDA receptors"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "thyroperoxidase_inhibition_vs_th_synthesis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "277",
+        "Thyroid hormone synthesis, Decreased"
+      ],
+      [
+        "279",
+        "Thyroperoxidase, Inhibition"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ache_inhibition_vs_ach_accumulation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "10",
+        "Acetylcholine accumulation in synapses"
+      ],
+      [
+        "12",
+        "Acetylcholinesterase (AchE) Inhibition"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nfkb_inhibition_vs_cytokine_suppression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "152",
+        "Suppression, Inflammatory cytokines"
+      ],
+      [
+        "202",
+        "Inhibition, Nuclear factor kappa B (NF-kB)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "tspo_decrease_vs_cholesterol_transport",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "289",
+        "Decrease, Translocator protein (TSPO)"
+      ],
+      [
+        "447",
+        "Reduction, Cholesterol transport in mitochondria"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "igabar_binding_vs_glutamate_receptor_binding",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "388",
+        "Overactivation, NMDARs"
+      ],
+      [
+        "875",
+        "Binding of agonist, Ionotropic glutamate receptors"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hsd17b10_activity_vs_expression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "8",
+        "Decreased, 3-hydroxyacyl-CoA dehydrogenase type-2 activity"
+      ],
+      [
+        "140",
+        "Decreased, HSD17B10 expression"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nis_inhibition_thyroidal_iodide",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "424",
+        "Inhibition, Na+/I- symporter (NIS)"
+      ],
+      [
+        "425",
+        "Decrease of Thyroidal iodide"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ldlr_upregulation_ldl_uptake",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "466",
+        "Up Regulation, LDLR (low density lipoprotein receptor)"
+      ],
+      [
+        "467",
+        "Increased, LDL uptake"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "microtubule_tubulin_binding_disruption",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "718",
+        "Binding, Tubulin"
+      ],
+      [
+        "720",
+        "Disruption, Microtubule dynamics"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "pdk_inhibition_pdh_induction",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "724",
+        "Inhibition, Pyruvate dehydrogenase kinase (PDK) enzyme"
+      ],
+      [
+        "726",
+        "Increased, Induction of pyruvate dehydrogenase (PDH)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "apob100_mttp_activation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "879",
+        "Activation, MTTP"
+      ],
+      [
+        "880",
+        "Increased, ApoB100"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_dna_damage_repair",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "570",
+        "Accumulation, Damaged mitochondrial DNA"
+      ],
+      [
+        "664",
+        "Overwhelmed, Mitochondrial DNA repair mechanisms"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hydrogen_peroxide_glucose_oxidase",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "578",
+        "Decreased, Glucose oxidase enzyme activity"
+      ],
+      [
+        "579",
+        "Decreased, Hydrogen peroxide production"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "meiotic_chromosome_aneuploid_offspring",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "723",
+        "Altered, Chromosome number"
+      ],
+      [
+        "728",
+        "Increase, Aneuploid offspring"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ne_receptor_binding_vs_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "848",
+        "Decreased, Binding of NE to NE receptors on GnRH neurons"
+      ],
+      [
+        "849",
+        "Inhibition, Antgonism of NE receptor"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "arnt_hif1alpha_dimerization_vs_hif1_heterodimer",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "799",
+        "Increased, HIF-1 heterodimer"
+      ],
+      [
+        "945",
+        "reduced dimerization, ARNT/HIF1-alpha"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "aromatase_mrna_decrease_vs_enzyme_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "800",
+        "Decreased, Aromatase (Cyp19a1) mRNA"
+      ],
+      [
+        "964",
+        "Inhibition of Aromatase Enzyme, Chemical exposure during critical window of estrous cycle between diestrus 2 and proestrus inhibits aromatase conversion of testosterone to estradiol"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lh_increase",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "791",
+        "Increased, Leutinizing hormone (LH)"
+      ],
+      [
+        "1050",
+        "Increased, secretion of LH from anterior pituitary"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sine_oculis_homeobox1_expression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2329",
+        "Sine oculis homeobox 1 gene expression, increased"
+      ],
+      [
+        "2330",
+        "Sine oculis homeobox 1 protein expression, increased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "transthyretin_binding",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "957",
+        "Binding, Transthyretin in serum"
+      ],
+      [
+        "958",
+        "Displacement, Serum thyroxine (T4) from transthyretin"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "goblet_cell_mucin",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "962",
+        "Increase, Mucin production"
+      ],
+      [
+        "2117",
+        "Increase, goblet cell number"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "pituitary_adenoma_vs_lactotroph_hyperplasia",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1081",
+        "Increased, lactotroph hyperplasia and hypertrophy"
+      ],
+      [
+        "1082",
+        "Increased, adenomas (pituitary)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nfat_calcineurin_pathway",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "979",
+        "Interference, nuclear localization of NFAT"
+      ],
+      [
+        "980",
+        "Inhibition, Calcineurin Activity"
+      ],
+      [
+        "981",
+        "Reduction, NFAT/AP-1 complex formation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "urod_inhibition_vs_uroporphyrinogen_oxidation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "844",
+        "Oxidation, Uroporphyrinogen"
+      ],
+      [
+        "845",
+        "Inhibition, UROD"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_complex_iii_binding_vs_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1542",
+        "Inhibition, Mitochondrial complex III"
+      ],
+      [
+        "1653",
+        "Binding of inhibitor to mitochondrial complex III"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_complex_iv_binding_vs_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1543",
+        "Mitochondrial Complex IV inhibition"
+      ],
+      [
+        "1654",
+        "Binding of inhibitor to mitochondrial complex IV"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_complex_v_binding_vs_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1544",
+        "Mitochondrial Complex V inhibition"
+      ],
+      [
+        "1655",
+        "Binding of inhibitor to mitochondrial complex V"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "microtubule_binding_vs_instability",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1580",
+        "Binding of microtubule stabilizing agents (MSA) to microtubules"
+      ],
+      [
+        "1581",
+        "Disturbance in microtubule dynamic instability"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "glutathione_synthesis_homeostasis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1287",
+        "Glutathione synthesis"
+      ],
+      [
+        "1290",
+        "Glutathione homeostasis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "histone_deacetylase_inhibition_vs_acetylation_increase",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1502",
+        "Histone deacetylase inhibition"
+      ],
+      [
+        "1503",
+        "Histone acetylation, increase"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_dna_polymerase_vs_mtdna_depletion",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1481",
+        "Inhibition of mitochondrial DNA polymerase gamma (Pol gamma)"
+      ],
+      [
+        "1482",
+        "Depletion, mtDNA"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "topoisomerase_binding_vs_dna_dsb",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1252",
+        "Binding to (interferes with) topoisomerase II enzyme"
+      ],
+      [
+        "1461",
+        "Increase, DNA double-strand breaks"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cardiac_contractility_ejection_fraction",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1532",
+        "Decrease, Cardiac contractility"
+      ],
+      [
+        "1533",
+        "Decrease, Cardiac ejection fraction"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "acute_phase_response",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1438",
+        "Transcription of genes encoding acute phase proteins, Increased"
+      ],
+      [
+        "1439",
+        "Systemic acute phase response"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mu_opioid_receptor_downstream",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1425",
+        "Mu Opioid Receptor Agonism"
+      ],
+      [
+        "1426",
+        "Release of G Proteins"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "serotonin_receptor_vs_antidepressant",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1431",
+        "Serotonin 1A Receptor Agonism"
+      ],
+      [
+        "1432",
+        "Anti-depressant Activity"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "trpa1_activation_calcium_influx",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1215",
+        "TRPA1 activation, TRPA1 Receptor"
+      ],
+      [
+        "1218",
+        "Opening of calcium channel, Calcium influx"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "calcium_troponin_contractility",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1531",
+        "Decrease, Calcium binding to Troponin C"
+      ],
+      [
+        "1532",
+        "Decrease, Cardiac contractility"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "at1r_binding_vs_increase",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1851",
+        "Binding of agonist, Angiotensin II receptor type 1 receptor (AT1R)"
+      ],
+      [
+        "1852",
+        "Increased Ang II type 1 receptor (AT1R)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ace2_binding_vs_sars_entry",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1738",
+        "SARS-CoV-2 cell entry"
+      ],
+      [
+        "1739",
+        "Binding to ACE2"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "retinaldehyde_dehydrogenase_inhibition_vs_ra_synthesis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1637",
+        "Retinaldehyde dehydrogenase inhibition"
+      ],
+      [
+        "1641",
+        "Decreased retinoic acid (RA) synthesis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "chitin_synthesis_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1522",
+        "Inhibition, Chitin synthase 1"
+      ],
+      [
+        "1523",
+        "Decrease, Cuticular chitin content"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sulfonylurea_receptor_calcium_channel",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1525",
+        "Increase, Sulfonylurea receptor binding"
+      ],
+      [
+        "1526",
+        "Increase, Opening of voltage-dependent calcium channel"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cyp17a1_inhibition_androgen_reduction",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1609",
+        "Inhibition, Cytochrome P450 enzyme (CYP17A1) activity"
+      ],
+      [
+        "1610",
+        "Reduction, dehydroepiandrosterone"
+      ],
+      [
+        "1611",
+        "Reduction, androstenedione"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "tyrosinase_inhibition_dopaquinone",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1627",
+        "Inhibition of tyrosinase"
+      ],
+      [
+        "1628",
+        "Reduction of L-Dopaquinone"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "oxidative_dna_damage_rons",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1632",
+        "Increase in reactive oxygen and nitrogen species (RONS)"
+      ],
+      [
+        "1634",
+        "Increase, Oxidative DNA damage"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_fatty_acid_oxidation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "860",
+        "Decreased, Mitochondrial Fatty Acid Beta Oxidation"
+      ],
+      [
+        "1834",
+        "Decrease, Acyl-CoA dehydrogenases"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "second_heart_field_pharyngeal_arch",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1682",
+        "Disruption, Progenitor cells of second heart field"
+      ],
+      [
+        "1683",
+        "Impairment, Fourth pharyngeal arch development"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "dysgeusia_gustatory",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1849",
+        "Impaired gustatory nerve"
+      ],
+      [
+        "1850",
+        "dysgeusia"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "thyroid_receptor_antagonism_t4_displacement",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1656",
+        "Antagonism, Thyroid Receptor"
+      ],
+      [
+        "1830",
+        "Displacement, Serum thyroxine (T4) from carrier protein"
+      ],
+      [
+        "1831",
+        "Binding, Thyroid binding globulin in serum"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "t4_carrier_binding",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1830",
+        "Displacement, Serum thyroxine (T4) from carrier protein"
+      ],
+      [
+        "1831",
+        "Binding, Thyroid binding globulin in serum"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nfkb_activation_inflammatory",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1172",
+        "Increased activation, Nuclear factor kappa B (NF-kB)"
+      ],
+      [
+        "1793",
+        "Activator protein 1 activation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "11beta_hsd_hydroxylase_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1796",
+        "11\u03b2-hydroxylase inhibition"
+      ],
+      [
+        "1799",
+        "Inhibition of 11\u03b2-HSD"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lung_surfactant_alveolar_collapse",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1672",
+        "Inhibition of lung surfactant function"
+      ],
+      [
+        "1673",
+        "Alveolar collapse"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "il4_suppression_th2",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1712",
+        "Increase of Th2 cells producing IL-4"
+      ],
+      [
+        "1718",
+        "Suppression of IL-4 production"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "extracellular_matrix_collagen_deposition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1501",
+        "Increase, Extracellular matrix deposition"
+      ],
+      [
+        "1606",
+        "Activation, Stellate cell"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sperm_count_spermatogenesis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1757",
+        "Reduce, Sperm count"
+      ],
+      [
+        "1758",
+        "Impaired, Spermatogenesis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "multi_organ_failure_ards",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1748",
+        "Increase, the risk of acute respiratory failure"
+      ],
+      [
+        "1843",
+        "Multi Organ Failure involving Acute Respiratory Distress Syndrome"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "aldh1a_activity_vs_atra_concentration",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1880",
+        "Decreased, ALDH1A (RALDH) enzyme activity"
+      ],
+      [
+        "2419",
+        "Decreased, Retinoic Acid Receptor Activation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ace2_expression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1938",
+        "ACE2 increased shedding"
+      ],
+      [
+        "1948",
+        "Increased ACE2 expression"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "gli_translocation_vs_target_gene",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2028",
+        "Decrease, GLI1/2 translocation to nucleus"
+      ],
+      [
+        "2040",
+        "Decrease, GLI1/2 target gene expression"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "smoothened_receptor_antagonism_vs_relocation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2027",
+        "Antagonism, Smoothened receptor"
+      ],
+      [
+        "2044",
+        "Decrease, Smoothend relocation and activation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mucociliary_airway_function",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1907",
+        "Airway Surface Liquid Height, Decreased"
+      ],
+      [
+        "1909",
+        "Mucociliary Clearance, Decreased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "interleukin6_nfkb_vs_production",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1921",
+        "Altered gene expression, NF-kB dependent Interleukin-6 pathway"
+      ],
+      [
+        "1933",
+        "Increased, Interleukin-6 production"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "succinate_dehydrogenase_vs_accumulation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2118",
+        "Succinate dehydrogenase, inhibited"
+      ],
+      [
+        "2243",
+        "Succinate Accumulation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "folate_transport_vs_uptake",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2025",
+        "Affected folate transporter"
+      ],
+      [
+        "2026",
+        "decreased folate uptake"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sodium_channel_vs_action_potential",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1977",
+        "Disruption of sodium channel gating kinetics"
+      ],
+      [
+        "1983",
+        "Disruption, action potential generation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "gli_shh_signaling",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2043",
+        "Decrease, Sonic Hedgehog second messenger production"
+      ],
+      [
+        "2044",
+        "Decrease, Smoothend relocation and activation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cytochrome_c_caspase_apoptosis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1812",
+        "Increase, Cytochrome c release"
+      ],
+      [
+        "2188",
+        "Activation, caspases"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "thromboinflammation_components",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1914",
+        "Platelet activation, Increased"
+      ],
+      [
+        "1915",
+        "Neutrophil activation, Increased"
+      ],
+      [
+        "1916",
+        "Thromboinflammation, Increased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hemocyanin_oxidation_vs_oxygen_binding",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2073",
+        "increase oxidation of the di-copper moiety of the hemocyanin active site"
+      ],
+      [
+        "2074",
+        "Decreased, oxygen binding capacity by hemocyanin"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "nrf2_antioxidant_vs_reactive_metabolites",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1917",
+        "Altered gene expression, NRF2 dependent antioxidant pathway"
+      ],
+      [
+        "1922",
+        "Increased, Reactive metabolites production"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "tau_oligomers_vs_hyperphosphorylation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1942",
+        "Accumulation, Cytosolic toxic Tau oligomers"
+      ],
+      [
+        "1943",
+        "Hyperphosphorylation of Tau"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ceramide_sphingolipid",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2023",
+        "Inhibition of Ceramide Synthase"
+      ],
+      [
+        "2024",
+        "Reduced complex sphingolipids"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "vitellogenin_mrna_er_activity",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "748",
+        "Increased, Estrogen receptor (ER) activity"
+      ],
+      [
+        "2046",
+        "Increase, Vitellogenin mRNA"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "gsh_depletion_vs_conjugation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "130",
+        "Depletion, GSH"
+      ],
+      [
+        "2131",
+        "Conjugation, GSH"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "influenza_binding_entry",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2158",
+        "Influenza A Virus (IAV) binds sialic acid glycan receptor"
+      ],
+      [
+        "2159",
+        "Influenza A virus (IAV) cell entry"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "influenza_production_budding",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2192",
+        "Influenza A Virus production increased"
+      ],
+      [
+        "2193",
+        "Influenza A Virus (IAV) budding"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "laminin_binding_vs_adhesion",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2109",
+        "Binding, extracellular matrix protein laminin"
+      ],
+      [
+        "2110",
+        "Disrupted binding, laminin-beta1-integrin receptors with laminin"
+      ],
+      [
+        "2111",
+        "Decreased, neural progenitor cell adhesion to laminin"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ppar_binding_vs_signaling_disruption",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2165",
+        "Activation of PPAR"
+      ],
+      [
+        "2224",
+        "Dysregulation of transcriptional expression within PPAR signaling network"
+      ],
+      [
+        "2226",
+        "Stressor binding PPAR isoforms"
+      ],
+      [
+        "2227",
+        "Disrupted PPAR isoform nuclear signaling"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ryanodine_receptor_activation_vs_hyperphosphorylation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2186",
+        "Ryanodine receptor activation"
+      ],
+      [
+        "2289",
+        "Hyperphosphorylation of ryanodine receptor (RyR2)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "bone_remodeling_vs_bone_loss",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2090",
+        "Increase, Bone Remodeling"
+      ],
+      [
+        "2091",
+        "Occurrence, Bone Loss"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "androgen_receptor_activation_expression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2134",
+        "Increase, Androgen receptor protein expression/abundance"
+      ],
+      [
+        "2274",
+        "Androgen receptor activation, increased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lmna_mutation_structural_changes",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2278",
+        "Increased LMNA Mutation"
+      ],
+      [
+        "2279",
+        "Structural changes in lamin A/C"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "dna_methylation_gene_expression_fam50b",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2309",
+        "Decreased DNA methylation of FAM50B/PTCHD3"
+      ],
+      [
+        "2310",
+        "Elevated gene expression of FAM50B/PTCHD3"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_ros_redox_cycling",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2362",
+        "Redox cycling of a chemical by mitochondria"
+      ],
+      [
+        "2363",
+        "Elevated mitochondrial ROS and dysfunction"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mct8_oatp1c1_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "2258",
+        "Inhibition, monocarboxylate transporter 8 (MCT8)"
+      ],
+      [
+        "2376",
+        "Inhibition, organic anion-transporting polypeptide 1C1 (OATP1C1)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "aromatase_inhibition_general_vs_granulosa",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "36",
+        "Inhibition, Aromatase"
+      ],
+      [
+        "408",
+        "reduction in ovarian granulosa cells, Aromatase (Cyp19a1)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "estradiol_reduction_general_vs_granulosa",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "3",
+        "Reduction, 17beta-estradiol synthesis by ovarian granulosa cells"
+      ],
+      [
+        "219",
+        "Reduction, Plasma 17beta-estradiol concentrations"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_atp_production_decreased",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "40",
+        "Mitochondrial ATP production, decreased"
+      ],
+      [
+        "177",
+        "Increase, Mitochondrial dysfunction"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sustained_cell_proliferation_vs_general",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "57",
+        "Proliferation, Cell proliferation in the absence of cytotoxicity"
+      ],
+      [
+        "269",
+        "Induction, Sustained Cell Proliferation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hepatocellular_adenoma_carcinoma_vs_hcc",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "378",
+        "Tumorigenesis, Hepatocellular carcinoma"
+      ],
+      [
+        "719",
+        "Increase, hepatocellular adenomas and carcinomas"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "liver_tumor_formation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "347",
+        "Formation, Liver tumor"
+      ],
+      [
+        "856",
+        "Formation, Hepatocellular and Bile duct tumors"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "heritable_mutations_vs_somatic",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "185",
+        "Increase, Mutations"
+      ],
+      [
+        "336",
+        "Increase, Heritable mutations in offspring"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "testosterone_synthesis_reduction",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "274",
+        "Reduction, Testosterone synthesis by ovarian theca cells"
+      ],
+      [
+        "413",
+        "Reduction, Testosterone synthesis in Leydig cells"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "fatty_acid_accumulation_influx",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "115",
+        "Increase, Fatty acid influx"
+      ],
+      [
+        "327",
+        "Accumulation, Fatty acid"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hippocampal_alterations",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "756",
+        "Hippocampal gene expression, Altered"
+      ],
+      [
+        "757",
+        "Hippocampal anatomy, Altered"
+      ],
+      [
+        "758",
+        "Hippocampal Physiology, Altered"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "skin_sensitisation_keratinocyte_activation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "826",
+        "Activation, Keratinocytes"
+      ],
+      [
+        "827",
+        "sensitisation, skin"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ecdysis_triggering_hormone_vs_ccap",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "988",
+        "Decrease, Circulating ecdysis triggering hormone"
+      ],
+      [
+        "1266",
+        "Decrease, Circulating crustacean cardioactive peptide"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "vascular_insufficiency_angiogenesis",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "28",
+        "Reduction, Angiogenesis"
+      ],
+      [
+        "298",
+        "Insufficiency, Vascular"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "endothelial_network_impairment_vs_vascular",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "110",
+        "Impairment, Endothelial network"
+      ],
+      [
+        "298",
+        "Insufficiency, Vascular"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "t_cell_activation_dendritic_cell_activation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "272",
+        "Activation/Proliferation, T-cells"
+      ],
+      [
+        "398",
+        "Activation, Dendritic Cells"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "prostaglandins_ovary_pgf2alpha_ovary",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "672",
+        "Reduced, Prostaglandin F2alpha synthesis, ovary"
+      ],
+      [
+        "685",
+        "Reduced, Prostaglandins, ovary"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sperm_quantity_adult_testis_fertility",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "543",
+        "Decreased fertility in the adult, Decreased sperm quantity and/or quality in the adult testis"
+      ],
+      [
+        "646",
+        "Decreased Cholesterol, Decreased sperm quantity and/or quality in the adult testis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "meiotic_spindle_chromosome_dynamics",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "721",
+        "Disorganization, Meiotic Spindle"
+      ],
+      [
+        "752",
+        "Altered, Meiotic chromosome dynamics"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cytotoxicity_general_vs_renal",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "709",
+        "Increase, Cytotoxicity (renal tubular cell)"
+      ],
+      [
+        "768",
+        "Increase, Cytotoxicity"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cytotoxicity_club_cells_vs_general",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "768",
+        "Increase, Cytotoxicity"
+      ],
+      [
+        "770",
+        "Increase, Cytotoxicity (club cells)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "regenerative_cell_proliferation_renal_vs_bronchiolar",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "710",
+        "Increase, Regenerative cell proliferation (tubular epithelial cells)"
+      ],
+      [
+        "734",
+        "Increase, Regenerative cell proliferation (terminal bronchiolar epithelial cells)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "car_activation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "715",
+        "Activation, Constitutive androstane receptor"
+      ],
+      [
+        "1214",
+        "Altered gene expression specific to CAR activation, Hepatocytes"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "gnrh_hypothalamus",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "530",
+        "Decreased, GnRH pulsatility/release"
+      ],
+      [
+        "689",
+        "Reduced, Gonadotropin releasing hormone, hypothalamus"
+      ],
+      [
+        "969",
+        "Decreased GnRH Release, Decreased Kisspeptin stimulation of GnRH neurons"
+      ],
+      [
+        "1071",
+        "Decreased, GnRH pulsatility/release in hypothalamus"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "colony_weakened_death",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "563",
+        "Death/Failure, Colony"
+      ],
+      [
+        "1107",
+        "Weakened, Colony"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "chloride_conductance_increased",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "761",
+        "Increased, Chloride conductance"
+      ],
+      [
+        "762",
+        "Activation, ionotropic GABA Receptor chloride channel"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "regenerative_cell_proliferation_various_tissues",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "778",
+        "Increase, Regenerative cell proliferation (corneal cells)"
+      ],
+      [
+        "781",
+        "Increase, Regenerative cell proliferation (forestomach epithelial cells)"
+      ],
+      [
+        "787",
+        "Increase, Regenerative cell proliferation (hepatocytes)"
+      ],
+      [
+        "795",
+        "Increase, Regenerative cell proliferation (urothelial cells)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cell_proliferation_general_vs_mesothelium",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "870",
+        "Increase, Cell Proliferation"
+      ],
+      [
+        "1089",
+        "Increased, Cell Proliferation (mesothelium)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "pharyngeal_vs_somatic_muscle_paralysis",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1014",
+        "Induction, Somatic muscle paralysis"
+      ],
+      [
+        "1019",
+        "Induction, pharyngeal muscle paralysis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "collagen_deposition_vs_lung_fibrosis",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1275",
+        "Collagen Deposition"
+      ],
+      [
+        "1276",
+        "Lung fibrosis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "oxidative_phosphorylation_coupling",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1446",
+        "Decrease, Coupling of oxidative phosphorylation"
+      ],
+      [
+        "1545",
+        "Decreased, mitochondrial oxidative phosphorylation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "dna_double_strand_breaks_vs_strand_breaks",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1461",
+        "Increase, DNA double-strand breaks"
+      ],
+      [
+        "1635",
+        "Increase, DNA strand breaks"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "l_type_calcium_channel_blockade_vs_decreased_currents",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1529",
+        "Blockade, L-Type Calcium Channels"
+      ],
+      [
+        "1530",
+        "Decrease, Calcium currents"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "oocyte_apoptosis_vs_general_apoptosis",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1262",
+        "Apoptosis"
+      ],
+      [
+        "1775",
+        "Increase, Oocyte apoptosis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "epithelial_apoptosis_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1183",
+        "Decreased, Apoptosis (Epithelial Cells)"
+      ],
+      [
+        "1262",
+        "Apoptosis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "neuronal_neuropeptide_release_cgrp",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1222",
+        "SP (Substance P) release, Local increase of SP"
+      ],
+      [
+        "1433",
+        "Increased CGRP, neuronal release of CGRP"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "photosynthesis_decrease_general_vs_specific",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1474",
+        "Decrease, Light harvest capacity"
+      ],
+      [
+        "1475",
+        "Decrease, Photosynthesis"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "spawning_oocyte_maturation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1161",
+        "Increased, oocyte maturation"
+      ],
+      [
+        "1255",
+        "induced spawning"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "leaf_development_mitosis",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1478",
+        "Decrease, Leaf cell mitosis"
+      ],
+      [
+        "1479",
+        "Decrease, Leaf development"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "depression_neuroplasticity",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1330",
+        "Decreased, neuroplasticity"
+      ],
+      [
+        "1346",
+        "Increased, depression"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cell_proliferation_epithelial_vs_general",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1182",
+        "Increase, Cell Proliferation (Epithelial Cells)"
+      ],
+      [
+        "1394",
+        "Induction, persistent proliferation/sustained proliferation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ace2_downregulation_vs_dysregulation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1740",
+        "Induced dysregulation of ACE2"
+      ],
+      [
+        "1787",
+        "Downregulation, ACE2"
+      ],
+      [
+        "1854",
+        "Dysregulation, ACE2 expression and activity"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "caspase_transcription_increase",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1774",
+        "Increase, Caspase transcription"
+      ],
+      [
+        "1779",
+        "Increase, Caspase transcription (F3)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ovarian_somatic_cell_apoptosis",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1776",
+        "Increase, Ovarian somatic cell apoptosis"
+      ],
+      [
+        "1783",
+        "Increase, Ovarian somatic cell apoptosis (F3)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "ovarian_follicle_breakdown",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1777",
+        "Increase, Ovarian follicle breakdown"
+      ],
+      [
+        "1784",
+        "Increase, Ovarian follicle breakdown (F3)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "oogenesis_decrease_f3",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1780",
+        "Increase, Oocyte apoptosis (F3)"
+      ],
+      [
+        "1782",
+        "Decrease, Oogenesis (F3)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "tlr9_activation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1842",
+        "Prolonged TLR9 activation"
+      ],
+      [
+        "1900",
+        "increased platelet surface TLR9 expression"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "focal_seizure_status_epilepticus",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1623",
+        "Occurrence, Focal Seizure"
+      ],
+      [
+        "1788",
+        "Status epilepticus"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "intratesticular_testosterone_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1756",
+        "Decreased,  plasma 11-ketotestosterone level"
+      ],
+      [
+        "2298",
+        "Decrease, intratesticular testosterone levels"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "serum_vs_brain_thyroid_hormone",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "771",
+        "Decrease, Serum thyroid hormone (T4/T3)"
+      ],
+      [
+        "2093",
+        "Brain thyroid hormone (T4/T3) decreased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "action_potential_prolongation_scale",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1961",
+        "Prolongation of Action Potential Duration"
+      ],
+      [
+        "1962",
+        "Prolongation of QT interval"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "neuronal_dysfunction_disorder",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "191",
+        "Neuronal dysfunction"
+      ],
+      [
+        "2150",
+        "Neurological disorder"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cns_cell_death_vs_programmed_death",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1864",
+        "Increase, Programmed cell death"
+      ],
+      [
+        "2195",
+        "Increase, CNS Neural cell death"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "pulmonary_inflammation_vs_copd",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2008",
+        "Chronic obstructive pulmonary disease"
+      ],
+      [
+        "2010",
+        "Pulmonary inflammation"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "decreased_sox10_mbp_neural",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2197",
+        "Decrease, sox10"
+      ],
+      [
+        "2198",
+        "Decrease, mbp"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hearing_inner_ear",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1008",
+        "Reduced, Hearing"
+      ],
+      [
+        "1930",
+        "altered, inner ear development"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "adipocyte_obesity_metabolic",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2127",
+        "Increased adipocyte size"
+      ],
+      [
+        "2128",
+        "Increased adipocyte numbers"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hypomyelination_white_matter",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2107",
+        "Hypomyelination"
+      ],
+      [
+        "2108",
+        "Altered, white brain matter"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "radial_glia_alignment_density",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2112",
+        "Disturbed, radial glia cell alignment and migration"
+      ],
+      [
+        "2113",
+        "Decreased, radial glia cell density"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "testosterone_reduction_fetal_adult",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "446",
+        "Reduction, fetal/adult testosterone"
+      ],
+      [
+        "2214",
+        "Decreased, Insulin-like peptide 3 (INSL3)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "spermatogenesis_testis_histology",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2206",
+        "Increased, histomorphological alteration of testis"
+      ],
+      [
+        "2355",
+        "Disrupted, Spermatogenesis and Sperm quality"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "blood_testis_barrier_ectoplasmic_specialization",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2080",
+        "Impaired, blood testis barrier"
+      ],
+      [
+        "2142",
+        "Depletion, Ectoplasmic specialization (ES)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "sodium_plasma_gills",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2236",
+        "Decreased, Sodium uptake in gills"
+      ],
+      [
+        "2237",
+        "Decreased, Plasma sodium concentrations"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "gluten_t_cell_activation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2260",
+        "Gluten-reactive CD4+ T cells, activation"
+      ],
+      [
+        "2275",
+        "Gluten reactive adaptive T-cells with antigen presenting cells, co-localization"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cuproptosis_copper",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2339",
+        "Intracellular copper, increased"
+      ],
+      [
+        "2343",
+        "Cuproptosis, increased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "lysolecithin_membrane_integration",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2263",
+        "Lysolecithin, increased"
+      ],
+      [
+        "2264",
+        "Lysolecithin cell membrane integration, increased"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "prostate_cancer_neoplasia",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2135",
+        "Prostate cancer"
+      ],
+      [
+        "2136",
+        "prostatic intraepithelial neoplasia"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "cardiac_fibrosis_remodeling_context",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1924",
+        "Increased\uff0cCardiac fibrosis"
+      ],
+      [
+        "2084",
+        "Increase, Cardiac remodelling"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hcn_channel_pacemaker",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2295",
+        "HCN Channel Inhibition"
+      ],
+      [
+        "2296",
+        "Reduced Pacemaker Activity in SA Node"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "heart_rate_slowed_pacemaker",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2291",
+        "Slowed Heart Rate"
+      ],
+      [
+        "2296",
+        "Reduced Pacemaker Activity in SA Node"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "steroidogenesis_dysregulation_granulosa",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2367",
+        "Steroidogenesis Dysregulation"
+      ],
+      [
+        "2369",
+        "Granulosa cell damage"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "estrogen_dominance_ratio",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2139",
+        "Reduction, the ratio of 17beta-estradiol/11-Keto Testosterone in plasma"
+      ],
+      [
+        "2303",
+        "Increased plasma estradiol to progesterone ratio (estrogen dominance/unopposed estrogen)"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "urethral_hypospadias",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2082",
+        "Hypospadias, increased"
+      ],
+      [
+        "2213",
+        "Impaired, urethral tube closure"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "hepatic_bile_acid_burden",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2425",
+        "Intrahepatic bile acid burden, increased"
+      ],
+      [
+        "2427",
+        "Bile acid composition in bile and intestine, altered"
+      ]
+    ],
+    "new_events": []
+  },
+  {
+    "group_name": "mitochondrial_dysfunction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "177",
+        "Increase, Mitochondrial dysfunction"
+      ],
+      [
+        "178",
+        "Mitochondrial electron transport chain, disrupted"
+      ]
+    ],
+    "new_events": [
+      [
+        "105",
+        "Inhibition, Mitochondrial Electron Transport Chain Complexes"
+      ],
+      [
+        "1547",
+        "Mitochondrial Injury"
+      ],
+      [
+        "1770",
+        "Decrease, Mitochondrial membrane potential"
+      ]
+    ]
+  },
+  {
+    "group_name": "liver_steatosis",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "345",
+        "N/A, Liver Steatosis"
+      ],
+      [
+        "459",
+        "Increase, Liver steatosis"
+      ]
+    ],
+    "new_events": [
+      [
+        "1489",
+        "Increase, Steatohepatitis"
+      ],
+      [
+        "1995",
+        "Abnormal lipid metabolism"
+      ]
+    ]
+  },
+  {
+    "group_name": "hepatocellular_carcinoma",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "334",
+        "Promotion, Hepatocelluar carcinoma"
+      ],
+      [
+        "378",
+        "Tumorigenesis, Hepatocellular carcinoma"
+      ]
+    ],
+    "new_events": [
+      [
+        "1395",
+        "Liver Cancer"
+      ]
+    ]
+  },
+  {
+    "group_name": "dna_alkylation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "97",
+        "Alkylation, DNA"
+      ],
+      [
+        "373",
+        "Formation, Pro-mutagenic DNA Adducts"
+      ]
+    ],
+    "new_events": [
+      [
+        "1879",
+        "Bulky DNA adducts, increase"
+      ]
+    ]
+  },
+  {
+    "group_name": "dna_mutations_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "185",
+        "Increase, Mutations"
+      ],
+      [
+        "376",
+        "Increased, Induced Mutations in Critical Genes"
+      ]
+    ],
+    "new_events": [
+      [
+        "876",
+        "Increase, Mutations in Critical Genes"
+      ]
+    ]
+  },
+  {
+    "group_name": "mortality_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "350",
+        "Increase, Mortality"
+      ],
+      [
+        "351",
+        "Increased Mortality"
+      ]
+    ],
+    "new_events": [
+      [
+        "1964",
+        "Sudden cardiac death"
+      ]
+    ]
+  },
+  {
+    "group_name": "oxidative_stress_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1115",
+        "Increase, Reactive oxygen species"
+      ],
+      [
+        "1238",
+        "Activation of oxidative stress pathway"
+      ],
+      [
+        "1392",
+        "Increase, Oxidative Stress"
+      ],
+      [
+        "2299",
+        "Altered, Redox Homeostasis"
+      ]
+    ],
+    "new_events": [
+      [
+        "1279",
+        "Increase, Oxidative Stress / Activation, PMK-1 P38 MAPK"
+      ]
+    ]
+  },
+  {
+    "group_name": "proinflammatory_mediators_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1493",
+        "Increased Pro-inflammatory mediators"
+      ],
+      [
+        "1496",
+        "Increased, secretion of proinflammatory mediators"
+      ],
+      [
+        "2097",
+        "Increase, Pro-Inflammatory Mediators"
+      ],
+      [
+        "2132",
+        "Increased pro-inflammatory cytokine expression"
+      ]
+    ],
+    "new_events": [
+      [
+        "1497",
+        "Increased, recruitment of inflammatory cells"
+      ],
+      [
+        "1579",
+        "Increase, proinflammatory mediators (TNFalpha)"
+      ],
+      [
+        "2009",
+        "Activation of inflammation pathway"
+      ]
+    ]
+  },
+  {
+    "group_name": "leydig_cell_hyperplasia_proliferation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "415",
+        "Hyperplasia, Leydig cell"
+      ],
+      [
+        "416",
+        "Increase proliferation, Leydig cell"
+      ]
+    ],
+    "new_events": [
+      [
+        "744",
+        "Increase, Hyperplasia (Leydig cells)"
+      ]
+    ]
+  },
+  {
+    "group_name": "fatty_acid_beta_oxidation_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "179",
+        "Decrease, Fatty acid beta-oxidation"
+      ],
+      [
+        "1528",
+        "Fatty Acid Beta Oxidation, Decreased"
+      ]
+    ],
+    "new_events": [
+      [
+        "1312",
+        "Increase, Fatty acid beta-oxidation"
+      ],
+      [
+        "2065",
+        "Inhibition, Fatty acid oxidation"
+      ],
+      [
+        "2347",
+        "Increase, Lipid degradation"
+      ]
+    ]
+  },
+  {
+    "group_name": "bile_cholestasis",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "214",
+        "Bile accumulation, Pathological condition"
+      ],
+      [
+        "357",
+        "Cholestasis, Pathology"
+      ]
+    ],
+    "new_events": [
+      [
+        "1058",
+        "Decreased, bile flow"
+      ],
+      [
+        "1059",
+        "Increased, cholestasis"
+      ]
+    ]
+  },
+  {
+    "group_name": "triglyceride_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "454",
+        "Increased, Triglyceride formation"
+      ],
+      [
+        "881",
+        "Increased, Triglyceride"
+      ]
+    ],
+    "new_events": [
+      [
+        "1772",
+        "Decrease, Triglyceride"
+      ]
+    ]
+  },
+  {
+    "group_name": "ovulation_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "488",
+        "Decrease, Ovulation"
+      ],
+      [
+        "532",
+        "Delayed, Ovulation"
+      ],
+      [
+        "971",
+        "Ovulation of oocytes Reduced, Delayed, or Blocked, Decrease or delay in LH surge required for ovulation"
+      ],
+      [
+        "1074",
+        "interruption, Ovulation"
+      ]
+    ],
+    "new_events": [
+      [
+        "1695",
+        "Impaired ovulation"
+      ]
+    ]
+  },
+  {
+    "group_name": "pgf2alpha_synthesis_ovary",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "672",
+        "Reduced, Prostaglandin F2alpha synthesis, ovary"
+      ],
+      [
+        "681",
+        "Decreased, Prostaglandin F2alpha synthesis, ovary"
+      ]
+    ],
+    "new_events": [
+      [
+        "671",
+        "Reduced, Prostaglandin F2alpha concentration, plasma"
+      ],
+      [
+        "1104",
+        "Decreased, Prostaglandin F2alpha concentration, plasma"
+      ]
+    ]
+  },
+  {
+    "group_name": "fetal_leydig_testosterone_dysgenesis",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "540",
+        "Decreased testosterone by the fetal Leydig cells, Dysgensis of fetal Leydig cells"
+      ],
+      [
+        "657",
+        "Decreased testosterone by the fetal Leydig cells, Dysgenesis of fetal Leydig cells"
+      ],
+      [
+        "660",
+        "decreased testosterone by fetal Leydig cells, Dysgenesis of fetal Leydig cells"
+      ]
+    ],
+    "new_events": [
+      [
+        "662",
+        "Decreased testosterone by the fetal Leydig cells, Hypermethylation in the fetal testis"
+      ]
+    ]
+  },
+  {
+    "group_name": "chromosome_number_altered",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "536",
+        "Altered, Chromosome number (polyploid) zygote"
+      ],
+      [
+        "723",
+        "Altered, Chromosome number"
+      ]
+    ],
+    "new_events": [
+      [
+        "696",
+        "Increased, Chromosome misseggregation"
+      ]
+    ]
+  },
+  {
+    "group_name": "mammary_gland_hyperplasia",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1078",
+        "Hyperplasia, Mammary gland"
+      ],
+      [
+        "1085",
+        "Increased, hyperplasia (mammary gland)"
+      ]
+    ],
+    "new_events": [
+      [
+        "1079",
+        "Increased, Adenomas/carcinomas (mammary)"
+      ]
+    ]
+  },
+  {
+    "group_name": "tgf_beta_pathway_activation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1271",
+        "Increase, Transforming growth factor-beta signaling"
+      ],
+      [
+        "1283",
+        "Activation, TGF-beta pathway"
+      ],
+      [
+        "1469",
+        "Activation, Transforming Growth Factor beta pathway"
+      ]
+    ],
+    "new_events": [
+      [
+        "1920",
+        "Altered gene expression, TGF-\u03b2 dependent fibrosis pathway"
+      ],
+      [
+        "2171",
+        "Activated BMP/TGF-beta pathway"
+      ]
+    ]
+  },
+  {
+    "group_name": "dna_strand_breaks_increase",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1194",
+        "Increase, DNA damage"
+      ],
+      [
+        "1635",
+        "Increase, DNA strand breaks"
+      ]
+    ],
+    "new_events": [
+      [
+        "1554",
+        "Increase Chromosomal Aberrations"
+      ],
+      [
+        "1636",
+        "Increase, Chromosomal aberrations"
+      ],
+      [
+        "1669",
+        "Increased, DNA damage and mutation"
+      ]
+    ]
+  },
+  {
+    "group_name": "calcium_channel_opening_influx",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1218",
+        "Opening of calcium channel, Calcium influx"
+      ],
+      [
+        "2064",
+        "Increase, Cytosolic calcium"
+      ]
+    ],
+    "new_events": [
+      [
+        "1339",
+        "Increase, intracellular calcium"
+      ],
+      [
+        "2187",
+        "Opening, voltage-gated calcium channels"
+      ]
+    ]
+  },
+  {
+    "group_name": "apoptosis_general",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1262",
+        "Apoptosis"
+      ],
+      [
+        "1365",
+        "Increase, Apoptosis"
+      ],
+      [
+        "1513",
+        "General Apoptosis"
+      ],
+      [
+        "1817",
+        "Apoptotic cell death"
+      ]
+    ],
+    "new_events": [
+      [
+        "1825",
+        "Increase, Cell death"
+      ]
+    ]
+  },
+  {
+    "group_name": "growth_reduction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1467",
+        "Growth, reduction"
+      ],
+      [
+        "1521",
+        "Decrease, Growth"
+      ]
+    ],
+    "new_events": [
+      [
+        "2327",
+        "Decrease, Cell growth"
+      ]
+    ]
+  },
+  {
+    "group_name": "hepatotoxicity_liver_injury",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1393",
+        "Hepatocytotoxicity"
+      ],
+      [
+        "1549",
+        "Liver Injury"
+      ]
+    ],
+    "new_events": [
+      [
+        "1291",
+        "Hepatotoxicity"
+      ],
+      [
+        "1809",
+        "Increase, Tissue/organ damage"
+      ]
+    ]
+  },
+  {
+    "group_name": "cortisol_11beta_decrease",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1835",
+        "Cortisol and 11\u03b2-(OH) testosterone decreased"
+      ],
+      [
+        "1836",
+        "Decreased plasma Cortisol level"
+      ]
+    ],
+    "new_events": [
+      [
+        "2371",
+        "Increased cortisol"
+      ]
+    ]
+  },
+  {
+    "group_name": "population_level_decline",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "442",
+        "Decreased, Population trajectory"
+      ],
+      [
+        "997",
+        "Decreased, Population size"
+      ]
+    ],
+    "new_events": [
+      [
+        "360",
+        "Decrease, Population growth rate"
+      ],
+      [
+        "679",
+        "Decline, Population trajectory"
+      ]
+    ]
+  },
+  {
+    "group_name": "oligodendrocyte_differentiation_maturation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2106",
+        "Impaired, oligodendrocyte maturation"
+      ],
+      [
+        "2116",
+        "Decreased, oligodendrocyte differentiation"
+      ]
+    ],
+    "new_events": [
+      [
+        "2105",
+        "Decreased, myelin basic protein expression in oligodendrocytes"
+      ],
+      [
+        "2265",
+        "Oligodendrocyte death, increased"
+      ]
+    ]
+  },
+  {
+    "group_name": "vascular_endothelial_dysfunction",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1928",
+        "increased\uff0cVascular endothelial dysfunction"
+      ],
+      [
+        "2161",
+        "Increase, Vascular disrupting effects"
+      ]
+    ],
+    "new_events": [
+      [
+        "1913",
+        "Endothelial cell dysfunction"
+      ]
+    ]
+  },
+  {
+    "group_name": "innate_immune_activation_general",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "1998",
+        "Activation, Microglia"
+      ],
+      [
+        "2255",
+        "Innate immune response, activation"
+      ]
+    ],
+    "new_events": [
+      [
+        "134",
+        "Increase, Kupffer cell activation"
+      ]
+    ]
+  },
+  {
+    "group_name": "sex_ratio_ovary_differentiation",
+    "group_type": "merge",
+    "pass2_events": [
+      [
+        "2417",
+        "Increased, differentiation to ovaries"
+      ],
+      [
+        "2418",
+        "Increased, phenotypic female-biased sex ratio"
+      ]
+    ],
+    "new_events": [
+      [
+        "2049",
+        "Increase, sex ratio (F/M)"
+      ]
+    ]
+  },
+  {
+    "group_name": "gonadotropin_reduction_lh_increase",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "129",
+        "Reduction, Gonadotropins, circulating concentrations"
+      ],
+      [
+        "414",
+        "Increase, Luteinizing hormone (LH)"
+      ]
+    ],
+    "new_events": [
+      [
+        "1986",
+        "Decreased, Gonadotropins"
+      ]
+    ]
+  },
+  {
+    "group_name": "locomotion_increase_decrease",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "622",
+        "Increased, locomotion"
+      ],
+      [
+        "635",
+        "Decreased, locomotion"
+      ]
+    ],
+    "new_events": [
+      [
+        "1389",
+        "Locomotor activity, decreased"
+      ]
+    ]
+  },
+  {
+    "group_name": "t3_tissues_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "1116",
+        "Decreased, Triiodothyronine (T3) in tissues"
+      ],
+      [
+        "1154",
+        "Increased, Triiodothyronine (T3) in tissues"
+      ]
+    ],
+    "new_events": [
+      [
+        "1003",
+        "Decreased, Triiodothyronine (T3)"
+      ]
+    ]
+  },
+  {
+    "group_name": "glycolysis_soda",
+    "group_type": "soda",
+    "pass2_events": [
+      [
+        "1476",
+        "Decrease, Glycolysis"
+      ],
+      [
+        "2070",
+        "Increase, Glycolysis"
+      ]
+    ],
+    "new_events": [
+      [
+        "2350",
+        "Decreased, Glycolysis"
+      ]
+    ]
+  },
+  {
+    "group_name": "complex_i_binding_vs_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "887",
+        "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)"
+      ],
+      [
+        "888",
+        "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)"
+      ]
+    ],
+    "new_events": [
+      [
+        "1541",
+        "Mitochondrial Complex I inhibition"
+      ],
+      [
+        "1840",
+        "Inhibition, cytochrome oxidase"
+      ]
+    ]
+  },
+  {
+    "group_name": "ppar_alpha_binding_vs_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "858",
+        "Decreased, PPARalpha transactivation of gene expression"
+      ],
+      [
+        "998",
+        "Binding of antagonist, PPAR alpha"
+      ]
+    ],
+    "new_events": [
+      [
+        "1000",
+        "stabilization, PPAR alpha co-repressor"
+      ]
+    ]
+  },
+  {
+    "group_name": "ppar_alpha_activation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "227",
+        "Activation, PPAR\u03b1"
+      ],
+      [
+        "858",
+        "Decreased, PPARalpha transactivation of gene expression"
+      ]
+    ],
+    "new_events": [
+      [
+        "1046",
+        "Suppression, Estrogen receptor (ER) activity"
+      ],
+      [
+        "1057",
+        "Increased, PPAR-alpha activation"
+      ]
+    ]
+  },
+  {
+    "group_name": "igabar_binding_vs_conductance_reduction",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "64",
+        "Reduction, Ionotropic GABA receptor chloride channel conductance"
+      ],
+      [
+        "667",
+        "Binding at picrotoxin site, iGABAR chloride channel"
+      ]
+    ],
+    "new_events": [
+      [
+        "1177",
+        "Decreased, Ionotropic GABA receptor chloride channel conductance"
+      ]
+    ]
+  },
+  {
+    "group_name": "star_protein_decrease_vs_cholesterol_transport",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "266",
+        "Decrease, Steroidogenic acute regulatory protein (STAR)"
+      ],
+      [
+        "447",
+        "Reduction, Cholesterol transport in mitochondria"
+      ]
+    ],
+    "new_events": [
+      [
+        "1972",
+        "Increased, Steroidogenic acute regulatory protein (StAR)"
+      ]
+    ]
+  },
+  {
+    "group_name": "ahr_activation_dimerization",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "18",
+        "Activation, AhR"
+      ],
+      [
+        "944",
+        "dimerization, AHR/ARNT"
+      ]
+    ],
+    "new_events": [
+      [
+        "17",
+        "Altered gene expression, AHR nuclear translocator (ARNT)-dependent pathway"
+      ]
+    ]
+  },
+  {
+    "group_name": "de_novo_fa_synthesis_fas",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "458",
+        "Increased, De Novo FA synthesis"
+      ],
+      [
+        "463",
+        "Up Regulation, FAS"
+      ]
+    ],
+    "new_events": [
+      [
+        "1306",
+        "Increase, De novo lipogenesis"
+      ]
+    ]
+  },
+  {
+    "group_name": "sodium_channel_inhibition_conductance",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "584",
+        "Inhibition, sodium channel"
+      ],
+      [
+        "585",
+        "Decreased, Sodium conductance 1"
+      ]
+    ],
+    "new_events": [
+      [
+        "1176",
+        "Decreased, sodium conductance 2"
+      ]
+    ]
+  },
+  {
+    "group_name": "sodium_channel_modulation_vs_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "584",
+        "Inhibition, sodium channel"
+      ],
+      [
+        "598",
+        "modulation, sodium channel"
+      ]
+    ],
+    "new_events": [
+      [
+        "1353",
+        "Binding to voltage-gated sodium channel"
+      ]
+    ]
+  },
+  {
+    "group_name": "ppar_alpha_inhibition_vs_srebp1c_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "468",
+        "Inhibition, PPAR alpha"
+      ],
+      [
+        "878",
+        "Inhibition, SREBP1c"
+      ]
+    ],
+    "new_events": [
+      [
+        "2336",
+        "Increase, SREBF1"
+      ]
+    ]
+  },
+  {
+    "group_name": "serotonin_transporter_serotonin_increase",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "619",
+        "Inhibition, 5-hydroxytryptamine transporter (5-HTT; SERT)"
+      ],
+      [
+        "626",
+        "Increased, serotonin (5-HT)"
+      ]
+    ],
+    "new_events": [
+      [
+        "1320",
+        "Increased, extracellular serotonin"
+      ]
+    ]
+  },
+  {
+    "group_name": "action_potential_cardiac_arrhythmia",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "698",
+        "Altered, Action Potential"
+      ],
+      [
+        "699",
+        "Increased, cardiac arrthymia"
+      ]
+    ],
+    "new_events": [
+      [
+        "1106",
+        "Occurrence, cardiac arrhythmia"
+      ],
+      [
+        "1963",
+        "Torsades de Pointes"
+      ]
+    ]
+  },
+  {
+    "group_name": "hif1_alpha_transcription_vs_heterodimer",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "799",
+        "Increased, HIF-1 heterodimer"
+      ],
+      [
+        "802",
+        "Increased, HIF-1 alpha transcription"
+      ]
+    ],
+    "new_events": [
+      [
+        "2162",
+        "Activation, HIF1\u03b1"
+      ]
+    ]
+  },
+  {
+    "group_name": "enos_related_events",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "927",
+        "KE1 : S-Glutathionylation, eNOS"
+      ],
+      [
+        "932",
+        "KE4 : Uncoupling, eNOS"
+      ],
+      [
+        "973",
+        "KE5 : Decrease, AKT/eNOS activity"
+      ]
+    ],
+    "new_events": [
+      [
+        "2166",
+        "Abnormal expression of NO"
+      ]
+    ]
+  },
+  {
+    "group_name": "tgf_beta_latent_vs_pathway",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1468",
+        "Activation, Latent Transforming Growth Factor Beta 1"
+      ],
+      [
+        "1469",
+        "Activation, Transforming Growth Factor beta pathway"
+      ]
+    ],
+    "new_events": [
+      [
+        "1795",
+        "Latent Transforming growth Factor beta expression"
+      ]
+    ]
+  },
+  {
+    "group_name": "fibroblast_differentiation_vs_activation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1197",
+        "Activation, Fibroblasts"
+      ],
+      [
+        "1456",
+        "Increase, Differentiation of fibroblasts"
+      ]
+    ],
+    "new_events": [
+      [
+        "1500",
+        "Increased, fibroblast proliferation and myofibroblast differentiation"
+      ],
+      [
+        "2012",
+        "Fibroblast proliferation and differentiation"
+      ]
+    ]
+  },
+  {
+    "group_name": "tlr_dysregulation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1706",
+        "Stimulation, TLR7/8"
+      ],
+      [
+        "1848",
+        "Toll Like Receptor (TLR) Dysregulation"
+      ]
+    ],
+    "new_events": [
+      [
+        "1792",
+        "Toll-like receptor 4 activation"
+      ],
+      [
+        "1897",
+        "increased MyD88 activation"
+      ]
+    ]
+  },
+  {
+    "group_name": "lipid_peroxidation_membrane",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1445",
+        "Increase, Lipid peroxidation"
+      ],
+      [
+        "1594",
+        "Oxidation of membrane lipids"
+      ]
+    ],
+    "new_events": [
+      [
+        "1511",
+        "Lipid Peroxidation"
+      ]
+    ]
+  },
+  {
+    "group_name": "wnt_signaling_beta_catenin",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1754",
+        "Increase, porcupine-induced Wnt secretion and Wnt signaling activation"
+      ],
+      [
+        "1755",
+        "beta-catenin activation"
+      ]
+    ],
+    "new_events": [
+      [
+        "2172",
+        "Activated Wnt/Frizzled pathway"
+      ]
+    ]
+  },
+  {
+    "group_name": "pancreatic_acinar_proliferation_tumor",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1724",
+        "Acinar cell proliferation"
+      ],
+      [
+        "1725",
+        "Pancreatic acinar cell tumors"
+      ]
+    ],
+    "new_events": [
+      [
+        "1062",
+        "Increased, Cellular proliferation / hyperplasia of acinar cells"
+      ],
+      [
+        "1063",
+        "Increased, Pancreatic acinar tumors"
+      ]
+    ]
+  },
+  {
+    "group_name": "misfolded_protein_er_stress",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1605",
+        "Accumulation of misfolded proteins"
+      ],
+      [
+        "1815",
+        "Increase, Endoplasmic reticulum stress"
+      ]
+    ],
+    "new_events": [
+      [
+        "1585",
+        "Proteasomal dysfunction"
+      ],
+      [
+        "2017",
+        "Endoplasmic reticulum stress"
+      ]
+    ]
+  },
+  {
+    "group_name": "photosystem_ii_d1_protein",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1861",
+        "Increase, D1 protein deactivation"
+      ],
+      [
+        "1862",
+        "Decrease, Photosystem II efficiency"
+      ]
+    ],
+    "new_events": [
+      [
+        "2307",
+        "Binding of plastoquinone B (QB) within D1 protein of Photosystem II"
+      ]
+    ]
+  },
+  {
+    "group_name": "coagulation_thrombosis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1845",
+        "Coagulation"
+      ],
+      [
+        "1846",
+        "Thrombosis and Disseminated Intravascular Coagulation"
+      ]
+    ],
+    "new_events": [
+      [
+        "1866",
+        "Fibrinolysis, decreased"
+      ]
+    ]
+  },
+  {
+    "group_name": "glucose_uptake_homeostasis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1951",
+        "Decrease, Glucose uptake"
+      ],
+      [
+        "1952",
+        "Abnormal, Glucose homeostasis"
+      ]
+    ],
+    "new_events": [
+      [
+        "2119",
+        "Increase, Insulin resistance"
+      ]
+    ]
+  },
+  {
+    "group_name": "pi3k_akt_mtorc1_pathway",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1299",
+        "Activation, AKT"
+      ],
+      [
+        "1300",
+        "Activation, mTORC1"
+      ],
+      [
+        "1310",
+        "Activation, PI3K"
+      ]
+    ],
+    "new_events": [
+      [
+        "2173",
+        "Activated AKT/ERK/PI3K pathway"
+      ],
+      [
+        "2311",
+        "Inhibition of PI3K-Akt pathway"
+      ]
+    ]
+  },
+  {
+    "group_name": "oocyte_maturation_ovulation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [
+      [
+        "1989",
+        "Impaired, Oocyte maturation and ovulation"
+      ],
+      [
+        "1990",
+        "Increased, Oocyte Atresia"
+      ]
+    ],
+    "new_events": [
+      [
+        "1837",
+        "decreased oocyte maturation"
+      ]
+    ]
+  },
+  {
+    "group_name": "thyroxine_t4_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "280",
+        "Thyroxine (T4) in neuronal tissue, Decreased"
+      ],
+      [
+        "281",
+        "Thyroxine (T4) in serum, Decreased"
+      ]
+    ],
+    "new_events": [
+      [
+        "2104",
+        "Decreased, thyroid hormone binding to thyroid hormone receptor"
+      ]
+    ]
+  },
+  {
+    "group_name": "cell_proliferation_general",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "57",
+        "Proliferation, Cell proliferation in the absence of cytotoxicity"
+      ],
+      [
+        "716",
+        "Increase, cell proliferation (hepatocytes)"
+      ]
+    ],
+    "new_events": [
+      [
+        "1555",
+        "Increase cell proliferation"
+      ]
+    ]
+  },
+  {
+    "group_name": "liver_fibrosis_vs_collagen",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "68",
+        "Increase, Collagen accumulation"
+      ],
+      [
+        "344",
+        "Increase, Liver fibrosis"
+      ]
+    ],
+    "new_events": [
+      [
+        "2407",
+        "Increase, Cirrhosis"
+      ]
+    ]
+  },
+  {
+    "group_name": "circulating_testosterone_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "413",
+        "Reduction, Testosterone synthesis in Leydig cells"
+      ],
+      [
+        "1690",
+        "Decrease, circulating testosterone levels"
+      ]
+    ],
+    "new_events": [
+      [
+        "690",
+        "Reduced, Luteinizing hormone (LH), plasma"
+      ]
+    ]
+  },
+  {
+    "group_name": "neurodegeneration_dopaminergic",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "352",
+        "N/A, Neurodegeneration"
+      ],
+      [
+        "890",
+        "Degeneration of dopaminergic neurons of the nigrostriatal pathway"
+      ]
+    ],
+    "new_events": [
+      [
+        "1514",
+        "Neurodegeneration"
+      ]
+    ]
+  },
+  {
+    "group_name": "decreased_ppar_subtypes",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "231",
+        "Decreased, PPAR-alpha activation"
+      ],
+      [
+        "232",
+        "Decreased, PPAR-beta activation"
+      ],
+      [
+        "233",
+        "Decreased, PPAR-gamma activation"
+      ]
+    ],
+    "new_events": [
+      [
+        "1270",
+        "Inactivation of PPAR\u03b3"
+      ]
+    ]
+  },
+  {
+    "group_name": "hyperplasia_renal_bronchiolar_follicular",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "735",
+        "Increase, Hyperplasia (terminal bronchiolar cells)"
+      ],
+      [
+        "740",
+        "Increase, Hyperplasia (follicular cells)"
+      ],
+      [
+        "767",
+        "Increase, Hyperplasia (renal tubular cells)"
+      ]
+    ],
+    "new_events": [
+      [
+        "739",
+        "Increase, Hypertrophy and proliferation (follicular cell)"
+      ]
+    ]
+  },
+  {
+    "group_name": "adenocarcinoma_renal_bronchial_follicular",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "713",
+        "Increase, Adenomas/carcinomas (renal tubular)"
+      ],
+      [
+        "736",
+        "Increase, Adenomas/carcinomas (bronchioloalveolar)"
+      ],
+      [
+        "741",
+        "Increase, Adenomas/carcinomas (follicular cell)"
+      ]
+    ],
+    "new_events": [
+      [
+        "733",
+        "Increase, Necrosis (terminal bronchiolar cells)"
+      ],
+      [
+        "1090",
+        "Increased, mesotheliomas"
+      ],
+      [
+        "1763",
+        "Urothelial Tumor"
+      ]
+    ]
+  },
+  {
+    "group_name": "androgen_receptor_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "743",
+        "Decreased, Testosterone binding to androgen receptor (hypothalamus)"
+      ],
+      [
+        "1614",
+        "Decrease, androgen receptor activation"
+      ]
+    ],
+    "new_events": [
+      [
+        "2393",
+        "Androgen receptor nuclear transcriptional activity in genital-tubercle tissues, reduced"
+      ]
+    ]
+  },
+  {
+    "group_name": "reduced_reproductive_success",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "527",
+        "Decreased, Decreased fecundity"
+      ],
+      [
+        "675",
+        "Reduced, Reproductive Success"
+      ]
+    ],
+    "new_events": [
+      [
+        "1863",
+        "Decrease, Reproduction"
+      ],
+      [
+        "1991",
+        "Impaired, Reproduction"
+      ],
+      [
+        "2147",
+        "Decreased, Viable Offspring"
+      ],
+      [
+        "2391",
+        "Reduced fertility / fecundity"
+      ]
+    ]
+  },
+  {
+    "group_name": "cytoplasmic_vacuolization_renal_tubule",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "818",
+        "Occurrence, Cytoplasmic vacuolization (Renal tubule)"
+      ],
+      [
+        "824",
+        "Occurrence, Cytoplasmic vacuolization (podocyte)"
+      ],
+      [
+        "833",
+        "Occurrence, Cytoplasmic vacuolization (hepatocyte)"
+      ],
+      [
+        "836",
+        "Occurrence, Cytoplasmic vacuolization (Bile duct cell)"
+      ],
+      [
+        "837",
+        "Occurrence, Cytoplasmic vacuolization (kupffer cell)"
+      ]
+    ],
+    "new_events": [
+      [
+        "708",
+        "Increased, Accumulation of alpha2u microglobulin (proximal tubular epithelium)"
+      ]
+    ]
+  },
+  {
+    "group_name": "cytotoxicity_various_cell_types",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "776",
+        "Increase, Cytotoxicity (corneal cells)"
+      ],
+      [
+        "780",
+        "Increase, Cytotoxicity (epithelial cells)"
+      ],
+      [
+        "783",
+        "Increase, Cytotoxicity (tubular epithelial cells)"
+      ],
+      [
+        "786",
+        "Increase, Cytotoxicity (hepatocytes)"
+      ],
+      [
+        "794",
+        "Increase, Cytotoxicity (urothelial cells)"
+      ]
+    ],
+    "new_events": [
+      [
+        "1086",
+        "persistent, cytotoxicity (pleura or peritoneum)"
+      ],
+      [
+        "1762",
+        "Urothelial cell injury/death"
+      ],
+      [
+        "2085",
+        "Pulmonary epithelial injury"
+      ]
+    ]
+  },
+  {
+    "group_name": "hyperplasia_various_tissues",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "782",
+        "Increase, Hyperplasia (forestomach epithelial cells)"
+      ],
+      [
+        "784",
+        "Increase, Hyperplasia (tubular epithelial cells)"
+      ],
+      [
+        "796",
+        "Increase, Hyperplasia (urothelial)"
+      ]
+    ],
+    "new_events": [
+      [
+        "869",
+        "Increase, Respiratory or Squamous Metaplasia"
+      ]
+    ]
+  },
+  {
+    "group_name": "inflammation_corneal_vs_general",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "777",
+        "Increase, Inflammation (corneal cells)"
+      ],
+      [
+        "1087",
+        "Increased, inflammation"
+      ]
+    ],
+    "new_events": [
+      [
+        "149",
+        "Increase, Inflammation"
+      ],
+      [
+        "188",
+        "Neuroinflammation"
+      ],
+      [
+        "2086",
+        "Airway inflammation"
+      ]
+    ]
+  },
+  {
+    "group_name": "deiodinase_inhibition",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1002",
+        "Inhibition, Deiodinase 2"
+      ],
+      [
+        "1009",
+        "Inhibition, Deiodinase 1"
+      ]
+    ],
+    "new_events": [
+      [
+        "1153",
+        "Inhibition, Deiodinase 3"
+      ]
+    ]
+  },
+  {
+    "group_name": "fibrosis_liver_vs_pulmonary",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "840",
+        "Formation, Liver fibrosis"
+      ],
+      [
+        "1458",
+        "Pulmonary fibrosis"
+      ]
+    ],
+    "new_events": [
+      [
+        "2316",
+        "Increased, pulmonary edema"
+      ],
+      [
+        "2404",
+        "Increase, kidney fibrosis"
+      ]
+    ]
+  },
+  {
+    "group_name": "fertility_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "330",
+        "Decrease, Fertility"
+      ],
+      [
+        "972",
+        "Decreased fertility, Reduced number of oocytes ovulated"
+      ]
+    ],
+    "new_events": [
+      [
+        "406",
+        "decreased, Fertility"
+      ]
+    ]
+  },
+  {
+    "group_name": "oogenesis_follicular_atresia",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1366",
+        "Decrease, Oogenesis"
+      ],
+      [
+        "1444",
+        "Increase, Follicular atresia"
+      ]
+    ],
+    "new_events": [
+      [
+        "2047",
+        "Delay, Ovarian maturation"
+      ]
+    ]
+  },
+  {
+    "group_name": "neural_crest_migration_collagen_production",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1557",
+        "Neural crest cell migration, reduced"
+      ],
+      [
+        "1558",
+        "Collagen production, reduced"
+      ]
+    ],
+    "new_events": [
+      [
+        "1681",
+        "Disruption, Neural crest cell migration"
+      ]
+    ]
+  },
+  {
+    "group_name": "fecundity_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "328",
+        "Decrease, Fecundity"
+      ],
+      [
+        "1781",
+        "Decrease, Fecundity (F3)"
+      ]
+    ],
+    "new_events": [
+      [
+        "1696",
+        "Decrease of egg production and cummulative fecundity"
+      ]
+    ]
+  },
+  {
+    "group_name": "inflammation_general",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "902",
+        "Inflammation, Liver"
+      ],
+      [
+        "1633",
+        "Increase in inflammation"
+      ]
+    ],
+    "new_events": [
+      [
+        "901",
+        "Infiltration, Inflammatory cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "cilia_function_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1908",
+        "Cilia Beat Frequency, Decreased"
+      ],
+      [
+        "1912",
+        "Motile Cilia Number/Length, Decreased"
+      ]
+    ],
+    "new_events": [
+      [
+        "621",
+        "Increase, cilia movement"
+      ]
+    ]
+  },
+  {
+    "group_name": "olfactory_neuron_vs_epithelium_degeneration",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "1871",
+        "olfactory sensory neurons, decrease"
+      ],
+      [
+        "1872",
+        "Olfactory epithelium degeneration"
+      ]
+    ],
+    "new_events": [
+      [
+        "1870",
+        "Sustentacular cells, decrease"
+      ],
+      [
+        "1873",
+        "impaired olfactory function (anosmia)"
+      ],
+      [
+        "2317",
+        "Loss of olfactory function"
+      ]
+    ]
+  },
+  {
+    "group_name": "cholesterol_synthesis_enzymes_srebp2",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2269",
+        "Increased, Sterol Regulatory Element Binding Protein 2 (SREBP2) protein expression"
+      ],
+      [
+        "2270",
+        "Increased, cholesterol synthesis enzymes"
+      ],
+      [
+        "2271",
+        "Increased, plasma low-density lipoprotein (LDL) cholesterol"
+      ]
+    ],
+    "new_events": [
+      [
+        "1284",
+        "Up Regulation, SREBF2"
+      ]
+    ]
+  },
+  {
+    "group_name": "b_lymphocyte_diminished_response",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [
+      [
+        "2394",
+        "Diminished survival of naive B lymphocytes"
+      ],
+      [
+        "2395",
+        "Diminished proliferation of activated B lymphocytes"
+      ],
+      [
+        "2396",
+        "Diminished differentiation of activated B lymphocytes"
+      ]
+    ],
+    "new_events": [
+      [
+        "2398",
+        "Reduced antibody production"
+      ]
+    ]
+  },
+  {
+    "group_name": "atrioventricular_block_bradycardia",
+    "group_type": "merge",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "444",
+        "Increased, Atrioventricular block and bradycardia"
+      ],
+      [
+        "593",
+        "Inhibition, Ether-a-go-go (ERG) voltage-gated potassium channel"
+      ]
+    ]
+  },
+  {
+    "group_name": "gonad_differentiation_sex_ratio_male",
+    "group_type": "merge",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1790",
+        "Increased, Differentiation to Testis"
+      ],
+      [
+        "1791",
+        "Increased, Male Biased Sex Ratio"
+      ]
+    ]
+  },
+  {
+    "group_name": "plxna2_fyna_inhibition",
+    "group_type": "merge",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1884",
+        "Inhibition of Fyna"
+      ],
+      [
+        "1885",
+        "Inhibition of Plxna2"
+      ]
+    ]
+  },
+  {
+    "group_name": "intestinal_gut_barrier_disruption",
+    "group_type": "merge",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1931",
+        "Intestinal barrier, disruption"
+      ],
+      [
+        "1954",
+        "Gut microbiota, alteration"
+      ]
+    ]
+  },
+  {
+    "group_name": "angiogenic_pathway_activation",
+    "group_type": "merge",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2169",
+        "Activation of Angiogenic cytokines"
+      ],
+      [
+        "2170",
+        "Activated ANG/Tie2 pathway"
+      ]
+    ]
+  },
+  {
+    "group_name": "dopamine_transporter_receptor_transcription",
+    "group_type": "merge",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2380",
+        "Increase, transcription of the dopamine transporter (SLC6A3) gene"
+      ],
+      [
+        "2381",
+        "Increase, transcription of the dopamine receptor (drd) gene."
+      ]
+    ]
+  },
+  {
+    "group_name": "neuronal_synaptic_inhibition_vs_excitation",
+    "group_type": "soda",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "669",
+        "Reduction, Neuronal synaptic inhibition"
+      ],
+      [
+        "682",
+        "Generation, Amplified excitatory postsynaptic potential (EPSP)"
+      ]
+    ]
+  },
+  {
+    "group_name": "glucuronyltransferase_thyroxine_clearance",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "295",
+        "Induction, Upregulation of glucuronyltransferase activity"
+      ],
+      [
+        "961",
+        "Increased, Clearance of thyroxine from serum"
+      ]
+    ]
+  },
+  {
+    "group_name": "thiol_selenoprotein_binding_oxidative_stress",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1487",
+        "Binding, Thiol/seleno-proteins involved in protection against oxidative stress"
+      ],
+      [
+        "1538",
+        "Decreased protection against oxidative stress"
+      ]
+    ]
+  },
+  {
+    "group_name": "neuronal_depolarization_neurotransmitter_release",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "599",
+        "prolonged, Depolarization of neuronal membrane"
+      ],
+      [
+        "600",
+        "Overactivation, Neuronotransmitter release"
+      ]
+    ]
+  },
+  {
+    "group_name": "muscle_contraction_overactivation_ataxia",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "601",
+        "Overactivation, muscle contraction"
+      ],
+      [
+        "602",
+        "Increased, Ataxia, paralysis, or hyperactivity"
+      ]
+    ]
+  },
+  {
+    "group_name": "histamine_receptor_h2_antagonism_vs_neuron_excitation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "633",
+        "Decrease, histaminergic neuron excitation"
+      ],
+      [
+        "638",
+        "Antagonism, Histamine Receptor (H2)"
+      ]
+    ]
+  },
+  {
+    "group_name": "maturation_inducing_steroid_oocyte",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "691",
+        "Reduced, Maturation inducing steroid, plasma"
+      ],
+      [
+        "692",
+        "Reduced, Maturation inducing steroid receptor signalling, oocyte"
+      ]
+    ]
+  },
+  {
+    "group_name": "hppd_inhibition_vs_tyrosine_increase",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "766",
+        "Inhibition, 4-hydroxyphenyl-pyruvate dioxygenase (HPPD) enzyme"
+      ],
+      [
+        "775",
+        "Increased, Plasma tyrosine"
+      ]
+    ]
+  },
+  {
+    "group_name": "hmgcoa_reductase_inhibition_vs_mevalonate_decrease",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "804",
+        "Inhibition, HMG-CoA reductase"
+      ],
+      [
+        "805",
+        "Decreased, mevalonate"
+      ]
+    ]
+  },
+  {
+    "group_name": "phospholipase_a_inhibition_lipid_bilayer",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "828",
+        "Inhibition, Phospholipase A"
+      ],
+      [
+        "829",
+        "Damage, Lipid bilayer"
+      ]
+    ]
+  },
+  {
+    "group_name": "cyp1a_induction_oxidative_metabolism",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "769",
+        "Increase, Oxidative metabolism"
+      ],
+      [
+        "850",
+        "Induction, CYP1A2/CYP1A5"
+      ]
+    ]
+  },
+  {
+    "group_name": "gtpch1_tetrahydrobiopterin_no_pathway",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "933",
+        "KE6 : Depletion, Nitric Oxide"
+      ],
+      [
+        "934",
+        "KE3 : Decrease, Tetrahydrobiopterin"
+      ],
+      [
+        "935",
+        "KE2 : Decrease, GTPCH-1"
+      ]
+    ]
+  },
+  {
+    "group_name": "vasodilation_vascular_resistance_hypertension",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "937",
+        "KE7 : Impaired, Vasodilation"
+      ],
+      [
+        "951",
+        "KE8 : Increase, Vascular Resistance"
+      ],
+      [
+        "952",
+        "Hypertension"
+      ]
+    ]
+  },
+  {
+    "group_name": "vegf_placental_vasculature_preeclampsia",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "948",
+        "reduced production, VEGF"
+      ],
+      [
+        "1891",
+        "abnormal, placental vasculature morphology"
+      ],
+      [
+        "1892",
+        "increase, placental insufficiency"
+      ],
+      [
+        "1893",
+        "increase, Preeclampsia"
+      ]
+    ]
+  },
+  {
+    "group_name": "free_t4_tissue_uptake",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "959",
+        "Increased, Free serum thyroxine (T4)"
+      ],
+      [
+        "960",
+        "Increased, Uptake of thyroxine into tissue"
+      ]
+    ]
+  },
+  {
+    "group_name": "kisspeptin_gnrh_hypothalamus",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "968",
+        "Decreased, release of kisspeptin from anteroventral periventricular nucleus (AVPV) neurons"
+      ],
+      [
+        "1047",
+        "Increased, secretion of GnRH from hypothalamus"
+      ]
+    ]
+  },
+  {
+    "group_name": "e2_hypothalamus_gnrh_fsh",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1049",
+        "Increased, secrection of FSH from anterior pituitary"
+      ],
+      [
+        "1056",
+        "Decrease, E2 blood concentrations at hypothalamus"
+      ]
+    ]
+  },
+  {
+    "group_name": "adipogenesis_mesenchymal_igf1_sarcomas",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1029",
+        "Increased, adipogenesis"
+      ],
+      [
+        "1032",
+        "Increased, secretion of local growth factors"
+      ],
+      [
+        "1033",
+        "Increased, proliferation of mesenchymal cells"
+      ],
+      [
+        "1034",
+        "Increased, IGF-1 (mouse)"
+      ]
+    ]
+  },
+  {
+    "group_name": "smooth_muscle_relaxation_proliferation_hypertrophy",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1040",
+        "relaxation, smooth muscle"
+      ],
+      [
+        "1042",
+        "Proliferation/Clonal Expansion, smooth muscle"
+      ],
+      [
+        "1043",
+        "Hypertrophy/hyperplasia, smooth muscle"
+      ]
+    ]
+  },
+  {
+    "group_name": "il2_il4_suppression_vs_t_cell_antibody",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "984",
+        "Impairment, T-cell dependent antibody response"
+      ],
+      [
+        "1202",
+        "Suppression, IL-2 and IL-4 production"
+      ]
+    ]
+  },
+  {
+    "group_name": "leukocyte_recruitment_endolysosomal_uptake",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1494",
+        "Leukocyte recruitment/activation"
+      ],
+      [
+        "1539",
+        "Endocytotic lysosomal uptake"
+      ]
+    ]
+  },
+  {
+    "group_name": "egfr_activation_cancer",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "885",
+        "Increase, Cancer"
+      ],
+      [
+        "941",
+        "Activation, EGFR"
+      ]
+    ]
+  },
+  {
+    "group_name": "vkor_vitamin_k_cycling",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1131",
+        "Failure in gamma-glutamyl carboxylation of  clotting factors II, VII, IX and X, Under carboxylation of clotting factors (e.g., des-gamma-carboxy prothrombin)"
+      ],
+      [
+        "1134",
+        "Irreversible inhibition of hepatic VKOR by binding of AR at tyrosine 139, Failure to cycle vitamin K epoxide to vitamin K to form vitamin K hydroquinone"
+      ]
+    ]
+  },
+  {
+    "group_name": "clotting_factor_depletion_hemostasis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1122",
+        "Under carboxylated clotting factors will not assemble on cell surfaces to form clot, Failure of secondary hemostasis"
+      ],
+      [
+        "1133",
+        "Hemostasis, Depletion from blood of fully functional carboxylated clotting factors"
+      ]
+    ]
+  },
+  {
+    "group_name": "osteoporosis_bone_deterioration",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1151",
+        "Osteoporosis and vascular calcification, Bone deterioration"
+      ],
+      [
+        "1169",
+        "Anticoagulant rodenticide interferes with carboxylation of Gla proteins in bone, Impairment of post-translational modification (carboxylation) of osteocalcin"
+      ]
+    ]
+  },
+  {
+    "group_name": "thyroid_hormone_transport_uptake_hepatic",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1157",
+        "Activation, Hepatic nuclear receptor(s)"
+      ],
+      [
+        "1158",
+        "Increased, Hepatic thyroid hormone uptake/transport"
+      ]
+    ]
+  },
+  {
+    "group_name": "trigeminal_nerve_activation_irritation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1220",
+        "Trigeminal nerve activation"
+      ],
+      [
+        "1434",
+        "Irritation of nasal mucosa inducing sneeze reflex"
+      ]
+    ]
+  },
+  {
+    "group_name": "hmgcr_cholesterol_activation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1288",
+        "Activation, 3-hydroxy-3-methylglutaryl-CoA reductase gene"
+      ],
+      [
+        "1289",
+        "Perturbation of cholesterol"
+      ]
+    ]
+  },
+  {
+    "group_name": "presynaptic_neuron_glutamate_release",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1349",
+        "Activated, presynaptic neuron 1"
+      ],
+      [
+        "1350",
+        "Increased, glutamate"
+      ]
+    ]
+  },
+  {
+    "group_name": "cyp7b_7alpha_hydroxypregnenolone",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1386",
+        "CYP7B activity, inhibition"
+      ],
+      [
+        "1387",
+        "7\u03b1-hydroxypregnenolone synthesis in the brain, decreased"
+      ]
+    ]
+  },
+  {
+    "group_name": "n_type_calcium_channel_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1429",
+        "Inhibition of N-type Ca ion channels"
+      ],
+      [
+        "1430",
+        "Inhibition of neurotransmitter vesicle release"
+      ]
+    ]
+  },
+  {
+    "group_name": "mu_opioid_downstream_analgesia",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1427",
+        "Opening of G protein gated inward rectifying K channels"
+      ],
+      [
+        "1428",
+        "Analgesia"
+      ]
+    ]
+  },
+  {
+    "group_name": "sarcomere_heart_failure",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1535",
+        "Heart failure"
+      ],
+      [
+        "1537",
+        "Disruption, Sarcomere assembly"
+      ]
+    ]
+  },
+  {
+    "group_name": "proximal_tubule_fanconi_syndrome",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1563",
+        "Decreased proximal tubular vectorial transport"
+      ],
+      [
+        "1564",
+        "Chemical induced Fanconi syndrome"
+      ]
+    ]
+  },
+  {
+    "group_name": "t_cell_il1r1_suppression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1700",
+        "Impaired IL-1R1 signaling in T cell"
+      ],
+      [
+        "1702",
+        "Suppression of  T cell activation"
+      ]
+    ]
+  },
+  {
+    "group_name": "caspase8_tissue_resident_kuppfer",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1575",
+        "Activation, Caspase 8 pathway"
+      ],
+      [
+        "1576",
+        "Activation, Tissue resident cells (Kuppfer cells)"
+      ]
+    ]
+  },
+  {
+    "group_name": "axonal_transport_neuropathy",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1582",
+        "Impaired axonial transport"
+      ],
+      [
+        "1583",
+        "Sensory axonal peripheral neuropathy"
+      ]
+    ]
+  },
+  {
+    "group_name": "na_k_atpase_depolarization",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1527",
+        "Increase, Cell membrane depolarization"
+      ],
+      [
+        "1562",
+        "Decreased Na/K ATPase activity"
+      ]
+    ]
+  },
+  {
+    "group_name": "alpha_diketone_protein_interaction",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1584",
+        "Interaction of \u03b1-diketones with arginine residues"
+      ],
+      [
+        "1595",
+        "Oxidation/denatuation of membrane proteins"
+      ]
+    ]
+  },
+  {
+    "group_name": "muscarinic_ach_receptor_increase",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1602",
+        "Increased Muscarinic Acetylcholine Receptors"
+      ],
+      [
+        "1603",
+        "Chronic kidney disease"
+      ]
+    ]
+  },
+  {
+    "group_name": "il23_th17_psoriasis_pathway",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1707",
+        "Increase, IL-23 from matured dendritic cells"
+      ],
+      [
+        "1708",
+        "Th17 cell migration and inflammation induction"
+      ],
+      [
+        "1709",
+        "Psoriatic skin disease"
+      ]
+    ]
+  },
+  {
+    "group_name": "sle_autoimmune_pathway",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1713",
+        "Increase of anti-DNA antibody from autoreactive B cell"
+      ],
+      [
+        "1714",
+        "Exacerbation of systemic lupus erythematosus (SLE)"
+      ]
+    ]
+  },
+  {
+    "group_name": "jak3_inhibition_t_cell_antibody",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1715",
+        "Inhibition of JAK3"
+      ],
+      [
+        "1719",
+        "Impairment of T-cell dependent antibody response"
+      ]
+    ]
+  },
+  {
+    "group_name": "trypsin_cck_pancreatic_pathway",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1720",
+        "Trypsin inhibition"
+      ],
+      [
+        "1721",
+        "Increased intestinal monitor peptide level"
+      ],
+      [
+        "1722",
+        "Increased blood CCK level"
+      ],
+      [
+        "1723",
+        "Increased exocrine secretion from pancreatic acinar cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "sars_cov2_interferon_antiviral",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1847",
+        "Increased SARS-CoV-2 production"
+      ],
+      [
+        "1901",
+        "Interferon-I antiviral response, antagonized by SARS-CoV-2"
+      ]
+    ]
+  },
+  {
+    "group_name": "osmoregulation_body_fluid",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1768",
+        "Increase, Abnormal osmoregulation"
+      ],
+      [
+        "1769",
+        "Increase, Body fluid overload"
+      ]
+    ]
+  },
+  {
+    "group_name": "nlrp3_damp_release",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1895",
+        "NLRP3 inflammasome activity, increased"
+      ],
+      [
+        "1898",
+        "Increase, Damage-associated molecular pattern release"
+      ]
+    ]
+  },
+  {
+    "group_name": "ifn_signaling_immune_activation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1818",
+        "Immune cell activation"
+      ],
+      [
+        "1819",
+        "IFN\u03b3 signaling"
+      ]
+    ]
+  },
+  {
+    "group_name": "sodium_hypertension_taste",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1855",
+        "Increased Sodium-sensitive hypertension"
+      ],
+      [
+        "1856",
+        "Imbalanced salty and sweet taste responses"
+      ]
+    ]
+  },
+  {
+    "group_name": "cyp26b1_retinoic_acid_meiosis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1882",
+        "Disrupted, initiation of meiosis of oogonia in the ovary"
+      ],
+      [
+        "1887",
+        "Inhibition of CYP26B1 activity"
+      ],
+      [
+        "1889",
+        "Increased premature meiotic initiation in fetal male germ cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "parp1_aif_apoptosis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2030",
+        "Activation, PARP1"
+      ],
+      [
+        "2031",
+        "Releasing, Apoptosis-Inducing Factor (AIF)"
+      ]
+    ]
+  },
+  {
+    "group_name": "neuroblast_migration_periventricular_heterotopia",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2094",
+        "Abnormal, neuroblast migration"
+      ],
+      [
+        "2095",
+        "Periventricular heterotopia formation"
+      ]
+    ]
+  },
+  {
+    "group_name": "slincr_sox9_expression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2020",
+        "Decrease, sox9 expression"
+      ],
+      [
+        "2021",
+        "Increase, slincR expression"
+      ]
+    ]
+  },
+  {
+    "group_name": "metabotropic_glutamate_inositol_calpain",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2036",
+        "Activation of metabotropic glutamate receptor"
+      ],
+      [
+        "2037",
+        "Inositol triphosphate receptor activation"
+      ],
+      [
+        "2038",
+        "Activation of calpain signalling"
+      ]
+    ]
+  },
+  {
+    "group_name": "epigenetic_modification_gene_expression",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2152",
+        "Epigenetic modification process"
+      ],
+      [
+        "2153",
+        "Expression of factors ruling proliferation, modified"
+      ]
+    ]
+  },
+  {
+    "group_name": "dll4_notch_angiogenesis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2163",
+        "Activation Sema6A"
+      ],
+      [
+        "2164",
+        "Activation, Dll4-Notch pathway"
+      ]
+    ]
+  },
+  {
+    "group_name": "neuropathy_nte_inhibition",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2262",
+        "Neuropathy target esterase, inhibited"
+      ],
+      [
+        "2267",
+        "Delayed neuropathy, increased"
+      ]
+    ]
+  },
+  {
+    "group_name": "celiac_b_cell_activation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2252",
+        "Human leukocyte antigen DQ2/8-gluten complexes, formation"
+      ],
+      [
+        "2256",
+        "Gluten-reactive B cells and transglutaminase 2-reactive B cells, activation"
+      ]
+    ]
+  },
+  {
+    "group_name": "cardiac_contraction_coordination",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2239",
+        "Increased, Cardiac stress"
+      ],
+      [
+        "2281",
+        "Increased uncoordinated cardiac contraction"
+      ]
+    ]
+  },
+  {
+    "group_name": "camp_pde_signaling",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2284",
+        "Increased Intracellular cAMP Levels"
+      ],
+      [
+        "2288",
+        "Phosphodiesterase inhibition"
+      ]
+    ]
+  },
+  {
+    "group_name": "pcsk9_ldl_cholesterol",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2268",
+        "Decreased, insulin-induced gene 1 (INSIG1) protein activity"
+      ],
+      [
+        "2276",
+        "Increased, protein expression of proprotein convertase subtilisin/kexin type 9 (PCSK9)"
+      ]
+    ]
+  },
+  {
+    "group_name": "cell_cycle_gene_expression_proliferation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2202",
+        "Altered expression of cell cycle genes"
+      ],
+      [
+        "2203",
+        "Decreased proliferation of cortical neural progenitor cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "vascular_integrity_decrease",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2383",
+        "Increase, Hemopericardium"
+      ],
+      [
+        "2384",
+        "Decrease, Vascular integrity"
+      ]
+    ]
+  },
+  {
+    "group_name": "dlat_oligomerisation_lipoylation",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2340",
+        "Oligomerisation of dihydrolipoamide acetyltransferase (DLAT), increased"
+      ],
+      [
+        "2342",
+        "Iron-sulfur cluster assembly, impaired"
+      ]
+    ]
+  },
+  {
+    "group_name": "hepatic_glucocorticoid_lipolysis_lipotoxicity",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2405",
+        "Increase, Hepatocellular lipotoxicity"
+      ],
+      [
+        "2408",
+        "Increase, Adipose lipolysis"
+      ],
+      [
+        "2412",
+        "Increase, Hepatic intracellular active glucocorticoids"
+      ]
+    ]
+  },
+  {
+    "group_name": "preputial_separation_morphogenesis",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2400",
+        "Preputial epithelial morphogenesis, disrupted"
+      ],
+      [
+        "2401",
+        "Male preputial separation, failed/delayed"
+      ]
+    ]
+  },
+  {
+    "group_name": "altered_steroidogenesis_reproductive_hormones",
+    "group_type": "same_object_different_process",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2389",
+        "KE1: Altered steroidogenesis (gene/protein level)"
+      ],
+      [
+        "2390",
+        "KE5: Altered circulating reproductive hormones"
+      ]
+    ]
+  },
+  {
+    "group_name": "ecdysis_motor_program_abdominal_contraction",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "993",
+        "Decrease, Abdominal muscle contraction"
+      ],
+      [
+        "1267",
+        "Decrease, Ecdysis motor program activity"
+      ]
+    ]
+  },
+  {
+    "group_name": "ecdysone_receptor_nuclear_receptor_expression",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1264",
+        "Increase, Nuclear receptor E75b gene expression"
+      ],
+      [
+        "1265",
+        "Decrease, Fushi tarazu factor-1 gene expression"
+      ]
+    ]
+  },
+  {
+    "group_name": "ketogenesis_ketone_bodies",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "861",
+        "Decreased, Ketogenesis (production of ketone bodies)"
+      ],
+      [
+        "862",
+        "Not Increased, Circulating Ketone Bodies"
+      ]
+    ]
+  },
+  {
+    "group_name": "epileptic_seizure_depolarizing_shift",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "613",
+        "Occurrence, Epileptic seizure"
+      ],
+      [
+        "616",
+        "Occurrence, A paroxysmal depolarizing shift"
+      ]
+    ]
+  },
+  {
+    "group_name": "synaptic_function_impairment",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "383",
+        "Reduced, Presynaptic release of glutamate"
+      ],
+      [
+        "385",
+        "Decrease of synaptogenesis"
+      ]
+    ]
+  },
+  {
+    "group_name": "bdnf_dendritic_morphology",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "381",
+        "Reduced levels of BDNF"
+      ],
+      [
+        "382",
+        "Aberrant, Dendritic morphology"
+      ]
+    ]
+  },
+  {
+    "group_name": "immune_suppression_lymphocytes",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "168",
+        "Decreased, Lymphocytes"
+      ],
+      [
+        "403",
+        "Suppression, Immune system"
+      ]
+    ]
+  },
+  {
+    "group_name": "proteostasis_cell_injury",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "55",
+        "Increase, Cell injury/death"
+      ],
+      [
+        "889",
+        "Proteostasis, impaired"
+      ]
+    ]
+  },
+  {
+    "group_name": "body_weight_decrease_catabolism",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "863",
+        "Increased, Catabolism of Muscle Protein"
+      ],
+      [
+        "864",
+        "Decreased, Body Weight"
+      ]
+    ]
+  },
+  {
+    "group_name": "cardiovascular_development_function_altered",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "317",
+        "Altered, Cardiovascular development/function"
+      ],
+      [
+        "1703",
+        "Dysregulation of heart rate and vascular tone"
+      ]
+    ]
+  },
+  {
+    "group_name": "bee_colony_foraging_behavior",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "560",
+        "Abnormal, Foraging activity and behavior"
+      ],
+      [
+        "561",
+        "Reduced, Food storage"
+      ],
+      [
+        "565",
+        "Reduced, Brood care"
+      ],
+      [
+        "580",
+        "Reduced, Antiseptic incorporated in food"
+      ]
+    ]
+  },
+  {
+    "group_name": "bee_colony_development_stress",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "566",
+        "impaired, Larval development"
+      ],
+      [
+        "577",
+        "impaired, Development"
+      ]
+    ]
+  },
+  {
+    "group_name": "bee_colony_worker_energetics",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "571",
+        "Accelerated, Aging"
+      ],
+      [
+        "572",
+        "Decrease, Number of worker bees"
+      ],
+      [
+        "573",
+        "Increase, Energetic demands and therefore metabolic stress"
+      ]
+    ]
+  },
+  {
+    "group_name": "bee_appetite_viral_susceptibility",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "574",
+        "Increased, Appetite and hunger"
+      ],
+      [
+        "576",
+        "Increased, Viral susceptibility"
+      ]
+    ]
+  },
+  {
+    "group_name": "swimming_feeding_behavior",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "586",
+        "Reduced, swimming speed"
+      ],
+      [
+        "587",
+        "Reduced, feeding 1"
+      ]
+    ]
+  },
+  {
+    "group_name": "mussel_foot_movement_behavior",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "624",
+        "Increased, foot detachment"
+      ],
+      [
+        "625",
+        "Increased, muscular waves in foot"
+      ],
+      [
+        "1139",
+        "Increased, water retention in foot"
+      ],
+      [
+        "1142",
+        "Increased, valve movement"
+      ]
+    ]
+  },
+  {
+    "group_name": "anxiety_sheltering_behavior",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "627",
+        "Decreased, anxiety"
+      ],
+      [
+        "629",
+        "Decreased, sheltering"
+      ]
+    ]
+  },
+  {
+    "group_name": "spawning_pheromone_behavior",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "673",
+        "Reduced, Spawning behavior"
+      ],
+      [
+        "674",
+        "Reduced, Ability to attract spawning mates"
+      ],
+      [
+        "678",
+        "Reduced, Pheromone release"
+      ]
+    ]
+  },
+  {
+    "group_name": "oocyte_meiosis_spindle_chromosome",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "694",
+        "Reduced, Meiotic prophase I/metaphase I transition, oocyte"
+      ],
+      [
+        "695",
+        "Upregulated, Spindle assembly checkpoint protein Mad2-oocyte"
+      ]
+    ]
+  },
+  {
+    "group_name": "urod_porphyrin_uroporphyria",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "369",
+        "Uroporphyria"
+      ],
+      [
+        "846",
+        "Accumulation, Highly carboxylated porphyrins"
+      ]
+    ]
+  },
+  {
+    "group_name": "renal_function_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "819",
+        "Decreased, Glomerular filtration"
+      ],
+      [
+        "820",
+        "Decreased, Renal plasma flow"
+      ],
+      [
+        "821",
+        "Decreased, Sodium reabsorption"
+      ],
+      [
+        "825",
+        "Decreased, Renal ability to dilute urine"
+      ]
+    ]
+  },
+  {
+    "group_name": "renal_toxicity_markers",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "813",
+        "Increased, Serum creatinine"
+      ],
+      [
+        "814",
+        "Occurrence, Kidney toxicity"
+      ],
+      [
+        "823",
+        "Occurrence, Cystic dilatation (renal tubule)"
+      ]
+    ]
+  },
+  {
+    "group_name": "hepatocyte_lipid_degeneration",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "835",
+        "Occurrence, Ballooning degeneration (hepatocyte)"
+      ],
+      [
+        "838",
+        "Induction, Microvesicular fat"
+      ]
+    ]
+  },
+  {
+    "group_name": "endometrial_hyperplasia_vs_adenocarcinoma",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "772",
+        "Increase, Hyperplasia (glandular epithelial cells of endometrium)"
+      ],
+      [
+        "773",
+        "Increase, Endometrial adenocarcinomas"
+      ]
+    ]
+  },
+  {
+    "group_name": "squamous_papilloma_carcinoma_vs_adenocarcinoma",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "779",
+        "Increase, Papillomas/carcinomas (squamous cells)"
+      ],
+      [
+        "797",
+        "Increase, Adenomas/carcinomas (urothelial)"
+      ]
+    ]
+  },
+  {
+    "group_name": "uric_acid_gout_tophi",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1096",
+        "Increased, blood uric acid concentration"
+      ],
+      [
+        "1102",
+        "Occurrence, tophi (urate) deposition"
+      ]
+    ]
+  },
+  {
+    "group_name": "swim_bladder_inflation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1004",
+        "Reduced, Posterior swim bladder inflation"
+      ],
+      [
+        "1007",
+        "Reduced, Anterior swim bladder inflation"
+      ]
+    ]
+  },
+  {
+    "group_name": "mesenchymal_tumor_types",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1035",
+        "Increased, Firbrosarcoma"
+      ],
+      [
+        "1036",
+        "Increased, liposarcoma"
+      ],
+      [
+        "1037",
+        "Increased, hemagiosarcoma"
+      ]
+    ]
+  },
+  {
+    "group_name": "ovarian_hyperplasia_tumor_promotion",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1051",
+        "Hyperplasia, ovarian stromal cells"
+      ],
+      [
+        "1052",
+        "Hyperplasia, ovarian epithelium"
+      ],
+      [
+        "1053",
+        "Promotion, ovarian adenomas"
+      ],
+      [
+        "1054",
+        "Promotion, ovarian granular cell tumors"
+      ]
+    ]
+  },
+  {
+    "group_name": "endometrial_pathology_progression",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1066",
+        "Promotion, Sine oculis homeobox 1 positive progenitor cells in endometrium"
+      ],
+      [
+        "1068",
+        "Endometrial squamous metaplasia, Increase"
+      ],
+      [
+        "1070",
+        "Increased, adenosquamous carcinomas of endometrium"
+      ]
+    ]
+  },
+  {
+    "group_name": "lung_inflammation_t2_fibroblast",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1498",
+        "Loss of alveolar capillary membrane integrity"
+      ],
+      [
+        "1499",
+        "Increased, activation of T (T) helper (h) type 2 cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "amphibian_metamorphosis_alteration",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1101",
+        "Altered, Amphibian metamorphosis"
+      ],
+      [
+        "1829",
+        "Altered, Thyroid hormone-dependent gene expression"
+      ]
+    ]
+  },
+  {
+    "group_name": "renal_ischemia_occurrence",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1105",
+        "Occurrence, renal ischemia"
+      ],
+      [
+        "1132",
+        "Blood loss and development of anemia, Impaired oxygen delivery and nutrient delivery to tissue, impaired carbon dioxide and waste product removal"
+      ]
+    ]
+  },
+  {
+    "group_name": "anticoagulant_rodenticide_mortality",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1130",
+        "Failure in vascular repair mechanisms, Unresolved blood loss (hemorrhage)"
+      ],
+      [
+        "1135",
+        "Reduced fitness or even mortality, Acidosis, hypovolemic shock and organ dysfunction"
+      ]
+    ]
+  },
+  {
+    "group_name": "trigeminal_vagal_airway_hyperresponsiveness",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1223",
+        "Trigeminal and/or vagal nerve excitation causes Airway Hyper-responsiveness,Cough, Dyspnea"
+      ],
+      [
+        "1226",
+        "Increased Respiratory irritability and Chronic Cough,"
+      ]
+    ]
+  },
+  {
+    "group_name": "deformed_wing_virus_bee_health",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1109",
+        "Increased, Deformed Wing Virus levels"
+      ],
+      [
+        "1110",
+        "Increased, Energetic demands and therefore metabolic stress"
+      ]
+    ]
+  },
+  {
+    "group_name": "increased_latency_period",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1075",
+        "prolonged, estrus cycle"
+      ],
+      [
+        "1080",
+        "Increased, latency period"
+      ]
+    ]
+  },
+  {
+    "group_name": "ductal_hyperplasia_breast_cancer",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1192",
+        "Increased, Ductal Hyperplasia"
+      ],
+      [
+        "1193",
+        "N/A, Breast Cancer"
+      ]
+    ]
+  },
+  {
+    "group_name": "cell_invasion_motility",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1196",
+        "Increased, Invasion"
+      ],
+      [
+        "1241",
+        "Increased, Motility"
+      ]
+    ]
+  },
+  {
+    "group_name": "mll_translocation_infant_leukaemia",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1253",
+        "MLL chromosomal translocation"
+      ],
+      [
+        "1254",
+        "Infant leukaemia"
+      ]
+    ]
+  },
+  {
+    "group_name": "doublesex1_male_reproductive_tract",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1206",
+        "Induction, Doublesex1 gene"
+      ],
+      [
+        "1209",
+        "Induction, Male reproductive tract"
+      ]
+    ]
+  },
+  {
+    "group_name": "jnk_activation_foxo",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1292",
+        "Activation, JNK"
+      ],
+      [
+        "1293",
+        "Activation, FOXO"
+      ]
+    ]
+  },
+  {
+    "group_name": "narcosis_cell_death",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1259",
+        "narcosis"
+      ],
+      [
+        "1263",
+        "Necrosis"
+      ]
+    ]
+  },
+  {
+    "group_name": "dopamine_sexual_locomotor_behavior",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1388",
+        "Dopamine release in the brain, decreased"
+      ],
+      [
+        "1390",
+        "Sexual behavior, decreased"
+      ]
+    ]
+  },
+  {
+    "group_name": "uncoupling_photophosphorylation_chlorophyll",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1471",
+        "Increase, Uncoupling of photophosphorylation"
+      ],
+      [
+        "1473",
+        "Decrease, Chlorophyll synthesis"
+      ]
+    ]
+  },
+  {
+    "group_name": "cell_differentiation_altered_neural_tube",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1560",
+        "Cell differentiation, altered"
+      ],
+      [
+        "1561",
+        "Neural tube defects"
+      ]
+    ]
+  },
+  {
+    "group_name": "airway_injury_fibroproliferative",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1586",
+        "Airway epithelial injury"
+      ],
+      [
+        "1587",
+        "Fibroproliferative airway lesions"
+      ]
+    ]
+  },
+  {
+    "group_name": "bronchiolitis_lung_cancer",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1588",
+        "Bronchiolitis obliterans"
+      ],
+      [
+        "1670",
+        "Lung cancer"
+      ]
+    ]
+  },
+  {
+    "group_name": "photoreceptor_visual_function",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1640",
+        "Altered, Photoreceptor patterning"
+      ],
+      [
+        "1643",
+        "Altered, Visual function"
+      ]
+    ]
+  },
+  {
+    "group_name": "frustrated_phagocytosis_inflammation",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1599",
+        "Inflamatory events in light-exposed tissues"
+      ],
+      [
+        "1668",
+        "Frustrated phagocytosis"
+      ]
+    ]
+  },
+  {
+    "group_name": "dna_methylation_decrease",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1773",
+        "Decrease, Global DNA methylation"
+      ],
+      [
+        "1778",
+        "Decrease, Heritable DNA methylation (F3)"
+      ]
+    ]
+  },
+  {
+    "group_name": "nets_platelet_neutrophil",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1857",
+        "Platelet-neutrophil interactions, Increased"
+      ],
+      [
+        "1899",
+        "formation of neutrophil extracellular traps (NETs)"
+      ]
+    ]
+  },
+  {
+    "group_name": "retinal_eye_structural_damage",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1877",
+        "Altered, retinal layer structure"
+      ],
+      [
+        "1878",
+        "Decreased, Eye size"
+      ]
+    ]
+  },
+  {
+    "group_name": "cuticle_digestion_molting",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "996",
+        "Decrease, Digestion of old cuticle"
+      ],
+      [
+        "1524",
+        "Increase, Premature molting"
+      ]
+    ]
+  },
+  {
+    "group_name": "blood_brain_barrier_cns_damage",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1841",
+        "Encephalitis"
+      ],
+      [
+        "1874",
+        "blood brain barrier disruption"
+      ]
+    ]
+  },
+  {
+    "group_name": "ovarian_reserve_fetal_germ_cell_loss",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1883",
+        "Decreased, size of the ovarian reserve"
+      ],
+      [
+        "1890",
+        "Decrease (loss of) fetal male germ cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "foxi1_six1b_eya1_expression",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1903",
+        "foxi1 expression, increased"
+      ],
+      [
+        "1904",
+        "six1b expression, increased"
+      ],
+      [
+        "1905",
+        "eya1 expression, inhibited"
+      ]
+    ]
+  },
+  {
+    "group_name": "cftr_foxj1_cilia_function",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1906",
+        "Cystic Fibrosis Transmembrane Regulator Function, Decreased"
+      ],
+      [
+        "1911",
+        "FOXJ1 Protein, Decreased"
+      ]
+    ]
+  },
+  {
+    "group_name": "synaptic_memory_dysfunction",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1941",
+        "Memory Loss"
+      ],
+      [
+        "1944",
+        "Synaptic dysfunction"
+      ]
+    ]
+  },
+  {
+    "group_name": "autophagy_mitochondrial_dysfunction",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1816",
+        "Mitochondrial dysfunction EMPTY"
+      ],
+      [
+        "1945",
+        "Dysfunctional Autophagy"
+      ]
+    ]
+  },
+  {
+    "group_name": "rasl11b_gbx2_expression_neural",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1886",
+        "Overexpression of rasl11b"
+      ],
+      [
+        "1902",
+        "Repression of Gbx2 expression"
+      ]
+    ]
+  },
+  {
+    "group_name": "acute_myeloid_leukemia_neoplasia",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1896",
+        "Genomic instability"
+      ],
+      [
+        "1955",
+        "Acute Myeloid Leukemia"
+      ]
+    ]
+  },
+  {
+    "group_name": "tumor_growth_metastasis",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1971",
+        "Increased, tumor growth"
+      ],
+      [
+        "1982",
+        "metastatic breast cancer"
+      ]
+    ]
+  },
+  {
+    "group_name": "neural_progenitor_microcephaly",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1978",
+        "Increase risk, microcephaly"
+      ],
+      [
+        "2200",
+        "decline, neural progenitor cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "androgen_progestin_maturation_steroid",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1987",
+        "Decreased, Androgen and Progestin"
+      ],
+      [
+        "1988",
+        "Decreased, Maturation Inducing Steroid Surge by Granulosa cells"
+      ]
+    ]
+  },
+  {
+    "group_name": "facial_clefting_outgrowth",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2041",
+        "Decrease, facial prominence outgrowth"
+      ],
+      [
+        "2042",
+        "Increase, Orofacial clefting"
+      ]
+    ]
+  },
+  {
+    "group_name": "nafld_liver_dysfunction",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2019",
+        "Non-alcoholic fatty liver disease"
+      ],
+      [
+        "2034",
+        "liver dysfunction"
+      ]
+    ]
+  },
+  {
+    "group_name": "body_volume_developmental_abnormalities",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2048",
+        "Increase, Body volume of female adults"
+      ],
+      [
+        "2050",
+        "Increase, developmental abnormalities"
+      ]
+    ]
+  },
+  {
+    "group_name": "emphysema_airway_remodeling_copd",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2011",
+        "Emphysema"
+      ],
+      [
+        "2013",
+        "Airway remodeling"
+      ]
+    ]
+  },
+  {
+    "group_name": "noncoding_rna_microrna_expression",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1980",
+        "Increased microRNA expression"
+      ],
+      [
+        "2007",
+        "Non-coding RNA expression profile alteration"
+      ]
+    ]
+  },
+  {
+    "group_name": "p53_activation_genotoxicity",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "1974",
+        "Activation of Tumor Protein 53"
+      ],
+      [
+        "2006",
+        "Secondary genotoxicity"
+      ]
+    ]
+  },
+  {
+    "group_name": "chitin_cuticle_organization",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2059",
+        "Decrease, knickkopf gene"
+      ],
+      [
+        "2060",
+        "Decrease, Chitin laminar organization"
+      ],
+      [
+        "2061",
+        "Decrease, Prevent chitin degradation by chitinases"
+      ],
+      [
+        "2062",
+        "Weak, Procuticle protection"
+      ],
+      [
+        "2063",
+        "Decrease, New cuticle secretion"
+      ]
+    ]
+  },
+  {
+    "group_name": "hemocyanin_oxygen_sensing",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2075",
+        "Cognitive, sensed as hypoxic/low oxygen environment"
+      ],
+      [
+        "2076",
+        "Increase, hemocyanin mRNA"
+      ],
+      [
+        "2077",
+        "Increase, pulmonate breathing"
+      ]
+    ]
+  },
+  {
+    "group_name": "vascular_remodeling_angiogenesis_dysfunction",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2069",
+        "Occurrence, Abnormal Vascular Remodeling"
+      ],
+      [
+        "2181",
+        "Angiogenesis dysfunction"
+      ]
+    ]
+  },
+  {
+    "group_name": "dendritic_spine_drebrin",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2078",
+        "Loss of drebrin"
+      ],
+      [
+        "2242",
+        "Abnormality, dendritic spine morphology"
+      ]
+    ]
+  },
+  {
+    "group_name": "neurotransmitter_release_disruption",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "637",
+        "impaired, Learning and memory"
+      ],
+      [
+        "2151",
+        "Disruption, neurotransmitter release"
+      ]
+    ]
+  },
+  {
+    "group_name": "glycolipid_modified_proteins",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2079",
+        "Increased, glycolipid levels"
+      ],
+      [
+        "2081",
+        "Increased Modified Proteins"
+      ]
+    ]
+  },
+  {
+    "group_name": "neural_remodeling_cortical_architecture",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2098",
+        "Increase, Abnormal Neural Remodeling"
+      ],
+      [
+        "2114",
+        "Disturbed, cortical architecture"
+      ]
+    ]
+  },
+  {
+    "group_name": "obesity_metabolic_syndrome",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2129",
+        "Metabolically unhealthy Obesity"
+      ],
+      [
+        "2145",
+        "Metabolic syndrome"
+      ]
+    ]
+  },
+  {
+    "group_name": "socioeconomic_cognitive_burden",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2121",
+        "decreased, Intellectual Quotient"
+      ],
+      [
+        "2122",
+        "increased, socio-economic burden"
+      ]
+    ]
+  },
+  {
+    "group_name": "vascular_barrier_blood_viscosity",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2178",
+        "Vascular barrier disruption"
+      ],
+      [
+        "2238",
+        "Increased, Blood viscosity"
+      ]
+    ]
+  },
+  {
+    "group_name": "locomotor_impairment",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2231",
+        "Locomotor function. Impaired"
+      ],
+      [
+        "2301",
+        "Abnormal, Behavior"
+      ]
+    ]
+  },
+  {
+    "group_name": "persistent_vaginal_cornification_estrogen",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2305",
+        "Premature ovarian Insufficiency"
+      ],
+      [
+        "2306",
+        "Persistent vaginal cornification"
+      ]
+    ]
+  },
+  {
+    "group_name": "glucolipid_metabolism_disruption",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2225",
+        "Disrupted Lipid Storage"
+      ],
+      [
+        "2300",
+        "Disruption, Glucolipid metabolism"
+      ]
+    ]
+  },
+  {
+    "group_name": "treg_th17_pd_l1_immune_evasion",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2323",
+        "Over-expression of PD-L1 in cancer cells"
+      ],
+      [
+        "2324",
+        "Increased of Treg/Th17 cell ratio"
+      ]
+    ]
+  },
+  {
+    "group_name": "hepatic_bile_acid_cyp7a1_bsep_fgf",
+    "group_type": "similar_event_different_biological_context",
+    "pass2_events": [],
+    "new_events": [
+      [
+        "2422",
+        "Ileal FGF15/FGF19 secretion, decreased"
+      ],
+      [
+        "2424",
+        "Hepatic CYP7A1, increased"
+      ],
+      [
+        "2426",
+        "Hepatic BSEP (ABCB11), decreased"
+      ]
+    ]
+  }
+]

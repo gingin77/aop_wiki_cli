@@ -1,0 +1,373 @@
+[
+  {
+    "group_key": "retinoic_acid_concentration_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1881",
+      "1880"
+    ],
+    "rationale": "Decreased ALDH1A enzyme activity directly results in decreased atRA concentration; however, these are different biological processes (enzyme activity vs. metabolite concentration) \u2014 but 1880 is the enzyme and 1881 is the product, making them different objects."
+  },
+  {
+    "group_key": "retinoic_acid_receptor_activation_increase",
+    "type": "merge",
+    "member_ids": [
+      "2420",
+      "1888"
+    ],
+    "rationale": "Increased ectopic atRA concentration and Increased Retinoic Acid Receptor Activation both describe the same directional outcome of elevated retinoic acid signaling, but these are different objects (ligand vs. receptor activation)."
+  },
+  {
+    "group_key": "retinoic_acid_concentration_soda",
+    "type": "soda",
+    "member_ids": [
+      "1881",
+      "1888"
+    ],
+    "rationale": "Both describe all-trans retinoic acid concentration but in strictly opposite directions \u2014 decreased vs. increased."
+  },
+  {
+    "group_key": "retinoic_acid_receptor_activation_soda",
+    "type": "soda",
+    "member_ids": [
+      "2419",
+      "2420"
+    ],
+    "rationale": "Both describe Retinoic Acid Receptor Activation but in strictly opposite directions \u2014 decreased vs. increased."
+  },
+  {
+    "group_key": "aldh1a_activity_vs_atra_concentration",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1880",
+      "2419"
+    ],
+    "rationale": "Decreased ALDH1A enzyme activity and Decreased RAR Activation share the retinoic acid signaling pathway but involve different biological objects (enzyme vs. receptor)."
+  },
+  {
+    "group_key": "serum_vs_brain_thyroid_hormone",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "771",
+      "2093"
+    ],
+    "rationale": "Both describe decreased thyroid hormone (T4/T3) levels but one specifies the brain compartment while the other refers to serum/systemic levels."
+  },
+  {
+    "group_key": "angiotensin_ii_accumulation",
+    "type": "merge",
+    "member_ids": [
+      "1741",
+      "1936"
+    ],
+    "rationale": "Induced Angiotensin II accumulation and Angiotensin II degradation reduced both describe the same outcome of elevated Angiotensin II, with reduced degradation being the mechanistic cause of accumulation \u2014 however these are different processes (accumulation vs. reduced degradation)."
+  },
+  {
+    "group_key": "ace2_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1948",
+      "1938"
+    ],
+    "rationale": "Both involve ACE2 but one describes increased expression while the other describes increased shedding \u2014 distinct processes acting on the same protein."
+  },
+  {
+    "group_key": "herg_blockade_vs_ikr_inhibition",
+    "type": "merge",
+    "member_ids": [
+      "2099",
+      "2100"
+    ],
+    "rationale": "hERG channel blockade and inhibition of rapid delayed rectifying potassium current (IKr) describe the same functional event since hERG encodes the IKr channel."
+  },
+  {
+    "group_key": "action_potential_prolongation",
+    "type": "merge",
+    "member_ids": [
+      "1961",
+      "1962"
+    ],
+    "rationale": "Prolongation of Action Potential Duration and Prolongation of QT interval describe essentially the same electrophysiological event at the cellular and ECG level respectively \u2014 however these differ in biological scale (cell vs. organ)."
+  },
+  {
+    "group_key": "action_potential_prolongation_scale",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1961",
+      "1962"
+    ],
+    "rationale": "Action potential duration prolongation (cellular) and QT interval prolongation (whole-heart/ECG) describe the same process at different biological scales."
+  },
+  {
+    "group_key": "gli_translocation_vs_target_gene",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2028",
+      "2040"
+    ],
+    "rationale": "Both involve GLI1/2 but one describes decreased nuclear translocation while the other describes decreased target gene expression \u2014 these are sequential but distinct processes."
+  },
+  {
+    "group_key": "smoothened_receptor_antagonism_vs_relocation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2027",
+      "2044"
+    ],
+    "rationale": "Both involve Smoothened receptor but one describes antagonism (inhibition of the receptor) while the other describes decreased relocation/activation \u2014 distinct processes on the same target."
+  },
+  {
+    "group_key": "cilia_function_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1908",
+      "1912"
+    ],
+    "rationale": "Both describe decreased cilia function/number but one specifies beat frequency while the other specifies motile cilia number/length \u2014 same general process with different measured parameters."
+  },
+  {
+    "group_key": "mucociliary_airway_function",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1909",
+      "1907"
+    ],
+    "rationale": "Decreased Mucociliary Clearance and Decreased Airway Surface Liquid Height both relate to airway function but describe distinct physical processes in the same biological compartment."
+  },
+  {
+    "group_key": "interleukin6_nfkb_vs_production",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1921",
+      "1933"
+    ],
+    "rationale": "Both relate to IL-6 but one describes altered NF-kB dependent gene expression pathway while the other describes increased IL-6 protein production \u2014 gene expression alteration and protein production are distinct processes."
+  },
+  {
+    "group_key": "pericyte_dysfunction",
+    "type": "merge",
+    "member_ids": [
+      "1946",
+      "1947"
+    ],
+    "rationale": "Impaired mechanotransduction of pericytes and Pericyte dysfunction describe the same cellular outcome in pericytes, with mechanotransduction impairment being a specific form of pericyte dysfunction."
+  },
+  {
+    "group_key": "glucose_uptake_homeostasis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1951",
+      "1952"
+    ],
+    "rationale": "Decreased glucose uptake and abnormal glucose homeostasis are related but distinct processes \u2014 decreased uptake is a cellular event while glucose homeostasis is a systemic physiological outcome."
+  },
+  {
+    "group_key": "cuticle_sclerotization_tanning",
+    "type": "merge",
+    "member_ids": [
+      "2053",
+      "2054"
+    ],
+    "rationale": "Defects in tanning of new cuticle and impairment of cuticle sclerotization describe the same biological process of cuticle hardening/tanning in insects."
+  },
+  {
+    "group_key": "succinate_dehydrogenase_vs_accumulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2118",
+      "2243"
+    ],
+    "rationale": "Succinate dehydrogenase inhibition and succinate accumulation involve the same metabolic node but represent enzyme inhibition and metabolite accumulation \u2014 distinct processes where inhibition is the cause and accumulation is the consequence."
+  },
+  {
+    "group_key": "neuronal_dysfunction_disorder",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "191",
+      "2150"
+    ],
+    "rationale": "Neuronal dysfunction and Neurological disorder describe related but distinct levels of biological organization \u2014 cellular dysfunction vs. organismal pathological outcome."
+  },
+  {
+    "group_key": "cns_cell_death_vs_programmed_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2195",
+      "1864"
+    ],
+    "rationale": "Increase in CNS neural cell death specifies a brain/CNS context while Increase, Programmed cell death is a general cellular process without tissue specificity."
+  },
+  {
+    "group_key": "olfactory_neuron_vs_epithelium_degeneration",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1871",
+      "1872"
+    ],
+    "rationale": "Decrease in olfactory sensory neurons and olfactory epithelium degeneration describe the same degenerative process with one specifying the cell type and the other the tissue level."
+  },
+  {
+    "group_key": "folate_transport_vs_uptake",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2025",
+      "2026"
+    ],
+    "rationale": "Affected folate transporter and decreased folate uptake involve the same substrate (folate) and pathway but describe transporter dysfunction vs. functional uptake reduction \u2014 distinct processes."
+  },
+  {
+    "group_key": "er_receptor_activation_increase",
+    "type": "merge",
+    "member_ids": [
+      "1065",
+      "748"
+    ],
+    "rationale": "Activation of estrogen receptor alpha and Increased Estrogen receptor (ER) activity both describe increased ER functional activation, with 1065 specifying the alpha subtype."
+  },
+  {
+    "group_key": "sodium_channel_vs_action_potential",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1977",
+      "1983"
+    ],
+    "rationale": "Disruption of sodium channel gating kinetics and disruption of action potential generation are related but distinct processes \u2014 altered channel kinetics is a molecular event while disrupted action potential is the downstream electrophysiological consequence."
+  },
+  {
+    "group_key": "pi3k_akt_mtorc1_pathway",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1310",
+      "1299",
+      "1300"
+    ],
+    "rationale": "Activation of PI3K, AKT, and mTORC1 are sequential kinases in the same signaling cascade but are distinct molecular entities and processes that should not be merged."
+  },
+  {
+    "group_key": "angiotensin_ii_accumulation_merge",
+    "type": "merge",
+    "member_ids": [
+      "1741",
+      "1936"
+    ],
+    "rationale": "Induced Angiotensin II accumulation and Angiotensin II degradation reduced both capture the same endpoint of elevated Ang II levels through the same mechanistic route."
+  },
+  {
+    "group_key": "pulmonary_inflammation_vs_copd",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2010",
+      "2008"
+    ],
+    "rationale": "Pulmonary inflammation is a tissue-level process while COPD is an organ/disease-level outcome, both in the lung but at different biological scales."
+  },
+  {
+    "group_key": "gli_shh_signaling",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2043",
+      "2044"
+    ],
+    "rationale": "Decreased Sonic Hedgehog second messenger production and Decreased Smoothened relocation and activation share the Hedgehog pathway but involve distinct molecular objects and processes."
+  },
+  {
+    "group_key": "cytochrome_c_caspase_apoptosis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1812",
+      "2188"
+    ],
+    "rationale": "Cytochrome c release and caspase activation are sequential steps in the same apoptotic pathway but are distinct molecular processes involving different proteins."
+  },
+  {
+    "group_key": "decreased_sox10_mbp_neural",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2197",
+      "2198"
+    ],
+    "rationale": "Decreased sox10 and decreased mbp both describe reductions in neural/myelin-related gene expression but involve different molecular targets in the same biological context."
+  },
+  {
+    "group_key": "thromboinflammation_components",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1914",
+      "1915",
+      "1916"
+    ],
+    "rationale": "Increased platelet activation, increased neutrophil activation, and increased thromboinflammation are related but distinct processes where the first two are cellular events contributing to the broader thromboinflammatory outcome."
+  },
+  {
+    "group_key": "hearing_inner_ear",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1930",
+      "1008"
+    ],
+    "rationale": "Altered inner ear development and Reduced Hearing describe the same biological system (auditory) but at developmental/structural vs. functional outcome levels."
+  },
+  {
+    "group_key": "oocyte_maturation_ovulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1989",
+      "1990"
+    ],
+    "rationale": "Impaired oocyte maturation/ovulation and increased oocyte atresia describe opposite fates of oocytes \u2014 failure to mature vs. programmed death \u2014 in the same biological system but are distinct processes."
+  },
+  {
+    "group_key": "hemocyanin_oxidation_vs_oxygen_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2073",
+      "2074"
+    ],
+    "rationale": "Oxidation of the di-copper moiety of hemocyanin and decreased oxygen binding capacity by hemocyanin involve the same protein but describe different processes \u2014 structural modification vs. functional impairment."
+  },
+  {
+    "group_key": "population_level_decline",
+    "type": "merge",
+    "member_ids": [
+      "997",
+      "442"
+    ],
+    "rationale": "Decreased population size and decreased population trajectory both describe negative population-level demographic outcomes, with trajectory being a dynamic measure of the same endpoint."
+  },
+  {
+    "group_key": "nrf2_antioxidant_vs_reactive_metabolites",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1917",
+      "1922"
+    ],
+    "rationale": "Altered NRF2-dependent antioxidant gene expression and increased reactive metabolite production are related oxidative stress events but involve distinct molecular processes and objects."
+  },
+  {
+    "group_key": "tau_oligomers_vs_hyperphosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1943",
+      "1942"
+    ],
+    "rationale": "Hyperphosphorylation of Tau and accumulation of cytosolic toxic Tau oligomers both involve the Tau protein but describe distinct processes \u2014 post-translational modification vs. aggregation."
+  },
+  {
+    "group_key": "ceramide_sphingolipid",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2023",
+      "2024"
+    ],
+    "rationale": "Inhibition of Ceramide Synthase and Reduced complex sphingolipids involve the same sphingolipid biosynthesis pathway but represent enzyme inhibition vs. downstream metabolite reduction \u2014 distinct processes."
+  },
+  {
+    "group_key": "vitellogenin_mrna_er_activity",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "748",
+      "2046"
+    ],
+    "rationale": "Increased ER activity and Increased Vitellogenin mRNA describe an upstream receptor activation and its downstream transcriptional target \u2014 related but distinct biological processes and objects."
+  }
+]

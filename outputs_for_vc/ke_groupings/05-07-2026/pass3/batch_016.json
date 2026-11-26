@@ -1,0 +1,26 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2407",
+      "group_key": "liver_fibrosis_vs_collagen",
+      "rationale": "Cirrhosis is an advanced stage of liver fibrosis (organ-level pathological outcome), closely related to liver fibrosis and collagen accumulation events already in this group."
+    },
+    {
+      "event_id": "1306",
+      "group_key": "de_novo_fa_synthesis_fas",
+      "rationale": "Increase in de novo lipogenesis is the same broad process as increased de novo fatty acid synthesis (ID 458), and both are distinct from FAS up-regulation (ID 463), fitting the same_object_different_process group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "hepatic_bile_acid_cyp7a1_bsep_fgf",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2422",
+        "2424",
+        "2426"
+      ],
+      "rationale": "All three describe changes in hepatic or ileal bile acid metabolism regulators (FGF15/19, CYP7A1, BSEP/ABCB11) that collectively govern bile acid synthesis and transport, but they involve distinct molecules and biological compartments (ileum vs. liver, synthesis vs. export)."
+    }
+  ]
+}

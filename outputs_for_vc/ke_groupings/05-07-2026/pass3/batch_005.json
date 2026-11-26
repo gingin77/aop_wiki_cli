@@ -1,0 +1,247 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1106",
+      "group_key": "action_potential_cardiac_arrhythmia",
+      "rationale": "Occurrence of cardiac arrhythmia is the same biological outcome described in ID 699 (increased cardiac arrhythmia), sharing the same endpoint with different wording."
+    },
+    {
+      "event_id": "1046",
+      "group_key": "ppar_alpha_activation",
+      "rationale": "Suppression of Estrogen receptor (ER) activity is not PPAR\u03b1 \u2014 withdrawing; however this belongs with estrogen receptor events: ID 1046 describes suppression/decreased ER activity which pairs with existing ER agonism/antagonism group directionally, but that group is soda for agonism vs antagonism. Instead, ID 1046 (suppression of ER activity) pairs with ID 1065/748 in er_receptor_activation_increase as a directional opposite \u2014 it describes decreased ER activity while that group describes increased ER activity, making this a soda relationship."
+    },
+    {
+      "event_id": "1057",
+      "group_key": "ppar_alpha_activation",
+      "rationale": "Increased PPAR-alpha activation describes the same functional outcome as ID 227 (Activation, PPARalpha), both describing increased PPAR\u03b1 functional activation."
+    },
+    {
+      "event_id": "1058",
+      "group_key": "bile_cholestasis",
+      "rationale": "Decreased bile flow describes the same pathophysiological process as bile accumulation/cholestasis captured in IDs 214 and 357."
+    },
+    {
+      "event_id": "1059",
+      "group_key": "bile_cholestasis",
+      "rationale": "Increased cholestasis directly describes the same condition as bile accumulation/cholestasis in the existing bile_cholestasis group."
+    },
+    {
+      "event_id": "1003",
+      "group_key": "t3_tissues_soda",
+      "rationale": "Decreased Triiodothyronine (T3) is directionally consistent with ID 1116 (decreased T3 in tissues) and opposite to ID 1154 (increased T3), fitting the soda group context; however it more precisely belongs as a merge with ID 1116 \u2014 assigning to t3_tissues_soda for curator review as it describes decreased T3."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "gtpch1_tetrahydrobiopterin_no_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "935",
+        "934",
+        "933"
+      ],
+      "rationale": "IDs 935 (Decrease GTPCH-1), 934 (Decrease Tetrahydrobiopterin), and 933 (Depletion Nitric Oxide) describe sequential steps in the same BH4/NO biosynthesis pathway but involve distinct molecules and processes \u2014 enzyme decrease, cofactor decrease, and end-product depletion respectively."
+    },
+    {
+      "group_key": "vasodilation_vascular_resistance_hypertension",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "937",
+        "951",
+        "952"
+      ],
+      "rationale": "Impaired vasodilation (937), increased vascular resistance (951), and hypertension (952) describe sequential steps in the same vascular pathophysiology pathway but are distinct biological processes at different levels of organization."
+    },
+    {
+      "group_key": "vegf_placental_vasculature_preeclampsia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "948",
+        "1891",
+        "1892",
+        "1893"
+      ],
+      "rationale": "Reduced VEGF production (948), abnormal placental vasculature morphology (1891), increased placental insufficiency (1892), and increased preeclampsia (1893) describe sequential steps in the same placental vascular pathology pathway but are distinct biological processes."
+    },
+    {
+      "group_key": "free_t4_tissue_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "959",
+        "960"
+      ],
+      "rationale": "Increased free serum thyroxine (T4) and increased uptake of thyroxine into tissue describe the same hormone at different compartments/processes \u2014 circulating level vs. cellular uptake \u2014 which are distinct biological events on the same molecule."
+    },
+    {
+      "group_key": "kisspeptin_gnrh_hypothalamus",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "968",
+        "1047"
+      ],
+      "rationale": "Decreased release of kisspeptin from AVPV neurons (968) and increased secretion of GnRH from hypothalamus (1047) describe sequential but distinct events in the hypothalamic reproductive axis involving different signaling molecules."
+    },
+    {
+      "group_key": "e2_hypothalamus_gnrh_fsh",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1056",
+        "1047",
+        "1049"
+      ],
+      "rationale": "Decreased E2 at hypothalamus (1056), increased GnRH secretion (1047), and increased FSH secretion (1049) describe sequential feedback-driven steps in the HPG axis involving distinct molecules and processes."
+    },
+    {
+      "group_key": "swim_bladder_inflation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1004",
+        "1007"
+      ],
+      "rationale": "Both describe reduced swim bladder inflation but one specifies the posterior chamber and the other the anterior chamber \u2014 same process in anatomically distinct compartments of the same organ."
+    },
+    {
+      "group_key": "swim_bladder_vs_swimming_performance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1004",
+        "1007",
+        "1005"
+      ],
+      "rationale": "Reduced posterior and anterior swim bladder inflation and reduced swimming performance describe the same organ system but swim bladder inflation is a structural/functional event while swimming performance is the organismal behavioral outcome."
+    },
+    {
+      "group_key": "adipogenesis_mesenchymal_igf1_sarcomas",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1029",
+        "1032",
+        "1033",
+        "1034"
+      ],
+      "rationale": "Increased adipogenesis, secretion of local growth factors, proliferation of mesenchymal cells, and increased IGF-1 describe sequential steps in the same mesenchymal/adipogenic pathway but are distinct biological processes."
+    },
+    {
+      "group_key": "mesenchymal_tumor_types",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1035",
+        "1036",
+        "1037"
+      ],
+      "rationale": "Increased fibrosarcoma, liposarcoma, and hemangiosarcoma all describe increased tumor formation but in different mesenchymal cell types/tissue contexts."
+    },
+    {
+      "group_key": "smooth_muscle_relaxation_proliferation_hypertrophy",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1040",
+        "1042",
+        "1043"
+      ],
+      "rationale": "Smooth muscle relaxation (1040), proliferation/clonal expansion (1042), and hypertrophy/hyperplasia (1043) all involve smooth muscle but describe distinct biological processes \u2014 functional relaxation, cellular proliferation, and cellular enlargement/expansion."
+    },
+    {
+      "group_key": "smooth_muscle_leiomyoma_promotion",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1043",
+        "1044"
+      ],
+      "rationale": "Smooth muscle hypertrophy/hyperplasia (1043) and promotion of mesovarian leiomyomas (1044) both involve smooth muscle but hyperplasia is a cellular process while leiomyoma promotion is the neoplastic outcome."
+    },
+    {
+      "group_key": "ovarian_hyperplasia_tumor_promotion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1051",
+        "1052",
+        "1053",
+        "1054"
+      ],
+      "rationale": "Ovarian stromal cell hyperplasia (1051), ovarian epithelial hyperplasia (1052), promotion of ovarian adenomas (1053), and ovarian granular cell tumors (1054) all describe ovarian pathology but in different cell types and at different stages of neoplastic progression."
+    },
+    {
+      "group_key": "il2_il4_suppression_vs_t_cell_antibody",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1202",
+        "984"
+      ],
+      "rationale": "Suppression of IL-2 and IL-4 production (1202) and impairment of T-cell dependent antibody response (984) are related immunological events but cytokine suppression and downstream antibody response impairment are distinct biological processes."
+    },
+    {
+      "group_key": "cholestasis_bile_flow_lipid_metabolism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1058",
+        "1059",
+        "1060"
+      ],
+      "rationale": "Decreased bile flow, increased cholestasis, and alteration of lipid metabolism describe related hepatobiliary processes but bile flow, cholestasis, and lipid metabolism are distinct biological events in the same organ system."
+    },
+    {
+      "group_key": "leukocyte_recruitment_endolysosomal_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1494",
+        "1539"
+      ],
+      "rationale": "Leukocyte recruitment/activation and endocytotic lysosomal uptake both describe immune cell processes but recruitment/activation and endocytosis/lysosomal handling are distinct biological mechanisms."
+    },
+    {
+      "group_key": "egfr_activation_cancer",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "941",
+        "885"
+      ],
+      "rationale": "EGFR activation (941) and increased cancer (885) are related in oncogenic signaling but receptor activation and cancer as an outcome are distinct biological events at very different scales."
+    },
+    {
+      "group_key": "lung_function_decrease_vs_respiratory_disease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1250",
+        "2087"
+      ],
+      "rationale": "Decreased lung function and increased incidence of respiratory disease both describe adverse pulmonary outcomes but one measures functional impairment and the other describes disease incidence at the population/clinical level."
+    },
+    {
+      "group_key": "er_activity_soda",
+      "type": "soda",
+      "member_ids": [
+        "1046",
+        "748"
+      ],
+      "rationale": "Suppression of ER activity (1046) and increased ER activity (748) describe the estrogen receptor in strictly opposite functional directions \u2014 suppression versus increase."
+    },
+    {
+      "group_key": "ppar_alpha_activation_increase_merge",
+      "type": "merge",
+      "member_ids": [
+        "1057",
+        "227"
+      ],
+      "rationale": "Increased PPAR-alpha activation (1057) and Activation of PPARalpha (227) both describe the same directional increase in PPAR\u03b1 functional activation using different wording."
+    },
+    {
+      "group_key": "gnrh_fsh_secretion_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1047",
+        "1049"
+      ],
+      "rationale": "Increased GnRH secretion from hypothalamus and increased FSH secretion from anterior pituitary describe increased secretion of different hormones in different anatomical compartments of the same HPG axis."
+    },
+    {
+      "group_key": "placental_insufficiency_preeclampsia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1892",
+        "1893"
+      ],
+      "rationale": "Increased placental insufficiency and increased preeclampsia describe the same pathological process at different levels \u2014 placental organ dysfunction vs. the systemic clinical syndrome it produces."
+    }
+  ]
+}
