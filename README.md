@@ -294,7 +294,16 @@ caches let interrupted runs resume without re-calling the LLM.
 ```sh
 # Group similar KEs (uses today's event cache by default)
 uv run python annotation_scripts/collect_similar_events.py
-uv run python annotation_scripts/collect_similar_events.py --date 05-06-2026
+uv run python annotation_scripts/collect_similar_events.py --date 11-25-2026
+
+# Sample logs at end of run 
+2026-11-25 19:01:11,756 - INFO - Done. 
+108 merge groups (282 events), 
+30 SODA groups (69 events), 
+154 similar-object groups (345 events), 
+180 different-context groups (431 events). 
+1478 processed events (402 ungrouped, 0 not yet processed).
+Final output: outputs/ke_groupings/11-25-2026/ke_similar_events_11-25-2026_pass3.json
 
 # Compare the Pass 2 and Pass 3 groupings, optionally exporting the changes (JSON/CSV)
 uv run python annotation_scripts/compare_pass_2_vs_pass_3.py \
