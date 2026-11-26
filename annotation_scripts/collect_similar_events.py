@@ -89,6 +89,14 @@ CACHE_DIR_ROOT = "outputs/cache"
 OUTPUT_DIR_ROOT = "outputs/ke_groupings"
 
 LLM_MODEL = "claude-sonnet-5-5"
+# claude-sonnet-5-5 runs adaptive thinking by default, which shares the per-pass
+# max_tokens budget with the JSON output — on the first run that truncated Pass 1
+# batch_000 and several Pass 3 batches. This task issues no tool calls, so
+# "between_tools" effectively disables thinking (there are no tool calls to think
+# between), handing the full token budget back to the JSON response.
+# NOTE: "between_tools" is sonnet-5-5-specific; Opus/Haiku 5.x disable thinking
+# with {"type": "disabled"} instead (accepted only at effort <= high).
+LLM_THINKING = {"type": "between_tools"}
 DEFAULT_BATCH_SIZE = 200
 PASS_3_BATCH_SIZE = 50  # ungrouped events per Pass 3 LLM call (keep low to avoid output token truncation)
 
@@ -139,6 +147,7 @@ def _run_provenance(batch_size: int) -> dict:
         "git_dirty": dirty,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "llm_model": LLM_MODEL,
+        "llm_thinking": LLM_THINKING,
         "pass_1_batch_size": batch_size,
         "pass_3_batch_size": PASS_3_BATCH_SIZE,
         "pass_1_max_tokens": PASS_1_MAX_TOKENS,
@@ -204,6 +213,7 @@ def _call_with_retry(
                 max_tokens=max_tokens,
                 system=system,
                 messages=messages,
+                thinking=LLM_THINKING,
             )
         except anthropic.InternalServerError as exc:
             if attempt == max_retries - 1:
