@@ -1,0 +1,53 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1830",
+      "group_key": "transthyretin_binding_displacement",
+      "rationale": "Displacement of serum T4 from a carrier protein is the same process as displacement from transthyretin, with a more general carrier-protein object, so it is flagged for curator review."
+    },
+    {
+      "event_id": "1555",
+      "group_key": "cell_proliferation_context",
+      "rationale": "Increased cell proliferation in general, same process and direction as the other members of this group."
+    },
+    {
+      "event_id": "1862",
+      "group_key": "photosystem_II_inhibition_vs_electron_transport",
+      "rationale": "Decreased photosystem II efficiency concerns photosystem II but is a distinct functional measure from inhibition or decreased electron transport."
+    },
+    {
+      "event_id": "1863",
+      "group_key": "fecundity_reproductive_success",
+      "rationale": "Decreased reproduction is a closely related population-level reproductive outcome alongside decreased fecundity and reproductive success."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "chitin_synthase_inhibition_chitin_content",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1522",
+        "1523"
+      ],
+      "rationale": "Chitin synthase inhibition and decreased cuticular chitin content both concern chitin synthesis but are distinct events, enzyme versus product."
+    },
+    {
+      "group_key": "thyroid_carrier_protein_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1831",
+        "1830"
+      ],
+      "rationale": "Binding of thyroid binding globulin in serum and displacement of T4 from a carrier protein both concern serum thyroid hormone carrier proteins but are distinct processes."
+    },
+    {
+      "group_key": "inflammatory_response_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1868",
+        "1844"
+      ],
+      "rationale": "Hyperinflammation and systemic inflammatory response syndrome are the same inflammatory process at different scope."
+    }
+  ]
+}

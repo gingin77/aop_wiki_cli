@@ -1,0 +1,19 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2404",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Kidney fibrosis is the same fibrosis process in a different organ context from liver and lung fibrosis."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "decrease_cell_growth_growth",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2327"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "64",
+      "group_key": "ionotropic_gaba_receptor",
+      "rationale": "Reduction of ionotropic GABA receptor chloride channel conductance is the same event as 'Decreased, Ionotropic GABA receptor chloride channel conductance'; the group is same_object_different_process."
+    },
+    {
+      "event_id": "406",
+      "group_key": "sperm_fertility_decrease",
+      "rationale": "Not a clear match; omitted."
+    }
+  ],
+  "new_groups": []
+}

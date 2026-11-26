@@ -1,0 +1,63 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "679",
+      "group_key": "population_size_trajectory",
+      "rationale": "Decline in population trajectory is the same decreased population-level outcome as 'Decreased, Population trajectory'."
+    },
+    {
+      "event_id": "2298",
+      "group_key": "testosterone_decrease_context",
+      "rationale": "Decreased intratesticular testosterone is the same decreased testosterone endpoint in a specific compartment (testis)."
+    },
+    {
+      "event_id": "1632",
+      "group_key": "oxidative_stress",
+      "rationale": "Increased reactive oxygen and nitrogen species is a closely related generalized oxidative stress/ROS event."
+    },
+    {
+      "event_id": "1634",
+      "group_key": "dna_damage_context",
+      "rationale": "Increased oxidative DNA damage is a specific form of increased DNA damage."
+    },
+    {
+      "event_id": "1669",
+      "group_key": "dna_damage_context",
+      "rationale": "Increased DNA damage and mutation relates to increased DNA damage with different specificity."
+    },
+    {
+      "event_id": "1695",
+      "group_key": "reduced_ovulation",
+      "rationale": "Impaired ovulation is an ovulation outcome related to decreased/delayed ovulation with differing specifics."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "progesterone_reduction_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1692",
+        "1693"
+      ],
+      "rationale": "Reduced progesterone synthesis vs decreased progesterone levels are the same reduced hormone endpoint at different process/compartment levels."
+    },
+    {
+      "group_key": "gnrh_receptor_expression_and_hypermethylation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1698",
+        "1699"
+      ],
+      "rationale": "Both concern the GnRH receptor gene; promoter hypermethylation and decreased expression are distinct processes."
+    },
+    {
+      "group_key": "retinoic_acid_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1881",
+        "2419"
+      ],
+      "rationale": "Both concern retinoic acid signaling; decreased atRA concentration and decreased RAR activation are distinct processes."
+    }
+  ]
+}

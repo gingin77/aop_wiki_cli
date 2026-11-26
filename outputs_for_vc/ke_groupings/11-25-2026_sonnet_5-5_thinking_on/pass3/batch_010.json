@@ -1,0 +1,30 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1395",
+      "group_key": "hepatocellular_tumor",
+      "rationale": "Liver cancer is a general liver tumor event, related to the hepatocellular carcinoma and liver tumor events in this group but differing in specificity."
+    },
+    {
+      "event_id": "1511",
+      "group_key": "oxidative_stress_lipid_protein",
+      "rationale": "Lipid peroxidation is the same process as 'Increase, Lipid peroxidation' and the oxidation of membrane lipids, differing only in specificity."
+    },
+    {
+      "event_id": "1509",
+      "group_key": "protein_covalent_modification",
+      "rationale": "Protein adduct formation concerns the same protein object as alkylation and covalent binding, but is a distinct description of the process."
+    },
+    {
+      "event_id": "1353",
+      "group_key": "sodium_channel_inhibition_modulation",
+      "rationale": "Binding to the voltage-gated sodium channel shares the sodium channel object but does not by itself establish inhibition or modulation."
+    },
+    {
+      "event_id": "1389",
+      "group_key": "locomotion_opposite",
+      "rationale": "Decreased locomotor activity is the same endpoint as 'Decreased, locomotion', which is the opposite direction to 'Increased, locomotion'."
+    }
+  ],
+  "new_groups": []
+}

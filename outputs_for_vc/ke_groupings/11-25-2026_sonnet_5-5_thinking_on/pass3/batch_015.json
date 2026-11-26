@@ -1,0 +1,20 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1607",
+      "group_key": "necrosis_context",
+      "rationale": "Increase, Necrosis is the same process as the general necrosis event, with differing wording and directional specification."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "retinoic_acid_increase_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1888",
+        "2420"
+      ],
+      "rationale": "Both concern retinoic acid signaling, but increased all-trans retinoic acid concentration (the ligand) and increased RAR activation (the receptor) are distinct events."
+    }
+  ]
+}

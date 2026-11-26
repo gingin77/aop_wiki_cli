@@ -1,0 +1,226 @@
+[
+  {
+    "group_key": "nis_iodide_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "424",
+      "425"
+    ],
+    "rationale": "NIS inhibition and decreased thyroidal iodide are related but are different objects (transporter vs. its substrate), so this grouping is questionable; it is flagged only for curator review."
+  },
+  {
+    "group_key": "decreased_fetal_leydig_dysgenesis",
+    "type": "merge",
+    "member_ids": [
+      "657",
+      "660",
+      "540"
+    ],
+    "rationale": "All three describe the same KE relationship, decreased testosterone by fetal Leydig cells to dysgenesis of fetal Leydig cells, with spelling variants."
+  },
+  {
+    "group_key": "sperm_fertility_decrease",
+    "type": "merge",
+    "member_ids": [
+      "520",
+      "505"
+    ],
+    "rationale": "Both describe decreased sperm quantity/quality in the adult leading to decreased fertility."
+  },
+  {
+    "group_key": "sperm_quality_fertility_relationship",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "543",
+      "646"
+    ],
+    "rationale": "Both involve decreased sperm quantity/quality in the adult testis but are paired with different upstream events (fertility vs. cholesterol)."
+  },
+  {
+    "group_key": "colony_loss",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1107",
+      "563"
+    ],
+    "rationale": "Weakened colony and colony death/failure are related colony-level outcomes of differing severity."
+  },
+  {
+    "group_key": "caste_role_change",
+    "type": "merge",
+    "member_ids": [
+      "564",
+      "1108"
+    ],
+    "rationale": "Both describe abnormal role change within caste (roll/role typo)."
+  },
+  {
+    "group_key": "nachr_activation_vs_desensitization",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "559",
+      "663"
+    ],
+    "rationale": "Both target the nicotinic acetylcholine receptor but activation and desensitization are distinct processes."
+  },
+  {
+    "group_key": "sodium_channel_inhibition_modulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "584",
+      "598",
+      "585"
+    ],
+    "rationale": "All concern the sodium channel but describe inhibition, modulation and decreased conductance as distinct processes."
+  },
+  {
+    "group_key": "pgf2a_synthesis_ovary",
+    "type": "merge",
+    "member_ids": [
+      "672",
+      "681"
+    ],
+    "rationale": "Both describe reduced prostaglandin F2alpha synthesis in the ovary."
+  },
+  {
+    "group_key": "pgf2a_plasma_vs_ovary",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "671",
+      "672",
+      "681"
+    ],
+    "rationale": "The same prostaglandin F2alpha is reduced in plasma versus ovary synthesis, which differ in compartment and process."
+  },
+  {
+    "group_key": "reduced_ovulation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "488",
+      "532"
+    ],
+    "rationale": "Decreased ovulation and delayed ovulation are related ovulation outcomes with different specifics."
+  },
+  {
+    "group_key": "cytotoxicity_general_vs_specific",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "768",
+      "709",
+      "770"
+    ],
+    "rationale": "Increased cytotoxicity in general versus renal tubular cells or club cells."
+  },
+  {
+    "group_key": "regenerative_proliferation_tissues",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "710",
+      "734"
+    ],
+    "rationale": "Regenerative cell proliferation in renal tubular versus terminal bronchiolar epithelial cells."
+  },
+  {
+    "group_key": "hyperplasia_tissues",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "767",
+      "735",
+      "740",
+      "744",
+      "772"
+    ],
+    "rationale": "Hyperplasia in different cell types or tissues."
+  },
+  {
+    "group_key": "adenoma_carcinoma_tissues",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "713",
+      "736",
+      "741"
+    ],
+    "rationale": "Adenomas/carcinomas in different tissue contexts."
+  },
+  {
+    "group_key": "car_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "715",
+      "1214"
+    ],
+    "rationale": "CAR activation general versus hepatocyte-specific CAR-related gene expression changes."
+  },
+  {
+    "group_key": "chromosome_number_alteration",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "723",
+      "536"
+    ],
+    "rationale": "Altered chromosome number in general versus in the zygote (polyploid)."
+  },
+  {
+    "group_key": "androgen_receptor_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1614",
+      "743"
+    ],
+    "rationale": "Decreased androgen receptor activation in general versus decreased testosterone binding to AR in hypothalamus."
+  },
+  {
+    "group_key": "coup_tfii_fetal_leydig",
+    "type": "soda",
+    "member_ids": [
+      "655",
+      "656"
+    ],
+    "rationale": "COUP-TFII is increased in one event and decreased in the other."
+  },
+  {
+    "group_key": "fatty_acid_triglyceride_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "454",
+      "881"
+    ],
+    "rationale": "Triglyceride formation versus triglyceride increase are closely related triglyceride accumulation events."
+  },
+  {
+    "group_key": "predation_increase",
+    "type": "merge",
+    "member_ids": [
+      "588",
+      "623"
+    ],
+    "rationale": "Both describe increased predation."
+  },
+  {
+    "group_key": "locomotion_opposite",
+    "type": "soda",
+    "member_ids": [
+      "622",
+      "635"
+    ],
+    "rationale": "Increased versus decreased locomotion."
+  },
+  {
+    "group_key": "survival_reduced",
+    "type": "merge",
+    "member_ids": [
+      "592",
+      "636"
+    ],
+    "rationale": "Both describe reduced or decreased survival."
+  },
+  {
+    "group_key": "fecundity_reproductive_success",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "527",
+      "675"
+    ],
+    "rationale": "Decreased fecundity and reduced reproductive success are closely related reproductive outcomes."
+  }
+]

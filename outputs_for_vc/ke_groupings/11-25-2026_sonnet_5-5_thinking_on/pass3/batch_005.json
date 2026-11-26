@@ -1,0 +1,68 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "754",
+      "group_key": "lh_increase_secretion",
+      "rationale": "Increased LH is the same event as the group's increased LH (secretion from anterior pituitary), differing only in wording."
+    },
+    {
+      "event_id": "774",
+      "group_key": "altered_hepatic_foci",
+      "rationale": "Preneoplastic foci in hepatocytes is an equivalent term for altered hepatic foci."
+    },
+    {
+      "event_id": "739",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Hypertrophy and proliferation in follicular cells is the same process as follicular cell hyperplasia, with a cell-type context."
+    },
+    {
+      "event_id": "745",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Leydig cell tumors are a tissue-specific tumor outcome, the same process in a different cell context as the other tissue-specific tumor events."
+    },
+    {
+      "event_id": "773",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Endometrial adenocarcinomas are a tissue-specific tumor outcome, the same process in a different tissue context as the other tissue-specific events."
+    },
+    {
+      "event_id": "800",
+      "group_key": "aromatase_inhibition_general_vs_granulosa",
+      "rationale": "Decreased aromatase mRNA is a decrease in aromatase expression, related to the general aromatase inhibition and cell-specific reduction."
+    },
+    {
+      "event_id": "733",
+      "group_key": "necrosis_context",
+      "rationale": "Necrosis in terminal bronchiolar cells is a cell-specific form of necrosis."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "lh_plasma_reduced_vs_increased",
+      "type": "soda",
+      "member_ids": [
+        "690",
+        "754"
+      ],
+      "rationale": "Plasma LH reduced versus LH increased are opposite directions of the same endpoint."
+    },
+    {
+      "group_key": "fertility_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "330",
+        "765"
+      ],
+      "rationale": "Decreased fertility and decreased population relate to reproductive/population-level outcomes at different scales."
+    },
+    {
+      "group_key": "hppd_inhibition_tyrosine",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "766",
+        "775"
+      ],
+      "rationale": "Placeholder grouping rejected."
+    }
+  ]
+}

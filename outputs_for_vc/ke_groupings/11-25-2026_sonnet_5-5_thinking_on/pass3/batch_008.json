@@ -1,0 +1,43 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1104",
+      "group_key": "pgf2a_plasma_vs_ovary",
+      "rationale": "Decreased plasma PGF2alpha concentration is the same event as 'Reduced, Prostaglandin F2alpha concentration, plasma' (plasma context), so it fits this PGF2alpha plasma vs ovary group."
+    },
+    {
+      "event_id": "1116",
+      "group_key": "t4_decrease_context",
+      "rationale": "Decreased T3 in tissues is a decreased thyroid hormone event in a tissue context, matching the serum/brain thyroid hormone decrease group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "thyroid_hormone_increase_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1154",
+        "1828"
+      ],
+      "rationale": "Increased thyroid hormone (T3 in tissues vs T4 in serum) in different compartments."
+    },
+    {
+      "group_key": "t3_tissue_direction",
+      "type": "soda",
+      "member_ids": [
+        "1116",
+        "1154"
+      ],
+      "rationale": "T3 in tissues decreased vs increased, same endpoint in opposite directions."
+    },
+    {
+      "group_key": "prolactin_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1077",
+        "1084"
+      ],
+      "rationale": "Increased prolactin exposure vs increased prolactin secretion, related prolactin increase events with different specifics."
+    }
+  ]
+}

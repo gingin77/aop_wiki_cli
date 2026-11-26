@@ -1,0 +1,624 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "64",
+      "group_key": "ionotropic_gaba_receptor",
+      "rationale": "Reduction of ionotropic GABA receptor chloride channel conductance is the same event as 'Decreased, Ionotropic GABA receptor chloride channel conductance'; the group is same_object_different_process."
+    },
+    {
+      "event_id": "406",
+      "group_key": "sperm_fertility_decrease",
+      "rationale": "Not a clear match; omitted."
+    },
+    {
+      "event_id": "451",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Inhibition of mitochondrial fatty acid beta-oxidation describes the same decreased beta-oxidation process, with a mitochondrial qualifier."
+    },
+    {
+      "event_id": "414",
+      "group_key": "lh_increase_secretion",
+      "rationale": "Increase in luteinizing hormone is the same event as increased LH."
+    },
+    {
+      "event_id": "291",
+      "group_key": "fatty_acid_triglyceride_increase",
+      "rationale": "Triglyceride accumulation is closely related to increased triglyceride and triglyceride formation."
+    },
+    {
+      "event_id": "344",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Increased liver fibrosis is the same organ-level process as liver fibrosis, in a different organ context from pulmonary fibrosis."
+    },
+    {
+      "event_id": "89",
+      "group_key": "fatty_acid_triglyceride_increase",
+      "rationale": "placeholder"
+    },
+    {
+      "event_id": "468",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "Inhibition of PPAR alpha concerns the same receptor as the group's binding, activation and transactivation events, but is a distinct process."
+    },
+    {
+      "event_id": "685",
+      "group_key": "pgf2a_plasma_vs_ovary",
+      "rationale": "Reduced prostaglandins in the ovary is a general/ovary-context form of reduced prostaglandin (F2alpha) levels, differing in specificity and compartment."
+    },
+    {
+      "event_id": "1028",
+      "group_key": "ppar_activation_decrease_isoforms",
+      "rationale": "PPAR-gamma activation concerns the same process as the isoform activation events, differing in direction/context, so it is flagged for curator review."
+    },
+    {
+      "event_id": "531",
+      "group_key": "lh_decreased_release",
+      "rationale": "Decreased LH surge is the same event as 'Decreased, LH Surge from anterior pituitary', differing only in the stated tissue source."
+    },
+    {
+      "event_id": "593",
+      "group_key": "herg_block_vs_ikr_inhibition",
+      "rationale": "ERG/hERG potassium channel inhibition shares the same channel object with hERG blockade and IKr current inhibition, and is a distinct process description."
+    },
+    {
+      "event_id": "754",
+      "group_key": "lh_increase_secretion",
+      "rationale": "Increased LH is the same event as the group's increased LH (secretion from anterior pituitary), differing only in wording."
+    },
+    {
+      "event_id": "774",
+      "group_key": "altered_hepatic_foci",
+      "rationale": "Preneoplastic foci in hepatocytes is an equivalent term for altered hepatic foci."
+    },
+    {
+      "event_id": "739",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Hypertrophy and proliferation in follicular cells is the same process as follicular cell hyperplasia, with a cell-type context."
+    },
+    {
+      "event_id": "745",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Leydig cell tumors are a tissue-specific tumor outcome, the same process in a different cell context as the other tissue-specific tumor events."
+    },
+    {
+      "event_id": "773",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Endometrial adenocarcinomas are a tissue-specific tumor outcome, the same process in a different tissue context as the other tissue-specific events."
+    },
+    {
+      "event_id": "800",
+      "group_key": "aromatase_inhibition_general_vs_granulosa",
+      "rationale": "Decreased aromatase mRNA is a decrease in aromatase expression, related to the general aromatase inhibition and cell-specific reduction."
+    },
+    {
+      "event_id": "733",
+      "group_key": "necrosis_context",
+      "rationale": "Necrosis in terminal bronchiolar cells is a cell-specific form of necrosis."
+    },
+    {
+      "event_id": "876",
+      "group_key": "mutations",
+      "rationale": "Increased mutations in critical genes is the same event as 'Increased, Induced Mutations in Critical Genes' and fits the mutation group of varying specificity."
+    },
+    {
+      "event_id": "868",
+      "group_key": "necrosis_context",
+      "rationale": "Tissue degeneration/necrosis/atrophy is a necrosis-related event with differing specificity."
+    },
+    {
+      "event_id": "1057",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "Increased PPAR-alpha activation concerns the same PPARalpha object as the group's activation and decreased-activation events, in the opposite direction to the decreased-activation member."
+    },
+    {
+      "event_id": "762",
+      "group_key": "ionotropic_gaba_receptor",
+      "rationale": "Activation of the ionotropic GABA receptor chloride channel shares the same object as the inhibition and decreased-conductance events but is a distinct process."
+    },
+    {
+      "event_id": "1056",
+      "group_key": "estradiol_reduction_context",
+      "rationale": "Decreased E2 at the hypothalamus is the same decrease in estradiol as the plasma and granulosa-synthesis events, in a different compartment."
+    },
+    {
+      "event_id": "1045",
+      "group_key": "estradiol_reduction_context",
+      "rationale": "Decreased ovarian E2 is the same decrease in estradiol, in an ovarian context."
+    },
+    {
+      "event_id": "964",
+      "group_key": "aromatase_inhibition_general_vs_granulosa",
+      "rationale": "Aromatase enzyme inhibition during a specific estrous-cycle window is the same inhibition process as the general event, with added context."
+    },
+    {
+      "event_id": "1051",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Hyperplasia of ovarian stromal cells is the same process in a specific cell type."
+    },
+    {
+      "event_id": "1052",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Hyperplasia of ovarian epithelium is the same process in a specific tissue."
+    },
+    {
+      "event_id": "1043",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Smooth muscle hypertrophy/hyperplasia includes hyperplasia in a specific tissue context."
+    },
+    {
+      "event_id": "1062",
+      "group_key": "hyperplasia_proliferation",
+      "rationale": "Cellular proliferation/hyperplasia of acinar cells is the cell-type-specific form of the general proliferation/hyperplasia event."
+    },
+    {
+      "event_id": "1033",
+      "group_key": "cell_proliferation_context",
+      "rationale": "Increased proliferation of mesenchymal cells is increased cell proliferation in a specific cell type."
+    },
+    {
+      "event_id": "1053",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Ovarian adenomas are an adenoma/carcinoma event in a specific tissue."
+    },
+    {
+      "event_id": "1063",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Pancreatic acinar tumors are an adenoma/carcinoma event in a specific tissue."
+    },
+    {
+      "event_id": "1104",
+      "group_key": "pgf2a_plasma_vs_ovary",
+      "rationale": "Decreased plasma PGF2alpha concentration is the same event as 'Reduced, Prostaglandin F2alpha concentration, plasma' (plasma context), so it fits this PGF2alpha plasma vs ovary group."
+    },
+    {
+      "event_id": "1116",
+      "group_key": "t4_decrease_context",
+      "rationale": "Decreased T3 in tissues is a decreased thyroid hormone event in a tissue context, matching the serum/brain thyroid hormone decrease group."
+    },
+    {
+      "event_id": "1176",
+      "group_key": "sodium_channel_inhibition_modulation",
+      "rationale": "Decreased sodium conductance 2 concerns the sodium channel and is a distinct process from inhibition/modulation, like the existing 'Decreased, Sodium conductance 1'."
+    },
+    {
+      "event_id": "1270",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "PPAR\u03b3 is a different isoform than PPAR\u03b1, so this does not fit; omitted."
+    },
+    {
+      "event_id": "1395",
+      "group_key": "hepatocellular_tumor",
+      "rationale": "Liver cancer is a general liver tumor event, related to the hepatocellular carcinoma and liver tumor events in this group but differing in specificity."
+    },
+    {
+      "event_id": "1511",
+      "group_key": "oxidative_stress_lipid_protein",
+      "rationale": "Lipid peroxidation is the same process as 'Increase, Lipid peroxidation' and the oxidation of membrane lipids, differing only in specificity."
+    },
+    {
+      "event_id": "1509",
+      "group_key": "protein_covalent_modification",
+      "rationale": "Protein adduct formation concerns the same protein object as alkylation and covalent binding, but is a distinct description of the process."
+    },
+    {
+      "event_id": "1353",
+      "group_key": "sodium_channel_inhibition_modulation",
+      "rationale": "Binding to the voltage-gated sodium channel shares the sodium channel object but does not by itself establish inhibition or modulation."
+    },
+    {
+      "event_id": "1389",
+      "group_key": "locomotion_opposite",
+      "rationale": "Decreased locomotor activity is the same endpoint as 'Decreased, locomotion', which is the opposite direction to 'Increased, locomotion'."
+    },
+    {
+      "event_id": "1821",
+      "group_key": "cell_proliferation_context",
+      "rationale": "Decrease in cell proliferation is the same endpoint as the cell proliferation events in this group, but in the opposite direction, so it is flagged for curator review as a context/direction variant."
+    },
+    {
+      "event_id": "679",
+      "group_key": "population_size_trajectory",
+      "rationale": "Decline in population trajectory is the same decreased population-level outcome as 'Decreased, Population trajectory'."
+    },
+    {
+      "event_id": "2298",
+      "group_key": "testosterone_decrease_context",
+      "rationale": "Decreased intratesticular testosterone is the same decreased testosterone endpoint in a specific compartment (testis)."
+    },
+    {
+      "event_id": "1632",
+      "group_key": "oxidative_stress",
+      "rationale": "Increased reactive oxygen and nitrogen species is a closely related generalized oxidative stress/ROS event."
+    },
+    {
+      "event_id": "1634",
+      "group_key": "dna_damage_context",
+      "rationale": "Increased oxidative DNA damage is a specific form of increased DNA damage."
+    },
+    {
+      "event_id": "1669",
+      "group_key": "dna_damage_context",
+      "rationale": "Increased DNA damage and mutation relates to increased DNA damage with different specificity."
+    },
+    {
+      "event_id": "1695",
+      "group_key": "reduced_ovulation",
+      "rationale": "Impaired ovulation is an ovulation outcome related to decreased/delayed ovulation with differing specifics."
+    },
+    {
+      "event_id": "860",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Decreased mitochondrial fatty acid beta oxidation is the same decreased endpoint as the group's members, with a mitochondrial qualifier."
+    },
+    {
+      "event_id": "1780",
+      "group_key": "apoptosis_general_vs_epithelial",
+      "rationale": "Increase, Oocyte apoptosis (F3) is the same increased process as 'Increase, Oocyte apoptosis' with an added F3 generation context."
+    },
+    {
+      "event_id": "1757",
+      "group_key": "sperm_quality_fertility_relationship",
+      "rationale": "Decreased sperm count is a decreased sperm quantity event, related to the group's sperm quantity/quality endpoints."
+    },
+    {
+      "event_id": "1830",
+      "group_key": "transthyretin_binding_displacement",
+      "rationale": "Displacement of serum T4 from a carrier protein is the same process as displacement from transthyretin, with a more general carrier-protein object, so it is flagged for curator review."
+    },
+    {
+      "event_id": "1555",
+      "group_key": "cell_proliferation_context",
+      "rationale": "Increased cell proliferation in general, same process and direction as the other members of this group."
+    },
+    {
+      "event_id": "1862",
+      "group_key": "photosystem_II_inhibition_vs_electron_transport",
+      "rationale": "Decreased photosystem II efficiency concerns photosystem II but is a distinct functional measure from inhibition or decreased electron transport."
+    },
+    {
+      "event_id": "1863",
+      "group_key": "fecundity_reproductive_success",
+      "rationale": "Decreased reproduction is a closely related population-level reproductive outcome alongside decreased fecundity and reproductive success."
+    },
+    {
+      "event_id": "1607",
+      "group_key": "necrosis_context",
+      "rationale": "Increase, Necrosis is the same process as the general necrosis event, with differing wording and directional specification."
+    },
+    {
+      "event_id": "1554",
+      "group_key": "dna_strand_breaks",
+      "rationale": "Placeholder"
+    },
+    {
+      "event_id": "2065",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Inhibition of fatty acid oxidation describes decreased fatty acid oxidation, a close synonym of decreased fatty acid beta-oxidation."
+    },
+    {
+      "event_id": "446",
+      "group_key": "testosterone_decrease_context",
+      "rationale": "Reduced fetal/adult testosterone is the same decreased-testosterone endpoint, specified by life stage, alongside the existing synthesis and circulating-level events."
+    },
+    {
+      "event_id": "2086",
+      "group_key": "inflammation_context",
+      "rationale": "Airway inflammation is increased inflammation specific to the airway, matching the existing general and tissue-specific inflammation events."
+    },
+    {
+      "event_id": "2111",
+      "group_key": "laminin_binding",
+      "rationale": "Decreased neural progenitor cell adhesion to laminin concerns laminin binding, but it is a distinct process from the existing laminin events."
+    },
+    {
+      "event_id": "2130",
+      "group_key": "lipid_accumulation_general_vs_small_intestine_steatosis",
+      "rationale": "Increased lipid accumulation without a tissue qualifier is the same process as the general event in this group, which is paired with a tissue-specific form (small intestine steatosis)."
+    },
+    {
+      "event_id": "2162",
+      "group_key": "hif1_alpha_transcription_pathway",
+      "rationale": "Activation of HIF1\u03b1 shares the HIF-1 alpha object with the existing events but describes a distinct process (activation vs transcription or heterodimer levels)."
+    },
+    {
+      "event_id": "2171",
+      "group_key": "tgf_latent_activation",
+      "rationale": "Activated BMP/TGF-beta pathway shares the TGF-beta object with the existing group but is a distinct process or scope."
+    },
+    {
+      "event_id": "2274",
+      "group_key": "androgen_receptor_activation",
+      "rationale": "Androgen receptor activation increased is the same endpoint in the opposite direction to 'Decrease, androgen receptor activation', so it is flagged with that group for curator review."
+    },
+    {
+      "event_id": "1924",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Cardiac fibrosis is the same process (fibrosis) as liver and pulmonary fibrosis, in a different organ."
+    },
+    {
+      "event_id": "1541",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "Mitochondrial Complex I inhibition is the same event as 'Inhibition, NADH-ubiquinone oxidoreductase (complex I)', and the group already pairs it with the binding event."
+    },
+    {
+      "event_id": "2307",
+      "group_key": "photosystem_II_inhibition_vs_electron_transport",
+      "rationale": "Binding of plastoquinone B site in D1 protein of photosystem II concerns the same object as photosystem II inhibition, but binding is a distinct process."
+    },
+    {
+      "event_id": "2350",
+      "group_key": "glycolysis_direction",
+      "rationale": "Decreased glycolysis is the same endpoint as 'Decrease, Glycolysis' and opposite to 'Increase, Glycolysis'."
+    },
+    {
+      "event_id": "2347",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Increase in lipid degradation is closely related to fatty acid beta-oxidation, but it is not clearly the same endpoint, so it is better left out."
+    },
+    {
+      "event_id": "2404",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Kidney fibrosis is the same fibrosis process in a different organ context from liver and lung fibrosis."
+    },
+    {
+      "event_id": "1507",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "PPAR\u03b3 activation is a different isoform from PPAR\u03b1, so this does not belong in the PPAR\u03b1 group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fetal_leydig_decreased_testosterone_upstream",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "653",
+        "654",
+        "658",
+        "659",
+        "661"
+      ],
+      "rationale": "These all share decreased testosterone by fetal Leydig cells as the downstream event, but are paired with different upstream events, so they are flagged for curator review."
+    },
+    {
+      "group_key": "adult_leydig_cell_events",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "645",
+        "648",
+        "649",
+        "640",
+        "525",
+        "651",
+        "652"
+      ],
+      "rationale": "These are relationship-style events in adult Leydig cell steroidogenesis and testosterone production, with different upstream mechanisms."
+    },
+    {
+      "group_key": "cholesterol_decrease_relationships",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "642",
+        "643",
+        "644"
+      ],
+      "rationale": "These all involve decreased cholesterol with different upstream processes (synthesis, uptake, transport)."
+    },
+    {
+      "group_key": "decreased_steroidogenic_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "495",
+        "647"
+      ],
+      "rationale": "Both describe reduced expression of steroidogenic enzymes/proteins with differing specificity."
+    },
+    {
+      "group_key": "dna_methylation_decreased_dopamine",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1452",
+        "1453"
+      ],
+      "rationale": "Both are decreased promoter or gene methylation in dopamine-related genes."
+    },
+    {
+      "group_key": "serotonin_transporter_vs_serotonin",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "619",
+        "626"
+      ],
+      "rationale": "Serotonin transporter inhibition and increased serotonin are related, but the transporter and its substrate are different objects, so this is a questionable pair; excluded."
+    },
+    {
+      "group_key": "fertility_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "330",
+        "765"
+      ],
+      "rationale": "Decreased fertility and decreased population relate to reproductive/population-level outcomes at different scales."
+    },
+    {
+      "group_key": "hppd_inhibition_tyrosine",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "766",
+        "775"
+      ],
+      "rationale": "Placeholder grouping rejected."
+    },
+    {
+      "group_key": "enos_activity_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "973",
+        "935"
+      ],
+      "rationale": "Both are decreases in eNOS-pathway activity, but they address different objects; this is a weak grouping and is omitted from consideration."
+    },
+    {
+      "group_key": "deiodinase_isoform_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1002",
+        "1009"
+      ],
+      "rationale": "Inhibition of different deiodinase isoforms (DIO2 vs DIO1) is the same process on different enzymes."
+    },
+    {
+      "group_key": "swim_bladder_inflation_reduced",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1004",
+        "1007"
+      ],
+      "rationale": "Reduced swim bladder inflation, posterior versus anterior chamber."
+    },
+    {
+      "group_key": "muscle_paralysis_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1014",
+        "1019"
+      ],
+      "rationale": "Induction of paralysis in somatic muscle versus pharyngeal muscle."
+    },
+    {
+      "group_key": "gnrh_release_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "969",
+        "1071"
+      ],
+      "rationale": "Both describe decreased GnRH release, with different specifics (kisspeptin stimulation vs pulsatility in the hypothalamus)."
+    },
+    {
+      "group_key": "thyroid_hormone_increase_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1154",
+        "1828"
+      ],
+      "rationale": "Increased thyroid hormone (T3 in tissues vs T4 in serum) in different compartments."
+    },
+    {
+      "group_key": "prolactin_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1077",
+        "1084"
+      ],
+      "rationale": "Increased prolactin exposure vs increased prolactin secretion, related prolactin increase events with different specifics."
+    },
+    {
+      "group_key": "progesterone_reduction_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1692",
+        "1693"
+      ],
+      "rationale": "Reduced progesterone synthesis vs decreased progesterone levels are the same reduced hormone endpoint at different process/compartment levels."
+    },
+    {
+      "group_key": "gnrh_receptor_expression_and_hypermethylation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1698",
+        "1699"
+      ],
+      "rationale": "Both concern the GnRH receptor gene; promoter hypermethylation and decreased expression are distinct processes."
+    },
+    {
+      "group_key": "retinoic_acid_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1881",
+        "2419"
+      ],
+      "rationale": "Both concern retinoic acid signaling; decreased atRA concentration and decreased RAR activation are distinct processes."
+    },
+    {
+      "group_key": "chitin_synthase_inhibition_chitin_content",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1522",
+        "1523"
+      ],
+      "rationale": "Chitin synthase inhibition and decreased cuticular chitin content both concern chitin synthesis but are distinct events, enzyme versus product."
+    },
+    {
+      "group_key": "inflammatory_response_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1868",
+        "1844"
+      ],
+      "rationale": "Hyperinflammation and systemic inflammatory response syndrome are the same inflammatory process at different scope."
+    },
+    {
+      "group_key": "retinoic_acid_increase_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1888",
+        "2420"
+      ],
+      "rationale": "Both concern retinoic acid signaling, but increased all-trans retinoic acid concentration (the ligand) and increased RAR activation (the receptor) are distinct events."
+    },
+    {
+      "group_key": "tanning_sclerotization_cuticle",
+      "type": "merge",
+      "member_ids": [
+        "2053",
+        "2054"
+      ],
+      "rationale": "Defects in tanning of new cuticle and impaired cuticle sclerotization both describe increased defects in cuticle hardening and tanning."
+    },
+    {
+      "group_key": "mbp_expression_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2198",
+        "2105"
+      ],
+      "rationale": "Both describe decreased myelin basic protein expression, one general and the other specific to oligodendrocytes."
+    },
+    {
+      "group_key": "tissue_remodeling_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2084",
+        "2069",
+        "2098"
+      ],
+      "rationale": "Increased or abnormal remodeling in different tissues (cardiac, vascular, neural)."
+    },
+    {
+      "group_key": "sodium_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2236",
+        "2237"
+      ],
+      "rationale": "Both describe decreased sodium, one as uptake in gills and the other as plasma concentration, which are different compartments."
+    },
+    {
+      "group_key": "oxidative_stress_redox_ros",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1238",
+        "2363"
+      ],
+      "rationale": "Activation of the oxidative stress pathway and elevated mitochondrial ROS describe oxidative stress at different levels of specificity and compartment."
+    },
+    {
+      "group_key": "glycolysis_oxphos_energy_metabolism",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2353",
+        "2351"
+      ],
+      "rationale": "General disrupted energy metabolism and specific glycolysis or OXPHOS changes."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "860",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Decreased mitochondrial fatty acid beta oxidation is the same decreased endpoint as the group's members, with a mitochondrial qualifier."
+    },
+    {
+      "event_id": "1780",
+      "group_key": "apoptosis_general_vs_epithelial",
+      "rationale": "Increase, Oocyte apoptosis (F3) is the same increased process as 'Increase, Oocyte apoptosis' with an added F3 generation context."
+    },
+    {
+      "event_id": "1757",
+      "group_key": "sperm_quality_fertility_relationship",
+      "rationale": "Decreased sperm count is a decreased sperm quantity event, related to the group's sperm quantity/quality endpoints."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "tgf_beta_latent_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1795"
+      ],
+      "rationale": "Placeholder"
+    }
+  ]
+}
