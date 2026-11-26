@@ -113,6 +113,19 @@ aop-wiki-cli search-with-config <config_name>
 # Collect the AOPs, KEs and KERs for a term set, then pair each AOP's MIEs with its AOs
 aop-wiki-cli pair-mies-and-aos dili_aops
 
+# Check a Key Event's assigned level of biological organization against its own
+# description. Offline and free: it searches the description for words drawn from
+# the EMOD LinkML schema's definition of each level. Defaults to every Event.
+aop-wiki-cli event-content-internal-alignment
+aop-wiki-cli event-content-internal-alignment --ke-ids 1908,1909
+
+# A second opinion on the same level check, from a model. Opt-in and costs one
+# Anthropic API request per Event (needs ANTHROPIC_API_KEY or an `ant auth login`
+# profile). One of --ke-ids or --limit is required, so a whole-snapshot run is
+# never accidental.
+aop-wiki-cli event-level-llm-review --ke-ids 97,1908
+aop-wiki-cli event-level-llm-review --limit 10
+
 # Collect and harmonize seizure AOP data (interactive review)
 aop-wiki-cli collect-harmonized-seizure-aops
 aop-wiki-cli collect-harmonized-seizure-aops --date 02-20-2026
