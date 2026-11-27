@@ -246,6 +246,20 @@ of structuring free text to align with the KE and Assay data model, while also a
 annotations. LLM prompt templates live in `prompts.py` and API plumbing in `llm.py`, so the workflow
 modules read as control flow.
 
+### API keys
+
+The annotation scripts read two keys from a `.env` file in the repository root
+(loaded via python-dotenv). Copy the sample and fill in both values:
+
+```sh
+cp .env.sample .env
+```
+
+| Variable | Where to get it | What happens without it |
+|---|---|---|
+| `BIOPORTAL_API_KEY` | Shown on your [BioPortal account page](https://bioportal.bioontology.org/account) after registering | `annotate_ke` exits immediately — BioPortal search is required |
+| `ANTHROPIC_API_KEY` | [Anthropic Console](https://console.anthropic.com/) → API keys | Title extraction and term ranking fall back to rule-based parsing and interactive manual selection; assay extraction refuses to run (use `--skip-assays`) |
+
 ```sh
 # Annotate all KEs for an AOP (uses cached date by default)
 uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173
