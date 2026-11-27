@@ -3120,8 +3120,9 @@
             "source": "llm_recommendation"
           },
           {
-            "rejection_reason": "Could not parse LLM response: '{\"index\": null, \"reason\": \"The KE title \\'ELISA for Th1/Th2 cytokines\\' refers to a measurement of multiple cytokines (e.g., IFN-\u03b3, IL-4, IL-5, IL-13, TNF-\u03b1, etc.) associated with Th1/Th2 immune responses, and none of the candidate terms adequately represent this broad biological object; while IL-5 is one Th2 cytokine, selecting it alone would misrepresent the scope of the assay.'",
-            "source": "llm_rejection"
+            "rejection_reason": "The KE title 'ELISA for Th1/Th2 cytokines' refers to a measurement of multiple cytokines (e.g., IFN-\u03b3, IL-4, IL-5, IL-13, TNF-\u03b1, etc.) associated with Th1/Th2 immune responses, and none of the candidate terms adequately represent this broad biological object; while IL-5 is one Th2 cytokine, selecting it alone would misrepresent the scope of the assay.",
+            "source": "llm_rejection",
+            "note": "recovered from a truncated ranking reply"
           },
           {
             "rejection_reason": "None of the candidate terms represent the biological object for a Th1/Th2 cytokine ELISA assay, which should refer to cytokines like IFN-\u03b3, IL-4, IL-5, IL-13, TNF-\u03b1, etc. as a group, or the immune cells producing them; while IL-13 candidates are partially relevant, they don't capture the full scope of Th1/Th2 cytokines measured in this assay.",
