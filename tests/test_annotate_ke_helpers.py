@@ -134,6 +134,25 @@ def test_manual_only_ref_keeps_manual_values_and_drops_llm_ones():
     assert "biological_object" not in kept["ec_annotations"][0]
 
 
+def test_manual_only_ref_preserves_comments_for_forced_runs():
+    """Comments must survive --force so ranking guidance still sees them."""
+    ref = _ref_ke()
+    ref["comments"] = {"carried": [], "new": ["prefer the CL hepatocyte term"]}
+    kept = _manual_only_ref(ref)
+    assert kept["comments"]["new"] == ["prefer the CL hepatocyte term"]
+
+
+def test_manual_only_ref_keeps_curated_biological_organization():
+    """A string field has no source marker; manually_curated_fields carries
+    its provenance so --force cannot discard the curated level."""
+    ref = _ref_ke()
+    ref["manually_curated_fields"] = ["biological_organization"]
+    kept = _manual_only_ref(ref)
+    assert kept["biological_organization"] == "Cellular"
+    # Without the provenance marker, the LLM-set level is re-detected.
+    assert "biological_organization" not in (_manual_only_ref(_ref_ke()) or {})
+
+
 def test_manual_only_ref_returns_none_when_nothing_is_manual():
     assert _manual_only_ref(_ref_ke()) is None
 

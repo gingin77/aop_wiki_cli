@@ -27,8 +27,6 @@ from aop_wiki_cli.annotation_scripts.store import latest_cache_file
 ANNOTATIONS_FILE = "outputs_for_vc/annotations/ke_annotations.json"
 OUTPUT_FILE = "outputs/ke_annotation_comparison.csv"  # TODO: consider outputs_for_vc/ if results should be committed
 
-CACHE_FILE = latest_cache_file() or ""
-
 COLUMNS = [
     "ke_id",
     "title",
@@ -162,10 +160,15 @@ def compare(annotations_path: str, cache_path: str, output_path: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--annotations", default=ANNOTATIONS_FILE)
-    parser.add_argument("--cache", default=CACHE_FILE)
+    parser.add_argument("--cache", default=None,
+                        help="Events cache JSON (default: the most recent dated cache)")
     parser.add_argument("--output", default=OUTPUT_FILE)
     args = parser.parse_args()
-    compare(args.annotations, args.cache, args.output)
+    cache = args.cache or latest_cache_file()
+    if not cache:
+        parser.error("no event cache found under outputs/cache — generate one "
+                     "(annotate_ke does this) or pass --cache")
+    compare(args.annotations, cache, args.output)
 
 
 if __name__ == "__main__":

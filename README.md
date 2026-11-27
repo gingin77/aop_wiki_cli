@@ -261,8 +261,11 @@ cp .env.sample .env
 | `ANTHROPIC_API_KEY` | [Anthropic Console](https://console.anthropic.com/) → API keys | Title extraction and term ranking fall back to rule-based parsing and interactive manual selection; assay extraction (opt-in via `--with-assays`) refuses to run |
 
 ```sh
-# Annotate all KEs for an AOP (uses cached date by default)
+# List an AOP's KEs with annotation status (read-only; cache date defaults to today)
 uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173
+
+# Annotate every pending KE in an AOP
+uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --annotate-all
 
 # Annotate a single KE by ID
 uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 1702
@@ -290,7 +293,8 @@ uv run python -m aop_wiki_cli.annotation_scripts.compare_ke_annotations
 ```
 
 Valid `--force-on` fields: `biological_organization`, `cell_term`, `organ_term`,
-`biological_object`, `biological_process`, `phenotype`, `biological_action`, `assays`.
+`cellular_component`, `biological_object`, `biological_process`, `phenotype`, `assays`.
+(`biological_action` is always recomputed from the title.)
 
 ### Interactive annotation via Claude Code
 

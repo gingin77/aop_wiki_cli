@@ -211,6 +211,7 @@ def annotate_ke(
     annotated_ke = _build_ke_annotation(ke_id, title, bp_api_key, description=description, ref_ke=effective_ref)
 
     ref_has_assays = (ref_ke or {}).get("assays") is not None
+    assays_extracted = False
     if not with_assays:
         # Default: no assay extraction. Carry stored assays when they exist;
         # otherwise leave the key absent so the KE reads as "not yet
@@ -221,6 +222,7 @@ def annotate_ke(
         extracted = annotate_ke_assays(ke_id, events[ke_id])
         if extracted is not None:
             annotated_ke["assays"] = extracted
+            assays_extracted = True
         elif ref_has_assays:
             # Extraction failed: keep the stored assays rather than lose them.
             annotated_ke["assays"] = (ref_ke or {}).get("assays")
@@ -231,6 +233,10 @@ def annotate_ke(
     ref_comments = _attach_comments(annotated_ke, ref_ke)
 
     new_fields = _compute_newly_updated_fields(effective_ref, annotated_ke)
+    # Assays merely carried over from the stored entry are not newly annotated,
+    # even when the (masked) effective reference had none.
+    if not assays_extracted and "assays" in new_fields:
+        new_fields.remove("assays")
     if new_fields:
         annotated_ke["newly_annotated_fields"] = new_fields
     else:
@@ -855,9 +861,19 @@ def _manual_only_ref(ref_ke: dict) -> dict | None:
     """Reduce a stored KE to only its manually sourced term values.
 
     Used as the reference for --force runs, so a full re-annotation never
-    discards human curation. Returns None when nothing manual is stored.
+    discards human curation. Curator comments are preserved too, so the
+    ranking guidance still sees them on a forced run. Returns None when
+    nothing manual (and no comments) is stored.
     """
     kept: dict = {}
+    if ref_ke.get("comments"):
+        kept["comments"] = ref_ke["comments"]
+    # biological_organization is a plain string with no source marker, so its
+    # manual provenance lives in the entry's manually_curated_fields list
+    # (written by apply_manual_curations).
+    if ("biological_organization" in ref_ke.get("manually_curated_fields", [])
+            and ref_ke.get("biological_organization") is not None):
+        kept["biological_organization"] = ref_ke["biological_organization"]
     for field in ("cell_term", "organ_term", "cellular_component"):
         if _is_manual(ref_ke.get(field)):
             kept[field] = ref_ke[field]
@@ -1046,6 +1062,9 @@ def main():
         action="append",
         dest="force_fields",
         default=[],
+        choices=sorted({"biological_organization", "cell_term", "organ_term",
+                        "cellular_component", "biological_object",
+                        "biological_process", "phenotype", "assays"}),
         help=(
             "Re-annotate a specific field while keeping all other reference values. "
             "Can be repeated. Valid fields: biological_organization, cell_term, organ_term, "
@@ -1076,6 +1095,15 @@ def main():
     )
     args = parser.parse_args()
 
+    # Comments go straight to the store: no event cache needed, and a missing
+    # cache must not trigger an expensive rebuild (or block the comment).
+    if args.add_comment:
+        if not args.ke_id:
+            print("--add-comment requires --ke-id")
+            sys.exit(1)
+        _add_comment(args.ke_id, args.add_comment)
+        return
+
     cache = events_cache_file(args.date)
     if not os.path.exists(cache):
         print(f"Cache file not found: {cache}")
@@ -1084,13 +1112,6 @@ def main():
         if not os.path.exists(cache):
             print(f"Unable to generate cache file for {args.date}: {cache}")
             sys.exit(1)
-
-    if args.add_comment:
-        if not args.ke_id:
-            print("--add-comment requires --ke-id")
-            sys.exit(1)
-        _add_comment(args.ke_id, args.add_comment)
-        return
 
     force_fields = set(args.force_fields) if args.force_fields else None
     # Explicitly forcing the assays field means assay extraction is wanted.

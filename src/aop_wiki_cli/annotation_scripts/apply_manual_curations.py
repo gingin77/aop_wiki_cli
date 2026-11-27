@@ -216,6 +216,12 @@ def apply_curations(curations: dict, store: dict, cache_file: str | None,
                     value = _resolve_string(field, spec)
                     old = entry.get(field)
                     entry[field] = value
+                    # String fields carry no source marker, so record their
+                    # manual provenance on the entry; _manual_only_ref reads
+                    # this to preserve the value across --force runs.
+                    curated = entry.setdefault("manually_curated_fields", [])
+                    if field not in curated:
+                        curated.append(field)
                     summary = value
                 elif field in TOP_LEVEL_TERM_FIELDS:
                     value = _resolve_term(field, spec, bioportal_key)

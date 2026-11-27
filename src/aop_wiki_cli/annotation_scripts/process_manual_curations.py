@@ -209,6 +209,7 @@ def main() -> None:
         llm_data = json.load(f)
 
     integrated = integrate_mcs_with_llm_annotations(manual_curations, llm_data)
+    integrated.setdefault("metadata", {})
     integrated["metadata"] = insert_after(
         integrated["metadata"],
         "source_cache",

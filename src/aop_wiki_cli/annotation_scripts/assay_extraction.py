@@ -44,10 +44,26 @@ def extract_assays_from_text(measurement_text: str, client: anthropic.Anthropic)
     None when the LLM call fails or returns nothing parseable — a failure must
     stay distinguishable from "the text describes no assays".
     """
-    parsed = call_json(client, prompts.extract_assays(measurement_text), max_tokens=4096)
-    if not parsed:
+    return coerce_assays(call_json(client, prompts.extract_assays(measurement_text), max_tokens=4096))
+
+
+def coerce_assays(parsed) -> list[dict] | None:
+    """Validate the extraction payload shape; None when unusable.
+
+    Non-dict entries are dropped; a payload whose assays are all malformed
+    (or not a list at all) is a failure, not an empty result — [] is reserved
+    for a reply that genuinely reports no assays.
+    """
+    if not isinstance(parsed, dict):
         return None
-    assays = parsed.get("assays") or []
+    raw = parsed.get("assays")
+    if raw is None:
+        raw = []
+    if not isinstance(raw, list):
+        return None
+    assays = [a for a in raw if isinstance(a, dict)]
+    if raw and not assays:
+        return None
     for i, assay in enumerate(assays, start=1):
         assay["id"] = i
     return assays
@@ -156,7 +172,7 @@ def _print_assay_summary(ke_id: str, title: str, assays: list[dict]) -> None:
                            ("taxon:      ", "taxon_terms")):
             for item in assay.get(key) or []:
                 print(f"      {label} {item.get('label')}{_term_suffix(item)}")
-        citations = assay.get("citations") or []
+        citations = [c for c in (assay.get("citations") or []) if isinstance(c, dict)]
         if citations:
             cit_strs = [f"{c.get('authors', '')} ({c.get('year', '')})" for c in citations]
             print(f"      citations:   {'; '.join(cit_strs)}")
