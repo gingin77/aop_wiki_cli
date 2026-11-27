@@ -1,0 +1,53 @@
+ke_id,title,divergent_field,cached_value,annotation_value
+1495,Substance interaction with the lung resident cell membrane components,biological_organization,Molecular,Cellular
+1495,Substance interaction with the lung resident cell membrane components,ec.biological_action,increased,occurrence
+1496,"Increased, secretion of proinflammatory mediators",biological_organization,Cellular,Molecular
+1496,"Increased, secretion of proinflammatory mediators",ec.biological_process,cytokine production involved in inflammatory response,cytokine secretion
+1497,"Increased, recruitment of inflammatory cells",biological_organization,Tissue,Cellular
+1497,"Increased, recruitment of inflammatory cells",ec.biological_process,inflammatory response,leukocyte migration
+1499,"Increased, activation of T (T) helper (h) type 2 cells",biological_organization,Tissue,Cellular
+1500,"Increased, fibroblast proliferation and myofibroblast differentiation",biological_organization,Tissue,Cellular
+122,"Increase, Glucocorticoid receptor activation",cell_term,eukaryotic cell,glucocorticoid secreting cell
+122,"Increase, Glucocorticoid receptor activation",ec.biological_object,glucocorticoid receptor,glucocorticoid receptor agonist
+145,"Induction, IKB inhibitory protein",biological_organization,Cellular,Molecular
+145,"Induction, IKB inhibitory protein",cell_term,eukaryotic cell,inhibitory interneuron
+152,"Suppression, Inflammatory cytokines",biological_organization,Individual,Molecular
+152,"Suppression, Inflammatory cytokines",ec.biological_process,cytokine production involved in inflammatory response,inflammatory response
+168,"Decreased, Lymphocytes",biological_organization,Individual,Molecular
+202,"Inhibition, Nuclear factor kappa B (NF-kB)",biological_organization,Molecular,Cellular
+202,"Inhibition, Nuclear factor kappa B (NF-kB)",ec.biological_object,transcription factor NF-kappa-B subunit,nuclear factor NF-kappa-B p100 subunit
+202,"Inhibition, Nuclear factor kappa B (NF-kB)",ec.biological_process,I-kappaB kinase/NF-kappaB signaling,NF-kappaB binding
+323,"Increased, Disease susceptibility",biological_organization,Individual,Molecular
+403,"Suppression, Immune system",biological_organization,Individual,Molecular
+403,"Suppression, Immune system",ec.biological_process,suppression of host defenses,negative regulation of immune system process
+403,"Suppression, Immune system",ec.biological_action,increased,decreased
+272,"Activation/Proliferation, T-cells",biological_organization,Organ,Cellular
+272,"Activation/Proliferation, T-cells",organ_term,lymph node,T cell
+313,"Increase, Allergic Respiratory Hypersensitivity Response",biological_organization,Organ,Individual
+313,"Increase, Allergic Respiratory Hypersensitivity Response",ec.biological_process,Respiratory Hypersensitivity,type I hypersensitivity
+396,"Covalent Binding, Protein",ec.biological_object,electrophilic reagant,protein polypeptide chain
+396,"Covalent Binding, Protein",ec.biological_action,increased,occurrence
+984,"Impairment, T-cell dependent antibody response",biological_organization,Individual,Tissue
+984,"Impairment, T-cell dependent antibody response",ec.biological_process,Immunosuppression,T cell activation involved in immune response
+984,"Impairment, T-cell dependent antibody response",ec.biological_action,increased,abnormal
+1700,Impaired IL-1R1 signaling in T cell,biological_organization,Molecular,Cellular
+1700,Impaired IL-1R1 signaling in T cell,ec.biological_object,interleukin-1 receptor type I,T cell
+1700,Impaired IL-1R1 signaling in T cell,ec.biological_action,decreased,abnormal
+1702,Suppression of  T cell activation,ec.biological_process,T cell activation involved in immune response,regulation of T cell activation
+1250,"Decrease, Lung function",biological_organization,Individual,Organ
+1250,"Decrease, Lung function",ec.biological_process,respiratory function trait,lung development
+1672,Inhibition of lung surfactant function,biological_organization,Molecular,Tissue
+1673,Alveolar collapse,biological_organization,Cellular,Organ
+1677,Reduced tidal volume ,biological_organization,Organ,Molecular
+177,"Increase, Mitochondrial dysfunction",ec.biological_action,functional change,increased
+227,"Activation, PPARα",ec.biological_object,peroxisome proliferator-activated receptor alpha,peroxisome proliferator-activated receptor alpha (human)
+458,"Increased, De Novo FA synthesis",biological_organization,Cellular,Molecular
+459,"Increase, Liver steatosis",ec.biological_process,Hepatic steatosis,lipid storage
+479,"Activation, NR1H4",ec.biological_object,bile acid receptor,bile acid receptor (human)
+482,"Decreased, DHB4/HSD17B4",ec.biological_object,17-beta-hydroxysteroid dehydrogenase 14,peroxisomal multifunctional enzyme type 2 (human)
+878,"Inhibition, SREBP1c",ec.biological_action,increased,decreased
+879,"Activation, MTTP",biological_organization,Cellular,Molecular
+879,"Activation, MTTP",ec.biological_object,microsomal triglyceride transfer protein large subunit MTTP,microsomal triglyceride transfer protein large subunit (human)
+880,"Increased, ApoB100",biological_organization,Tissue,Molecular
+881,"Increased, Triglyceride",biological_organization,Cellular,Tissue
+881,"Increased, Triglyceride",ec.biological_process,biosynthetic process,triglyceride homeostasis
