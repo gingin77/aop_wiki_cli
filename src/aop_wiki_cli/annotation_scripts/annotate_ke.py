@@ -21,7 +21,7 @@ Workflow (see _build_ke_annotation, which runs one step per line):
                                      with the extracted phrases
 annotate_ke() wraps that sequence with store handling: load the cache and the
 stored reference, honor --force/--force-on, extract assays, carry comments,
-record newly annotated fields, stamp the schema version, and save.
+record newly annotated fields, stamp the workflow version, and save.
 
 This script is designed to make use of LLM annotations that have already been stored
 and are under version control in `outputs_for_vc/annotations/`.
@@ -117,7 +117,7 @@ _CELLULAR_COMPONENT_LEVELS = {"Molecular", "Cellular"}
 
 # Completeness marker. A KE finished by annotate_ke() is stamped with this
 # version; the batch/single-KE gates skip a KE only when its stored
-# schema_version equals this. Bump it whenever the workflow changes in a way
+# workflow_version equals this. Bump it whenever the workflow changes in a way
 # that should re-process KEs previously marked complete — a bump makes the next
 # run re-annotate stale KEs (filling nulls and new fields, honoring existing
 # ref values). Entries without the field (annotated before versioning, when
@@ -132,7 +132,7 @@ _CELLULAR_COMPONENT_LEVELS = {"Molecular", "Cellular"}
 #       subcellular location) with the rule-based parse as fallback,
 #       biological_action records with separate source/vocabulary
 #       provenance, and GO-CC subtree-restricted cellular_component search.
-ANNOTATION_SCHEMA_VERSION = 2
+ANNOTATION_WORKFLOW_VERSION = 2
 
 # GO terms may be valid phenotype terms (e.g. "hypersensitivity" is included in UPHENO),
 # but many are biological processes and not appropriate as phenotype annotations.
@@ -157,7 +157,7 @@ def annotate_ke(
     Load the KE from the cache, use any stored annotation as the reference
     (masked by --force/--force-on), run the annotation sequence
     (_build_ke_annotation), extract assays, carry comments forward, record
-    which fields are newly annotated, stamp the schema version, save, and
+    which fields are newly annotated, stamp the workflow version, save, and
     register the KE under its AOPs.
 
     Returns the shared store path.
@@ -215,7 +215,7 @@ def annotate_ke(
         # term annotations just stored as reference values).
         print(f"  (--skip-assays: KE {ke_id} left unstamped — re-run without it to complete)")
     else:
-        annotated_ke["schema_version"] = ANNOTATION_SCHEMA_VERSION
+        annotated_ke["workflow_version"] = ANNOTATION_WORKFLOW_VERSION
     store[ke_id] = annotated_ke
     save_ke_annotations(store)
     for aop in events[ke_id].get("aop_ids", []):
@@ -970,21 +970,21 @@ def main():
         print()
         for ke_id, _ in kes:
             ke_entry = store.get(ke_id)
-            already_complete = ke_entry and ke_entry.get("schema_version") == ANNOTATION_SCHEMA_VERSION
+            already_complete = ke_entry and ke_entry.get("workflow_version") == ANNOTATION_WORKFLOW_VERSION
             if already_complete and not args.force and not force_fields:
-                print(f"KE {ke_id} is already fully annotated (schema v{ANNOTATION_SCHEMA_VERSION}).")
+                print(f"KE {ke_id} is already fully annotated (workflow v{ANNOTATION_WORKFLOW_VERSION}).")
                 continue
             annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields,
                         skip_assays=args.skip_assays)
         return
 
     store = load_ke_annotations()
-    # A KE is "complete" when it carries the current ANNOTATION_SCHEMA_VERSION,
+    # A KE is "complete" when it carries the current ANNOTATION_WORKFLOW_VERSION,
     # stamped by annotate_ke() as its final step. A plain run skips complete KEs;
     # --force / --force-on bypass this to re-annotate all or specific fields.
     if (args.ke_id in store and not args.force and not force_fields
-            and store[args.ke_id].get("schema_version") == ANNOTATION_SCHEMA_VERSION):
-        print(f"KE {args.ke_id} is fully annotated (schema v{ANNOTATION_SCHEMA_VERSION}). "
+            and store[args.ke_id].get("workflow_version") == ANNOTATION_WORKFLOW_VERSION):
+        print(f"KE {args.ke_id} is fully annotated (workflow v{ANNOTATION_WORKFLOW_VERSION}). "
               f"Use --force to re-annotate or --force-on <field> to re-annotate specific fields.")
         return
 
