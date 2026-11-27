@@ -361,21 +361,36 @@ def _extract_title_concepts(title: str, client, ref_ke: dict | None = None) -> d
     return parsed
 
 
+def _action_record(term: str | None, source: str) -> dict:
+    """Build a biological_action record.
+
+    `source` says how the term was derived (rule-based detection, title
+    extraction, normalization); `vocabulary` separately asserts that the term
+    is a member of the AOP-Wiki controlled vocabulary, which every derivation
+    path guarantees for a non-null term.
+    """
+    return {
+        "term": term,
+        "source": source,
+        "vocabulary": "aop_wiki_action_terms" if term in WIKI_ACTION_WORDS else None,
+    }
+
+
 def _annotate_biological_action(parsed: dict, client) -> dict:
     """Resolve the direction phrase to a controlled-vocab action term."""
     print("--- biological_action ---")
     if parsed.get("action_source") == "llm_extraction":
         print(f"  Extracted from title (LLM): {parsed['biological_action']!r}\n")
-        return {"term": parsed["biological_action"], "source": "llm_extraction"}
+        return _action_record(parsed["biological_action"], "llm_extraction")
     if parsed["biological_action"] is not None:
         print(f"  Detected (controlled vocab): {parsed['biological_action']!r}\n")
-        return {"term": parsed["biological_action"], "source": "controlled_vocab"}
+        return _action_record(parsed["biological_action"], "rule_based_detection")
     llm_action = llm_normalize_biological_action(parsed["raw_direction"], client) if client else None
     if llm_action:
         print(f"  LLM normalized to: {llm_action!r}\n")
-        return {"term": llm_action, "source": "llm_normalization"}
+        return _action_record(llm_action, "llm_normalization")
     print(f"  No match for {parsed['raw_direction']!r} — biological_action set to null\n")
-    return {"term": None, "source": "unmatched"}
+    return _action_record(None, "unmatched")
 
 
 def _resolve_biological_organization(
