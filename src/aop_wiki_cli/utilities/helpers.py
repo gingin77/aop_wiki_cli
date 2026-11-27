@@ -226,3 +226,19 @@ def format_elapsed(seconds: float) -> str:
     hours, remainder = divmod(seconds, 3600)
     minutes, secs = divmod(remainder, 60)
     return f"{int(hours):02d}:{int(minutes):02d}:{secs:06.3f}"
+
+def insert_after(d: dict, after_key: str, new_key: str, new_value) -> dict:
+    """Return a copy of ``d`` with ``new_key`` inserted immediately after ``after_key``.
+
+    If ``after_key`` is absent, ``new_key`` is appended at the end rather than
+    silently dropped — callers rely on this to stamp provenance fields that must
+    never go missing, even when the anchor key is not present.
+    """
+    result = {}
+    for k, v in d.items():
+        result[k] = v
+        if k == after_key:
+            result[new_key] = new_value
+    if new_key not in result:
+        result[new_key] = new_value
+    return result
