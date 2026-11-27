@@ -106,6 +106,8 @@ from aop_wiki_cli.annotation_scripts.annotate_term_helpers import (
     TOP_LEVEL_ONTOLOGIES,
     annotate_term,
     is_rejection,
+    llm_errors_occurred,
+    reset_llm_errors,
 )
 from aop_wiki_cli.annotation_scripts.assay_extraction import (
     ASSAY_TYPE_ONTOLOGIES,
@@ -211,6 +213,7 @@ def annotate_ke(
     else:
         effective_ref = ref_ke
 
+    reset_llm_errors()
     annotated_ke = _build_ke_annotation(ke_id, title, bp_api_key, description=description, ref_ke=effective_ref)
 
     ref_has_assays = (ref_ke or {}).get("assays") is not None
@@ -234,6 +237,7 @@ def annotate_ke(
         annotated_ke["assays"] = (ref_ke or {}).get("assays")
 
     ref_comments = _attach_comments(annotated_ke, ref_ke)
+    _carry_manual_markers(annotated_ke, ref_ke)
 
     new_fields = _compute_newly_updated_fields(effective_ref, annotated_ke)
     # Assays merely carried over from the stored entry are not newly annotated,
@@ -245,11 +249,17 @@ def annotate_ke(
     else:
         annotated_ke.pop("newly_annotated_fields", None)
 
+    llm_errors = llm_errors_occurred()
     if "assays" not in annotated_ke:
         # Without assays the KE is not complete: leave it unstamped so a
         # later run with --with-assays picks it up again (honoring the
         # term annotations just stored as reference values).
         print(f"  (no assays: KE {ke_id} left unstamped — re-run with --with-assays to complete)")
+    elif llm_errors:
+        # Fields nulled by mechanical LLM failures only get retried if the
+        # KE stays stale; stamping it complete would bury the failure.
+        print(f"  ({llm_errors} LLM selection failure(s) this run: "
+              f"KE {ke_id} left unstamped so the nulled field(s) retry)")
     else:
         annotated_ke["workflow_version"] = ANNOTATION_WORKFLOW_VERSION
     store[ke_id] = annotated_ke
@@ -544,26 +554,39 @@ def _annotate_event_components(
         ec_annotation["biological_action"] = biological_action
         annotations.append(ec_annotation)
 
-    # Stored components (manual curations included) must never be lost just
-    # because the current extraction worded a subject differently: carry any
-    # unmatched component with values over unchanged, with a warning.
+    # Manually curated components must never be lost just because the current
+    # extraction worded a subject differently: carry them over unchanged, with
+    # a warning. (LLM-sourced components are not carried — the reworded
+    # subject was annotated fresh, and keeping both would duplicate the event.)
     for comp in _unmatched_ref_components(ref_components_by_phrase, subjects):
-        print(f"  ! stored component {comp.get('subject')!r} matches no current "
-              f"subject — carried over unchanged")
+        print(f"  ! stored component {comp.get('subject')!r} holds manual values "
+              f"but matches no current subject — carried over unchanged")
         annotations.append(copy.deepcopy(comp))
     return annotations
 
 
 def _unmatched_ref_components(ref_components_by_phrase: dict, subjects: list[str]) -> list[dict]:
-    """Stored event components holding values whose subject phrase matches no
-    current subject. These would otherwise vanish when the entry is saved."""
+    """Stored event components holding MANUALLY sourced values whose subject
+    phrase matches no current subject. Only human judgment is worth keeping
+    alongside the freshly annotated components — carrying LLM-sourced ones
+    too would duplicate the event under both the old and reworded phrase."""
     current = set(subjects)
     return [
         comp for phrase, comp in ref_components_by_phrase.items()
         if phrase not in current
-        and any(comp.get(f) is not None
+        and any(_is_manual(comp.get(f))
                 for f in ("biological_object", "biological_process", "phenotype"))
     ]
+
+
+def _carry_manual_markers(annotated_ke: dict, ref_ke: dict | None) -> None:
+    """Carry the manually_curated_fields provenance marker across a save, the
+    way comments are carried — without it, the first annotation run after
+    apply_manual_curations would erase the marker and a later --force run
+    would discard the curated string values it protects."""
+    markers = (ref_ke or {}).get("manually_curated_fields")
+    if markers:
+        annotated_ke["manually_curated_fields"] = list(markers)
 
 
 def _annotate_event_component(
@@ -1160,6 +1183,9 @@ def main():
             print("Provide --ke-id to annotate a KE, --ke-ids for a cluster of KEs, "
                   "or --aop to list KEs for an AOP.")
             sys.exit(1)
+        if not args.annotate_all and (args.force or force_fields or args.with_assays):
+            parser.error("--aop without --ke-id lists status only; add "
+                         "--annotate-all for --force/--force-on/--with-assays to apply")
         kes = list_aop_kes(args.aop, cache)
         if not kes:
             print(f"No KEs found for AOP {args.aop}")

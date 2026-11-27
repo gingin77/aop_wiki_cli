@@ -17,6 +17,7 @@ Under pytest:    python -m pytest tests/test_annotate_ke_helpers.py
 from __future__ import annotations
 
 from aop_wiki_cli.annotation_scripts.annotate_ke import (
+    _carry_manual_markers,
     _compute_newly_updated_fields,
     _flat_ref_comments,
     _manual_only_ref,
@@ -92,10 +93,43 @@ def test_unmatched_ref_components_are_detected_for_carryover():
                       "biological_process": None, "phenotype": None},
     }
     carried = _unmatched_ref_components(ref, ["fatty acid synthesis"])
-    # The valued component is carried; the empty one is not worth keeping.
+    # The manually curated component is carried; the empty one is not worth keeping.
     assert [c["subject"] for c in carried] == ["Increased, fatty acid synthesis"]
     # A matching subject is handled by the normal reference path, not carryover.
     assert _unmatched_ref_components(ref, ["Increased, fatty acid synthesis"]) == []
+
+
+def test_unmatched_llm_components_are_not_carried():
+    """Carrying LLM-sourced components would duplicate the event under both
+    the old and the reworded subject phrase; only manual values are kept."""
+    ref = {
+        "Increased, fatty acid synthesis": {
+            "subject": "Increased, fatty acid synthesis",
+            "biological_object": {"term_id": "CHEBI:1", "label": "fatty acid",
+                                  "source": "llm_recommendation"},
+            "biological_process": {"rejection_reason": "x", "source": "llm_rejection"},
+            "phenotype": None,
+        },
+    }
+    assert _unmatched_ref_components(ref, ["fatty acid synthesis"]) == []
+
+
+def test_manual_markers_survive_the_save_and_protect_force():
+    """apply_manual_curations → annotate_ke save → --force: the provenance
+    marker must ride through the save for the curated string value to
+    survive the forced run."""
+    ref = {"biological_organization": "Tissue",
+           "manually_curated_fields": ["biological_organization"]}
+    saved_entry = {"ke_id": "9", "biological_organization": "Tissue"}
+    _carry_manual_markers(saved_entry, ref)
+    assert saved_entry["manually_curated_fields"] == ["biological_organization"]
+    # The marker on the saved entry is what a later --force run reads:
+    kept = _manual_only_ref(saved_entry)
+    assert kept["biological_organization"] == "Tissue"
+    # Without a marker, nothing is carried and nothing crashes.
+    plain = {"ke_id": "9"}
+    _carry_manual_markers(plain, {"biological_organization": "Tissue"})
+    assert "manually_curated_fields" not in plain
 
 
 def test_unmatched_action_record_is_not_newly_annotated():

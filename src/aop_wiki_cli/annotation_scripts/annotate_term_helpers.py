@@ -64,6 +64,21 @@ def is_rejection(term) -> bool:
     return isinstance(term, dict) and term.get("source") == "llm_rejection"
 
 
+# Mechanical LLM-selection failures in the current KE run. annotate_ke resets
+# this before each KE and withholds the completeness stamp when any occurred,
+# so the nulled fields actually get retried on the next run.
+_llm_error_count = 0
+
+
+def reset_llm_errors() -> None:
+    global _llm_error_count
+    _llm_error_count = 0
+
+
+def llm_errors_occurred() -> int:
+    return _llm_error_count
+
+
 def llm_rank_term(
     ke_title: str,
     component: str,
@@ -181,6 +196,8 @@ def selection_to_record(result: dict | None, source: str, reason: str) -> dict |
     if source == "llm_error":
         # A mechanical failure is not a judgment: leave the field null so the
         # next run retries it, instead of storing a permanent rejection.
+        global _llm_error_count
+        _llm_error_count += 1
         print(f"  → LLM selection failed ({reason}) — field left null for retry")
         return None
     if source == "llm_recommendation":
