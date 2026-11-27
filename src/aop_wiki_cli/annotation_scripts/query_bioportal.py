@@ -75,11 +75,13 @@ def _iri_prefix(iri: str) -> str:
       - OBO PURL, UniProt-style local id: '.../obo/PR_Q16236'             → 'PR'
         (species-specific Protein Ontology terms use a letter+digits local
         id, which the old digits-only pattern missed and silently dropped)
+      - Fragment-style IRI (e.g. BAO):    '...bao#BAO_0000015'            → 'BAO'
+        (the old '/'-only pattern dropped every BAO candidate as off-target)
       - CURIE-tailed IRI (e.g. HGNC):     '.../hgnc_id/HGNC:7782'         → 'HGNC'
     Falls back to empty string when no prefix can be determined.
     """
-    # OBO PURL: PREFIX before '_', local id may be digits or alphanumerics.
-    m = re.search(r"/([A-Za-z]+)_[A-Za-z0-9]+$", iri)
+    # PREFIX before '_' after a '/' or '#'; local id may be digits or alphanumerics.
+    m = re.search(r"[/#]([A-Za-z]+)_[A-Za-z0-9]+$", iri)
     if m:
         return m.group(1).upper()
     # CURIE-style tail, e.g. genenames '.../HGNC:7782'.

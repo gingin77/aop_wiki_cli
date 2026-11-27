@@ -25,6 +25,10 @@ CASES = [
     ("http://purl.obolibrary.org/obo/PR_Q16236", "PR"),
     ("http://purl.obolibrary.org/obo/PR_O54968", "PR"),
     ("http://purl.obolibrary.org/obo/PR_Q13133", "PR"),
+    # Fragment-style BAO IRI (previously dropped -> '', so every BAO
+    # assay-type candidate was discarded as off-target)
+    ("http://www.bioassayontology.org/bao#BAO_0000015", "BAO"),
+    ("http://www.bioassayontology.org/bao#BAO_0000040", "BAO"),
     # HGNC genenames IRI (previously dropped -> '')
     ("https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:7782", "HGNC"),
     ("https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:7780", "HGNC"),

@@ -56,16 +56,22 @@ OBO_PREFIXES = {
     "PR", "GO", "CL", "UBERON", "CHEBI", "HP", "MP", "UPHENO",
     "PATO", "SO", "OBA", "NCBITAXON", "NCIT", "OBI",
 }
+# OBO PURLs are case-sensitive; prefixes whose canonical spelling is not
+# all-uppercase must not be uppercased into the IRI.
+CANONICAL_OBO_CASE = {"NCBITAXON": "NCBITaxon"}
 
 
 def _curie_to_iri(curie: str) -> tuple[str, str]:
-    """Return (term_id, ontology) for a CURIE. OBO prefixes become PURLs."""
+    """Return (term_id, ontology) for a CURIE. OBO prefixes become PURLs,
+    built with the prefix's canonical casing (membership is checked
+    case-insensitively)."""
     prefix, sep, local = curie.partition(":")
     if not sep:
         raise ValueError(f"{curie!r} is not a CURIE (expected PREFIX:LOCAL)")
     upper = prefix.upper()
     if upper in OBO_PREFIXES:
-        return f"http://purl.obolibrary.org/obo/{upper}_{local}", upper
+        canonical = CANONICAL_OBO_CASE.get(upper, upper)
+        return f"http://purl.obolibrary.org/obo/{canonical}_{local}", canonical
     return curie, prefix  # non-OBO: keep CURIE as the id
 
 

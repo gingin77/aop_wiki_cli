@@ -23,6 +23,14 @@ def test_curie_to_iri_obo_prefix_becomes_purl():
     assert _curie_to_iri("cl:0000182") == ("http://purl.obolibrary.org/obo/CL_0000182", "CL")
 
 
+def test_curie_to_iri_keeps_canonical_obo_case():
+    # OBO PURLs are case-sensitive: NCBITaxon must not become NCBITAXON.
+    assert _curie_to_iri("NCBITaxon:10090") == (
+        "http://purl.obolibrary.org/obo/NCBITaxon_10090", "NCBITaxon")
+    assert _curie_to_iri("ncbitaxon:9606") == (
+        "http://purl.obolibrary.org/obo/NCBITaxon_9606", "NCBITaxon")
+
+
 def test_curie_to_iri_non_obo_keeps_curie():
     # HGNC is not an OBO prefix: the CURIE itself stays the id.
     assert _curie_to_iri("HGNC:7782") == ("HGNC:7782", "HGNC")

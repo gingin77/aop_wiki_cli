@@ -86,14 +86,17 @@ def iri_to_curie(iri: str) -> str | None:
     """Convert a stored term IRI to a CURIE, or None when no form is recognized.
 
     Handles OBO PURLs ('.../obo/GO_0005739' → 'GO:0005739', including
-    UniProt-style PR local ids) and CURIE-tailed IRIs ('.../HGNC:7782').
-    A string that already looks like a CURIE is returned unchanged.
+    UniProt-style PR local ids), fragment-style IRIs ('...bao#BAO_0000015'),
+    and CURIE-tailed IRIs ('.../HGNC:7782'). A string that already looks like
+    a CURIE is returned unchanged. The prefix keeps the IRI's own casing —
+    OBO PURLs are case-sensitive and e.g. 'NCBITaxon:9606' must not be
+    uppercased, or OLS lookups fail.
     """
     if not iri:
         return None
-    m = re.search(r"/obo/([A-Za-z]+)_([A-Za-z0-9]+)$", iri)
+    m = re.search(r"[/#]([A-Za-z]+)_([A-Za-z0-9]+)$", iri)
     if m:
-        return f"{m.group(1).upper()}:{m.group(2)}"
+        return f"{m.group(1)}:{m.group(2)}"
     m = re.fullmatch(r"([A-Za-z]+):[A-Za-z0-9._-]+", iri)
     if m:
         return iri
@@ -250,14 +253,19 @@ def validate_store(store: dict, checker: OntologyChecker,
             tally["unparseable_id"] += 1
             print(f"UNPARSEABLE  {where}: term_id {record.get('term_id')!r}")
             continue
+        # The CURIE keeps the IRI's casing (NCBITaxon); comparisons are
+        # case-insensitive via the uppercased prefix.
         prefix = curie.split(":", 1)[0]
+        prefix_upper = prefix.upper()
+        findings = 0
 
         rule = FIELD_RULES.get(field)
-        if rule and prefix not in rule.prefixes:
+        if rule and prefix_upper not in rule.prefixes:
             tally["off_scope"] += 1
+            findings += 1
             print(f"OFF-SCOPE    {where}: {curie} ({prefix} not allowed for {field})")
 
-        if prefix in UNRESOLVABLE_PREFIXES:
+        if prefix_upper in UNRESOLVABLE_PREFIXES:
             tally["skipped"] += 1
             print(f"SKIPPED      {where}: {curie} ({prefix} not resolvable via OAK — verify manually)")
             continue
@@ -273,18 +281,22 @@ def validate_store(store: dict, checker: OntologyChecker,
             continue
         if canonical.strip().casefold() != stored_label.strip().casefold():
             tally["label_drift"] += 1
+            findings += 1
             print(f"LABEL DRIFT  {where}: {curie} stored {stored_label!r}, canonical {canonical!r}")
 
-        root = (rule.roots.get(prefix) if rule else None)
+        root = (rule.roots.get(prefix_upper) if rule else None)
         if check_closure and root:
             verdict = checker.in_closure(curie, root)
             if verdict is False:
                 tally["closure_fail"] += 1
+                findings += 1
                 print(f"OUT OF SCOPE {where}: {curie} ({stored_label!r}) is not under {root} for {field}")
             elif verdict is None:
                 tally["closure_unchecked"] += 1
 
-        tally["ok"] += 1
+        # A record is ok only when every check it went through was clean.
+        if findings == 0:
+            tally["ok"] += 1
 
     return tally
 
@@ -334,7 +346,8 @@ def main() -> None:
                 "off_scope", "closure_fail", "closure_unchecked"):
         if tally[key]:
             print(f"  {key}: {tally[key]}")
-    failures = tally["unparseable_id"] + tally["not_found"] + tally["closure_fail"]
+    failures = (tally["unparseable_id"] + tally["not_found"]
+                + tally["closure_fail"] + tally["off_scope"])
     sys.exit(1 if failures else 0)
 
 

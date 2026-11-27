@@ -22,6 +22,15 @@ def test_iri_to_curie_obo_purls():
     assert iri_to_curie("http://purl.obolibrary.org/obo/UBERON_0002107") == "UBERON:0002107"
 
 
+def test_iri_to_curie_preserves_prefix_case():
+    # OBO PURLs are case-sensitive; uppercasing NCBITaxon breaks OLS lookups.
+    assert iri_to_curie("http://purl.obolibrary.org/obo/NCBITaxon_9606") == "NCBITaxon:9606"
+
+
+def test_iri_to_curie_fragment_style_bao():
+    assert iri_to_curie("http://www.bioassayontology.org/bao#BAO_0000015") == "BAO:0000015"
+
+
 def test_iri_to_curie_curie_tails_and_passthrough():
     assert iri_to_curie(
         "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:7782"
