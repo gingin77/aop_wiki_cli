@@ -1,0 +1,80 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2132",
+      "group_key": "proinflammatory_mediators",
+      "rationale": "Increased pro-inflammatory cytokine expression describes the same increased pro-inflammatory mediator state under different wording."
+    },
+    {
+      "event_id": "1928",
+      "group_key": "endothelial_dysfunction",
+      "rationale": "Increased vascular endothelial dysfunction is the same event as endothelial cell dysfunction."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "adipocyte_size_vs_number",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2127",
+        "2128"
+      ],
+      "rationale": "Both concern adipocytes but increased size (hypertrophy) and increased number (hyperplasia) are distinct processes."
+    },
+    {
+      "group_key": "prostate_neoplasia_vs_cancer",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2136",
+        "2135"
+      ],
+      "rationale": "Both are prostate neoplastic events at different stages/specificity (intraepithelial neoplasia vs cancer)."
+    },
+    {
+      "group_key": "influenza_viral_lifecycle_entry_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2159",
+        "2158"
+      ],
+      "rationale": "Influenza A virus receptor binding and cell entry are distinct processes involving the same virus-receptor interaction."
+    },
+    {
+      "group_key": "influenza_virus_production_budding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2192",
+        "2193",
+        "2194"
+      ],
+      "rationale": "Virus production, budding, and shedding/transmission are distinct processes of the influenza virus lifecycle."
+    },
+    {
+      "group_key": "hif1a_activation_vegf_inhibition_angiogenesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2181",
+        "2161"
+      ],
+      "rationale": "Angiogenesis dysfunction and vascular disrupting effects are overlapping vascular outcomes at differing specificity; flagged for curator review."
+    },
+    {
+      "group_key": "gluten_reactive_cell_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2260",
+        "2256"
+      ],
+      "rationale": "Activation of gluten-reactive CD4+ T cells vs B cells are the same process in different cell types."
+    },
+    {
+      "group_key": "gluten_receptor_generation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2253",
+        "2254"
+      ],
+      "rationale": "Generation of gluten-reactive T cell receptors vs B cell receptors are the same process in different cell types."
+    }
+  ]
+}

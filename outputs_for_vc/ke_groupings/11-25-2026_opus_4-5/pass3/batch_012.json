@@ -1,0 +1,372 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1961",
+      "group_key": "action_potential_alteration_vs_depolarization",
+      "rationale": "Prolongation of Action Potential Duration describes a specific form of altered action potential, sharing the same electrophysiological context as 'Altered, Action Potential' and 'prolonged, Depolarization of neuronal membrane' but with different specificity."
+    },
+    {
+      "event_id": "1554",
+      "group_key": "chromosomal_aberrations_translocation",
+      "rationale": "Increase Chromosomal Aberrations describes the same general chromosomal damage endpoint as 'Increase, Chromosomal aberrations' already in this group."
+    },
+    {
+      "event_id": "105",
+      "group_key": "mitochondrial_dysfunction",
+      "rationale": "Inhibition of Mitochondrial Electron Transport Chain Complexes describes mitochondrial electron transport chain disruption, equivalent to 'Mitochondrial electron transport chain, disrupted' already in the group."
+    },
+    {
+      "event_id": "1990",
+      "group_key": "follicular_atresia_oogenesis",
+      "rationale": "Increased Oocyte Atresia describes the same process as 'Increase, Follicular atresia' \u2014 oocyte/follicle loss \u2014 in the same directional and biological context."
+    },
+    {
+      "event_id": "2065",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Inhibition, Fatty acid oxidation describes the same decrease in fatty acid beta-oxidation as the existing merge group members, using different wording for the same directional outcome."
+    },
+    {
+      "event_id": "901",
+      "group_key": "inflammation_vs_leukocyte_recruitment",
+      "rationale": "Infiltration, Inflammatory cells describes the same leukocyte recruitment/infiltration process as 'Leukocyte recruitment/activation' in this group, warranting curator review as a component mechanism of inflammation."
+    },
+    {
+      "event_id": "2009",
+      "group_key": "inflammation_cytokine",
+      "rationale": "Activation of inflammation pathway describes increased inflammation equivalent to 'Increase, Inflammation' in the existing merge group."
+    },
+    {
+      "event_id": "2068",
+      "group_key": "vascular_endothelial_dysfunction",
+      "rationale": "Increase, Endothelial Dysfunction describes the same vascular endothelial dysfunction outcome as 'increased, Vascular endothelial dysfunction' already in the merge group."
+    },
+    {
+      "event_id": "2039",
+      "group_key": "igabar_binding_vs_reduction",
+      "rationale": "Inhibition GABAA receptor describes inhibition of the ionotropic GABA receptor, the same biological object as the existing group targeting the iGABAR chloride channel, warranting curator review as a same_object_different_process."
+    },
+    {
+      "event_id": "2019",
+      "group_key": "liver_steatosis",
+      "rationale": "Non-alcoholic fatty liver disease encompasses liver steatosis as its core pathological feature, sharing the same hepatic lipid accumulation endpoint as 'Increase, Liver steatosis' and 'N/A, Liver Steatosis'."
+    },
+    {
+      "event_id": "2034",
+      "group_key": "liver_injury_hepatotoxicity",
+      "rationale": "Liver dysfunction describes impaired liver function equivalent to 'Liver Injury' in the existing merge group, using different wording for the same hepatic damage endpoint."
+    },
+    {
+      "event_id": "2012",
+      "group_key": "pulmonary_fibrosis_vs_fibroblast_proliferation",
+      "rationale": "Fibroblast proliferation and differentiation describes the same cellular process as 'Increased, fibroblast proliferation and myofibroblast differentiation' already in this similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "2013",
+      "group_key": "lung_fibrosis",
+      "rationale": "Airway remodeling describes structural changes in the airway/lung context equivalent to 'Fibroproliferative airway lesions' and 'Lung fibrosis' in the existing similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "1972",
+      "group_key": "cholesterol_transport_star_tspo",
+      "rationale": "Increased, Steroidogenic acute regulatory protein (StAR) describes a change in STAR protein in the opposite direction from 'Decrease, Steroidogenic acute regulatory protein (STAR)' in the existing merge group \u2014 however, since the group is a merge of decrease events, this opposing event should not be added to that merge group."
+    },
+    {
+      "event_id": "2036",
+      "group_key": "nmdar_binding_vs_inhibition",
+      "rationale": "Activation of metabotropic glutamate receptor involves glutamate receptors but is a different receptor subtype (metabotropic vs. NMDA ionotropic) so this assignment is not justified."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "action_potential_prolongation_qt_torsades",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1961",
+        "1962",
+        "1963"
+      ],
+      "rationale": "Prolongation of Action Potential Duration, Prolongation of QT interval, and Torsades de Pointes describe sequential cardiac electrophysiology events in the same pathological cascade but at different biological levels (cellular action potential, ECG interval, arrhythmia phenotype)."
+    },
+    {
+      "group_key": "sudden_cardiac_death_arrhythmia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1963",
+        "1964"
+      ],
+      "rationale": "Torsades de Pointes and Sudden cardiac death are sequential outcomes in the same cardiac arrhythmia pathway \u2014 Torsades de Pointes can degenerate into cardiac death \u2014 representing different severity stages of the same process."
+    },
+    {
+      "group_key": "ceramide_sphingolipid_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2023",
+        "2024"
+      ],
+      "rationale": "Inhibition of Ceramide Synthase and Reduced complex sphingolipids both involve the ceramide/sphingolipid biosynthesis pathway but describe distinct events \u2014 enzyme inhibition versus downstream reduction of complex sphingolipid products."
+    },
+    {
+      "group_key": "sphingolipid_direction",
+      "type": "soda",
+      "member_ids": [
+        "2024",
+        "2033"
+      ],
+      "rationale": "Reduced complex sphingolipids and Increased sphingolipid-1-phosphate describe changes in sphingolipid species in opposite directions, representing directionally opposite endpoints in the sphingolipid metabolism network."
+    },
+    {
+      "group_key": "ovarian_cancer_promotion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2092",
+        "1973"
+      ],
+      "rationale": "Promotion of Ovarian Cancer and Increased estrogens are related in the same ovarian pathology context but represent distinct events \u2014 a downstream tumor promotion outcome versus upstream hormonal change."
+    },
+    {
+      "group_key": "kisspeptin_avpv_gnrh_axis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1985",
+        "1986"
+      ],
+      "rationale": "Increased Kisspeptin levels in AVPV and Decreased Gonadotropins describe opposite-direction endpoints in the same HPG axis but on different biological objects (kisspeptin vs. gonadotropins), so they are related pathway events rather than synonyms or soda pairs."
+    },
+    {
+      "group_key": "decreased_androgens_progestins",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1987",
+        "1988"
+      ],
+      "rationale": "Decreased Androgen and Progestin and Decreased Maturation Inducing Steroid Surge by Granulosa cells both describe reduced steroid hormone production in the same ovarian reproductive context but specify different steroids and cell types."
+    },
+    {
+      "group_key": "emphysema_copd_airway",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2011",
+        "2013"
+      ],
+      "rationale": "Emphysema and Airway remodeling both describe structural pulmonary pathology in the same lung disease context but represent distinct processes \u2014 alveolar destruction versus airway structural change."
+    },
+    {
+      "group_key": "neural_progenitor_microcephaly",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2200",
+        "1978"
+      ],
+      "rationale": "Decline in neural progenitor cells and Increased risk of microcephaly are causally linked events in the same neurodevelopmental context but represent distinct events \u2014 cellular depletion versus a gross anatomical/developmental risk outcome."
+    },
+    {
+      "group_key": "fatty_acid_oxidation_inhibition_vs_decrease",
+      "type": "merge",
+      "member_ids": [
+        "2065"
+      ],
+      "rationale": "Inhibition, Fatty acid oxidation is effectively synonymous with 'Decrease, Fatty acid beta-oxidation' already in the fatty_acid_beta_oxidation_decrease merge group \u2014 assigning there rather than creating a new group."
+    },
+    {
+      "group_key": "sox9_hedgehog_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2043",
+        "2020"
+      ],
+      "rationale": "Decrease in Sonic Hedgehog second messenger production and Decrease in sox9 expression are causally linked events in the hedgehog signaling pathway but describe distinct processes on different molecular objects."
+    },
+    {
+      "group_key": "slincr_sox9_gene_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2021",
+        "2020"
+      ],
+      "rationale": "Increase in slincR expression and Decrease in sox9 expression both involve gene regulation in the same pathway context (slincR represses sox9) but describe opposite-direction changes in different molecular targets."
+    },
+    {
+      "group_key": "inositol_triphosphate_calpain_calcium",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2037",
+        "2038"
+      ],
+      "rationale": "Inositol triphosphate receptor activation and Activation of calpain signalling are causally linked through intracellular calcium release but describe distinct molecular events on different proteins."
+    },
+    {
+      "group_key": "metabotropic_glutamate_ip3_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2036",
+        "2037"
+      ],
+      "rationale": "Activation of metabotropic glutamate receptor and Inositol triphosphate receptor activation are sequential signaling events in the same pathway (mGluR activates IP3R via PLC) but describe distinct processes on different receptor proteins."
+    },
+    {
+      "group_key": "chromosomal_aberrations_merge",
+      "type": "merge",
+      "member_ids": [
+        "1554",
+        "mutations_increase"
+      ],
+      "rationale": "Increase Chromosomal Aberrations belongs with 'Increase, Chromosomal aberrations' in the chromosomal_aberrations_translocation group rather than forming a new group."
+    },
+    {
+      "group_key": "tumor_promotion_growth",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1971",
+        "1982"
+      ],
+      "rationale": "Increased tumor growth and metastatic breast cancer describe cancer progression outcomes in the same general oncology context but at different stages \u2014 primary tumor growth versus metastatic spread of a specific cancer type."
+    },
+    {
+      "group_key": "ovarian_cancer_tumor_growth",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2092",
+        "1971"
+      ],
+      "rationale": "Promotion of Ovarian Cancer and Increased tumor growth both describe cancer promotion/growth outcomes but one specifies the ovarian context while the other is general tumor growth."
+    },
+    {
+      "group_key": "star_protein_increase_vs_decrease",
+      "type": "soda",
+      "member_ids": [
+        "1972"
+      ],
+      "rationale": "Increased StAR and 'Decrease, Steroidogenic acute regulatory protein (STAR)' in the cholesterol_transport_star_tspo group describe opposite directional changes to the same protein \u2014 StAR."
+    },
+    {
+      "group_key": "non_coding_rna_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2007",
+        "1980"
+      ],
+      "rationale": "Non-coding RNA expression profile alteration and Increased microRNA expression both describe changes in non-coding RNA but one is a general profile alteration and the other specifically describes increased miRNA expression."
+    },
+    {
+      "group_key": "er_stress_unfolded_protein",
+      "type": "merge",
+      "member_ids": [
+        "2017"
+      ],
+      "rationale": "Endoplasmic reticulum stress is a singular event not duplicated in the ungrouped events but noted for no existing group match."
+    },
+    {
+      "group_key": "insulin_resistance_glucose_homeostasis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2119"
+      ],
+      "rationale": "Increase, Insulin resistance connects to 'Abnormal, Glucose homeostasis' in the glucose_uptake_homeostasis group as a related but distinct process."
+    },
+    {
+      "group_key": "foam_cell_atherosclerosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1442"
+      ],
+      "rationale": "Foam cell formation is a distinct cellular event in atherosclerosis not directly synonymous with any existing group member but relates to lipid accumulation and inflammation pathways."
+    },
+    {
+      "group_key": "qt_prolongation_torsades_sudden_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1962",
+        "1963",
+        "1964"
+      ],
+      "rationale": "Prolongation of QT interval, Torsades de Pointes, and Sudden cardiac death represent sequential stages of the same cardiac arrhythmia cascade at different biological levels (ECG measurement, arrhythmia phenotype, fatal outcome)."
+    },
+    {
+      "group_key": "insulin_resistance_nafld",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2119",
+        "2019"
+      ],
+      "rationale": "Increase in insulin resistance and non-alcoholic fatty liver disease (NAFLD) are closely linked metabolic outcomes in the same metabolic syndrome context but represent distinct pathological endpoints at different biological levels."
+    },
+    {
+      "group_key": "ceramide_synthase_sphingolipid_phosphate",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2023",
+        "2033"
+      ],
+      "rationale": "Inhibition of Ceramide Synthase and Increased sphingolipid-1-phosphate are related sphingolipid pathway events \u2014 ceramide synthase inhibition shifts sphingolipid flux toward sphingosine-1-phosphate \u2014 but describe distinct processes on different molecular targets."
+    },
+    {
+      "group_key": "pollen_abnormal_reproductive_plant",
+      "type": "merge",
+      "member_ids": [
+        "1965"
+      ],
+      "rationale": "Increase, Pollen abnormal is a unique plant reproductive event with no matching existing group."
+    },
+    {
+      "group_key": "aml_tumor_growth",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1955",
+        "1971"
+      ],
+      "rationale": "Acute Myeloid Leukemia and Increased tumor growth both describe cancer outcomes but AML specifies a hematological malignancy while increased tumor growth is a general cancer progression event."
+    },
+    {
+      "group_key": "neural_progenitor_premature_differentiation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1979",
+        "2200"
+      ],
+      "rationale": "Premature cell differentiation and decline in neural progenitor cells describe related neurodevelopmental events on the same cell population \u2014 premature differentiation depletes the progenitor pool \u2014 but are distinct processes."
+    },
+    {
+      "group_key": "neurodevelopmental_altered_transmission",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2005"
+      ],
+      "rationale": "Altered neurotransmission in development is a distinct neurodevelopmental event with no close existing group match among ungrouped events."
+    },
+    {
+      "group_key": "sirt1_expression_epigenetic",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1981",
+        "1980"
+      ],
+      "rationale": "Decreased SIRT1 expression and Increased microRNA expression are related epigenetic/gene regulatory events (miRNA can suppress SIRT1) but describe distinct processes on different molecular targets."
+    },
+    {
+      "group_key": "secondary_genotoxicity_chromosomal_aberrations",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2006",
+        "1554"
+      ],
+      "rationale": "Secondary genotoxicity and Increase Chromosomal Aberrations both describe genotoxic outcomes but one specifies the secondary (indirect) mechanism while the other describes the chromosomal-level endpoint."
+    },
+    {
+      "group_key": "transposition_great_arteries_cardiac_conotruncal",
+      "type": "merge",
+      "member_ids": [
+        "1970"
+      ],
+      "rationale": "Transposition of the great arteries is a specific congenital cardiac conotruncal anomaly, equivalent to the 'Anomalies, Congenital cardiac conotruncal' and 'Abnormalities, Cardiac outflow tract formation' in the cardiac_conotruncal_anomalies merge group."
+    },
+    {
+      "group_key": "tp53_activation_genotoxicity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1974",
+        "2006"
+      ],
+      "rationale": "Activation of Tumor Protein 53 (p53) and Secondary genotoxicity are related DNA damage response events \u2014 p53 activation is a consequence of genotoxic stress \u2014 but describe distinct events at the molecular versus pathway level."
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2420",
+      "group_key": "retinoic_acid_decrease",
+      "rationale": "Increased retinoic acid receptor activation shares the retinoic acid receptor object with the existing decreased RAR activation event and is flagged for curator review."
+    },
+    {
+      "event_id": "1888",
+      "group_key": "retinoic_acid_decrease",
+      "rationale": "Increased atRA concentration shares the atRA object with the decreased atRA concentration event, flagged for curator review."
+    },
+    {
+      "event_id": "1501",
+      "group_key": "collagen_deposition_production",
+      "rationale": "Extracellular matrix deposition is a more general form of collagen deposition, flagged for curator review."
+    },
+    {
+      "event_id": "1555",
+      "group_key": "regenerative_proliferation_cell_types",
+      "rationale": "General increased cell proliferation matches the existing group of increased cell proliferation in various contexts."
+    },
+    {
+      "event_id": "771",
+      "group_key": "thyroxine_decrease_contexts",
+      "rationale": "Decreased serum thyroid hormone (T4/T3) is the same decrease in a serum context, parallel to T4 decreases in serum and neuronal tissue."
+    },
+    {
+      "event_id": "2093",
+      "group_key": "thyroxine_decrease_contexts",
+      "rationale": "Decreased brain thyroid hormone is the same decrease in a different tissue context from T4 in serum or neuronal tissue."
+    },
+    {
+      "event_id": "1300",
+      "group_key": "pi3k_akt_mtor_activation",
+      "rationale": "Activation of mTORC1 is a distinct pathway component of the PI3K/AKT/mTOR activation group, flagged for curator review."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "neutrophil_nets_platelet_interactions",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1899",
+        "1857"
+      ],
+      "rationale": "Both concern neutrophil/platelet thromboinflammatory interactions but describe distinct processes (NET formation vs platelet-neutrophil interaction)."
+    },
+    {
+      "group_key": "retinoic_acid_increase_receptor_vs_concentration",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1888",
+        "2420"
+      ],
+      "rationale": "Increased atRA concentration and increased RAR activation both concern retinoic acid signalling but are distinct processes."
+    },
+    {
+      "group_key": "gustatory_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1849",
+        "1850",
+        "1856"
+      ],
+      "rationale": "Impaired gustatory nerve, dysgeusia and imbalanced taste responses are taste-function impairments at differing specificity."
+    },
+    {
+      "group_key": "olfactory_epithelium_loss",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1870",
+        "1871",
+        "1872"
+      ],
+      "rationale": "Sustentacular cell decrease, olfactory sensory neuron decrease and epithelium degeneration all concern the olfactory epithelium but distinct cell-level and tissue-level processes."
+    },
+    {
+      "group_key": "thyroid_hormone_serum_vs_brain",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "771",
+        "2093"
+      ],
+      "rationale": "Decreased thyroid hormone in serum versus brain tissue are the same decrease in different compartments."
+    },
+    {
+      "group_key": "photosystem_ii_damage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1861",
+        "1865",
+        "1862"
+      ],
+      "rationale": "D1 protein deactivation, oxygen-evolving complex damage and decreased PSII efficiency all concern photosystem II but are distinct processes."
+    },
+    {
+      "group_key": "neuroblast_migration_heterotopia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2094",
+        "2095"
+      ],
+      "rationale": "Abnormal neuroblast migration and periventricular heterotopia formation are related neurodevelopmental events at different levels of biological organisation."
+    },
+    {
+      "group_key": "ace_ang2_at1r_axis_hypertension",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1853",
+        "1855"
+      ],
+      "rationale": "Hyperactivation of the ACE/Ang-II/AT1R axis and sodium-sensitive hypertension are related pathway and outcome events flagged for curator review."
+    }
+  ]
+}

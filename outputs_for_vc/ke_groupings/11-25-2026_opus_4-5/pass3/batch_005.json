@@ -1,0 +1,293 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "876",
+      "group_key": "mutations_increase",
+      "rationale": "Both ID 876 ('Increase, Mutations in Critical Genes') and existing members describe increased/induced mutations in critical genes using equivalent wording."
+    },
+    {
+      "event_id": "1106",
+      "group_key": "cardiac_arrhythmia_vs_av_block",
+      "rationale": "ID 1106 ('Occurrence, cardiac arrhythmia') describes cardiac arrhythmia generally, matching the existing group that pairs general cardiac arrhythmia with atrioventricular block and bradycardia at different specificity levels."
+    },
+    {
+      "event_id": "885",
+      "group_key": "hepatocellular_tumors",
+      "rationale": "ID 885 ('Increase, Cancer') is a general cancer increase that relates to the existing tumor formation groups, but it is too general to specifically assign to hepatocellular tumors \u2014 withdrawing this assignment."
+    },
+    {
+      "event_id": "1057",
+      "group_key": "ppar_alpha_activation",
+      "rationale": "ID 1057 ('Increased, PPAR-alpha activation') describes increased PPARalpha activation, which is the opposite direction to 'Decreased, PPAR-alpha activation' in the existing soda group, making it the positive pole of that directional pair."
+    },
+    {
+      "event_id": "1003",
+      "group_key": "triiodothyronine_t3_tissues",
+      "rationale": "ID 1003 ('Decreased, Triiodothyronine (T3)') describes decreased T3 without tissue specification, pairing directionally with existing members of the triiodothyronine_t3_tissues soda group that specify tissue context."
+    },
+    {
+      "event_id": "1062",
+      "group_key": "cell_proliferation_hyperplasia",
+      "rationale": "ID 1062 ('Increased, Cellular proliferation / hyperplasia of acinar cells') describes cellular proliferation/hyperplasia in acinar cells, fitting the similar_event_different_biological_context pattern of the existing group but adding cell-type context."
+    },
+    {
+      "event_id": "1068",
+      "group_key": "skin_sensitisation",
+      "rationale": "ID 1068 ('Endometrial squamous metaplasia, Increase') is not a close match to skin sensitisation \u2014 withdrawing this assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "respiratory_squamous_metaplasia_nasal_tumors",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "869",
+        "872"
+      ],
+      "rationale": "ID 869 ('Increase, Respiratory or Squamous Metaplasia') and ID 872 ('Increase, Site of Contact Nasal Tumors') both describe pathological epithelial changes in the nasal/respiratory tract representing different stages of the same pathological progression in the same tissue context."
+    },
+    {
+      "group_key": "uric_acid_tophi_deposition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1096",
+        "1102"
+      ],
+      "rationale": "ID 1096 ('Increased, blood uric acid concentration') and ID 1102 ('Occurrence, tophi (urate) deposition') describe related gout-pathway events \u2014 elevated blood uric acid and its tissue deposition as tophi \u2014 representing different biological scales of the same urate accumulation process."
+    },
+    {
+      "group_key": "intracellular_ph_decrease",
+      "type": "merge",
+      "member_ids": [
+        "867"
+      ],
+      "rationale": "ID 867 ('Decrease, Intracellular pH') is a unique event with no close match among ungrouped events \u2014 no new group formed."
+    },
+    {
+      "group_key": "oat1_inhibition_uric_acid_potassium",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "877",
+        "1096",
+        "1098"
+      ],
+      "rationale": "ID 877 ('Inhibition, organic anion transporter 1 (OAT1)') inhibits renal urate and ion transport leading to increased blood uric acid (ID 1096) and increased blood potassium (ID 1098), but these represent the transporter inhibition event versus distinct downstream ionic/metabolite consequences."
+    },
+    {
+      "group_key": "cholestasis_bile_flow",
+      "type": "soda",
+      "member_ids": [
+        "1058",
+        "1059"
+      ],
+      "rationale": "ID 1058 ('Decreased, bile flow') and ID 1059 ('Increased, cholestasis') describe strictly opposite directional aspects of the same biliary process \u2014 reduced bile flow is the defining feature of cholestasis, so decreased bile flow and increased cholestasis are directionally opposite measures of the same endpoint."
+    },
+    {
+      "group_key": "pancreatic_acinar_hyperplasia_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1062",
+        "1063"
+      ],
+      "rationale": "ID 1062 ('Increased, Cellular proliferation / hyperplasia of acinar cells') and ID 1063 ('Increased, Pancreatic acinar tumors') describe related pathological progression in pancreatic acinar cells \u2014 hyperplasia and tumor formation represent different stages of the same oncogenic process in the same cell type."
+    },
+    {
+      "group_key": "endometrial_metaplasia_carcinoma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1068",
+        "1070"
+      ],
+      "rationale": "ID 1068 ('Endometrial squamous metaplasia, Increase') and ID 1070 ('Increased, adenosquamous carcinomas of endometrium') both describe pathological changes in endometrial epithelium (squamous metaplasia and adenosquamous carcinoma) representing different stages of the same oncogenic progression in the same tissue."
+    },
+    {
+      "group_key": "sine_oculis_endometrial_progenitor_metaplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1066",
+        "1068"
+      ],
+      "rationale": "ID 1066 ('Promotion, Sine oculis homeobox 1 positive progenitor cells in endometrium') and ID 1068 ('Endometrial squamous metaplasia, Increase') both describe endometrial pathological changes in the same tissue context \u2014 progenitor cell promotion and squamous metaplasia are related but distinct processes."
+    },
+    {
+      "group_key": "gtpch1_tetrahydrobiopterin_nitric_oxide_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "935",
+        "934",
+        "933"
+      ],
+      "rationale": "ID 935 ('Decrease, GTPCH-1'), ID 934 ('Decrease, Tetrahydrobiopterin'), and ID 933 ('Depletion, Nitric Oxide') describe sequential steps in the BH4/eNOS/NO pathway \u2014 GTPCH-1 is the rate-limiting enzyme for BH4 synthesis, BH4 is the eNOS cofactor, and NO is the product \u2014 these are distinct biological objects/events in the same pathway, not synonyms."
+    },
+    {
+      "group_key": "vasodilation_vascular_resistance_hypertension",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "937",
+        "951",
+        "952"
+      ],
+      "rationale": "ID 937 ('Impaired, Vasodilation'), ID 951 ('Increase, Vascular Resistance'), and ID 952 ('Hypertension') describe sequential vascular events at different biological scales \u2014 impaired vasodilation leads to increased vascular resistance which manifests as hypertension."
+    },
+    {
+      "group_key": "akt_enos_activity_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "973",
+        "933"
+      ],
+      "rationale": "ID 973 ('Decrease, AKT/eNOS activity') and ID 933 ('Depletion, Nitric Oxide') describe related but distinct events \u2014 decreased eNOS activity is an upstream cause of NO depletion, involving different molecular objects."
+    },
+    {
+      "group_key": "arnt_hif1_dimerization_vs_vegf",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "945",
+        "948"
+      ],
+      "rationale": "ID 945 ('reduced dimerization, ARNT/HIF1-alpha') and ID 948 ('reduced production, VEGF') describe related but distinct events \u2014 reduced HIF-1 dimerization would reduce VEGF transcription, but these are distinct molecular events on different biological objects."
+    },
+    {
+      "group_key": "preeclampsia_hypertension",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1893",
+        "952"
+      ],
+      "rationale": "ID 1893 ('increase, Preeclampsia') and ID 952 ('Hypertension') describe related cardiovascular/pregnancy outcomes \u2014 preeclampsia is characterized by hypertension in pregnancy \u2014 same underlying vascular process in different physiological contexts."
+    },
+    {
+      "group_key": "hypothalamic_e2_gnrh_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1056"
+      ],
+      "rationale": "ID 1056 ('Decrease, E2 blood concentrations at hypothalamus') describes decreased estradiol at the hypothalamus, which is relevant to the gnrh_hypothalamus_decrease group context but involves a different molecule (E2 vs. GnRH) \u2014 no appropriate existing group."
+    },
+    {
+      "group_key": "il2_il4_suppression_vs_immune_suppression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1202"
+      ],
+      "rationale": "ID 1202 ('Suppression, IL-2 and IL-4 production') describes suppression of specific cytokines, fitting within the immune suppression context \u2014 assigning to immune_suppression group."
+    },
+    {
+      "group_key": "calcineurin_nfat_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "980",
+        "1202"
+      ],
+      "rationale": "ID 980 ('Inhibition, Calcineurin Activity') and ID 1202 ('Suppression, IL-2 and IL-4 production') describe causally linked but distinct events \u2014 calcineurin inhibition blocks NFAT activation which suppresses IL-2/IL-4 production \u2014 different molecular objects."
+    },
+    {
+      "group_key": "smooth_muscle_relaxation_vs_proliferation",
+      "type": "soda",
+      "member_ids": [
+        "1040",
+        "1033"
+      ],
+      "rationale": "ID 1040 ('relaxation, smooth muscle') and ID 1033 ('Increased, proliferation of mesenchymal cells') describe different biological processes in smooth muscle/mesenchymal context and are not directional opposites of the same endpoint \u2014 withdrawing this grouping."
+    },
+    {
+      "group_key": "adipogenesis_mesenchymal_igf1",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1029",
+        "1033",
+        "1034"
+      ],
+      "rationale": "ID 1029 ('Increased, adipogenesis'), ID 1033 ('Increased, proliferation of mesenchymal cells'), and ID 1034 ('Increased, IGF-1 (mouse)') describe related processes in adipose/mesenchymal tissue development but at different levels (adipogenic differentiation, mesenchymal proliferation, and growth factor production) \u2014 same biological context, different processes."
+    },
+    {
+      "group_key": "circulating_estrogen_prolonged_estrus",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1075",
+        "1076"
+      ],
+      "rationale": "ID 1075 ('prolonged, estrus cycle') and ID 1076 ('Increased, circulating estrogen levels') describe related but distinct aspects of estrogen-driven reproductive dysregulation \u2014 elevated estrogen and prolonged estrus are closely linked but one is a hormonal endpoint and the other is a physiological cycle endpoint."
+    },
+    {
+      "group_key": "pharyngeal_somatic_muscle_paralysis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1014",
+        "1019"
+      ],
+      "rationale": "ID 1014 ('Induction, Somatic muscle paralysis') and ID 1019 ('Induction, pharyngeal muscle paralysis') both describe induced muscle paralysis but in different anatomical/muscle-type contexts (somatic/body-wall muscles vs. pharyngeal muscles)."
+    },
+    {
+      "group_key": "muscle_paralysis_feeding_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1016",
+        "1019"
+      ],
+      "rationale": "ID 1016 ('Inhibition, Feeding') and ID 1019 ('Induction, pharyngeal muscle paralysis') describe related phenotypic outcomes in the same organism context \u2014 pharyngeal muscle paralysis directly causes feeding inhibition \u2014 but represent distinct biological events."
+    },
+    {
+      "group_key": "cholestasis_lipid_metabolism",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1059",
+        "1060"
+      ],
+      "rationale": "ID 1059 ('Increased, cholestasis') and ID 1060 ('Alteration, lipid metabolism') both describe hepatic metabolic disruptions that co-occur in cholestatic liver disease but represent distinct pathological processes."
+    },
+    {
+      "group_key": "serum_cck_elevation_acinar_proliferation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1061",
+        "1062"
+      ],
+      "rationale": "ID 1061 ('prolonged, elevation of serum CCK') and ID 1062 ('Increased, Cellular proliferation / hyperplasia of acinar cells') describe causally linked pancreatic events \u2014 elevated CCK drives acinar cell proliferation \u2014 but represent distinct biological endpoints."
+    },
+    {
+      "group_key": "egfr_activation_lung_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "941",
+        "1250"
+      ],
+      "rationale": "ID 941 ('Activation, EGFR') and ID 1250 ('Decrease, Lung function') describe related but distinct events in the same respiratory pathology context \u2014 EGFR is involved in lung disease but receptor activation and decreased lung function are very different biological levels."
+    },
+    {
+      "group_key": "mesovarian_leiomyoma_smooth_muscle",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1044",
+        "1033"
+      ],
+      "rationale": "ID 1044 ('Promotion, mesovarian leiomyomas') and ID 1033 ('Increased, proliferation of mesenchymal cells') both describe smooth muscle/mesenchymal cell growth in the same tumor promotion context \u2014 leiomyomas are smooth muscle tumors arising from mesenchymal proliferation."
+    },
+    {
+      "group_key": "endocytotic_lysosomal_uptake_vs_lysosomal_disruption",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1539"
+      ],
+      "rationale": "ID 1539 ('Endocytotic lysosomal uptake') describes a distinct uptake process that could relate to lysosomal_disruption group but endocytotic uptake is a distinct process from lysosomal disruption/disturbance \u2014 no confident existing group assignment."
+    },
+    {
+      "group_key": "igf1_local_growth_factors_secretion",
+      "type": "merge",
+      "member_ids": [
+        "1032",
+        "1034"
+      ],
+      "rationale": "ID 1032 ('Increased, secretion of local growth factors') and ID 1034 ('Increased, IGF-1 (mouse)') both describe increased secretion of local growth factors, with IGF-1 being a primary local growth factor \u2014 these are closely overlapping biological events at the same level."
+    },
+    {
+      "group_key": "swimming_performance_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1005",
+        "1016"
+      ],
+      "rationale": "ID 1005 ('Reduced, Swimming performance') and ID 1016 ('Inhibition, Feeding') both describe reduced organismal behavioral performance in the same aquatic organism context but measure distinct behavioral endpoints."
+    }
+  ]
+}

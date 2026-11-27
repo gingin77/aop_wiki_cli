@@ -1,0 +1,102 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1057",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "Increased PPAR-alpha activation concerns the same PPARalpha object as the group's activation and decreased-activation events, in the opposite direction to the decreased-activation member."
+    },
+    {
+      "event_id": "762",
+      "group_key": "ionotropic_gaba_receptor",
+      "rationale": "Activation of the ionotropic GABA receptor chloride channel shares the same object as the inhibition and decreased-conductance events but is a distinct process."
+    },
+    {
+      "event_id": "1056",
+      "group_key": "estradiol_reduction_context",
+      "rationale": "Decreased E2 at the hypothalamus is the same decrease in estradiol as the plasma and granulosa-synthesis events, in a different compartment."
+    },
+    {
+      "event_id": "1045",
+      "group_key": "estradiol_reduction_context",
+      "rationale": "Decreased ovarian E2 is the same decrease in estradiol, in an ovarian context."
+    },
+    {
+      "event_id": "964",
+      "group_key": "aromatase_inhibition_general_vs_granulosa",
+      "rationale": "Aromatase enzyme inhibition during a specific estrous-cycle window is the same inhibition process as the general event, with added context."
+    },
+    {
+      "event_id": "1051",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Hyperplasia of ovarian stromal cells is the same process in a specific cell type."
+    },
+    {
+      "event_id": "1052",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Hyperplasia of ovarian epithelium is the same process in a specific tissue."
+    },
+    {
+      "event_id": "1043",
+      "group_key": "hyperplasia_tissues",
+      "rationale": "Smooth muscle hypertrophy/hyperplasia includes hyperplasia in a specific tissue context."
+    },
+    {
+      "event_id": "1062",
+      "group_key": "hyperplasia_proliferation",
+      "rationale": "Cellular proliferation/hyperplasia of acinar cells is the cell-type-specific form of the general proliferation/hyperplasia event."
+    },
+    {
+      "event_id": "1033",
+      "group_key": "cell_proliferation_context",
+      "rationale": "Increased proliferation of mesenchymal cells is increased cell proliferation in a specific cell type."
+    },
+    {
+      "event_id": "1053",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Ovarian adenomas are an adenoma/carcinoma event in a specific tissue."
+    },
+    {
+      "event_id": "1063",
+      "group_key": "adenoma_carcinoma_tissues",
+      "rationale": "Pancreatic acinar tumors are an adenoma/carcinoma event in a specific tissue."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "deiodinase_isoform_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1002",
+        "1009"
+      ],
+      "rationale": "Inhibition of different deiodinase isoforms (DIO2 vs DIO1) is the same process on different enzymes."
+    },
+    {
+      "group_key": "swim_bladder_inflation_reduced",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1004",
+        "1007"
+      ],
+      "rationale": "Reduced swim bladder inflation, posterior versus anterior chamber."
+    },
+    {
+      "group_key": "muscle_paralysis_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1014",
+        "1019"
+      ],
+      "rationale": "Induction of paralysis in somatic muscle versus pharyngeal muscle."
+    },
+    {
+      "group_key": "gnrh_release_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "969",
+        "1071"
+      ],
+      "rationale": "Both describe decreased GnRH release, with different specifics (kisspeptin stimulation vs pulsatility in the hypothalamus)."
+    }
+  ]
+}

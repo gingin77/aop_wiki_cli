@@ -1,0 +1,312 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2171",
+      "group_key": "tgf_beta_pathway_activation",
+      "rationale": "Activated BMP/TGF-beta pathway describes activation of TGF-beta signaling, matching the existing group of TGF-beta pathway activation events."
+    },
+    {
+      "event_id": "2173",
+      "group_key": "pi3k_akt_mtorc1_pathway",
+      "rationale": "Activated AKT/ERK/PI3K pathway involves PI3K, AKT, and ERK signaling components already grouped in the PI3K/AKT/mTORC1 pathway group."
+    },
+    {
+      "event_id": "1541",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "Mitochondrial Complex I inhibition describes functional inhibition of Complex I, the same object targeted in the existing complex_i_binding_vs_inhibition group."
+    },
+    {
+      "event_id": "2265",
+      "group_key": "oligodendrocyte_differentiation_maturation",
+      "rationale": "Increased oligodendrocyte death is related to oligodendrocyte pathology but is a distinct process (cell death vs. differentiation/maturation failure); however it shares the same cell-type object \u2014 assigning to the existing group for curator review as same_object_different_process is not available for assignment; instead this belongs in neurodegeneration context \u2014 withdrawing this assignment as it does not clearly fit."
+    },
+    {
+      "event_id": "2317",
+      "group_key": "olfactory_neuron_vs_epithelium_degeneration",
+      "rationale": "Loss of olfactory function is the functional outcome of olfactory sensory neuron decrease and olfactory epithelium degeneration, representing the same biological system at a higher functional level."
+    },
+    {
+      "event_id": "2172",
+      "group_key": "wnt_signaling_beta_catenin",
+      "rationale": "Activated Wnt/Frizzled pathway describes Wnt signaling activation, which is the same pathway involving Wnt secretion and beta-catenin activation already grouped in wnt_signaling_beta_catenin."
+    },
+    {
+      "event_id": "2307",
+      "group_key": "photosystem_ii_d1_protein",
+      "rationale": "Binding of plastoquinone B (QB) within D1 protein of Photosystem II involves the D1 protein of Photosystem II, the same object as in the existing photosystem_ii_d1_protein group, but describes binding rather than deactivation or efficiency decrease."
+    },
+    {
+      "event_id": "2316",
+      "group_key": "fibrosis_liver_vs_pulmonary",
+      "rationale": "Increased pulmonary edema is a distinct pulmonary pathological outcome and does not clearly fit the liver vs. pulmonary fibrosis group \u2014 withdrawing this assignment."
+    },
+    {
+      "event_id": "2311",
+      "group_key": "pi3k_akt_mtorc1_pathway",
+      "rationale": "Inhibition of PI3K-Akt pathway is the directionally opposite event to the activation of PI3K/AKT in the existing pi3k_akt_mtorc1_pathway group, targeting the same signaling pathway components."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "angiogenic_pathway_activation",
+      "type": "merge",
+      "member_ids": [
+        "2169",
+        "2170"
+      ],
+      "rationale": "Activation of angiogenic cytokines and activated ANG/Tie2 pathway both describe upstream activation events in angiogenic signaling using different wording for the same directional biological outcome."
+    },
+    {
+      "group_key": "vascular_barrier_blood_viscosity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2178",
+        "2238"
+      ],
+      "rationale": "Vascular barrier disruption and increased blood viscosity both describe vascular pathophysiology but at different levels \u2014 endothelial barrier integrity vs. rheological blood property."
+    },
+    {
+      "group_key": "vegf_pathway_vs_angiogenic_cytokines",
+      "type": "soda",
+      "member_ids": [
+        "2174",
+        "2169"
+      ],
+      "rationale": "Inhibition of VEGF/VEGFR pathway and activation of angiogenic cytokines describe opposite directional effects on angiogenic signaling in the vascular system."
+    },
+    {
+      "group_key": "neuropathy_nte_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2262",
+        "2267"
+      ],
+      "rationale": "Neuropathy target esterase (NTE) inhibition and increased delayed neuropathy share the same biological target (NTE/OPIDN pathway) but represent enzyme inhibition vs. the downstream neuropathological outcome."
+    },
+    {
+      "group_key": "celiac_b_cell_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2256",
+        "2252"
+      ],
+      "rationale": "Gluten-reactive B cell activation and formation of HLA DQ2/8-gluten complexes are sequential steps in celiac disease pathogenesis sharing the same antigen but representing distinct molecular and cellular processes."
+    },
+    {
+      "group_key": "celiac_disease_outcome",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2257",
+        "2256"
+      ],
+      "rationale": "Celiac disease (systemic outcome) and gluten-reactive B cell activation (cellular immune event) describe the same pathological process at different levels of biological organization."
+    },
+    {
+      "group_key": "locomotor_impairment",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2231",
+        "2301"
+      ],
+      "rationale": "Impaired locomotor function and abnormal behavior both describe functional impairment at the organismal level but locomotion is a specific behavioral domain while abnormal behavior is broader."
+    },
+    {
+      "group_key": "cardiac_contraction_coordination",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2281",
+        "2239"
+      ],
+      "rationale": "Increased uncoordinated cardiac contraction and increased cardiac stress both describe cardiac dysfunction but uncoordinated contraction is a specific electromechanical event while cardiac stress is a broader physiological state."
+    },
+    {
+      "group_key": "camp_pde_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2284",
+        "2288"
+      ],
+      "rationale": "Increased intracellular cAMP levels and phosphodiesterase inhibition share the same signaling molecule (cAMP) but PDE inhibition is the upstream enzymatic event while elevated cAMP is the downstream consequence \u2014 distinct processes on related objects."
+    },
+    {
+      "group_key": "sodium_calcium_exchanger_vs_calcium_overload",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2287",
+        "2289"
+      ],
+      "rationale": "Impaired sodium-calcium exchange and hyperphosphorylation of RyR2 both contribute to altered intracellular calcium handling but involve distinct molecular targets and processes in the same cardiac context."
+    },
+    {
+      "group_key": "pcsk9_ldl_cholesterol",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2276",
+        "2268"
+      ],
+      "rationale": "Increased PCSK9 protein expression and decreased INSIG1 protein activity are both involved in cholesterol metabolism regulation but involve distinct molecular targets and represent different regulatory mechanisms."
+    },
+    {
+      "group_key": "pcsk9_increase_vs_ldlr",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2276",
+        "2269"
+      ],
+      "rationale": "Increased PCSK9 expression and increased SREBP2/cholesterol synthesis enzymes are related but distinct events in cholesterol metabolism \u2014 PCSK9 promotes LDL receptor degradation while SREBP2 drives synthesis."
+    },
+    {
+      "group_key": "anogenital_distance_increased_vs_decreased",
+      "type": "soda",
+      "member_ids": [
+        "2365",
+        "1613"
+      ],
+      "rationale": "Increased anogenital distance and decreased DHT/anogenital distance describe the same morphometric endpoint in opposite directions \u2014 one increased and one decreased AGD."
+    },
+    {
+      "group_key": "premature_ovarian_insufficiency_vs_follicular_atresia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2305",
+        "1366"
+      ],
+      "rationale": "Premature ovarian insufficiency and decreased oogenesis/increased follicular atresia both describe female reproductive failure at different levels \u2014 clinical syndrome vs. cellular/biological process."
+    },
+    {
+      "group_key": "persistent_vaginal_cornification_estrogen",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2306",
+        "2305"
+      ],
+      "rationale": "Persistent vaginal cornification and premature ovarian insufficiency both describe female reproductive tract pathology related to estrogen signaling disruption but at different anatomical sites and levels of description."
+    },
+    {
+      "group_key": "glucolipid_metabolism_disruption",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2300",
+        "2225"
+      ],
+      "rationale": "Disruption of glucolipid metabolism and disrupted lipid storage both describe lipid metabolic dysfunction but one is broader (including glucose metabolism) and the other specifically refers to lipid storage compartments."
+    },
+    {
+      "group_key": "17bhsd2_inhibition_estrogen_metabolism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2250",
+        "2293"
+      ],
+      "rationale": "17\u03b2-HSD2 inhibition and aromatase induction are both steroidogenic enzyme alterations affecting estrogen levels but involve distinct enzymes \u2014 17\u03b2-HSD2 metabolizes estradiol while aromatase synthesizes it."
+    },
+    {
+      "group_key": "serotonin_receptor_stimulation_vs_transporter",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2308",
+        "619"
+      ],
+      "rationale": "Stimulation of brain serotonin 5-HT1a/5-HT2c receptors and inhibition of serotonin transporter (SERT) both involve serotonin signaling but act on distinct molecular targets \u2014 receptors vs. transporter."
+    },
+    {
+      "group_key": "ferroptosis_cuproptosis_regulated_cell_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2241",
+        "2339"
+      ],
+      "rationale": "Ferroptosis-related pathway activation and cuproptosis both describe distinct forms of regulated cell death driven by different metal-mediated mechanisms \u2014 iron vs. copper toxicity."
+    },
+    {
+      "group_key": "cortical_neural_progenitor_proliferation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2203",
+        "1821"
+      ],
+      "rationale": "Decreased proliferation of cortical neural progenitor cells and decreased cell proliferation both describe reduced proliferation but one specifies a cell-type and brain-region context."
+    },
+    {
+      "group_key": "er_heterodimer_vs_er_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2233",
+        "1065"
+      ],
+      "rationale": "Decreased ER\u03b1\u03b2 heterodimers and activation of estrogen receptor alpha both involve estrogen receptor subunits but describe distinct processes \u2014 heterodimer formation vs. receptor activation \u2014 on overlapping but not identical objects."
+    },
+    {
+      "group_key": "pulmonary_edema_vs_lung_fibrosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2316",
+        "1458"
+      ],
+      "rationale": "Increased pulmonary edema and pulmonary fibrosis both describe lung pathology but edema is fluid accumulation while fibrosis is scar tissue formation \u2014 same organ, distinct pathological processes."
+    },
+    {
+      "group_key": "no_synthase_pathway_enos",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2240",
+        "927"
+      ],
+      "rationale": "NO synthase pathway activation and eNOS S-glutathionylation both involve nitric oxide synthase but activation is a general functional increase while S-glutathionylation is a specific post-translational modification \u2014 same enzyme family, different processes."
+    },
+    {
+      "group_key": "synaptic_plasticity_vs_neuronal_network",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2208",
+        "386"
+      ],
+      "rationale": "Aberrant synaptic formation and plasticity and decreased neuronal network function both describe impairment at the synapse/network level but plasticity/formation is a developmental/structural process while network function is a physiological output."
+    },
+    {
+      "group_key": "altered_signaling_pathways_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2066",
+        "2173"
+      ],
+      "rationale": "Altered signaling pathways (general) and activated AKT/ERK/PI3K pathway describe signaling changes but one is broadly non-specific while the other identifies a specific pathway \u2014 same general concept at different levels of specificity."
+    },
+    {
+      "group_key": "malformation_developmental_defect",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2302",
+        "1684"
+      ],
+      "rationale": "Increased malformations (general) and cardiac outflow tract/conotruncal anomalies both describe developmental malformations but one is a general outcome while the other specifies a cardiac structural defect."
+    },
+    {
+      "group_key": "treg_th17_pd_l1_immune_evasion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2323",
+        "2324"
+      ],
+      "rationale": "Over-expression of PD-L1 in cancer cells and increased Treg/Th17 ratio both describe immune evasion/immunosuppression mechanisms in cancer but involve distinct molecular and cellular processes."
+    },
+    {
+      "group_key": "blood_volume_viscosity_plasma",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2261",
+        "2238"
+      ],
+      "rationale": "Decreased blood plasma volume and increased blood viscosity both describe alterations in blood physical properties that affect circulatory function but measure distinct endpoints."
+    },
+    {
+      "group_key": "cell_cycle_gene_expression_proliferation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2202",
+        "2203"
+      ],
+      "rationale": "Altered expression of cell cycle genes and decreased proliferation of cortical neural progenitor cells share the same biological process (cell cycle regulation) but one is the molecular gene expression event and the other is the functional cellular proliferation outcome."
+    }
+  ]
+}

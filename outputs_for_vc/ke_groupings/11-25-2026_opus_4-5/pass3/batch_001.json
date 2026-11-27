@@ -1,0 +1,177 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "357",
+      "group_key": "liver_injury_hepatotoxicity",
+      "rationale": "Cholestasis pathology describes a form of liver injury/hepatotoxicity caused by bile accumulation, which is equivalent to the hepatic damage endpoint described by 'Hepatocytotoxicity' and 'Liver Injury' in this group \u2014 however, cholestasis is a distinct pathological mechanism, so this is better left ungrouped."
+    },
+    {
+      "event_id": "291",
+      "group_key": "triglyceride_increase",
+      "rationale": "'Accumulation, Triglyceride' describes increased triglyceride levels, equivalent to 'Increased, Triglyceride formation' and 'Increased, Triglyceride' in the merge group."
+    },
+    {
+      "event_id": "339",
+      "group_key": "impaired_development",
+      "rationale": "'Altered, Larval development' describes a change in larval development, closely equivalent to 'impaired, Larval development' already in the similar_event_different_biological_context group specifying larval stage context."
+    },
+    {
+      "event_id": "265",
+      "group_key": "liver_fibrosis_vs_collagen",
+      "rationale": "'Increase, Hepatic stellate cell activation' is a cellular process upstream of liver fibrosis and collagen accumulation; however, hepatic stellate cell activation is a distinct biological event from fibrosis or collagen accumulation and should not be grouped here."
+    },
+    {
+      "event_id": "389",
+      "group_key": "calcium_cytosolic_increase",
+      "rationale": "'Increased, Intracellular Calcium overload' describes an increase in intracellular calcium, equivalent to 'Increase, Cytosolic calcium' and 'Increase, intracellular calcium' in the merge group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "bile_accumulation_cholestasis",
+      "type": "merge",
+      "member_ids": [
+        "214",
+        "357"
+      ],
+      "rationale": "Bile accumulation as a pathological condition and cholestasis pathology describe the same hepatobiliary disease outcome \u2014 cholestasis is defined by bile accumulation \u2014 using different wording."
+    },
+    {
+      "group_key": "bile_export_pump_inhibition_vs_bile_accumulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "41",
+        "214"
+      ],
+      "rationale": "Inhibition of the Bile Salt Export Pump (ABCB11) and bile accumulation involve the same bile transport system but represent distinct processes \u2014 transporter inhibition versus the resulting pathological bile accumulation."
+    },
+    {
+      "group_key": "cox_inhibition_vs_pge2_reduction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "79",
+        "243"
+      ],
+      "rationale": "Cyclooxygenase inhibition and reduction in prostaglandin E2 concentration involve the same biosynthetic pathway but represent distinct events \u2014 enzyme inhibition versus downstream prostanoid level reduction."
+    },
+    {
+      "group_key": "ca_hco3_transport_eggshell",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "49",
+        "106"
+      ],
+      "rationale": "Reduction in Ca and HCO3 transport to the shell gland and reduction in eggshell thickness are causally linked but describe distinct biological events \u2014 ion transport versus structural phenotypic outcome."
+    },
+    {
+      "group_key": "lipid_influx_fatty_acid_accumulation",
+      "type": "merge",
+      "member_ids": [
+        "115",
+        "327"
+      ],
+      "rationale": "Increase in fatty acid influx and accumulation of fatty acid describe the same directional increase in intracellular fatty acid content using different wording."
+    },
+    {
+      "group_key": "cd36_vs_fatty_acid_influx",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "54",
+        "115"
+      ],
+      "rationale": "Up-regulation of CD36 (the fatty acid translocase receptor) and increased fatty acid influx share the same transport system but describe distinct events \u2014 receptor expression versus functional fatty acid uptake outcome."
+    },
+    {
+      "group_key": "lipogenic_transcription_factors",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "66",
+        "264",
+        "167"
+      ],
+      "rationale": "Activation of ChREBP, SREBP-1c, and LXR are distinct transcription factors in the lipogenesis regulatory network \u2014 each is a different molecular object and they should not be merged, but grouped for curator review as related lipogenic regulators."
+    },
+    {
+      "group_key": "de_novo_fatty_acid_synthesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "116",
+        "258",
+        "89"
+      ],
+      "rationale": "Activation of FAS (fatty acid synthase), activation of SCD-1 (stearoyl-CoA desaturase), and synthesis of de novo fatty acids describe distinct molecular steps in the same lipogenesis pathway \u2014 these are different enzymes/processes, not synonyms."
+    },
+    {
+      "group_key": "ppar_beta_gamma_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "232",
+        "233"
+      ],
+      "rationale": "Decreased PPAR-beta activation and decreased PPAR-gamma activation describe the same type of event (decreased PPAR activation) but on different PPAR isoforms."
+    },
+    {
+      "group_key": "hsd17b10_expression_vs_activity",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "140",
+        "8"
+      ],
+      "rationale": "Decreased HSD17B10 expression and decreased 3-hydroxyacyl-CoA dehydrogenase type-2 activity describe the same enzyme (HSD17B10 is the gene encoding the type-2 enzyme) but at the level of gene expression versus enzymatic activity \u2014 distinct processes on the same molecular object."
+    },
+    {
+      "group_key": "membrane_integrity_disruption_vs_accumulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "169",
+        "46"
+      ],
+      "rationale": "Disruption of membrane integrity and accumulation in biological membranes both involve biological membranes but describe distinct processes \u2014 structural disruption versus substance accumulation within the membrane."
+    },
+    {
+      "group_key": "dendritic_cell_t_cell_keratinocyte_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "398",
+        "272",
+        "826"
+      ],
+      "rationale": "Activation of dendritic cells, activation/proliferation of T-cells, and activation of keratinocytes all describe immune/skin cell activation in the same skin sensitisation context but in different cell types."
+    },
+    {
+      "group_key": "endothelial_vascular_insufficiency",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "110",
+        "298"
+      ],
+      "rationale": "Impairment of the endothelial network and vascular insufficiency describe related vascular dysfunction events where endothelial impairment can lead to vascular insufficiency, but they are distinct processes at different levels of the vascular system."
+    },
+    {
+      "group_key": "afb1_reactive_electrophiles_dna_adducts",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "409"
+      ],
+      "rationale": "No suitable pair found among ungrouped events for AFB1 metabolic activation to reactive electrophiles."
+    },
+    {
+      "group_key": "reproductive_failure_vs_altered_behaviour",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "253",
+        "363"
+      ],
+      "rationale": "Reproductive failure and altered reproductive behaviour both describe adverse reproductive outcomes but at different levels \u2014 physiological failure versus behavioural change."
+    },
+    {
+      "group_key": "reproductive_organ_development_vs_larval_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "364",
+        "339"
+      ],
+      "rationale": "Impaired development of reproductive organs and altered larval development both describe impaired organismal or organ development but specify different biological contexts (reproductive organs vs. larval stage)."
+    }
+  ]
+}

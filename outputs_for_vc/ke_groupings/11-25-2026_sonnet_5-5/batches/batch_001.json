@@ -1,0 +1,227 @@
+[
+  {
+    "group_key": "reduced_prostaglandin_f2a_ovary_synthesis",
+    "type": "merge",
+    "member_ids": [
+      "672",
+      "681"
+    ],
+    "rationale": "Both describe reduced ovarian prostaglandin F2alpha synthesis."
+  },
+  {
+    "group_key": "decreased_testosterone_fetal_leydig_dysgenesis",
+    "type": "merge",
+    "member_ids": [
+      "657",
+      "660",
+      "540"
+    ],
+    "rationale": "All describe the same fetal Leydig cell dysgenesis KER-style event with decreased testosterone, differing only in spelling/capitalization."
+  },
+  {
+    "group_key": "decreased_sperm_quality_fertility",
+    "type": "merge",
+    "member_ids": [
+      "520",
+      "505",
+      "543"
+    ],
+    "rationale": "All describe decreased sperm quantity/quality in the adult and decreased fertility with different wording."
+  },
+  {
+    "group_key": "decreased_fetal_leydig_testosterone_cuptfii",
+    "type": "merge",
+    "member_ids": [
+      "655",
+      "656",
+      "541"
+    ],
+    "rationale": "All concern COUP-TFII changes in fetal Leydig cells linked to decreased testosterone."
+  },
+  {
+    "group_key": "nicotinic_receptor_activation_vs_desensitization",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "559",
+      "663"
+    ],
+    "rationale": "Both target the nicotinic acetylcholine receptor but activation and desensitization are distinct processes."
+  },
+  {
+    "group_key": "role_change_within_caste",
+    "type": "merge",
+    "member_ids": [
+      "564",
+      "1108"
+    ],
+    "rationale": "Same event with spelling variant (Roll vs Role change within caste)."
+  },
+  {
+    "group_key": "sodium_channel_inhibition_modulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "584",
+      "598",
+      "585"
+    ],
+    "rationale": "All concern sodium channel function but describe inhibition, modulation, and decreased conductance."
+  },
+  {
+    "group_key": "decreased_survival_reduced_survival",
+    "type": "merge",
+    "member_ids": [
+      "592",
+      "636"
+    ],
+    "rationale": "Both describe decreased survival of the organism."
+  },
+  {
+    "group_key": "increased_predation",
+    "type": "merge",
+    "member_ids": [
+      "588",
+      "623"
+    ],
+    "rationale": "Both describe increased predation."
+  },
+  {
+    "group_key": "decreased_locomotion_vs_increased",
+    "type": "soda",
+    "member_ids": [
+      "622",
+      "635"
+    ],
+    "rationale": "Both measure locomotion in opposite directions."
+  },
+  {
+    "group_key": "lh_increase_vs_decrease_plasma",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "690",
+      "754"
+    ],
+    "rationale": "Both concern LH change, but one is plasma-specific reduced and the other increased in a different context."
+  },
+  {
+    "group_key": "cytotoxicity_general_vs_cell_specific",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "768",
+      "709",
+      "770"
+    ],
+    "rationale": "Same process (cytotoxicity) in general vs renal tubular cells vs club cells."
+  },
+  {
+    "group_key": "hyperplasia_tissue_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "767",
+      "735",
+      "740",
+      "744",
+      "772"
+    ],
+    "rationale": "Hyperplasia in different cell types/tissues."
+  },
+  {
+    "group_key": "adenoma_carcinoma_tissue_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "713",
+      "736",
+      "741"
+    ],
+    "rationale": "Adenomas/carcinomas in different tissues."
+  },
+  {
+    "group_key": "regenerative_proliferation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "710",
+      "734"
+    ],
+    "rationale": "Regenerative cell proliferation in different epithelial tissues."
+  },
+  {
+    "group_key": "chromosome_number_alteration",
+    "type": "merge",
+    "member_ids": [
+      "536",
+      "723"
+    ],
+    "rationale": "Both describe altered chromosome number (aneuploidy/polyploidy)."
+  },
+  {
+    "group_key": "ovulation_decrease_delayed",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "488",
+      "532"
+    ],
+    "rationale": "Both concern impaired ovulation, one decreased and one delayed."
+  },
+  {
+    "group_key": "hepatic_triglyceride_increase_vs_decrease",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "454",
+      "881"
+    ],
+    "rationale": "Both concern triglyceride increase but formation versus level are distinct processes."
+  },
+  {
+    "group_key": "constitutive_androstane_receptor",
+    "type": "soda",
+    "member_ids": [
+      "456",
+      "715"
+    ],
+    "rationale": "CAR suppression versus activation: same receptor, opposite directions."
+  },
+  {
+    "group_key": "androgen_receptor_activation_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "743",
+      "1614"
+    ],
+    "rationale": "Both concern androgen receptor signaling; testosterone binding versus receptor activation."
+  },
+  {
+    "group_key": "dopamine_methylation_events",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1452",
+      "1453"
+    ],
+    "rationale": "Both describe decreased DNA methylation in dopamine pathway genes (TH versus DAT promoter)."
+  },
+  {
+    "group_key": "pdh_pdk_events",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "724",
+      "726"
+    ],
+    "rationale": "Both involve the pyruvate dehydrogenase regulatory axis but are distinct enzymes/processes."
+  },
+  {
+    "group_key": "maturation_inducing_steroid",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "691",
+      "692"
+    ],
+    "rationale": "Both concern maturation inducing steroid but hormone level versus receptor signaling."
+  },
+  {
+    "group_key": "pgf2a_plasma_vs_ovary",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "671",
+      "672"
+    ],
+    "rationale": "Reduced PGF2alpha in plasma versus ovary synthesis, different compartments."
+  }
+]

@@ -1,0 +1,237 @@
+[
+  {
+    "group_key": "nis_iodide_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "424",
+      "425"
+    ],
+    "rationale": "Both concern the Na+/I- symporter and iodide uptake, but one is NIS inhibition and the other is decreased thyroidal iodide, which are distinct events."
+  },
+  {
+    "group_key": "coup_tfii_fetal_leydig",
+    "type": "soda",
+    "member_ids": [
+      "655",
+      "656"
+    ],
+    "rationale": "Both address COUP-TFII in fetal Leydig cells, with one increased and the other decreased."
+  },
+  {
+    "group_key": "fetal_leydig_dysgenesis_relationships",
+    "type": "merge",
+    "member_ids": [
+      "657",
+      "660",
+      "540"
+    ],
+    "rationale": "All describe the same KER, decreased testosterone by fetal Leydig cells leading to dysgenesis of fetal Leydig cells, with different wording."
+  },
+  {
+    "group_key": "sperm_fertility_relationships",
+    "type": "merge",
+    "member_ids": [
+      "520",
+      "505"
+    ],
+    "rationale": "Both describe decreased sperm quantity/quality in the adult leading to decreased fertility."
+  },
+  {
+    "group_key": "sperm_fertility_relationship_reverse",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "543",
+      "520",
+      "505"
+    ],
+    "rationale": "Same sperm quality and fertility endpoints but relationship direction/order is reversed, requiring curator review."
+  },
+  {
+    "group_key": "pgf2a_ovary_synthesis",
+    "type": "merge",
+    "member_ids": [
+      "672",
+      "681"
+    ],
+    "rationale": "Both describe reduced prostaglandin F2alpha synthesis in the ovary."
+  },
+  {
+    "group_key": "pgf2a_ovary_vs_plasma",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "671",
+      "672",
+      "681"
+    ],
+    "rationale": "Reduced PGF2alpha in different compartments (plasma vs ovary synthesis)."
+  },
+  {
+    "group_key": "ovulation_decrease_delayed",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "488",
+      "532"
+    ],
+    "rationale": "Both describe impaired ovulation, one as decrease and the other as delay."
+  },
+  {
+    "group_key": "colony_loss",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1107",
+      "563"
+    ],
+    "rationale": "Both describe adverse colony-level outcomes in bees, with different severity."
+  },
+  {
+    "group_key": "caste_role_change",
+    "type": "merge",
+    "member_ids": [
+      "564",
+      "1108"
+    ],
+    "rationale": "Both describe abnormal role change within caste, with only a spelling difference."
+  },
+  {
+    "group_key": "nachr_activation_desensitization",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "559",
+      "663"
+    ],
+    "rationale": "Both target the nicotinic acetylcholine receptor but describe activation versus desensitization."
+  },
+  {
+    "group_key": "sodium_channel_inhibition_modulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "584",
+      "598",
+      "585"
+    ],
+    "rationale": "All relate to sodium channel function (inhibition, modulation, decreased conductance), which are distinct processes."
+  },
+  {
+    "group_key": "locomotion_opposite",
+    "type": "soda",
+    "member_ids": [
+      "622",
+      "635"
+    ],
+    "rationale": "Increased vs decreased locomotion."
+  },
+  {
+    "group_key": "predation_increase",
+    "type": "merge",
+    "member_ids": [
+      "588",
+      "623"
+    ],
+    "rationale": "Both describe increased predation."
+  },
+  {
+    "group_key": "survival_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "592",
+      "636"
+    ],
+    "rationale": "Both describe reduced survival, but in different organism contexts."
+  },
+  {
+    "group_key": "cytotoxicity_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "709",
+      "768",
+      "770"
+    ],
+    "rationale": "Increased cytotoxicity in different cell contexts (renal tubular, general, club cells)."
+  },
+  {
+    "group_key": "hyperplasia_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "767",
+      "735",
+      "740",
+      "744",
+      "772"
+    ],
+    "rationale": "Increased hyperplasia in different cell/tissue contexts."
+  },
+  {
+    "group_key": "regenerative_proliferation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "710",
+      "734"
+    ],
+    "rationale": "Regenerative cell proliferation in different epithelia."
+  },
+  {
+    "group_key": "adenoma_carcinoma_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "713",
+      "736",
+      "741"
+    ],
+    "rationale": "Increased adenomas/carcinomas in different tissues."
+  },
+  {
+    "group_key": "car_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "715",
+      "1214",
+      "456"
+    ],
+    "rationale": "All concern CAR (NR1I3), but as activation, activation-specific gene expression, or suppression."
+  },
+  {
+    "group_key": "ar_activation_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "743",
+      "1614"
+    ],
+    "rationale": "Both concern decreased androgen receptor activity/binding, but binding differs from activation and one is hypothalamus-specific."
+  },
+  {
+    "group_key": "tg_triglyceride",
+    "type": "merge",
+    "member_ids": [
+      "454",
+      "881"
+    ],
+    "rationale": "Both describe increased triglyceride levels or formation."
+  },
+  {
+    "group_key": "ppar_activation_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1028",
+      "468"
+    ],
+    "rationale": "Both concern PPAR signalling but with opposite or non-identical isoform and direction (PPAR-gamma activation vs PPAR alpha inhibition)."
+  },
+  {
+    "group_key": "srebp1_activation_inhibition",
+    "type": "soda",
+    "member_ids": [
+      "457",
+      "878"
+    ],
+    "rationale": "Activation vs inhibition of SREBP1/SREBF1."
+  },
+  {
+    "group_key": "steroidogenic_enzyme_decrease",
+    "type": "merge",
+    "member_ids": [
+      "495",
+      "647"
+    ],
+    "rationale": "Both describe reduced expression of steroidogenic enzymes/proteins."
+  }
+]

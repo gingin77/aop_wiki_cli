@@ -1,0 +1,380 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1772",
+      "group_key": "triglyceride_increase",
+      "rationale": "Decrease in triglyceride is the directionally opposite endpoint to the existing merge group of increased triglyceride formation/accumulation, making this a SODA relationship \u2014 however the existing group is 'merge' type for increases, so this should be flagged as a SODA partner rather than assigned to that merge group."
+    },
+    {
+      "event_id": "1795",
+      "group_key": "tgf_beta_latent_vs_pathway",
+      "rationale": "Latent TGF-beta expression directly corresponds to ID 1468 (activation of latent TGF-beta form), sharing the same biological object (latent TGF-beta) but describing expression vs. activation \u2014 distinct processes on the same molecule."
+    },
+    {
+      "event_id": "1762",
+      "group_key": "cytotoxicity_various_cell_types",
+      "rationale": "Urothelial cell injury/death describes cytotoxicity in urothelial cells, the same process as ID 794 (urothelial cytotoxicity) already in this similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "1763",
+      "group_key": "adenocarcinoma_renal_bronchial_follicular",
+      "rationale": "Urothelial tumor describes a carcinoma/tumor in a specific tissue context (urothelium), analogous to the other tissue-specific adenocarcinomas/tumors in this group."
+    },
+    {
+      "event_id": "1555",
+      "group_key": "cell_proliferation_general",
+      "rationale": "Increase cell proliferation is a general cell proliferation event without tissue/cell-type qualifier, matching the similar_event_different_biological_context group comparing general vs. tissue-specific proliferation events."
+    },
+    {
+      "event_id": "1840",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "Inhibition of cytochrome oxidase (Complex IV) \u2014 however this targets Complex IV not Complex I, so this does not belong in the Complex I group."
+    },
+    {
+      "event_id": "1837",
+      "group_key": "oocyte_maturation_ovulation",
+      "rationale": "Decreased oocyte maturation directly matches ID 1989 (impaired oocyte maturation/ovulation) in the oocyte_maturation_ovulation group, describing the same biological process."
+    },
+    {
+      "event_id": "1870",
+      "group_key": "olfactory_neuron_vs_epithelium_degeneration",
+      "rationale": "Decrease in sustentacular cells is a cell-type-specific event in the olfactory epithelium, related to the degeneration events of olfactory sensory neurons and olfactory epithelium already grouped together."
+    },
+    {
+      "event_id": "1873",
+      "group_key": "olfactory_neuron_vs_epithelium_degeneration",
+      "rationale": "Impaired olfactory function (anosmia) is the functional outcome of olfactory neuron/epithelium degeneration, representing the same biological system at a different organizational level."
+    },
+    {
+      "event_id": "1866",
+      "group_key": "coagulation_thrombosis",
+      "rationale": "Decreased fibrinolysis is part of the coagulation/thrombosis axis \u2014 reduced fibrinolysis promotes thrombosis \u2014 sharing the same biological object domain but representing a distinct process on the hemostatic pathway."
+    },
+    {
+      "event_id": "1863",
+      "group_key": "reduced_reproductive_success",
+      "rationale": "Decrease in reproduction is synonymous with reduced reproductive success/fecundity, fitting the similar_event_different_biological_context group comparing reproductive output endpoints."
+    },
+    {
+      "event_id": "1809",
+      "group_key": "hepatotoxicity_liver_injury",
+      "rationale": "Increase in tissue/organ damage is a broader form of the organ-level damage/injury events grouped here, though it lacks tissue specificity \u2014 however it is more general than liver injury specifically, so this assignment is not clearly justified."
+    },
+    {
+      "event_id": "1792",
+      "group_key": "tlr_dysregulation",
+      "rationale": "Toll-like receptor 4 activation involves a specific TLR isoform (TLR4), analogous to TLR7/8 stimulation (1706) and TLR dysregulation (1848) already in this group \u2014 same receptor family, distinct isoform and process."
+    },
+    {
+      "event_id": "1897",
+      "group_key": "tlr_dysregulation",
+      "rationale": "Increased MyD88 activation is directly downstream of TLR activation and shares the same innate immune signaling axis as the TLR dysregulation group, but MyD88 and TLRs are distinct molecular objects \u2014 not a clear fit."
+    },
+    {
+      "event_id": "1786",
+      "group_key": "nipple_retention",
+      "rationale": "No existing group matches nipple retention \u2014 this event stands alone."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "triglyceride_soda",
+      "type": "soda",
+      "member_ids": [
+        "1772",
+        "454"
+      ],
+      "rationale": "Decrease in triglyceride (1772) and increase in triglyceride formation/accumulation (454) are strictly opposite directions of the same biological endpoint."
+    },
+    {
+      "group_key": "urothelial_injury_to_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1762",
+        "1763"
+      ],
+      "rationale": "Urothelial cell injury/death and urothelial tumor describe sequential pathological events in the same cell type \u2014 cytotoxicity vs. neoplastic transformation \u2014 which are distinct processes in the same biological context."
+    },
+    {
+      "group_key": "dna_methylation_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1773",
+        "1778"
+      ],
+      "rationale": "Decrease in global DNA methylation (1773) and decrease in heritable DNA methylation in F3 generation (1778) describe the same epigenetic process but one is general and the other specifies a transgenerational context."
+    },
+    {
+      "group_key": "ecdysone_receptor_antagonism_vs_cascade",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2374",
+        "2373",
+        "2375"
+      ],
+      "rationale": "Ecdysone receptor antagonism (2374) and the mis-timed ecdysone receptor-responsive cascade increase/decrease (2373, 2375) all involve the ecdysone receptor but describe binding/antagonism vs. downstream cascade changes \u2014 distinct processes on the same receptor."
+    },
+    {
+      "group_key": "gonad_sex_determination_direction",
+      "type": "soda",
+      "member_ids": [
+        "1790",
+        "2417"
+      ],
+      "rationale": "Increased differentiation to testis (1790) and increased differentiation to ovaries (2417) are strictly opposite directions of gonadal sex determination."
+    },
+    {
+      "group_key": "sex_ratio_direction",
+      "type": "soda",
+      "member_ids": [
+        "1791",
+        "2418"
+      ],
+      "rationale": "Increased male-biased sex ratio (1791) and increased female-biased sex ratio (2418, already in sex_ratio_ovary_differentiation merge group) are strictly opposite directions of the same population-level sex ratio endpoint."
+    },
+    {
+      "group_key": "gonad_differentiation_sex_ratio_male",
+      "type": "merge",
+      "member_ids": [
+        "1790",
+        "1791"
+      ],
+      "rationale": "Increased differentiation to testis and increased male-biased sex ratio describe the same directional shift toward male phenotype at the gonadal and population levels respectively."
+    },
+    {
+      "group_key": "estradiol_synthesis_undifferentiated_gonad",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1789",
+        "219"
+      ],
+      "rationale": "Reduction in 17beta-estradiol synthesis by the undifferentiated gonad (1789) and general reduction in 17beta-estradiol (219) describe the same directional hormonal change but one specifies the undifferentiated gonadal context."
+    },
+    {
+      "group_key": "tlr4_myd88_innate_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1792",
+        "1897"
+      ],
+      "rationale": "TLR4 activation and MyD88 activation are sequential events in the same innate immune signaling pathway but involve distinct molecular objects (receptor vs. adaptor protein)."
+    },
+    {
+      "group_key": "nlrp3_inflammasome_myd88",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1895",
+        "1897"
+      ],
+      "rationale": "NLRP3 inflammasome activity increase and MyD88 activation are related innate immune signaling events but involve distinct molecular complexes and processes."
+    },
+    {
+      "group_key": "nlrp3_damp_release",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1895",
+        "1898"
+      ],
+      "rationale": "NLRP3 inflammasome activation and DAMP release are causally linked innate immune events but represent distinct biological processes \u2014 inflammasome activation can trigger cell death and DAMP release but they are separate events."
+    },
+    {
+      "group_key": "nets_platelet_neutrophil",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1899",
+        "1857"
+      ],
+      "rationale": "Neutrophil extracellular trap formation and platelet-neutrophil interactions both describe neutrophil-mediated thromboinflammatory events but involve distinct cellular processes."
+    },
+    {
+      "group_key": "nets_thromboinflammation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1899",
+        "1857"
+      ],
+      "rationale": "NETs formation and increased platelet-neutrophil interactions are distinct but related processes both contributing to thromboinflammation \u2014 different biological processes involving overlapping cell types."
+    },
+    {
+      "group_key": "systemic_inflammatory_response",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1844",
+        "1868"
+      ],
+      "rationale": "Systemic inflammatory response syndrome and hyperinflammation both describe systemic-level excessive inflammatory responses but SIRS is a clinical syndrome definition while hyperinflammation is a broader pathophysiological state."
+    },
+    {
+      "group_key": "microvascular_dysfunction_vascular",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2096",
+        "298"
+      ],
+      "rationale": "Microvascular dysfunction specifies the microvasculature context while vascular insufficiency describes broader vascular functional impairment \u2014 same process in different vascular compartments."
+    },
+    {
+      "group_key": "ace_angii_at1r_axis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1853",
+        "1752"
+      ],
+      "rationale": "Hyperactivation of ACE/Ang-II/AT1R axis and increased Angiotensin II describe overlapping events in the same pathway but axis hyperactivation is a broader systems-level descriptor while Ang-II increase is a specific molecular endpoint."
+    },
+    {
+      "group_key": "bradykinin_ace2_axis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1867",
+        "1854"
+      ],
+      "rationale": "Bradykinin system hyperactivation and ACE2 dysregulation are causally linked through the renin-angiotensin-bradykinin system but involve distinct molecular objects and processes."
+    },
+    {
+      "group_key": "retinal_eye_structural_damage",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1877",
+        "1878"
+      ],
+      "rationale": "Altered retinal layer structure and decreased eye size describe structural damage to the same visual organ but at different anatomical levels \u2014 retinal tissue layer vs. whole eye size."
+    },
+    {
+      "group_key": "oxygen_evolving_complex_photosystem",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1865",
+        "1861"
+      ],
+      "rationale": "Increase in oxygen-evolving complex damage and D1 protein deactivation both relate to Photosystem II function but OEC damage and D1 protein inactivation are distinct structural components and processes."
+    },
+    {
+      "group_key": "cuticle_digestion_molting",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "996",
+        "1524"
+      ],
+      "rationale": "Decrease in digestion of old cuticle and increase in premature molting both describe disrupted molting processes but at different stages \u2014 old cuticle digestion vs. timing of the molt."
+    },
+    {
+      "group_key": "immune_cell_activation_general_vs_specific",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1818",
+        "1792"
+      ],
+      "rationale": "General immune cell activation and TLR4 activation describe immune activation at different levels of specificity \u2014 general cellular activation vs. a specific receptor-mediated activation event."
+    },
+    {
+      "group_key": "immune_hepatitis_liver_inflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1820",
+        "902"
+      ],
+      "rationale": "Immune-mediated hepatitis and liver inflammation both describe inflammatory pathology in the liver but one specifies immune-mediated mechanism while the other describes the inflammatory state more broadly."
+    },
+    {
+      "group_key": "ifn_signaling_immune_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1819",
+        "1818"
+      ],
+      "rationale": "IFN\u03b3 signaling and immune cell activation are related but distinct immunological events \u2014 IFN\u03b3 is a specific cytokine signaling pathway while immune cell activation is a broader cellular process."
+    },
+    {
+      "group_key": "blood_brain_barrier_cns_damage",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1874",
+        "1841"
+      ],
+      "rationale": "Blood-brain barrier disruption and encephalitis both describe CNS pathology but one is a structural barrier failure and the other is an inflammatory brain disease \u2014 distinct processes in the same anatomical compartment."
+    },
+    {
+      "group_key": "cytochrome_oxidase_complex_iv",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1840",
+        "1654"
+      ],
+      "rationale": "Inhibition of cytochrome oxidase (Complex IV, 1840) and binding of inhibitor to Complex IV (1654) both target mitochondrial Complex IV but describe inhibition vs. binding \u2014 the same same_object_different_process pattern as other mitochondrial complex groups."
+    },
+    {
+      "group_key": "cytochrome_oxidase_complex_iv_inhibition_vs_functional",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1840",
+        "1543"
+      ],
+      "rationale": "Inhibition of cytochrome oxidase (1840) and functional inhibition of Complex IV (1543) both describe inhibition of the same mitochondrial complex using different wording \u2014 these may be merge candidates but curator review is warranted given potential wording differences."
+    },
+    {
+      "group_key": "nasal_olfactory_lesions",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2312",
+        "1871",
+        "1872"
+      ],
+      "rationale": "Nasal lesions, decrease in olfactory sensory neurons, and olfactory epithelium degeneration all describe pathological changes in the nasal/olfactory tissue at different levels of specificity."
+    },
+    {
+      "group_key": "granulosa_cell_proliferation_follicle",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1800",
+        "1366"
+      ],
+      "rationale": "Reduced granulosa cell proliferation of gonadotropin-independent follicles and decrease in oogenesis both describe impaired ovarian follicular development but at different cellular/process levels."
+    },
+    {
+      "group_key": "sodium_hypertension_taste",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1855",
+        "1856"
+      ],
+      "rationale": "Increased sodium-sensitive hypertension and imbalanced salty/sweet taste responses both relate to sodium/salt sensing but describe distinct physiological processes \u2014 cardiovascular vs. gustatory."
+    },
+    {
+      "group_key": "premature_molting_vs_cuticle_sclerotization",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1524",
+        "2053"
+      ],
+      "rationale": "Premature molting and defects in cuticle sclerotization/tanning both describe disrupted insect molting/cuticle processes but at different stages of the molting cycle."
+    },
+    {
+      "group_key": "testicular_cancer_vs_spermatogenesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1839",
+        "2355"
+      ],
+      "rationale": "Testicular cancer and disrupted spermatogenesis both describe testicular pathology but one is a neoplastic outcome and the other is a functional/reproductive impairment \u2014 different processes in the same organ."
+    },
+    {
+      "group_key": "pin1_tgf_latent_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1794",
+        "1795"
+      ],
+      "rationale": "Pin-1 activation and latent TGF-beta expression are related in that Pin-1 can promote TGF-beta signaling, but Pin-1 and TGF-beta are distinct molecular objects and these are different processes."
+    },
+    {
+      "group_key": "oxidative_stress_protective_response",
+      "type": "soda",
+      "member_ids": [
+        "1869",
+        "1392"
+      ],
+      "rationale": "Diminished protective oxidative stress response and increased oxidative stress/ROS describe opposite aspects of the same redox biology \u2014 one is the protective/antioxidant response decreasing and the other is the damaging oxidative state increasing."
+    }
+  ]
+}

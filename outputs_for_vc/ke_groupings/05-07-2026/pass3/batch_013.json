@@ -1,0 +1,315 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1177",
+      "group_key": "igabar_binding_vs_conductance_reduction",
+      "rationale": "ID 1177 describes decreased ionotropic GABA receptor chloride channel conductance, which is the same functional endpoint as ID 64 (reduced chloride channel conductance) in the existing group."
+    },
+    {
+      "event_id": "2104",
+      "group_key": "thyroxine_t4_decrease",
+      "rationale": "Decreased thyroid hormone binding to thyroid hormone receptor is a related but distinct process from decreased T4 levels; however it is more appropriately placed in thyroid_receptor_antagonism_t4_displacement as it describes binding/interaction with the thyroid hormone receptor."
+    },
+    {
+      "event_id": "2162",
+      "group_key": "hif1_alpha_transcription_vs_heterodimer",
+      "rationale": "Activation of HIF1\u03b1 involves the same molecular target (HIF-1alpha) as the existing group members describing HIF-1 heterodimer formation and HIF-1alpha transcription \u2014 same object, distinct process warranting curator review."
+    },
+    {
+      "event_id": "2166",
+      "group_key": "enos_related_events",
+      "rationale": "Abnormal expression of NO involves nitric oxide, which is the downstream product of eNOS activity described in the existing enos_related_events group \u2014 same signaling axis but NO expression vs. eNOS enzyme processes are distinct."
+    },
+    {
+      "event_id": "2086",
+      "group_key": "inflammation_corneal_vs_general",
+      "rationale": "Airway inflammation describes increased inflammation in a specific tissue context (airways), which parallels the existing group comparing general inflammation with corneal inflammation."
+    },
+    {
+      "event_id": "2085",
+      "group_key": "cytotoxicity_various_cell_types",
+      "rationale": "Pulmonary epithelial injury describes cytotoxic/injury events in pulmonary epithelial cells, which fits the pattern of the existing group listing cytotoxicity in different cell/tissue types."
+    },
+    {
+      "event_id": "2105",
+      "group_key": "oligodendrocyte_differentiation_maturation",
+      "rationale": "Decreased myelin basic protein expression in oligodendrocytes is a specific molecular marker of impaired oligodendrocyte differentiation/maturation, fitting the existing merge group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "chitin_cuticle_organization",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2059",
+        "2060",
+        "2061",
+        "2062",
+        "2063"
+      ],
+      "rationale": "All describe aspects of cuticle/chitin formation and integrity (knickkopf gene decrease, chitin laminar organization, prevention of chitin degradation, procuticle protection, new cuticle secretion) \u2014 related but distinct steps in the same cuticle assembly process."
+    },
+    {
+      "group_key": "chitin_organization_vs_sclerotization",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2060",
+        "2053"
+      ],
+      "rationale": "Decrease in chitin laminar organization and defects in cuticle sclerotization/tanning both describe impaired cuticle structural integrity in different aspects of the same process."
+    },
+    {
+      "group_key": "hatching_failure",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2057",
+        "2062"
+      ],
+      "rationale": "Decreased hatching of egg and weak procuticle protection are related developmental/structural outcomes in the same insect developmental context but describe distinct biological events."
+    },
+    {
+      "group_key": "20_hydroxyecdysone_decrease",
+      "type": "merge",
+      "member_ids": [
+        "2058",
+        "2059"
+      ],
+      "rationale": "Decrease in 20-hydroxyecdysone (the active molting hormone) and decrease in knickkopf gene expression are related but not synonymous \u2014 withdrawing; these are distinct events."
+    },
+    {
+      "group_key": "hemocyanin_oxygen_sensing",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2075",
+        "2076",
+        "2077"
+      ],
+      "rationale": "Sensing hypoxic/low oxygen environment, increased hemocyanin mRNA expression, and increased pulmonate breathing all describe sequential adaptive responses to hypoxia in the same organism (pulmonate molluscs) but are distinct biological events."
+    },
+    {
+      "group_key": "nitric_oxide_levels_altered",
+      "type": "merge",
+      "member_ids": [
+        "2067",
+        "2166"
+      ],
+      "rationale": "Altered nitric oxide levels and abnormal expression of NO both describe dysregulation of nitric oxide using different wording for the same biological endpoint."
+    },
+    {
+      "group_key": "vascular_remodeling_angiogenesis_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2069",
+        "2181"
+      ],
+      "rationale": "Abnormal vascular remodeling and angiogenesis dysfunction both describe vascular pathology but one specifies remodeling of existing vessels while the other describes failure of new vessel formation \u2014 same vascular system, distinct processes."
+    },
+    {
+      "group_key": "dendritic_spine_drebrin",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2078",
+        "2242"
+      ],
+      "rationale": "Loss of drebrin (a dendritic spine actin-binding protein) and abnormality in dendritic spine morphology describe related synaptic structural changes \u2014 protein loss vs. morphological consequence in the same subcellular compartment."
+    },
+    {
+      "group_key": "neurotransmitter_release_disruption",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2151",
+        "637"
+      ],
+      "rationale": "Disruption of neurotransmitter release and impaired learning and memory are causally related neurological events but represent distinct biological processes \u2014 synaptic molecular event vs. behavioral/cognitive outcome."
+    },
+    {
+      "group_key": "learning_memory_impairment",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "637",
+        "2121"
+      ],
+      "rationale": "Impaired learning and memory and decreased intellectual quotient both describe cognitive impairment but at different levels of description \u2014 neurological function vs. population-level cognitive measurement."
+    },
+    {
+      "group_key": "glycolipid_modified_proteins",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2079",
+        "2081"
+      ],
+      "rationale": "Increased glycolipid levels and increased modified proteins both describe accumulation of aberrant biomolecules but involve distinct molecular classes (lipids vs. proteins)."
+    },
+    {
+      "group_key": "left_ventricular_cardiac_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2215",
+        "1532"
+      ],
+      "rationale": "Decreased left ventricular function and decreased cardiac contractility both describe impaired cardiac mechanical performance but one specifies the left ventricle as the biological context."
+    },
+    {
+      "group_key": "neural_remodeling_cortical_architecture",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2098",
+        "2114"
+      ],
+      "rationale": "Increased abnormal neural remodeling and disturbed cortical architecture both describe structural brain pathology but at different scales \u2014 general neural vs. cortex-specific."
+    },
+    {
+      "group_key": "thyroid_hormone_receptor_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2104",
+        "1656"
+      ],
+      "rationale": "Decreased thyroid hormone binding to thyroid hormone receptor and thyroid receptor antagonism both involve the thyroid hormone receptor but describe binding reduction vs. antagonism \u2014 distinct processes on the same receptor."
+    },
+    {
+      "group_key": "cholesterol_metabolism_altered",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2115",
+        "2269"
+      ],
+      "rationale": "Altered cholesterol metabolism and increased SREBP2-driven cholesterol synthesis enzymes both describe dysregulation of cholesterol homeostasis but at different levels \u2014 general metabolic alteration vs. specific transcriptional upregulation."
+    },
+    {
+      "group_key": "obesity_metabolic_syndrome",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2129",
+        "2145"
+      ],
+      "rationale": "Metabolically unhealthy obesity and metabolic syndrome describe overlapping but distinct clinical/metabolic conditions where obesity is a component of metabolic syndrome \u2014 same biological context but different diagnostic/outcome levels."
+    },
+    {
+      "group_key": "insulin_signaling_metabolic",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2144",
+        "2145"
+      ],
+      "rationale": "Impaired insulin signaling and metabolic syndrome are causally related but represent a molecular/cellular process vs. a broader clinical syndrome outcome."
+    },
+    {
+      "group_key": "gonadotropin_plasma_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2137",
+        "754"
+      ],
+      "rationale": "Increased gonadotropin concentration in plasma and increased luteinizing hormone both describe elevated pituitary gonadotropins but one is broader (all gonadotropins) and the other specifies LH."
+    },
+    {
+      "group_key": "epigenetic_modification_gene_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2152",
+        "2153"
+      ],
+      "rationale": "Epigenetic modification process and modified expression of factors ruling proliferation describe causally linked but distinct biological events \u2014 epigenetic changes as mechanism vs. altered gene expression as outcome."
+    },
+    {
+      "group_key": "uterine_adenocarcinoma_endometrial",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2154",
+        "1082"
+      ],
+      "rationale": "Uterine adenocarcinoma and pituitary adenoma both describe adenoma/carcinoma formation but in different organs (uterus vs. pituitary), representing the same class of neoplastic event in different biological contexts."
+    },
+    {
+      "group_key": "sult1e1_estrogen_sulfotransferase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2155",
+        "2294"
+      ],
+      "rationale": "Inhibition of SULT1E1 (the estrogen-sulfonating enzyme) and increased plasma estradiol describe an enzyme inhibition and its downstream consequence of elevated estradiol \u2014 related but distinct processes on different objects."
+    },
+    {
+      "group_key": "viral_immune_evasion_entry",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2180",
+        "2158"
+      ],
+      "rationale": "Immune mechanisms antagonized by viral proteins and IAV binding to sialic acid receptor both describe virus-host interactions but one is immune evasion and the other is receptor binding for entry \u2014 distinct processes in the viral infection context."
+    },
+    {
+      "group_key": "influenza_shedding_transmission",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2194",
+        "2192"
+      ],
+      "rationale": "IAV shedding and transmission and IAV production both describe viral output/spread but production is intracellular while shedding/transmission is the organism-level outcome."
+    },
+    {
+      "group_key": "dll4_notch_angiogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2164",
+        "2163"
+      ],
+      "rationale": "Activation of Dll4-Notch pathway and activation of Sema6A both describe signaling pathway activations involved in vascular/neural patterning but are distinct molecular pathways."
+    },
+    {
+      "group_key": "mmp_activation_vascular",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2167",
+        "2069"
+      ],
+      "rationale": "Activation of MMP-2/MMP-9 and abnormal vascular remodeling are causally related \u2014 MMPs drive vascular remodeling \u2014 but represent distinct biological events (enzyme activation vs. tissue-level outcome)."
+    },
+    {
+      "group_key": "angiopoietin_vascular_signaling",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2168",
+        "2069"
+      ],
+      "rationale": "Activation of angiopoietin-like protein 4 and abnormal vascular remodeling are related vascular signaling events but describe a molecular activation vs. a tissue-level pathological outcome."
+    },
+    {
+      "group_key": "elavl3_neural_gene_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2196",
+        "2197"
+      ],
+      "rationale": "Decreased elavl3 (an RNA-binding protein important for neuronal development) and decreased sox10 both describe reductions in neural development-related gene expression \u2014 same direction, different molecular targets in overlapping neural contexts."
+    },
+    {
+      "group_key": "tyrosine_melanin_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2051",
+        "1627"
+      ],
+      "rationale": "Decreased tyrosine and tyrosinase inhibition both affect the melanin synthesis pathway \u2014 tyrosine is the substrate for tyrosinase \u2014 but substrate reduction and enzyme inhibition are distinct processes on different objects."
+    },
+    {
+      "group_key": "stress_response_signaling_altered",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2244",
+        "1172"
+      ],
+      "rationale": "Altered stress response signaling and NF-kB activation both describe changes in cellular stress/inflammatory signaling but stress response signaling is broader and NF-kB activation is a specific molecular event within that context."
+    },
+    {
+      "group_key": "socioeconomic_cognitive_burden",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2122",
+        "2121"
+      ],
+      "rationale": "Increased socio-economic burden and decreased intellectual quotient describe related population-level consequences of neurotoxicity but at different scales \u2014 economic/societal vs. individual cognitive measurement."
+    }
+  ]
+}

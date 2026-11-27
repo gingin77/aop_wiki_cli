@@ -1,0 +1,25 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "876",
+      "group_key": "mutations",
+      "rationale": "Increased mutations in critical genes is the same event as 'Increased, Induced Mutations in Critical Genes' and fits the mutation group of varying specificity."
+    },
+    {
+      "event_id": "868",
+      "group_key": "necrosis_context",
+      "rationale": "Tissue degeneration/necrosis/atrophy is a necrosis-related event with differing specificity."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "enos_activity_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "973",
+        "935"
+      ],
+      "rationale": "Both are decreases in eNOS-pathway activity, but they address different objects; this is a weak grouping and is omitted from consideration."
+    }
+  ]
+}

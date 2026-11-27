@@ -1,0 +1,92 @@
+[
+  {
+    "group_key": "fat_mass_increase",
+    "type": "merge",
+    "member_ids": [
+      "2125",
+      "2333"
+    ],
+    "rationale": "Both describe increased fat mass."
+  },
+  {
+    "group_key": "laminin_binding",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2109",
+      "2110"
+    ],
+    "rationale": "Both describe binding events involving laminin and its integrin receptors, with differing specificity."
+  },
+  {
+    "group_key": "ryr_activation_vs_hyperphosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2186",
+      "2289"
+    ],
+    "rationale": "Both concern the ryanodine receptor, but activation and hyperphosphorylation are distinct processes."
+  },
+  {
+    "group_key": "estradiol_increase",
+    "type": "merge",
+    "member_ids": [
+      "2294",
+      "2251"
+    ],
+    "rationale": "Both describe increased estradiol levels/availability."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_induction",
+    "type": "soda",
+    "member_ids": [
+      "2277",
+      "2293"
+    ],
+    "rationale": "Both target aromatase but in opposite directions (inhibition vs induction)."
+  },
+  {
+    "group_key": "ppar_binding_vs_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2226",
+      "2227"
+    ],
+    "rationale": "Both concern PPAR isoforms; binding versus disrupted nuclear signaling are distinct processes."
+  },
+  {
+    "group_key": "gsh_depletion_vs_conjugation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "130",
+      "2131"
+    ],
+    "rationale": "Both concern GSH but depletion and conjugation are distinct processes."
+  },
+  {
+    "group_key": "lipid_accumulation_droplet",
+    "type": "merge",
+    "member_ids": [
+      "2130",
+      "2332"
+    ],
+    "rationale": "Both describe increased lipid accumulation/lipid droplets."
+  },
+  {
+    "group_key": "oxidative_stress_mito_ros",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1238",
+      "2363"
+    ],
+    "rationale": "Both describe increased oxidative stress, one specific to mitochondria."
+  },
+  {
+    "group_key": "proinflammatory_increase",
+    "type": "merge",
+    "member_ids": [
+      "2097",
+      "2132"
+    ],
+    "rationale": "Both describe increased pro-inflammatory mediators/cytokines."
+  }
+]

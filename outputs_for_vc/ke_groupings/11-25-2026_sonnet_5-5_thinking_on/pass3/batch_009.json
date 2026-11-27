@@ -1,0 +1,15 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1176",
+      "group_key": "sodium_channel_inhibition_modulation",
+      "rationale": "Decreased sodium conductance 2 concerns the sodium channel and is a distinct process from inhibition/modulation, like the existing 'Decreased, Sodium conductance 1'."
+    },
+    {
+      "event_id": "1270",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "PPAR\u03b3 is a different isoform than PPAR\u03b1, so this does not fit; omitted."
+    }
+  ],
+  "new_groups": []
+}

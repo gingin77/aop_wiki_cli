@@ -1,0 +1,25 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "531",
+      "group_key": "lh_decreased_release",
+      "rationale": "Decreased LH surge is the same event as 'Decreased, LH Surge from anterior pituitary', differing only in the stated tissue source."
+    },
+    {
+      "event_id": "593",
+      "group_key": "herg_block_vs_ikr_inhibition",
+      "rationale": "ERG/hERG potassium channel inhibition shares the same channel object with hERG blockade and IKr current inhibition, and is a distinct process description."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "serotonin_transporter_vs_serotonin",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "619",
+        "626"
+      ],
+      "rationale": "Serotonin transporter inhibition and increased serotonin are related, but the transporter and its substrate are different objects, so this is a questionable pair; excluded."
+    }
+  ]
+}

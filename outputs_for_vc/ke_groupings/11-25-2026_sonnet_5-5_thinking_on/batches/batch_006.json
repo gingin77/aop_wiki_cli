@@ -1,0 +1,74 @@
+[
+  {
+    "group_key": "fat_mass_increase",
+    "type": "merge",
+    "member_ids": [
+      "2125",
+      "2333"
+    ],
+    "rationale": "Both describe an increase in fat mass."
+  },
+  {
+    "group_key": "ppar_binding_vs_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2226",
+      "2165"
+    ],
+    "rationale": "Both concern PPAR, but stressor binding does not by itself establish activation."
+  },
+  {
+    "group_key": "ppar_signaling_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2224",
+      "2227"
+    ],
+    "rationale": "Both describe disrupted PPAR signaling, but one is transcriptional dysregulation of the network and the other is disrupted nuclear isoform signaling, so curators should check whether they are equivalent."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_induction",
+    "type": "soda",
+    "member_ids": [
+      "2277",
+      "2293"
+    ],
+    "rationale": "Both concern aromatase activity, in opposite directions (inhibition vs induction)."
+  },
+  {
+    "group_key": "estradiol_increase_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2251",
+      "2294"
+    ],
+    "rationale": "Both describe increased estradiol, but one specifies plasma and the other is general availability."
+  },
+  {
+    "group_key": "ryanodine_receptor_activation_vs_phosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2186",
+      "2289"
+    ],
+    "rationale": "Both target the ryanodine receptor, but generic activation and RyR2 hyperphosphorylation are distinct processes."
+  },
+  {
+    "group_key": "laminin_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2109",
+      "2110"
+    ],
+    "rationale": "Both involve laminin binding, but one is general ECM laminin binding and the other is disrupted laminin-integrin receptor binding."
+  },
+  {
+    "group_key": "oligodendrocyte_differentiation_maturation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2116",
+      "2106"
+    ],
+    "rationale": "Both describe impaired oligodendrocyte lineage progression, but differentiation and maturation may not be equivalent."
+  }
+]

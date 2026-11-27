@@ -1,0 +1,298 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1972",
+      "group_key": "star_protein_decrease_vs_cholesterol_transport",
+      "rationale": "ID 1972 describes increased StAR protein, which is the same biological object as the decreased StAR in group 'star_protein_decrease_vs_cholesterol_transport' \u2014 but as an increase rather than a decrease, it is directionally opposite to ID 266 and adds a third process variant; however since the existing group is same_object_different_process involving StAR and cholesterol transport, the increased StAR event belongs here for curator review."
+    },
+    {
+      "event_id": "1986",
+      "group_key": "gonadotropin_reduction_lh_increase",
+      "rationale": "ID 1986 describes decreased gonadotropins, which is the same directional endpoint as ID 129 (reduction in gonadotropins) already in the soda group with LH increase \u2014 1986 is a merge-level synonym of 129 within the same group."
+    },
+    {
+      "event_id": "2009",
+      "group_key": "proinflammatory_mediators_increase",
+      "rationale": "Activation of inflammation pathway describes the same directional increase in inflammatory signaling as the pro-inflammatory mediator increase events in the existing merge group."
+    },
+    {
+      "event_id": "901",
+      "group_key": "inflammation_general",
+      "rationale": "Infiltration of inflammatory cells is a hallmark feature of general inflammation and fits the similar_event_different_biological_context group alongside general inflammation and liver inflammation."
+    },
+    {
+      "event_id": "2017",
+      "group_key": "misfolded_protein_er_stress",
+      "rationale": "Endoplasmic reticulum stress (ID 2017) is the same biological event as ID 1815 already in the misfolded_protein_er_stress group, describing ER stress as a distinct process from misfolded protein accumulation."
+    },
+    {
+      "event_id": "2065",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Inhibition of fatty acid oxidation (ID 2065) describes the same directional decrease in fatty acid beta-oxidation as IDs 1528 and 179 in the existing merge group."
+    },
+    {
+      "event_id": "2187",
+      "group_key": "calcium_channel_opening_influx",
+      "rationale": "Opening of voltage-gated calcium channels (ID 2187) describes the same event as opening of calcium channels causing calcium influx already captured in the calcium_channel_opening_influx merge group."
+    },
+    {
+      "event_id": "2049",
+      "group_key": "sex_ratio_ovary_differentiation",
+      "rationale": "Increase in sex ratio (F/M) (ID 2049) describes the same directional shift toward female-biased sex ratio as IDs 2417 and 2418 in the existing merge group."
+    },
+    {
+      "event_id": "2012",
+      "group_key": "fibroblast_differentiation_vs_activation",
+      "rationale": "Fibroblast proliferation and differentiation (ID 2012) involves the same biological object (fibroblasts) as the existing same_object_different_process group but adds proliferation as an additional process alongside differentiation and activation."
+    },
+    {
+      "event_id": "1554",
+      "group_key": "dna_strand_breaks_increase",
+      "rationale": "Increased chromosomal aberrations (ID 1554) describes a form of increased DNA damage closely related to DNA strand breaks/damage, warranting curator review in the same group."
+    },
+    {
+      "event_id": "2119",
+      "group_key": "glucose_uptake_homeostasis",
+      "rationale": "Increased insulin resistance (ID 2119) is closely linked to abnormal glucose homeostasis (ID 1952) and decreased glucose uptake (ID 1951) \u2014 same biological system with insulin resistance being a distinct but related process warranting curator review."
+    },
+    {
+      "event_id": "2047",
+      "group_key": "oogenesis_follicular_atresia",
+      "rationale": "Delay in ovarian maturation (ID 2047) describes impaired female reproductive development similarly to decreased oogenesis and increased follicular atresia, representing the same process at a different biological level."
+    },
+    {
+      "event_id": "1991",
+      "group_key": "reduced_reproductive_success",
+      "rationale": "Impaired reproduction (ID 1991) describes the same outcome as reduced reproductive success (ID 675) and decreased fecundity (ID 527) in the existing similar_event_different_biological_context group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "tumor_growth_metastasis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1971",
+        "1982"
+      ],
+      "rationale": "Increased tumor growth and metastatic breast cancer both describe cancer progression outcomes but one is a general tumor growth process while the other specifies metastatic breast cancer as the biological context."
+    },
+    {
+      "group_key": "ovarian_cancer_promotion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2092",
+        "1971"
+      ],
+      "rationale": "Promotion of ovarian cancer and increased tumor growth describe cancer progression but one specifies ovarian cancer as the tissue context while the other is general tumor growth."
+    },
+    {
+      "group_key": "neural_progenitor_microcephaly",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2200",
+        "1978"
+      ],
+      "rationale": "Decline in neural progenitor cells and increased risk of microcephaly describe related neurodevelopmental events \u2014 cellular depletion vs. organ-level structural outcome \u2014 in the same biological context."
+    },
+    {
+      "group_key": "kisspeptin_gnrh_gonadotropin",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1985",
+        "1986"
+      ],
+      "rationale": "Increased kisspeptin levels in AVPV and decreased gonadotropins describe related but distinct events in the HPG axis \u2014 upstream neuropeptide change vs. downstream pituitary hormone output."
+    },
+    {
+      "group_key": "androgen_progestin_maturation_steroid",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1987",
+        "1988"
+      ],
+      "rationale": "Decreased androgen and progestin and decreased maturation inducing steroid surge by granulosa cells describe related decreases in reproductive steroids but one is broader while the other specifies the granulosa cell source and MIS endpoint."
+    },
+    {
+      "group_key": "facial_clefting_outgrowth",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2041",
+        "2042"
+      ],
+      "rationale": "Decreased facial prominence outgrowth and increased orofacial clefting describe sequential developmental events \u2014 reduced outgrowth is a cellular process while orofacial clefting is the resulting structural defect."
+    },
+    {
+      "group_key": "endothelial_dysfunction_increase",
+      "type": "merge",
+      "member_ids": [
+        "2068",
+        "1928"
+      ],
+      "rationale": "Increase in endothelial dysfunction (ID 2068) and vascular endothelial dysfunction (ID 1928, already in vascular_endothelial_dysfunction group) describe the same directional increase in endothelial dysfunction using different wording."
+    },
+    {
+      "group_key": "nafld_liver_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2019",
+        "2034"
+      ],
+      "rationale": "Non-alcoholic fatty liver disease and liver dysfunction both describe hepatic pathological outcomes but NAFLD is a specific disease entity while liver dysfunction is a broader functional impairment."
+    },
+    {
+      "group_key": "foam_cell_atherosclerosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1442",
+        "2034"
+      ],
+      "rationale": "Foam cell formation and liver dysfunction are distinct pathological processes but both can be downstream consequences of lipid dysregulation \u2014 however these are different biological events and should not be grouped."
+    },
+    {
+      "group_key": "slincr_sox9_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2021",
+        "2020"
+      ],
+      "rationale": "Increased slincR expression and decreased sox9 expression describe related changes in the same regulatory axis (slincR is a long non-coding RNA that regulates sox9) but involve different molecular objects and opposite directions."
+    },
+    {
+      "group_key": "metabotropic_glutamate_inositol_calpain",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2036",
+        "2037",
+        "2038"
+      ],
+      "rationale": "Activation of metabotropic glutamate receptor, inositol triphosphate receptor activation, and activation of calpain signaling describe sequential steps in the same calcium signaling cascade but are distinct molecular processes and objects."
+    },
+    {
+      "group_key": "gabaa_receptor_inhibition_vs_igabar",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2039",
+        "64"
+      ],
+      "rationale": "Inhibition of GABAA receptor (ID 2039) and reduced chloride channel conductance of ionotropic GABA receptor (ID 64) both involve GABAA/ionotropic GABA receptors but describe distinct processes \u2014 receptor inhibition vs. resulting conductance change."
+    },
+    {
+      "group_key": "ovarian_maturation_oviposition_delay",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2047",
+        "2056"
+      ],
+      "rationale": "Delay in ovarian maturation and delay in oviposition describe sequential reproductive events in the same pathway \u2014 ovarian development delay and the resulting delay in egg-laying \u2014 but are distinct biological processes."
+    },
+    {
+      "group_key": "body_volume_developmental_abnormalities",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2048",
+        "2050"
+      ],
+      "rationale": "Increased body volume of female adults and increased developmental abnormalities describe related but distinct outcomes of developmental disruption in the same organism."
+    },
+    {
+      "group_key": "dopa_decarboxylase_dopaminergic",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2052",
+        "746"
+      ],
+      "rationale": "Decreased dopa decarboxylase and decreased dopaminergic activity both describe reductions in the dopamine synthesis/signaling pathway but at different biological levels \u2014 enzyme activity vs. pathway-level activity."
+    },
+    {
+      "group_key": "pigmentation_increase_vs_decrease",
+      "type": "soda",
+      "member_ids": [
+        "2055",
+        "1631"
+      ],
+      "rationale": "Increased pigmentation (ID 2055) and reduction in pigmentation pattern (ID 1631) describe strictly opposite directions of the same biological endpoint \u2014 pigmentation level."
+    },
+    {
+      "group_key": "alcohol_dehydrogenase_retinoic_acid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2045",
+        "1637"
+      ],
+      "rationale": "Increased alcohol dehydrogenase activity and inhibition of retinaldehyde dehydrogenase both involve aldehyde dehydrogenase/oxidoreductase enzymes in the retinoid metabolism pathway but are distinct enzymes (ADH vs. RALDH) and thus different biological objects."
+    },
+    {
+      "group_key": "emphysema_airway_remodeling_copd",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2011",
+        "2013",
+        "2008"
+      ],
+      "rationale": "Emphysema, airway remodeling, and COPD all describe pulmonary pathological outcomes in the same organ but represent distinct disease processes \u2014 structural destruction, architectural remodeling, and chronic obstructive disease respectively."
+    },
+    {
+      "group_key": "noncoding_rna_microrna_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2007",
+        "1980"
+      ],
+      "rationale": "Non-coding RNA expression profile alteration and increased microRNA expression both describe changes in non-coding RNA but one is a broader profile alteration while the other specifies microRNAs as a subclass with a specific directional increase."
+    },
+    {
+      "group_key": "sirt1_expression_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1981",
+        "1502"
+      ],
+      "rationale": "Decreased SIRT1 expression and HDAC inhibition both relate to histone/epigenetic regulation but SIRT1 is a distinct deacetylase (Class III HDAC) whose decreased expression is a different process from direct HDAC inhibition."
+    },
+    {
+      "group_key": "p53_activation_genotoxicity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1974",
+        "2006"
+      ],
+      "rationale": "Activation of Tumor Protein 53 and secondary genotoxicity are related DNA damage response events \u2014 p53 activation is a cellular response to genotoxic stress while secondary genotoxicity is the upstream causative process \u2014 but they are distinct biological events."
+    },
+    {
+      "group_key": "premature_differentiation_neural_progenitor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1979",
+        "2200"
+      ],
+      "rationale": "Premature cell differentiation and decline in neural progenitor cells describe related but distinct neurodevelopmental events \u2014 premature exit from the progenitor pool vs. net reduction in progenitor cell number."
+    },
+    {
+      "group_key": "estrogen_increase_steroidal",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1973",
+        "2294"
+      ],
+      "rationale": "Increased estrogens broadly and increased plasma estradiol both describe elevated estrogen levels but one is general (multiple estrogens) while the other specifies estradiol in plasma \u2014 same direction, different specificity."
+    },
+    {
+      "group_key": "sphingolipid_s1p_ceramide",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2033",
+        "2023"
+      ],
+      "rationale": "Increased sphingosine-1-phosphate and inhibition of ceramide synthase both involve the sphingolipid pathway but describe distinct molecules (S1P vs. ceramide) and processes."
+    },
+    {
+      "group_key": "neurotransmission_development_altered",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2005",
+        "386"
+      ],
+      "rationale": "Altered neurotransmission in development and decreased neuronal network function both describe impaired neural signaling but one specifies a developmental context while the other describes adult brain network function."
+    }
+  ]
+}

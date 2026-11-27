@@ -1,0 +1,40 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "446",
+      "group_key": "testosterone_decrease_context",
+      "rationale": "Reduced fetal/adult testosterone is the same decreased-testosterone endpoint, specified by life stage, alongside the existing synthesis and circulating-level events."
+    },
+    {
+      "event_id": "2086",
+      "group_key": "inflammation_context",
+      "rationale": "Airway inflammation is increased inflammation specific to the airway, matching the existing general and tissue-specific inflammation events."
+    },
+    {
+      "event_id": "2111",
+      "group_key": "laminin_binding",
+      "rationale": "Decreased neural progenitor cell adhesion to laminin concerns laminin binding, but it is a distinct process from the existing laminin events."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "mbp_expression_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2198",
+        "2105"
+      ],
+      "rationale": "Both describe decreased myelin basic protein expression, one general and the other specific to oligodendrocytes."
+    },
+    {
+      "group_key": "tissue_remodeling_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2084",
+        "2069",
+        "2098"
+      ],
+      "rationale": "Increased or abnormal remodeling in different tissues (cardiac, vascular, neural)."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1511",
+      "group_key": "oxidative_lipid_protein",
+      "rationale": "Lipid Peroxidation is the same lipid oxidation process as 'Increase, Lipid peroxidation', but without an increase direction or a membrane qualifier, so it is flagged for curator review."
+    },
+    {
+      "event_id": "1389",
+      "group_key": "locomotion_opposite",
+      "rationale": "Decreased locomotor activity is the same endpoint as 'Decreased, locomotion' and the opposite direction to 'Increased, locomotion'."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "seizure_epilepsy_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1348",
+        "1363"
+      ],
+      "rationale": "Increased seizure and increased epilepsy are closely related hyperexcitability outcomes that differ in specificity."
+    }
+  ]
+}

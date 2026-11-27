@@ -1,0 +1,57 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "451",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Inhibition of mitochondrial fatty acid beta-oxidation describes the same decreased beta-oxidation process, with a mitochondrial qualifier."
+    },
+    {
+      "event_id": "414",
+      "group_key": "lh_increase_secretion",
+      "rationale": "Increase in luteinizing hormone is the same event as increased LH."
+    },
+    {
+      "event_id": "291",
+      "group_key": "fatty_acid_triglyceride_increase",
+      "rationale": "Triglyceride accumulation is closely related to increased triglyceride and triglyceride formation."
+    },
+    {
+      "event_id": "344",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Increased liver fibrosis is the same organ-level process as liver fibrosis, in a different organ context from pulmonary fibrosis."
+    },
+    {
+      "event_id": "89",
+      "group_key": "fatty_acid_triglyceride_increase",
+      "rationale": "placeholder"
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "de_novo_fa_synthesis",
+      "type": "merge",
+      "member_ids": [
+        "89",
+        "458"
+      ],
+      "rationale": "Both describe increased de novo fatty acid synthesis."
+    },
+    {
+      "group_key": "liver_fibrosis_collagen",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "344",
+        "68"
+      ],
+      "rationale": "Organ-level liver fibrosis versus the cellular collagen accumulation process that contributes to it."
+    },
+    {
+      "group_key": "hepatotoxicity_extra",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "139"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

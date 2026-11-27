@@ -1,0 +1,138 @@
+[
+  {
+    "group_key": "tgf_beta_pathway_activation",
+    "type": "merge",
+    "member_ids": [
+      "1283",
+      "1469"
+    ],
+    "rationale": "Both describe activation of the TGF-beta pathway/signaling."
+  },
+  {
+    "group_key": "tgf_beta_signaling_increase_vs_activation",
+    "type": "merge",
+    "member_ids": [
+      "1271",
+      "1283",
+      "1469"
+    ],
+    "rationale": "Increased TGF-beta signaling and activation of the TGF-beta pathway are the same event worded differently."
+  },
+  {
+    "group_key": "collagen_deposition_production",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1275",
+      "1558"
+    ],
+    "rationale": "Collagen deposition (increase) versus reduced collagen production in craniofacial context differ in direction and context; flagged for curator review."
+  },
+  {
+    "group_key": "t3_tissue_levels",
+    "type": "soda",
+    "member_ids": [
+      "1116",
+      "1154"
+    ],
+    "rationale": "Both measure T3 in tissues but in opposite directions."
+  },
+  {
+    "group_key": "mito_complex_binding_vs_inhibition_iii",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1542",
+      "1653"
+    ],
+    "rationale": "Both target mitochondrial complex III but binding does not confirm inhibition."
+  },
+  {
+    "group_key": "mito_complex_binding_vs_inhibition_iv",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1543",
+      "1654"
+    ],
+    "rationale": "Both target mitochondrial complex IV but binding does not confirm inhibition."
+  },
+  {
+    "group_key": "mito_complex_binding_vs_inhibition_v",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1544",
+      "1655"
+    ],
+    "rationale": "Both target mitochondrial complex V but binding does not confirm inhibition."
+  },
+  {
+    "group_key": "oxphos_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1477",
+      "1545"
+    ],
+    "rationale": "Both describe decreased mitochondrial oxidative phosphorylation."
+  },
+  {
+    "group_key": "reproductive_success_direction",
+    "type": "soda",
+    "member_ids": [
+      "1163",
+      "1141"
+    ],
+    "rationale": "Increased versus decreased reproductive success, the same endpoint in opposite directions."
+  },
+  {
+    "group_key": "dna_strand_breaks",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1461",
+      "1635"
+    ],
+    "rationale": "Double-strand breaks versus general DNA strand breaks; related damage endpoints with differing specificity."
+  },
+  {
+    "group_key": "growth_reduction",
+    "type": "merge",
+    "member_ids": [
+      "1467",
+      "1521"
+    ],
+    "rationale": "Both describe reduced growth."
+  },
+  {
+    "group_key": "population_decline_vs_increase",
+    "type": "soda",
+    "member_ids": [
+      "1164",
+      "361"
+    ],
+    "rationale": "Population increase versus population decline, the same endpoint in opposite directions."
+  },
+  {
+    "group_key": "apoptosis_general_vs_epithelial",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1262",
+      "1513"
+    ],
+    "rationale": "Both describe apoptosis generally; possibly duplicate wording but flagged for curator review."
+  },
+  {
+    "group_key": "intracellular_calcium_increase",
+    "type": "merge",
+    "member_ids": [
+      "1339",
+      "2064"
+    ],
+    "rationale": "Both describe increased intracellular/cytosolic calcium."
+  },
+  {
+    "group_key": "histone_acetylation_vs_hdac_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1502",
+      "1503"
+    ],
+    "rationale": "HDAC inhibition and increased histone acetylation are related but distinct processes needing curator review."
+  }
+]

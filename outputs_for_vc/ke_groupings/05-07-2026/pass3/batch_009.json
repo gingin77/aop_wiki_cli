@@ -1,0 +1,288 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "679",
+      "group_key": "population_level_decline",
+      "rationale": "Decline in population trajectory describes the same negative population-level demographic outcome as decreased population size and trajectory already in this group."
+    },
+    {
+      "event_id": "1825",
+      "group_key": "apoptosis_general",
+      "rationale": "Increase in cell death is effectively synonymous with increased apoptosis/general cell death described by the other members of this merge group."
+    },
+    {
+      "event_id": "1669",
+      "group_key": "dna_strand_breaks_increase",
+      "rationale": "Increased DNA damage and mutation describes the same directional increase in DNA damage as the other members of this merge group."
+    },
+    {
+      "event_id": "1695",
+      "group_key": "ovulation_decrease",
+      "rationale": "Impaired ovulation describes the same decreased/impaired ovulation outcome as the other members of this merge group."
+    },
+    {
+      "event_id": "1681",
+      "group_key": "neural_crest_migration_collagen_production",
+      "rationale": "Disruption of neural crest cell migration describes the same process as reduced neural crest cell migration already in this similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "1770",
+      "group_key": "mitochondrial_dysfunction",
+      "rationale": "Decrease in mitochondrial membrane potential is a core indicator of mitochondrial dysfunction, closely synonymous with the mitochondrial disruption events in this merge group."
+    },
+    {
+      "event_id": "2147",
+      "group_key": "reduced_reproductive_success",
+      "rationale": "Decreased viable offspring describes a reduced reproductive success outcome closely related to the fecundity/reproductive success events already in this group."
+    },
+    {
+      "event_id": "1696",
+      "group_key": "fecundity_decrease",
+      "rationale": "Decrease in egg production and cumulative fecundity describes the same directional decrease in fecundity as the other members of this similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "2327",
+      "group_key": "growth_reduction",
+      "rationale": "Decrease in cell growth describes the same directional reduction in growth as the other members of this merge group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "alpha_diketone_protein_interaction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1584",
+        "1595"
+      ],
+      "rationale": "Both describe chemical modification of proteins \u2014 one by interaction of \u03b1-diketones with arginine residues and the other by oxidation/denaturation of membrane proteins \u2014 involving protein damage by reactive compounds but through distinct chemical processes on different protein substrates."
+    },
+    {
+      "group_key": "bronchiolitis_lung_cancer",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1588",
+        "1670"
+      ],
+      "rationale": "Both describe pulmonary pathological outcomes but bronchiolitis obliterans is an airway fibrotic/inflammatory disease while lung cancer is a neoplastic outcome \u2014 same organ but distinct disease processes."
+    },
+    {
+      "group_key": "muscarinic_ach_receptor_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1602",
+        "1603"
+      ],
+      "rationale": "Increased muscarinic acetylcholine receptors and chronic kidney disease are not the same object \u2014 withdrawing; these are not appropriately grouped."
+    },
+    {
+      "group_key": "progesterone_uptake_vs_synthesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1694",
+        "1692"
+      ],
+      "rationale": "Reduced progesterone uptake/decreased maturation and reduction in progesterone synthesis both describe decreased progesterone availability but one specifies uptake/maturation context and the other specifies synthesis."
+    },
+    {
+      "group_key": "lh_receptor_antagonism_vs_lh_reduction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1691",
+        "129"
+      ],
+      "rationale": "LH receptor antagonism and reduction in gonadotropins/LH both involve LH signaling but one describes receptor-level antagonism and the other describes circulating hormone reduction \u2014 distinct processes sharing the same hormonal axis."
+    },
+    {
+      "group_key": "tidal_volume_respiratory",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1677",
+        "2087"
+      ],
+      "rationale": "Reduced tidal volume and increased incidence of respiratory disease/dysfunction both describe adverse respiratory outcomes but one is a specific physiological measurement and the other is a broader disease outcome."
+    },
+    {
+      "group_key": "tbx1_inhibition_pharyngeal",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1680",
+        "1683"
+      ],
+      "rationale": "Inhibition of TBX1 and impairment of fourth pharyngeal arch development are causally related \u2014 TBX1 is a transcription factor critical for pharyngeal arch development \u2014 but enzyme/factor inhibition and organ-level developmental impairment are distinct processes."
+    },
+    {
+      "group_key": "dendritic_cell_maturation_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1822",
+        "272"
+      ],
+      "rationale": "Maturation of TNF/iNOS-producing dendritic cells and dendritic cell activation both describe dendritic cell functional activation but one specifies a TNF/iNOS-producing subset and the other is general dendritic cell activation."
+    },
+    {
+      "group_key": "il23_th17_psoriasis_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1707",
+        "1708",
+        "1709"
+      ],
+      "rationale": "Increased IL-23 from dendritic cells, Th17 cell migration and inflammation induction, and psoriatic skin disease are sequential steps in the same IL-23/Th17 inflammatory pathway leading to psoriasis but represent distinct biological processes at different levels."
+    },
+    {
+      "group_key": "sle_autoimmune_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1713",
+        "1714"
+      ],
+      "rationale": "Increased anti-DNA antibody from autoreactive B cells and exacerbation of systemic lupus erythematosus are causally related events \u2014 antibody production is upstream of SLE exacerbation \u2014 but are distinct biological processes."
+    },
+    {
+      "group_key": "er_alpha_immune_cells_vs_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1710",
+        "111"
+      ],
+      "rationale": "Binding to estrogen receptor alpha in immune cells and agonism of the estrogen receptor both describe ER activation but one specifies immune cell context while the other is general."
+    },
+    {
+      "group_key": "jak3_inhibition_t_cell_antibody",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1715",
+        "1719"
+      ],
+      "rationale": "Inhibition of JAK3 and impairment of T-cell dependent antibody response are causally linked \u2014 JAK3 inhibition impairs lymphocyte signaling leading to diminished antibody responses \u2014 but represent distinct molecular vs. immunological processes."
+    },
+    {
+      "group_key": "trypsin_cck_pancreatic_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1720",
+        "1721",
+        "1722",
+        "1723"
+      ],
+      "rationale": "Trypsin inhibition, increased intestinal monitor peptide, increased blood CCK, and increased exocrine pancreatic secretion are sequential events in the same trypsin inhibitor/CCK feedback pathway but represent distinct biological processes at different levels."
+    },
+    {
+      "group_key": "sars_cov2_interferon_antiviral",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1901",
+        "1847"
+      ],
+      "rationale": "Interferon-I antiviral response antagonized by SARS-CoV-2 and increased SARS-CoV-2 production are causally related \u2014 suppression of antiviral response facilitates viral production \u2014 but represent distinct biological processes."
+    },
+    {
+      "group_key": "photoreceptor_visual_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1640",
+        "1643"
+      ],
+      "rationale": "Altered photoreceptor patterning and altered visual function describe the same sensory system at different levels \u2014 cellular/structural (photoreceptor) vs. functional/organismal (visual function)."
+    },
+    {
+      "group_key": "osmoregulation_body_fluid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1768",
+        "1769"
+      ],
+      "rationale": "Abnormal osmoregulation and body fluid overload are causally related \u2014 impaired osmoregulation leads to fluid overload \u2014 but represent distinct processes: a physiological regulatory failure vs. its fluid balance consequence."
+    },
+    {
+      "group_key": "gsh_oxidation_depletion",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "926",
+        "130"
+      ],
+      "rationale": "Oxidation of glutathione and depletion of glutathione both involve the same molecule (GSH) but oxidation is a chemical modification process while depletion describes overall loss of available GSH \u2014 distinct processes on the same object."
+    },
+    {
+      "group_key": "anterior_posterior_axis_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1667",
+        "1557"
+      ],
+      "rationale": "Impaired anterior-posterior axis development and reduced neural crest cell migration both describe developmental defects but one is a body-axis patterning process and the other is a cell migration event \u2014 related developmental context but distinct processes."
+    },
+    {
+      "group_key": "protein_oxidation_membrane_damage",
+      "type": "merge",
+      "member_ids": [
+        "1767",
+        "1595"
+      ],
+      "rationale": "Increased protein oxidation and oxidation/denaturation of membrane proteins both describe oxidative damage to proteins, with the latter specifying membrane-associated proteins \u2014 these are effectively the same oxidative protein damage event at different levels of specificity."
+    },
+    {
+      "group_key": "microcirculation_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1666",
+        "298"
+      ],
+      "rationale": "Induced dysfunction of microcirculation and vascular insufficiency both describe vascular functional impairment but one specifies the microcirculation compartment while the other is broader vascular insufficiency."
+    },
+    {
+      "group_key": "frustrated_phagocytosis_inflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1668",
+        "1599"
+      ],
+      "rationale": "Frustrated phagocytosis and inflammatory events in light-exposed tissues both describe inflammatory/immune processes but in distinct biological contexts \u2014 frustrated phagocytosis is a cellular immune mechanism while the other specifies light-exposed tissue inflammation."
+    },
+    {
+      "group_key": "cbs_inhibition_homocysteine",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1657",
+        "1661"
+      ],
+      "rationale": "Inhibition of cystathionine beta-synthase (CBS) and increased homocysteine/plasma HCY levels are causally linked \u2014 CBS inhibition prevents homocysteine catabolism leading to its accumulation \u2014 but represent enzyme inhibition vs. metabolite accumulation, which are distinct processes."
+    },
+    {
+      "group_key": "movement_coordination_impairment",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1705",
+        "191"
+      ],
+      "rationale": "Impaired coordination and movement and neuronal dysfunction both describe neurological functional impairment but one specifies a motor/behavioral outcome while the other describes cellular neuronal dysfunction."
+    },
+    {
+      "group_key": "gata3_th2_induction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1711",
+        "1712"
+      ],
+      "rationale": "Induction of GATA3 expression and increase of Th2 cells producing IL-4 are causally sequential \u2014 GATA3 is the master transcription factor driving Th2 differentiation \u2014 but gene expression induction and cellular differentiation/cytokine production are distinct biological processes."
+    },
+    {
+      "group_key": "atp_synthase_antagonism_membrane_potential",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1785",
+        "1770"
+      ],
+      "rationale": "Mitochondrial ATP synthase antagonism and decrease in mitochondrial membrane potential both describe mitochondrial functional impairment but antagonism of a specific complex and loss of membrane potential are distinct processes on overlapping but not identical biological objects."
+    },
+    {
+      "group_key": "n_glycosylation_protein_folding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1604",
+        "1605"
+      ],
+      "rationale": "Inhibition of N-linked glycosylation and accumulation of misfolded proteins are causally linked \u2014 impaired glycosylation leads to protein misfolding \u2014 but represent distinct molecular processes."
+    }
+  ]
+}

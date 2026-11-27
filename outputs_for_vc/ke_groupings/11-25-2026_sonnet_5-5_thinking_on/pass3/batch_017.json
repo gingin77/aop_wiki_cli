@@ -1,0 +1,20 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2065",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Inhibition of fatty acid oxidation describes decreased fatty acid oxidation, a close synonym of decreased fatty acid beta-oxidation."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "tanning_sclerotization_cuticle",
+      "type": "merge",
+      "member_ids": [
+        "2053",
+        "2054"
+      ],
+      "rationale": "Defects in tanning of new cuticle and impaired cuticle sclerotization both describe increased defects in cuticle hardening and tanning."
+    }
+  ]
+}

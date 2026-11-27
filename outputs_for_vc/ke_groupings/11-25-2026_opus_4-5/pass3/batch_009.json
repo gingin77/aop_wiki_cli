@@ -1,0 +1,370 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1632",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "Increase in reactive oxygen and nitrogen species (RONS) describes the same biological phenomenon as increased reactive oxygen species and oxidative stress, fitting the existing merge group."
+    },
+    {
+      "event_id": "1634",
+      "group_key": "dna_strand_breaks",
+      "rationale": "Increased oxidative DNA damage describes increased DNA damage, which is equivalent to 'Increase, DNA damage' already in the merge group."
+    },
+    {
+      "event_id": "1669",
+      "group_key": "dna_strand_breaks",
+      "rationale": "Increased DNA damage and mutation describes the same biological outcome as 'Increase, DNA damage' already in the merge group."
+    },
+    {
+      "event_id": "679",
+      "group_key": "population_decline",
+      "rationale": "ID 679 'Decline, Population trajectory' is equivalent in meaning to 'Decreased, Population trajectory' already in the population_decline merge group."
+    },
+    {
+      "event_id": "1699",
+      "group_key": "gnrh_release_decrease",
+      "rationale": "Decreased expression of gonadotropin releasing hormone receptor is functionally related to decreased GnRH pulsatility/release but is a distinct molecular process (receptor expression vs. hormone release) \u2014 however this is better placed in a new group; withdrawing."
+    },
+    {
+      "event_id": "1695",
+      "group_key": "ovulation_decrease",
+      "rationale": "Impaired ovulation describes the same biological event as decreased/delayed ovulation already represented in the ovulation_decrease group."
+    },
+    {
+      "event_id": "1785",
+      "group_key": "mitochondrial_complex_v_binding_vs_inhibition",
+      "rationale": "Mitochondrial ATP synthase antagonism (Complex V) describes functional antagonism of the same target as 'Mitochondrial Complex V inhibition' in the existing same_object_different_process group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "rons_oxidative_dna_damage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1632",
+        "1634"
+      ],
+      "rationale": "Increased RONS and increased oxidative DNA damage share the same oxidative stress context but RONS production and resulting DNA damage are distinct molecular events on different biological objects."
+    },
+    {
+      "group_key": "lung_surfactant_alveolar_collapse",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1672",
+        "1673"
+      ],
+      "rationale": "Inhibition of lung surfactant function and alveolar collapse are causally linked \u2014 surfactant inhibition leads to alveolar collapse \u2014 but they represent distinct biological processes at the molecular versus anatomical level."
+    },
+    {
+      "group_key": "lung_surfactant_tidal_volume",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1672",
+        "1677"
+      ],
+      "rationale": "Inhibition of lung surfactant function and reduced tidal volume are causally related respiratory events but represent distinct processes at the molecular versus functional/physiological level."
+    },
+    {
+      "group_key": "alveolar_collapse_tidal_volume",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1673",
+        "1677"
+      ],
+      "rationale": "Alveolar collapse and reduced tidal volume both describe impaired lung ventilation but at different levels \u2014 anatomical (alveolar) versus whole-lung functional measurement."
+    },
+    {
+      "group_key": "neural_crest_heart_field_pharyngeal",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1681",
+        "1682",
+        "1683"
+      ],
+      "rationale": "Disruption of neural crest cell migration, disruption of progenitor cells of the second heart field, and impairment of fourth pharyngeal arch development all describe disruption of cardiac/craniofacial developmental processes in the same embryonic context but involving distinct cell populations and structures."
+    },
+    {
+      "group_key": "tbx1_downstream_cardiac",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1680",
+        "1682",
+        "1683"
+      ],
+      "rationale": "TBX1 inhibition, disruption of second heart field progenitors, and fourth pharyngeal arch development impairment are sequential events in the same developmental pathway \u2014 TBX1 inhibition is upstream of the developmental disruptions, making these distinct processes."
+    },
+    {
+      "group_key": "gnrh_receptor_methylation_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1698",
+        "1699"
+      ],
+      "rationale": "Increased hypermethylation of the GnRH receptor promoter region and decreased GnRH receptor expression involve the same gene target but represent distinct processes \u2014 epigenetic modification versus downstream transcriptional output."
+    },
+    {
+      "group_key": "progesterone_uptake_ovulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1694",
+        "1695"
+      ],
+      "rationale": "Reduced progesterone uptake/decreased maturation and impaired ovulation are causally linked reproductive events but represent distinct processes at the cellular (oocyte maturation) versus physiological (ovulation) level."
+    },
+    {
+      "group_key": "ovulation_fecundity_egg_production",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1695",
+        "1696"
+      ],
+      "rationale": "Impaired ovulation and decreased egg production/cumulative fecundity both describe female reproductive impairment in the same context but at different levels \u2014 the ovulation event versus the population-level reproductive output."
+    },
+    {
+      "group_key": "lh_receptor_antagonism_vs_gnrh_receptor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1691",
+        "1698",
+        "1699"
+      ],
+      "rationale": "Antagonism of LH receptor, hypermethylation of GnRH receptor promoter, and decreased GnRH receptor expression all describe disruption of gonadotropin receptor signaling but via distinct mechanisms and at different receptor targets."
+    },
+    {
+      "group_key": "lh_receptor_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1691"
+      ],
+      "rationale": "LH receptor antagonism is a distinct event not captured in existing groups \u2014 flagging for potential pairing with LH-related events."
+    },
+    {
+      "group_key": "dendritic_cell_maturation_il23",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1822",
+        "1707"
+      ],
+      "rationale": "Maturation of TNF/iNOS-producing dendritic cells and increased IL-23 from matured dendritic cells are sequential events on the same cell type \u2014 DC maturation is upstream of IL-23 production, making these distinct processes."
+    },
+    {
+      "group_key": "th17_psoriasis_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1707",
+        "1708",
+        "1709"
+      ],
+      "rationale": "Increased IL-23 from dendritic cells, Th17 cell migration and inflammation induction, and psoriatic skin disease are sequential events in the IL-23/Th17 pathway leading to psoriasis \u2014 distinct processes at different biological levels."
+    },
+    {
+      "group_key": "th2_gata3_il4_sle",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1711",
+        "1712",
+        "1713",
+        "1714"
+      ],
+      "rationale": "Induction of GATA3 expression, increased Th2 cells producing IL-4, increased anti-DNA antibody from autoreactive B cells, and exacerbation of SLE are sequential events in the same immunological pathway \u2014 distinct processes at different cellular and disease levels."
+    },
+    {
+      "group_key": "er_alpha_immune_th2_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1710",
+        "1711"
+      ],
+      "rationale": "Binding to estrogen receptor (ER)-\u03b1 in immune cells and induction of GATA3 expression are causally linked but represent distinct events \u2014 receptor binding versus downstream transcription factor induction."
+    },
+    {
+      "group_key": "il4_suppression_vs_increase",
+      "type": "soda",
+      "member_ids": [
+        "1718",
+        "1712"
+      ],
+      "rationale": "Suppression of IL-4 production and increase of Th2 cells producing IL-4 describe opposite directional changes to IL-4 levels/production."
+    },
+    {
+      "group_key": "pancreatic_secretion_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1720",
+        "1721",
+        "1722",
+        "1723",
+        "1724",
+        "1725"
+      ],
+      "rationale": "Trypsin inhibition, increased intestinal monitor peptide, increased blood CCK, increased exocrine secretion from pancreatic acinar cells, acinar cell proliferation, and pancreatic acinar cell tumors are sequential events in the trypsin inhibitor-CCK-acinar cell pathway \u2014 distinct processes at different biological levels."
+    },
+    {
+      "group_key": "cck_intestinal_monitor_peptide",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1721",
+        "1722"
+      ],
+      "rationale": "Increased intestinal monitor peptide and increased blood CCK level are causally linked (monitor peptide stimulates CCK release) but represent distinct signaling events at the intestinal versus systemic level."
+    },
+    {
+      "group_key": "pancreatic_acinar_secretion_proliferation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1723",
+        "1724"
+      ],
+      "rationale": "Increased exocrine secretion from pancreatic acinar cells and acinar cell proliferation both involve pancreatic acinar cells but describe distinct processes \u2014 secretory function versus cell proliferation."
+    },
+    {
+      "group_key": "pancreatic_acinar_proliferation_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1724",
+        "1725"
+      ],
+      "rationale": "Acinar cell proliferation and pancreatic acinar cell tumors describe related but distinct stages of the same pathological progression in the same cell type \u2014 hyperplastic proliferation versus neoplastic transformation."
+    },
+    {
+      "group_key": "sars_cov2_entry_production",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1738",
+        "1847"
+      ],
+      "rationale": "SARS-CoV-2 cell entry and increased SARS-CoV-2 production are sequential but distinct processes in the viral life cycle \u2014 entry is upstream of replication and production."
+    },
+    {
+      "group_key": "sars_cov2_interferon_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1901",
+        "1847"
+      ],
+      "rationale": "SARS-CoV-2 antagonizing the interferon-I antiviral response and increased SARS-CoV-2 production are causally related but distinct events \u2014 immune evasion versus viral replication output."
+    },
+    {
+      "group_key": "visual_photoreceptor_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1640",
+        "1643"
+      ],
+      "rationale": "Altered photoreceptor patterning and altered visual function describe related visual system events at different levels \u2014 cellular/developmental (photoreceptor patterning) versus functional (visual function)."
+    },
+    {
+      "group_key": "anogenital_distance_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1688"
+      ],
+      "rationale": "Decreased anogenital distance is a specific phenotypic endpoint related to androgen insufficiency; no direct existing group captures this endpoint."
+    },
+    {
+      "group_key": "impaired_coordination_movement",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1705"
+      ],
+      "rationale": "Impaired coordination and movement is a neurobehavioral outcome not captured in existing groups."
+    },
+    {
+      "group_key": "thyroid_receptor_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1656"
+      ],
+      "rationale": "Antagonism of the thyroid receptor is a distinct event not captured in existing groups \u2014 flagging as a standalone for potential pairing."
+    },
+    {
+      "group_key": "microcirculation_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1666"
+      ],
+      "rationale": "Induced dysfunction of microcirculation is a vascular event not directly captured in existing groups."
+    },
+    {
+      "group_key": "cbs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1657"
+      ],
+      "rationale": "Inhibition of cystathionine beta-synthase is a distinct enzymatic inhibition event not captured in existing groups."
+    },
+    {
+      "group_key": "anterior_posterior_axis_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1667"
+      ],
+      "rationale": "Impaired anterior-posterior axis development is a developmental event not captured in existing groups."
+    },
+    {
+      "group_key": "frustrated_phagocytosis_lung_cancer",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1668",
+        "1670"
+      ],
+      "rationale": "Frustrated phagocytosis and lung cancer are causally related in the context of fiber/particle toxicology but represent distinct events at the cellular process versus disease outcome level in the same tissue context."
+    },
+    {
+      "group_key": "t_cell_antibody_response_suppression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1718",
+        "1719"
+      ],
+      "rationale": "Suppression of IL-4 production and impairment of T-cell dependent antibody response describe related immunosuppressive outcomes \u2014 IL-4 suppression contributes to impaired T-cell dependent antibody responses, but they are distinct events at the cytokine versus immune response level."
+    },
+    {
+      "group_key": "pigmentation_reduction",
+      "type": "merge",
+      "member_ids": [
+        "1631"
+      ],
+      "rationale": "Reduction of pigmentation pattern is closely related to melanin/melanosome reduction in the melanin_reduction group but specifies a patterning outcome rather than a level measurement \u2014 insufficient members for a new group alone."
+    },
+    {
+      "group_key": "gnrh_receptor_expression_hypermethylation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1698",
+        "1699"
+      ],
+      "rationale": "Increased hypermethylation of the GnRH receptor promoter and decreased GnRH receptor expression share the same gene target but represent distinct epigenetic and transcriptional processes."
+    },
+    {
+      "group_key": "lh_receptor_gnrh_receptor_antagonism",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1691",
+        "1699"
+      ],
+      "rationale": "Antagonism of LH receptor and decreased expression of GnRH receptor both describe suppression of gonadotropin receptor signaling but at different receptor targets in overlapping reproductive endocrine contexts."
+    },
+    {
+      "group_key": "cardiac_conotruncal_neural_crest",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1681",
+        "1682",
+        "1683",
+        "1680"
+      ],
+      "rationale": "TBX1 inhibition, neural crest cell migration disruption, second heart field progenitor disruption, and fourth pharyngeal arch impairment all describe events in the same cardiac/pharyngeal developmental pathway at different levels of specificity."
+    },
+    {
+      "group_key": "sars_cov2_viral_lifecycle",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1738",
+        "1901",
+        "1847"
+      ],
+      "rationale": "SARS-CoV-2 cell entry, antagonism of interferon-I antiviral response, and increased SARS-CoV-2 production are sequential distinct processes in the SARS-CoV-2 infection lifecycle."
+    }
+  ]
+}

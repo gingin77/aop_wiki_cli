@@ -1,0 +1,635 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "456",
+      "group_key": "car_activation",
+      "rationale": "Suppression of constitutive androstane receptor (NR1I3/CAR) is the opposite direction of CAR activation, and both specify the same receptor in the hepatocyte context, warranting curator review as a directional opposite."
+    },
+    {
+      "event_id": "494",
+      "group_key": "ppar_alpha_activation",
+      "rationale": "Glucocorticoid Receptor Agonist Activation is a different receptor entirely from PPAR\u03b1 \u2014 withdrawing; this does not fit ppar_alpha_activation."
+    },
+    {
+      "event_id": "478",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "NRF2 activation is an upstream response to oxidative stress but is a distinct biological process (transcription factor activation) rather than a synonym for oxidative stress increase \u2014 this assignment is not justified."
+    },
+    {
+      "event_id": "1028",
+      "group_key": "decreased_ppar_subtypes",
+      "rationale": "Activation of PPAR-gamma (ID 1028) is the opposite direction from the decreased PPAR activation events in the group \u2014 this assignment is not justified."
+    },
+    {
+      "event_id": "671",
+      "group_key": "pgf2alpha_synthesis_ovary",
+      "rationale": "Reduced plasma PGF2alpha concentration describes the same directional reduction in PGF2alpha as the existing group members which describe reduced PGF2alpha synthesis in the ovary, and both are consistent with decreased ovarian PGF2alpha output."
+    },
+    {
+      "event_id": "690",
+      "group_key": "gonadotropin_reduction_lh_increase",
+      "rationale": "Reduced plasma LH is a decrease in gonadotropin/LH, matching the 'reduction in gonadotropins' side of the existing soda group (ID 129)."
+    },
+    {
+      "event_id": "696",
+      "group_key": "meiotic_chromosome_aneuploid_offspring",
+      "rationale": "Increased chromosome missegregation at the cellular level is closely related to altered chromosome number and aneuploid offspring, sharing the same object (chromosomes during meiosis) but describing a process vs. outcome distinction."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "car_suppression_vs_activation",
+      "type": "soda",
+      "member_ids": [
+        "456",
+        "715"
+      ],
+      "rationale": "ID 456 (Suppression, CAR/NR1I3) and ID 715 (Activation, Constitutive androstane receptor) describe strictly opposite functional outcomes at the same nuclear receptor."
+    },
+    {
+      "group_key": "hnf4alpha_foxa2_suppression",
+      "type": "merge",
+      "member_ids": [
+        "461",
+        "471"
+      ],
+      "rationale": "Suppression of HNF4alpha and Inhibition of FoxA2 are both transcription factor suppression events in hepatic lipid/glucose metabolism \u2014 however these are distinct transcription factors and cannot be merged; withdrawing."
+    },
+    {
+      "group_key": "cpt1a_hmgcs2_downregulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "472",
+        "474"
+      ],
+      "rationale": "Down-regulation of CPT1A (mitochondrial fatty acid transport) and down-regulation of HMGCS2 (ketogenesis enzyme) are both downstream suppression events in hepatic lipid metabolism but involve distinct molecular targets in different metabolic pathways."
+    },
+    {
+      "group_key": "ketogenesis_decrease_hmgcs2",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "474",
+        "477"
+      ],
+      "rationale": "Down-regulation of HMGCS2 (the rate-limiting ketogenesis enzyme) and decreased ketogenesis share the same metabolic pathway but represent enzyme-level suppression vs. pathway-level output \u2014 distinct processes on the same biological object."
+    },
+    {
+      "group_key": "cpt1a_fatty_acid_beta_oxidation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "472",
+        "1528"
+      ],
+      "rationale": "Down-regulation of CPT1A (the rate-limiting enzyme for mitochondrial fatty acid import) and decreased fatty acid beta-oxidation are causally linked but represent enzyme suppression vs. pathway-level decrease \u2014 distinct processes."
+    },
+    {
+      "group_key": "lxr_alpha_shp_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "480",
+        "483"
+      ],
+      "rationale": "Activation of SHP (Small Heterodimer Partner) and activation of LXR alpha are both nuclear receptor activations in hepatic lipid/bile metabolism but are distinct molecular targets with different biological roles."
+    },
+    {
+      "group_key": "nrf2_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "478",
+        "1917"
+      ],
+      "rationale": "Activation of NRF2 and altered NRF2-dependent antioxidant gene expression both involve NRF2 but describe receptor/transcription factor activation vs. downstream gene expression changes \u2014 distinct sequential processes on the same molecule."
+    },
+    {
+      "group_key": "nr1h4_fxr_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "479",
+        "480"
+      ],
+      "rationale": "Activation of NR1H4 (FXR/bile acid receptor) and activation of SHP are sequential steps in the same bile acid signaling pathway but are distinct molecular targets \u2014 FXR activates SHP, so these are different objects in a causal chain."
+    },
+    {
+      "group_key": "akt2_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "484",
+        "1299"
+      ],
+      "rationale": "Activation of AKT2 and activation of AKT (PI3K/AKT pathway) both describe AKT activation but one specifies the AKT2 isoform \u2014 same object at different specificity levels warranting curator review."
+    },
+    {
+      "group_key": "fetal_leydig_testosterone_glucocorticoid",
+      "type": "merge",
+      "member_ids": [
+        "653",
+        "654"
+      ],
+      "rationale": "Both describe decreased testosterone by fetal Leydig cells in the context of glucocorticoid-related mechanisms (corticosterone increase vs. glucocorticoid receptor agonist activation), representing the same directional testosterone decrease with different mechanistic qualifiers."
+    },
+    {
+      "group_key": "fetal_leydig_testosterone_estrogen",
+      "type": "merge",
+      "member_ids": [
+        "658",
+        "659"
+      ],
+      "rationale": "Both describe decreased testosterone by fetal Leydig cells in the context of estrogen-related mechanisms (increased estradiol vs. other estradiol agonists), representing the same directional testosterone decrease with different mechanistic qualifiers."
+    },
+    {
+      "group_key": "fetal_leydig_testosterone_other_mechanisms",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "661",
+        "662"
+      ],
+      "rationale": "Both describe downstream consequences associated with decreased testosterone by fetal Leydig cells \u2014 proteome alterations and hypermethylation in fetal testis \u2014 which are distinct biological processes in the same developmental context."
+    },
+    {
+      "group_key": "fetal_leydig_testosterone_all_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "653",
+        "654",
+        "658",
+        "659",
+        "661",
+        "662"
+      ],
+      "rationale": "All describe events associated with decreased testosterone by fetal Leydig cells but with different mechanistic contexts (glucocorticoids, estrogens, proteome, methylation), representing the same core event in different biological contexts."
+    },
+    {
+      "group_key": "coup_tfii_decrease_fetal_leydig",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "656",
+        "655"
+      ],
+      "rationale": "Decreased COUP-TFII and the fetal_leydig_testosterone_coup_tfii group (ID 655/541) both involve COUP-TFII in fetal Leydig cell steroidogenesis \u2014 ID 656 describes decreased COUP-TFII expression which is the same event as in the existing group."
+    },
+    {
+      "group_key": "cholesterol_decrease_testosterone_leydig",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "645",
+        "642",
+        "643",
+        "644"
+      ],
+      "rationale": "IDs 642\u2013645 all describe decreased cholesterol availability through different mechanisms (biosynthesis, lipoprotein uptake, mitochondrial transport, testosterone production) \u2014 these are distinct processes in the same cholesterol supply pathway to Leydig cells."
+    },
+    {
+      "group_key": "steroidogenesis_decrease_leydig_alterations",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "648",
+        "649",
+        "640"
+      ],
+      "rationale": "All describe consequences of decreased steroidogenesis in adult Leydig cells \u2014 apoptosis, cytoskeletal alterations, and proteomic changes \u2014 which are distinct downstream biological processes in the same cell type."
+    },
+    {
+      "group_key": "steroidogenic_protein_expression_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "647",
+        "495"
+      ],
+      "rationale": "Decreased steroidogenic protein expression and repressed expression of steroidogenic enzymes both describe transcriptional/protein-level suppression of steroidogenesis machinery \u2014 nearly synonymous events that could be merged."
+    },
+    {
+      "group_key": "steroidogenic_enzyme_expression_merge",
+      "type": "merge",
+      "member_ids": [
+        "647",
+        "495"
+      ],
+      "rationale": "Decreased steroidogenic protein expression and repressed expression of steroidogenic enzymes describe the same directional reduction in steroidogenesis-related gene/protein expression using different wording."
+    },
+    {
+      "group_key": "adult_leydig_apoptosis_testosterone",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "525",
+        "648",
+        "496"
+      ],
+      "rationale": "Apoptosis of adult Leydig cells leading to decreased testosterone, increased apoptosis with decreased fetal/adult Leydig cells, and decreased steroidogenesis with increased apoptosis all describe Leydig cell apoptosis and testosterone decrease but represent different causal directions and process combinations."
+    },
+    {
+      "group_key": "glucocorticoid_steroidogenesis_testosterone",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "651",
+        "652"
+      ],
+      "rationale": "Both describe mechanisms by which glucocorticoid-related signals decrease testosterone production by adult Leydig cells \u2014 via glucocorticoid receptor-mediated enzyme alterations vs. direct corticosterone effects \u2014 representing the same outcome through distinct processes."
+    },
+    {
+      "group_key": "adrenal_glucocorticoid_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "650",
+        "653"
+      ],
+      "rationale": "Stimulation via adrenal corticosterone with increased glucocorticoid and decreased testosterone with increased corticosterone both describe corticosterone elevation in the context of Leydig cell function but represent upstream stimulation vs. downstream hormonal consequence."
+    },
+    {
+      "group_key": "ppar_gamma_activation_adipogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1028",
+        "1449"
+      ],
+      "rationale": "PPAR-gamma activation and increased adipogenesis are causally linked but represent receptor activation vs. downstream cellular differentiation process \u2014 distinct biological events."
+    },
+    {
+      "group_key": "cebp_alpha_adipogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1448",
+        "1449"
+      ],
+      "rationale": "Activation of C/EBP alpha and increased adipogenesis are causally related transcription factor activation vs. cellular differentiation outcome \u2014 distinct processes sharing the same pathway."
+    },
+    {
+      "group_key": "ppar_gamma_cebp_alpha_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1028",
+        "1448"
+      ],
+      "rationale": "PPAR-gamma activation and C/EBP alpha activation are both transcription factor activations driving adipogenesis but involve distinct molecular targets in the same pathway."
+    },
+    {
+      "group_key": "dopamine_decrease_reward",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1450",
+        "1451"
+      ],
+      "rationale": "Decreased dopamine and decreased reward are causally linked (neurotransmitter level vs. behavioral outcome) but represent distinct biological processes \u2014 dopamine is the object and reward is a downstream functional consequence."
+    },
+    {
+      "group_key": "dopamine_methylation_epigenetic",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1452",
+        "1453"
+      ],
+      "rationale": "Decreased DNA methylation of tyrosine hydroxylase and decreased methylation of dopamine transporter promoter both describe reduced promoter methylation in the dopamine system but at different genes/targets."
+    },
+    {
+      "group_key": "obesity_fat_mass",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1447",
+        "2125"
+      ],
+      "rationale": "Obesity and increased fat mass are closely related but obesity is a systemic/clinical outcome while increased fat mass is a measurable biological endpoint \u2014 related but not synonymous at the AOP level."
+    },
+    {
+      "group_key": "ne_synthesis_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "528",
+        "526"
+      ],
+      "rationale": "Inhibition of dopamine-beta-hydroxylase (the enzyme that synthesizes norepinephrine) and decreased synthesis of NE are causally linked but represent enzyme inhibition vs. downstream neurotransmitter synthesis decrease \u2014 distinct processes."
+    },
+    {
+      "group_key": "gnrh_cfos_ne_gnrh",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "529",
+        "530"
+      ],
+      "rationale": "Decreased GnRH c-fos activity and decreased GnRH pulsatility/release both relate to GnRH neuronal function but describe transcriptional activity vs. secretory output \u2014 distinct processes on the same biological system."
+    },
+    {
+      "group_key": "cortical_granule_polyspermy",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "533",
+        "535"
+      ],
+      "rationale": "Decreased cortical granule release/distribution and abnormal sperm penetration (polyspermy) are causally sequential \u2014 cortical granule release blocks polyspermy \u2014 but represent distinct biological processes."
+    },
+    {
+      "group_key": "cortical_envelope_polyspermy",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "534",
+        "535"
+      ],
+      "rationale": "Altered formation of cortical envelope and abnormal sperm penetration (polyspermy) are causally related developmental events at fertilization but describe distinct biological processes."
+    },
+    {
+      "group_key": "foraging_food_storage_bee",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "560",
+        "561"
+      ],
+      "rationale": "Abnormal foraging activity and reduced food storage are causally related colony-level outcomes in bees but describe distinct behaviors \u2014 foraging is the activity and food storage is its product."
+    },
+    {
+      "group_key": "brood_care_larval_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "565",
+        "566"
+      ],
+      "rationale": "Reduced brood care and impaired larval development are causally linked colony health outcomes but describe distinct biological processes \u2014 care behavior vs. developmental outcome."
+    },
+    {
+      "group_key": "bee_colony_worker_energetics",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "572",
+        "573"
+      ],
+      "rationale": "Decreased number of worker bees and increased energetic demands/metabolic stress both describe colony-level stress outcomes but through distinct biological processes \u2014 demography vs. metabolic burden."
+    },
+    {
+      "group_key": "bee_aging_accelerated_worker_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "571",
+        "572"
+      ],
+      "rationale": "Accelerated aging and decreased number of worker bees are related colony decline processes but aging is an individual-level process while worker bee count is a colony-level demographic outcome."
+    },
+    {
+      "group_key": "bee_viral_susceptibility_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "576",
+        "577"
+      ],
+      "rationale": "Increased viral susceptibility and impaired development both describe bee colony health impairment but through distinct biological mechanisms \u2014 immune vulnerability vs. developmental failure."
+    },
+    {
+      "group_key": "appetite_hunger_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "574",
+        "1454"
+      ],
+      "rationale": "Increased appetite/hunger and chronic high fat diet are related to obesity development but describe distinct biological events \u2014 a physiological state vs. an environmental exposure."
+    },
+    {
+      "group_key": "atrioventricular_block_bradycardia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "444",
+        "2291"
+      ],
+      "rationale": "Increased atrioventricular block and bradycardia and slowed heart rate both describe decreased cardiac rate/conduction but AV block specifies the conduction mechanism while slowed heart rate is the general outcome."
+    },
+    {
+      "group_key": "erg_potassium_channel_herg",
+      "type": "merge",
+      "member_ids": [
+        "593",
+        "2099"
+      ],
+      "rationale": "Inhibition of ERG (ether-a-go-go related) voltage-gated potassium channel and hERG channel blockade describe the same channel inhibition \u2014 ERG and hERG refer to the same channel."
+    },
+    {
+      "group_key": "depolarization_neurotransmitter_overactivation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "599",
+        "600"
+      ],
+      "rationale": "Prolonged depolarization of neuronal membrane and overactivation of neurotransmitter release are causally sequential but represent distinct electrophysiological and chemical signaling events."
+    },
+    {
+      "group_key": "muscle_contraction_overactivation_ataxia",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "601",
+        "602"
+      ],
+      "rationale": "Overactivation of muscle contraction and increased ataxia/paralysis/hyperactivity are causally related but represent distinct biological levels \u2014 cellular muscular event vs. organismal behavioral outcome."
+    },
+    {
+      "group_key": "mussel_foot_valve_movement",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "625",
+        "1142"
+      ],
+      "rationale": "Increased muscular waves in foot and increased valve movement both describe bivalve behavioral responses but in different anatomical structures \u2014 foot musculature vs. valve operation."
+    },
+    {
+      "group_key": "mussel_foot_water_retention",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "625",
+        "1139"
+      ],
+      "rationale": "Increased muscular waves in foot and increased water retention in foot are related bivalve foot function events but describe muscle activity vs. fluid retention \u2014 distinct processes in the same structure."
+    },
+    {
+      "group_key": "foot_detachment_mussel_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "624",
+        "625"
+      ],
+      "rationale": "Increased foot detachment and increased muscular waves in foot are related bivalve locomotory behaviors but describe detachment outcome vs. muscular wave activity \u2014 distinct processes in the same structure."
+    },
+    {
+      "group_key": "anxiety_sheltering_decrease",
+      "type": "merge",
+      "member_ids": [
+        "627",
+        "629"
+      ],
+      "rationale": "Decreased anxiety and decreased sheltering behavior describe the same directional reduction in avoidance/defensive behavior, with sheltering being a direct behavioral manifestation of reduced anxiety."
+    },
+    {
+      "group_key": "histamine_receptor_h2_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "638",
+        "633"
+      ],
+      "rationale": "Antagonism of histamine receptor H2 and decreased histaminergic neuron excitation are causally related \u2014 receptor antagonism leads to reduced neuronal excitation \u2014 but represent receptor-level vs. neuronal-level distinct processes."
+    },
+    {
+      "group_key": "sedation_histaminergic",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "634",
+        "633"
+      ],
+      "rationale": "Sedation and decreased histaminergic neuron excitation are causally related but describe a clinical/behavioral outcome vs. a neurochemical process \u2014 distinct biological levels."
+    },
+    {
+      "group_key": "spawning_pheromone_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "673",
+        "674",
+        "678"
+      ],
+      "rationale": "Reduced spawning behavior, reduced ability to attract spawning mates, and reduced pheromone release all describe impaired reproductive communication/behavior in fish but through distinct processes \u2014 spawning act, mate attraction, and chemical signaling."
+    },
+    {
+      "group_key": "pge2_gnrh_hypothalamus",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "687",
+        "530"
+      ],
+      "rationale": "Reduced prostaglandin E2 in the hypothalamus and decreased GnRH pulsatility/release are causally related (PGE2 stimulates GnRH) but represent distinct molecules and biological processes."
+    },
+    {
+      "group_key": "maturation_inducing_steroid_plasma_receptor",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "691",
+        "692"
+      ],
+      "rationale": "Reduced maturation inducing steroid in plasma and reduced maturation inducing steroid receptor signalling in oocyte are causally linked but represent ligand availability vs. receptor signaling \u2014 distinct processes on the same pathway."
+    },
+    {
+      "group_key": "meiotic_transition_spindle_checkpoint",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "694",
+        "695"
+      ],
+      "rationale": "Reduced meiotic prophase I/metaphase I transition and upregulated spindle assembly checkpoint protein Mad2 are related meiotic events \u2014 checkpoint activation impairs transition \u2014 but represent distinct biological processes."
+    },
+    {
+      "group_key": "camp_maturation_steroid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "693",
+        "692"
+      ],
+      "rationale": "Increased cyclic AMP and reduced maturation inducing steroid receptor signalling are in the same oocyte maturation pathway but represent distinct second messenger vs. receptor signaling events."
+    },
+    {
+      "group_key": "alpha2u_microglobulin_chemical_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "708",
+        "714"
+      ],
+      "rationale": "Increased accumulation of alpha2u microglobulin in proximal tubular epithelium and increased binding of chemicals to alpha2u in serum both involve alpha2u microglobulin but describe distinct processes \u2014 protein accumulation in tissue vs. chemical binding in serum."
+    },
+    {
+      "group_key": "ion_channel_impairment_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "697",
+        "584"
+      ],
+      "rationale": "Impaired ion channels (general) and inhibition of sodium channel both describe ion channel dysfunction but one is general across channel types while the other specifies sodium channels \u2014 same process at different specificity levels."
+    },
+    {
+      "group_key": "neuroanatomy_neurophysiology_altered",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "186",
+        "192"
+      ],
+      "rationale": "Altered neuroanatomy and altered neurophysiology both describe adverse neurological changes but at different levels of biological organization \u2014 structural vs. functional."
+    },
+    {
+      "group_key": "ca_calmodulin_signal_transduction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1243",
+        "52"
+      ],
+      "rationale": "Altered Ca2+-calmodulin activated signal transduction and decreased calcium influx both involve calcium signaling but describe downstream signal transduction vs. upstream ion movement \u2014 distinct biological processes."
+    },
+    {
+      "group_key": "prostaglandin_f2alpha_plasma_ovary",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "671",
+        "672"
+      ],
+      "rationale": "Reduced plasma PGF2alpha concentration and reduced PGF2alpha synthesis in the ovary describe the same directional decrease but at different biological compartments \u2014 systemic plasma vs. ovarian synthesis."
+    },
+    {
+      "group_key": "lh_plasma_reduce_fish",
+      "type": "merge",
+      "member_ids": [
+        "690",
+        "531"
+      ],
+      "rationale": "Reduced plasma LH and decreased LH surge both describe decreased circulating LH levels in the same direction, representing the same biological endpoint using different wording."
+    },
+    {
+      "group_key": "hive_thermoregulation_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "568",
+        "566"
+      ],
+      "rationale": "Impaired hive thermoregulation and impaired larval development are related colony health consequences but describe distinct biological processes \u2014 thermal regulation vs. developmental outcome."
+    },
+    {
+      "group_key": "swimming_speed_feeding_reduced",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "586",
+        "587"
+      ],
+      "rationale": "Reduced swimming speed and reduced feeding are related aquatic organism behavioral impairments but describe distinct biological processes \u2014 locomotion vs. foraging behavior."
+    },
+    {
+      "group_key": "antiseptic_food_storage",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "580",
+        "561"
+      ],
+      "rationale": "Reduced antiseptic incorporated in food and reduced food storage are related colony-level outcomes but describe distinct biological processes \u2014 antimicrobial defense vs. food reserves."
+    },
+    {
+      "group_key": "hypoxia_energy_depletion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "590",
+        "1143"
+      ],
+      "rationale": "Hypoxia and depletion of energy reserves both describe conditions of insufficient energy/oxygen supply but through distinct biological processes \u2014 oxygen availability vs. metabolic energy stores."
+    },
+    {
+      "group_key": "dhb4_hsd17b4_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "482",
+        "8"
+      ],
+      "rationale": "Decreased DHB4/HSD17B4 and decreased HSD17B10 activity both involve hydroxyacyl-CoA dehydrogenase family members but are distinct proteins (HSD17B4 vs. HSD17B10) \u2014 different biological objects."
+    },
+    {
+      "group_key": "systemic_inflammation_hepatic_steatosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "486",
+        "345"
+      ],
+      "rationale": "Systemic inflammation leading to hepatic steatosis and liver steatosis describe causally related events but represent an inflammatory process vs. a lipid accumulation outcome \u2014 distinct biological events."
+    },
+    {
+      "group_key": "energy_reserves_depletion_metabolic_stress",
+      "type": "merge",
+      "member_ids": [
+        "1143",
+        "573"
+      ],
+      "rationale": "Depletion of energy reserves and increased energetic demands and metabolic stress describe the same directional impairment of colony energy balance \u2014 reduced reserves and increased demand are two sides of the same energy deficit."
+    }
+  ]
+}

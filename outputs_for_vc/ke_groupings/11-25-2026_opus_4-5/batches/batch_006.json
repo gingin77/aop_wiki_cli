@@ -1,0 +1,384 @@
+[
+  {
+    "group_key": "respiratory_disease_dysfunction",
+    "type": "merge",
+    "member_ids": [
+      "2087",
+      "2088"
+    ],
+    "rationale": "Both describe impaired/dysfunctional respiratory system outcomes at the organ/disease level using different wording."
+  },
+  {
+    "group_key": "bone_remodeling_vs_bone_loss",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2090",
+      "2091"
+    ],
+    "rationale": "Both describe bone-level changes (remodeling vs. loss) that are closely related but represent distinct processes at the same organ level."
+  },
+  {
+    "group_key": "oligodendrocyte_maturation_differentiation",
+    "type": "merge",
+    "member_ids": [
+      "2106",
+      "2116"
+    ],
+    "rationale": "Impaired oligodendrocyte maturation and decreased oligodendrocyte differentiation describe the same biological process of oligodendrocyte development failure."
+  },
+  {
+    "group_key": "gsh_depletion_vs_conjugation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "130",
+      "2131"
+    ],
+    "rationale": "Both involve glutathione (GSH) but depletion and conjugation are distinct processes \u2014 conjugation is one mechanism that can lead to depletion."
+  },
+  {
+    "group_key": "adipocyte_fat_mass_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2125",
+      "2127",
+      "2128",
+      "2130"
+    ],
+    "rationale": "Increased fat mass, adipocyte size, adipocyte numbers, and lipid accumulation all describe increased adiposity but at different levels of biological specificity (organ vs. cellular vs. molecular)."
+  },
+  {
+    "group_key": "fat_mass_increase_merge",
+    "type": "merge",
+    "member_ids": [
+      "2125",
+      "2333"
+    ],
+    "rationale": "Both describe an increase in fat mass using essentially the same wording."
+  },
+  {
+    "group_key": "influenza_virus_entry_binding",
+    "type": "merge",
+    "member_ids": [
+      "2158",
+      "2159"
+    ],
+    "rationale": "IAV binding to sialic acid glycan receptor and IAV cell entry describe the same initial step of viral infection."
+  },
+  {
+    "group_key": "influenza_virus_shedding_budding",
+    "type": "merge",
+    "member_ids": [
+      "2193",
+      "2194"
+    ],
+    "rationale": "IAV budding and IAV shedding/transmission describe consecutive steps of the same viral egress process and are functionally synonymous at this level."
+  },
+  {
+    "group_key": "vascular_endothelial_dysfunction",
+    "type": "merge",
+    "member_ids": [
+      "1928",
+      "2178"
+    ],
+    "rationale": "Vascular endothelial dysfunction and vascular barrier disruption both describe breakdown of endothelial integrity and function."
+  },
+  {
+    "group_key": "cardiac_fibrosis_remodeling",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1924",
+      "2084"
+    ],
+    "rationale": "Cardiac fibrosis and cardiac remodelling are related but distinct processes \u2014 fibrosis is a specific pathological component of the broader remodelling process."
+  },
+  {
+    "group_key": "afterdepolarizations_increase",
+    "type": "merge",
+    "member_ids": [
+      "2283",
+      "2285"
+    ],
+    "rationale": "Both describe increased afterdepolarizations (early premature depolarizations during repolarization and delayed/early afterdepolarizations) in cardiac electrophysiology."
+  },
+  {
+    "group_key": "aromatase_induction_vs_plasma_inhibition",
+    "type": "soda",
+    "member_ids": [
+      "2293",
+      "2277"
+    ],
+    "rationale": "Aromatase induction and inhibition of aromatase activity describe opposite directional changes to the same enzyme."
+  },
+  {
+    "group_key": "plasma_estradiol_increase",
+    "type": "merge",
+    "member_ids": [
+      "2251",
+      "2294"
+    ],
+    "rationale": "Both describe increased estradiol availability/levels in plasma using different wording."
+  },
+  {
+    "group_key": "ppar_binding_vs_signaling_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2226",
+      "2227",
+      "2224"
+    ],
+    "rationale": "Stressor binding to PPAR isoforms, disrupted PPAR nuclear signaling, and dysregulation of PPAR signaling network all involve PPAR but represent distinct processes from binding to downstream transcriptional effects."
+  },
+  {
+    "group_key": "sodium_plasma_decrease",
+    "type": "merge",
+    "member_ids": [
+      "2236",
+      "2237"
+    ],
+    "rationale": "Decreased sodium uptake in gills leads directly to decreased plasma sodium concentrations and both describe decreased sodium in the fish osmoregulatory system, though at different compartments."
+  },
+  {
+    "group_key": "lysolecithin_increase_integration",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2263",
+      "2264"
+    ],
+    "rationale": "Increased lysolecithin and increased lysolecithin cell membrane integration share the same biological object but describe production vs. membrane integration processes."
+  },
+  {
+    "group_key": "demyelination_hypomyelination",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2107",
+      "2266"
+    ],
+    "rationale": "Hypomyelination and increased demyelination both describe reduced myelin but represent distinct processes \u2014 developmental failure to form myelin vs. acquired loss of myelin."
+  },
+  {
+    "group_key": "cholesterol_synthesis_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2115",
+      "2270"
+    ],
+    "rationale": "Altered cholesterol metabolism and increased cholesterol synthesis enzymes both relate to cholesterol homeostasis but describe different levels of specificity."
+  },
+  {
+    "group_key": "androgen_receptor_activation_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2134",
+      "2274"
+    ],
+    "rationale": "Increased androgen receptor protein expression and increased androgen receptor activation involve the same receptor but describe distinct processes \u2014 expression level vs. functional activation."
+  },
+  {
+    "group_key": "cardiac_electrical_conduction_altered",
+    "type": "merge",
+    "member_ids": [
+      "2280",
+      "2292"
+    ],
+    "rationale": "Increased delay in heart electrical conduction and altered cardiac electrical conduction describe the same electrophysiological abnormality."
+  },
+  {
+    "group_key": "fam50b_ptchd3_methylation_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2309",
+      "2310"
+    ],
+    "rationale": "Decreased DNA methylation and elevated gene expression of FAM50B/PTCHD3 share the same gene target but represent epigenetic and transcriptional processes respectively."
+  },
+  {
+    "group_key": "lipid_droplet_fat_mass",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2332",
+      "2333"
+    ],
+    "rationale": "Increased lipid droplets and increased fat mass describe lipid accumulation at different biological scales \u2014 cellular vs. whole-organism."
+  },
+  {
+    "group_key": "energy_metabolism_disruption",
+    "type": "merge",
+    "member_ids": [
+      "2341",
+      "2353"
+    ],
+    "rationale": "Disrupted TCA cycle and disrupted energy metabolism are closely related, with TCA disruption being a key component of energy metabolism disruption, but these represent different levels of specificity."
+  },
+  {
+    "group_key": "mitochondrial_ros_oxidative_stress",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2363",
+      "1238"
+    ],
+    "rationale": "Elevated mitochondrial ROS and dysfunction and activation of oxidative stress pathway both describe oxidative stress but one specifies the mitochondrial compartment while the other is a general pathway activation."
+  },
+  {
+    "group_key": "thyroid_hormone_transport_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2258",
+      "2376"
+    ],
+    "rationale": "Inhibition of MCT8 and inhibition of OATP1C1 both involve thyroid hormone transporter inhibition but target distinct transporter proteins."
+  },
+  {
+    "group_key": "laminin_binding_vs_adhesion",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2109",
+      "2110",
+      "2111"
+    ],
+    "rationale": "Binding of extracellular matrix protein laminin, disrupted laminin-beta1-integrin receptor binding, and decreased neural progenitor cell adhesion to laminin all involve laminin interactions but describe distinct molecular and cellular processes."
+  },
+  {
+    "group_key": "gluten_reactive_tcell_bcell_receptor_generation",
+    "type": "merge",
+    "member_ids": [
+      "2253",
+      "2254"
+    ],
+    "rationale": "Generation of gluten-reactive T cell receptors and generation of gluten-reactive and TG2-reactive B cell receptors describe parallel receptor generation processes in the same immune response context."
+  },
+  {
+    "group_key": "gluten_tcell_bcell_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2260",
+      "2256"
+    ],
+    "rationale": "Gluten-reactive CD4+ T cell activation and gluten-reactive B cell activation describe the same process (immune cell activation) in different cell type contexts."
+  },
+  {
+    "group_key": "cardiac_stress_function",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2239",
+      "2215"
+    ],
+    "rationale": "Increased cardiac stress and decreased left ventricular function both describe cardiac impairment but at different levels \u2014 a stressor input vs. a functional output."
+  },
+  {
+    "group_key": "myelination_white_matter",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2107",
+      "2108"
+    ],
+    "rationale": "Hypomyelination and altered white brain matter describe related outcomes at different scales \u2014 cellular myelin deficit vs. tissue-level white matter change."
+  },
+  {
+    "group_key": "axonal_insulation_myelination",
+    "type": "merge",
+    "member_ids": [
+      "2378",
+      "2107"
+    ],
+    "rationale": "Impaired axonal insulation and hypomyelination both describe the same outcome of insufficient myelin surrounding axons."
+  },
+  {
+    "group_key": "srebp2_cholesterol_synthesis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2269",
+      "2270"
+    ],
+    "rationale": "Increased SREBP2 expression and increased cholesterol synthesis enzymes share the same cholesterol biosynthesis pathway but represent upstream transcription factor vs. downstream enzyme expression."
+  },
+  {
+    "group_key": "apoptosis_bcl2_bax",
+    "type": "soda",
+    "member_ids": [
+      "2123",
+      "2124"
+    ],
+    "rationale": "Decreased Bcl-2 (anti-apoptotic) and increased Bax (pro-apoptotic) expression are directionally opposite changes to apoptosis regulators that together promote apoptosis."
+  },
+  {
+    "group_key": "lipid_accumulation_increase",
+    "type": "merge",
+    "member_ids": [
+      "2130",
+      "2332"
+    ],
+    "rationale": "Increased lipid accumulation and increased lipid droplets both describe the same cellular process of intracellular lipid storage."
+  },
+  {
+    "group_key": "pro_inflammatory_cytokines",
+    "type": "merge",
+    "member_ids": [
+      "2097",
+      "2132"
+    ],
+    "rationale": "Increase in pro-inflammatory mediators and increased pro-inflammatory cytokine expression describe the same upregulation of inflammatory signaling molecules."
+  },
+  {
+    "group_key": "mapk_erk_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2146",
+      "2345"
+    ],
+    "rationale": "Activation of MEK/ERK1/2 and activation of MAPK describe overlapping but potentially distinct activation events within the MAPK signaling cascade."
+  },
+  {
+    "group_key": "ryanodine_receptor_activation_phosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2186",
+      "2289"
+    ],
+    "rationale": "Ryanodine receptor activation and hyperphosphorylation of RyR2 both involve the ryanodine receptor but describe distinct processes \u2014 functional activation vs. post-translational modification."
+  },
+  {
+    "group_key": "pacemaker_hcn_sa_node",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2295",
+      "2296"
+    ],
+    "rationale": "HCN channel inhibition and reduced pacemaker activity in SA node describe related electrophysiological events where HCN inhibition is a molecular mechanism and SA node pacemaker reduction is the cellular outcome."
+  },
+  {
+    "group_key": "steroidogenesis_dysregulation_estrogen_ratio",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2367",
+      "2139"
+    ],
+    "rationale": "Steroidogenesis dysregulation and reduction in estradiol/11-KT ratio both describe disrupted steroid hormone production but at different levels of specificity."
+  },
+  {
+    "group_key": "white_matter_myelination_axonal",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2108",
+      "2378"
+    ],
+    "rationale": "Altered white brain matter and impaired axonal insulation describe myelin-related deficits at tissue vs. cellular levels."
+  },
+  {
+    "group_key": "endometriosis_progesterone_resistance",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2444",
+      "2455"
+    ],
+    "rationale": "Increased progesterone resistance and endometriosis are closely linked in the same disease pathway but represent a molecular mechanism vs. a disease outcome."
+  },
+  {
+    "group_key": "cardiac_structure_function_abnormal",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2157",
+      "2215"
+    ],
+    "rationale": "Abnormal cardiac structure and function and decreased left ventricular function both describe cardiac functional impairment but at different levels of specificity."
+  }
+]

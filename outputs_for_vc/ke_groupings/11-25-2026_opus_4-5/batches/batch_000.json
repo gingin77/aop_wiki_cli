@@ -1,0 +1,462 @@
+[
+  {
+    "group_key": "complex_i_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "887",
+      "888"
+    ],
+    "rationale": "Both target NADH-ubiquinone oxidoreductase (Complex I) but one describes binding of an inhibitor and the other describes functional inhibition \u2014 binding does not confirm inhibition without additional context."
+  },
+  {
+    "group_key": "ppar_alpha_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "998",
+      "858"
+    ],
+    "rationale": "Both involve PPARalpha but one describes binding of an antagonist and the other describes decreased transactivation of gene expression \u2014 binding does not confirm functional inhibition without additional context."
+  },
+  {
+    "group_key": "ppar_alpha_activation",
+    "type": "soda",
+    "member_ids": [
+      "227",
+      "231"
+    ],
+    "rationale": "Both describe PPARalpha activation but in opposite directions \u2014 one is activation and the other is decreased activation."
+  },
+  {
+    "group_key": "nmdar_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "201",
+      "195"
+    ],
+    "rationale": "Both target NMDA receptors but one describes antagonist binding and the other describes functional inhibition \u2014 these are distinct processes on the same object."
+  },
+  {
+    "group_key": "nmdar_inhibition_vs_overactivation",
+    "type": "soda",
+    "member_ids": [
+      "195",
+      "388"
+    ],
+    "rationale": "Both describe functional states of NMDARs but in strictly opposite directions \u2014 one is inhibition and the other is overactivation."
+  },
+  {
+    "group_key": "androgen_receptor_agonism_vs_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "25",
+      "26"
+    ],
+    "rationale": "Both describe actions at the androgen receptor in strictly opposite directions \u2014 agonism versus antagonism."
+  },
+  {
+    "group_key": "estrogen_receptor_agonism_vs_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "111",
+      "112"
+    ],
+    "rationale": "Both describe actions at the estrogen receptor in strictly opposite directions \u2014 agonism versus antagonism."
+  },
+  {
+    "group_key": "vitellogenin_plasma_increase",
+    "type": "merge",
+    "member_ids": [
+      "220",
+      "418"
+    ],
+    "rationale": "Both describe increased vitellogenin synthesis/plasma levels in the same direction using different wording."
+  },
+  {
+    "group_key": "vitellogenin_plasma_decrease",
+    "type": "soda",
+    "member_ids": [
+      "221",
+      "220"
+    ],
+    "rationale": "Both measure plasma vitellogenin concentrations but in strictly opposite directions \u2014 reduction versus increase."
+  },
+  {
+    "group_key": "vitellogenin_synthesis_liver",
+    "type": "soda",
+    "member_ids": [
+      "285",
+      "307"
+    ],
+    "rationale": "Both describe vitellogenin synthesis in the liver but in opposite directions \u2014 reduction versus increase."
+  },
+  {
+    "group_key": "renal_vitellogenin_deposition",
+    "type": "merge",
+    "member_ids": [
+      "252",
+      "419"
+    ],
+    "rationale": "Both describe renal/kidney vitellogenin deposition as a pathological outcome using equivalent wording."
+  },
+  {
+    "group_key": "aromatase_inhibition_general_vs_granulosa",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "36",
+      "408"
+    ],
+    "rationale": "Both describe aromatase (Cyp19a1) inhibition/reduction but one is general and the other specifies ovarian granulosa cells."
+  },
+  {
+    "group_key": "estradiol_synthesis_vs_circulating",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "3",
+      "219"
+    ],
+    "rationale": "Both describe reduction of 17beta-estradiol but one specifies synthesis in ovarian granulosa cells and the other measures circulating plasma concentrations."
+  },
+  {
+    "group_key": "pxr_activation",
+    "type": "merge",
+    "member_ids": [
+      "239",
+      "245"
+    ],
+    "rationale": "Both describe activation of the Pregnane X Receptor (PXR/SXR/NR1I2) using different abbreviations for the same receptor."
+  },
+  {
+    "group_key": "igabar_binding_vs_reduction",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "667",
+      "64"
+    ],
+    "rationale": "Both involve the ionotropic GABA receptor chloride channel but one describes binding at the picrotoxin site and the other describes reduced chloride channel conductance \u2014 distinct processes on the same object."
+  },
+  {
+    "group_key": "acetylcholine_accumulation",
+    "type": "merge",
+    "member_ids": [
+      "10",
+      "39"
+    ],
+    "rationale": "Acetylcholine accumulation in synapses and increased cholinergic signaling are effectively synonymous outcomes of the same process at the synapse."
+  },
+  {
+    "group_key": "mortality_increase",
+    "type": "merge",
+    "member_ids": [
+      "350",
+      "351"
+    ],
+    "rationale": "Both describe increased mortality using essentially equivalent wording."
+  },
+  {
+    "group_key": "thyroxine_serum_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "281",
+      "280"
+    ],
+    "rationale": "Both describe decreased thyroxine (T4) but one specifies serum/circulating levels and the other specifies neuronal tissue \u2014 different biological compartments."
+  },
+  {
+    "group_key": "thyroid_hormone_synthesis_decrease",
+    "type": "merge",
+    "member_ids": [
+      "277",
+      "279"
+    ],
+    "rationale": "Decreased thyroid hormone synthesis and thyroperoxidase inhibition are closely equivalent as TPO inhibition is the direct cause of decreased synthesis; however, these are different processes \u2014 keeping as same_object_different_process is more appropriate."
+  },
+  {
+    "group_key": "fatty_acid_beta_oxidation_decrease",
+    "type": "merge",
+    "member_ids": [
+      "179",
+      "1528"
+    ],
+    "rationale": "Both describe decreased fatty acid beta-oxidation using equivalent wording in the same direction."
+  },
+  {
+    "group_key": "oxidative_stress_increase",
+    "type": "merge",
+    "member_ids": [
+      "1392",
+      "1115"
+    ],
+    "rationale": "Increased reactive oxygen species and increased oxidative stress describe the same underlying biological phenomenon in the same direction."
+  },
+  {
+    "group_key": "oxidative_stress_protection_decrease",
+    "type": "soda",
+    "member_ids": [
+      "1538",
+      "1392"
+    ],
+    "rationale": "Decreased protection against oxidative stress and increased oxidative stress are directionally opposite endpoints of the same biological state."
+  },
+  {
+    "group_key": "thiol_protein_binding_vs_oxidative_stress_protection",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1487",
+      "1538"
+    ],
+    "rationale": "Both involve thiol/seleno-proteins protecting against oxidative stress but one describes binding and the other describes decreased protection \u2014 distinct processes on the same object."
+  },
+  {
+    "group_key": "proinflammatory_mediators_increase",
+    "type": "merge",
+    "member_ids": [
+      "1493",
+      "1496"
+    ],
+    "rationale": "Both describe increased/secretion of pro-inflammatory mediators in the same direction using equivalent wording."
+  },
+  {
+    "group_key": "inflammation_cytokine",
+    "type": "merge",
+    "member_ids": [
+      "87",
+      "149"
+    ],
+    "rationale": "Cytokine release and increase in inflammation describe closely related synonymous outcomes of the same process in the same direction."
+  },
+  {
+    "group_key": "cell_proliferation_hyperplasia",
+    "type": "merge",
+    "member_ids": [
+      "142",
+      "854"
+    ],
+    "rationale": "Both describe cellular hyperplasia/proliferation as the same biological outcome using equivalent terminology."
+  },
+  {
+    "group_key": "hepatocyte_proliferation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "716",
+      "57"
+    ],
+    "rationale": "Both describe cell proliferation but one specifies hepatocytes while the other is general cell proliferation in the absence of cytotoxicity."
+  },
+  {
+    "group_key": "liver_fibrosis_vs_collagen",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "344",
+      "68"
+    ],
+    "rationale": "Both relate to fibrotic processes but liver fibrosis is an organ-level pathological outcome while collagen accumulation is a cellular/ECM process contributing to fibrosis."
+  },
+  {
+    "group_key": "dna_alkylation_vs_protein_alkylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "97",
+      "244"
+    ],
+    "rationale": "Both describe alkylation but of different biological objects \u2014 DNA versus protein \u2014 these should not be merged but are grouped for review as similar chemical processes on different targets."
+  },
+  {
+    "group_key": "protein_covalent_binding",
+    "type": "merge",
+    "member_ids": [
+      "244",
+      "396"
+    ],
+    "rationale": "Alkylation of protein and covalent binding of protein describe the same chemical process on the same biological object in the same direction."
+  },
+  {
+    "group_key": "mitochondrial_dysfunction",
+    "type": "merge",
+    "member_ids": [
+      "177",
+      "178"
+    ],
+    "rationale": "Increased mitochondrial dysfunction and disrupted mitochondrial electron transport chain describe equivalent mitochondrial impairment outcomes."
+  },
+  {
+    "group_key": "testosterone_synthesis_leydig",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "413",
+      "1690"
+    ],
+    "rationale": "Both describe reduced testosterone but one specifies synthesis in Leydig cells and the other measures circulating testosterone levels \u2014 different biological compartments."
+  },
+  {
+    "group_key": "cholesterol_transport_star_tspo",
+    "type": "merge",
+    "member_ids": [
+      "266",
+      "447"
+    ],
+    "rationale": "Decreased steroidogenic acute regulatory protein (STAR) and reduction in cholesterol transport in mitochondria describe equivalent steps in the same process \u2014 STAR mediates mitochondrial cholesterol transport."
+  },
+  {
+    "group_key": "tspo_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "289",
+      "447"
+    ],
+    "rationale": "Both describe reduced translocator protein (TSPO) or cholesterol transport in mitochondria \u2014 TSPO is involved in mitochondrial cholesterol transport, same object different specificity."
+  },
+  {
+    "group_key": "leydig_cell_proliferation_hyperplasia",
+    "type": "merge",
+    "member_ids": [
+      "415",
+      "416"
+    ],
+    "rationale": "Hyperplasia of Leydig cells and increased proliferation of Leydig cells describe the same biological event in the same direction using different wording."
+  },
+  {
+    "group_key": "neuronal_network_function_decrease",
+    "type": "merge",
+    "member_ids": [
+      "386",
+      "618"
+    ],
+    "rationale": "Both describe decreased neuronal network function using equivalent wording, one specifying adult brain context."
+  },
+  {
+    "group_key": "liver_steatosis",
+    "type": "merge",
+    "member_ids": [
+      "345",
+      "459"
+    ],
+    "rationale": "Both describe liver steatosis as the same pathological outcome in the same direction using different wording."
+  },
+  {
+    "group_key": "hepatocellular_carcinoma",
+    "type": "merge",
+    "member_ids": [
+      "334",
+      "378"
+    ],
+    "rationale": "Both describe hepatocellular carcinoma as a tumor formation outcome in the same direction using equivalent terminology."
+  },
+  {
+    "group_key": "hepatocellular_tumors",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "719",
+      "856"
+    ],
+    "rationale": "Both describe liver tumor formation but one specifies hepatocellular adenomas and carcinomas and the other includes both hepatocellular and bile duct tumors \u2014 same process with different specificity."
+  },
+  {
+    "group_key": "skin_sensitisation",
+    "type": "merge",
+    "member_ids": [
+      "827",
+      "313"
+    ],
+    "rationale": "Skin sensitisation and allergic respiratory hypersensitivity response are related but occur in different biological contexts \u2014 keeping these for review."
+  },
+  {
+    "group_key": "dna_adduct_formation",
+    "type": "merge",
+    "member_ids": [
+      "373",
+      "493"
+    ],
+    "rationale": "Formation of pro-mutagenic DNA adducts and insufficient repair/mis-repair of pro-mutagenic DNA adducts are sequential but distinct processes \u2014 removing incorrect merge."
+  },
+  {
+    "group_key": "ah\u0631_activation_dimerization",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "18",
+      "944"
+    ],
+    "rationale": "Both involve the AhR but one describes its activation and the other describes AHR/ARNT dimerization \u2014 these are sequential distinct processes on the same object."
+  },
+  {
+    "group_key": "vegfr2_inhibition_angiogenesis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "305",
+      "28"
+    ],
+    "rationale": "VegfR2 inhibition and reduced angiogenesis are causally related but represent different biological processes \u2014 receptor inhibition versus phenotypic outcome."
+  },
+  {
+    "group_key": "incomplete_ecdysis_mortality",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "990",
+      "993"
+    ],
+    "rationale": "Both describe outcomes related to ecdysis failure \u2014 incomplete ecdysis and decreased abdominal muscle contraction \u2014 in the same insect molting context but at different levels."
+  },
+  {
+    "group_key": "circulating_ketone_bodies",
+    "type": "merge",
+    "member_ids": [
+      "861",
+      "862"
+    ],
+    "rationale": "Decreased ketogenesis (production of ketone bodies) and not-increased circulating ketone bodies describe the same biological outcome \u2014 reduced ketone body levels \u2014 in the same direction."
+  },
+  {
+    "group_key": "hippocampal_alterations",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "756",
+      "757",
+      "758"
+    ],
+    "rationale": "All three describe alterations in hippocampal biology but at different levels \u2014 gene expression, anatomy, and physiology \u2014 same organ different biological process."
+  },
+  {
+    "group_key": "mutations_increase",
+    "type": "merge",
+    "member_ids": [
+      "185",
+      "376"
+    ],
+    "rationale": "Both describe increased/induced mutations in critical genes using equivalent wording in the same direction."
+  },
+  {
+    "group_key": "sustained_hepatotoxicity_proliferation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "270",
+      "269"
+    ],
+    "rationale": "Both describe sustained hepatic changes but one is hepatotoxicity and the other is cell proliferation \u2014 same organ different process."
+  },
+  {
+    "group_key": "clonal_expansion_ahf",
+    "type": "merge",
+    "member_ids": [
+      "491",
+      "1171"
+    ],
+    "rationale": "Both describe clonal expansion/proliferation to form altered hepatic foci (AHF) using equivalent terminology in the same direction."
+  },
+  {
+    "group_key": "nfkb_inhibition_ikb",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "202",
+      "145"
+    ],
+    "rationale": "Both relate to NF-kB signaling \u2014 one describes inhibition of NF-kB and the other describes induction of IKB (the inhibitory protein of NF-kB) \u2014 same pathway object but different processes."
+  },
+  {
+    "group_key": "immune_suppression",
+    "type": "merge",
+    "member_ids": [
+      "403",
+      "152"
+    ],
+    "rationale": "Suppression of immune system and suppression of inflammatory cytokines describe overlapping immune suppression outcomes in the same direction."
+  }
+]

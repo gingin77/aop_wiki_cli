@@ -1,0 +1,509 @@
+[
+  {
+    "group_key": "homocysteine_level_increase",
+    "type": "merge",
+    "member_ids": [
+      "1661",
+      "1665"
+    ],
+    "rationale": "Both describe increased homocysteine/plasma HCY levels using different wording."
+  },
+  {
+    "group_key": "progesterone_synthesis_reduction",
+    "type": "merge",
+    "member_ids": [
+      "1692",
+      "1693"
+    ],
+    "rationale": "Both describe reduction in progesterone synthesis/levels, representing the same biological outcome."
+  },
+  {
+    "group_key": "melanin_melanosome_reduction",
+    "type": "merge",
+    "member_ids": [
+      "1629",
+      "1630"
+    ],
+    "rationale": "Reduction in melanin level and reduction in melanosome level are closely linked and describe the same pigmentation loss process at near-synonym specificity."
+  },
+  {
+    "group_key": "ace2_dysregulation",
+    "type": "merge",
+    "member_ids": [
+      "1854",
+      "1740"
+    ],
+    "rationale": "Both describe dysregulation/impairment of ACE2 expression and activity using different wording."
+  },
+  {
+    "group_key": "ace2_downregulation_vs_dysregulation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1787",
+      "1854",
+      "1740"
+    ],
+    "rationale": "These events all concern ACE2 expression/activity changes but 1787 specifies downregulation (directional decrease) while 1854/1740 describe dysregulation, representing different processes on the same object."
+  },
+  {
+    "group_key": "ang_ii_increase",
+    "type": "merge",
+    "member_ids": [
+      "1752",
+      "1743"
+    ],
+    "rationale": "Both describe increased Angiotensin II / plasma Ang II levels."
+  },
+  {
+    "group_key": "at1r_binding_vs_increase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1851",
+      "1852"
+    ],
+    "rationale": "Both concern the AT1R receptor but one describes agonist binding and the other describes receptor upregulation, which are distinct processes on the same object."
+  },
+  {
+    "group_key": "ace2_binding_vs_sars_entry",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1739",
+      "1738"
+    ],
+    "rationale": "Both involve ACE2 as the target but binding to ACE2 and SARS-CoV-2 cell entry are distinct processes."
+  },
+  {
+    "group_key": "retinoic_acid_synthesis_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1641",
+      "1642"
+    ],
+    "rationale": "Decreased RA synthesis and decreased plasma RA level describe the same directional outcome of reduced retinoic acid availability."
+  },
+  {
+    "group_key": "retinaldehyde_dehydrogenase_inhibition_vs_ra_synthesis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1637",
+      "1641"
+    ],
+    "rationale": "Retinaldehyde dehydrogenase inhibition is upstream of decreased RA synthesis; they share the same pathway object but represent distinct processes."
+  },
+  {
+    "group_key": "dna_methyltransferase_expression_vs_inhibition",
+    "type": "soda",
+    "member_ids": [
+      "1697",
+      "1619"
+    ],
+    "rationale": "Both concern DNA methyltransferase but one describes increased expression and the other describes inhibition, which are directionally opposite effects on the same enzyme."
+  },
+  {
+    "group_key": "caspase_transcription_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1774",
+      "1779"
+    ],
+    "rationale": "Both describe increased caspase transcription but 1779 specifies the F3 generational context while 1774 is the general event."
+  },
+  {
+    "group_key": "ovarian_somatic_cell_apoptosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1776",
+      "1783"
+    ],
+    "rationale": "Both describe increased ovarian somatic cell apoptosis but 1783 specifies the F3 generational context."
+  },
+  {
+    "group_key": "ovarian_follicle_breakdown",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1777",
+      "1784"
+    ],
+    "rationale": "Both describe increased ovarian follicle breakdown but 1784 specifies the F3 generational context."
+  },
+  {
+    "group_key": "fecundity_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "328",
+      "1781"
+    ],
+    "rationale": "Both describe decreased fecundity but 1781 specifies the F3 generational context."
+  },
+  {
+    "group_key": "oogenesis_decrease_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1782",
+      "1780"
+    ],
+    "rationale": "Both describe F3 generational reproductive impairment (oogenesis and oocyte apoptosis) but these are distinct processes; however 1780 and 1782 both specify F3 context for oocyte-level events."
+  },
+  {
+    "group_key": "spermatogenesis_impairment",
+    "type": "merge",
+    "member_ids": [
+      "1758",
+      "1798"
+    ],
+    "rationale": "Both describe impaired/decreased spermatogenesis using different wording."
+  },
+  {
+    "group_key": "tlr_dysregulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1706",
+      "1848"
+    ],
+    "rationale": "Both involve Toll-Like Receptors but 1706 describes TLR7/8 stimulation (activation) while 1848 describes TLR dysregulation, which are distinct processes on the same receptor family."
+  },
+  {
+    "group_key": "tlr9_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1842",
+      "1900"
+    ],
+    "rationale": "Both concern TLR9 but 1842 describes prolonged TLR9 activation generally while 1900 specifies increased platelet surface TLR9 expression, a cell-specific context."
+  },
+  {
+    "group_key": "stat5_blockade_binding",
+    "type": "merge",
+    "member_ids": [
+      "1716",
+      "1717"
+    ],
+    "rationale": "Blockade of STAT5 phosphorylation and suppression of STAT5 binding to cytokine gene promoters both describe downstream consequences of STAT5 inhibition and together constitute the same functional impairment."
+  },
+  {
+    "group_key": "chitin_synthesis_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1522",
+      "1523"
+    ],
+    "rationale": "Inhibition of chitin synthase 1 and decrease in cuticular chitin content share the same biological object/outcome area but represent cause (enzyme inhibition) vs. effect (substrate decrease)."
+  },
+  {
+    "group_key": "chitinase_chitobiase_inhibition",
+    "type": "merge",
+    "member_ids": [
+      "1806",
+      "1807"
+    ],
+    "rationale": "Inhibition of chitinase and inhibition of chitobiase are both chitin-degrading enzyme inhibitions in the same molting pathway and are closely related enzymatic steps often grouped together."
+  },
+  {
+    "group_key": "sulfonylurea_receptor_calcium_channel",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1525",
+      "1526"
+    ],
+    "rationale": "Sulfonylurea receptor binding and opening of voltage-dependent calcium channel are linked but represent distinct molecular processes (receptor binding vs. channel gating)."
+  },
+  {
+    "group_key": "cyp17a1_inhibition_androgen_reduction",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1609",
+      "1610",
+      "1611"
+    ],
+    "rationale": "CYP17A1 inhibition leads to reduction in DHEA and androstenedione, but enzyme inhibition and substrate/product level changes are distinct processes on different objects."
+  },
+  {
+    "group_key": "dht_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1613",
+      "1688"
+    ],
+    "rationale": "Decreased DHT levels and decreased anogenital distance are not synonyms \u2014 withdrawing this grouping as AGD is a phenotypic outcome not equivalent to DHT levels."
+  },
+  {
+    "group_key": "cryptorchidism_testicular_descent",
+    "type": "merge",
+    "member_ids": [
+      "1615",
+      "1616"
+    ],
+    "rationale": "Impaired inguinoscrotal testicular descent and cryptorchidism/maldescended testis describe the same anatomical defect at different levels of description."
+  },
+  {
+    "group_key": "melanin_reduction_pigmentation",
+    "type": "merge",
+    "member_ids": [
+      "1631",
+      "1629"
+    ],
+    "rationale": "Reduction in pigmentation pattern and reduction in melanin level describe the same directional loss of pigmentation."
+  },
+  {
+    "group_key": "tyrosinase_inhibition_dopaquinone",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1627",
+      "1628"
+    ],
+    "rationale": "Tyrosinase inhibition and reduction of L-Dopaquinone share the same enzymatic pathway but represent enzyme inhibition vs. substrate/product reduction, which are distinct processes."
+  },
+  {
+    "group_key": "oxidative_dna_damage_rons",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1632",
+      "1634"
+    ],
+    "rationale": "Increase in RONS and increase in oxidative DNA damage are causally related but represent different biological objects/processes (reactive species vs. DNA damage)."
+  },
+  {
+    "group_key": "lipid_peroxidation_membrane",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1594",
+      "1445"
+    ],
+    "rationale": "Oxidation of membrane lipids and increase in lipid peroxidation describe closely related processes on the same biological substrate and could be merged, but one specifies membrane context."
+  },
+  {
+    "group_key": "mitochondrial_fatty_acid_oxidation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1834",
+      "860"
+    ],
+    "rationale": "Decrease in acyl-CoA dehydrogenases and decreased mitochondrial fatty acid beta-oxidation share the same biological context but represent enzyme-level vs. pathway-level changes."
+  },
+  {
+    "group_key": "wnt_signaling_beta_catenin",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1754",
+      "1755"
+    ],
+    "rationale": "Porcupine-induced Wnt secretion/signaling activation and beta-catenin activation are sequential steps in the same pathway but represent distinct molecular processes."
+  },
+  {
+    "group_key": "cardiac_outflow_tract_conotruncal",
+    "type": "merge",
+    "member_ids": [
+      "1684",
+      "1685"
+    ],
+    "rationale": "Abnormalities in cardiac outflow tract formation and congenital cardiac conotruncal anomalies describe the same structural heart defect using different terminology."
+  },
+  {
+    "group_key": "second_heart_field_pharyngeal_arch",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1682",
+      "1683"
+    ],
+    "rationale": "Disruption of progenitor cells of the second heart field and impairment of fourth pharyngeal arch development are related developmental processes but involve distinct biological structures."
+  },
+  {
+    "group_key": "ecdysone_receptor_cascade_increase_decrease",
+    "type": "soda",
+    "member_ids": [
+      "2373",
+      "2375"
+    ],
+    "rationale": "Both describe mis-timed ecdysone receptor-responsive nuclear receptor cascade but in opposite directions (increase vs. decrease)."
+  },
+  {
+    "group_key": "focal_seizure_status_epilepticus",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1623",
+      "1788"
+    ],
+    "rationale": "Both describe seizure-related neurological events but focal seizure and status epilepticus represent different severity/type of the same epileptic phenomenon."
+  },
+  {
+    "group_key": "dysgeusia_gustatory",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1849",
+      "1850"
+    ],
+    "rationale": "Impaired gustatory nerve and dysgeusia (taste disturbance) are causally related but represent distinct biological events (nerve impairment vs. clinical symptom)."
+  },
+  {
+    "group_key": "thyroid_receptor_antagonism_t4_displacement",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1656",
+      "1830",
+      "1831"
+    ],
+    "rationale": "Thyroid receptor antagonism, displacement of T4 from carrier protein, and binding to thyroid binding globulin all involve thyroid hormone system components but are distinct molecular processes on different objects."
+  },
+  {
+    "group_key": "t4_carrier_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1830",
+      "1831"
+    ],
+    "rationale": "Displacement of serum T4 from carrier protein and binding to thyroid binding globulin in serum describe related but mechanistically distinct interactions with the same carrier protein."
+  },
+  {
+    "group_key": "apoptosis_cell_death",
+    "type": "merge",
+    "member_ids": [
+      "1365",
+      "1817"
+    ],
+    "rationale": "Increase in apoptosis and apoptotic cell death describe the same biological event of programmed cell death."
+  },
+  {
+    "group_key": "inflammation_general",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1633",
+      "902"
+    ],
+    "rationale": "Both describe inflammation but 902 specifies liver inflammation while 1633 is a general increase in inflammation."
+  },
+  {
+    "group_key": "inflammatory_immune_responses",
+    "type": "merge",
+    "member_ids": [
+      "1750",
+      "1868"
+    ],
+    "rationale": "Increased inflammatory immune responses and hyperinflammation describe the same directional increase in inflammatory response using different terminology."
+  },
+  {
+    "group_key": "nfkb_activation_inflammatory",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1172",
+      "1793"
+    ],
+    "rationale": "NF-kB activation and Activator protein 1 (AP-1) activation are related transcription factor activations in inflammatory signaling but are distinct molecular entities."
+  },
+  {
+    "group_key": "cortisol_11beta_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1835",
+      "1836"
+    ],
+    "rationale": "Both describe decreased cortisol levels \u2014 1835 includes 11\u03b2-(OH) testosterone as well but both capture the same directional cortisol reduction outcome."
+  },
+  {
+    "group_key": "11beta_hsd_hydroxylase_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1799",
+      "1796"
+    ],
+    "rationale": "Inhibition of 11\u03b2-HSD and inhibition of 11\u03b2-hydroxylase are related steroidogenic enzyme inhibitions but are distinct enzymes (dehydrogenase vs. hydroxylase) and thus different biological objects."
+  },
+  {
+    "group_key": "lung_surfactant_alveolar_collapse",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1672",
+      "1673"
+    ],
+    "rationale": "Inhibition of lung surfactant function and alveolar collapse are causally related but represent distinct biological events (molecular inhibition vs. structural collapse)."
+  },
+  {
+    "group_key": "il4_suppression_th2",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1718",
+      "1712"
+    ],
+    "rationale": "Suppression of IL-4 production and increase of Th2 cells producing IL-4 describe opposite effects on IL-4 in different contexts but are not strict directional opposites of the same endpoint."
+  },
+  {
+    "group_key": "extracellular_matrix_collagen_deposition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1501",
+      "1606"
+    ],
+    "rationale": "Increase in extracellular matrix deposition and activation of stellate cells are related in fibrosis pathways but represent distinct biological events (ECM accumulation vs. cell activation)."
+  },
+  {
+    "group_key": "pancreatic_acinar_proliferation_tumor",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1724",
+      "1725"
+    ],
+    "rationale": "Acinar cell proliferation and pancreatic acinar cell tumors are causally related events but represent distinct biological processes (proliferation vs. neoplastic transformation) in the same cell type."
+  },
+  {
+    "group_key": "misfolded_protein_er_stress",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1605",
+      "1815"
+    ],
+    "rationale": "Accumulation of misfolded proteins and endoplasmic reticulum stress are closely related but represent distinct cellular events (protein quality control vs. ER stress response)."
+  },
+  {
+    "group_key": "photosystem_ii_d1_protein",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1861",
+      "1862"
+    ],
+    "rationale": "D1 protein deactivation and decrease in Photosystem II efficiency are causally linked events in the same complex but represent distinct processes (protein inactivation vs. complex efficiency)."
+  },
+  {
+    "group_key": "sperm_count_spermatogenesis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1757",
+      "1758"
+    ],
+    "rationale": "Reduced sperm count and impaired spermatogenesis are related reproductive endpoints but represent an outcome measure vs. a process, not strict synonyms."
+  },
+  {
+    "group_key": "gonadotropin_releasing_hormone_receptor",
+    "type": "merge",
+    "member_ids": [
+      "1698",
+      "1699"
+    ],
+    "rationale": "Increased hypermethylation of the GnRH receptor promoter region and decreased expression of GnRH receptor describe sequential steps of the same epigenetic silencing event on the same gene."
+  },
+  {
+    "group_key": "intratesticular_testosterone_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2298",
+      "1756"
+    ],
+    "rationale": "Both describe decreased androgen levels but 2298 specifies intratesticular testosterone and 1756 specifies plasma 11-ketotestosterone, representing the same directional change in different compartments/androgens."
+  },
+  {
+    "group_key": "multi_organ_failure_ards",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1843",
+      "1748"
+    ],
+    "rationale": "Multi-organ failure involving ARDS and increased risk of acute respiratory failure are related but distinct clinical outcomes differing in scope and severity."
+  },
+  {
+    "group_key": "coagulation_thrombosis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1845",
+      "1846"
+    ],
+    "rationale": "Coagulation and thrombosis/DIC are related but distinct pathological processes; coagulation is a process while thrombosis/DIC is a downstream clinical outcome."
+  }
+]

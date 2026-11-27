@@ -1,0 +1,84 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "468",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "Inhibition of PPAR alpha concerns the same receptor as the group's binding, activation and transactivation events, but is a distinct process."
+    },
+    {
+      "event_id": "685",
+      "group_key": "pgf2a_plasma_vs_ovary",
+      "rationale": "Reduced prostaglandins in the ovary is a general/ovary-context form of reduced prostaglandin (F2alpha) levels, differing in specificity and compartment."
+    },
+    {
+      "event_id": "1028",
+      "group_key": "ppar_activation_decrease_isoforms",
+      "rationale": "PPAR-gamma activation concerns the same process as the isoform activation events, differing in direction/context, so it is flagged for curator review."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fetal_leydig_decreased_testosterone_upstream",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "653",
+        "654",
+        "658",
+        "659",
+        "661"
+      ],
+      "rationale": "These all share decreased testosterone by fetal Leydig cells as the downstream event, but are paired with different upstream events, so they are flagged for curator review."
+    },
+    {
+      "group_key": "adult_leydig_cell_events",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "645",
+        "648",
+        "649",
+        "640",
+        "525",
+        "651",
+        "652"
+      ],
+      "rationale": "These are relationship-style events in adult Leydig cell steroidogenesis and testosterone production, with different upstream mechanisms."
+    },
+    {
+      "group_key": "cholesterol_decrease_relationships",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "642",
+        "643",
+        "644"
+      ],
+      "rationale": "These all involve decreased cholesterol with different upstream processes (synthesis, uptake, transport)."
+    },
+    {
+      "group_key": "leydig_apoptosis_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "496",
+        "648"
+      ],
+      "rationale": "Both describe increased apoptosis of Leydig cells, one covering fetal/adult and the other adult only."
+    },
+    {
+      "group_key": "decreased_steroidogenic_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "495",
+        "647"
+      ],
+      "rationale": "Both describe reduced expression of steroidogenic enzymes/proteins with differing specificity."
+    },
+    {
+      "group_key": "dna_methylation_decreased_dopamine",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1452",
+        "1453"
+      ],
+      "rationale": "Both are decreased promoter or gene methylation in dopamine-related genes."
+    }
+  ]
+}

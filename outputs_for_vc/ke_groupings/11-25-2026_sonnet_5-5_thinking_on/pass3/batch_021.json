@@ -1,0 +1,45 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1541",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "Mitochondrial Complex I inhibition is the same event as 'Inhibition, NADH-ubiquinone oxidoreductase (complex I)', and the group already pairs it with the binding event."
+    },
+    {
+      "event_id": "2307",
+      "group_key": "photosystem_II_inhibition_vs_electron_transport",
+      "rationale": "Binding of plastoquinone B site in D1 protein of photosystem II concerns the same object as photosystem II inhibition, but binding is a distinct process."
+    },
+    {
+      "event_id": "2350",
+      "group_key": "glycolysis_direction",
+      "rationale": "Decreased glycolysis is the same endpoint as 'Decrease, Glycolysis' and opposite to 'Increase, Glycolysis'."
+    },
+    {
+      "event_id": "2347",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Increase in lipid degradation is closely related to fatty acid beta-oxidation, but it is not clearly the same endpoint, so it is better left out."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "oxidative_stress_redox_ros",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1238",
+        "2363"
+      ],
+      "rationale": "Activation of the oxidative stress pathway and elevated mitochondrial ROS describe oxidative stress at different levels of specificity and compartment."
+    },
+    {
+      "group_key": "glycolysis_oxphos_energy_metabolism",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2353",
+        "2350",
+        "2351"
+      ],
+      "rationale": "General disrupted energy metabolism and specific glycolysis or OXPHOS changes."
+    }
+  ]
+}

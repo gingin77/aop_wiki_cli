@@ -1,0 +1,28 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2454",
+      "group_key": "liver_steatosis",
+      "rationale": "Increase in small intestine steatosis describes the same steatosis process as liver steatosis but in a different organ context, warranting grouping under similar_event_different_biological_context; however, the existing group type is 'merge' so assigning to the closest appropriate group \u2014 small intestine steatosis should be flagged against liver_steatosis as a different biological context."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "steatosis_different_organs",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2454"
+      ],
+      "rationale": "Increase in small intestine steatosis describes the same steatosis process as liver steatosis (existing liver_steatosis group) but in a different organ; flagging as a single-member note pending curator pairing with liver steatosis events."
+    },
+    {
+      "group_key": "trophoblast_invasion_mmp",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2467",
+        "2103"
+      ],
+      "rationale": "Decreased MMP (matrix metalloproteinase activity) and decreased trophoblast invasion/migration are causally linked \u2014 MMPs facilitate trophoblast invasion \u2014 but represent distinct biological events (enzyme activity vs. cellular behavior) on related but different objects."
+    }
+  ]
+}

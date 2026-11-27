@@ -1,0 +1,376 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2336",
+      "group_key": "ppar_alpha_inhibition_vs_srebp1c_inhibition",
+      "rationale": "ID 2336 describes Increase SREBF1 (SREBP1c gene) which is the same transcription factor as SREBP1c in ID 878, but 2336 is an increase while 878 is inhibition \u2014 these are directionally opposite on the same object, but since the existing group is same_object_different_process (not soda), and 2336 is an increase vs inhibition, it belongs here for curator review as a different process (increase in expression vs. inhibition of function) on the same object."
+    },
+    {
+      "event_id": "1312",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "ID 1312 describes increased fatty acid beta-oxidation, which is the directionally opposite endpoint to the decreased fatty acid beta-oxidation described by IDs 1528 and 179 in this merge group \u2014 this would be a soda relationship, not a merge, so it should NOT be added to the merge group."
+    },
+    {
+      "event_id": "2350",
+      "group_key": "glycolysis_soda",
+      "rationale": "ID 2350 'Decreased, Glycolysis' describes the same endpoint (glycolysis) in the same direction (decrease) as ID 1476 already in the soda group, making it a merge partner with 1476 rather than a soda partner with 2070."
+    },
+    {
+      "event_id": "2347",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "ID 2347 'Increase, Lipid degradation' describes increased lipid catabolism/beta-oxidation which is directionally OPPOSITE to the decreased fatty acid beta-oxidation in this merge group \u2014 do NOT add."
+    },
+    {
+      "event_id": "2404",
+      "group_key": "fibrosis_liver_vs_pulmonary",
+      "rationale": "ID 2404 'Increase, kidney fibrosis' describes fibrosis in a specific organ (kidney), consistent with the similar_event_different_biological_context group that already contains liver fibrosis and pulmonary fibrosis."
+    },
+    {
+      "event_id": "2371",
+      "group_key": "cortisol_11beta_decrease",
+      "rationale": "ID 2371 'Increased cortisol' describes increased cortisol levels, which is directionally opposite to the decreased cortisol in the cortisol_11beta_decrease merge group \u2014 do NOT add to that group."
+    },
+    {
+      "event_id": "2391",
+      "group_key": "reduced_reproductive_success",
+      "rationale": "ID 2391 'Reduced fertility / fecundity' describes the same endpoint as reduced reproductive success (ID 675) and decreased fecundity (ID 527), fitting within this similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "2398",
+      "group_key": "b_lymphocyte_diminished_response",
+      "rationale": "ID 2398 'Reduced antibody production' is a downstream functional outcome of diminished B lymphocyte activities (survival, proliferation, differentiation) described in IDs 2394-2396, sharing the same B cell biological context but describing a distinct downstream process."
+    },
+    {
+      "event_id": "2393",
+      "group_key": "androgen_receptor_decrease",
+      "rationale": "ID 2393 describes reduced androgen receptor nuclear transcriptional activity in genital-tubercle tissues, which is a tissue-specific context for decreased AR activation similar to the hypothalamus-specific context in ID 743 \u2014 fitting the similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "134",
+      "group_key": "innate_immune_activation_general",
+      "rationale": "ID 134 'Increase, Kupffer cell activation' describes activation of liver-resident macrophages (Kupffer cells), which is a tissue-specific innate immune activation consistent with the similar_event_different_biological_context group containing microglia activation and innate immune response activation."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fatty_acid_beta_oxidation_increase",
+      "type": "soda",
+      "member_ids": [
+        "1312",
+        "1528"
+      ],
+      "rationale": "ID 1312 'Increase, Fatty acid beta-oxidation' and ID 1528 'Decrease, Fatty acid beta-oxidation' describe the same biological endpoint in strictly opposite directions."
+    },
+    {
+      "group_key": "glycolysis_decrease_merge",
+      "type": "merge",
+      "member_ids": [
+        "2350",
+        "1476"
+      ],
+      "rationale": "ID 2350 'Decreased, Glycolysis' and ID 1476 'Decrease, Glycolysis' both describe decreased glycolysis in the same direction using nearly identical wording."
+    },
+    {
+      "group_key": "lipid_degradation_vs_beta_oxidation",
+      "type": "merge",
+      "member_ids": [
+        "2347",
+        "1312"
+      ],
+      "rationale": "ID 2347 'Increase, Lipid degradation' and ID 1312 'Increase, Fatty acid beta-oxidation' both describe increased lipid catabolism in the same direction, with lipid degradation encompassing fatty acid beta-oxidation as the primary catabolic pathway."
+    },
+    {
+      "group_key": "oxphos_increase_vs_decrease",
+      "type": "soda",
+      "member_ids": [
+        "2351",
+        "1545"
+      ],
+      "rationale": "ID 2351 'Increased, OXPHOS' and ID 1545 (decreased mitochondrial oxidative phosphorylation) describe the same biological endpoint in strictly opposite directions."
+    },
+    {
+      "group_key": "dopamine_transporter_receptor_transcription",
+      "type": "merge",
+      "member_ids": [
+        "2380",
+        "2381"
+      ],
+      "rationale": "ID 2380 'Increase, transcription of the dopamine transporter (SLC6A3) gene' and ID 2381 'Increase, transcription of the dopamine receptor (drd) gene' both describe increased transcription of dopamine signaling components in the same direction, though different molecular targets; however these are distinct genes so curator review is warranted."
+    },
+    {
+      "group_key": "dopamine_signaling_transcription_vs_regulatory",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2379",
+        "2380",
+        "2381"
+      ],
+      "rationale": "IDs 2379, 2380, and 2381 all involve dopamine signaling components but describe distinct processes: disruption of regulatory function, increased DAT gene transcription, and increased DRD gene transcription \u2014 same biological system but different molecular processes."
+    },
+    {
+      "group_key": "cortisol_increase_vs_decrease",
+      "type": "soda",
+      "member_ids": [
+        "2371",
+        "1835"
+      ],
+      "rationale": "ID 2371 'Increased cortisol' and ID 1835 (decreased cortisol/11\u03b2-OH testosterone) describe cortisol levels in strictly opposite directions."
+    },
+    {
+      "group_key": "organ_fibrosis_multi_tissue",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2404",
+        "840",
+        "1458"
+      ],
+      "rationale": "ID 2404 'Increase, kidney fibrosis', ID 840 'Increase, Liver fibrosis', and ID 1458 'pulmonary fibrosis' all describe the same fibrotic process in different organ contexts."
+    },
+    {
+      "group_key": "vascular_integrity_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2384",
+        "2383"
+      ],
+      "rationale": "ID 2384 'Decrease, Vascular integrity' and ID 2383 'Increase, Hemopericardium' are related vascular pathology events \u2014 decreased vascular integrity can lead to hemopericardium, but they are distinct processes (barrier function vs. fluid accumulation outcome)."
+    },
+    {
+      "group_key": "apoptosis_signaling_vs_apoptosis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2354",
+        "1262"
+      ],
+      "rationale": "ID 2354 'Activation, Apoptosis signaling' and ID 1262 (general apoptosis increase) both involve apoptosis but activation of signaling pathway versus execution of apoptosis are distinct processes \u2014 upstream signaling vs. cellular outcome."
+    },
+    {
+      "group_key": "srebf1_dgat1_lipogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2336",
+        "2334"
+      ],
+      "rationale": "ID 2336 'Increase, SREBF1' (lipogenic transcription factor) and ID 2334 'Increase, DGAT1' (diacylglycerol acyltransferase enzyme) are both involved in lipid synthesis but are distinct molecular entities in the same pathway."
+    },
+    {
+      "group_key": "dlat_oligomerisation_lipoylation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2340",
+        "2342"
+      ],
+      "rationale": "ID 2340 'Oligomerisation of dihydrolipoamide acetyltransferase (DLAT), increased' and ID 2342 'Iron-sulfur cluster assembly, impaired' both relate to mitochondrial metabolic enzyme function/assembly but involve distinct molecular objects and processes."
+    },
+    {
+      "group_key": "neural_network_maturation_vs_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2377",
+        "386"
+      ],
+      "rationale": "ID 2377 'Decrease, neural network maturation' and ID 386 (decreased neuronal network function) both describe neural network impairment but one specifies the developmental maturation process while the other describes functional activity \u2014 related but distinct biological events."
+    },
+    {
+      "group_key": "pcna_decrease_vs_cell_proliferation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2346",
+        "57"
+      ],
+      "rationale": "ID 2346 'Decrease, Proliferating Cell Nuclear Antigen' and ID 57 (cell proliferation) share the cell proliferation biological context \u2014 PCNA is a marker/component of DNA replication, and its decrease relates to decreased proliferation, but PCNA decrease and cell proliferation are distinct biological events."
+    },
+    {
+      "group_key": "liver_regeneration_inhibition_vs_hepatotoxicity",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2348",
+        "1393"
+      ],
+      "rationale": "ID 2348 'Inhibition, Liver regeneration' and ID 1393 (hepatotoxicity/liver injury) both involve liver pathology but inhibition of regeneration and hepatic toxicity/injury are distinct biological processes in the same organ."
+    },
+    {
+      "group_key": "mmp_increase_vs_tgf_beta",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2352",
+        "1271"
+      ],
+      "rationale": "ID 2352 'Increased, MMP' (matrix metalloproteinases) and ID 1271 (TGF-beta pathway activation) are both involved in ECM remodeling/fibrosis but represent distinct molecular processes \u2014 MMP activity and TGF-beta signaling are different objects in the same pathway."
+    },
+    {
+      "group_key": "ldh_inhibition_vs_glycolysis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2349",
+        "2350"
+      ],
+      "rationale": "ID 2349 'Inhibition of LDH activity' (lactate dehydrogenase) and ID 2350 'Decreased, Glycolysis' both concern the glycolytic/anaerobic pathway but LDH inhibition is an enzyme-level event while decreased glycolysis is the broader pathway-level outcome \u2014 distinct processes sharing the same metabolic context."
+    },
+    {
+      "group_key": "ferroptosis_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1994",
+        "1262"
+      ],
+      "rationale": "ID 1994 'Increase, Ferroptosis' and ID 1262 (general apoptosis) both describe forms of regulated cell death but ferroptosis and apoptosis are mechanistically distinct cell death processes \u2014 they share the cell death endpoint but through different processes."
+    },
+    {
+      "group_key": "keap1_nrf2_antioxidant",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2385",
+        "1917"
+      ],
+      "rationale": "ID 2385 'Suppression of Keap1 cysteine oxidation' and ID 1917 (altered NRF2-dependent antioxidant gene expression) both involve the Keap1-NRF2 antioxidant pathway but Keap1 cysteine suppression and NRF2-dependent gene expression are distinct sequential molecular events."
+    },
+    {
+      "group_key": "estradiol_ovary_production_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2402",
+        "2294"
+      ],
+      "rationale": "ID 2402 'Increased, estradiol (E2) production in ovaries' specifies ovarian production context while ID 2294 'Plasma estradiol increased' measures circulating levels \u2014 same directional change in estradiol but in different biological compartments."
+    },
+    {
+      "group_key": "hepatic_glucocorticoid_lipolysis_lipotoxicity",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2412",
+        "2408",
+        "2405"
+      ],
+      "rationale": "IDs 2412 (increased intracellular active glucocorticoids), 2408 (increased adipose lipolysis), and 2405 (increased hepatocellular lipotoxicity) describe sequential events in glucocorticoid-induced metabolic dysregulation but involve distinct biological objects and processes at different tissue levels."
+    },
+    {
+      "group_key": "hepatic_lipotoxicity_vs_steatosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2405",
+        "345"
+      ],
+      "rationale": "ID 2405 'Increase, Hepatocellular lipotoxicity' and ID 345 (liver steatosis) both describe hepatic lipid pathology but lipotoxicity is a cellular stress process while steatosis is a histopathological outcome \u2014 same organ, related but distinct biological processes."
+    },
+    {
+      "group_key": "regenerative_nodule_vs_liver_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2406",
+        "347"
+      ],
+      "rationale": "ID 2406 'Increase, Regenerative nodule formation' and ID 347 (liver tumors) both describe abnormal hepatic growths but regenerative nodules are a cirrhotic/reparative response while liver tumors are neoplastic \u2014 same organ, different pathological processes."
+    },
+    {
+      "group_key": "preputial_separation_morphogenesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2400",
+        "2401"
+      ],
+      "rationale": "ID 2400 'Preputial epithelial morphogenesis, disrupted' and ID 2401 'Male preputial separation, failed/delayed' describe sequential developmental events in the same anatomical structure \u2014 disrupted morphogenesis (process) leads to failed separation (outcome), distinct but causally related."
+    },
+    {
+      "group_key": "preputial_ar_fgf_pathway",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2399",
+        "2393",
+        "2400",
+        "2401"
+      ],
+      "rationale": "IDs 2399 (FGF10/FGFR2 signaling in genital tissue), 2393 (AR transcriptional activity in genital-tubercle tissues), 2400 (preputial epithelial morphogenesis), and 2401 (male preputial separation) all describe sequential events in the same genital developmental pathway but involve distinct molecular and cellular processes."
+    },
+    {
+      "group_key": "vaccine_antibody_response_diminished",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2397",
+        "2398"
+      ],
+      "rationale": "ID 2397 'Diminished vaccine response' and ID 2398 'Reduced antibody production' are closely related immune outcomes \u2014 reduced antibody production is a major component of diminished vaccine response, but they are distinct biological endpoints (cellular B cell output vs. clinical/immunological efficacy)."
+    },
+    {
+      "group_key": "metabolic_impairment_energy",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2403",
+        "2341"
+      ],
+      "rationale": "ID 2403 'Metabolic impairment' and ID 2341 (disrupted TCA cycle/energy metabolism) both describe metabolic dysfunction but 2403 is a general systemic term while 2341 specifies disruption of TCA cycle \u2014 same general outcome at different levels of specificity."
+    },
+    {
+      "group_key": "mineralocorticoid_receptor_activation_vs_cortisol",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2331",
+        "2371"
+      ],
+      "rationale": "ID 2331 'Activation, Mineralocorticoid Receptor' and ID 2371 'Increased cortisol' involve the same corticosteroid signaling axis (cortisol can activate MR) but receptor activation and ligand level changes are distinct biological events on different objects."
+    },
+    {
+      "group_key": "alpha1_adrenoreceptor_vs_ne_receptor",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2370",
+        "848"
+      ],
+      "rationale": "ID 2370 'Antagonism binding, \u03b11-Adrenoreceptor' and ID 848 (decreased NE binding/antagonism on GnRH neuron NE receptors) both involve adrenergic/noradrenergic receptors but \u03b11-adrenoceptor and the NE receptor on GnRH neurons are distinct receptor subtypes in different biological contexts."
+    },
+    {
+      "group_key": "altered_steroidogenesis_reproductive_hormones",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2389",
+        "2390"
+      ],
+      "rationale": "ID 2389 'Altered steroidogenesis (gene/protein level)' and ID 2390 'Altered circulating reproductive hormones' describe sequential events in the same hormonal axis \u2014 steroidogenesis changes lead to altered circulating hormone levels, but these are distinct processes (biosynthetic vs. systemic hormonal outcome)."
+    },
+    {
+      "group_key": "body_mass_index_fat_mass",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2335",
+        "2125"
+      ],
+      "rationale": "ID 2335 'Increase, body mass index' and ID 2125 'Increase, fat mass' both describe obesity-related body composition outcomes but BMI is an anthropometric index while fat mass is a direct tissue measurement \u2014 same directional change at different measurement levels."
+    },
+    {
+      "group_key": "growth_arrest_dna_damage_inducible",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2344",
+        "1194"
+      ],
+      "rationale": "ID 2344 'Upregulation, growth arrest and DNA-damage-inducible beta' (GADD45) and ID 1194 (increased DNA damage/strand breaks) both relate to the DNA damage response but GADD45 upregulation is a transcriptional response marker while DNA strand breaks are the causative lesion \u2014 distinct processes sharing the same pathway."
+    },
+    {
+      "group_key": "microcephaly_neural_development",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2211",
+        "2195"
+      ],
+      "rationale": "ID 2211 'Microcephaly' and ID 2195 (increase in CNS neural cell death) both describe CNS developmental pathology but microcephaly is an organ-level structural outcome while neural cell death is a cellular process contributing to it."
+    },
+    {
+      "group_key": "nerve_spasm_neuronal_excitability",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2382",
+        "1788"
+      ],
+      "rationale": "ID 2382 'Increase, nerve spasm' and ID 1788 (status epilepticus) both describe excessive neuronal excitability/activity outcomes but nerve spasm is a peripheral or general excitability outcome while status epilepticus is a specific severe epileptic state."
+    },
+    {
+      "group_key": "perilipin_lipid_droplet",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2337",
+        "2130"
+      ],
+      "rationale": "ID 2337 'Increase, perilipin-2' (a lipid droplet coat protein) and ID 2130 'Increased lipid accumulation/lipid droplets' both relate to lipid droplet biology but perilipin-2 upregulation is a specific protein marker while lipid droplet increase is the cellular morphological outcome \u2014 distinct processes sharing the same biological object."
+    }
+  ]
+}

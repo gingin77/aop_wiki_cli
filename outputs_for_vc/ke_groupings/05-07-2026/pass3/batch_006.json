@@ -1,0 +1,374 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1062",
+      "group_key": "pancreatic_acinar_proliferation_tumor",
+      "rationale": "Increased cellular proliferation/hyperplasia of acinar cells is the proliferative process event already captured in the pancreatic_acinar_proliferation_tumor group alongside acinar cell tumors."
+    },
+    {
+      "event_id": "1063",
+      "group_key": "pancreatic_acinar_proliferation_tumor",
+      "rationale": "Increased pancreatic acinar tumors is the neoplastic outcome event already captured in the pancreatic_acinar_proliferation_tumor group."
+    },
+    {
+      "event_id": "1086",
+      "group_key": "cytotoxicity_various_cell_types",
+      "rationale": "Persistent cytotoxicity of pleura or peritoneum specifies a different tissue context (mesothelial lining) compared to the other cytotoxicity events in the group, fitting the same-process-different-biological-context pattern."
+    },
+    {
+      "event_id": "1090",
+      "group_key": "adenocarcinoma_renal_bronchial_follicular",
+      "rationale": "Increased mesotheliomas describes a tissue-specific tumor (mesothelium) analogous to the other tissue-specific carcinomas already in this similar_event_different_biological_context group."
+    },
+    {
+      "event_id": "1497",
+      "group_key": "proinflammatory_mediators_increase",
+      "rationale": "Increased recruitment of inflammatory cells is a closely related but distinct upstream event to increased pro-inflammatory mediator secretion; however, it describes the same directional increase in the inflammatory response and fits best with curator review in this group."
+    },
+    {
+      "event_id": "1500",
+      "group_key": "fibroblast_differentiation_vs_activation",
+      "rationale": "Increased fibroblast proliferation and myofibroblast differentiation involves fibroblast biology sharing the same object as the existing fibroblast differentiation vs. activation group."
+    },
+    {
+      "event_id": "1104",
+      "group_key": "pgf2alpha_synthesis_ovary",
+      "rationale": "Decreased prostaglandin F2alpha concentration in plasma describes the same directional reduction in PGF2alpha as the existing pgf2alpha_synthesis_ovary group, though at the plasma level rather than ovary-specific synthesis."
+    },
+    {
+      "event_id": "2329",
+      "group_key": "sine_oculis_homeobox1_expression",
+      "rationale": "ID 1066 (Promotion of Sine oculis homeobox 1 positive progenitor cells) relates to Six1 biology but describes a cell population promotion rather than gene/protein expression; however ID 2329/2330 cover Six1 expression \u2014 1066 is a distinct downstream cellular event and should not be assigned here."
+    },
+    {
+      "event_id": "1153",
+      "group_key": "deiodinase_inhibition",
+      "rationale": "Inhibition of Deiodinase 3 is a third deiodinase isoform inhibition event analogous to the Deiodinase 1 and Deiodinase 2 inhibition events already in the deiodinase_inhibition group."
+    },
+    {
+      "event_id": "1176",
+      "group_key": "sodium_channel_inhibition_conductance",
+      "rationale": "Decreased sodium conductance 2 describes decreased sodium conductance, matching the sodium_channel_inhibition_conductance group which pairs sodium channel inhibition with decreased sodium conductance."
+    },
+    {
+      "event_id": "621",
+      "group_key": "cilia_function_decrease",
+      "rationale": "Increase in cilia movement is directionally opposite to the decreased cilia function events in that group, so it should NOT be assigned there \u2014 withdrawing this assignment."
+    },
+    {
+      "event_id": "1079",
+      "group_key": "mammary_gland_hyperplasia",
+      "rationale": "Increased adenomas/carcinomas of the mammary gland is a downstream tumor outcome distinct from mammary gland hyperplasia, so it should NOT be assigned there \u2014 withdrawing this assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "serum_cck_elevation",
+      "type": "merge",
+      "member_ids": [
+        "1061"
+      ],
+      "rationale": "Single event describing prolonged elevation of serum CCK; no merge partner found among ungrouped events."
+    },
+    {
+      "group_key": "pancreatic_acinar_cck_proliferation_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1061",
+        "1062",
+        "1063"
+      ],
+      "rationale": "Prolonged serum CCK elevation, acinar cell hyperplasia/proliferation, and pancreatic acinar tumors describe sequential events in the same CCK-driven pancreatic carcinogenesis pathway at different biological levels \u2014 systemic hormone, cellular proliferation, and neoplastic outcome."
+    },
+    {
+      "group_key": "endometrial_pathology_progression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1066",
+        "1068",
+        "1070"
+      ],
+      "rationale": "Promotion of Six1-positive endometrial progenitor cells, endometrial squamous metaplasia, and adenosquamous carcinomas of the endometrium describe progressive pathological stages in the same organ (endometrium) at different biological levels."
+    },
+    {
+      "group_key": "cyclooxygenase_pgf2alpha_plasma",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1103",
+        "1104"
+      ],
+      "rationale": "Inhibition of cyclooxygenase 1 activity and decreased plasma prostaglandin F2alpha concentration involve the same prostaglandin biosynthesis pathway but represent enzyme inhibition vs. downstream metabolite reduction \u2014 distinct processes."
+    },
+    {
+      "group_key": "mammary_adenoma_carcinoma_vs_hyperplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1079",
+        "1078"
+      ],
+      "rationale": "Increased mammary adenomas/carcinomas and increased mammary gland hyperplasia describe progressive stages of mammary gland pathology in the same tissue but at different biological levels \u2014 hyperplasia vs. neoplastic transformation."
+    },
+    {
+      "group_key": "mesothelioma_mesothelial_proliferation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1086",
+        "1090"
+      ],
+      "rationale": "Persistent cytotoxicity of pleura/peritoneum and increased mesotheliomas describe sequential events in mesothelial carcinogenesis in the same tissue compartment at different biological levels."
+    },
+    {
+      "group_key": "lung_inflammation_t2_fibroblast",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1498",
+        "1499",
+        "1500"
+      ],
+      "rationale": "Loss of alveolar capillary membrane integrity, increased Th2 cell activation, and increased fibroblast proliferation/myofibroblast differentiation describe distinct biological events in the same pulmonary fibrosis/inflammation pathway."
+    },
+    {
+      "group_key": "lung_resident_cell_membrane_interaction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1495",
+        "1498"
+      ],
+      "rationale": "Substance interaction with lung resident cell membrane components and loss of alveolar capillary membrane integrity involve the same lung membrane/cellular interface but describe an initiating interaction vs. a resulting structural loss."
+    },
+    {
+      "group_key": "amphibian_metamorphosis_alteration",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1101",
+        "1829"
+      ],
+      "rationale": "Altered amphibian metamorphosis and altered thyroid hormone-dependent gene expression both describe disruptions to thyroid hormone-mediated developmental processes but at different biological levels \u2014 organismal outcome vs. molecular gene expression."
+    },
+    {
+      "group_key": "renal_ischemia_occurrence",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1105",
+        "1132"
+      ],
+      "rationale": "Occurrence of renal ischemia and impaired oxygen/nutrient delivery with blood loss describe overlapping but distinct vascular/tissue injury events \u2014 organ-specific ischemia vs. systemic oxygen delivery failure."
+    },
+    {
+      "group_key": "vkor_vitamin_k_cycling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1134",
+        "1131"
+      ],
+      "rationale": "Irreversible inhibition of hepatic VKOR and failure of gamma-glutamyl carboxylation of clotting factors describe sequential but distinct events in the vitamin K cycle \u2014 enzyme inhibition vs. downstream carboxylation failure."
+    },
+    {
+      "group_key": "clotting_factor_undercarboxylation",
+      "type": "merge",
+      "member_ids": [
+        "1131",
+        "1122"
+      ],
+      "rationale": "Failure in gamma-glutamyl carboxylation of clotting factors and undercarboxylated clotting factors failing to assemble on cell surfaces both describe the same outcome of dysfunctional undercarboxylated clotting factors using different wording."
+    },
+    {
+      "group_key": "clotting_factor_depletion_hemostasis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1133",
+        "1122"
+      ],
+      "rationale": "Depletion of functional carboxylated clotting factors from blood and failure of secondary hemostasis due to undercarboxylated clotting factors describe related but distinct processes \u2014 depletion of the functional form vs. downstream hemostatic failure."
+    },
+    {
+      "group_key": "hemorrhage_vascular_repair_failure",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1130",
+        "1132"
+      ],
+      "rationale": "Failure in vascular repair mechanisms leading to unresolved hemorrhage and blood loss with impaired oxygen delivery describe related but distinct events in the anticoagulant rodenticide toxicity pathway."
+    },
+    {
+      "group_key": "anticoagulant_rodenticide_mortality",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1135",
+        "1130"
+      ],
+      "rationale": "Reduced fitness/mortality from acidosis and hypovolemic shock and unresolved blood loss from vascular repair failure describe downstream consequences of the same hemorrhagic process at different severity levels."
+    },
+    {
+      "group_key": "osteocalcin_carboxylation_impairment",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1169",
+        "1131"
+      ],
+      "rationale": "Impairment of osteocalcin carboxylation by anticoagulant rodenticide and failure of clotting factor carboxylation both describe impaired gamma-carboxylation but on different protein substrates (osteocalcin vs. clotting factors)."
+    },
+    {
+      "group_key": "osteoporosis_bone_deterioration",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1151",
+        "1169"
+      ],
+      "rationale": "Osteoporosis/vascular calcification and impaired osteocalcin carboxylation describe related bone pathology events but carboxylation impairment is the upstream enzymatic event and osteoporosis is the downstream structural outcome."
+    },
+    {
+      "group_key": "uncoupling_oxidative_phosphorylation_atp",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1138",
+        "1472"
+      ],
+      "rationale": "Uncoupling of oxidative phosphorylation and decreased ATP production are causally linked but represent distinct processes \u2014 uncoupling is the mechanism while decreased ATP is the functional consequence."
+    },
+    {
+      "group_key": "impaired_recruitment_population_trajectory",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1136",
+        "997"
+      ],
+      "rationale": "Impaired recruitment affecting population trajectory and decreased population size describe related population-level outcomes but impaired recruitment is a demographic process while population size is an outcome measure."
+    },
+    {
+      "group_key": "iodotyrosine_deiodinase_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1152",
+        "1153"
+      ],
+      "rationale": "Inhibition of iodotyrosine deiodinase (IYD) and inhibition of deiodinase 3 both describe inhibition of thyroid iodine metabolism enzymes but are distinct enzymes with different functions in thyroid hormone metabolism."
+    },
+    {
+      "group_key": "thyroid_hormone_serum_increase",
+      "type": "soda",
+      "member_ids": [
+        "1828",
+        "281"
+      ],
+      "rationale": "Increased serum thyroxine (T4) and decreased thyroxine (T4) in serum describe strictly opposite directions of the same endpoint \u2014 serum T4 levels."
+    },
+    {
+      "group_key": "thyroid_hormone_transport_uptake_hepatic",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1158",
+        "1157"
+      ],
+      "rationale": "Increased hepatic thyroid hormone uptake/transport and activation of hepatic nuclear receptors describe related but distinct processes in hepatic thyroid hormone metabolism \u2014 uptake/transport vs. nuclear receptor activation."
+    },
+    {
+      "group_key": "pendrin_inhibition_thyroid",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1155",
+        "424"
+      ],
+      "rationale": "Inhibition of pendrin and inhibition of NIS both describe inhibition of thyroid anion transporters involved in iodide handling but are distinct transporter proteins with different functions."
+    },
+    {
+      "group_key": "dual_oxidase_inhibition_thyroid",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1156",
+        "277"
+      ],
+      "rationale": "Inhibition of dual oxidase (DUOX, which generates H2O2 for thyroid peroxidase) and inhibition of thyroperoxidase both impair thyroid hormone synthesis but through distinct enzymatic targets."
+    },
+    {
+      "group_key": "thyroid_hormone_dependent_gene_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1829",
+        "1101"
+      ],
+      "rationale": "Altered thyroid hormone-dependent gene expression and altered amphibian metamorphosis describe thyroid hormone disruption at molecular vs. organismal levels in the same signaling axis."
+    },
+    {
+      "group_key": "trigeminal_nerve_activation_irritation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1220",
+        "1434"
+      ],
+      "rationale": "Trigeminal nerve activation and irritation of nasal mucosa inducing sneeze reflex describe related but distinct events \u2014 neural activation vs. mucosal irritation-induced reflex response."
+    },
+    {
+      "group_key": "trigeminal_vagal_airway_hyperresponsiveness",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1223",
+        "1226"
+      ],
+      "rationale": "Trigeminal/vagal nerve excitation causing airway hyperresponsiveness/cough/dyspnea and increased respiratory irritability/chronic cough describe overlapping but distinct respiratory irritation outcomes at neural vs. clinical symptom levels."
+    },
+    {
+      "group_key": "trigeminal_nerve_activation_cascade",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1220",
+        "1223"
+      ],
+      "rationale": "Trigeminal nerve activation and trigeminal/vagal nerve excitation causing airway hyperresponsiveness describe sequential events in the same neural pathway \u2014 activation vs. downstream airway effects."
+    },
+    {
+      "group_key": "gaba_release_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1179",
+        "64"
+      ],
+      "rationale": "Decreased GABA release and reduced ionotropic GABA receptor chloride channel conductance describe related but distinct events in GABAergic neurotransmission \u2014 presynaptic release vs. postsynaptic conductance."
+    },
+    {
+      "group_key": "endothelial_cell_migration_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1190",
+        "28"
+      ],
+      "rationale": "Increased migration of endothelial cells and reduction in angiogenesis both relate to endothelial cell behavior but increased migration is a cellular process that can contribute to or oppose angiogenesis \u2014 related but distinct directional events."
+    },
+    {
+      "group_key": "deformed_wing_virus_bee_health",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1109",
+        "1110"
+      ],
+      "rationale": "Increased Deformed Wing Virus levels and increased energetic demands/metabolic stress in bees describe related stressors to bee health but are distinct biological events \u2014 viral pathogen burden vs. metabolic stress."
+    },
+    {
+      "group_key": "cilia_movement_increase",
+      "type": "soda",
+      "member_ids": [
+        "621",
+        "1908"
+      ],
+      "rationale": "Increase in cilia movement and decrease in cilia beat frequency describe strictly opposite directions of the same cilia motility endpoint."
+    },
+    {
+      "group_key": "estrus_cycle_prolongation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1075",
+        "488"
+      ],
+      "rationale": "Prolonged estrus cycle and decreased/delayed ovulation are related reproductive cycle disruptions occurring in the same biological context but describe distinct events \u2014 cycle duration vs. ovulation frequency/timing."
+    },
+    {
+      "group_key": "increased_latency_period",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1080",
+        "1075"
+      ],
+      "rationale": "Increased latency period for tumor development and prolonged estrus cycle both describe increased duration of biological events in a mammary/reproductive tumor context but are distinct endpoints."
+    }
+  ]
+}

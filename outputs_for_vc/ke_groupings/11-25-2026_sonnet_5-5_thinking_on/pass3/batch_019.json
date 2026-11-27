@@ -1,0 +1,20 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2130",
+      "group_key": "lipid_accumulation_general_vs_small_intestine_steatosis",
+      "rationale": "Increased lipid accumulation without a tissue qualifier is the same process as the general event in this group, which is paired with a tissue-specific form (small intestine steatosis)."
+    },
+    {
+      "event_id": "2162",
+      "group_key": "hif1_alpha_transcription_pathway",
+      "rationale": "Activation of HIF1\u03b1 shares the HIF-1 alpha object with the existing events but describes a distinct process (activation vs transcription or heterodimer levels)."
+    },
+    {
+      "event_id": "2171",
+      "group_key": "tgf_latent_activation",
+      "rationale": "Activated BMP/TGF-beta pathway shares the TGF-beta object with the existing group but is a distinct process or scope."
+    }
+  ],
+  "new_groups": []
+}

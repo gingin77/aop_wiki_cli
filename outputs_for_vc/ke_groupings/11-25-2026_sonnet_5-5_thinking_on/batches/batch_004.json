@@ -1,0 +1,186 @@
+[
+  {
+    "group_key": "homocysteine_increase",
+    "type": "merge",
+    "member_ids": [
+      "1661",
+      "1665"
+    ],
+    "rationale": "Both describe increased homocysteine levels (plasma HCY)."
+  },
+  {
+    "group_key": "angiotensin_ii_increase",
+    "type": "merge",
+    "member_ids": [
+      "1752",
+      "1743"
+    ],
+    "rationale": "Both describe increased angiotensin II (plasma Ang II)."
+  },
+  {
+    "group_key": "ace2_dysregulation",
+    "type": "merge",
+    "member_ids": [
+      "1854",
+      "1740"
+    ],
+    "rationale": "Both describe dysregulation of ACE2."
+  },
+  {
+    "group_key": "at1r_increase_vs_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1852",
+      "1851"
+    ],
+    "rationale": "Both concern AT1R, but increased receptor level and agonist binding are distinct processes."
+  },
+  {
+    "group_key": "ace2_binding_vs_downregulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1739",
+      "1787",
+      "1740"
+    ],
+    "rationale": "ACE2 binding and ACE2 downregulation/dysregulation are distinct processes on the same object."
+  },
+  {
+    "group_key": "fecundity_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "328",
+      "1781"
+    ],
+    "rationale": "Both describe decreased fecundity but one is specific to the F3 generation."
+  },
+  {
+    "group_key": "caspase_transcription_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1774",
+      "1779"
+    ],
+    "rationale": "Same caspase transcription increase, one specified for F3."
+  },
+  {
+    "group_key": "ovarian_apoptosis_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1776",
+      "1783"
+    ],
+    "rationale": "Same ovarian somatic cell apoptosis, one specified for F3."
+  },
+  {
+    "group_key": "follicle_breakdown_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1777",
+      "1784"
+    ],
+    "rationale": "Same follicle breakdown, one specified for F3."
+  },
+  {
+    "group_key": "dna_methylation_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1773",
+      "1778"
+    ],
+    "rationale": "Both describe decreased DNA methylation; one is heritable F3."
+  },
+  {
+    "group_key": "ecdysone_cascade_direction",
+    "type": "soda",
+    "member_ids": [
+      "2373",
+      "2375"
+    ],
+    "rationale": "Mis-timed ecdysone receptor-responsive cascade increased vs decreased."
+  },
+  {
+    "group_key": "cortisol_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1835",
+      "1836"
+    ],
+    "rationale": "Both describe decreased cortisol, one also includes 11\u03b2-OH testosterone."
+  },
+  {
+    "group_key": "tlr9_activation_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1900",
+      "1842"
+    ],
+    "rationale": "Both concern TLR9 but expression on platelets vs prolonged activation are different processes."
+  },
+  {
+    "group_key": "apoptosis_cell_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1365",
+      "1864",
+      "1825",
+      "1817"
+    ],
+    "rationale": "Cell death/apoptosis events at different specificity or context."
+  },
+  {
+    "group_key": "inflammation_general_liver",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1633",
+      "902"
+    ],
+    "rationale": "Inflammation general vs liver-specific."
+  },
+  {
+    "group_key": "oxidative_stress_lipid_protein",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1445",
+      "1594"
+    ],
+    "rationale": "Both describe lipid peroxidation/oxidation; one is specific to membrane lipids."
+  },
+  {
+    "group_key": "protein_oxidation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1767",
+      "1595"
+    ],
+    "rationale": "Both describe protein oxidation; one specific to membrane proteins."
+  },
+  {
+    "group_key": "hormone_dhea_adione_cyp17",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1609",
+      "1610",
+      "1611"
+    ],
+    "rationale": "Placeholder removed"
+  },
+  {
+    "group_key": "spermatogenesis_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1758",
+      "1798"
+    ],
+    "rationale": "Both describe impaired/decreased spermatogenesis."
+  },
+  {
+    "group_key": "tbx1_none",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1626",
+      "1627"
+    ],
+    "rationale": "placeholder"
+  }
+]

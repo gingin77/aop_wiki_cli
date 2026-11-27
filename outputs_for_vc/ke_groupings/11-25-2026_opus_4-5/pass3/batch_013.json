@@ -1,0 +1,276 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2187",
+      "group_key": "l_type_calcium_channel_blockade_vs_decrease_currents",
+      "rationale": "Opening of voltage-gated calcium channels describes a process on the same calcium channel object as blockade of L-type calcium channels and decreased calcium currents, but opening versus blockade are opposite functional states \u2014 however, this is a different process (opening/activation vs. blockade/inhibition) on the same object class, warranting curator review."
+    },
+    {
+      "event_id": "2046",
+      "group_key": "vitellogenin_plasma_increase",
+      "rationale": "Increase in vitellogenin mRNA describes the same upstream biological event as increased vitellogenin synthesis and plasma vitellogenin concentrations, all reflecting the same directional increase in vitellogenin production."
+    },
+    {
+      "event_id": "1177",
+      "group_key": "igabar_binding_vs_reduction",
+      "rationale": "Decreased ionotropic GABA receptor chloride channel conductance (ID 1177) describes the same functional reduction as 'Reduction, Ionotropic GABA receptor chloride channel conductance' already in this group, using nearly identical wording."
+    },
+    {
+      "event_id": "2104",
+      "group_key": "thyroid_binding_globulin",
+      "rationale": "Decreased thyroid hormone binding to thyroid hormone receptor involves the same thyroid hormone ligand-receptor interaction theme as displacement from carrier protein and binding to thyroid binding globulin, but specifically describes binding to the nuclear receptor \u2014 same object (thyroid hormone) different process (nuclear receptor binding vs. carrier protein binding), warranting curator review."
+    },
+    {
+      "event_id": "2105",
+      "group_key": "oligodendrocyte_maturation_differentiation",
+      "rationale": "Decreased myelin basic protein expression in oligodendrocytes is a downstream consequence of impaired oligodendrocyte maturation/differentiation and occurs in the same cell type context, fitting within this similar_event_different_biological_context group for curator review."
+    },
+    {
+      "event_id": "446",
+      "group_key": "testosterone_synthesis_leydig",
+      "rationale": "Reduction in fetal/adult testosterone describes the same directional decrease in testosterone as the existing group members (reduction in Leydig cell synthesis and decreased circulating testosterone levels), sharing the same biological endpoint in a broader developmental context."
+    },
+    {
+      "event_id": "2126",
+      "group_key": "er_activation_vs_disruption",
+      "rationale": "Estrogen receptor alpha inactivation is directionally opposite to activation of estrogen receptor alpha and describes disruption of the same receptor, fitting as a soda-type pairing within this group."
+    },
+    {
+      "event_id": "2086",
+      "group_key": "inflammation_general_vs_corneal",
+      "rationale": "Airway inflammation describes increased inflammation in the airway/pulmonary context, paralleling the existing group's pairing of general inflammation with corneal cell-specific inflammation \u2014 same process, different tissue context."
+    },
+    {
+      "event_id": "2151",
+      "group_key": "neurotransmitter_release_inhibition",
+      "rationale": "Disruption of neurotransmitter release describes the same biological outcome as inhibition of neurotransmitter vesicle release and decreased GABA release, using different wording for equivalent neurotransmission impairment."
+    },
+    {
+      "event_id": "2081",
+      "group_key": "protein_covalent_binding",
+      "rationale": "Increased modified proteins describes covalent modification of proteins, which is functionally equivalent to covalent binding/alkylation of protein already in this merge group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "vitellogenin_mrna_synthesis_increase",
+      "type": "merge",
+      "member_ids": [
+        "2046"
+      ],
+      "rationale": "Already assigned to vitellogenin_plasma_increase group above."
+    },
+    {
+      "group_key": "cuticle_chitin_organization_decrease",
+      "type": "merge",
+      "member_ids": [
+        "2059",
+        "2060",
+        "2062",
+        "2063"
+      ],
+      "rationale": "Decreased knickkopf gene (required for chitin organization), decreased chitin laminar organization, weakened procuticle protection, and decreased new cuticle secretion all describe the same downstream outcome of impaired cuticle/chitin structural integrity in the same biological context using closely related wording."
+    },
+    {
+      "group_key": "chitin_degradation_prevention_vs_content",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2061",
+        "2060"
+      ],
+      "rationale": "Decreased prevention of chitin degradation by chitinases and decreased chitin laminar organization both involve cuticular chitin but one describes a protective process and the other the resulting structural deficit \u2014 distinct processes on the same biological object."
+    },
+    {
+      "group_key": "ecdysone_level_vs_oviposition_delay",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2058",
+        "2056"
+      ],
+      "rationale": "Decreased 20-hydroxyecdysone and increased delay in oviposition describe related but distinct events in the ecdysone-regulated reproductive pathway \u2014 hormonal level versus reproductive timing outcome."
+    },
+    {
+      "group_key": "tyrosine_dopa_decarboxylase_pigmentation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2051",
+        "2052",
+        "2055"
+      ],
+      "rationale": "Decreased tyrosine, decreased dopa decarboxylase, and increased pigmentation describe components of the same melanin/dopamine biosynthesis pathway but at different molecular and phenotypic levels."
+    },
+    {
+      "group_key": "developmental_abnormalities_hatching_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2050",
+        "2057"
+      ],
+      "rationale": "Increase in developmental abnormalities and decrease in hatching of eggs describe related developmental failure outcomes in the same organismal context but at different levels of specificity."
+    },
+    {
+      "group_key": "ovarian_maturation_sex_ratio_body_volume",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2047",
+        "2048",
+        "2049"
+      ],
+      "rationale": "Delayed ovarian maturation, increased body volume of female adults, and increased sex ratio (F/M) all describe feminization-related developmental outcomes in the same biological context but as distinct endpoints."
+    },
+    {
+      "group_key": "radial_glia_alignment_density",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2112",
+        "2113"
+      ],
+      "rationale": "Disturbed radial glia cell alignment and migration and decreased radial glia cell density both describe radial glia pathology but one concerns spatial organization/migration and the other concerns cell number \u2014 same cell type, distinct processes."
+    },
+    {
+      "group_key": "cortical_architecture_radial_glia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2114",
+        "2112",
+        "2113"
+      ],
+      "rationale": "Disturbed cortical architecture, disturbed radial glia cell alignment/migration, and decreased radial glia cell density all describe neurodevelopmental structural deficits in the cortex at different levels (tissue architecture vs. cellular organization vs. cell density)."
+    },
+    {
+      "group_key": "neural_gene_expression_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2196",
+        "2197",
+        "2198"
+      ],
+      "rationale": "Decreased elavl3, decreased sox10, and decreased mbp are all reduced neural/glial gene expression events occurring in the same neurodevelopmental context but involving distinct gene products with different cellular roles."
+    },
+    {
+      "group_key": "mbp_expression_vs_myelination",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2198",
+        "2105"
+      ],
+      "rationale": "Decreased mbp (myelin basic protein gene) and decreased myelin basic protein expression in oligodendrocytes describe the same molecular endpoint at the gene versus protein/cell level \u2014 same object, potentially distinct measurement processes."
+    },
+    {
+      "group_key": "hypoxia_sensing_hemocyanin_breathing",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2075",
+        "2076",
+        "2077"
+      ],
+      "rationale": "Cognitive sensing of hypoxia/low oxygen environment, increased hemocyanin mRNA, and increased pulmonate breathing all describe organismal responses to hypoxia in the same biological context but at different levels (sensory/cognitive, molecular, and physiological)."
+    },
+    {
+      "group_key": "cns_neural_cell_death_learning_memory",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2195",
+        "637"
+      ],
+      "rationale": "Increased CNS neural cell death and impaired learning and memory describe related neurotoxic outcomes where cell death can cause functional cognitive impairment, but they are distinct events at cellular versus behavioral levels."
+    },
+    {
+      "group_key": "dendritic_spine_morphology_learning",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2242",
+        "637"
+      ],
+      "rationale": "Abnormal dendritic spine morphology and impaired learning and memory describe related but distinct events \u2014 structural synaptic changes versus functional cognitive outcome \u2014 in the same neurotoxicity context."
+    },
+    {
+      "group_key": "drebrin_dendritic_spine",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2078",
+        "2242"
+      ],
+      "rationale": "Loss of drebrin (an actin-binding protein critical for dendritic spine maintenance) and abnormality in dendritic spine morphology are causally linked but represent distinct molecular and structural events."
+    },
+    {
+      "group_key": "pulmonary_epithelial_injury_inflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2085",
+        "2086"
+      ],
+      "rationale": "Pulmonary epithelial injury and airway inflammation describe related pathological events in the lung/airway but one is structural (epithelial injury) and the other is inflammatory \u2014 distinct processes in the same tissue context."
+    },
+    {
+      "group_key": "abnormal_neural_remodeling_vascular_remodeling",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2098",
+        "2069"
+      ],
+      "rationale": "Increased abnormal neural remodeling and occurrence of abnormal vascular remodeling both describe pathological tissue remodeling but in different tissue/organ contexts (neural vs. vascular)."
+    },
+    {
+      "group_key": "microglia_activation_neuroinflammation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1998",
+        "2195"
+      ],
+      "rationale": "Microglia activation and increased CNS neural cell death are related neuroinflammatory events where microglial activation can contribute to neuronal death, but they represent distinct processes at different cellular levels."
+    },
+    {
+      "group_key": "intellectual_quotient_socieconomic",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2121",
+        "2122"
+      ],
+      "rationale": "Decreased intellectual quotient and increased socio-economic burden describe related population-level consequences of neurotoxicity but at different levels \u2014 individual cognitive impairment versus societal economic impact."
+    },
+    {
+      "group_key": "hypospadias_fetal_testosterone_reduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2082",
+        "446"
+      ],
+      "rationale": "Increased hypospadias and reduction in fetal/adult testosterone describe related endpoints in male reproductive development \u2014 reduced testosterone is a mechanistic cause and hypospadias is the morphological outcome \u2014 distinct events at different biological levels."
+    },
+    {
+      "group_key": "voltage_gated_calcium_channel_opening_vs_blockade",
+      "type": "soda",
+      "member_ids": [
+        "2187"
+      ],
+      "rationale": "Opening of voltage-gated calcium channels is directionally opposite to blockade of L-type calcium channels already in existing group \u2014 assigning to existing group is more appropriate; creating standalone note."
+    },
+    {
+      "group_key": "nitric_oxide_stress_response",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2067",
+        "2244"
+      ],
+      "rationale": "Altered nitric oxide levels and altered stress response signaling both describe disrupted cellular signaling states in overlapping stress/redox contexts but involve distinct molecular pathways."
+    },
+    {
+      "group_key": "cataracts_lens_damage",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2083",
+        "2081"
+      ],
+      "rationale": "Occurrence of cataracts and increased modified proteins describe related but distinct events \u2014 protein modification (oxidation/glycation) can cause cataracts, but the former is a cellular/molecular event and the latter is a tissue-level pathological outcome."
+    },
+    {
+      "group_key": "glycolipid_levels_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2079"
+      ],
+      "rationale": "Increased glycolipid levels is a distinct lipid accumulation event not clearly matching any existing group at synonym level; left as singleton for curator review."
+    }
+  ]
+}

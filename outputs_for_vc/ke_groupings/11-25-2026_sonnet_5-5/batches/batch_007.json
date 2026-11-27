@@ -1,0 +1,29 @@
+[
+  {
+    "group_key": "fatty_acid_beta_oxidation_opposite",
+    "type": "soda",
+    "member_ids": [
+      "1312",
+      "1824"
+    ],
+    "rationale": "Both measure fatty acid beta-oxidation but in opposite directions (increase vs decrease)."
+  },
+  {
+    "group_key": "fibrosis_organ_specific",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2404",
+      "2407"
+    ],
+    "rationale": "Kidney fibrosis and cirrhosis (liver fibrosis end-stage) are the same fibrotic process in different organs."
+  },
+  {
+    "group_key": "lipid_accumulation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2446",
+      "2454"
+    ],
+    "rationale": "Lipid accumulation general versus steatosis specific to the small intestine."
+  }
+]

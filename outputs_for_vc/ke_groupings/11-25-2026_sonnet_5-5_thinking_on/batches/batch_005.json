@@ -1,0 +1,101 @@
+[
+  {
+    "group_key": "population_size_trajectory",
+    "type": "merge",
+    "member_ids": [
+      "997",
+      "442"
+    ],
+    "rationale": "Both describe a decrease in population-level size/trajectory (population decline)."
+  },
+  {
+    "group_key": "er_activation",
+    "type": "merge",
+    "member_ids": [
+      "1065",
+      "748"
+    ],
+    "rationale": "Both describe increased/activated estrogen receptor activity."
+  },
+  {
+    "group_key": "pericyte_dysfunction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1946",
+      "1947"
+    ],
+    "rationale": "Pericyte dysfunction general vs. impaired mechanotransduction in pericytes, a specific form."
+  },
+  {
+    "group_key": "herg_block_vs_ikr_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2100",
+      "2099"
+    ],
+    "rationale": "hERG channel blockade and inhibition of the rapid delayed rectifier current involve the same channel but blockade does not equal functional current inhibition without context."
+  },
+  {
+    "group_key": "thyroid_hormone_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "771",
+      "2093"
+    ],
+    "rationale": "Both describe decreased thyroid hormone, in serum versus brain."
+  },
+  {
+    "group_key": "ace2_expression_shedding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1948",
+      "1938"
+    ],
+    "rationale": "Both concern ACE2 but expression increase and increased shedding are distinct processes."
+  },
+  {
+    "group_key": "cytochrome_c_aif_release",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1812",
+      "2031"
+    ],
+    "rationale": "Both describe release of mitochondrial pro-apoptotic factors, but of different proteins."
+  },
+  {
+    "group_key": "ionotropic_gaba_receptor",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2039",
+      "1177"
+    ],
+    "rationale": "Both concern the GABA-A/ionotropic GABA receptor chloride channel; inhibition of the receptor and decreased conductance are related but distinct descriptions."
+  },
+  {
+    "group_key": "smoothened_antagonism_vs_relocation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2027",
+      "2044"
+    ],
+    "rationale": "Both concern Smoothened; antagonism of the receptor versus decreased relocation/activation are distinct processes."
+  },
+  {
+    "group_key": "angiotensin_ii_accumulation_degradation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1936",
+      "1741"
+    ],
+    "rationale": "Both concern Angiotensin II levels; reduced degradation and induced accumulation are related but distinct events."
+  },
+  {
+    "group_key": "mitochondrial_complex_sdh",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "105",
+      "2118"
+    ],
+    "rationale": "Inhibition of ETC complexes in general versus inhibition of a specific complex (succinate dehydrogenase, Complex II)."
+  }
+]

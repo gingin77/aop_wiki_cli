@@ -1,0 +1,343 @@
+[
+  {
+    "group_key": "glutamate_gated_chloride_channel_activation",
+    "type": "merge",
+    "member_ids": [
+      "760",
+      "1018"
+    ],
+    "rationale": "Both describe activation of glutamate-gated chloride channels."
+  },
+  {
+    "group_key": "dopaminergic_activity_direction",
+    "type": "soda",
+    "member_ids": [
+      "746",
+      "1083"
+    ],
+    "rationale": "Same endpoint (dopaminergic activity) increased vs decreased."
+  },
+  {
+    "group_key": "hif1_alpha_dimerization_vs_transcription",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "800",
+      "1891"
+    ],
+    "rationale": "placeholder"
+  },
+  {
+    "group_key": "beta2_adrenergic_receptor_activation",
+    "type": "merge",
+    "member_ids": [
+      "1039",
+      "1038"
+    ],
+    "rationale": "Both describe increased activation/activity of the beta-2 adrenergic receptor."
+  },
+  {
+    "group_key": "cytotoxicity_in_different_cell_types",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "776",
+      "780",
+      "783",
+      "786",
+      "794",
+      "1086"
+    ],
+    "rationale": "Increased cytotoxicity in different cell types/tissue contexts."
+  },
+  {
+    "group_key": "regenerative_proliferation_cell_types",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "778",
+      "781",
+      "787",
+      "795",
+      "870",
+      "1089"
+    ],
+    "rationale": "Increased (regenerative) cell proliferation in different cell/tissue contexts."
+  },
+  {
+    "group_key": "hyperplasia_different_tissues",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "782",
+      "784",
+      "796",
+      "1078",
+      "1085"
+    ],
+    "rationale": "Hyperplasia in different epithelial/tissue contexts."
+  },
+  {
+    "group_key": "mammary_hyperplasia_duplicate",
+    "type": "merge",
+    "member_ids": [
+      "1078",
+      "1085"
+    ],
+    "rationale": "Both describe increased mammary gland hyperplasia."
+  },
+  {
+    "group_key": "inflammation_corneal_vs_general",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "777",
+      "1087"
+    ],
+    "rationale": "Increased inflammation, one corneal-cell specific and one general."
+  },
+  {
+    "group_key": "cytoplasmic_vacuolization_cell_types",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "818",
+      "824",
+      "833",
+      "837",
+      "836"
+    ],
+    "rationale": "Cytoplasmic vacuolization occurring in different cell types."
+  },
+  {
+    "group_key": "tumors_carcinomas_different_tissues",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "779",
+      "797",
+      "1079",
+      "1070"
+    ],
+    "rationale": "Increased carcinomas/adenomas in different tissues."
+  },
+  {
+    "group_key": "ovarian_tumor_promotion",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1053",
+      "1054"
+    ],
+    "rationale": "Promotion of different ovarian tumor types."
+  },
+  {
+    "group_key": "fibrosis_liver_pulmonary",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "840",
+      "1458"
+    ],
+    "rationale": "Fibrosis in different organs (liver vs lung)."
+  },
+  {
+    "group_key": "uroporphyria_vs_uroporphyrinogen_events",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "844",
+      "845"
+    ],
+    "rationale": "Both involve uroporphyrinogen metabolism (oxidation vs UROD inhibition) but are distinct processes."
+  },
+  {
+    "group_key": "nfat_events",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "979",
+      "981"
+    ],
+    "rationale": "Both concern NFAT but nuclear localization interference vs complex formation reduction are distinct processes."
+  },
+  {
+    "group_key": "deiodinase_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1002",
+      "1009"
+    ],
+    "rationale": "Inhibition of different deiodinase isoforms."
+  },
+  {
+    "group_key": "swim_bladder_inflation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1004",
+      "1007"
+    ],
+    "rationale": "Reduced swim bladder inflation in posterior vs anterior chamber."
+  },
+  {
+    "group_key": "gaba_glucl_channel_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "762",
+      "760"
+    ],
+    "rationale": "placeholder"
+  },
+  {
+    "group_key": "muscle_paralysis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1014",
+      "1019"
+    ],
+    "rationale": "Induction of paralysis in somatic vs pharyngeal muscle."
+  },
+  {
+    "group_key": "lh_secretion_increase",
+    "type": "merge",
+    "member_ids": [
+      "791",
+      "1050"
+    ],
+    "rationale": "Both describe increased LH (secretion from pituitary)."
+  },
+  {
+    "group_key": "lh_decrease_surge",
+    "type": "merge",
+    "member_ids": [
+      "970",
+      "1072"
+    ],
+    "rationale": "Both describe decreased LH release/surge from anterior pituitary."
+  },
+  {
+    "group_key": "lh_increase_vs_decrease",
+    "type": "soda",
+    "member_ids": [
+      "1050",
+      "1072"
+    ],
+    "rationale": "placeholder"
+  },
+  {
+    "group_key": "gnrh_release_decrease",
+    "type": "merge",
+    "member_ids": [
+      "969",
+      "1071"
+    ],
+    "rationale": "Both describe decreased GnRH release/pulsatility in hypothalamus."
+  },
+  {
+    "group_key": "gnrh_secretion_direction",
+    "type": "soda",
+    "member_ids": [
+      "1047",
+      "1071"
+    ],
+    "rationale": "placeholder"
+  },
+  {
+    "group_key": "ovulation_disruption",
+    "type": "merge",
+    "member_ids": [
+      "971",
+      "1074"
+    ],
+    "rationale": "Both describe reduced/blocked/interrupted ovulation."
+  },
+  {
+    "group_key": "prolactin_increase",
+    "type": "merge",
+    "member_ids": [
+      "1077",
+      "1084"
+    ],
+    "rationale": "Both describe increased prolactin exposure/secretion."
+  },
+  {
+    "group_key": "decreased_fertility",
+    "type": "merge",
+    "member_ids": [
+      "330",
+      "972"
+    ],
+    "rationale": "Both describe decreased fertility."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_mrna",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "964",
+      "800"
+    ],
+    "rationale": "Both concern aromatase but enzyme inhibition vs mRNA decrease are different processes."
+  },
+  {
+    "group_key": "hpph_hmgcoa_placeholder",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1496",
+      "1497"
+    ],
+    "rationale": "placeholder"
+  },
+  {
+    "group_key": "inflammatory_cell_recruitment",
+    "type": "merge",
+    "member_ids": [
+      "1494",
+      "1497"
+    ],
+    "rationale": "Both describe recruitment/activation of inflammatory cells/leukocytes."
+  },
+  {
+    "group_key": "vegf_hif_arnt",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "945",
+      "799"
+    ],
+    "rationale": "Both concern HIF-1 heterodimer formation but opposite direction."
+  },
+  {
+    "group_key": "hif1_heterodimer_direction",
+    "type": "soda",
+    "member_ids": [
+      "945",
+      "799"
+    ],
+    "rationale": "Reduced vs increased HIF-1 dimerization."
+  },
+  {
+    "group_key": "nitric_oxide_enos_activity",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "927",
+      "932",
+      "973"
+    ],
+    "rationale": "All concern eNOS but involve glutathionylation, uncoupling, and decreased activity."
+  },
+  {
+    "group_key": "thyroxine_transthyretin",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "957",
+      "958"
+    ],
+    "rationale": "Both concern transthyretin-T4 interaction; binding vs displacement."
+  },
+  {
+    "group_key": "sinoh1_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2329",
+      "2330"
+    ],
+    "rationale": "Same gene product SIX1 measured at mRNA vs protein level."
+  },
+  {
+    "group_key": "hmgcoa_mevalonate_cholesterol",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "805",
+      "807"
+    ],
+    "rationale": "placeholder"
+  }
+]

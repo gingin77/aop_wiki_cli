@@ -1,0 +1,248 @@
+[
+  {
+    "group_key": "homocysteine_increase",
+    "type": "merge",
+    "member_ids": [
+      "1661",
+      "1665"
+    ],
+    "rationale": "Both describe increased homocysteine levels (plasma HCY)."
+  },
+  {
+    "group_key": "angiotensin_II_increase",
+    "type": "merge",
+    "member_ids": [
+      "1752",
+      "1743"
+    ],
+    "rationale": "Both describe increased angiotensin II (plasma) levels."
+  },
+  {
+    "group_key": "ace2_dysregulation_downregulation",
+    "type": "merge",
+    "member_ids": [
+      "1854",
+      "1740",
+      "1787"
+    ],
+    "rationale": "All describe dysregulated/downregulated ACE2 expression or activity in the SARS-CoV-2 context."
+  },
+  {
+    "group_key": "at1r_increase_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1852",
+      "1851"
+    ],
+    "rationale": "Both involve AT1R but increased receptor level and agonist binding are distinct processes."
+  },
+  {
+    "group_key": "ace2_binding_vs_dysregulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1739",
+      "1854"
+    ],
+    "rationale": "Both concern ACE2 but binding by virus differs from dysregulated expression/activity."
+  },
+  {
+    "group_key": "tlr9_activation_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1842",
+      "1900"
+    ],
+    "rationale": "Both concern TLR9 but prolonged activation and increased platelet surface expression are distinct processes."
+  },
+  {
+    "group_key": "ecdysone_cascade_direction",
+    "type": "soda",
+    "member_ids": [
+      "2373",
+      "2375"
+    ],
+    "rationale": "Same mis-timed ecdysone receptor-responsive cascade, opposite directions."
+  },
+  {
+    "group_key": "fecundity_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "328",
+      "1781"
+    ],
+    "rationale": "Both describe decreased fecundity but one is specified for the F3 generation."
+  },
+  {
+    "group_key": "global_dna_methylation_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1773",
+      "1778"
+    ],
+    "rationale": "Both describe decreased DNA methylation, one specifically heritable F3."
+  },
+  {
+    "group_key": "caspase_transcription_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1774",
+      "1779"
+    ],
+    "rationale": "Same caspase transcription increase, one in F3 generation."
+  },
+  {
+    "group_key": "ovarian_somatic_apoptosis_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1776",
+      "1783"
+    ],
+    "rationale": "Same ovarian somatic cell apoptosis, one in F3 generation."
+  },
+  {
+    "group_key": "follicle_breakdown_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1777",
+      "1784"
+    ],
+    "rationale": "Same ovarian follicle breakdown, one in F3 generation."
+  },
+  {
+    "group_key": "dht_dhea_androgen_reduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1688",
+      "2298"
+    ],
+    "rationale": "Related reduced androgen-dependent endpoints; omitted if unsupported."
+  },
+  {
+    "group_key": "progesterone_reduction",
+    "type": "merge",
+    "member_ids": [
+      "1692",
+      "1693"
+    ],
+    "rationale": "Both describe reduced progesterone synthesis/levels."
+  },
+  {
+    "group_key": "cell_death_general",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1825",
+      "1864",
+      "1817"
+    ],
+    "rationale": "General increase in cell death/programmed cell death/apoptotic cell death with differing specificity."
+  },
+  {
+    "group_key": "apoptosis_vs_cell_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1365",
+      "1762"
+    ],
+    "rationale": "Apoptosis generally vs urothelial cell injury/death in a specific cell context."
+  },
+  {
+    "group_key": "oxidative_lipid_protein",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1594",
+      "1445"
+    ],
+    "rationale": "Both lipid oxidation; one specific to membrane lipids."
+  },
+  {
+    "group_key": "protein_oxidation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1595",
+      "1767"
+    ],
+    "rationale": "Both protein oxidation; one specific to membrane proteins."
+  },
+  {
+    "group_key": "hepatic_inflammation_general",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "902",
+      "1633",
+      "1868"
+    ],
+    "rationale": "Inflammation general vs liver-specific vs hyper-inflammation."
+  },
+  {
+    "group_key": "thyroid_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1830",
+      "1831"
+    ],
+    "rationale": "Both involve serum thyroid hormone transport protein binding with different processes."
+  },
+  {
+    "group_key": "cortisol_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1835",
+      "1836"
+    ],
+    "rationale": "Both describe decreased cortisol, one also including 11\u03b2-OH testosterone."
+  },
+  {
+    "group_key": "spermatogenesis_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1758",
+      "1798"
+    ],
+    "rationale": "Both describe impaired/decreased spermatogenesis."
+  },
+  {
+    "group_key": "dnmt_vs_methylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1697",
+      "1619"
+    ],
+    "rationale": "Both concern DNA methyltransferase but expression increase vs inhibition are distinct."
+  },
+  {
+    "group_key": "stat5_il4",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1716",
+      "1717"
+    ],
+    "rationale": "Both concern STAT5 but phosphorylation blockade vs promoter binding are distinct processes."
+  },
+  {
+    "group_key": "tyrosinase_pigmentation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1629",
+      "1630"
+    ],
+    "rationale": "Reduced melanin and melanosome levels; omitted if unsupported."
+  },
+  {
+    "group_key": "tlr_dysregulation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1792",
+      "1848"
+    ],
+    "rationale": "Both TLR activation/dysregulation with differing specificity."
+  },
+  {
+    "group_key": "ecm_collagen",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1501",
+      "1606"
+    ],
+    "rationale": "Placeholder omitted."
+  }
+]

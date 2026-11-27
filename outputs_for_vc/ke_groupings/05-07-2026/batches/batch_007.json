@@ -1,0 +1,48 @@
+[
+  {
+    "group_key": "mct8_oatp1c1_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2258",
+      "2376"
+    ],
+    "rationale": "Both describe inhibition of thyroid hormone transporters (MCT8 and OATP1C1), which are distinct proteins but share the same functional class; however, they are different molecular targets and should be reviewed by curators rather than merged."
+  },
+  {
+    "group_key": "11beta_hsd_activity",
+    "type": "soda",
+    "member_ids": [
+      "2410",
+      "2409"
+    ],
+    "rationale": "Both describe activity changes in 11\u03b2-Hydroxysteroid dehydrogenase enzymes \u2014 one is an increase in HSD type 1 and the other is a decrease in HSD type 2 \u2014 which are opposing regulatory directions on the same class of enzyme but are distinct isoforms; these are directionally opposite changes in closely related but distinct enzymes warranting curator review."
+  },
+  {
+    "group_key": "b_lymphocyte_diminished_response",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2394",
+      "2395",
+      "2396"
+    ],
+    "rationale": "All three describe diminished B lymphocyte activities (survival, proliferation, differentiation) that are distinct cellular processes in the same cell type and cannot be merged but share the same biological object in different functional contexts."
+  },
+  {
+    "group_key": "sex_ratio_ovary_differentiation",
+    "type": "merge",
+    "member_ids": [
+      "2417",
+      "2418"
+    ],
+    "rationale": "Increased differentiation to ovaries and increased phenotypic female-biased sex ratio are closely linked outcomes that describe the same directional biological shift toward female phenotype and are effectively synonymous at the population/organismal level."
+  },
+  {
+    "group_key": "hepatic_bile_acid_burden",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2425",
+      "2427"
+    ],
+    "rationale": "Both describe altered bile acid levels/composition but one specifies intrahepatic burden while the other refers to bile and intestine compartments, representing the same process in different biological compartments."
+  }
+]

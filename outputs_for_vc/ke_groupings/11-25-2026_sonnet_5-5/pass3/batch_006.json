@@ -1,0 +1,62 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "876",
+      "group_key": "mutations_dna",
+      "rationale": "'Increase, Mutations in Critical Genes' is a wording variant of 'Increased, Induced Mutations in Critical Genes' and describes increased mutations."
+    },
+    {
+      "event_id": "1003",
+      "group_key": "t3_tissue_levels",
+      "rationale": "Decreased T3 is the same endpoint as the existing T3 tissue-level events and is in the opposite direction to 'Increased, T3 in tissues'; the existing group is a soda pair, so this fits the same endpoint family."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "nitric_oxide_enos_pathway_ke_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "935",
+        "934",
+        "933"
+      ],
+      "rationale": "GTPCH-1, tetrahydrobiopterin and nitric oxide are different molecules in the same eNOS/NO pathway, grouped only for curator review of the shared pathway (not as synonyms)."
+    },
+    {
+      "group_key": "preeclampsia_placental_insufficiency",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1892",
+        "1893"
+      ],
+      "rationale": "Placental insufficiency and preeclampsia are related pregnancy outcome events at different specificity, flagged for curator review."
+    },
+    {
+      "group_key": "thyroxine_free_serum_vs_tissue_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "959",
+        "960"
+      ],
+      "rationale": "Both concern thyroxine (T4) increases but one is free serum concentration and the other is uptake into tissue, which are distinct processes."
+    },
+    {
+      "group_key": "synaptic_inhibition_increase",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1012",
+        "1015"
+      ],
+      "rationale": "Increased inhibitory postsynaptic potential and increased neuronal synaptic inhibition both concern synaptic inhibition, at different specificity, flagged for curator review."
+    },
+    {
+      "group_key": "il2_il4_suppression_vs_calcineurin_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1202",
+        "980"
+      ],
+      "rationale": "Both belong to the calcineurin-NFAT immunosuppression axis but are distinct processes (cytokine production suppression vs enzyme activity inhibition); flagged for curator review."
+    }
+  ]
+}

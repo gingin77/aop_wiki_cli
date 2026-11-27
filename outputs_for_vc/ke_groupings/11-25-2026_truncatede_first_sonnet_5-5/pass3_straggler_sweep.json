@@ -1,0 +1,580 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1528",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Same endpoint as 'Decrease, Fatty acid \u03b2-oxidation' (decreased fatty acid beta oxidation), so it is a same-direction synonym of that member."
+    },
+    {
+      "event_id": "406",
+      "group_key": "fertility_decrease",
+      "rationale": "Decreased fertility is the same event as 'Decrease, Fertility'."
+    },
+    {
+      "event_id": "245",
+      "group_key": "car_activation",
+      "rationale": "placeholder"
+    },
+    {
+      "event_id": "341",
+      "group_key": "learning_memory_impairment",
+      "rationale": "Impairment of learning and memory is the same endpoint as 'impaired, Learning and memory' and closely related to memory loss."
+    },
+    {
+      "event_id": "1493",
+      "group_key": "proinflammatory_increase",
+      "rationale": "Increased pro-inflammatory mediators is a direct synonym of 'Increase, Pro-Inflammatory Mediators'."
+    },
+    {
+      "event_id": "351",
+      "group_key": "survival_decrease",
+      "rationale": "Increased mortality is the same direction as reduced survival, so it fits the survival group, but the context differs."
+    },
+    {
+      "event_id": "685",
+      "group_key": "pgf2a_ovary_vs_plasma",
+      "rationale": "Reduced prostaglandins in the ovary is the same decrease as reduced PGF2alpha in plasma or ovary synthesis, but the compartment or specificity differs."
+    },
+    {
+      "event_id": "675",
+      "group_key": "reproductive_success_opposite",
+      "rationale": "Reduced reproductive success is the same endpoint as 'Decreased, Reproductive Success' and the opposite of 'Increased, Reproductive Success'."
+    },
+    {
+      "event_id": "472",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "CPT1A down-regulation is not a synonym of fatty acid beta-oxidation; omitted."
+    },
+    {
+      "event_id": "530",
+      "group_key": "gnrh_release_direction",
+      "rationale": "Decreased GnRH pulsatility/release is the same endpoint as the decreased hypothalamic GnRH release member, and is opposite to the increased GnRH secretion member."
+    },
+    {
+      "event_id": "531",
+      "group_key": "lh_surge_release_decrease",
+      "rationale": "Decreased LH surge is the same event as 'Decreased, LH Surge from anterior pituitary', with the tissue qualifier omitted."
+    },
+    {
+      "event_id": "527",
+      "group_key": "fecundity_decrease",
+      "rationale": "Decreased fecundity in general, paired with the existing decreased fecundity events, one of which is generation-specific."
+    },
+    {
+      "event_id": "541",
+      "group_key": "coup_tfii_fetal_leydig",
+      "rationale": "Decreased COUP-TFII in stem Leydig cells is the opposite direction to the 'Increased COUP-TFII in fetal Leydig cells' member."
+    },
+    {
+      "event_id": "593",
+      "group_key": "herg_block_vs_ikr_inhibition",
+      "rationale": "Inhibition of the ERG (hERG) potassium channel shares the same channel object with hERG blockade and IKr inhibition, but the processes may differ."
+    },
+    {
+      "event_id": "754",
+      "group_key": "lh_increase_secretion",
+      "rationale": "Increased LH is the same event in the same direction as 'Increased, Leutinizing hormone (LH)' (spelling differs)."
+    },
+    {
+      "event_id": "933",
+      "group_key": "enos_activity",
+      "rationale": "Nitric oxide depletion is not the same object as eNOS, so this is not assigned."
+    },
+    {
+      "event_id": "1057",
+      "group_key": "ppar_activation_inhibition",
+      "rationale": "PPAR-alpha activation is the same signalling target as the existing PPAR activation/inhibition group but with a different isoform and direction, so it is flagged for curator review."
+    },
+    {
+      "event_id": "1046",
+      "group_key": "er_disruption_vs_activation",
+      "rationale": "Suppression of estrogen receptor activity concerns the same receptor as the disruption and activation events but is a distinct process."
+    },
+    {
+      "event_id": "980",
+      "group_key": "calcineurin_nfat",
+      "rationale": "Calcineurin inhibition sits in the same calcineurin-NFAT signalling axis as the existing NFAT events, but it is a different object and process, so it is a weak fit."
+    },
+    {
+      "event_id": "1003",
+      "group_key": "thyroid_hormone_decrease_serum_brain",
+      "rationale": "Decreased T3 is a decrease in thyroid hormone without a specified compartment, compared with the serum and brain events."
+    },
+    {
+      "event_id": "1104",
+      "group_key": "pgf2a_ovary_vs_plasma",
+      "rationale": "Decreased plasma PGF2alpha concentration is the same reduction as the existing plasma member, with the same wording variant as the ovary-synthesis members."
+    },
+    {
+      "event_id": "1176",
+      "group_key": "sodium_channel_inhibition_modulation",
+      "rationale": "Decreased sodium conductance 2 is related to the existing decreased sodium conductance 1 and sodium channel function events, for curator review."
+    },
+    {
+      "event_id": "1153",
+      "group_key": "deiodinase_inhibition",
+      "rationale": "Inhibition of deiodinase 3 is another deiodinase isoform alongside the existing isoform-specific inhibition events."
+    },
+    {
+      "event_id": "1276",
+      "group_key": "fibrosis_organ_contexts",
+      "rationale": "Lung fibrosis is the same process as the existing 'Pulmonary fibrosis' member, in a different organ context from liver fibrosis."
+    },
+    {
+      "event_id": "1280",
+      "group_key": "hif1_alpha_arnt_dimer",
+      "rationale": "HIF-1 activation concerns the same HIF-1 object as the HIF-1 heterodimer events, but is a distinct process."
+    },
+    {
+      "event_id": "1511",
+      "group_key": "oxidative_lipid_protein",
+      "rationale": "Lipid Peroxidation is the same lipid oxidation process as 'Increase, Lipid peroxidation', but without an increase direction or a membrane qualifier, so it is flagged for curator review."
+    },
+    {
+      "event_id": "1389",
+      "group_key": "locomotion_opposite",
+      "rationale": "Decreased locomotor activity is the same endpoint as 'Decreased, locomotion' and the opposite direction to 'Increased, locomotion'."
+    },
+    {
+      "event_id": "1634",
+      "group_key": "dna_damage_increase",
+      "rationale": "Oxidative DNA damage is a specific form of increased DNA damage, same direction, so it fits the general-versus-specific context group."
+    },
+    {
+      "event_id": "1669",
+      "group_key": "dna_damage_increase",
+      "rationale": "Increased DNA damage and mutation is the same direction as general DNA damage increase, with added specificity (mutation)."
+    },
+    {
+      "event_id": "679",
+      "group_key": "population_decline_vs_increase",
+      "rationale": "Population trajectory decline is the same endpoint as Decline, Population, and is opposite in direction to Increased, Population."
+    },
+    {
+      "event_id": "1555",
+      "group_key": "cell_proliferation_general_vs_context",
+      "rationale": "Increase cell proliferation is the general form of the same process, which the group lists with cell-type-specific variants."
+    },
+    {
+      "event_id": "1863",
+      "group_key": "fecundity_decrease",
+      "rationale": "Decrease, Reproduction is a closely related general reproductive output decrease, but this is a stretch, so only the clear matches are kept."
+    },
+    {
+      "event_id": "1607",
+      "group_key": "necrosis",
+      "rationale": "Increase, Necrosis is the same process as the Necrosis / Necrotic Tissue events in that group, differing only in wording or specificity."
+    },
+    {
+      "event_id": "1741",
+      "group_key": "angiotensin_II_increase",
+      "rationale": "Induced Ang II accumulation describes increased angiotensin II, the same as the other members of that group."
+    },
+    {
+      "event_id": "2065",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Inhibition of fatty acid oxidation is the same endpoint as decreased fatty acid beta-oxidation, so it fits this group, which already pairs the increase and decrease directions."
+    },
+    {
+      "event_id": "2010",
+      "group_key": "inflammation_contexts",
+      "rationale": "Pulmonary inflammation is the same process (inflammation) as the group's other events, set in a lung-specific context."
+    },
+    {
+      "event_id": "2009",
+      "group_key": "inflammation_contexts",
+      "rationale": "Activation of the inflammation pathway is a general increased-inflammation event and fits the group's mix of general and context-specific events."
+    },
+    {
+      "event_id": "1177",
+      "group_key": "gaba_glutamate_chloride_channel",
+      "rationale": "Decreased ionotropic GABA receptor chloride channel conductance shares the same GABA-gated chloride channel object as the increased chloride conductance and activation events but is a distinct process and direction, so it is flagged for curator review."
+    },
+    {
+      "event_id": "2034",
+      "group_key": "liver_injury_hepatotoxicity",
+      "rationale": "Liver dysfunction is closely related to liver injury/hepatotoxicity, although it is not a strict synonym, so this is a borderline assignment."
+    },
+    {
+      "event_id": "2231",
+      "group_key": "locomotion_opposite",
+      "rationale": "Impaired locomotor function is a decrease in locomotion, a directional counterpart of the same endpoint (Increased, locomotion)."
+    },
+    {
+      "event_id": "1924",
+      "group_key": "fibrosis_organ_contexts",
+      "rationale": "Cardiac fibrosis is the same fibrosis process in a different organ context from liver and pulmonary fibrosis."
+    },
+    {
+      "event_id": "1541",
+      "group_key": "complex_iii_binding_vs_inhibition",
+      "rationale": "Mitochondrial Complex I inhibition is a sibling of other complex-specific inhibition events, but it is a different complex."
+    },
+    {
+      "event_id": "2307",
+      "group_key": "photosystem_ii_inhibition_vs_electron_transport",
+      "rationale": "Binding of QB site in D1 protein of Photosystem II shares the Photosystem II object with the inhibition events but is a binding process."
+    },
+    {
+      "event_id": "2350",
+      "group_key": "glycolysis_opposite",
+      "rationale": "\"Decreased, Glycolysis\" is the same endpoint and direction as \"Decrease, Glycolysis\", and the group already pairs it with the opposite \"Increase, Glycolysis\"."
+    },
+    {
+      "event_id": "2336",
+      "group_key": "srebp1_activation_inhibition",
+      "rationale": "\"Increase, SREBF1\" concerns the same protein as \"Activation, SREBF1\" and is opposite in direction to \"Inhibition, SREBP1c\"."
+    },
+    {
+      "event_id": "2347",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "\"Increase, Lipid degradation\" is closely related to increased fatty acid beta-oxidation, with the same direction as \"Increase, Fatty acid beta-oxidation\" and the opposite direction to the decrease member."
+    },
+    {
+      "event_id": "2327",
+      "group_key": "cell_proliferation_general_vs_context",
+      "rationale": "\"Decrease, Cell growth\" is a general cell-level decrease similar to \"Decrease, Cell proliferation\"."
+    },
+    {
+      "event_id": "2391",
+      "group_key": "fertility_decrease",
+      "rationale": "\"Reduced fertility / fecundity\" describes decreased fertility, the same as \"Decrease, Fertility\"."
+    },
+    {
+      "event_id": "2446",
+      "group_key": "lipid_accumulation_droplet",
+      "rationale": "'Increase, lipid accumulation' is a synonym of 'increased lipid accumulation'."
+    },
+    {
+      "event_id": "2404",
+      "group_key": "fibrosis_organ_contexts",
+      "rationale": "Kidney fibrosis is the same fibrosis process in another organ context, like liver and pulmonary fibrosis."
+    },
+    {
+      "event_id": "1507",
+      "group_key": "ppar_activation_inhibition",
+      "rationale": "Activation of PPAR\u03b3 concerns PPAR signalling, like the PPAR-gamma activation / PPAR alpha inhibition group."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "testosterone_synthesis_reduction_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "413",
+        "274"
+      ],
+      "rationale": "Reduced testosterone synthesis in different cell contexts (Leydig cells vs ovarian theca cells)."
+    },
+    {
+      "group_key": "vitellogenin_reduction_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "285",
+        "221"
+      ],
+      "rationale": "Reduced vitellogenin synthesis in liver vs reduced plasma vitellogenin concentration, different compartments and processes."
+    },
+    {
+      "group_key": "ahr_activation_dimerization",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "18",
+        "944"
+      ],
+      "rationale": "Both concern AhR signalling; activation and AHR/ARNT dimerization are distinct processes."
+    },
+    {
+      "group_key": "oxidative_stress_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1392",
+        "1538"
+      ],
+      "rationale": "Both concern oxidative stress; one is an increase and the other is decreased protection, so context differs."
+    },
+    {
+      "group_key": "cell_injury_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "55",
+        "403"
+      ],
+      "rationale": "placeholder"
+    },
+    {
+      "group_key": "fetal_leydig_glucocorticoid_receptor_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "494",
+        "654"
+      ],
+      "rationale": "Both concern glucocorticoid receptor agonist activation, one in the context of fetal Leydig cell testosterone reduction."
+    },
+    {
+      "group_key": "adult_leydig_apoptosis_steroidogenesis_relationships",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "648",
+        "525"
+      ],
+      "rationale": "Both relate adult Leydig cell apoptosis to decreased steroidogenesis or testosterone, with differently specified KERs."
+    },
+    {
+      "group_key": "impaired_development_larval",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "566",
+        "577"
+      ],
+      "rationale": "Both describe impaired development, one general and one specific to the larval stage."
+    },
+    {
+      "group_key": "ne_receptor_binding_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "848",
+        "849"
+      ],
+      "rationale": "Both concern norepinephrine receptors on GnRH neurons, with binding reduced versus receptor antagonism, which are distinct processes."
+    },
+    {
+      "group_key": "neuronal_inhibition_increase",
+      "type": "merge",
+      "member_ids": [
+        "1012",
+        "1015"
+      ],
+      "rationale": "Increased inhibitory postsynaptic potential and increased neuronal synaptic inhibition both describe enhanced inhibitory neurotransmission."
+    },
+    {
+      "group_key": "muscle_paralysis_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1014",
+        "1019"
+      ],
+      "rationale": "Both describe induction of muscle paralysis, in somatic muscle versus pharyngeal muscle."
+    },
+    {
+      "group_key": "smooth_muscle_proliferation_hyperplasia",
+      "type": "merge",
+      "member_ids": [
+        "1042",
+        "1043"
+      ],
+      "rationale": "Smooth muscle proliferation/clonal expansion and hypertrophy/hyperplasia both describe increased smooth muscle cell growth."
+    },
+    {
+      "group_key": "ovarian_hyperplasia_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1051",
+        "1052"
+      ],
+      "rationale": "Both describe ovarian hyperplasia in different cell compartments (stromal cells vs epithelium)."
+    },
+    {
+      "group_key": "ovarian_tumor_promotion_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1053",
+        "1054"
+      ],
+      "rationale": "Both describe promotion of ovarian tumours of different types (adenomas vs granular cell tumours)."
+    },
+    {
+      "group_key": "sarcoma_increase_types",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1035",
+        "1036",
+        "1037"
+      ],
+      "rationale": "Increased fibrosarcoma, liposarcoma, and hemangiosarcoma are the same type of tumour increase in different mesenchymal cell types."
+    },
+    {
+      "group_key": "estradiol_decrease_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1056",
+        "1045"
+      ],
+      "rationale": "Both describe decreased E2 concentrations, in hypothalamus blood vs ovary."
+    },
+    {
+      "group_key": "kisspeptin_gnrh_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "968",
+        "969"
+      ],
+      "rationale": "Decreased kisspeptin release from AVPV neurons and decreased kisspeptin stimulation of GnRH neurons are closely related kisspeptin-axis decreases that differ in context."
+    },
+    {
+      "group_key": "t3_tissue_direction",
+      "type": "soda",
+      "member_ids": [
+        "1116",
+        "1154"
+      ],
+      "rationale": "Decreased vs increased T3 in tissues are opposite directions of the same endpoint."
+    },
+    {
+      "group_key": "collagen_deposition_vs_ecm_modulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1275",
+        "1195"
+      ],
+      "rationale": "Collagen deposition is a specific ECM change, whereas modulation of ECM composition is a general ECM process, so they differ in specificity."
+    },
+    {
+      "group_key": "seizure_epilepsy_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1348",
+        "1363"
+      ],
+      "rationale": "Increased seizure and increased epilepsy are closely related hyperexcitability outcomes that differ in specificity."
+    },
+    {
+      "group_key": "atra_retinoic_acid_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1881",
+        "2419",
+        "1880"
+      ],
+      "rationale": "Decreased atRA concentration, decreased RAR activation and decreased ALDH1A activity all concern the retinoic acid signaling axis but are distinct molecules and processes, so they are flagged for curator review."
+    },
+    {
+      "group_key": "gnrhr_expression_methylation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1698",
+        "1699"
+      ],
+      "rationale": "Both concern the GnRH receptor; promoter hypermethylation and decreased expression are distinct processes."
+    },
+    {
+      "group_key": "ovulation_impaired_vs_existing",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1695",
+        "1691"
+      ],
+      "rationale": "LH receptor antagonism and impaired ovulation are not the same object, so this should be omitted."
+    },
+    {
+      "group_key": "cilia_function_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1908",
+        "1912"
+      ],
+      "rationale": "Both describe decreased motile cilia function or structure in airway epithelium, at different levels of specificity (beat frequency vs number/length)."
+    },
+    {
+      "group_key": "qt_action_potential_prolongation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1961",
+        "1962"
+      ],
+      "rationale": "Prolonged action potential duration at the cellular level and QT interval prolongation at the organ/ECG level describe the same repolarization delay at different scales."
+    },
+    {
+      "group_key": "folate_transport_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2025",
+        "2026"
+      ],
+      "rationale": "Both concern the folate transporter, one as an affected transporter and the other as decreased folate uptake, which are distinct processes."
+    },
+    {
+      "group_key": "hemocyanin_mrna_vs_oxygen_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2076",
+        "2074",
+        "2073"
+      ],
+      "rationale": "All concern hemocyanin but describe distinct processes (mRNA expression, oxygen binding capacity, oxidation of the active site)."
+    },
+    {
+      "group_key": "sodium_decrease_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2236",
+        "2237"
+      ],
+      "rationale": "Decreased sodium in different compartments (gill uptake vs plasma concentration)."
+    },
+    {
+      "group_key": "ppar_activation_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2165",
+        "2224"
+      ],
+      "rationale": "Both concern PPAR, as activation versus dysregulated transcriptional expression within PPAR signaling."
+    },
+    {
+      "group_key": "vascular_dysfunction_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1928",
+        "2178"
+      ],
+      "rationale": "Vascular endothelial dysfunction and vascular barrier disruption are similar vascular impairments with differing specificity."
+    },
+    {
+      "group_key": "transthyretin_thyroid_transporters_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2258",
+        "2376"
+      ],
+      "rationale": "Inhibition of different thyroid hormone transporters (MCT8 and OATP1C1), which are distinct isoforms of the same event type."
+    },
+    {
+      "group_key": "b_lymphocyte_diminished",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2394",
+        "2395",
+        "2396"
+      ],
+      "rationale": "Diminished survival, proliferation and differentiation of B lymphocytes are different processes in the same cell type, grouped for curator review."
+    },
+    {
+      "group_key": "dopamine_transcription_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2380",
+        "2381"
+      ],
+      "rationale": "Increased transcription of different dopamine signaling genes (transporter and receptor)."
+    },
+    {
+      "group_key": "hsd11b_activity_direction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2410",
+        "2409"
+      ],
+      "rationale": "Both concern 11\u03b2-HSD activity, but they involve different isozymes (type 1 vs type 2) and opposite directions, so they are flagged for review."
+    },
+    {
+      "group_key": "bile_acid_burden_related",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2425",
+        "2427"
+      ],
+      "rationale": "Both describe altered bile acid levels or composition in different compartments."
+    }
+  ]
+}

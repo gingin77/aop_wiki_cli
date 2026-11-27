@@ -1,0 +1,99 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1057",
+      "group_key": "ppar_activation_inhibition",
+      "rationale": "PPAR-alpha activation is the same signalling target as the existing PPAR activation/inhibition group but with a different isoform and direction, so it is flagged for curator review."
+    },
+    {
+      "event_id": "1046",
+      "group_key": "er_disruption_vs_activation",
+      "rationale": "Suppression of estrogen receptor activity concerns the same receptor as the disruption and activation events but is a distinct process."
+    },
+    {
+      "event_id": "980",
+      "group_key": "calcineurin_nfat",
+      "rationale": "Calcineurin inhibition sits in the same calcineurin-NFAT signalling axis as the existing NFAT events, but it is a different object and process, so it is a weak fit."
+    },
+    {
+      "event_id": "1003",
+      "group_key": "thyroid_hormone_decrease_serum_brain",
+      "rationale": "Decreased T3 is a decrease in thyroid hormone without a specified compartment, compared with the serum and brain events."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "neuronal_inhibition_increase",
+      "type": "merge",
+      "member_ids": [
+        "1012",
+        "1015"
+      ],
+      "rationale": "Increased inhibitory postsynaptic potential and increased neuronal synaptic inhibition both describe enhanced inhibitory neurotransmission."
+    },
+    {
+      "group_key": "muscle_paralysis_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1014",
+        "1019"
+      ],
+      "rationale": "Both describe induction of muscle paralysis, in somatic muscle versus pharyngeal muscle."
+    },
+    {
+      "group_key": "smooth_muscle_proliferation_hyperplasia",
+      "type": "merge",
+      "member_ids": [
+        "1042",
+        "1043"
+      ],
+      "rationale": "Smooth muscle proliferation/clonal expansion and hypertrophy/hyperplasia both describe increased smooth muscle cell growth."
+    },
+    {
+      "group_key": "ovarian_hyperplasia_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1051",
+        "1052"
+      ],
+      "rationale": "Both describe ovarian hyperplasia in different cell compartments (stromal cells vs epithelium)."
+    },
+    {
+      "group_key": "ovarian_tumor_promotion_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1053",
+        "1054"
+      ],
+      "rationale": "Both describe promotion of ovarian tumours of different types (adenomas vs granular cell tumours)."
+    },
+    {
+      "group_key": "sarcoma_increase_types",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1035",
+        "1036",
+        "1037"
+      ],
+      "rationale": "Increased fibrosarcoma, liposarcoma, and hemangiosarcoma are the same type of tumour increase in different mesenchymal cell types."
+    },
+    {
+      "group_key": "estradiol_decrease_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1056",
+        "1045"
+      ],
+      "rationale": "Both describe decreased E2 concentrations, in hypothalamus blood vs ovary."
+    },
+    {
+      "group_key": "kisspeptin_gnrh_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "968",
+        "969"
+      ],
+      "rationale": "Decreased kisspeptin release from AVPV neurons and decreased kisspeptin stimulation of GnRH neurons are closely related kisspeptin-axis decreases that differ in context."
+    }
+  ]
+}

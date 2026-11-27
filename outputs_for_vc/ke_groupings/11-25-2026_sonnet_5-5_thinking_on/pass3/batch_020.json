@@ -1,0 +1,25 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2274",
+      "group_key": "androgen_receptor_activation",
+      "rationale": "Androgen receptor activation increased is the same endpoint in the opposite direction to 'Decrease, androgen receptor activation', so it is flagged with that group for curator review."
+    },
+    {
+      "event_id": "1924",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Cardiac fibrosis is the same process (fibrosis) as liver and pulmonary fibrosis, in a different organ."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "sodium_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2236",
+        "2237"
+      ],
+      "rationale": "Both describe decreased sodium, one as uptake in gills and the other as plasma concentration, which are different compartments."
+    }
+  ]
+}

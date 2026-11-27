@@ -1,0 +1,134 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "675",
+      "group_key": "reproductive_success_direction",
+      "rationale": "Reduced reproductive success is the same endpoint as 'Decreased, Reproductive Success', in the opposite direction to 'Increased'."
+    },
+    {
+      "event_id": "531",
+      "group_key": "lh_decrease_surge",
+      "rationale": "Decreased LH surge is the same event as 'Decreased, LH Surge from anterior pituitary'."
+    },
+    {
+      "event_id": "530",
+      "group_key": "gnrh_release_decrease",
+      "rationale": "Decreased GnRH pulsatility/release is the same as 'Decreased, GnRH pulsatility/release in hypothalamus'."
+    },
+    {
+      "event_id": "685",
+      "group_key": "pgf2a_plasma_vs_ovary",
+      "rationale": "Reduced prostaglandins in ovary is a related reduced-prostaglandin event in a differing biological context/specificity."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "decreased_testosterone_fetal_leydig_new_variants",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "653",
+        "654",
+        "658",
+        "659",
+        "661"
+      ],
+      "rationale": "All are KER-style upstream events for decreased testosterone by fetal Leydig cells, differing in the upstream trigger/context."
+    },
+    {
+      "group_key": "decreased_testosterone_adult_leydig_variants",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "525",
+        "651",
+        "652",
+        "645"
+      ],
+      "rationale": "All describe decreased testosterone production by adult Leydig cells via different upstream contexts."
+    },
+    {
+      "group_key": "decreased_cholesterol_variants",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "642",
+        "643",
+        "644"
+      ],
+      "rationale": "Different cholesterol-supply processes under the 'Decreased cholesterol' theme, flagged for curator review."
+    },
+    {
+      "group_key": "leydig_apoptosis_variants",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "496",
+        "648"
+      ],
+      "rationale": "Both describe increased apoptosis of Leydig cells, with differing specificity (fetal/adult vs adult)."
+    },
+    {
+      "group_key": "decreased_steroidogenic_expression",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "495",
+        "647"
+      ],
+      "rationale": "Both describe reduced steroidogenic enzyme/protein expression with differing wording and specificity."
+    },
+    {
+      "group_key": "gnrh_lh_decrease_events_new",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "529",
+        "530"
+      ],
+      "rationale": "Both are decreased GnRH neuron activity/release events in differing specificity."
+    },
+    {
+      "group_key": "glucocorticoid_receptor_activation_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "494",
+        "654",
+        "651"
+      ],
+      "rationale": "All involve glucocorticoid receptor activation/mediated effects with distinct downstream processes."
+    },
+    {
+      "group_key": "ppar_gamma_adipogenesis_cebpa",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1028",
+        "1448",
+        "1449"
+      ],
+      "rationale": "Adipogenic transcription factor activation (PPAR-gamma, C/EBPalpha) and increased adipogenesis are related but distinct processes."
+    },
+    {
+      "group_key": "decreased_dopamine_reward",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1450",
+        "1451"
+      ],
+      "rationale": "Decreased dopamine and decreased reward are related but distinct events needing curator review."
+    },
+    {
+      "group_key": "srebp_lxr_lipid_regulators",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "483",
+        "878"
+      ],
+      "rationale": "LXR alpha activation and SREBP1c inhibition are related lipogenic regulators, different molecules; flagged for curator review."
+    },
+    {
+      "group_key": "fatty_acid_oxidation_ketogenesis_downregulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "472",
+        "474",
+        "477"
+      ],
+      "rationale": "Down-regulation of CPT1A, HMGCS2 and decreased ketogenesis are related decreased fatty acid oxidation/ketogenic events at differing specificity."
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1270",
+      "group_key": "decreased_ppar_subtypes",
+      "rationale": "Inactivation of PPAR\u03b3 describes decreased PPAR activation for the gamma subtype, consistent with the group containing decreased PPAR\u03b1, PPAR\u03b2, and PPAR\u03b3 activation events."
+    },
+    {
+      "event_id": "1291",
+      "group_key": "hepatotoxicity_liver_injury",
+      "rationale": "Hepatotoxicity describes the same hepatic damage/toxicity endpoint as hepatocytotoxicity and liver injury already in this merge group."
+    },
+    {
+      "event_id": "1320",
+      "group_key": "serotonin_transporter_serotonin_increase",
+      "rationale": "Increased extracellular serotonin is the downstream consequence of serotonin transporter inhibition, sharing the same biological object (serotonin) but describing a distinct process (neurotransmitter level vs. transporter function)."
+    },
+    {
+      "event_id": "1339",
+      "group_key": "calcium_channel_opening_influx",
+      "rationale": "Increase in intracellular calcium describes the same directional outcome as calcium channel opening/influx events already in this merge group."
+    },
+    {
+      "event_id": "1353",
+      "group_key": "sodium_channel_modulation_vs_inhibition",
+      "rationale": "Binding to voltage-gated sodium channel involves the same biological object as sodium channel inhibition and modulation, but binding is a distinct process from inhibition or modulation, fitting the same_object_different_process pattern of this group."
+    },
+    {
+      "event_id": "1284",
+      "group_key": "cholesterol_synthesis_enzymes_srebp2",
+      "rationale": "Up-regulation of SREBF2 describes the same directional increase in SREBP2 expression already captured in the cholesterol synthesis enzymes/SREBP2 group."
+    },
+    {
+      "event_id": "1279",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "Increase in oxidative stress / activation of PMK-1 P38 MAPK includes increased oxidative stress as a component, consistent with the merge group for increased reactive oxygen species/oxidative stress."
+    },
+    {
+      "event_id": "1489",
+      "group_key": "liver_steatosis",
+      "rationale": "Increase in steatohepatitis is a progression of liver steatosis/fatty liver and describes the same hepatic lipid accumulation pathology; however steatohepatitis includes inflammatory component \u2014 assigning to liver_steatosis for curator review as similar_event_different_biological_context."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "ductal_hyperplasia_breast_cancer",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1192",
+        "1193"
+      ],
+      "rationale": "Increased ductal hyperplasia and breast cancer describe progressive stages of the same pathological process in breast tissue \u2014 hyperplasia is a precursor lesion while breast cancer is the malignant outcome."
+    },
+    {
+      "group_key": "cell_invasion_motility",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1196",
+        "1241"
+      ],
+      "rationale": "Increased invasion and increased motility describe related but distinct cellular behaviors \u2014 motility is cell movement capacity while invasion specifically refers to penetration of surrounding tissue barriers."
+    },
+    {
+      "group_key": "emt_invasion",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1457",
+        "1196"
+      ],
+      "rationale": "Epithelial-mesenchymal transition and increased invasion are sequential events in cancer progression \u2014 EMT is the upstream cellular reprogramming process that enables invasion, but they are distinct biological events."
+    },
+    {
+      "group_key": "mll_translocation_infant_leukaemia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1253",
+        "1254"
+      ],
+      "rationale": "MLL chromosomal translocation is the molecular initiating event and infant leukaemia is the resulting disease outcome \u2014 causally linked but distinct biological processes."
+    },
+    {
+      "group_key": "doublesex1_male_reproductive_tract",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1206",
+        "1209"
+      ],
+      "rationale": "Induction of Doublesex1 gene and induction of male reproductive tract describe sequential events in sex determination \u2014 Doublesex1 is a transcription factor whose induction drives male reproductive tract development, but they are distinct processes at different biological levels."
+    },
+    {
+      "group_key": "juvenile_hormone_receptor_doublesex1",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1205",
+        "1206"
+      ],
+      "rationale": "Activation of juvenile hormone receptor and induction of Doublesex1 gene are sequential pathway events in insect sex determination \u2014 JH receptor activation upstream of Doublesex1 induction \u2014 but are distinct molecular processes."
+    },
+    {
+      "group_key": "male_offspring_reproductive_tract",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1208",
+        "1209"
+      ],
+      "rationale": "Increased male offspring and induction of male reproductive tract both describe masculinization outcomes but at different biological levels \u2014 population/organismal sex ratio vs. individual tissue-level induction."
+    },
+    {
+      "group_key": "mitochondrial_inhibition_vs_dysfunction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1260",
+        "177"
+      ],
+      "rationale": "Direct mitochondrial inhibition and mitochondrial dysfunction describe the same biological target at different levels \u2014 inhibition is the initiating molecular event while dysfunction is the resulting functional impairment."
+    },
+    {
+      "group_key": "necrosis_vs_apoptosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1263",
+        "1262"
+      ],
+      "rationale": "Necrosis and apoptosis are both forms of cell death but represent mechanistically distinct processes \u2014 necrosis is uncontrolled while apoptosis is programmed cell death."
+    },
+    {
+      "group_key": "hif1_activation_vs_heterodimer",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1280",
+        "799"
+      ],
+      "rationale": "Activation of HIF-1 and increased HIF-1 heterodimer formation both involve the HIF-1 complex but activation is a broader functional event while heterodimer formation is a specific molecular assembly process."
+    },
+    {
+      "group_key": "dna_damage_repair_increase",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1281",
+        "1194"
+      ],
+      "rationale": "Increased DNA damage-repair and increased DNA strand breaks both describe DNA damage responses but one describes the repair process activation while the other describes the initiating lesion \u2014 related but distinct biological events."
+    },
+    {
+      "group_key": "nadph_oxidase_ros_production",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1174",
+        "1279"
+      ],
+      "rationale": "NADPH oxidase activation and increased oxidative stress/ROS share the same pathway but activation of the enzyme is distinct from the resulting oxidative stress state."
+    },
+    {
+      "group_key": "srebf2_cholesterol_perturbation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1284",
+        "1289"
+      ],
+      "rationale": "Up-regulation of SREBF2 and perturbation of cholesterol describe sequential events in cholesterol homeostasis \u2014 SREBF2 is a transcription factor regulating cholesterol synthesis while perturbation of cholesterol is the downstream metabolic outcome."
+    },
+    {
+      "group_key": "unsaturated_fatty_acid_upregulation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1285",
+        "1528"
+      ],
+      "rationale": "Up-regulation of unsaturated fatty acids and decreased fatty acid beta-oxidation are directionally related but not synonymous \u2014 one describes increased unsaturated FA levels while the other describes decreased oxidative catabolism of fatty acids, representing distinct processes."
+    },
+    {
+      "group_key": "gss_gst_downregulation_glutathione",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1286",
+        "1287"
+      ],
+      "rationale": "Down-regulation of GSS and GSTs genes and glutathione synthesis/homeostasis both involve glutathione metabolism but gene downregulation and synthesis/homeostasis are distinct processes on the same biological pathway."
+    },
+    {
+      "group_key": "hmgcr_cholesterol_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1288",
+        "1289"
+      ],
+      "rationale": "Activation of HMG-CoA reductase gene and perturbation of cholesterol share the cholesterol biosynthesis pathway \u2014 enzyme activation is the upstream molecular event while cholesterol perturbation is the downstream metabolic outcome."
+    },
+    {
+      "group_key": "jnk_activation_foxo",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1292",
+        "1293"
+      ],
+      "rationale": "Activation of JNK and activation of FOXO are sequential signaling events in the same stress-response pathway \u2014 JNK phosphorylates and activates FOXO \u2014 but are distinct molecular processes involving different proteins."
+    },
+    {
+      "group_key": "wnt_pathway_inhibition_vs_beta_catenin",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1294",
+        "1754"
+      ],
+      "rationale": "Inhibition of Wnt pathway and Wnt/beta-catenin signaling activation are opposite functional outcomes of the same pathway \u2014 one inhibits while the other activates Wnt signaling \u2014 representing directionally opposite processes on the same pathway object."
+    },
+    {
+      "group_key": "cell_cycle_disruption_proliferation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1505",
+        "57"
+      ],
+      "rationale": "Cell cycle disruption and cell proliferation are related but distinct cell-cycle events \u2014 disruption implies impairment of the cycle while proliferation describes the outcome of normal/increased cycling."
+    },
+    {
+      "group_key": "spermatocyte_depletion_spermatogenesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1515",
+        "1758"
+      ],
+      "rationale": "Spermatocyte depletion is a specific cellular component of impaired spermatogenesis \u2014 same biological process but one specifies the cell-type level while the other describes the overall process."
+    },
+    {
+      "group_key": "testicular_atrophy_spermatogenesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1506",
+        "1758"
+      ],
+      "rationale": "Testicular atrophy is an organ-level outcome while impaired spermatogenesis is a cellular process \u2014 both describe testicular pathology but at different biological scales."
+    },
+    {
+      "group_key": "bdnf_reduction_neuroplasticity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1335",
+        "1330"
+      ],
+      "rationale": "Reduced BDNF (brain-derived neurotrophic factor) and decreased neuroplasticity describe related but distinct events \u2014 BDNF is a molecular mediator of neuroplasticity, but its reduction is a molecular event while neuroplasticity is a broader functional outcome."
+    },
+    {
+      "group_key": "presynaptic_neuron_glutamate_release",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1349",
+        "1350"
+      ],
+      "rationale": "Activated presynaptic neuron and increased glutamate describe sequential events \u2014 presynaptic neuron activation causes glutamate release \u2014 but neuronal activation and neurotransmitter level are distinct biological processes."
+    },
+    {
+      "group_key": "glutamate_increase_nmda_overactivation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1350",
+        "388"
+      ],
+      "rationale": "Increased glutamate and overactivation of NMDA receptors are causally linked but represent distinct processes \u2014 elevated neurotransmitter vs. downstream receptor overactivation on different biological objects."
+    },
+    {
+      "group_key": "seizure_increase_status_epilepticus",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1348",
+        "1788"
+      ],
+      "rationale": "Increased seizures and status epilepticus describe the same neurological phenomenon at different severity levels \u2014 seizures generally vs. a specific severe prolonged seizure state."
+    },
+    {
+      "group_key": "jak_stat_pathway_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1282",
+        "1172"
+      ],
+      "rationale": "Activation of JAK/STAT pathway and NF-kB activation are distinct signaling cascades that both drive inflammatory gene expression \u2014 related but involving different molecular objects and processes."
+    },
+    {
+      "group_key": "extracellular_matrix_modulation_vs_deposition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1195",
+        "1501"
+      ],
+      "rationale": "Modulation of extracellular matrix composition and increase in extracellular matrix deposition both involve the ECM but composition modulation and deposition increase are distinct processes on the same biological object."
+    },
+    {
+      "group_key": "macrophage_activation_vs_innate_immune",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1198",
+        "1255"
+      ],
+      "rationale": "Activation of macrophages and innate immune response activation describe the same general immune activation but macrophage activation specifies the cell type while the other is a broader process \u2014 however 1255 is not in ungrouped; pairing 1198 with existing innate_immune_activation_general group member 1998 which describes microglia activation."
+    },
+    {
+      "group_key": "reproductive_failure_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1277",
+        "675"
+      ],
+      "rationale": "Reproductive failure and reduced reproductive success describe the same adverse reproductive outcome using different terminology, with failure implying a more severe outcome than reduced success."
+    },
+    {
+      "group_key": "narcosis_cell_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1259",
+        "1263"
+      ],
+      "rationale": "Narcosis and necrosis describe distinct mechanisms of cellular/organismal harm \u2014 narcosis is reversible non-specific membrane disruption while necrosis is irreversible cell death \u2014 these are distinct processes that warrant curator review."
+    }
+  ]
+}

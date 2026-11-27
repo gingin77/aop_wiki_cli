@@ -1,0 +1,1110 @@
+[
+  {
+    "group_key": "nis_iodide_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "424",
+      "425"
+    ],
+    "rationale": "Both concern the Na+/I- symporter and iodide uptake, but one is NIS inhibition and the other is decreased thyroidal iodide, which are distinct events."
+  },
+  {
+    "group_key": "coup_tfii_fetal_leydig",
+    "type": "soda",
+    "member_ids": [
+      "655",
+      "656"
+    ],
+    "rationale": "Both address COUP-TFII in fetal Leydig cells, with one increased and the other decreased."
+  },
+  {
+    "group_key": "fetal_leydig_dysgenesis_relationships",
+    "type": "merge",
+    "member_ids": [
+      "657",
+      "660",
+      "540"
+    ],
+    "rationale": "All describe the same KER, decreased testosterone by fetal Leydig cells leading to dysgenesis of fetal Leydig cells, with different wording."
+  },
+  {
+    "group_key": "sperm_fertility_relationships",
+    "type": "merge",
+    "member_ids": [
+      "520",
+      "505"
+    ],
+    "rationale": "Both describe decreased sperm quantity/quality in the adult leading to decreased fertility."
+  },
+  {
+    "group_key": "sperm_fertility_relationship_reverse",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "543",
+      "520",
+      "505"
+    ],
+    "rationale": "Same sperm quality and fertility endpoints but relationship direction/order is reversed, requiring curator review."
+  },
+  {
+    "group_key": "pgf2a_ovary_synthesis",
+    "type": "merge",
+    "member_ids": [
+      "672",
+      "681"
+    ],
+    "rationale": "Both describe reduced prostaglandin F2alpha synthesis in the ovary."
+  },
+  {
+    "group_key": "pgf2a_ovary_vs_plasma",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "671",
+      "672",
+      "681"
+    ],
+    "rationale": "Reduced PGF2alpha in different compartments (plasma vs ovary synthesis)."
+  },
+  {
+    "group_key": "ovulation_decrease_delayed",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "488",
+      "532"
+    ],
+    "rationale": "Both describe impaired ovulation, one as decrease and the other as delay."
+  },
+  {
+    "group_key": "colony_loss",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1107",
+      "563"
+    ],
+    "rationale": "Both describe adverse colony-level outcomes in bees, with different severity."
+  },
+  {
+    "group_key": "caste_role_change",
+    "type": "merge",
+    "member_ids": [
+      "564",
+      "1108"
+    ],
+    "rationale": "Both describe abnormal role change within caste, with only a spelling difference."
+  },
+  {
+    "group_key": "nachr_activation_desensitization",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "559",
+      "663"
+    ],
+    "rationale": "Both target the nicotinic acetylcholine receptor but describe activation versus desensitization."
+  },
+  {
+    "group_key": "sodium_channel_inhibition_modulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "584",
+      "598",
+      "585"
+    ],
+    "rationale": "All relate to sodium channel function (inhibition, modulation, decreased conductance), which are distinct processes."
+  },
+  {
+    "group_key": "locomotion_opposite",
+    "type": "soda",
+    "member_ids": [
+      "622",
+      "635"
+    ],
+    "rationale": "Increased vs decreased locomotion."
+  },
+  {
+    "group_key": "predation_increase",
+    "type": "merge",
+    "member_ids": [
+      "588",
+      "623"
+    ],
+    "rationale": "Both describe increased predation."
+  },
+  {
+    "group_key": "survival_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "592",
+      "636"
+    ],
+    "rationale": "Both describe reduced survival, but in different organism contexts."
+  },
+  {
+    "group_key": "cytotoxicity_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "709",
+      "768",
+      "770",
+      "776",
+      "780",
+      "783",
+      "786",
+      "794",
+      "1086"
+    ],
+    "rationale": "Increased cytotoxicity in different cell contexts (renal tubular, general, club cells)."
+  },
+  {
+    "group_key": "hyperplasia_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "767",
+      "735",
+      "740",
+      "744",
+      "772",
+      "782",
+      "784",
+      "796",
+      "1078",
+      "1085"
+    ],
+    "rationale": "Increased hyperplasia in different cell/tissue contexts."
+  },
+  {
+    "group_key": "regenerative_proliferation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "710",
+      "734",
+      "778",
+      "781",
+      "787",
+      "795"
+    ],
+    "rationale": "Regenerative cell proliferation in different epithelia."
+  },
+  {
+    "group_key": "adenoma_carcinoma_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "713",
+      "736",
+      "741",
+      "779",
+      "797",
+      "1079",
+      "885"
+    ],
+    "rationale": "Increased adenomas/carcinomas in different tissues."
+  },
+  {
+    "group_key": "car_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "715",
+      "1214",
+      "456"
+    ],
+    "rationale": "All concern CAR (NR1I3), but as activation, activation-specific gene expression, or suppression."
+  },
+  {
+    "group_key": "ar_activation_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "743",
+      "1614"
+    ],
+    "rationale": "Both concern decreased androgen receptor activity/binding, but binding differs from activation and one is hypothalamus-specific."
+  },
+  {
+    "group_key": "tg_triglyceride",
+    "type": "merge",
+    "member_ids": [
+      "454",
+      "881"
+    ],
+    "rationale": "Both describe increased triglyceride levels or formation."
+  },
+  {
+    "group_key": "ppar_activation_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1028",
+      "468"
+    ],
+    "rationale": "Both concern PPAR signalling but with opposite or non-identical isoform and direction (PPAR-gamma activation vs PPAR alpha inhibition)."
+  },
+  {
+    "group_key": "srebp1_activation_inhibition",
+    "type": "soda",
+    "member_ids": [
+      "457",
+      "878"
+    ],
+    "rationale": "Activation vs inhibition of SREBP1/SREBF1."
+  },
+  {
+    "group_key": "steroidogenic_enzyme_decrease",
+    "type": "merge",
+    "member_ids": [
+      "495",
+      "647"
+    ],
+    "rationale": "Both describe reduced expression of steroidogenic enzymes/proteins."
+  },
+  {
+    "group_key": "glutamate_gated_chloride_channel_activation",
+    "type": "merge",
+    "member_ids": [
+      "760",
+      "1018"
+    ],
+    "rationale": "Both describe activation of glutamate-gated chloride channels (singular vs plural wording)."
+  },
+  {
+    "group_key": "dopaminergic_activity_direction",
+    "type": "soda",
+    "member_ids": [
+      "746",
+      "1083"
+    ],
+    "rationale": "Same endpoint, dopaminergic activity, increased vs decreased."
+  },
+  {
+    "group_key": "mammary_hyperplasia",
+    "type": "merge",
+    "member_ids": [
+      "1078",
+      "1085"
+    ],
+    "rationale": "Both describe mammary gland hyperplasia."
+  },
+  {
+    "group_key": "cell_proliferation_general_vs_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "870",
+      "1089",
+      "1033",
+      "1182",
+      "1821"
+    ],
+    "rationale": "Increased cell proliferation, general vs mesothelium vs mesenchymal cell contexts."
+  },
+  {
+    "group_key": "inflammation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "777",
+      "1087",
+      "902",
+      "1633",
+      "1868"
+    ],
+    "rationale": "Increased inflammation, corneal-specific vs general."
+  },
+  {
+    "group_key": "ppar_beta2_adrenergic_activation",
+    "type": "merge",
+    "member_ids": [
+      "1038",
+      "1039"
+    ],
+    "rationale": "Both describe increased activation/activity of beta-2 adrenergic receptor."
+  },
+  {
+    "group_key": "cytoplasmic_vacuolization_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "824",
+      "818",
+      "833",
+      "837",
+      "836"
+    ],
+    "rationale": "Cytoplasmic vacuolization in different cell types."
+  },
+  {
+    "group_key": "hif1_alpha_arnt_dimer",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "799",
+      "945"
+    ],
+    "rationale": "Both concern HIF-1alpha/ARNT heterodimer, increased vs reduced dimerization; flagged for curator review."
+  },
+  {
+    "group_key": "gaba_glutamate_chloride_channel",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "761",
+      "762"
+    ],
+    "rationale": "Chloride conductance and activation of the GABA chloride channel relate to the same channel function; curator review."
+  },
+  {
+    "group_key": "lh_increase_secretion",
+    "type": "merge",
+    "member_ids": [
+      "791",
+      "1050"
+    ],
+    "rationale": "Both describe increased LH levels/secretion."
+  },
+  {
+    "group_key": "lh_surge_release_decrease",
+    "type": "merge",
+    "member_ids": [
+      "970",
+      "1072"
+    ],
+    "rationale": "Both describe decreased LH release/surge from anterior pituitary."
+  },
+  {
+    "group_key": "lh_increase_vs_decrease",
+    "type": "soda",
+    "member_ids": [
+      "1050",
+      "1072"
+    ],
+    "rationale": "LH secretion from anterior pituitary increased vs decreased."
+  },
+  {
+    "group_key": "gnrh_release_direction",
+    "type": "soda",
+    "member_ids": [
+      "1047",
+      "1071"
+    ],
+    "rationale": "GnRH secretion from hypothalamus increased vs decreased."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_mrna",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "800",
+      "964"
+    ],
+    "rationale": "Both concern aromatase, mRNA decrease vs enzyme inhibition."
+  },
+  {
+    "group_key": "ovulation_disruption",
+    "type": "merge",
+    "member_ids": [
+      "971",
+      "1074"
+    ],
+    "rationale": "Both describe blocked/interrupted ovulation."
+  },
+  {
+    "group_key": "fertility_decrease",
+    "type": "merge",
+    "member_ids": [
+      "330",
+      "972"
+    ],
+    "rationale": "Both describe decreased fertility."
+  },
+  {
+    "group_key": "lysosome_disruption",
+    "type": "merge",
+    "member_ids": [
+      "831",
+      "898"
+    ],
+    "rationale": "Both describe disturbance/disruption of lysosomal function."
+  },
+  {
+    "group_key": "fibrosis_organ_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "840",
+      "1458"
+    ],
+    "rationale": "Fibrosis in liver vs lung."
+  },
+  {
+    "group_key": "deiodinase_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1002",
+      "1009"
+    ],
+    "rationale": "Inhibition of different deiodinase isoforms."
+  },
+  {
+    "group_key": "swim_bladder_inflation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1004",
+      "1007"
+    ],
+    "rationale": "Reduced swim bladder inflation in posterior vs anterior chambers."
+  },
+  {
+    "group_key": "sox_sine_oculis_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2329",
+      "2330"
+    ],
+    "rationale": "Same gene product, mRNA vs protein expression."
+  },
+  {
+    "group_key": "prolactin_increase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1077",
+      "1084"
+    ],
+    "rationale": "Prolactin exposure vs prolactin secretion; related but distinct."
+  },
+  {
+    "group_key": "enos_activity",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "932",
+      "973",
+      "927"
+    ],
+    "rationale": "All concern eNOS but with distinct processes (uncoupling, activity decrease, S-glutathionylation)."
+  },
+  {
+    "group_key": "transthyretin_binding_displacement",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "957",
+      "958",
+      "1830",
+      "1831"
+    ],
+    "rationale": "Binding to transthyretin vs displacement of T4 from transthyretin."
+  },
+  {
+    "group_key": "calcineurin_nfat",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "979",
+      "981"
+    ],
+    "rationale": "Both concern NFAT with distinct processes (nuclear localization vs complex formation)."
+  },
+  {
+    "group_key": "cox1_prostaglandin",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1494",
+      "1497"
+    ],
+    "rationale": "Leukocyte recruitment/activation and recruitment of inflammatory cells describe similar processes."
+  },
+  {
+    "group_key": "tgf_beta_pathway_activation",
+    "type": "merge",
+    "member_ids": [
+      "1283",
+      "1469",
+      "1271"
+    ],
+    "rationale": "Both describe activation of the TGF-beta pathway."
+  },
+  {
+    "group_key": "dna_strand_breaks",
+    "type": "merge",
+    "member_ids": [
+      "1461",
+      "1635"
+    ],
+    "rationale": "Increase in DNA double-strand breaks and DNA strand breaks describe the same type of DNA damage increase."
+  },
+  {
+    "group_key": "reproductive_success_opposite",
+    "type": "soda",
+    "member_ids": [
+      "1163",
+      "1141"
+    ],
+    "rationale": "Increased vs decreased reproductive success."
+  },
+  {
+    "group_key": "population_decline_vs_increase",
+    "type": "soda",
+    "member_ids": [
+      "1164",
+      "361"
+    ],
+    "rationale": "Increased vs declined population."
+  },
+  {
+    "group_key": "apoptosis_general_vs_oocyte",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1262",
+      "1513",
+      "1775"
+    ],
+    "rationale": "Apoptosis in general vs oocyte-specific apoptosis."
+  },
+  {
+    "group_key": "oxphos_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1477",
+      "1545"
+    ],
+    "rationale": "Both describe decreased mitochondrial oxidative phosphorylation."
+  },
+  {
+    "group_key": "complex_iii_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1542",
+      "1653"
+    ],
+    "rationale": "Binding of inhibitor to complex III vs inhibition of complex III."
+  },
+  {
+    "group_key": "complex_iv_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1543",
+      "1654"
+    ],
+    "rationale": "Binding of inhibitor to complex IV vs inhibition of complex IV."
+  },
+  {
+    "group_key": "complex_v_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1544",
+      "1655"
+    ],
+    "rationale": "Binding of inhibitor to complex V vs inhibition of complex V."
+  },
+  {
+    "group_key": "glycolysis_opposite",
+    "type": "soda",
+    "member_ids": [
+      "1476",
+      "2070"
+    ],
+    "rationale": "Decrease vs increase in glycolysis."
+  },
+  {
+    "group_key": "intracellular_calcium_increase",
+    "type": "merge",
+    "member_ids": [
+      "1339",
+      "2064"
+    ],
+    "rationale": "Increase in intracellular calcium and increase in cytosolic calcium describe the same event."
+  },
+  {
+    "group_key": "growth_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1467",
+      "1521"
+    ],
+    "rationale": "Both describe reduced growth."
+  },
+  {
+    "group_key": "atp_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1472",
+      "1771"
+    ],
+    "rationale": "Decrease in ATP production and decrease in ATP pool are closely equivalent ATP depletion events."
+  },
+  {
+    "group_key": "tgfb_latent_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1468",
+      "1469"
+    ],
+    "rationale": "Activation of latent TGF-beta 1 vs the TGF-beta pathway; same object but different processes."
+  },
+  {
+    "group_key": "liver_injury_hepatotoxicity",
+    "type": "merge",
+    "member_ids": [
+      "1291",
+      "1549",
+      "1393"
+    ],
+    "rationale": "Hepatotoxicity, hepatocytotoxicity and liver injury describe the same liver damage outcome."
+  },
+  {
+    "group_key": "cyp2e1_activation",
+    "type": "merge",
+    "member_ids": [
+      "1391",
+      "1508"
+    ],
+    "rationale": "Both describe activation of CYP2E1."
+  },
+  {
+    "group_key": "dna_damage_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1194",
+      "1635"
+    ],
+    "rationale": "General DNA damage vs DNA strand breaks specifically."
+  },
+  {
+    "group_key": "necrosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1263",
+      "1548"
+    ],
+    "rationale": "Cellular necrosis vs necrotic tissue."
+  },
+  {
+    "group_key": "homocysteine_increase",
+    "type": "merge",
+    "member_ids": [
+      "1661",
+      "1665"
+    ],
+    "rationale": "Both describe increased homocysteine levels (plasma HCY)."
+  },
+  {
+    "group_key": "angiotensin_II_increase",
+    "type": "merge",
+    "member_ids": [
+      "1752",
+      "1743"
+    ],
+    "rationale": "Both describe increased angiotensin II (plasma) levels."
+  },
+  {
+    "group_key": "ace2_dysregulation_downregulation",
+    "type": "merge",
+    "member_ids": [
+      "1854",
+      "1740",
+      "1787"
+    ],
+    "rationale": "All describe dysregulated/downregulated ACE2 expression or activity in the SARS-CoV-2 context."
+  },
+  {
+    "group_key": "at1r_increase_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1852",
+      "1851"
+    ],
+    "rationale": "Both involve AT1R but increased receptor level and agonist binding are distinct processes."
+  },
+  {
+    "group_key": "ace2_binding_vs_dysregulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1739",
+      "1854"
+    ],
+    "rationale": "Both concern ACE2 but binding by virus differs from dysregulated expression/activity."
+  },
+  {
+    "group_key": "tlr9_activation_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1842",
+      "1900"
+    ],
+    "rationale": "Both concern TLR9 but prolonged activation and increased platelet surface expression are distinct processes."
+  },
+  {
+    "group_key": "ecdysone_cascade_direction",
+    "type": "soda",
+    "member_ids": [
+      "2373",
+      "2375"
+    ],
+    "rationale": "Same mis-timed ecdysone receptor-responsive cascade, opposite directions."
+  },
+  {
+    "group_key": "fecundity_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "328",
+      "1781"
+    ],
+    "rationale": "Both describe decreased fecundity but one is specified for the F3 generation."
+  },
+  {
+    "group_key": "global_dna_methylation_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1773",
+      "1778"
+    ],
+    "rationale": "Both describe decreased DNA methylation, one specifically heritable F3."
+  },
+  {
+    "group_key": "caspase_transcription_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1774",
+      "1779"
+    ],
+    "rationale": "Same caspase transcription increase, one in F3 generation."
+  },
+  {
+    "group_key": "ovarian_somatic_apoptosis_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1776",
+      "1783"
+    ],
+    "rationale": "Same ovarian somatic cell apoptosis, one in F3 generation."
+  },
+  {
+    "group_key": "follicle_breakdown_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1777",
+      "1784"
+    ],
+    "rationale": "Same ovarian follicle breakdown, one in F3 generation."
+  },
+  {
+    "group_key": "dht_dhea_androgen_reduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1688",
+      "2298"
+    ],
+    "rationale": "Related reduced androgen-dependent endpoints; omitted if unsupported."
+  },
+  {
+    "group_key": "progesterone_reduction",
+    "type": "merge",
+    "member_ids": [
+      "1692",
+      "1693"
+    ],
+    "rationale": "Both describe reduced progesterone synthesis/levels."
+  },
+  {
+    "group_key": "cell_death_general",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1825",
+      "1864",
+      "1817"
+    ],
+    "rationale": "General increase in cell death/programmed cell death/apoptotic cell death with differing specificity."
+  },
+  {
+    "group_key": "apoptosis_vs_cell_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1365",
+      "1762"
+    ],
+    "rationale": "Apoptosis generally vs urothelial cell injury/death in a specific cell context."
+  },
+  {
+    "group_key": "oxidative_lipid_protein",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1594",
+      "1445"
+    ],
+    "rationale": "Both lipid oxidation; one specific to membrane lipids."
+  },
+  {
+    "group_key": "protein_oxidation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1595",
+      "1767"
+    ],
+    "rationale": "Both protein oxidation; one specific to membrane proteins."
+  },
+  {
+    "group_key": "cortisol_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1835",
+      "1836"
+    ],
+    "rationale": "Both describe decreased cortisol, one also including 11\u03b2-OH testosterone."
+  },
+  {
+    "group_key": "spermatogenesis_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1758",
+      "1798"
+    ],
+    "rationale": "Both describe impaired/decreased spermatogenesis."
+  },
+  {
+    "group_key": "dnmt_vs_methylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1697",
+      "1619"
+    ],
+    "rationale": "Both concern DNA methyltransferase but expression increase vs inhibition are distinct."
+  },
+  {
+    "group_key": "stat5_il4",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1716",
+      "1717"
+    ],
+    "rationale": "Both concern STAT5 but phosphorylation blockade vs promoter binding are distinct processes."
+  },
+  {
+    "group_key": "tyrosinase_pigmentation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1629",
+      "1630"
+    ],
+    "rationale": "Reduced melanin and melanosome levels; omitted if unsupported."
+  },
+  {
+    "group_key": "tlr_dysregulation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1792",
+      "1848"
+    ],
+    "rationale": "Both TLR activation/dysregulation with differing specificity."
+  },
+  {
+    "group_key": "ecm_collagen",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1501",
+      "1606"
+    ],
+    "rationale": "Placeholder omitted."
+  },
+  {
+    "group_key": "population_size_trajectory_decrease",
+    "type": "merge",
+    "member_ids": [
+      "997",
+      "442"
+    ],
+    "rationale": "Both describe a decrease in population-level size/trajectory."
+  },
+  {
+    "group_key": "er_activation_general",
+    "type": "merge",
+    "member_ids": [
+      "1065",
+      "748"
+    ],
+    "rationale": "Both describe increased estrogen receptor activation/activity."
+  },
+  {
+    "group_key": "er_disruption_vs_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2141",
+      "1065"
+    ],
+    "rationale": "Both concern the estrogen receptor but disruption is not clearly equivalent to activation."
+  },
+  {
+    "group_key": "herg_block_vs_ikr_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2099",
+      "2100"
+    ],
+    "rationale": "hERG channel blockade and inhibition of the rapid delayed rectifier current share the same channel target but may differ in process (blockade vs functional current inhibition)."
+  },
+  {
+    "group_key": "ace2_expression_vs_shedding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1948",
+      "1938"
+    ],
+    "rationale": "Both concern ACE2 but expression increase and shedding are distinct processes."
+  },
+  {
+    "group_key": "cyp26b1_inhibition_ra_receptor",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1888",
+      "2420"
+    ],
+    "rationale": "Retinoic acid concentration vs retinoic acid receptor activation relate to the same signaling axis but are distinct processes."
+  },
+  {
+    "group_key": "tau_hyperphosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1943",
+      "1942"
+    ],
+    "rationale": "Both concern Tau but hyperphosphorylation and oligomer accumulation are distinct processes."
+  },
+  {
+    "group_key": "mitochondrial_etc_vs_sdh_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "105",
+      "2118"
+    ],
+    "rationale": "SDH (Complex II) inhibition is a specific case of general inhibition of mitochondrial electron transport chain complexes."
+  },
+  {
+    "group_key": "neural_cell_death_loss",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2195",
+      "1890"
+    ],
+    "rationale": "Both describe cell loss, in CNS neural cells vs fetal male germ cells."
+  },
+  {
+    "group_key": "thyroid_hormone_decrease_serum_brain",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "771",
+      "2093"
+    ],
+    "rationale": "Both describe decreased thyroid hormone, in serum versus brain."
+  },
+  {
+    "group_key": "learning_memory_impairment",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "637",
+      "1941"
+    ],
+    "rationale": "Memory loss and impaired learning and memory describe closely related cognitive impairment."
+  },
+  {
+    "group_key": "glucose_homeostasis_uptake",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1951",
+      "1952"
+    ],
+    "rationale": "Decreased glucose uptake is a specific aspect of abnormal glucose homeostasis."
+  },
+  {
+    "group_key": "fat_mass_increase",
+    "type": "merge",
+    "member_ids": [
+      "2125",
+      "2333"
+    ],
+    "rationale": "Both describe increased fat mass."
+  },
+  {
+    "group_key": "laminin_binding",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2109",
+      "2110"
+    ],
+    "rationale": "Both describe binding events involving laminin and its integrin receptors, with differing specificity."
+  },
+  {
+    "group_key": "ryr_activation_vs_hyperphosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2186",
+      "2289"
+    ],
+    "rationale": "Both concern the ryanodine receptor, but activation and hyperphosphorylation are distinct processes."
+  },
+  {
+    "group_key": "estradiol_increase",
+    "type": "merge",
+    "member_ids": [
+      "2294",
+      "2251"
+    ],
+    "rationale": "Both describe increased estradiol levels/availability."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_induction",
+    "type": "soda",
+    "member_ids": [
+      "2277",
+      "2293"
+    ],
+    "rationale": "Both target aromatase but in opposite directions (inhibition vs induction)."
+  },
+  {
+    "group_key": "ppar_binding_vs_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2226",
+      "2227"
+    ],
+    "rationale": "Both concern PPAR isoforms; binding versus disrupted nuclear signaling are distinct processes."
+  },
+  {
+    "group_key": "gsh_depletion_vs_conjugation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "130",
+      "2131"
+    ],
+    "rationale": "Both concern GSH but depletion and conjugation are distinct processes."
+  },
+  {
+    "group_key": "lipid_accumulation_droplet",
+    "type": "merge",
+    "member_ids": [
+      "2130",
+      "2332"
+    ],
+    "rationale": "Both describe increased lipid accumulation/lipid droplets."
+  },
+  {
+    "group_key": "oxidative_stress_mito_ros",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1238",
+      "2363"
+    ],
+    "rationale": "Both describe increased oxidative stress, one specific to mitochondria."
+  },
+  {
+    "group_key": "proinflammatory_increase",
+    "type": "merge",
+    "member_ids": [
+      "2097",
+      "2132"
+    ],
+    "rationale": "Both describe increased pro-inflammatory mediators/cytokines."
+  },
+  {
+    "group_key": "fatty_acid_beta_oxidation_direction",
+    "type": "soda",
+    "member_ids": [
+      "1312",
+      "1824"
+    ],
+    "rationale": "Both describe fatty acid beta-oxidation, one increased and the other decreased."
+  },
+  {
+    "group_key": "photosystem_ii_inhibition_vs_electron_transport",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2456",
+      "2457"
+    ],
+    "rationale": "Both concern photosystem II, but inhibition of the complex and decreased electron transport are not clearly equivalent without curator review."
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "group_key": "fatty_acid_beta_oxidation_direction",
+    "type": "soda",
+    "member_ids": [
+      "1312",
+      "1824"
+    ],
+    "rationale": "Both describe fatty acid beta-oxidation, one increased and the other decreased."
+  },
+  {
+    "group_key": "photosystem_ii_inhibition_vs_electron_transport",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2456",
+      "2457"
+    ],
+    "rationale": "Both concern photosystem II, but inhibition of the complex and decreased electron transport are not clearly equivalent without curator review."
+  }
+]

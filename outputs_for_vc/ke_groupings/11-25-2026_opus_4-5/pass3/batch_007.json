@@ -1,0 +1,211 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1279",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "Increased oxidative stress / PMK-1 P38 MAPK activation describes increased oxidative stress, which matches the existing merge group for increased oxidative stress and reactive oxygen species."
+    },
+    {
+      "event_id": "1280",
+      "group_key": "hif1_activation",
+      "rationale": "Activation of HIF-1 is equivalent to increased HIF-1 heterodimer and increased HIF-1 alpha transcription described in the existing hif1_activation merge group."
+    },
+    {
+      "event_id": "1270",
+      "group_key": "ppar_alpha_binding_vs_inhibition",
+      "rationale": "Inactivation of PPAR\u03b3 is closely related to PPARalpha binding/inhibition events, but PPAR\u03b3 is a different isoform \u2014 however, reviewing against existing groups, this is best left for a new group; withdrawing this assignment."
+    },
+    {
+      "event_id": "1291",
+      "group_key": "liver_injury_hepatotoxicity",
+      "rationale": "Hepatotoxicity (ID 1291) describes the same hepatic damage endpoint as 'Hepatocytotoxicity' and 'Liver Injury' in the existing liver_injury_hepatotoxicity merge group."
+    },
+    {
+      "event_id": "1395",
+      "group_key": "hepatocellular_carcinoma",
+      "rationale": "Liver Cancer (ID 1395) describes the same neoplastic hepatic outcome as the promotion and tumorigenesis of hepatocellular carcinoma in the existing hepatocellular_carcinoma merge group."
+    },
+    {
+      "event_id": "1489",
+      "group_key": "liver_steatosis",
+      "rationale": "Increase in steatohepatitis (ID 1489) is closely related to liver steatosis but includes an inflammatory component; however, steatohepatitis is a progression of steatosis \u2014 assigning to similar_event context is better; withdrawing."
+    },
+    {
+      "event_id": "1284",
+      "group_key": "ldlr_upregulation_vs_ldl_uptake",
+      "rationale": "Up Regulation of SREBF2 (ID 1284) is a transcription factor that regulates LDLR and cholesterol synthesis \u2014 it is a different molecular object from LDLR so this assignment is not appropriate; withdrawing."
+    },
+    {
+      "event_id": "1394",
+      "group_key": "hepatocyte_proliferation",
+      "rationale": "Induction of persistent/sustained proliferation (ID 1394) describes the same process as proliferation in the absence of cytotoxicity in the existing hepatocyte_proliferation similar_event group."
+    },
+    {
+      "event_id": "1277",
+      "group_key": "fertility_decrease",
+      "rationale": "Reproductive failure (ID 1277) describes the same outcome of failed/decreased reproduction as the existing fertility_decrease merge group members."
+    },
+    {
+      "event_id": "1389",
+      "group_key": "neuronal_network_function_decrease",
+      "rationale": "Locomotor activity decreased (ID 1389) is a behavioral/functional output related to but distinct from neuronal network function \u2014 withdrawing this assignment as they are not synonyms."
+    },
+    {
+      "event_id": "1174",
+      "group_key": "oxidative_stress_increase",
+      "rationale": "Activation of NADPH Oxidase (ID 1174) is an upstream cause of increased reactive oxygen species/oxidative stress, not a synonym \u2014 withdrawing this assignment."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "ppar_gamma_inactivation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1270"
+      ],
+      "rationale": "Inactivation of PPAR\u03b3 is a single event describing functional inactivation of the PPAR\u03b3 nuclear receptor; no partner ungrouped event exists, so no new group is formed \u2014 omitting."
+    },
+    {
+      "group_key": "topoisomerase_ii_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1252",
+        "1254"
+      ],
+      "rationale": "Binding to topoisomerase II enzyme (ID 1252) and infant leukaemia (ID 1254) are not the same object \u2014 these are not appropriately grouped; omitting."
+    },
+    {
+      "group_key": "voltage_gated_sodium_channel_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1353"
+      ],
+      "rationale": "Binding to voltage-gated sodium channel (ID 1353) should be paired with existing sodium channel inhibition events (IDs 584, 585, 598) in sodium_channel_inhibition groups \u2014 assigning to existing group."
+    },
+    {
+      "group_key": "dopaminergic_brain_pathway",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1387",
+        "1388",
+        "1390"
+      ],
+      "rationale": "Decreased 7\u03b1-hydroxypregnenolone synthesis in the brain (1387), decreased dopamine release in the brain (1388), and decreased sexual behavior (1390) describe related but distinct neurobiological events in the same CYP7B/dopamine pathway context \u2014 however they are distinct processes on different objects, not appropriate for grouping; omitting."
+    },
+    {
+      "group_key": "angiogenesis_direction",
+      "type": "soda",
+      "member_ids": [
+        "1376"
+      ],
+      "rationale": "Increase in angiogenesis (ID 1376) is the directional opposite of 'Reduction, Angiogenesis' in the existing vegfr2_inhibition_angiogenesis group \u2014 single event, cannot form a new group alone."
+    },
+    {
+      "group_key": "sodium_channel_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1353",
+        "584"
+      ],
+      "rationale": "Binding to voltage-gated sodium channel (ID 1353) and inhibition of sodium channel (ID 584) both target the voltage-gated sodium channel but binding does not confirm inhibition \u2014 same object, different process."
+    },
+    {
+      "group_key": "cyp7b_dopamine_brain",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1386",
+        "1387"
+      ],
+      "rationale": "CYP7B activity inhibition (ID 1386) and decreased 7\u03b1-hydroxypregnenolone synthesis in the brain (ID 1387) involve the same enzyme (CYP7B catalyzes 7\u03b1-hydroxypregnenolone synthesis), where enzyme inhibition and decreased product synthesis are distinct but causally linked processes."
+    },
+    {
+      "group_key": "dopamine_release_locomotor_sexual_behavior",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1388",
+        "1389",
+        "1390"
+      ],
+      "rationale": "Decreased dopamine release in the brain (1388), decreased locomotor activity (1389), and decreased sexual behavior (1390) all describe reduced dopaminergic output and behavioral consequences in the same neurobiological context but at different biological levels (neurotransmitter release vs. behavioral outcomes)."
+    },
+    {
+      "group_key": "mu_opioid_receptor_g_protein_cascade",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1425",
+        "1426",
+        "1427"
+      ],
+      "rationale": "Mu opioid receptor agonism (1425), release of G proteins (1426), and opening of G protein-gated inward rectifying K channels (1427) describe sequential steps in the same opioid signaling cascade \u2014 receptor agonism, G protein release, and downstream channel opening are distinct molecular events on different objects."
+    },
+    {
+      "group_key": "glutamate_excitotoxicity_signaling",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1349",
+        "1350"
+      ],
+      "rationale": "Activated presynaptic neuron (ID 1349) and increased glutamate (ID 1350) describe sequential events in glutamatergic neurotransmission \u2014 presynaptic neuron activation leads to glutamate release, but these are distinct biological events on different objects."
+    },
+    {
+      "group_key": "angiogenesis_increase_vs_reduction",
+      "type": "soda",
+      "member_ids": [
+        "1376"
+      ],
+      "rationale": "Single event only \u2014 cannot form a soda group without a partner; omitting."
+    },
+    {
+      "group_key": "cholesterol_perturbation_srebf2_hmgcoa",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1284",
+        "1288",
+        "1289"
+      ],
+      "rationale": "Up-regulation of SREBF2 (1284), activation of HMG-CoA reductase gene (1288), and perturbation of cholesterol (1289) all describe disruption of cholesterol biosynthesis regulation but at different molecular levels (transcription factor, enzyme, and metabolite/pathway)."
+    },
+    {
+      "group_key": "unsaturated_fatty_acid_upregulation_vs_gss_gst_downregulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1285",
+        "1286"
+      ],
+      "rationale": "Up-regulation of unsaturated fatty acids (1285) and down-regulation of GSS and GSTs genes (1286) describe opposite regulatory changes in lipid/glutathione metabolism \u2014 these are different biological objects and processes, not appropriately grouped; omitting."
+    },
+    {
+      "group_key": "wnt_pathway_inhibition_vs_activation",
+      "type": "soda",
+      "member_ids": [
+        "1294"
+      ],
+      "rationale": "Inhibition of Wnt pathway (ID 1294) is the directional opposite of Wnt signaling activation events in wnt_signaling_activation group \u2014 single ungrouped event, assigning to existing group context."
+    },
+    {
+      "group_key": "wnt_inhibition_vs_activation",
+      "type": "soda",
+      "member_ids": [
+        "1294",
+        "1293"
+      ],
+      "rationale": "Inhibition of Wnt pathway (1294) and Activation of FOXO (1293) are not the same object \u2014 omitting."
+    },
+    {
+      "group_key": "serotonin_extracellular_increase",
+      "type": "merge",
+      "member_ids": [
+        "1320"
+      ],
+      "rationale": "Single event only \u2014 cannot form a merge group without a partner; omitting."
+    },
+    {
+      "group_key": "nrf2_repression_vs_activation",
+      "type": "soda",
+      "member_ids": [
+        "1417"
+      ],
+      "rationale": "NFE2/Nrf2 repression (ID 1417) is the directional opposite of NRF2 activation described in the nrf2_tgfb_nfkb_p53_gene_expression group \u2014 single event, cannot form a soda group alone."
+    }
+  ]
+}

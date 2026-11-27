@@ -1,0 +1,66 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "341",
+      "group_key": "learning_memory_impairment",
+      "rationale": "Impairment of learning and memory is the same endpoint as 'impaired, Learning and memory' and closely related to memory loss."
+    },
+    {
+      "event_id": "1493",
+      "group_key": "proinflammatory_increase",
+      "rationale": "Increased pro-inflammatory mediators is a direct synonym of 'Increase, Pro-Inflammatory Mediators'."
+    },
+    {
+      "event_id": "351",
+      "group_key": "survival_decrease",
+      "rationale": "Increased mortality is the same direction as reduced survival, so it fits the survival group, but the context differs."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "testosterone_synthesis_reduction_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "413",
+        "274"
+      ],
+      "rationale": "Reduced testosterone synthesis in different cell contexts (Leydig cells vs ovarian theca cells)."
+    },
+    {
+      "group_key": "vitellogenin_reduction_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "285",
+        "221"
+      ],
+      "rationale": "Reduced vitellogenin synthesis in liver vs reduced plasma vitellogenin concentration, different compartments and processes."
+    },
+    {
+      "group_key": "ahr_activation_dimerization",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "18",
+        "944"
+      ],
+      "rationale": "Both concern AhR signalling; activation and AHR/ARNT dimerization are distinct processes."
+    },
+    {
+      "group_key": "oxidative_stress_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1392",
+        "1538"
+      ],
+      "rationale": "Both concern oxidative stress; one is an increase and the other is decreased protection, so context differs."
+    },
+    {
+      "group_key": "cell_injury_death",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "55",
+        "403"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

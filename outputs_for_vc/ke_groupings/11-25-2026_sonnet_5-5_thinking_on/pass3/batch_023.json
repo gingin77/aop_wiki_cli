@@ -1,0 +1,10 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1507",
+      "group_key": "ppara_antagonist_binding_vs_activation",
+      "rationale": "PPAR\u03b3 activation is a different isoform from PPAR\u03b1, so this does not belong in the PPAR\u03b1 group."
+    }
+  ],
+  "new_groups": []
+}

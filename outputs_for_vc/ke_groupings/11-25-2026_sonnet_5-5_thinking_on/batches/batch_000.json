@@ -1,0 +1,271 @@
+[
+  {
+    "group_key": "complex_i_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "887",
+      "888"
+    ],
+    "rationale": "Both target Complex I, but binding of an inhibitor does not confirm functional inhibition."
+  },
+  {
+    "group_key": "ppara_antagonist_binding_vs_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "998",
+      "858",
+      "231",
+      "227"
+    ],
+    "rationale": "All concern PPARalpha, but binding, activation, and transactivation are distinct processes with differing directions."
+  },
+  {
+    "group_key": "nmda_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "201",
+      "195"
+    ],
+    "rationale": "Both concern NMDA receptors; antagonist binding does not confirm functional inhibition."
+  },
+  {
+    "group_key": "er_agonism_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "111",
+      "112"
+    ],
+    "rationale": "Agonism and antagonism of the estrogen receptor are opposite directions."
+  },
+  {
+    "group_key": "ar_agonism_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "25",
+      "26"
+    ],
+    "rationale": "Agonism and antagonism of the androgen receptor are opposite directions."
+  },
+  {
+    "group_key": "plasma_vtg_direction",
+    "type": "soda",
+    "member_ids": [
+      "220",
+      "221"
+    ],
+    "rationale": "Plasma vitellogenin increase vs reduction."
+  },
+  {
+    "group_key": "vtg_synthesis_liver_direction",
+    "type": "soda",
+    "member_ids": [
+      "285",
+      "307"
+    ],
+    "rationale": "Hepatic vitellogenin synthesis reduced vs increased."
+  },
+  {
+    "group_key": "vtg_synthesis_increase_merge",
+    "type": "merge",
+    "member_ids": [
+      "307",
+      "418"
+    ],
+    "rationale": "Both describe increased vitellogenin synthesis."
+  },
+  {
+    "group_key": "renal_vtg_deposition",
+    "type": "merge",
+    "member_ids": [
+      "252",
+      "419"
+    ],
+    "rationale": "Both describe increased renal vitellogenin deposition/pathology."
+  },
+  {
+    "group_key": "pxr_activation",
+    "type": "merge",
+    "member_ids": [
+      "239",
+      "245"
+    ],
+    "rationale": "Both describe activation of PXR (NR1I2/SXR)."
+  },
+  {
+    "group_key": "mortality_increase",
+    "type": "merge",
+    "member_ids": [
+      "350",
+      "351"
+    ],
+    "rationale": "Both describe increased mortality."
+  },
+  {
+    "group_key": "leydig_hyperplasia_proliferation",
+    "type": "merge",
+    "member_ids": [
+      "415",
+      "416"
+    ],
+    "rationale": "Both describe Leydig cell hyperplasia/proliferation increase."
+  },
+  {
+    "group_key": "aromatase_inhibition_general_vs_granulosa",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "36",
+      "408"
+    ],
+    "rationale": "Aromatase reduction/inhibition, one specific to ovarian granulosa cells."
+  },
+  {
+    "group_key": "t4_decrease_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "281",
+      "280"
+    ],
+    "rationale": "Decreased thyroxine in serum vs neuronal tissue."
+  },
+  {
+    "group_key": "testosterone_decrease_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "413",
+      "1690",
+      "274"
+    ],
+    "rationale": "Reduced testosterone synthesis/levels in different cells or compartments."
+  },
+  {
+    "group_key": "estradiol_reduction_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "219",
+      "3"
+    ],
+    "rationale": "Reduced 17beta-estradiol in plasma vs synthesis in granulosa cells."
+  },
+  {
+    "group_key": "liver_proliferation_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "57",
+      "716",
+      "269"
+    ],
+    "rationale": "Cell proliferation generally vs in hepatocytes/sustained liver context."
+  },
+  {
+    "group_key": "hepatocellular_tumor",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "334",
+      "378",
+      "719",
+      "347",
+      "856"
+    ],
+    "rationale": "Liver tumor/carcinoma formation events with varying specificity."
+  },
+  {
+    "group_key": "altered_hepatic_foci",
+    "type": "merge",
+    "member_ids": [
+      "1171",
+      "491"
+    ],
+    "rationale": "Both describe clonal expansion to form altered hepatic foci."
+  },
+  {
+    "group_key": "liver_steatosis",
+    "type": "merge",
+    "member_ids": [
+      "345",
+      "459"
+    ],
+    "rationale": "Both describe liver steatosis."
+  },
+  {
+    "group_key": "dna_adduct_repair",
+    "type": "merge",
+    "member_ids": [
+      "155",
+      "493"
+    ],
+    "rationale": "Both describe inadequate/insufficient DNA repair."
+  },
+  {
+    "group_key": "mutations",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "185",
+      "376",
+      "336"
+    ],
+    "rationale": "Increased mutations in general, in critical genes, or heritable."
+  },
+  {
+    "group_key": "fatty_acid_beta_oxidation_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1528",
+      "179"
+    ],
+    "rationale": "Both describe decreased fatty acid beta-oxidation."
+  },
+  {
+    "group_key": "neuronal_network_function",
+    "type": "merge",
+    "member_ids": [
+      "386",
+      "618"
+    ],
+    "rationale": "Both describe decreased neuronal network function."
+  },
+  {
+    "group_key": "ppar_activation_decrease_isoforms",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "232",
+      "233"
+    ],
+    "rationale": "Decreased activation of different PPAR isoforms."
+  },
+  {
+    "group_key": "nmda_overactivation_vs_inhibition",
+    "type": "soda",
+    "member_ids": [
+      "388",
+      "195"
+    ],
+    "rationale": "NMDAR overactivation vs inhibition."
+  },
+  {
+    "group_key": "oxidative_stress",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1392",
+      "1115"
+    ],
+    "rationale": "Increased oxidative stress and ROS are closely related generalized events."
+  },
+  {
+    "group_key": "protein_covalent_modification",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "244",
+      "396"
+    ],
+    "rationale": "Protein alkylation and covalent binding of protein are closely related distinct descriptions."
+  },
+  {
+    "group_key": "hyperplasia_proliferation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "142",
+      "854"
+    ],
+    "rationale": "Both describe hyperplasia/proliferation alterations with different specificity."
+  }
+]

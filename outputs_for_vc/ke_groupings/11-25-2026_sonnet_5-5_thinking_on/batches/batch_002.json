@@ -1,0 +1,210 @@
+[
+  {
+    "group_key": "glutamate_gated_chloride_channel_activation",
+    "type": "merge",
+    "member_ids": [
+      "760",
+      "1018"
+    ],
+    "rationale": "Both describe activation of glutamate-gated chloride channels, differing only in singular/plural wording."
+  },
+  {
+    "group_key": "dopaminergic_activity_direction",
+    "type": "soda",
+    "member_ids": [
+      "746",
+      "1083"
+    ],
+    "rationale": "Same endpoint (dopaminergic activity) in opposite directions."
+  },
+  {
+    "group_key": "cytotoxicity_cell_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "776",
+      "780",
+      "783",
+      "786",
+      "794"
+    ],
+    "rationale": "Increased cytotoxicity in different cell types or tissues."
+  },
+  {
+    "group_key": "regenerative_proliferation_cell_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "778",
+      "781",
+      "787",
+      "795"
+    ],
+    "rationale": "Increased regenerative cell proliferation in different cell types or tissues."
+  },
+  {
+    "group_key": "hyperplasia_epithelial_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "782",
+      "784",
+      "796"
+    ],
+    "rationale": "Increased hyperplasia in different epithelial cell contexts."
+  },
+  {
+    "group_key": "hyperplasia_mammary_merge",
+    "type": "merge",
+    "member_ids": [
+      "1078",
+      "1085"
+    ],
+    "rationale": "Both describe mammary gland hyperplasia."
+  },
+  {
+    "group_key": "mammary_adenomas_carcinomas_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "779",
+      "797",
+      "1079"
+    ],
+    "rationale": "Increased tumors (papillomas/adenomas/carcinomas) in different cell or tissue contexts."
+  },
+  {
+    "group_key": "inflammation_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "777",
+      "1087"
+    ],
+    "rationale": "Increased inflammation, one specific to corneal cells and one general."
+  },
+  {
+    "group_key": "cell_proliferation_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "870",
+      "1089"
+    ],
+    "rationale": "Increased cell proliferation, one general and one specific to mesothelium."
+  },
+  {
+    "group_key": "cytoplasmic_vacuolization_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "818",
+      "824",
+      "833",
+      "836",
+      "837"
+    ],
+    "rationale": "Cytoplasmic vacuolization occurring in different cell types."
+  },
+  {
+    "group_key": "hif1_alpha_transcription_pathway",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "799",
+      "802"
+    ],
+    "rationale": "Both concern HIF-1 alpha/heterodimer but are distinct processes (transcription vs. heterodimer levels)."
+  },
+  {
+    "group_key": "ne_receptor_binding_vs_antagonism",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "848",
+      "849"
+    ],
+    "rationale": "Both concern NE receptors; decreased NE binding vs. receptor antagonism are distinct processes."
+  },
+  {
+    "group_key": "transthyretin_binding_displacement",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "957",
+      "958"
+    ],
+    "rationale": "Both concern T4/transthyretin; binding vs displacement are distinct processes."
+  },
+  {
+    "group_key": "beta2_adrenergic_receptor_activation",
+    "type": "merge",
+    "member_ids": [
+      "1038",
+      "1039"
+    ],
+    "rationale": "Both describe increased activation/activity of the beta-2 adrenergic receptor."
+  },
+  {
+    "group_key": "sox1_expression_gene_protein",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2329",
+      "2330"
+    ],
+    "rationale": "Same Sine oculis homeobox 1, gene expression vs protein expression."
+  },
+  {
+    "group_key": "cholestasis_bile_flow",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1058",
+      "1059"
+    ],
+    "rationale": "Decreased bile flow and cholestasis are closely related but distinct events."
+  },
+  {
+    "group_key": "pulmonary_fibrosis_liver_fibrosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "840",
+      "1458"
+    ],
+    "rationale": "Fibrosis in different organs (liver vs lung)."
+  },
+  {
+    "group_key": "lysosome_disruption",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "831",
+      "898"
+    ],
+    "rationale": "Both describe lysosomal disturbance/disruption with differing specificity (function vs structure)."
+  },
+  {
+    "group_key": "lh_increase_secretion",
+    "type": "merge",
+    "member_ids": [
+      "791",
+      "1050"
+    ],
+    "rationale": "Both describe increased LH (secretion from anterior pituitary being the source)."
+  },
+  {
+    "group_key": "lh_decreased_release",
+    "type": "merge",
+    "member_ids": [
+      "970",
+      "1072"
+    ],
+    "rationale": "Both describe decreased LH release/surge from the anterior pituitary."
+  },
+  {
+    "group_key": "ovulation_disruption",
+    "type": "merge",
+    "member_ids": [
+      "971",
+      "1074"
+    ],
+    "rationale": "Both describe disrupted or blocked ovulation."
+  },
+  {
+    "group_key": "lh_increase_decrease",
+    "type": "soda",
+    "member_ids": [
+      "1050",
+      "1072"
+    ],
+    "rationale": "Placeholder not used."
+  }
+]

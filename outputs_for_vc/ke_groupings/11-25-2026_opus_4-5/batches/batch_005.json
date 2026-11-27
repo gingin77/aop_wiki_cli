@@ -1,0 +1,294 @@
+[
+  {
+    "group_key": "serum_thyroid_hormone_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "771",
+      "2093"
+    ],
+    "rationale": "Both describe decreased thyroid hormone (T4/T3) but one specifies serum/systemic levels while the other specifies brain compartment."
+  },
+  {
+    "group_key": "herg_blockade_vs_current_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2099",
+      "2100"
+    ],
+    "rationale": "Both involve the hERG/IKr channel but one describes blockade/binding and the other describes inhibition of the resulting potassium current."
+  },
+  {
+    "group_key": "angiotensin_ii_accumulation",
+    "type": "merge",
+    "member_ids": [
+      "1936",
+      "1741"
+    ],
+    "rationale": "Both describe increased accumulation of Angiotensin II, one framed as reduced degradation and the other as direct accumulation, effectively the same endpoint."
+  },
+  {
+    "group_key": "smoothened_receptor_antagonism_vs_relocation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2027",
+      "2044"
+    ],
+    "rationale": "Both involve the Smoothened receptor but one describes antagonism and the other describes decreased relocation/activation, which are related but distinct processes."
+  },
+  {
+    "group_key": "folate_transport_and_uptake",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2025",
+      "2026"
+    ],
+    "rationale": "Both concern folate transport/uptake but one describes the affected transporter and the other describes decreased folate uptake as a downstream consequence."
+  },
+  {
+    "group_key": "population_decline",
+    "type": "merge",
+    "member_ids": [
+      "997",
+      "442"
+    ],
+    "rationale": "Both describe a decline in population-level outcomes; decreased population size and decreased population trajectory are effectively synonymous endpoints."
+  },
+  {
+    "group_key": "pi3k_akt_mtorc1_activation",
+    "type": "merge",
+    "member_ids": [
+      "1310",
+      "1299",
+      "1300"
+    ],
+    "rationale": "These three events describe sequential activation steps in the PI3K\u2013AKT\u2013mTORC1 signaling axis and are distinct molecular events, not synonyms \u2014 withdrawing this grouping."
+  },
+  {
+    "group_key": "retinoic_acid_increase_vs_receptor_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1888",
+      "2420"
+    ],
+    "rationale": "One describes increased all-trans retinoic acid concentration and the other describes Retinoic Acid Receptor activation; increased ligand and receptor activation are related but distinct processes."
+  },
+  {
+    "group_key": "cilia_motility_airway_clearance",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1908",
+      "1909"
+    ],
+    "rationale": "Decreased cilia beat frequency and decreased mucociliary clearance are related but distinct processes; the former is a cause of the latter."
+  },
+  {
+    "group_key": "motile_cilia_number_foxj1",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1911",
+      "1912"
+    ],
+    "rationale": "FOXJ1 protein decrease and motile cilia number/length decrease are related (FOXJ1 regulates ciliogenesis) but are distinct molecular and cellular events."
+  },
+  {
+    "group_key": "glucose_uptake_homeostasis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1951",
+      "1952"
+    ],
+    "rationale": "Decreased glucose uptake and abnormal glucose homeostasis are related but distinct; the former is a cellular event and the latter is a systemic outcome."
+  },
+  {
+    "group_key": "gli_translocation_target_gene_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2028",
+      "2040"
+    ],
+    "rationale": "Decreased GLI1/2 nuclear translocation and decreased GLI1/2 target gene expression are sequential events in the same pathway, not synonyms."
+  },
+  {
+    "group_key": "orofacial_prominence_clefting",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2041",
+      "2042"
+    ],
+    "rationale": "Decreased facial prominence outgrowth and increased orofacial clefting are causally related developmental outcomes but describe distinct events."
+  },
+  {
+    "group_key": "pericyte_mechanotransduction_dysfunction",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1946",
+      "1947"
+    ],
+    "rationale": "Impaired mechanotransduction of pericytes and pericyte dysfunction are related but the former is a specific mechanism while the latter is a broader dysfunction outcome."
+  },
+  {
+    "group_key": "ace2_expression_increase_vs_shedding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1948",
+      "1938"
+    ],
+    "rationale": "Both involve ACE2 but one describes increased expression and the other describes increased shedding, which are distinct processes involving the same protein."
+  },
+  {
+    "group_key": "cuticle_sclerotization_tanning",
+    "type": "merge",
+    "member_ids": [
+      "2053",
+      "2054"
+    ],
+    "rationale": "Increased defects in tanning of new cuticle and increased impairment of cuticle sclerotization describe the same biological phenotype (failure of cuticle hardening/tanning) with different wording."
+  },
+  {
+    "group_key": "hemocyanin_oxidation_oxygen_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2073",
+      "2074"
+    ],
+    "rationale": "Oxidation of the di-copper moiety of hemocyanin and decreased oxygen binding capacity by hemocyanin are causally related but distinct molecular events."
+  },
+  {
+    "group_key": "impaired_reproduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1989",
+      "1991"
+    ],
+    "rationale": "Impaired oocyte maturation/ovulation is a specific reproductive event while impaired reproduction is a broader outcome; they share the same general process but differ in specificity."
+  },
+  {
+    "group_key": "neuronal_dysfunction_neurological_disorder",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "191",
+      "2150"
+    ],
+    "rationale": "Neuronal dysfunction and neurological disorder are related but operate at different levels (cellular vs. organ/organismal) and are not synonyms."
+  },
+  {
+    "group_key": "action_potential_sodium_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1977",
+      "1983"
+    ],
+    "rationale": "Disruption of sodium channel gating kinetics and disruption of action potential generation are causally linked but describe distinct events at the channel versus cellular level."
+  },
+  {
+    "group_key": "blood_testis_barrier_es_depletion",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2142",
+      "2080"
+    ],
+    "rationale": "Depletion of ectoplasmic specialization and impaired blood-testis barrier are related testicular events where ES loss can cause BTB impairment, but they are distinct processes."
+  },
+  {
+    "group_key": "er_activation_vs_disruption",
+    "type": "soda",
+    "member_ids": [
+      "1065",
+      "2141"
+    ],
+    "rationale": "Activation of estrogen receptor alpha and disruption of estrogen receptor describe opposite functional outcomes for the same receptor."
+  },
+  {
+    "group_key": "er_activity_increase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "748",
+      "1065"
+    ],
+    "rationale": "Increased estrogen receptor (ER) activity and activation of estrogen receptor alpha both describe ER activation but one is general and one specifies ER\u03b1; they are very close but ER activity increase could encompass multiple ER subtypes."
+  },
+  {
+    "group_key": "pulmonary_inflammation_copd",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2010",
+      "2008"
+    ],
+    "rationale": "Pulmonary inflammation is a contributing process to COPD, but they are distinct events at different levels of biological organization."
+  },
+  {
+    "group_key": "cytochrome_c_caspase_apoptosis",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1812",
+      "2188"
+    ],
+    "rationale": "Cytochrome c release and caspase activation are sequential steps in the apoptotic pathway but are distinct molecular events."
+  },
+  {
+    "group_key": "olfactory_neuron_epithelium_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1871",
+      "1872"
+    ],
+    "rationale": "Decreased olfactory sensory neurons and olfactory epithelium degeneration describe related but distinct events; one is cell-specific and the other is tissue-level pathology."
+  },
+  {
+    "group_key": "olfactory_function_impairment",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1872",
+      "1873"
+    ],
+    "rationale": "Olfactory epithelium degeneration and impaired olfactory function (anosmia) are causally related but describe distinct events at tissue versus functional levels."
+  },
+  {
+    "group_key": "nrf2_tgfb_nfkb_p53_gene_expression",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1920",
+      "1921",
+      "1923",
+      "1917"
+    ],
+    "rationale": "All four events describe altered gene expression downstream of different signaling pathways (TGF-\u03b2, NF-kB, P53, NRF2), representing the same type of event (pathway-dependent gene expression change) in different pathway contexts."
+  },
+  {
+    "group_key": "interleukin6_production_increase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1921",
+      "1933"
+    ],
+    "rationale": "Altered NF-kB dependent IL-6 pathway gene expression and increased IL-6 production are related but the former describes transcriptional changes and the latter describes protein/cytokine output."
+  },
+  {
+    "group_key": "inner_ear_hearing",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1930",
+      "1008"
+    ],
+    "rationale": "Altered inner ear development and reduced hearing are causally linked but describe distinct events at developmental/structural versus functional levels."
+  },
+  {
+    "group_key": "succinate_accumulation_sdh_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2118",
+      "2243"
+    ],
+    "rationale": "Succinate dehydrogenase inhibition and succinate accumulation are causally linked but describe distinct events (enzyme inhibition vs. metabolite accumulation)."
+  },
+  {
+    "group_key": "thromboinflammation_components",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1914",
+      "1915",
+      "1916"
+    ],
+    "rationale": "Increased platelet activation and increased neutrophil activation are contributing cellular events to increased thromboinflammation, which is the composite outcome; they are related but distinct events."
+  }
+]

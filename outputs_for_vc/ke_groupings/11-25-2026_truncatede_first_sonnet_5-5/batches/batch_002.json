@@ -1,0 +1,288 @@
+[
+  {
+    "group_key": "glutamate_gated_chloride_channel_activation",
+    "type": "merge",
+    "member_ids": [
+      "760",
+      "1018"
+    ],
+    "rationale": "Both describe activation of glutamate-gated chloride channels (singular vs plural wording)."
+  },
+  {
+    "group_key": "dopaminergic_activity_direction",
+    "type": "soda",
+    "member_ids": [
+      "746",
+      "1083"
+    ],
+    "rationale": "Same endpoint, dopaminergic activity, increased vs decreased."
+  },
+  {
+    "group_key": "regenerative_proliferation_cell_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "778",
+      "781",
+      "787",
+      "795"
+    ],
+    "rationale": "Increased regenerative cell proliferation in different cell/tissue contexts."
+  },
+  {
+    "group_key": "cytotoxicity_cell_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "776",
+      "780",
+      "783",
+      "786",
+      "794",
+      "1086"
+    ],
+    "rationale": "Increased cytotoxicity in different cell/tissue contexts."
+  },
+  {
+    "group_key": "hyperplasia_epithelial_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "782",
+      "784",
+      "796",
+      "1078",
+      "1085"
+    ],
+    "rationale": "Hyperplasia in different epithelial tissue contexts."
+  },
+  {
+    "group_key": "mammary_hyperplasia",
+    "type": "merge",
+    "member_ids": [
+      "1078",
+      "1085"
+    ],
+    "rationale": "Both describe mammary gland hyperplasia."
+  },
+  {
+    "group_key": "cell_proliferation_general_vs_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "870",
+      "1089",
+      "1033"
+    ],
+    "rationale": "Increased cell proliferation, general vs mesothelium vs mesenchymal cell contexts."
+  },
+  {
+    "group_key": "tumor_carcinoma_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "779",
+      "797",
+      "1079",
+      "885"
+    ],
+    "rationale": "Increased tumors/carcinomas in different tissue contexts or generally."
+  },
+  {
+    "group_key": "inflammation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "777",
+      "1087"
+    ],
+    "rationale": "Increased inflammation, corneal-specific vs general."
+  },
+  {
+    "group_key": "ppar_beta2_adrenergic_activation",
+    "type": "merge",
+    "member_ids": [
+      "1038",
+      "1039"
+    ],
+    "rationale": "Both describe increased activation/activity of beta-2 adrenergic receptor."
+  },
+  {
+    "group_key": "cytoplasmic_vacuolization_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "824",
+      "818",
+      "833",
+      "837",
+      "836"
+    ],
+    "rationale": "Cytoplasmic vacuolization in different cell types."
+  },
+  {
+    "group_key": "hif1_alpha_arnt_dimer",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "799",
+      "945"
+    ],
+    "rationale": "Both concern HIF-1alpha/ARNT heterodimer, increased vs reduced dimerization; flagged for curator review."
+  },
+  {
+    "group_key": "gaba_glutamate_chloride_channel",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "761",
+      "762"
+    ],
+    "rationale": "Chloride conductance and activation of the GABA chloride channel relate to the same channel function; curator review."
+  },
+  {
+    "group_key": "lh_increase_secretion",
+    "type": "merge",
+    "member_ids": [
+      "791",
+      "1050"
+    ],
+    "rationale": "Both describe increased LH levels/secretion."
+  },
+  {
+    "group_key": "lh_surge_release_decrease",
+    "type": "merge",
+    "member_ids": [
+      "970",
+      "1072"
+    ],
+    "rationale": "Both describe decreased LH release/surge from anterior pituitary."
+  },
+  {
+    "group_key": "lh_increase_vs_decrease",
+    "type": "soda",
+    "member_ids": [
+      "1050",
+      "1072"
+    ],
+    "rationale": "LH secretion from anterior pituitary increased vs decreased."
+  },
+  {
+    "group_key": "gnrh_release_direction",
+    "type": "soda",
+    "member_ids": [
+      "1047",
+      "1071"
+    ],
+    "rationale": "GnRH secretion from hypothalamus increased vs decreased."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_mrna",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "800",
+      "964"
+    ],
+    "rationale": "Both concern aromatase, mRNA decrease vs enzyme inhibition."
+  },
+  {
+    "group_key": "ovulation_disruption",
+    "type": "merge",
+    "member_ids": [
+      "971",
+      "1074"
+    ],
+    "rationale": "Both describe blocked/interrupted ovulation."
+  },
+  {
+    "group_key": "fertility_decrease",
+    "type": "merge",
+    "member_ids": [
+      "330",
+      "972"
+    ],
+    "rationale": "Both describe decreased fertility."
+  },
+  {
+    "group_key": "lysosome_disruption",
+    "type": "merge",
+    "member_ids": [
+      "831",
+      "898"
+    ],
+    "rationale": "Both describe disturbance/disruption of lysosomal function."
+  },
+  {
+    "group_key": "fibrosis_organ_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "840",
+      "1458"
+    ],
+    "rationale": "Fibrosis in liver vs lung."
+  },
+  {
+    "group_key": "deiodinase_inhibition",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1002",
+      "1009"
+    ],
+    "rationale": "Inhibition of different deiodinase isoforms."
+  },
+  {
+    "group_key": "swim_bladder_inflation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1004",
+      "1007"
+    ],
+    "rationale": "Reduced swim bladder inflation in posterior vs anterior chambers."
+  },
+  {
+    "group_key": "sox_sine_oculis_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2329",
+      "2330"
+    ],
+    "rationale": "Same gene product, mRNA vs protein expression."
+  },
+  {
+    "group_key": "prolactin_increase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1077",
+      "1084"
+    ],
+    "rationale": "Prolactin exposure vs prolactin secretion; related but distinct."
+  },
+  {
+    "group_key": "enos_activity",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "932",
+      "973",
+      "927"
+    ],
+    "rationale": "All concern eNOS but with distinct processes (uncoupling, activity decrease, S-glutathionylation)."
+  },
+  {
+    "group_key": "transthyretin_binding_displacement",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "957",
+      "958"
+    ],
+    "rationale": "Binding to transthyretin vs displacement of T4 from transthyretin."
+  },
+  {
+    "group_key": "calcineurin_nfat",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "979",
+      "981"
+    ],
+    "rationale": "Both concern NFAT with distinct processes (nuclear localization vs complex formation)."
+  },
+  {
+    "group_key": "cox1_prostaglandin",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1494",
+      "1497"
+    ],
+    "rationale": "Leukocyte recruitment/activation and recruitment of inflammatory cells describe similar processes."
+  }
+]

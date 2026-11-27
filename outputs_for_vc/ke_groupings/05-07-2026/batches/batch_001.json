@@ -1,0 +1,365 @@
+[
+  {
+    "group_key": "nis_inhibition_thyroidal_iodide",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "424",
+      "425"
+    ],
+    "rationale": "ID 424 describes inhibition of the NIS transporter while ID 425 describes the resulting decrease of thyroidal iodide \u2014 same target object but inhibition vs. downstream consequence are distinct processes."
+  },
+  {
+    "group_key": "ldlr_upregulation_ldl_uptake",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "466",
+      "467"
+    ],
+    "rationale": "ID 466 describes up-regulation of LDLR and ID 467 describes increased LDL uptake \u2014 the receptor and its functional outcome share the same object but are distinct processes."
+  },
+  {
+    "group_key": "triglyceride_increase",
+    "type": "merge",
+    "member_ids": [
+      "454",
+      "881"
+    ],
+    "rationale": "Both describe increased triglyceride formation/accumulation using different wording."
+  },
+  {
+    "group_key": "de_novo_fa_synthesis_fas",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "458",
+      "463"
+    ],
+    "rationale": "ID 458 describes increased de novo fatty acid synthesis broadly while ID 463 describes up-regulation of FAS (fatty acid synthase), which are related but distinct \u2014 the enzyme and the overall process are not synonyms."
+  },
+  {
+    "group_key": "ovulation_decrease",
+    "type": "merge",
+    "member_ids": [
+      "488",
+      "532"
+    ],
+    "rationale": "ID 488 (Decrease, Ovulation) and ID 532 (Delayed, Ovulation) both describe impaired ovulation, though directionality differs slightly; curator review recommended \u2014 however 'delayed' vs 'decreased' may be meaningfully different, so flagging as similar_event_different_biological_context is not appropriate; these are best treated as merge candidates describing the same impaired ovulation outcome."
+  },
+  {
+    "group_key": "pgf2alpha_synthesis_ovary",
+    "type": "merge",
+    "member_ids": [
+      "672",
+      "681"
+    ],
+    "rationale": "Both ID 672 and ID 681 describe reduced/decreased prostaglandin F2alpha synthesis in the ovary using different wording."
+  },
+  {
+    "group_key": "prostaglandins_ovary_pgf2alpha_ovary",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "685",
+      "672"
+    ],
+    "rationale": "ID 685 refers broadly to reduced prostaglandins in the ovary while ID 672 specifies reduced PGF2alpha synthesis in the ovary \u2014 same organ context but different specificity of prostaglandin type."
+  },
+  {
+    "group_key": "sperm_quantity_quality_fertility",
+    "type": "merge",
+    "member_ids": [
+      "520",
+      "505"
+    ],
+    "rationale": "Both ID 520 and ID 505 describe decreased sperm quantity or quality in the adult leading to decreased fertility using nearly identical wording."
+  },
+  {
+    "group_key": "sperm_quantity_adult_testis_fertility",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "543",
+      "646"
+    ],
+    "rationale": "Both describe decreased sperm quantity/quality in the adult testis linked to fertility, but one specifies the adult testis as context while the other frames it as adult fertility outcome."
+  },
+  {
+    "group_key": "fetal_leydig_testosterone_dysgenesis",
+    "type": "merge",
+    "member_ids": [
+      "657",
+      "660",
+      "540"
+    ],
+    "rationale": "All three describe decreased testosterone by fetal Leydig cells associated with dysgenesis of fetal Leydig cells using slightly different wording."
+  },
+  {
+    "group_key": "fetal_leydig_testosterone_coup_tfii",
+    "type": "merge",
+    "member_ids": [
+      "655",
+      "541"
+    ],
+    "rationale": "Both describe decreased testosterone by fetal Leydig cells associated with COUP-TFII alterations in stem/fetal Leydig cells."
+  },
+  {
+    "group_key": "sodium_channel_inhibition_conductance",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "584",
+      "585"
+    ],
+    "rationale": "ID 584 describes inhibition of sodium channel and ID 585 describes decreased sodium conductance \u2014 same object but inhibition vs. conductance change are distinct measured endpoints."
+  },
+  {
+    "group_key": "sodium_channel_modulation_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "598",
+      "584"
+    ],
+    "rationale": "ID 598 describes modulation of sodium channel and ID 584 describes inhibition of sodium channel \u2014 same object but modulation is broader and does not specify direction."
+  },
+  {
+    "group_key": "nicotinic_achr_activation_desensitization",
+    "type": "soda",
+    "member_ids": [
+      "559",
+      "663"
+    ],
+    "rationale": "ID 559 describes activation of nicotinic acetylcholine receptor and ID 663 describes desensitization of the same receptor \u2014 opposite functional states of the same receptor."
+  },
+  {
+    "group_key": "role_change_caste",
+    "type": "merge",
+    "member_ids": [
+      "564",
+      "1108"
+    ],
+    "rationale": "Both describe abnormal role/caste change within a bee colony using slightly different wording."
+  },
+  {
+    "group_key": "locomotion_increase_decrease",
+    "type": "soda",
+    "member_ids": [
+      "622",
+      "635"
+    ],
+    "rationale": "ID 622 describes increased locomotion and ID 635 describes decreased locomotion \u2014 opposite directions of the same behavioral endpoint."
+  },
+  {
+    "group_key": "predation_increase",
+    "type": "merge",
+    "member_ids": [
+      "588",
+      "623"
+    ],
+    "rationale": "Both describe increased predation using the same wording."
+  },
+  {
+    "group_key": "survival_reduced",
+    "type": "merge",
+    "member_ids": [
+      "592",
+      "636"
+    ],
+    "rationale": "Both describe reduced/decreased survival as an outcome."
+  },
+  {
+    "group_key": "microtubule_tubulin_binding_disruption",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "718",
+      "720"
+    ],
+    "rationale": "ID 718 describes binding to tubulin and ID 720 describes disruption of microtubule dynamics \u2014 binding to tubulin does not confirm disruption without additional context."
+  },
+  {
+    "group_key": "meiotic_spindle_chromosome_dynamics",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "721",
+      "752"
+    ],
+    "rationale": "ID 721 describes disorganization of the meiotic spindle and ID 752 describes altered meiotic chromosome dynamics \u2014 related meiotic processes but spindle organization vs. chromosome dynamics are distinct biological events."
+  },
+  {
+    "group_key": "chromosome_number_altered",
+    "type": "merge",
+    "member_ids": [
+      "723",
+      "536"
+    ],
+    "rationale": "Both describe altered chromosome number (aneuploidy/polyploidy) in the context of meiotic/fertilization errors."
+  },
+  {
+    "group_key": "cytotoxicity_general_vs_renal",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "768",
+      "709"
+    ],
+    "rationale": "ID 768 describes general cytotoxicity and ID 709 specifies cytotoxicity in renal tubular cells \u2014 same process but one specifies a tissue context."
+  },
+  {
+    "group_key": "cytotoxicity_club_cells_vs_general",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "770",
+      "768"
+    ],
+    "rationale": "ID 770 describes cytotoxicity in club cells and ID 768 describes general cytotoxicity \u2014 same process but one specifies a cell-type context."
+  },
+  {
+    "group_key": "hyperplasia_renal_bronchiolar_follicular",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "767",
+      "735",
+      "740"
+    ],
+    "rationale": "All describe increased hyperplasia but in different tissues: renal tubular cells, terminal bronchiolar cells, and follicular cells respectively."
+  },
+  {
+    "group_key": "adenocarcinoma_renal_bronchial_follicular",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "713",
+      "736",
+      "741"
+    ],
+    "rationale": "All describe increased adenomas/carcinomas but in different tissue contexts: renal tubular, bronchioloalveolar, and follicular cells."
+  },
+  {
+    "group_key": "regenerative_cell_proliferation_renal_vs_bronchiolar",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "710",
+      "734"
+    ],
+    "rationale": "Both describe increased regenerative cell proliferation after cytotoxicity but in different tissues: renal tubular epithelial cells vs. terminal bronchiolar epithelial cells."
+  },
+  {
+    "group_key": "pdk_inhibition_pdh_induction",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "724",
+      "726"
+    ],
+    "rationale": "ID 724 describes inhibition of pyruvate dehydrogenase kinase (PDK) and ID 726 describes induction of pyruvate dehydrogenase (PDH) \u2014 PDK and PDH are distinct enzymes in the same pathway, not the same object."
+  },
+  {
+    "group_key": "car_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "715",
+      "1214"
+    ],
+    "rationale": "ID 715 describes general activation of constitutive androstane receptor and ID 1214 describes CAR activation-specific gene expression changes in hepatocytes \u2014 same receptor but one specifies the hepatocyte context and downstream gene expression."
+  },
+  {
+    "group_key": "gnrh_hypothalamus",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "530",
+      "689"
+    ],
+    "rationale": "ID 530 describes decreased GnRH pulsatility/release generally and ID 689 describes reduced GnRH in the hypothalamus specifically \u2014 same molecule/process but one specifies the hypothalamic context."
+  },
+  {
+    "group_key": "lh_luteinizing_hormone",
+    "type": "soda",
+    "member_ids": [
+      "531",
+      "754"
+    ],
+    "rationale": "ID 531 describes decreased LH surge and ID 754 describes increased luteinizing hormone \u2014 opposite directions of the same hormonal endpoint."
+  },
+  {
+    "group_key": "androgen_receptor_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "743",
+      "1614"
+    ],
+    "rationale": "ID 743 describes decreased testosterone binding to androgen receptor in the hypothalamus specifically, while ID 1614 describes general decrease in androgen receptor activation \u2014 same direction but one specifies hypothalamic context."
+  },
+  {
+    "group_key": "ppar_alpha_inhibition_vs_srebp1c_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "468",
+      "878"
+    ],
+    "rationale": "ID 468 describes inhibition of PPAR alpha and ID 878 describes inhibition of SREBP1c \u2014 these are distinct transcription factors and cannot be grouped."
+  },
+  {
+    "group_key": "serotonin_transporter_serotonin_increase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "619",
+      "626"
+    ],
+    "rationale": "ID 619 describes inhibition of the serotonin transporter (SERT) and ID 626 describes increased serotonin \u2014 SERT inhibition and elevated serotonin are related but distinct biological events (transporter vs. neurotransmitter level)."
+  },
+  {
+    "group_key": "apob100_mttp_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "879",
+      "880"
+    ],
+    "rationale": "ID 879 describes activation of MTTP (microsomal triglyceride transfer protein) and ID 880 describes increased ApoB100 \u2014 MTTP and ApoB100 are distinct proteins involved in VLDL assembly, not the same object."
+  },
+  {
+    "group_key": "reduced_reproductive_success",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "675",
+      "527"
+    ],
+    "rationale": "ID 675 describes reduced reproductive success and ID 527 describes decreased fecundity \u2014 these are closely related endpoints measuring reproductive output but use distinct biological terms (reproductive success vs. fecundity)."
+  },
+  {
+    "group_key": "colony_weakened_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1107",
+      "563"
+    ],
+    "rationale": "ID 1107 describes a weakened colony and ID 563 describes colony death/failure \u2014 same biological entity (colony) but different severity of outcome."
+  },
+  {
+    "group_key": "mitochondrial_dna_damage_repair",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "570",
+      "664"
+    ],
+    "rationale": "ID 570 describes accumulation of damaged mitochondrial DNA and ID 664 describes overwhelmed mitochondrial DNA repair mechanisms \u2014 same object (mitochondrial DNA) but damage accumulation vs. repair capacity are distinct processes."
+  },
+  {
+    "group_key": "hydrogen_peroxide_glucose_oxidase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "578",
+      "579"
+    ],
+    "rationale": "ID 578 describes decreased glucose oxidase enzyme activity and ID 579 describes decreased hydrogen peroxide production \u2014 glucose oxidase and hydrogen peroxide are related (enzyme and product) but are distinct biological objects."
+  },
+  {
+    "group_key": "action_potential_cardiac_arrhythmia",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "698",
+      "699"
+    ],
+    "rationale": "ID 698 describes altered action potential and ID 699 describes increased cardiac arrhythmia \u2014 action potential changes and arrhythmia are related but distinct electrophysiological events."
+  },
+  {
+    "group_key": "meiotic_chromosome_aneuploid_offspring",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "723",
+      "728"
+    ],
+    "rationale": "ID 723 describes altered chromosome number and ID 728 describes increased aneuploid offspring \u2014 these are related (cellular vs. organismal outcome) but distinct levels of biological organization."
+  }
+]

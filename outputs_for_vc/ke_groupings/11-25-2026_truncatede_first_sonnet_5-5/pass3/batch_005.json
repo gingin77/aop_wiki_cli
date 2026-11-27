@@ -1,0 +1,40 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "530",
+      "group_key": "gnrh_release_direction",
+      "rationale": "Decreased GnRH pulsatility/release is the same endpoint as the decreased hypothalamic GnRH release member, and is opposite to the increased GnRH secretion member."
+    },
+    {
+      "event_id": "531",
+      "group_key": "lh_surge_release_decrease",
+      "rationale": "Decreased LH surge is the same event as 'Decreased, LH Surge from anterior pituitary', with the tissue qualifier omitted."
+    },
+    {
+      "event_id": "527",
+      "group_key": "fecundity_decrease",
+      "rationale": "Decreased fecundity in general, paired with the existing decreased fecundity events, one of which is generation-specific."
+    },
+    {
+      "event_id": "541",
+      "group_key": "coup_tfii_fetal_leydig",
+      "rationale": "Decreased COUP-TFII in stem Leydig cells is the opposite direction to the 'Increased COUP-TFII in fetal Leydig cells' member."
+    },
+    {
+      "event_id": "593",
+      "group_key": "herg_block_vs_ikr_inhibition",
+      "rationale": "Inhibition of the ERG (hERG) potassium channel shares the same channel object with hERG blockade and IKr inhibition, but the processes may differ."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "impaired_development_larval",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "566",
+        "577"
+      ],
+      "rationale": "Both describe impaired development, one general and one specific to the larval stage."
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+[
+  {
+    "group_key": "tgf_beta_pathway_activation",
+    "type": "merge",
+    "member_ids": [
+      "1283",
+      "1469"
+    ],
+    "rationale": "Both describe activation of the TGF-beta pathway."
+  },
+  {
+    "group_key": "tgf_beta_signaling_increase_vs_activation",
+    "type": "merge",
+    "member_ids": [
+      "1271",
+      "1283",
+      "1469"
+    ],
+    "rationale": "Increase in TGF-beta signaling and activation of the TGF-beta pathway are synonymous."
+  },
+  {
+    "group_key": "reproductive_success_direction",
+    "type": "soda",
+    "member_ids": [
+      "1163",
+      "1141"
+    ],
+    "rationale": "Reproductive success increased vs decreased."
+  },
+  {
+    "group_key": "population_decline_vs_increase",
+    "type": "soda",
+    "member_ids": [
+      "1164",
+      "361"
+    ],
+    "rationale": "Population increased vs declined."
+  },
+  {
+    "group_key": "glycolysis_direction",
+    "type": "soda",
+    "member_ids": [
+      "1476",
+      "2070"
+    ],
+    "rationale": "Glycolysis decreased vs increased."
+  },
+  {
+    "group_key": "oxphos_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1477",
+      "1545"
+    ],
+    "rationale": "Both describe decreased oxidative phosphorylation."
+  },
+  {
+    "group_key": "growth_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1467",
+      "1521"
+    ],
+    "rationale": "Both describe reduced growth."
+  },
+  {
+    "group_key": "dna_strand_breaks",
+    "type": "merge",
+    "member_ids": [
+      "1461",
+      "1635"
+    ],
+    "rationale": "DNA double-strand breaks and DNA strand breaks describe increased DNA breakage."
+  },
+  {
+    "group_key": "cytosolic_calcium_increase",
+    "type": "merge",
+    "member_ids": [
+      "1339",
+      "2064"
+    ],
+    "rationale": "Both describe increased intracellular/cytosolic calcium."
+  },
+  {
+    "group_key": "complex_iii_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1542",
+      "1653"
+    ],
+    "rationale": "Binding of inhibitor to complex III vs inhibition of complex III."
+  },
+  {
+    "group_key": "complex_iv_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1543",
+      "1654"
+    ],
+    "rationale": "Binding of inhibitor to complex IV vs inhibition of complex IV."
+  },
+  {
+    "group_key": "complex_v_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1544",
+      "1655"
+    ],
+    "rationale": "Binding of inhibitor to complex V vs inhibition of complex V."
+  },
+  {
+    "group_key": "cyp2e1_activation",
+    "type": "merge",
+    "member_ids": [
+      "1391",
+      "1508"
+    ],
+    "rationale": "Both describe activation of CYP2E1."
+  },
+  {
+    "group_key": "atp_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1472",
+      "1771"
+    ],
+    "rationale": "Decreased ATP production and decreased ATP pool are closely equivalent energy-depletion events."
+  },
+  {
+    "group_key": "apoptosis_general_vs_epithelial",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1262",
+      "1513",
+      "1183",
+      "1775"
+    ],
+    "rationale": "Apoptosis events in general vs specific cell contexts (epithelial cells, oocytes), though directions may differ."
+  },
+  {
+    "group_key": "cell_proliferation_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1182",
+      "1394"
+    ],
+    "rationale": "Increased proliferation, one specifying epithelial cells."
+  },
+  {
+    "group_key": "fibrosis_collagen",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1276",
+      "1275"
+    ],
+    "rationale": "Lung fibrosis organ-level outcome vs collagen deposition cellular process."
+  },
+  {
+    "group_key": "dna_damage_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1194",
+      "1281"
+    ],
+    "rationale": "Both concern DNA damage, general vs repair-related."
+  },
+  {
+    "group_key": "necrosis_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1263",
+      "1548"
+    ],
+    "rationale": "Necrosis general vs necrotic tissue."
+  },
+  {
+    "group_key": "hepatotoxicity_liver_injury",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1291",
+      "1393",
+      "1549"
+    ],
+    "rationale": "Hepatotoxicity/hepatocytotoxicity/liver injury describe liver damage at differing specificity."
+  },
+  {
+    "group_key": "tgf_latent_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1468",
+      "1469"
+    ],
+    "rationale": "Activation of latent TGF-beta1 vs TGF-beta pathway share TGF-beta object but distinct processes."
+  }
+]

@@ -1,0 +1,401 @@
+[
+  {
+    "group_key": "triiodothyronine_t3_tissues",
+    "type": "soda",
+    "member_ids": [
+      "1116",
+      "1154"
+    ],
+    "rationale": "Both measure triiodothyronine (T3) levels in tissues but in opposite directions (decreased vs. increased)."
+  },
+  {
+    "group_key": "tgf_beta_pathway_activation",
+    "type": "merge",
+    "member_ids": [
+      "1283",
+      "1469"
+    ],
+    "rationale": "Both describe activation of the TGF-beta pathway using nearly identical wording."
+  },
+  {
+    "group_key": "latent_tgfb_vs_tgfb_pathway",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1468",
+      "1283",
+      "1469"
+    ],
+    "rationale": "These events all involve TGF-beta but represent distinct processes: activation of the latent form (1468) versus activation of the downstream signaling pathway (1283, 1469)."
+  },
+  {
+    "group_key": "tgf_beta_signaling_increase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1271",
+      "1283",
+      "1469"
+    ],
+    "rationale": "All three describe TGF-beta signaling activation/increase but use different framings (increase in signaling vs. pathway activation) warranting curator review."
+  },
+  {
+    "group_key": "mitochondrial_complex_iii_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1653",
+      "1542"
+    ],
+    "rationale": "Both target mitochondrial complex III but one describes binding of an inhibitor and the other describes functional inhibition \u2014 binding does not confirm inhibition without additional context."
+  },
+  {
+    "group_key": "mitochondrial_complex_iv_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1654",
+      "1543"
+    ],
+    "rationale": "Both target mitochondrial complex IV but one describes binding of an inhibitor and the other describes functional inhibition."
+  },
+  {
+    "group_key": "mitochondrial_complex_v_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1655",
+      "1544"
+    ],
+    "rationale": "Both target mitochondrial complex V but one describes binding of an inhibitor and the other describes functional inhibition."
+  },
+  {
+    "group_key": "mitochondrial_oxidative_phosphorylation_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1545",
+      "1446"
+    ],
+    "rationale": "Both describe decreased/reduced mitochondrial oxidative phosphorylation (coupling of oxidative phosphorylation decreased is functionally equivalent to decreased mitochondrial oxidative phosphorylation)."
+  },
+  {
+    "group_key": "cyp2e1_activation",
+    "type": "merge",
+    "member_ids": [
+      "1391",
+      "1508"
+    ],
+    "rationale": "Both describe activation of CYP2E1 using equivalent wording."
+  },
+  {
+    "group_key": "dna_strand_breaks",
+    "type": "merge",
+    "member_ids": [
+      "1635",
+      "1194"
+    ],
+    "rationale": "Both describe increased DNA damage/strand breaks; 'Increase, DNA strand breaks' and 'Increase, DNA damage' are functionally synonymous at this level of description."
+  },
+  {
+    "group_key": "dna_double_strand_breaks_vs_general_damage",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1461",
+      "1635"
+    ],
+    "rationale": "Both describe DNA strand break events but one specifies double-strand breaks (a more specific lesion type) while the other is general DNA strand breaks."
+  },
+  {
+    "group_key": "collagen_deposition_production",
+    "type": "soda",
+    "member_ids": [
+      "1275",
+      "1558"
+    ],
+    "rationale": "Both describe collagen at the production/deposition level but in opposite directions (deposition/increase vs. reduced production)."
+  },
+  {
+    "group_key": "lung_fibrosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1276",
+      "1587"
+    ],
+    "rationale": "Both describe fibrotic/proliferative lesions in the lung/airway but at different levels of specificity (lung fibrosis vs. fibroproliferative airway lesions)."
+  },
+  {
+    "group_key": "population_decline_vs_increase",
+    "type": "soda",
+    "member_ids": [
+      "361",
+      "1164"
+    ],
+    "rationale": "Both measure population trajectory but in opposite directions (decline vs. increase)."
+  },
+  {
+    "group_key": "reproductive_success",
+    "type": "soda",
+    "member_ids": [
+      "1141",
+      "1163"
+    ],
+    "rationale": "Both describe reproductive success but in opposite directions (decreased vs. increased)."
+  },
+  {
+    "group_key": "microtubule_binding_vs_instability",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1580",
+      "1581"
+    ],
+    "rationale": "Both involve microtubules but one describes binding of stabilizing agents and the other describes disruption of dynamic instability \u2014 these are distinct processes on the same object."
+  },
+  {
+    "group_key": "calcium_channel_opening_influx",
+    "type": "merge",
+    "member_ids": [
+      "1218",
+      "1339"
+    ],
+    "rationale": "Opening of calcium channels leading to calcium influx (1218) and increase in intracellular calcium (1339) describe the same event of calcium entry into the cell."
+  },
+  {
+    "group_key": "l_type_calcium_channel_blockade_vs_decrease_currents",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1529",
+      "1530"
+    ],
+    "rationale": "Both involve L-type calcium channels but one describes blockade/inhibition and the other describes the resulting decrease in calcium currents \u2014 these are sequential but distinct events."
+  },
+  {
+    "group_key": "cardiac_contractility_ejection_fraction_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1532",
+      "1533"
+    ],
+    "rationale": "Both describe decreased cardiac function but at different levels: contractility (cellular/tissue) vs. ejection fraction (organ-level measurement)."
+  },
+  {
+    "group_key": "atp_pool_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1771",
+      "1472"
+    ],
+    "rationale": "Both describe a decrease in ATP production/pool using equivalent biological meaning."
+  },
+  {
+    "group_key": "glycolysis_increase",
+    "type": "merge",
+    "member_ids": [
+      "2070",
+      "1476"
+    ],
+    "rationale": "Both describe glycolysis but in opposite directions \u2014 confirming these are NOT a merge; 2070 is increase and 1476 is decrease."
+  },
+  {
+    "group_key": "glycolysis_directional",
+    "type": "soda",
+    "member_ids": [
+      "2070",
+      "1476"
+    ],
+    "rationale": "Both measure glycolysis but in strictly opposite directions (increase vs. decrease)."
+  },
+  {
+    "group_key": "glutathione_synthesis_homeostasis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1287",
+      "1290"
+    ],
+    "rationale": "Both describe glutathione-related processes but one specifies synthesis and the other homeostasis \u2014 related but distinct processes warranting curator review."
+  },
+  {
+    "group_key": "apoptosis_general",
+    "type": "merge",
+    "member_ids": [
+      "1262",
+      "1513"
+    ],
+    "rationale": "Both describe general apoptosis using equivalent terms."
+  },
+  {
+    "group_key": "necrosis_necrotic_tissue",
+    "type": "merge",
+    "member_ids": [
+      "1263",
+      "1548"
+    ],
+    "rationale": "Both describe necrosis/necrotic tissue formation using equivalent biological meaning."
+  },
+  {
+    "group_key": "liver_injury_hepatotoxicity",
+    "type": "merge",
+    "member_ids": [
+      "1393",
+      "1549"
+    ],
+    "rationale": "Hepatotoxicity and liver injury describe the same hepatic damage endpoint using different wording."
+  },
+  {
+    "group_key": "oocyte_maturation_spawning",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1161",
+      "1255"
+    ],
+    "rationale": "Both describe reproductive processes (oocyte maturation and induced spawning) that are closely related but represent different levels of the reproductive process."
+  },
+  {
+    "group_key": "histone_acetylation_hdac_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1502",
+      "1503"
+    ],
+    "rationale": "HDAC inhibition (1502) and increased histone acetylation (1503) involve histones but represent the enzyme inhibition event versus the downstream epigenetic modification \u2014 distinct processes on related objects."
+  },
+  {
+    "group_key": "mtdna_pol_gamma_inhibition_vs_mtdna_depletion",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1481",
+      "1482"
+    ],
+    "rationale": "Both involve mitochondrial DNA but one describes inhibition of the polymerase enzyme and the other describes the resulting mtDNA depletion \u2014 enzyme vs. substrate/product."
+  },
+  {
+    "group_key": "substance_p_cgrp_nka_neuronal_release",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1222",
+      "1433",
+      "1435"
+    ],
+    "rationale": "All three describe neuronal release of neuropeptides (SP, CGRP, NKA) in the context of trigeminal nerve activation \u2014 same process (neuropeptide release) but different specific molecules."
+  },
+  {
+    "group_key": "decrease_growth",
+    "type": "merge",
+    "member_ids": [
+      "1467",
+      "1521"
+    ],
+    "rationale": "Both describe growth reduction using equivalent wording ('Growth, reduction' and 'Decrease, Growth')."
+  },
+  {
+    "group_key": "cell_proliferation_directional",
+    "type": "soda",
+    "member_ids": [
+      "1182",
+      "1821"
+    ],
+    "rationale": "Both measure cell proliferation but in opposite directions (increase in epithelial cells vs. decrease in cell proliferation)."
+  },
+  {
+    "group_key": "fibroblast_activation_differentiation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1197",
+      "1456"
+    ],
+    "rationale": "Both involve fibroblasts but one describes activation and the other describes differentiation \u2014 these are distinct biological processes involving the same cell type."
+  },
+  {
+    "group_key": "mitochondrial_injury_swelling",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1547",
+      "2072"
+    ],
+    "rationale": "Both describe mitochondrial damage but at different levels: general mitochondrial injury vs. specific mitochondrial swelling."
+  },
+  {
+    "group_key": "follicular_atresia_oogenesis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1444",
+      "1366"
+    ],
+    "rationale": "Both describe ovarian/oocyte-level events (follicular atresia increase and decreased oogenesis) in the same reproductive context but as distinct processes."
+  },
+  {
+    "group_key": "oocyte_apoptosis_follicular_atresia",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1775",
+      "1444"
+    ],
+    "rationale": "Both involve oocyte/follicle degeneration but one describes oocyte apoptosis specifically and the other describes follicular atresia \u2014 related but distinct processes."
+  },
+  {
+    "group_key": "photosynthesis_light_harvest",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1474",
+      "1475"
+    ],
+    "rationale": "Both describe decreased photosynthetic processes but light harvest capacity is upstream and distinct from overall photosynthesis reduction."
+  },
+  {
+    "group_key": "leaf_development_mitosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1478",
+      "1479"
+    ],
+    "rationale": "Both describe decreased leaf-level processes (cell mitosis and leaf development) but are distinct biological events within the same tissue context."
+  },
+  {
+    "group_key": "neurotransmitter_release_inhibition",
+    "type": "merge",
+    "member_ids": [
+      "1430",
+      "1179"
+    ],
+    "rationale": "Both describe inhibition/decrease of neurotransmitter release (GABA release decreased and inhibition of neurotransmitter vesicle release) \u2014 equivalent biological outcomes at the synapse."
+  },
+  {
+    "group_key": "calcium_cytosolic_increase",
+    "type": "merge",
+    "member_ids": [
+      "2064",
+      "1339"
+    ],
+    "rationale": "Both describe an increase in intracellular/cytosolic calcium using equivalent biological meaning."
+  },
+  {
+    "group_key": "chromosomal_aberrations_translocation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1636",
+      "1253"
+    ],
+    "rationale": "Both describe chromosomal-level DNA damage events but chromosomal aberrations (general) vs. MLL chromosomal translocation (specific locus) represent different levels of specificity."
+  },
+  {
+    "group_key": "depression_neuroplasticity",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1346",
+      "1330"
+    ],
+    "rationale": "Both describe neurological/psychiatric outcomes (depression and decreased neuroplasticity) in the same neurotoxicity context but are distinct endpoints."
+  },
+  {
+    "group_key": "seizure_epilepsy",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1348",
+      "1363"
+    ],
+    "rationale": "Both describe seizure-related neurological events but seizure (acute event) vs. epilepsy (chronic condition) represent different levels of the same pathological process."
+  },
+  {
+    "group_key": "acute_phase_response",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1438",
+      "1439"
+    ],
+    "rationale": "Both describe acute phase response events but one specifies transcription of acute phase protein genes while the other describes the systemic acute phase response \u2014 upstream gene event vs. downstream systemic outcome."
+  }
+]

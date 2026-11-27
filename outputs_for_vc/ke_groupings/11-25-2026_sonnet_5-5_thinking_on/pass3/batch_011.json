@@ -1,0 +1,19 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1821",
+      "group_key": "cell_proliferation_context",
+      "rationale": "Decrease in cell proliferation is the same endpoint as the cell proliferation events in this group, but in the opposite direction, so it is flagged for curator review as a context/direction variant."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "complex_v_atp_synthase_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1785"
+      ],
+      "rationale": "Placeholder"
+    }
+  ]
+}

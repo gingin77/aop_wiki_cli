@@ -1,0 +1,10 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1554",
+      "group_key": "dna_strand_breaks",
+      "rationale": "Placeholder"
+    }
+  ],
+  "new_groups": []
+}

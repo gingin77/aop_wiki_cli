@@ -1,0 +1,43 @@
+{
+  "existing_group_assignments": [],
+  "new_groups": [
+    {
+      "group_key": "dht_androgen_precursor_reduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1610",
+        "1611",
+        "1613"
+      ],
+      "rationale": "Reduction of different androgens/precursors (DHEA, androstenedione, DHT) in the same androgen biosynthesis pathway, flagged for curator review."
+    },
+    {
+      "group_key": "cyp17a1_inhibition_vs_androgen_reduction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1609",
+        "1610",
+        "1611"
+      ],
+      "rationale": "CYP17A1 inhibition and the reduction of its products (DHEA, androstenedione) are related processes of the same enzymatic step but not equivalent."
+    },
+    {
+      "group_key": "tyrosinase_inhibition_vs_dopaquinone_reduction",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1627",
+        "1628"
+      ],
+      "rationale": "Tyrosinase inhibition and reduced L-dopaquinone (its product) concern the same enzymatic step but are distinct processes."
+    },
+    {
+      "group_key": "microtubule_msa_binding_vs_dynamics_disturbance",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1580",
+        "1581"
+      ],
+      "rationale": "Binding of stabilizing agents to microtubules is distinct from the resulting disturbance of microtubule dynamic instability."
+    }
+  ]
+}

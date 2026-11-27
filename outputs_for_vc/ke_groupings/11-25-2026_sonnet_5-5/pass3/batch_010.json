@@ -1,0 +1,25 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1511",
+      "group_key": "lipid_peroxidation_membrane_lipid_oxidation",
+      "rationale": "\"Lipid Peroxidation\" is the same event as \"Increase, Lipid peroxidation\" in the existing group, with different wording."
+    },
+    {
+      "event_id": "1821",
+      "group_key": "microcephaly_cortical_architecture",
+      "rationale": "\"Decrease, Cell proliferation\" is a general form of decreased proliferation/growth, differing in biological context from cortical neural progenitor cell proliferation."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "decrease_photosynthesis_context_new",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1475",
+        "1474"
+      ],
+      "rationale": "Decreased photosynthesis and decreased light harvest capacity are related plant photosynthetic function decreases at different specificity."
+    }
+  ]
+}

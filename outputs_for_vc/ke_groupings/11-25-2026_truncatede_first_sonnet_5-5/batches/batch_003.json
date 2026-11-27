@@ -1,0 +1,185 @@
+[
+  {
+    "group_key": "tgf_beta_pathway_activation",
+    "type": "merge",
+    "member_ids": [
+      "1283",
+      "1469"
+    ],
+    "rationale": "Both describe activation of the TGF-beta pathway."
+  },
+  {
+    "group_key": "tgf_beta_signaling_increase_vs_activation",
+    "type": "merge",
+    "member_ids": [
+      "1271",
+      "1283",
+      "1469"
+    ],
+    "rationale": "Increase in TGF-beta signaling and activation of the TGF-beta pathway are the same event worded differently."
+  },
+  {
+    "group_key": "dna_strand_breaks",
+    "type": "merge",
+    "member_ids": [
+      "1461",
+      "1635"
+    ],
+    "rationale": "Increase in DNA double-strand breaks and DNA strand breaks describe the same type of DNA damage increase."
+  },
+  {
+    "group_key": "reproductive_success_opposite",
+    "type": "soda",
+    "member_ids": [
+      "1163",
+      "1141"
+    ],
+    "rationale": "Increased vs decreased reproductive success."
+  },
+  {
+    "group_key": "population_decline_vs_increase",
+    "type": "soda",
+    "member_ids": [
+      "1164",
+      "361"
+    ],
+    "rationale": "Increased vs declined population."
+  },
+  {
+    "group_key": "apoptosis_general_vs_oocyte",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1262",
+      "1513",
+      "1775"
+    ],
+    "rationale": "Apoptosis in general vs oocyte-specific apoptosis."
+  },
+  {
+    "group_key": "oxphos_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1477",
+      "1545"
+    ],
+    "rationale": "Both describe decreased mitochondrial oxidative phosphorylation."
+  },
+  {
+    "group_key": "complex_iii_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1542",
+      "1653"
+    ],
+    "rationale": "Binding of inhibitor to complex III vs inhibition of complex III."
+  },
+  {
+    "group_key": "complex_iv_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1543",
+      "1654"
+    ],
+    "rationale": "Binding of inhibitor to complex IV vs inhibition of complex IV."
+  },
+  {
+    "group_key": "complex_v_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1544",
+      "1655"
+    ],
+    "rationale": "Binding of inhibitor to complex V vs inhibition of complex V."
+  },
+  {
+    "group_key": "cell_proliferation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1182",
+      "1821"
+    ],
+    "rationale": "Cell proliferation in epithelial cells vs general cell proliferation, though directions differ; flagged for curator review of context."
+  },
+  {
+    "group_key": "glycolysis_opposite",
+    "type": "soda",
+    "member_ids": [
+      "1476",
+      "2070"
+    ],
+    "rationale": "Decrease vs increase in glycolysis."
+  },
+  {
+    "group_key": "intracellular_calcium_increase",
+    "type": "merge",
+    "member_ids": [
+      "1339",
+      "2064"
+    ],
+    "rationale": "Increase in intracellular calcium and increase in cytosolic calcium describe the same event."
+  },
+  {
+    "group_key": "growth_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1467",
+      "1521"
+    ],
+    "rationale": "Both describe reduced growth."
+  },
+  {
+    "group_key": "atp_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1472",
+      "1771"
+    ],
+    "rationale": "Decrease in ATP production and decrease in ATP pool are closely equivalent ATP depletion events."
+  },
+  {
+    "group_key": "tgfb_latent_activation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1468",
+      "1469"
+    ],
+    "rationale": "Activation of latent TGF-beta 1 vs the TGF-beta pathway; same object but different processes."
+  },
+  {
+    "group_key": "liver_injury_hepatotoxicity",
+    "type": "merge",
+    "member_ids": [
+      "1291",
+      "1549",
+      "1393"
+    ],
+    "rationale": "Hepatotoxicity, hepatocytotoxicity and liver injury describe the same liver damage outcome."
+  },
+  {
+    "group_key": "cyp2e1_activation",
+    "type": "merge",
+    "member_ids": [
+      "1391",
+      "1508"
+    ],
+    "rationale": "Both describe activation of CYP2E1."
+  },
+  {
+    "group_key": "dna_damage_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1194",
+      "1635"
+    ],
+    "rationale": "General DNA damage vs DNA strand breaks specifically."
+  },
+  {
+    "group_key": "necrosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1263",
+      "1548"
+    ],
+    "rationale": "Cellular necrosis vs necrotic tissue."
+  }
+]
