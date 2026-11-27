@@ -140,3 +140,42 @@ def test_a_pipe_in_an_aop_title_is_escaped_in_the_scope_table():
 def test_tally_omits_zeros_and_agrees_in_number():
     assert tally({"aops": 3, "events": 1, "kers": 0}) == "3 AOP fields, 1 KE field"
     assert tally({"aops": 0, "events": 0, "kers": 2}) == "2 KER fields"
+
+
+# A result that also carries co-occurrence groups (one pair matched together,
+# one pair present separately but never in the same record) and a case-sensitive
+# term, to exercise the co-occurrence and case-sensitive sections of the report.
+CO_OCCURRENCE_RESULT = dict(
+    RESULT,
+    group_counts={"Group A": 1, "Group B": 1},
+    groups={"Group A": ["patch-clamp"], "Group B": ["hiPSC", "iPSC"]},
+    co_occurrence=[
+        {
+            "groups": ("Group A", "Group B"),
+            "records": [
+                {
+                    "entity": "events", "id": "616", "label": "A key event",
+                    "aop_ids": ["10"],
+                    "terms_by_group": {"Group A": ["patch-clamp"], "Group B": ["iPSC"]},
+                    "fields_by_group": {"Group A": ["description"], "Group B": ["title"]},
+                }
+            ],
+        },
+        {"groups": ("Group A", "Group B"), "records": []},  # present apart, never together
+    ],
+    case_sensitive_terms=["hiPSC"],
+)
+
+
+def test_markdown_reports_co_occurrence_groups_and_case_sensitivity():
+    report = render_within_aop_markdown(CO_OCCURRENCE_RESULT, SUMMARY, SELECTED_AOPS)
+
+    assert "## Term groups together in one record" in report
+    # the pair that matched together
+    assert "### Group A + Group B — 1 records" in report
+    # the pair that matched apart, with the "each present, never together" note
+    assert "No AOP, key event or KER in scope matched both *Group A*" in report
+    assert "Each group is present in scope, but never in the same record." in report
+    # group-membership rollup and the case-sensitive footnote
+    assert "### Group membership" in report
+    assert "Matched case-sensitively: 'hiPSC'." in report

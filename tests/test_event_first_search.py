@@ -20,9 +20,17 @@ Examples:
 
 # Import directly from submodule since package-level import would trigger
 # circular import: src.parsers <-> src.analysis
+from datetime import date
+
+import pytest
+
+from aop_wiki_cli.search import event_first_search as efs
 from aop_wiki_cli.search.event_first_search import (
     find_kers_containing_events,
     find_events_by_title_terms,
+    find_aops_containing_events,
+    filter_aops_by_title_exclusion,
+    _count_events_by_term,
 )
 
 
@@ -199,6 +207,114 @@ def test_chaining_title_search_to_kers():
 
     assert sorted(results.keys()) == ["10", "12"]
     print("✓ Test passed")
+
+
+# ---------------------------------------------------------------------------
+# find_events_by_title_terms — empty-title skip
+# ---------------------------------------------------------------------------
+
+def test_find_events_by_title_terms_skips_empty_title():
+    events = {"200": {"title": "Increased, apoptosis"}, "400": {"title": ""}}
+    matched = find_events_by_title_terms(events, ["apoptosis"])
+    assert set(matched) == {"200"}
+
+
+# ---------------------------------------------------------------------------
+# find_aops_containing_events
+# ---------------------------------------------------------------------------
+
+def test_find_aops_containing_events():
+    aops = {
+        "1": {"event_ids": ["200", "300"], "title": "A1"},
+        "2": {"event_ids": ["999"], "title": "A2"},
+    }
+    matched = find_aops_containing_events(aops, ["200"])
+    assert set(matched) == {"1"}
+    assert matched["1"]["source_events"] == ["200"]
+    assert matched["1"]["num_matching_events"] == 1
+    assert matched["1"]["total_events"] == 2
+
+
+# ---------------------------------------------------------------------------
+# filter_aops_by_title_exclusion
+# ---------------------------------------------------------------------------
+
+def test_filter_aops_by_title_exclusion():
+    aops = {"1": {"title": "Liver cancer"}, "2": {"title": "Kidney disease"}}
+    assert set(filter_aops_by_title_exclusion(aops, ["cancer"])) == {"2"}
+
+
+def test_filter_aops_by_title_exclusion_empty_returns_input():
+    aops = {"1": {"title": "x"}}
+    assert filter_aops_by_title_exclusion(aops, []) is aops
+
+
+# ---------------------------------------------------------------------------
+# _count_events_by_term
+# ---------------------------------------------------------------------------
+
+def test_count_events_by_term():
+    matched = {
+        "200": {"matched_terms": ["apoptosis"]},
+        "300": {"matched_terms": ["apoptosis", "cancer"]},
+    }
+    assert _count_events_by_term(matched) == {"apoptosis": 2, "cancer": 1}
+
+
+# ---------------------------------------------------------------------------
+# search_events_to_aops (orchestrator) — collect_entity_with_cache patched out
+# ---------------------------------------------------------------------------
+
+@pytest.fixture
+def patched_collect(monkeypatch):
+    events = {"200": {"title": "Increased, apoptosis"}}
+    aops = {
+        "1": {"event_ids": ["200"], "title": "Liver AOP", "oecd_status": "WPHA/WNT Endorsed"},
+        "2": {"event_ids": ["200"], "title": "Excluded tumor AOP", "oecd_status": "Under Development"},
+    }
+    monkeypatch.setattr(efs, "collect_entity_with_cache",
+                        lambda entity_type, *a, **k: events if entity_type == "events" else aops)
+    return events, aops
+
+
+def test_search_requires_title_terms(patched_collect, tmp_path):
+    with pytest.raises(ValueError, match="ke_title_terms"):
+        efs.search_events_to_aops({}, work_date=date(2024, 1, 1), cache_dir=tmp_path)
+
+
+def test_search_events_to_aops_basic(patched_collect, tmp_path):
+    result = efs.search_events_to_aops(
+        {"ke_title_terms": ["apoptosis"]}, work_date=date(2024, 1, 1), cache_dir=tmp_path
+    )
+    assert set(result["matched_events"]) == {"200"}
+    assert set(result["matched_aops"]) == {"1", "2"}
+    assert result["summary"]["total_events_matched"] == 1
+    assert result["summary"]["event_totals_by_term"] == {"apoptosis": 1}
+
+
+def test_search_events_to_aops_exclusion_and_oecd_filter(patched_collect, tmp_path):
+    result = efs.search_events_to_aops(
+        {
+            "ke_title_terms": ["apoptosis"],
+            "aop_title_exclusion_terms": ["tumor"],       # drops AOP 2
+            "oecd_status_filter": ["WPHA/WNT Endorsed"],  # keeps only AOP 1
+        },
+        work_date=date(2024, 1, 1),
+        cache_dir=tmp_path,
+    )
+    assert set(result["matched_aops"]) == {"1"}
+
+
+def test_search_events_to_aops_logs_when_logger_given(patched_collect, tmp_path):
+    from types import SimpleNamespace
+    messages = []
+    logger = SimpleNamespace(info=lambda m: messages.append(m))
+    efs.search_events_to_aops(
+        {"ke_title_terms": ["apoptosis"], "aop_title_exclusion_terms": ["tumor"],
+         "oecd_status_filter": ["WPHA/WNT Endorsed"]},
+        work_date=date(2024, 1, 1), cache_dir=tmp_path, logger=logger,
+    )
+    assert messages  # logger.info branches exercised
 
 
 def run_all_tests():
