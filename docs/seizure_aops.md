@@ -2,7 +2,7 @@
 
 The seizure use case leverages AOP curation work already performed and published by Behl, et al.
 
-## Behl et al Curation Workflow 
+## Behl et al Curation Workflow
 
 Collect 7 Seizure AOPs  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
@@ -18,15 +18,15 @@ The supplemental data from Behl et al was extracted and analyzed using the `coll
 
 | Worksheet name | DF name in code | Output |
 |-----------|-----------|--------|
-| Suppl2_KEs AOP Harmonization  | harmonized   | - harmonized KE list<br> - orginal KE to harmonized KE mappings<br>  - harmonized KE to AOP mappings<br> - harmonized KE to target family mappings    |
-| Suppl6_ICE Assays  |  assays        | - biological target families list<br> - assays list<br> - assays to target families mappings<br> - biological target family to KE description mappings     |
+| Suppl2_KEs AOP Harmonization  | harmonized   | harmonized KE list; orginal KE to harmonized KE mappings; harmonized KE to AOP mappings; harmonized KE to target family mappings    |
+| Suppl6_ICE Assays  |  assays        | biological target families list; assays list; assays to target families mappings; biological target family to KE description mappings     |
 
 ### Additional Curations Needed
 
 | Goal | Transformation Comments | Source Files |
 |-----------|-----------|--------|
-| Showcase relationships between Assays::KEs & possiblty Assays::AOPs | 1) Available by combining harmonization worksheet, KEs to biological target families with assay worksheet biological target families to assay <br><br> 2) Via KE descriptions in the assays worksheet | 1) Mappings from each sheet should be in `dict` format, but a json path is needed for export.<br><br><br> 2) ✅ Mapings between KE descriptions and the harmonized KEs |
-| Demonstrate merging of original Wiki content into Harmonized content | ✅  orginal KE to harmonized KE mappings<br> ✅ orginal AOPs to harmonized AOP mappings | EMOD data model needs a convention for tracking provenance from "old" to "new" content<br> - I need a `dict` defining the old to new AOPs
+| Showcase relationships between Assays::KEs & possiblty Assays::AOPs | 1) Available by combining harmonization worksheet, KEs to biological target families with assay worksheet biological target families to assay. 2) Via KE descriptions in the assays worksheet | 1) Mappings from each sheet should be in `dict` format, but a json path is needed for export. 2) ✅ Mapings between KE descriptions and the harmonized KEs |
+| Demonstrate merging of original Wiki content into Harmonized content | ✅  orginal KE to harmonized KE mappings; ✅ orginal AOPs to harmonized AOP mappings | EMOD data model needs a convention for tracking provenance from "old" to "new" content; I need a `dict` defining the old to new AOPs |
 
 > As of 2/20/26, the content `dict` returned by the seizure parser and the export functions have been refactored to
 > improve ease of tracking content variables to data export file paths.

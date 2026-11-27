@@ -91,7 +91,7 @@ High-confidence matches (≥ 0.9) are auto-approved.
 
 For each low-confidence match the user is prompted:
 
-```
+```text
 Review item: "KE description" → "Harmonized KE" (score: X.XX)
 [y/n/q]:
   y = accept (human_verified=true)
@@ -146,7 +146,8 @@ After review, the CLI renames fields for clarity:
 - `matched_term` → `event`
 - `suggested_match` → `suggested_event`
 
-**Checkpoint:** Results saved to `src/aop_wiki_cli/data/curated/curated_event-target_family_mappings.json` (overridable at `<data-dir>/curated/`).
+**Checkpoint:** Results saved to
+`src/aop_wiki_cli/data/curated/curated_event-target_family_mappings.json` (overridable at `<data-dir>/curated/`).
 If this file exists and `--skip-curated` is not set, this stage is skipped on re-runs.
 
 **Output stored in:** `seizure_content['enriched']['data']['biological_target_families_enriched']`
