@@ -18,21 +18,7 @@ Under pytest:    python -m pytest tests/test_cellular_component_parse.py
 
 from __future__ import annotations
 
-import importlib.util
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
-MODULE_PATH = REPO_ROOT / "annotation_scripts" / "ke_title_parser.py"
-
-
-def _load_module():
-    spec = importlib.util.spec_from_file_location("ke_title_parser", MODULE_PATH)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-parser = _load_module()
+from aop_wiki_cli.annotation_scripts import ke_title_parser as parser
 
 # (title, expected cellular_component)
 CASES = [

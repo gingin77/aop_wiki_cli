@@ -15,14 +15,13 @@ Only fields the annotator reads back from the store are curatable:
 curatable here.)
 
 Usage:
-    uv run python annotation_scripts/apply_manual_curations.py --dry-run
-    uv run python annotation_scripts/apply_manual_curations.py
-    uv run python annotation_scripts/apply_manual_curations.py \\
-        --curations annotation_scripts/manual_curations.yaml --date 11-25-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.apply_manual_curations --dry-run
+    uv run python -m aop_wiki_cli.annotation_scripts.apply_manual_curations
+    uv run python -m aop_wiki_cli.annotation_scripts.apply_manual_curations \\
+        --curations src/aop_wiki_cli/annotation_scripts/manual_curations.yaml --date 11-25-2026
 """
 
 import argparse
-import glob
 import json
 import os
 import sys
@@ -31,29 +30,23 @@ from datetime import date
 import yaml
 from dotenv import load_dotenv
 
-sys.path.insert(0, os.path.dirname(__file__))
-from collect_aop_kes import KE_ANNOTATIONS_PATH, load_ke_annotations, save_ke_annotations
-from ke_title_parser import parse_ke_title
-from query_bioportal import search_bioportal_with_fallback
+from aop_wiki_cli.annotation_scripts.annotate_term_helpers import FIELD_ONTOLOGIES
+from aop_wiki_cli.annotation_scripts.store import (
+    KE_ANNOTATIONS_PATH,
+    find_cache_file,
+    load_ke_annotations,
+    save_ke_annotations,
+)
+from aop_wiki_cli.annotation_scripts.ke_title_parser import parse_ke_title
+from aop_wiki_cli.annotation_scripts.query_bioportal import search_bioportal_with_fallback
 
 DEFAULT_CURATIONS = os.path.join(os.path.dirname(__file__), "manual_curations.yaml")
-CACHE_DIR_ROOT = "outputs/cache"
 
 # Fields the annotator honors from the store (see module docstring).
 TOP_LEVEL_TERM_FIELDS = {"cell_term", "organ_term", "cellular_component"}
 EC_TERM_FIELDS = {"biological_object", "biological_process", "phenotype"}
 STRING_TOP_FIELDS = {"biological_organization"}
 CURATABLE_FIELDS = TOP_LEVEL_TERM_FIELDS | EC_TERM_FIELDS | STRING_TOP_FIELDS
-
-# Default BioPortal ontology scopes for phrase resolution, per field.
-FIELD_ONTOLOGIES = {
-    "biological_object": "CL,UBERON,CHEBI,PR,HGNC",
-    "biological_process": "GO",
-    "phenotype": "UPHENO,HP,MP",
-    "cell_term": "CL",
-    "organ_term": "UBERON",
-    "cellular_component": "GO",
-}
 
 # Prefixes that resolve to an OBO PURL IRI; anything else keeps its CURIE as id.
 OBO_PREFIXES = {
@@ -125,14 +118,6 @@ def _resolve_string(field: str, spec) -> str:
     if not value:
         raise ValueError(f"{field}: expected a 'value' string")
     return str(value)
-
-
-def _find_cache_file(date_str: str | None) -> str | None:
-    if date_str:
-        path = os.path.join(CACHE_DIR_ROOT, date_str, f"all_events_{date_str}.json")
-        return path if os.path.exists(path) else None
-    candidates = glob.glob(os.path.join(CACHE_DIR_ROOT, "*", "all_events_*.json"))
-    return max(candidates, key=os.path.getmtime) if candidates else None
 
 
 def _title_for(ke_id: str, store: dict, cache_file: str | None) -> str | None:
@@ -273,7 +258,7 @@ def main() -> None:
         print("No curations defined. Nothing to do.")
         return
 
-    cache_file = _find_cache_file(args.date)
+    cache_file = find_cache_file(args.date)
     store = load_ke_annotations()
 
     print(f"Applying {len(curations)} KE curation(s)"

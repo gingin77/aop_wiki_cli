@@ -21,10 +21,10 @@ Scope (default: every KE in the file):
                 rejected (a review worklist); F is an ECS field name or "all"
 
 Usage:
-    uv run python annotation_scripts/report_annotation_coverage.py
-    uv run python annotation_scripts/report_annotation_coverage.py --diff
-    uv run python annotation_scripts/report_annotation_coverage.py --aop 61
-    uv run python annotation_scripts/report_annotation_coverage.py --diff --worklist biological_process
+    uv run python -m aop_wiki_cli.annotation_scripts.report_annotation_coverage
+    uv run python -m aop_wiki_cli.annotation_scripts.report_annotation_coverage --diff
+    uv run python -m aop_wiki_cli.annotation_scripts.report_annotation_coverage --aop 61
+    uv run python -m aop_wiki_cli.annotation_scripts.report_annotation_coverage --diff --worklist biological_process
 """
 
 import argparse

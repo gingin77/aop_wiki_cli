@@ -69,7 +69,7 @@ def main():
             writer.writerow({
                 "assay_id": assay_id,
                 "ke_id": assay.get("ke_id", ""),
-                "aop_ids": (", ").join(assay.get("aop_ids")),
+                "aop_ids": ", ".join(assay.get("aop_ids") or []),
                 "title": assay.get("title", ""),
                 "description": assay.get("description", ""),
                 "effect_specificity": assay.get("effect_specificity") or "",

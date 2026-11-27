@@ -21,11 +21,18 @@ def main():
     with open(INPUT_AOP_FILE, "r") as f:
         aop_annotations = json.load(f)
 
-    kes_submitted_for_assay_annotation = {ke_id: ke for ke_id, ke in ke_annotations.items() if "assays" in ke}
-    kes_with_assays = {ke_id: ke for ke_id, ke in ke_annotations.items() if "assays" in ke and ke["assays"] != []}
-    kes_without_assays = {ke_id: ke for ke_id, ke in ke_annotations.items() if "assays" in ke and ke["assays"] == []}
-
-    kes_needing_assay_annotation = {ke_id: ke for ke_id, ke in ke_annotations.items() if "assays" not in ke}
+    # Sort every KE into exactly one assay-annotation bucket.
+    kes_with_assays: dict = {}
+    kes_without_assays: dict = {}
+    kes_needing_assay_annotation: dict = {}
+    for ke_id, ke in ke_annotations.items():
+        if "assays" not in ke:
+            kes_needing_assay_annotation[ke_id] = ke
+        elif ke["assays"]:
+            kes_with_assays[ke_id] = ke
+        else:
+            kes_without_assays[ke_id] = ke
+    count_submitted_for_assay_annotation = len(kes_with_assays) + len(kes_without_assays)
 
     ke_to_aops = {}
     for aop_id, ke_ids in aop_annotations.items():
@@ -46,7 +53,7 @@ def main():
         "kes": {
             "count_kes_annotated": len(ke_annotations),
             "kes_submitted_for_assay_annotation": {
-                "count": len(kes_submitted_for_assay_annotation),
+                "count": count_submitted_for_assay_annotation,
                 "count_annotated_kes_with_assays": len(kes_with_assays),
                 "count_annotated_kes_without_assays": len(kes_without_assays),
                 "kes_with_assays": ", ".join(list(kes_with_assays.keys())),
@@ -54,7 +61,7 @@ def main():
             },
             "kes_not_yet_submitted_for_assay_annotation": {
                 "count_kes_needing_assay_annotations": len(kes_needing_assay_annotation),
-                "kes_needing_assay_annotions": ", ".join(list(kes_needing_assay_annotation.keys())),
+                "kes_needing_assay_annotations": ", ".join(list(kes_needing_assay_annotation.keys())),
             },
             "assays_annotated": assay_count
         },

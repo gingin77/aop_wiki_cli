@@ -1,14 +1,50 @@
 """
-Collect Key Events (KEs) belonging to an AOP from the AOP-Wiki cache,
-and maintain the AOP → KE index store.
+Shared storage for KE annotations: the annotation store, the AOP → KE index,
+and resolution of the dated AOP-Wiki event cache files.
 """
 
 import json
 import os
+from datetime import datetime
+from pathlib import Path
 
 ANNOTATIONS_DIR = "outputs_for_vc/annotations"
 KE_ANNOTATIONS_PATH = os.path.join(ANNOTATIONS_DIR, "ke_annotations.json")
 AOP_KE_INDEX_PATH = os.path.join(ANNOTATIONS_DIR, "aop_ke_index.json")
+
+CACHE_DIR_ROOT = "outputs/cache"
+
+
+def events_cache_file(date_str: str) -> str:
+    """Path of the all-events cache for a MM-DD-YYYY date (may not exist)."""
+    return os.path.join(CACHE_DIR_ROOT, date_str, f"all_events_{date_str}.json")
+
+
+def latest_cache_file() -> str | None:
+    """Path of the most recent dated all-events cache, or None if none exists."""
+    cache_root = Path(CACHE_DIR_ROOT)
+    if not cache_root.exists():
+        return None
+    dated = []
+    for d in cache_root.iterdir():
+        if d.is_dir():
+            try:
+                dated.append((datetime.strptime(d.name, "%m-%d-%Y"), d))
+            except ValueError:
+                pass
+    if not dated:
+        return None
+    latest = max(dated, key=lambda x: x[0])[1]
+    path = latest / f"all_events_{latest.name}.json"
+    return str(path) if path.exists() else None
+
+
+def find_cache_file(date_str: str | None = None) -> str | None:
+    """Cache for the given date if present, else the most recent one."""
+    if date_str:
+        path = events_cache_file(date_str)
+        return path if os.path.exists(path) else None
+    return latest_cache_file()
 
 
 def _load_json(path: str) -> dict:

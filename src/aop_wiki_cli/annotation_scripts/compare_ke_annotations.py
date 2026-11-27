@@ -10,8 +10,8 @@ Writes a CSV with one row per KE:
   - divergent_content_fields: which fields those are
 
 Usage:
-    uv run python annotation_scripts/compare_ke_annotations.py
-    uv run python annotation_scripts/compare_ke_annotations.py \
+    uv run python -m aop_wiki_cli.annotation_scripts.compare_ke_annotations
+    uv run python -m aop_wiki_cli.annotation_scripts.compare_ke_annotations \
         --annotations outputs_for_vc/annotations/ke_annotations.json \
         --cache outputs/cache/04-28-2026/all_events_04-28-2026.json \
         --output outputs/ke_annotation_comparison.csv
@@ -20,31 +20,14 @@ Usage:
 import argparse
 import csv
 import json
-from datetime import datetime
 from pathlib import Path
+
+from aop_wiki_cli.annotation_scripts.store import latest_cache_file
 
 ANNOTATIONS_FILE = "outputs_for_vc/annotations/ke_annotations.json"
 OUTPUT_FILE = "outputs/ke_annotation_comparison.csv"  # TODO: consider outputs_for_vc/ if results should be committed
 
-def _latest_cache_file() -> str:
-    """Return the path to the most recent cache file, or '' if none found."""
-    cache_root = Path("outputs/cache")
-    if not cache_root.exists():
-        return ""
-    dated = []
-    for d in cache_root.iterdir():
-        if d.is_dir():
-            try:
-                dated.append((datetime.strptime(d.name, "%m-%d-%Y"), d))
-            except ValueError:
-                pass
-    if not dated:
-        return ""
-    latest = max(dated, key=lambda x: x[0])[1]
-    return str(latest / f"all_events_{latest.name}.json")
-
-
-CACHE_FILE = _latest_cache_file()
+CACHE_FILE = latest_cache_file() or ""
 
 COLUMNS = [
     "ke_id",

@@ -72,6 +72,13 @@ source = ["aop_wiki_cli"]
 # Orphaned (renamed with the `*_unused.py` suffix, no longer re-exported): the
 # title-stripper and the one-off HTML-to-CSV converter. `__main__.py` is the
 # `python -m` entry point.
+# The KE annotation subpackage (annotation_scripts/) is interactive LLM/BioPortal
+# tooling run as standalone modules, not wired into any CLI command, so by the
+# same rule it stays out of the denominator — except its two pure parsing
+# modules (ke_title_parser, query_bioportal), which the suite covers directly.
+# The pure helpers of annotate_ke, apply_manual_curations and
+# report_annotation_coverage are tested too, but those files are dominated by
+# interactive orchestration, so they are omitted rather than diluting the figure.
 omit = [
     # not-wired reference-search subsystem
     "*/search/aop_wiki_xml_ref_search.py",
@@ -81,6 +88,21 @@ omit = [
     "*/parsers/aop_wiki_content_parsers_unused.py",
     "*/utilities/html_to_csv_converter_unused.py",
     "*/__main__.py",
+    # interactive KE annotation tooling (see note above)
+    "*/annotation_scripts/__init__.py",
+    "*/annotation_scripts/annotate_ke.py",
+    "*/annotation_scripts/annotate_liver_microphys_data.py",
+    "*/annotation_scripts/annotate_term_helpers.py",
+    "*/annotation_scripts/apply_manual_curations.py",
+    "*/annotation_scripts/assay_extraction.py",
+    "*/annotation_scripts/compare_ke_annotations.py",
+    "*/annotation_scripts/export_assays_to_csv.py",
+    "*/annotation_scripts/llm.py",
+    "*/annotation_scripts/process_manual_curations.py",
+    "*/annotation_scripts/prompts.py",
+    "*/annotation_scripts/report_annotation_coverage.py",
+    "*/annotation_scripts/store.py",
+    "*/annotation_scripts/summarize_annotations.py",
 ]
 
 [tool.hatch.metadata]

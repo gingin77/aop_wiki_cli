@@ -12,19 +12,19 @@ KEs already in the shared store are skipped during annotation (use --force to re
 
 Usage:
     # Annotate a standalone KE (no AOP required)
-    uv run python annotation_scripts/annotate_ke.py --ke-id 14 --date 04-28-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 14 --date 04-28-2026
 
     # Annotate a KE and register it under an AOP
-    uv run python annotation_scripts/annotate_ke.py --aop 173 --ke-id 68 --date 04-28-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --ke-id 68 --date 04-28-2026
 
     # List KEs for an AOP with annotation status
-    uv run python annotation_scripts/annotate_ke.py --aop 173 --date 04-28-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --date 04-28-2026
 
     # Re-annotate all fields from scratch
-    uv run python annotation_scripts/annotate_ke.py --ke-id 68 --force --date 04-28-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force --date 04-28-2026
 
     # Re-annotate only the assays
-    uv run python annotation_scripts/annotate_ke.py --ke-id 68 --force-on assays --date 04-28-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force-on assays --date 04-28-2026
 
 """
 
@@ -46,47 +46,36 @@ from aop_wiki_cli.analysis.collect_event_rankings import collect_and_rank_events
 
 logger = set_up_logger('aop-wiki-annotate', level=logging.INFO)
 
-from collect_aop_kes import (
+from aop_wiki_cli.annotation_scripts import prompts
+from aop_wiki_cli.annotation_scripts.llm import call_json, call_text, make_client
+from aop_wiki_cli.annotation_scripts.store import (
     AOP_KE_INDEX_PATH,
+    CACHE_DIR_ROOT,
     KE_ANNOTATIONS_PATH,
+    events_cache_file,
     load_ke_annotations,
     save_ke_annotations,
     list_aop_kes,
     register_ke_in_aop,
 )
-from ke_title_parser import (
+from aop_wiki_cli.annotation_scripts.ke_title_parser import (
     WIKI_ACTION_WORDS,
     extract_biological_object,
     parse_ke_title,
 )
-from query_bioportal import (
-    STOPWORDS,
-    search_bioportal_with_fallback,
-)
-from annotate_term_helpers import (
+from aop_wiki_cli.annotation_scripts.query_bioportal import STOPWORDS
+from aop_wiki_cli.annotation_scripts.annotate_term_helpers import (
     ECS_ONTOLOGIES,
-    LLM_MODEL,
-    _annotate_term,
-    _call_llm_json,
-    _make_client,
-    display_candidates,
-    rank_term,
+    TOP_LEVEL_ONTOLOGIES,
+    annotate_term,
+    is_rejection,
 )
-from structure_ke_how_is_it_measured_text import annotate_ke_assays
-
+from aop_wiki_cli.annotation_scripts.assay_extraction import annotate_ke_assays
 
 
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-
-CELL_TERM_ONTOLOGIES = "CL"
-ORGAN_TERM_ONTOLOGIES = "UBERON"
-# Subcellular structures / organelles (e.g. "Mitochondrial ...") are GO
-# cellular_component terms. BioPortal exposes GO as a single ontology spanning
-# process/function/component, so selection is steered by LLM guidance that
-# rejects non-cellular-component GO terms (see annotate_term_helpers.py).
-CELLULAR_COMPONENT_ONTOLOGIES = "GO"
 
 BIOLOGICAL_ORGANIZATION_LEVELS = [
     "Molecular",
@@ -117,21 +106,27 @@ ANNOTATION_SCHEMA_VERSION = 2
 # Flag for manual review when a GO term is selected as phenotype.
 _PHENOTYPE_GO_REVIEW_PREFIXES = {"GO"}
 
-CACHE_DIR_ROOT = "outputs/cache"
-
-
-def _is_rejection(term) -> bool:
-    """Return True if term is a stored LLM rejection record (not a real annotation)."""
-    return isinstance(term, dict) and term.get("source") == "llm_rejection"
-
 
 def _ref_term_label(term: dict) -> str:
     """Return a short display string for a stored reference term or rejection."""
-    if _is_rejection(term):
+    if is_rejection(term):
         return f"[rejected: {term.get('rejection_reason', '')}]"
     if "comment" in term:
         return f"[comment: {term['comment']}]"
     return term.get("label", str(term))
+
+
+def _stored_ref(ref: dict | None, field: str):
+    """Return the stored reference value for `field`, printing the skip notice.
+
+    Returns None when the reference has no value for the field, meaning the
+    caller should compute one.
+    """
+    val = (ref or {}).get(field)
+    if val is not None:
+        print(f"  (reference) {_ref_term_label(val)!r} — skipping query")
+    return val
+
 
 # ---------------------------------------------------------------------------
 # KE-specific LLM functions
@@ -139,20 +134,8 @@ def _ref_term_label(term: dict) -> str:
 
 def llm_normalize_biological_action(direction: str, client: anthropic.Anthropic) -> str | None:
     """Map a direction phrase to the nearest WIKI_ACTION_WORDS term via LLM."""
-    vocab_str = ", ".join(f'"{w}"' for w in WIKI_ACTION_WORDS)
-    prompt = (
-        f"You are normalizing an AOP-Wiki Key Event direction phrase to a controlled vocabulary term.\n"
-        f"Direction phrase: {direction!r}\n\n"
-        f"Controlled vocabulary terms: {vocab_str}\n\n"
-        f"Background: In AOP-Wiki, action terms describe either the direction of a perturbation "
-        f"(e.g. increased, decreased) or an observation of the perturbation itself. "
-        f"'occurrence' is a valid action term for events that are observed to happen without "
-        f"an explicit directional change — for example, the formation of a lesion, the "
-        f"presence of an interaction, or the manifestation of a pathological state.\n\n"
-        f"If the phrase is semantically equivalent to one of these terms, return it exactly as written above.\n"
-        f'Reply with ONLY valid JSON: {{"term": "<matched term or null>", "reason": "<one sentence>"}}'
-    )
-    parsed = _call_llm_json(client, prompt, max_tokens=64)
+    prompt = prompts.normalize_biological_action(direction, WIKI_ACTION_WORDS)
+    parsed = call_json(client, prompt, max_tokens=64)
     if parsed:
         term = parsed.get("term")
         reason = parsed.get("reason", "")
@@ -167,17 +150,7 @@ def llm_decompose_subject(subject: str, client: anthropic.Anthropic) -> tuple[st
     Ask Claude to split a KE subject phrase into (biological_object, biological_process).
     Returns (object_phrase, process_phrase) or None.
     """
-    prompt = (
-        f"You are parsing an AOP-Wiki Key Event subject phrase into ECS components.\n"
-        f"Subject phrase: {subject!r}\n\n"
-        f"Identify:\n"
-        f"- biological_object: the cell type, tissue, molecule, or anatomical entity\n"
-        f"- biological_process: the activity or process (use the full subject phrase as-is)\n\n"
-        f"Reply with ONLY valid JSON: "
-        f'{{\"biological_object\": \"<phrase>\", \"biological_process\": \"<phrase>\"}}\n'
-        f"Use only words that appear in the subject phrase."
-    )
-    parsed = _call_llm_json(client, prompt, max_tokens=128)
+    parsed = call_json(client, prompts.decompose_subject(subject), max_tokens=128)
     if parsed:
         obj = parsed.get("biological_object", "").strip()
         proc = parsed.get("biological_process", "").strip()
@@ -192,14 +165,8 @@ def detect_biological_organization(description: str, client: anthropic.Anthropic
     Uses LLM when available; falls back to interactive prompt in tty sessions.
     """
     if client is not None:
-        levels_str = ", ".join(BIOLOGICAL_ORGANIZATION_LEVELS)
-        prompt = (
-            f"You are classifying an AOP-Wiki Key Event by level of biological organization.\n"
-            f"KE description (excerpt):\n{(description or '')[:500]!r}\n\n"
-            f"Choose the single best level from: {levels_str}\n"
-            f'Reply with ONLY valid JSON: {{"level": "<level>", "reason": "<one sentence>"}}'
-        )
-        parsed = _call_llm_json(client, prompt, max_tokens=64)
+        prompt = prompts.classify_biological_organization(description, BIOLOGICAL_ORGANIZATION_LEVELS)
+        parsed = call_json(client, prompt, max_tokens=64)
         if parsed:
             level = parsed.get("level", "").strip()
             reason = parsed.get("reason", "")
@@ -226,6 +193,27 @@ def detect_biological_organization(description: str, client: anthropic.Anthropic
         if 0 <= idx < len(BIOLOGICAL_ORGANIZATION_LEVELS):
             return BIOLOGICAL_ORGANIZATION_LEVELS[idx]
     return None
+
+
+def pass_ref_comments_to_llm(
+        ref_ke: dict | None,
+        client,
+        title: str
+    ) -> None:
+    """Show prior curator comments and an LLM summary of them.
+
+    NOTE: the summary is currently display-only; it is not yet threaded into
+    the term-ranking context.
+    """
+    ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
+    if ref_comments and client is not None:
+        print("--- prior comments ---")
+        for c in ref_comments:
+            print(f"  • {c}")
+        print()
+        review = call_text(client, prompts.review_curator_comments(title, ref_comments), max_tokens=256)
+        if review is not None:
+            print(f"  LLM review: {review}\n")
 
 
 # ---------------------------------------------------------------------------
@@ -259,60 +247,31 @@ def _annotate_biological_process(
     ref: dict | None,
 ) -> dict | None:
     """Search, filter, and rank a biological_process term for a KE subject phrase."""
-    ref_process = (ref or {}).get("biological_process")
+    ref_process = _stored_ref(ref, "biological_process")
     if ref_process is not None:
-        print(f"  (reference) {_ref_term_label(ref_process)!r} — skipping query")
         return ref_process
 
-    print(f"  Query phrase: {subject!r}")
-    print(f"  Ontologies:   {ECS_ONTOLOGIES['biological_process']}")
-    process_results, process_used = search_bioportal_with_fallback(
-        subject, ECS_ONTOLOGIES["biological_process"], api_key
-    )
-    if not process_results:
-        print("  No matches found after fallback — manual curation needed.")
-        return None
-
+    result_filter = None
+    context = None
     if selected_object_label:
-        kept, filtered_out = partition_process_results(process_results, selected_object_label)
-        if filtered_out:
-            print(
-                f"  Filtered out {len(filtered_out)} off-target result(s)"
-                f" (not '{selected_object_label}'):"
-            )
-            for r in filtered_out:
-                print(f"    ✗ [{r['ontology']}] {r['label']!r}")
-            print()
-    else:
-        kept = process_results
+        context = {"selected_object": selected_object_label}
 
-    if not kept:
-        print("  No results remain after filtering — manual curation needed.")
-        return None
+        def result_filter(results):
+            kept, filtered_out = partition_process_results(results, selected_object_label)
+            if filtered_out:
+                print(
+                    f"  Filtered out {len(filtered_out)} off-target result(s)"
+                    f" (not '{selected_object_label}'):"
+                )
+                for r in filtered_out:
+                    print(f"    ✗ [{r['ontology']}] {r['label']!r}")
+                print()
+            return kept
 
-    display_candidates(kept[:5], process_used)
-    context = {"selected_object": selected_object_label} if selected_object_label else None
-    result, source, reason = rank_term(title, "biological_process", kept[:5], client, context)
-    if result:
-        print(f"  → [{result['ontology']}] {result['label']}")
-        print(f"     IRI:    {result['term_id']}")
-        print(f"     reason: {reason}")
-        return {
-            "term_id": result["term_id"],
-            "label": result["label"],
-            "ontology": result["ontology"],
-            "reason": reason,
-            "source": source,
-        }
-    elif source == "manual_comment":
-        print(f"  → Comment recorded: {reason!r}")
-        return {"comment": reason, "source": source}
-    elif source == "llm_recommendation":
-        print(f"  → LLM rejected all candidates: {reason}")
-        return {"rejection_reason": reason, "source": "llm_rejection"}
-    else:
-        print(f"  → No selection made ({reason})")
-        return None
+    return annotate_term(
+        subject, ECS_ONTOLOGIES["biological_process"], "biological_process",
+        title, api_key, client, context=context, result_filter=result_filter,
+    )
 
 
 def _annotate_subject(
@@ -346,13 +305,12 @@ def _annotate_subject(
 
     # --- biological_object ---
     print("--- biological_object ---")
-    ref_object = (ref or {}).get("biological_object")
+    ref_object = _stored_ref(ref, "biological_object")
     if ref_object is not None:
-        print(f"  (reference) {_ref_term_label(ref_object)!r} — skipping query")
         subj_annotation["biological_object"] = ref_object
-        selected_object_label = ref_object.get("label") if not _is_rejection(ref_object) else None
+        selected_object_label = ref_object.get("label") if not is_rejection(ref_object) else None
     else:
-        term = _annotate_term(object_phrase, ECS_ONTOLOGIES["biological_object"], "biological_object", title, api_key, client)
+        term = annotate_term(object_phrase, ECS_ONTOLOGIES["biological_object"], "biological_object", title, api_key, client)
         subj_annotation["biological_object"] = term
         selected_object_label = term.get("label") if term else None
     print()
@@ -366,12 +324,11 @@ def _annotate_subject(
 
     # --- phenotype ---
     print("--- phenotype ---")
-    ref_phenotype = (ref or {}).get("phenotype")
+    ref_phenotype = _stored_ref(ref, "phenotype")
     if ref_phenotype is not None:
-        print(f"  (reference) {_ref_term_label(ref_phenotype)!r} — skipping query")
         subj_annotation["phenotype"] = ref_phenotype
     else:
-        term = _annotate_term(subject, ECS_ONTOLOGIES["phenotype"], "phenotype", title, api_key, client)
+        term = annotate_term(subject, ECS_ONTOLOGIES["phenotype"], "phenotype", title, api_key, client)
         if term and term.get("term_id"):
             needs_review = term.get("ontology", "").upper() in _PHENOTYPE_GO_REVIEW_PREFIXES
             if needs_review:
@@ -382,40 +339,9 @@ def _annotate_subject(
 
     return subj_annotation
 
-def pass_ref_comments_to_llm(
-        ref_ke: dict | None, 
-        client, 
-        title: str
-    ) -> None:
-    # --- review prior comments ---
-    ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
-    if ref_comments and client is not None:
-        print("--- prior comments ---")
-        for c in ref_comments:
-            print(f"  • {c}")
-        print()
-        comments_block = "\n".join(f"- {c}" for c in ref_comments)
-        prompt = (
-            f"You are reviewing curator comments on an AOP-Wiki Key Event annotation.\n"
-            f"KE title: {title!r}\n\n"
-            f"Prior curator comments:\n{comments_block}\n\n"
-            f"Summarise in 2-3 sentences what these comments tell you about how the "
-            f"annotation should be improved. Focus on actionable guidance for selecting "
-            f"better ontology terms."
-        )
-        try:
-            message = client.messages.create(
-                model=LLM_MODEL,
-                max_tokens=256,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            print(f"  LLM review: {message.content[0].text.strip()}\n")
-        except Exception as e:
-            print(f"  (LLM comment review failed: {e})\n")
 
 def _annotate_location_term(
     field: str,
-    ontologies: str,
     trigger_levels: set[str],
     query: str,
     context: str,
@@ -433,7 +359,7 @@ def _annotate_location_term(
         return ref_val
     if query and org_level in trigger_levels:
         print(f"--- {field} ---")
-        result = _annotate_term(query, ontologies, field, context, api_key, client)
+        result = annotate_term(query, TOP_LEVEL_ONTOLOGIES[field], field, context, api_key, client)
         print()
         return result
     return None
@@ -447,7 +373,7 @@ def _build_ke_annotation(
     ref_ke: dict | None = None,
 ) -> dict:
     """Run the full ECS annotation workflow for a single KE. Returns the annotation dict."""
-    client = _make_client()
+    client = make_client()
 
     print(f"KE {ke_id}: {title}\n")
 
@@ -495,11 +421,11 @@ def _build_ke_annotation(
     print()
 
     annotation["cell_term"] = _annotate_location_term(
-        "cell_term", CELL_TERM_ONTOLOGIES, _CELL_TERM_LEVELS,
+        "cell_term", _CELL_TERM_LEVELS,
         parsed["full_subject"], title, api_key, client, ref_ke, org_level,
     )
     annotation["organ_term"] = _annotate_location_term(
-        "organ_term", ORGAN_TERM_ONTOLOGIES, _ORGAN_TERM_LEVELS,
+        "organ_term", _ORGAN_TERM_LEVELS,
         parsed["full_subject"], title, api_key, client, ref_ke, org_level,
     )
     # cellular_component is queried on the extracted subcellular-location noun
@@ -508,7 +434,7 @@ def _build_ke_annotation(
     # process/complex, not the organelle. When no location word is present the
     # hint is None and _annotate_location_term skips the query.
     annotation["cellular_component"] = _annotate_location_term(
-        "cellular_component", CELLULAR_COMPONENT_ONTOLOGIES, _CELLULAR_COMPONENT_LEVELS,
+        "cellular_component", _CELLULAR_COMPONENT_LEVELS,
         parsed.get("cellular_component"), title, api_key, client, ref_ke, org_level,
     )
 
@@ -531,9 +457,6 @@ def _build_ke_annotation(
 # ---------------------------------------------------------------------------
 # Annotation & Orchestration helpers
 # ---------------------------------------------------------------------------
-def _get_events_cache_file(date_str: str) -> str:
-    return os.path.join(CACHE_DIR_ROOT, date_str, f"all_events_{date_str}.json")
-
 
 def _flat_ref_comments(raw) -> list[str]:
     """Normalize reference comments to a flat list regardless of storage format."""
@@ -589,18 +512,15 @@ def _mask_ref(ref_ke: dict, force_fields: set[str]) -> dict:
     return masked
 
 
-def _build_annotation_metadata(ref_ke: dict | None, annotation: dict) -> tuple[dict, list[str]]:
-    """
-    Attach comments to the annotation dict.
-    Returns (updated annotation, ref_comments).
-    """
+def _attach_comments(annotation: dict, ref_ke: dict | None) -> list[str]:
+    """Attach the comments block to the annotation dict. Returns the raw ref comments."""
     ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
     clean_comments = [_strip_carried_suffix(c) for c in ref_comments]
     annotation["comments"] = {
         "carried": [f"{c} [carried from reference]" for c in clean_comments],
         "new": [],
     }
-    return annotation, ref_comments
+    return ref_comments
 
 
 def _compute_newly_updated_fields(effective_ref: dict | None, final_stored: dict) -> list[str]:
@@ -615,7 +535,7 @@ def _compute_newly_updated_fields(effective_ref: dict | None, final_stored: dict
     # Top-level fields: newly populated if ref was None and stored is now a real annotation
     for key in ("biological_organization", "cell_term", "organ_term", "cellular_component"):
         stored_val = final_stored.get(key)
-        if stored_val is not None and not _is_rejection(stored_val) and ref.get(key) is None:
+        if stored_val is not None and not is_rejection(stored_val) and ref.get(key) is None:
             new_fields.append(key)
 
     # Assays: newly populated if ref had none and stored now has entries
@@ -631,7 +551,7 @@ def _compute_newly_updated_fields(effective_ref: dict | None, final_stored: dict
         )
         for field in ("biological_object", "biological_process", "phenotype", "biological_action"):
             stored_val = subj.get(field)
-            if stored_val is not None and not _is_rejection(stored_val) and ref_subj.get(field) is None:
+            if stored_val is not None and not is_rejection(stored_val) and ref_subj.get(field) is None:
                 label = f"ec_annotations[{subj['subject']!r}].{field}"
                 if label not in new_fields:
                     new_fields.append(label)
@@ -729,7 +649,7 @@ def annotate_ke(
     else:
         annotated_ke["assays"] = (ref_ke or {}).get("assays")
 
-    annotated_ke, ref_comments = _build_annotation_metadata(ref_ke, annotated_ke)
+    ref_comments = _attach_comments(annotated_ke, ref_ke)
 
     new_fields = _compute_newly_updated_fields(effective_ref, annotated_ke)
     if new_fields:
@@ -754,7 +674,7 @@ def get_fresh_event_cache(date_str: str | None = None):
     cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
     output_dir = 'outputs/event_rankings'
     os.makedirs(output_dir, exist_ok=True)
-    
+
     # Collect and rank events (handles caching internally)
     collect_and_rank_events(work_date, cache_dir, output_dir, logger, None)
 
@@ -784,11 +704,11 @@ def main():
     )
     args = parser.parse_args()
 
-    cache = _get_events_cache_file(args.date)
+    cache = events_cache_file(args.date)
     if not os.path.exists(cache):
         print(f"Cache file not found: {cache}")
         get_fresh_event_cache(args.date)
-        cache = _get_events_cache_file(args.date)
+        cache = events_cache_file(args.date)
         if not os.path.exists(cache):
             print(f"Unable to generate cache file for {args.date}: {cache}")
             sys.exit(1)
@@ -799,7 +719,7 @@ def main():
             sys.exit(1)
         _add_comment(args.ke_id, args.add_comment)
         return
-    
+
     force_fields = set(args.force_fields) if args.force_fields else None
     if args.ke_id is None:
         if args.aop is None:

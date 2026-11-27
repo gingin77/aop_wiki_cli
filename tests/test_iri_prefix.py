@@ -12,21 +12,7 @@ Under pytest:    python -m pytest tests/test_iri_prefix.py
 
 from __future__ import annotations
 
-import importlib.util
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
-MODULE_PATH = REPO_ROOT / "annotation_scripts" / "query_bioportal.py"
-
-
-def _load_module():
-    spec = importlib.util.spec_from_file_location("query_bioportal", MODULE_PATH)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-qb = _load_module()
+from aop_wiki_cli.annotation_scripts import query_bioportal as qb
 
 CASES = [
     # OBO PURL, numeric local id (worked before and must keep working)

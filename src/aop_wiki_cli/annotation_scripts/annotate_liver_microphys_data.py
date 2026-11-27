@@ -6,16 +6,16 @@ Annotates:
   2. Biological objects in event observations using molecular ontologies (ChEBI, PR preferred; UBERON, CL as fallback)
 
 Usage:
-    uv run python annotation_scripts/annotate_liver_microphys_data.py --input inputs/liver_microphys.json --output outputs/liver_microphys_annotated.json
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_liver_microphys_data --input inputs/liver_microphys.json --output outputs/liver_microphys_annotated.json
 
     # Force re-annotation of all terms
-    uv run python annotation_scripts/annotate_liver_microphys_data.py --input inputs/liver_microphys.json --force
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_liver_microphys_data --input inputs/liver_microphys.json --force
 
     # Annotate only cell types
-    uv run python annotation_scripts/annotate_liver_microphys_data.py --input inputs/liver_microphys.json --cells-only
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_liver_microphys_data --input inputs/liver_microphys.json --cells-only
 
     # Annotate only biological objects
-    uv run python annotation_scripts/annotate_liver_microphys_data.py --input inputs/liver_microphys.json --objects-only
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_liver_microphys_data --input inputs/liver_microphys.json --objects-only
 """
 
 import argparse
@@ -27,11 +27,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from annotate_term_helpers import (
-    ECS_ONTOLOGIES,
-    _annotate_term,
-    _make_client,
-)
+from aop_wiki_cli.annotation_scripts.annotate_term_helpers import annotate_term, is_rejection
+from aop_wiki_cli.annotation_scripts.llm import make_client
 
 load_dotenv(override=True)
 
@@ -43,11 +40,6 @@ CELL_TYPE_ONTOLOGIES = "CL"
 # Biological objects: prefer molecular ontologies (CHEBI, PR) over structural (UBERON, CL)
 # Order matters: preferred ontologies listed first
 BIOLOGICAL_OBJECT_ONTOLOGIES = "CHEBI,PR"
-
-
-def _is_rejection(term) -> bool:
-    """Return True if term is a stored LLM rejection record (not a real annotation)."""
-    return isinstance(term, dict) and term.get("source") == "llm_rejection"
 
 
 def annotate_cell_types(data: dict, api_key: str, force: bool = False) -> dict:
@@ -62,7 +54,7 @@ def annotate_cell_types(data: dict, api_key: str, force: bool = False) -> dict:
     Returns:
         Updated data dict with cell type annotations
     """
-    client = _make_client()
+    client = make_client()
     
     cell_types = data.get("experiment_setup", {}).get("biological_context", {}).get("cell_types", [])
     
@@ -102,7 +94,7 @@ def annotate_cell_types(data: dict, api_key: str, force: bool = False) -> dict:
             "ontology_term": None,
         }
         
-        term = _annotate_term(
+        term = annotate_term(
             phrase=cell_type,
             ontologies=CELL_TYPE_ONTOLOGIES,
             component="cell_term",
@@ -111,10 +103,10 @@ def annotate_cell_types(data: dict, api_key: str, force: bool = False) -> dict:
             client=client,
         )
         
-        if term and not _is_rejection(term):
+        if term and not is_rejection(term):
             annotation["ontology_term"] = term
             print(f"  ✓ Annotated: [{term.get('ontology')}] {term.get('label')}")
-        elif term and _is_rejection(term):
+        elif term and is_rejection(term):
             annotation["ontology_term"] = term
             print(f"  ⚠ Rejected: {term.get('rejection_reason')}")
         else:
@@ -139,7 +131,7 @@ def annotate_biological_objects(data: dict, api_key: str, force: bool = False) -
     Returns:
         Updated data dict with biological object annotations
     """
-    client = _make_client()
+    client = make_client()
     
     events = data.get("events", {})
     
@@ -194,7 +186,7 @@ def annotate_biological_objects(data: dict, api_key: str, force: bool = False) -
                 "ontology_term": None,
             }
             
-            term = _annotate_term(
+            term = annotate_term(
                 phrase=bio_obj,
                 ontologies=BIOLOGICAL_OBJECT_ONTOLOGIES,
                 component="biological_object",
@@ -203,10 +195,10 @@ def annotate_biological_objects(data: dict, api_key: str, force: bool = False) -
                 client=client,
             )
             
-            if term and not _is_rejection(term):
+            if term and not is_rejection(term):
                 annotation["ontology_term"] = term
                 print(f"  ✓ Annotated: [{term.get('ontology')}] {term.get('label')}")
-            elif term and _is_rejection(term):
+            elif term and is_rejection(term):
                 annotation["ontology_term"] = term
                 print(f"  ⚠ Rejected: {term.get('rejection_reason')}")
             else:
@@ -316,7 +308,7 @@ def main():
         cell_annotations = data.get("experiment_setup", {}).get("biological_context", {}).get("cell_type_annotations", [])
         annotated_count = sum(
             1 for ann in cell_annotations 
-            if ann.get("ontology_term") and not _is_rejection(ann.get("ontology_term"))
+            if ann.get("ontology_term") and not is_rejection(ann.get("ontology_term"))
         )
         print(f"Cell types: {annotated_count}/{len(cell_annotations)} annotated")
     
@@ -329,7 +321,7 @@ def main():
                 total_objects += len(obj_annotations)
                 annotated_objects += sum(
                     1 for ann in obj_annotations 
-                    if ann.get("ontology_term") and not _is_rejection(ann.get("ontology_term"))
+                    if ann.get("ontology_term") and not is_rejection(ann.get("ontology_term"))
                 )
         print(f"Biological objects: {annotated_objects}/{total_objects} annotated")
     
