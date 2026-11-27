@@ -2,7 +2,8 @@
 
 ## `collect_harmonized_seizure_aops` — Data Flow
 
-The `collect_harmonized_seizure_aops` CLI command orchestrates a 7-step pipeline that
+The `collect_harmonized_seizure_aops` command in the standalone seizure runner
+(`scripts/seizure_aops/runner.py`) orchestrates a 7-step pipeline that
 transforms a seizure AOP Excel workbook into enriched, harmonized data. Two of those steps
 include a human-in-the-loop review stage (Steps 2 and 4), so the orchestrator calls eight
 distinct functions in all (`collect_entity_with_cache` and `review_matches` each run twice).
