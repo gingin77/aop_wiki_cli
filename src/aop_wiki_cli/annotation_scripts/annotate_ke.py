@@ -123,12 +123,16 @@ _CELLULAR_COMPONENT_LEVELS = {"Molecular", "Cellular"}
 # ref values). Entries without the field (annotated before versioning, when
 # completeness was proxied by the presence of 'assays') are treated as stale.
 # History:
-#   2 — versioned completeness; adds cellular_component + subcellular-location
-#       extraction (replaces the 'assays'-presence proxy)
-#   3 — LLM title-concept extraction: one call on the whole title supplies the
-#       action, per-component object/process/phenotype query phrases, and the
-#       subcellular location (rule-based parse remains the fallback)
-ANNOTATION_SCHEMA_VERSION = 3
+#   1 — the approach imported from the private analytics repo: versioned
+#       completeness; adds cellular_component + subcellular-location
+#       extraction (replaces the 'assays'-presence proxy). Originally
+#       stamped as 2 there; restamped 1 when this numbering was defined.
+#   2 — this repository's reworked workflow: LLM title-concept extraction
+#       (action, per-component object/process/phenotype query phrases,
+#       subcellular location) with the rule-based parse as fallback,
+#       biological_action records with separate source/vocabulary
+#       provenance, and GO-CC subtree-restricted cellular_component search.
+ANNOTATION_SCHEMA_VERSION = 2
 
 # GO terms may be valid phenotype terms (e.g. "hypersensitivity" is included in UPHENO),
 # but many are biological processes and not appropriate as phenotype annotations.
