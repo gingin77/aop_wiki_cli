@@ -44,5 +44,20 @@ include = ["src/aop_wiki_cli", "tests", "README.md", "LICENSE"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 
+[tool.coverage.run]
+source = ["aop_wiki_cli"]
+# Single-use scripts developed to process one input and not meant for reuse
+# (the seizure pipeline driven by `collect-harmonized-seizure-aops`), plus the
+# not-yet-wired reference-search driver (see the TODO at cli.py ~line 1106).
+# Excluded so coverage reflects the reusable library. See issue #25.
+omit = [
+    "*/parsers/parse_behl_seizure_aop_workbook.py",
+    "*/data_export/seizure_aop_export.py",
+    "*/analysis/analyze_seizure_aop_content.py",
+    "*/analysis/map_ke_descriptions_to_harmonized.py",
+    "*/analysis/manual_match_review.py",
+    "*/search/aop_wiki_xml_ref_search.py",
+]
+
 [tool.hatch.metadata]
 allow-direct-references = true
