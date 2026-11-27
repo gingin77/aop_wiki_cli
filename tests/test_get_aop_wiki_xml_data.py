@@ -50,10 +50,10 @@ def root():
 
 
 @pytest.fixture(autouse=True)
-def reset_data_dir():
-    saved = paths._data_dir_override
-    yield
-    paths._data_dir_override = saved
+def reset_data_dir(monkeypatch):
+    # Start every test with no override (so leakage from earlier tests can't
+    # matter); monkeypatch restores the original value afterwards.
+    monkeypatch.setattr(paths, "_data_dir_override", None)
 
 
 # ---------------------------------------------------------------------------
