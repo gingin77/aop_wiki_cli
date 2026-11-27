@@ -215,6 +215,11 @@ def annotate_ke(
 
     reset_llm_errors()
     annotated_ke = _build_ke_annotation(ke_id, title, bp_api_key, description=description, ref_ke=effective_ref)
+    # Snapshot before the assay step: only KE-level/event-component failures
+    # hold back the stamp. Assay-term failures leave label-only entries that a
+    # carried-over re-run would not retry anyway, so withholding the stamp for
+    # them would cost an extra run without fixing anything.
+    term_llm_errors = llm_errors_occurred()
 
     ref_has_assays = (ref_ke or {}).get("assays") is not None
     assays_extracted = False
@@ -237,7 +242,7 @@ def annotate_ke(
         annotated_ke["assays"] = (ref_ke or {}).get("assays")
 
     ref_comments = _attach_comments(annotated_ke, ref_ke)
-    _carry_manual_markers(annotated_ke, ref_ke)
+    _carry_manual_markers(annotated_ke, ref_ke, re_annotated=force_fields)
 
     new_fields = _compute_newly_updated_fields(effective_ref, annotated_ke)
     # Assays merely carried over from the stored entry are not newly annotated,
@@ -249,16 +254,15 @@ def annotate_ke(
     else:
         annotated_ke.pop("newly_annotated_fields", None)
 
-    llm_errors = llm_errors_occurred()
     if "assays" not in annotated_ke:
         # Without assays the KE is not complete: leave it unstamped so a
         # later run with --with-assays picks it up again (honoring the
         # term annotations just stored as reference values).
         print(f"  (no assays: KE {ke_id} left unstamped — re-run with --with-assays to complete)")
-    elif llm_errors:
+    elif term_llm_errors:
         # Fields nulled by mechanical LLM failures only get retried if the
         # KE stays stale; stamping it complete would bury the failure.
-        print(f"  ({llm_errors} LLM selection failure(s) this run: "
+        print(f"  ({term_llm_errors} LLM selection failure(s) this run: "
               f"KE {ke_id} left unstamped so the nulled field(s) retry)")
     else:
         annotated_ke["workflow_version"] = ANNOTATION_WORKFLOW_VERSION
@@ -579,14 +583,19 @@ def _unmatched_ref_components(ref_components_by_phrase: dict, subjects: list[str
     ]
 
 
-def _carry_manual_markers(annotated_ke: dict, ref_ke: dict | None) -> None:
+def _carry_manual_markers(annotated_ke: dict, ref_ke: dict | None,
+                          re_annotated: set[str] | None = None) -> None:
     """Carry the manually_curated_fields provenance marker across a save, the
     way comments are carried — without it, the first annotation run after
     apply_manual_curations would erase the marker and a later --force run
-    would discard the curated string values it protects."""
-    markers = (ref_ke or {}).get("manually_curated_fields")
+    would discard the curated string values it protects.
+
+    A field deliberately re-annotated this run (--force-on) loses its marker:
+    the stored value is no longer the curator's choice."""
+    markers = [m for m in (ref_ke or {}).get("manually_curated_fields", [])
+               if m not in (re_annotated or set())]
     if markers:
-        annotated_ke["manually_curated_fields"] = list(markers)
+        annotated_ke["manually_curated_fields"] = markers
 
 
 def _annotate_event_component(
@@ -1171,7 +1180,10 @@ def main():
     if args.ke_ids:
         if args.ke_id or args.aop:
             parser.error("--ke-ids cannot be combined with --ke-id or --aop")
-        ke_ids = [k.strip() for k in args.ke_ids.split(",") if k.strip()]
+        # De-duplicate while preserving order: a repeated id must not be
+        # annotated twice in one run (the completeness gate reads a store
+        # snapshot taken before the loop).
+        ke_ids = list(dict.fromkeys(k.strip() for k in args.ke_ids.split(",") if k.strip()))
         if not ke_ids:
             parser.error("--ke-ids needs at least one KE id")
         _annotate_batch(ke_ids, load_ke_annotations(), cache, args,

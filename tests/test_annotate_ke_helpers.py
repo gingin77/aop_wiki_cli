@@ -132,6 +132,20 @@ def test_manual_markers_survive_the_save_and_protect_force():
     assert "manually_curated_fields" not in plain
 
 
+def test_marker_dropped_for_deliberately_reannotated_field():
+    """--force-on a curated field replaces the curator's value, so its
+    marker must not survive to bless the LLM's new value as manual."""
+    ref = {"manually_curated_fields": ["biological_organization", "cell_term"]}
+    entry = {"ke_id": "9"}
+    _carry_manual_markers(entry, ref, re_annotated={"biological_organization"})
+    assert entry["manually_curated_fields"] == ["cell_term"]
+    # Re-annotating the only marked field drops the key entirely.
+    entry2 = {"ke_id": "9"}
+    _carry_manual_markers(entry2, {"manually_curated_fields": ["cell_term"]},
+                          re_annotated={"cell_term"})
+    assert "manually_curated_fields" not in entry2
+
+
 def test_unmatched_action_record_is_not_newly_annotated():
     """{"term": None, "source": "unmatched"} is absence, not an annotation."""
     stored = {
