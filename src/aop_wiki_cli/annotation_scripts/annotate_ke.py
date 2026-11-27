@@ -195,25 +195,35 @@ def detect_biological_organization(description: str, client: anthropic.Anthropic
     return None
 
 
-def pass_ref_comments_to_llm(
+def review_ref_comments(
         ref_ke: dict | None,
         client,
         title: str
-    ) -> None:
-    """Show prior curator comments and an LLM summary of them.
+    ) -> str | None:
+    """Show prior curator comments and return an LLM summary of them.
 
-    NOTE: the summary is currently display-only; it is not yet threaded into
-    the term-ranking context.
+    The summary is threaded into every term-ranking call for this KE as
+    `curator_guidance` context, so prior feedback steers re-annotation.
     """
     ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
-    if ref_comments and client is not None:
-        print("--- prior comments ---")
-        for c in ref_comments:
-            print(f"  • {c}")
-        print()
-        review = call_text(client, prompts.review_curator_comments(title, ref_comments), max_tokens=256)
-        if review is not None:
-            print(f"  LLM review: {review}\n")
+    if not ref_comments or client is None:
+        return None
+    print("--- prior comments ---")
+    for c in ref_comments:
+        print(f"  • {c}")
+    print()
+    review = call_text(client, prompts.review_curator_comments(title, ref_comments), max_tokens=256)
+    if review is not None:
+        print(f"  LLM review: {review}\n")
+    return review
+
+
+def _guidance_context(guidance: str | None, **extra) -> dict | None:
+    """Build a rank_term context dict from curator guidance plus extras, or None."""
+    context = {k: v for k, v in extra.items() if v}
+    if guidance:
+        context["curator_guidance"] = guidance
+    return context or None
 
 
 # ---------------------------------------------------------------------------
@@ -245,6 +255,7 @@ def _annotate_biological_process(
     client: anthropic.Anthropic | None,
     selected_object_label: str | None,
     ref: dict | None,
+    guidance: str | None = None,
 ) -> dict | None:
     """Search, filter, and rank a biological_process term for a KE subject phrase."""
     ref_process = _stored_ref(ref, "biological_process")
@@ -252,9 +263,8 @@ def _annotate_biological_process(
         return ref_process
 
     result_filter = None
-    context = None
+    context = _guidance_context(guidance, selected_object=selected_object_label)
     if selected_object_label:
-        context = {"selected_object": selected_object_label}
 
         def result_filter(results):
             kept, filtered_out = partition_process_results(results, selected_object_label)
@@ -280,6 +290,7 @@ def _annotate_subject(
     api_key: str,
     client: anthropic.Anthropic | None,
     ref: dict | None = None,
+    guidance: str | None = None,
 ) -> dict:
     """
     Annotate the three ECS components (biological_object, biological_process, phenotype)
@@ -310,7 +321,8 @@ def _annotate_subject(
         subj_annotation["biological_object"] = ref_object
         selected_object_label = ref_object.get("label") if not is_rejection(ref_object) else None
     else:
-        term = annotate_term(object_phrase, ECS_ONTOLOGIES["biological_object"], "biological_object", title, api_key, client)
+        term = annotate_term(object_phrase, ECS_ONTOLOGIES["biological_object"], "biological_object", title, api_key, client,
+                             context=_guidance_context(guidance))
         subj_annotation["biological_object"] = term
         selected_object_label = term.get("label") if term else None
     print()
@@ -318,7 +330,7 @@ def _annotate_subject(
     # --- biological_process ---
     print("--- biological_process ---")
     subj_annotation["biological_process"] = _annotate_biological_process(
-        subject, title, api_key, client, selected_object_label, ref
+        subject, title, api_key, client, selected_object_label, ref, guidance
     )
     print()
 
@@ -328,7 +340,8 @@ def _annotate_subject(
     if ref_phenotype is not None:
         subj_annotation["phenotype"] = ref_phenotype
     else:
-        term = annotate_term(subject, ECS_ONTOLOGIES["phenotype"], "phenotype", title, api_key, client)
+        term = annotate_term(subject, ECS_ONTOLOGIES["phenotype"], "phenotype", title, api_key, client,
+                             context=_guidance_context(guidance))
         if term and term.get("term_id"):
             needs_review = term.get("ontology", "").upper() in _PHENOTYPE_GO_REVIEW_PREFIXES
             if needs_review:
@@ -344,11 +357,12 @@ def _annotate_location_term(
     field: str,
     trigger_levels: set[str],
     query: str,
-    context: str,
+    title: str,
     api_key: str,
     client: anthropic.Anthropic | None,
     ref_ke: dict | None,
     org_level: str | None,
+    guidance: str | None = None,
 ) -> dict | None:
     """Return a ref value if present, or annotate from BioPortal if org_level matches trigger_levels."""
     ref_val = (ref_ke or {}).get(field)
@@ -359,7 +373,8 @@ def _annotate_location_term(
         return ref_val
     if query and org_level in trigger_levels:
         print(f"--- {field} ---")
-        result = annotate_term(query, TOP_LEVEL_ONTOLOGIES[field], field, context, api_key, client)
+        result = annotate_term(query, TOP_LEVEL_ONTOLOGIES[field], field, title, api_key, client,
+                               context=_guidance_context(guidance))
         print()
         return result
     return None
@@ -377,7 +392,7 @@ def _build_ke_annotation(
 
     print(f"KE {ke_id}: {title}\n")
 
-    pass_ref_comments_to_llm(ref_ke, client, title)
+    guidance = review_ref_comments(ref_ke, client, title)
 
     parsed = parse_ke_title(title)
     print("Parsed ECS source phrases:")
@@ -422,11 +437,11 @@ def _build_ke_annotation(
 
     annotation["cell_term"] = _annotate_location_term(
         "cell_term", _CELL_TERM_LEVELS,
-        parsed["full_subject"], title, api_key, client, ref_ke, org_level,
+        parsed["full_subject"], title, api_key, client, ref_ke, org_level, guidance,
     )
     annotation["organ_term"] = _annotate_location_term(
         "organ_term", _ORGAN_TERM_LEVELS,
-        parsed["full_subject"], title, api_key, client, ref_ke, org_level,
+        parsed["full_subject"], title, api_key, client, ref_ke, org_level, guidance,
     )
     # cellular_component is queried on the extracted subcellular-location noun
     # (e.g. "mitochondrion"), NOT the full subject — the location is an adjective
@@ -435,7 +450,7 @@ def _build_ke_annotation(
     # hint is None and _annotate_location_term skips the query.
     annotation["cellular_component"] = _annotate_location_term(
         "cellular_component", _CELLULAR_COMPONENT_LEVELS,
-        parsed.get("cellular_component"), title, api_key, client, ref_ke, org_level,
+        parsed.get("cellular_component"), title, api_key, client, ref_ke, org_level, guidance,
     )
 
     # --- ECS annotation ---
@@ -448,7 +463,7 @@ def _build_ke_annotation(
         if len(parsed["subjects"]) > 1:
             print(f"\n[Subject {i + 1}/{len(parsed['subjects'])}: {subject!r}]")
         ref_subj = ref_subjects.get(subject)
-        subj_annotation = _annotate_subject(subject, title, api_key, client, ref=ref_subj)
+        subj_annotation = _annotate_subject(subject, title, api_key, client, ref=ref_subj, guidance=guidance)
         subj_annotation["biological_action"] = biological_action
         annotation["ec_annotations"].append(subj_annotation)
 
