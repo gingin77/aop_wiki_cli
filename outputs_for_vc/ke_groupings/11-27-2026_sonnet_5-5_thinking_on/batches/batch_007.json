@@ -1,0 +1,29 @@
+[
+  {
+    "group_key": "fatty_acid_beta_oxidation_direction",
+    "type": "soda",
+    "member_ids": [
+      "1312",
+      "1824"
+    ],
+    "rationale": "Both concern fatty acid beta-oxidation but one increases and the other decreases."
+  },
+  {
+    "group_key": "photosystem_II_inhibition_vs_electron_transport",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2456",
+      "2457"
+    ],
+    "rationale": "Both concern photosystem II, but inhibition of the complex and decreased electron transport are distinct processes needing curator review."
+  },
+  {
+    "group_key": "tubular_epithelial_injury",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2465",
+      "2464"
+    ],
+    "rationale": "Both describe renal tubular epithelial cell injury/maladaptive state, with differing specificity."
+  }
+]

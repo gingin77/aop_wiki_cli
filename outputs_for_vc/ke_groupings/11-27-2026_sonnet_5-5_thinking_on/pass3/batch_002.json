@@ -1,0 +1,40 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "468",
+      "group_key": "ppar_alpha_binding_vs_activity",
+      "rationale": "Inhibition of PPAR alpha concerns the same receptor as the other PPARalpha binding/activity/activation events but is a distinct process."
+    },
+    {
+      "event_id": "451",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Inhibition of mitochondrial fatty acid beta-oxidation is the same endpoint as Decrease, Fatty acid beta-oxidation."
+    },
+    {
+      "event_id": "414",
+      "group_key": "lh_increase_decrease",
+      "rationale": "Increase in LH, with differing context specificity relative to the anterior pituitary secretion event."
+    },
+    {
+      "event_id": "68",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Collagen accumulation is a cellular process contributing to fibrosis, so it is flagged as a context difference from organ-level fibrosis."
+    },
+    {
+      "event_id": "344",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Increase, Liver fibrosis is the same process (fibrosis) as the existing group members, in a liver context."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "tpo_inhibition_vs_thyroid_hormone_synthesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "277",
+        "279"
+      ],
+      "rationale": "Thyroperoxidase inhibition and decreased thyroid hormone synthesis relate to the thyroid hormone synthesis pathway but are distinct objects and processes, flagged for curator review."
+    }
+  ]
+}

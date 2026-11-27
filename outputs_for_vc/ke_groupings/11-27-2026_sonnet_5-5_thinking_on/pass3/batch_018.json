@@ -1,0 +1,62 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2097",
+      "group_key": "inflammatory_mediators",
+      "rationale": "Increase in pro-inflammatory mediators is the same event as the group's increased pro-inflammatory mediators, differing only in wording."
+    },
+    {
+      "event_id": "2141",
+      "group_key": "er_agonism_antagonism",
+      "rationale": "Disruption of the estrogen receptor concerns the same receptor object as agonism/antagonism, but it is not a clear directional opposite, so it is only a weak candidate."
+    },
+    {
+      "event_id": "2126",
+      "group_key": "er_activation",
+      "rationale": "Estrogen receptor alpha inactivation is the opposite direction of the ER activation events and concerns the same receptor."
+    },
+    {
+      "event_id": "2132",
+      "group_key": "inflammatory_mediators",
+      "rationale": "Increased pro-inflammatory cytokine expression is a closely related increase in pro-inflammatory mediators, differing in specificity (cytokines)."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "adipocyte_hypertrophy_hyperplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2127",
+        "2128"
+      ],
+      "rationale": "Both describe increased adipose tissue expansion at the adipocyte level (size vs number)."
+    },
+    {
+      "group_key": "gsh_depletion_conjugation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "130",
+        "2131"
+      ],
+      "rationale": "Both concern glutathione but depletion and conjugation are distinct processes."
+    },
+    {
+      "group_key": "bax_bcl2_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2123",
+        "2124"
+      ],
+      "rationale": "Both concern apoptosis regulator expression, but they involve different proteins, so they are only grouped for curator review."
+    },
+    {
+      "group_key": "prostate_neoplasia",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2136",
+        "2135"
+      ],
+      "rationale": "Prostatic intraepithelial neoplasia and prostate cancer are neoplastic outcomes in the same organ with differing specificity."
+    }
+  ]
+}

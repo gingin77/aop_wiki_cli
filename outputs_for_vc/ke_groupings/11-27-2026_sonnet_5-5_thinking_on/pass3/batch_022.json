@@ -1,0 +1,35 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2430",
+      "group_key": "ahr_activation",
+      "rationale": "AhR activation is the same process as the general 'Activation, AhR' member, with only wording differences, so it belongs with the existing AhR activation group."
+    },
+    {
+      "event_id": "2450",
+      "group_key": "cognitive_learning",
+      "rationale": "Cognitive decline is the same endpoint as 'Cognitive function, decreased' in this group."
+    },
+    {
+      "event_id": "2404",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Kidney fibrosis is the same process (fibrosis) in a different organ from liver and lung fibrosis."
+    },
+    {
+      "event_id": "2472",
+      "group_key": "ppar_alpha_binding_vs_activity",
+      "rationale": "This is a decrease in the transcriptional activity of glucocorticoid receptor, not PPARalpha, so it should not be assigned here."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "hsd11b_activity_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2469",
+        "2409"
+      ],
+      "rationale": "Both describe decreased 11\u03b2-HSD activity, but for different isoforms (type 1 reductase vs type 2), so they are flagged for curator review."
+    }
+  ]
+}

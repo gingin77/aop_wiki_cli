@@ -1,0 +1,75 @@
+[
+  {
+    "group_key": "fat_mass_increase",
+    "type": "merge",
+    "member_ids": [
+      "2125",
+      "2333"
+    ],
+    "rationale": "Both describe increased fat mass, differing only in wording."
+  },
+  {
+    "group_key": "oligodendrocyte_maturation_differentiation",
+    "type": "merge",
+    "member_ids": [
+      "2106",
+      "2116"
+    ],
+    "rationale": "Impaired oligodendrocyte maturation and decreased oligodendrocyte differentiation describe essentially the same reduced developmental progression of oligodendrocytes."
+  },
+  {
+    "group_key": "laminin_binding_events",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2109",
+      "2110"
+    ],
+    "rationale": "Both concern laminin binding, but one is binding of laminin and the other is disrupted laminin-integrin binding, so the functional relationship needs curator review."
+  },
+  {
+    "group_key": "ppar_binding_vs_signaling",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2226",
+      "2227",
+      "2165"
+    ],
+    "rationale": "All share PPAR as the object, but they cover stressor binding, disrupted nuclear signaling and activation, which are distinct processes."
+  },
+  {
+    "group_key": "ryr_activation_vs_phosphorylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2186",
+      "2289"
+    ],
+    "rationale": "Both concern the ryanodine receptor, but one is activation and the other is hyperphosphorylation of RyR2."
+  },
+  {
+    "group_key": "aromatase_inhibition_vs_induction",
+    "type": "soda",
+    "member_ids": [
+      "2277",
+      "2293"
+    ],
+    "rationale": "Both concern aromatase activity in opposite directions, inhibition versus induction."
+  },
+  {
+    "group_key": "pi3k_akt_pathway_activation_vs_inhibition",
+    "type": "soda",
+    "member_ids": [
+      "2173",
+      "2311"
+    ],
+    "rationale": "Both concern the PI3K-Akt pathway, one activated and the other inhibited."
+  },
+  {
+    "group_key": "estradiol_increase_context",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "2294",
+      "2251"
+    ],
+    "rationale": "Both describe increased estradiol, but one is specific to plasma while the other refers to general availability."
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1840",
+      "group_key": "complex_iv_binding_vs_inhibition",
+      "rationale": "Cytochrome oxidase is mitochondrial complex IV; inhibition of it matches the existing complex IV inhibition/binding group."
+    },
+    {
+      "event_id": "1555",
+      "group_key": "nasal_cell_proliferation",
+      "rationale": "Generic increased cell proliferation, same process as the general member of this context group."
+    },
+    {
+      "event_id": "1862",
+      "group_key": "photosystem_II_inhibition_vs_electron_transport",
+      "rationale": "Decreased photosystem II efficiency concerns the same photosystem II object as the existing group members."
+    },
+    {
+      "event_id": "1501",
+      "group_key": "ecm_stellate",
+      "rationale": "placeholder"
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "pi3k_akt_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1310",
+        "1299"
+      ],
+      "rationale": "PI3K and AKT activation are different molecules in the same pathway, so only a curator-review grouping is possible; omitted if not justified."
+    }
+  ]
+}

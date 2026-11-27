@@ -1,0 +1,91 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "685",
+      "group_key": "prostaglandin_f2a_ovary_synthesis",
+      "rationale": "Reduced prostaglandins in ovary is a less specific form of reduced prostaglandin F2alpha synthesis in ovary, so it differs in specificity rather than being a synonym."
+    },
+    {
+      "event_id": "675",
+      "group_key": "reproductive_success_direction",
+      "rationale": "Reduced reproductive success is the same endpoint as Decreased, Reproductive Success and is opposite to Increased, Reproductive Success."
+    },
+    {
+      "event_id": "530",
+      "group_key": "gnrh_decrease",
+      "rationale": "Decreased GnRH pulsatility/release describes the same decrease as the group members, with differing specificity."
+    },
+    {
+      "event_id": "531",
+      "group_key": "lh_surge_decrease",
+      "rationale": "Decreased LH Surge is the same event as the decreased LH surge from the anterior pituitary."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fetal_leydig_testosterone_glucocorticoid",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "653",
+        "654"
+      ],
+      "rationale": "Both are KER-style titles about decreased fetal Leydig testosterone linked to glucocorticoid or corticosterone increase or activation."
+    },
+    {
+      "group_key": "fetal_leydig_testosterone_estradiol",
+      "type": "merge",
+      "member_ids": [
+        "658",
+        "659"
+      ],
+      "rationale": "Both are KER-style titles about decreased fetal Leydig testosterone linked to increased estradiol or estradiol agonist activation."
+    },
+    {
+      "group_key": "decreased_cholesterol_leydig_upstream",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "642",
+        "643",
+        "644"
+      ],
+      "rationale": "These titles share the 'Decreased Cholesterol' upstream event and differ in the pathway step that is decreased."
+    },
+    {
+      "group_key": "adult_leydig_decreased_steroidogenesis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "648",
+        "649",
+        "640"
+      ],
+      "rationale": "All are KER-style titles with decreased steroidogenesis in adult Leydig cells."
+    },
+    {
+      "group_key": "leydig_apoptosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "496",
+        "648"
+      ],
+      "rationale": "Both describe increased apoptosis of Leydig cells, one covering fetal and adult cells and the other adult cells only."
+    },
+    {
+      "group_key": "steroidogenic_expression_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "495",
+        "647"
+      ],
+      "rationale": "Both describe repressed or decreased expression of steroidogenic enzymes or proteins."
+    },
+    {
+      "group_key": "gnrh_neuron_activity_release",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "529",
+        "530"
+      ],
+      "rationale": "Decreased GnRH cfos activity and decreased GnRH pulsatility/release are related decreases in GnRH neuron function with differing specificity."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1636",
+      "group_key": "chromosomal_genomic_instability",
+      "rationale": "Increase in chromosomal aberrations matches the existing 'Increase Chromosomal Aberrations' event, so it is a wording variant that fits the same group."
+    },
+    {
+      "event_id": "1606",
+      "group_key": "ecm_stellate",
+      "rationale": "Stellate cell activation is not a clear fit for the retinoic acid group, so it should not be assigned."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "chromosomal_aberrations_ungrouped_pair",
+      "type": "merge",
+      "member_ids": [
+        "1636"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

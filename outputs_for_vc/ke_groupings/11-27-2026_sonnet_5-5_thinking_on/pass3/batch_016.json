@@ -1,0 +1,30 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2010",
+      "group_key": "inflammation_general_vs_liver",
+      "rationale": "Pulmonary inflammation is the same process as the general and liver-specific inflammation events, in a different organ context."
+    },
+    {
+      "event_id": "1977",
+      "group_key": "sodium_channel_inhibition",
+      "rationale": "Disruption of sodium channel gating kinetics concerns the same sodium channel object as inhibition, modulation and reduced conductance, but is a distinct process."
+    },
+    {
+      "event_id": "105",
+      "group_key": "mitochondrial_function",
+      "rationale": "Inhibition of the mitochondrial electron transport chain complexes is the same kind of event as the existing 'electron transport chain, disrupted' entry, differing in specificity."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "folate_transporter_vs_uptake",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2025",
+        "2026"
+      ],
+      "rationale": "Both concern the folate transporter and its function, but an affected transporter and decreased folate uptake are distinct events."
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+[
+  {
+    "group_key": "tgf_beta_pathway_activation",
+    "type": "merge",
+    "member_ids": [
+      "1283",
+      "1469"
+    ],
+    "rationale": "Both describe activation of the TGF-beta pathway."
+  },
+  {
+    "group_key": "t3_tissue_levels",
+    "type": "soda",
+    "member_ids": [
+      "1116",
+      "1154"
+    ],
+    "rationale": "Both measure tissue T3 levels in opposite directions."
+  },
+  {
+    "group_key": "reproductive_success_direction",
+    "type": "soda",
+    "member_ids": [
+      "1163",
+      "1141"
+    ],
+    "rationale": "Increased vs decreased reproductive success."
+  },
+  {
+    "group_key": "population_decline_vs_increase",
+    "type": "soda",
+    "member_ids": [
+      "1164",
+      "361"
+    ],
+    "rationale": "Increased population vs population decline, opposite directions of the same endpoint."
+  },
+  {
+    "group_key": "histone_acetylation_vs_hdac_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1503",
+      "1502"
+    ],
+    "rationale": "Histone acetylation and HDAC inhibition share the same histone/HDAC object but are distinct processes."
+  },
+  {
+    "group_key": "complex_iii_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1542",
+      "1653"
+    ],
+    "rationale": "Both target mitochondrial complex III; binding does not confirm inhibition."
+  },
+  {
+    "group_key": "complex_iv_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1543",
+      "1654"
+    ],
+    "rationale": "Both target mitochondrial complex IV; binding does not confirm inhibition."
+  },
+  {
+    "group_key": "complex_v_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1544",
+      "1655"
+    ],
+    "rationale": "Both target mitochondrial complex V; binding does not confirm inhibition."
+  },
+  {
+    "group_key": "cyp2e1_activation",
+    "type": "merge",
+    "member_ids": [
+      "1391",
+      "1508"
+    ],
+    "rationale": "Both describe activation of CYP2E1."
+  },
+  {
+    "group_key": "tgfb_latent_activation_vs_pathway",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1468",
+      "1271"
+    ],
+    "rationale": "Both concern TGF-beta but latent TGF-beta1 activation and pathway signaling increase are distinct events."
+  },
+  {
+    "group_key": "apoptosis_general_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1262",
+      "1513",
+      "1183",
+      "1775"
+    ],
+    "rationale": "Apoptosis events, general vs epithelial cell or oocyte-specific (note 1183 is decreased)."
+  },
+  {
+    "group_key": "dna_damage_strand_breaks",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1461",
+      "1635"
+    ],
+    "rationale": "Increase in DNA double-strand breaks and DNA strand breaks are closely related, differing in specificity."
+  },
+  {
+    "group_key": "atp_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1472",
+      "1771"
+    ],
+    "rationale": "Both describe decreased ATP production/pool, with differing specificity."
+  },
+  {
+    "group_key": "oxphos_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1477",
+      "1545"
+    ],
+    "rationale": "Both describe decreased oxidative phosphorylation."
+  },
+  {
+    "group_key": "intracellular_calcium_increase",
+    "type": "merge",
+    "member_ids": [
+      "1339",
+      "2064"
+    ],
+    "rationale": "Both describe increased intracellular/cytosolic calcium."
+  },
+  {
+    "group_key": "growth_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1467",
+      "1521"
+    ],
+    "rationale": "Both describe decreased growth."
+  },
+  {
+    "group_key": "glycolysis_direction",
+    "type": "soda",
+    "member_ids": [
+      "1476",
+      "2070"
+    ],
+    "rationale": "Decrease vs increase in glycolysis."
+  },
+  {
+    "group_key": "trpa1_activation_nerve",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1223",
+      "1220"
+    ],
+    "rationale": "Both relate to trigeminal nerve excitation, differing in scope of event."
+  }
+]

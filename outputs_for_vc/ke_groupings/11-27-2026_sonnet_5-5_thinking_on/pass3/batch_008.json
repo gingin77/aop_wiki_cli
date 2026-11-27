@@ -1,0 +1,25 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1182",
+      "group_key": "nasal_cell_proliferation",
+      "rationale": "Increased cell proliferation specified for epithelial cells, versus the general and mesothelium-specific forms already in the group."
+    },
+    {
+      "event_id": "1192",
+      "group_key": "hyperplasia_contexts",
+      "rationale": "Increased ductal hyperplasia is the same process as the other increased-hyperplasia events, in a different tissue context."
+    },
+    {
+      "event_id": "1194",
+      "group_key": "dna_damage_strand_breaks",
+      "rationale": "Increased general DNA damage is the same process as increased DNA strand breaks, which are a more specific form of DNA damage."
+    },
+    {
+      "event_id": "1176",
+      "group_key": "sodium_channel_inhibition",
+      "rationale": "Decreased sodium conductance 2 concerns the same sodium channel conductance endpoint as 'Decreased, Sodium conductance 1'."
+    }
+  ],
+  "new_groups": []
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "group_key": "er_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1065",
+      "748"
+    ],
+    "rationale": "Both describe increased/activated estrogen receptor (alpha vs. generic ER activity), differing in specificity."
+  },
+  {
+    "group_key": "population_decline",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "997",
+      "442"
+    ],
+    "rationale": "Both describe population-level decline (size vs. trajectory), differing in specificity."
+  },
+  {
+    "group_key": "herg_blockade_vs_ikr_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2100",
+      "2099"
+    ],
+    "rationale": "hERG channel blockade and inhibition of rapid delayed rectifier current (IKr) concern the same channel, but blockade and functional current inhibition are distinct processes."
+  },
+  {
+    "group_key": "gli_pathway_smoothened",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2044",
+      "2027"
+    ],
+    "rationale": "Both concern the Smoothened receptor; antagonism and decreased relocation/activation are related but distinct events."
+  },
+  {
+    "group_key": "cell_death_necrosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1607",
+      "2195"
+    ],
+    "rationale": "Both describe increased cell death, one specific to CNS neural cells."
+  },
+  {
+    "group_key": "chromosomal_genomic_instability",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1554",
+      "1896"
+    ],
+    "rationale": "Chromosomal aberrations and genomic instability are overlapping genomic damage endpoints with different specificity."
+  },
+  {
+    "group_key": "thyroid_hormone_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "771",
+      "2093"
+    ],
+    "rationale": "Both describe decreased T4/T3, in serum versus brain."
+  },
+  {
+    "group_key": "learning_memory_impairment",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "637",
+      "1941"
+    ],
+    "rationale": "Both describe impaired memory function; one is learning and memory generally, other memory loss in a neurodegeneration context."
+  },
+  {
+    "group_key": "ace2_expression_shedding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1948",
+      "1938"
+    ],
+    "rationale": "Both concern ACE2 but expression increase and increased shedding are distinct processes."
+  },
+  {
+    "group_key": "oocyte_atresia_ovarian_reserve",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1883",
+      "1990"
+    ],
+    "rationale": "Both describe loss of ovarian follicle/oocyte pool, with differing specificity."
+  }
+]

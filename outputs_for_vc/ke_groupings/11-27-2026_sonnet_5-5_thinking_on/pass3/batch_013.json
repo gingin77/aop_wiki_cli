@@ -1,0 +1,44 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "860",
+      "group_key": "fatty_acid_beta_oxidation_decrease",
+      "rationale": "Decreased mitochondrial fatty acid beta oxidation is the same direction and endpoint as decreased fatty acid beta-oxidation, though it adds a mitochondrial qualifier."
+    },
+    {
+      "event_id": "1772",
+      "group_key": "triglyceride_increase",
+      "rationale": "Decrease in triglyceride is the same endpoint as the increased triglyceride events but in the opposite direction, so it is flagged for curator review."
+    },
+    {
+      "event_id": "1780",
+      "group_key": "ovarian_somatic_apoptosis_f3",
+      "rationale": "Increased oocyte apoptosis (F3) is the same process (apoptosis) in the F3 generation context."
+    },
+    {
+      "event_id": "1815",
+      "group_key": "oxidative_stress",
+      "rationale": "ER stress is a related cellular stress, but this is too loose to include."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "chitin_degradation_enzymes",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1806",
+        "1807"
+      ],
+      "rationale": "Inhibition of chitinase and chitobiase are similar chitin-degrading enzyme inhibition events on different enzymes."
+    },
+    {
+      "group_key": "urothelial_injury_tumor",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1762",
+        "1763"
+      ],
+      "rationale": "Urothelial events are related, but this grouping is weak."
+    }
+  ]
+}

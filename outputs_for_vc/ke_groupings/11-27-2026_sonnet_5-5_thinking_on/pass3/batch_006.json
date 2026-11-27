@@ -1,0 +1,30 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "876",
+      "group_key": "mutations",
+      "rationale": "Increase in mutations in critical genes is the same process as 'Increased, Induced Mutations in Critical Genes' and is a gene-specific form of increased mutations."
+    },
+    {
+      "event_id": "1003",
+      "group_key": "t3_tissue_levels",
+      "rationale": "Decreased T3 is the same endpoint as decreased T3 in tissues, with less specified context."
+    },
+    {
+      "event_id": "1494",
+      "group_key": "inflammation_general_vs_liver",
+      "rationale": "Leukocyte recruitment/activation is not the same as inflammation, so this match is not clear."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "uroporphyrin_pathway_placeholder",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "844",
+        "846"
+      ],
+      "rationale": "Both are porphyrin-related, but they are different molecules, so this grouping is not justified."
+    }
+  ]
+}

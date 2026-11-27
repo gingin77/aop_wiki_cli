@@ -1,0 +1,34 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1263",
+      "group_key": "cell_death_necrosis",
+      "rationale": "Necrosis (general) is the same process as 'Increase, Necrosis' and belongs with the cell death/necrosis context group."
+    },
+    {
+      "event_id": "1353",
+      "group_key": "sodium_channel_inhibition",
+      "rationale": "Binding to voltage-gated sodium channel shares the sodium channel object with inhibition/modulation events but is a distinct process."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "fibrosis_collagen_lung",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1275",
+        "1276"
+      ],
+      "rationale": "Collagen deposition is a cellular/ECM process while lung fibrosis is the organ-level outcome; flagged for curator review."
+    },
+    {
+      "group_key": "leukemia_infant_mll",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1253",
+        "1254"
+      ],
+      "rationale": "MLL translocation and infant leukaemia are related but distinct; low confidence, omitted if unjustified."
+    }
+  ]
+}

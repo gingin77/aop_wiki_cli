@@ -1,0 +1,48 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "679",
+      "group_key": "population_decline",
+      "rationale": "Population trajectory decline is the same population-level decline concept as 'Decreased, Population trajectory' and size."
+    },
+    {
+      "event_id": "1695",
+      "group_key": "ovulation_decrease_delay",
+      "rationale": "Impaired ovulation is the same endpoint as decreased or delayed ovulation, with differing wording."
+    },
+    {
+      "event_id": "1699",
+      "group_key": "gnrh_receptor_placeholder_none",
+      "rationale": "placeholder"
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "gnrhr_hypermethylation_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1698",
+        "1699"
+      ],
+      "rationale": "Both concern the GnRH receptor gene: promoter hypermethylation versus decreased expression are distinct processes on the same object."
+    },
+    {
+      "group_key": "dna_damage_oxidative_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1634",
+        "1669"
+      ],
+      "rationale": "Both describe increased DNA damage, with oxidative DNA damage being a more specific form than general DNA damage and mutation."
+    },
+    {
+      "group_key": "stat5_phosphorylation_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1716",
+        "1717"
+      ],
+      "rationale": "Both concern STAT5: blocked phosphorylation versus suppressed promoter binding are distinct processes."
+    }
+  ]
+}

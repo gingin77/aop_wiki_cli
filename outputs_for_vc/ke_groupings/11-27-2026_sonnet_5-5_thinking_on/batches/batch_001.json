@@ -1,0 +1,237 @@
+[
+  {
+    "group_key": "nis_iodide",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "425",
+      "424"
+    ],
+    "rationale": "Thyroidal iodide decrease and NIS inhibition involve related but distinct objects; NIS inhibition is the likely cause, not equivalent."
+  },
+  {
+    "group_key": "decreased_testosterone_adult_leydig",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "645",
+      "525",
+      "651",
+      "652"
+    ],
+    "rationale": "All involve decreased testosterone production by adult Leydig cells within different KER-style titles."
+  },
+  {
+    "group_key": "fetal_leydig_dysgenesis",
+    "type": "merge",
+    "member_ids": [
+      "657",
+      "660",
+      "540"
+    ],
+    "rationale": "All describe decreased testosterone by fetal Leydig cells leading to dysgenesis of fetal Leydig cells (spelling variants)."
+  },
+  {
+    "group_key": "sperm_fertility_adult",
+    "type": "merge",
+    "member_ids": [
+      "520",
+      "505",
+      "543"
+    ],
+    "rationale": "All describe decreased sperm quantity/quality and decreased fertility in the adult."
+  },
+  {
+    "group_key": "prostaglandin_f2a_ovary_synthesis",
+    "type": "merge",
+    "member_ids": [
+      "672",
+      "681"
+    ],
+    "rationale": "Both describe reduced prostaglandin F2alpha synthesis in ovary."
+  },
+  {
+    "group_key": "colony_loss",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1107",
+      "563"
+    ],
+    "rationale": "Both describe colony-level adverse outcomes (weakened vs death/failure), differing in severity."
+  },
+  {
+    "group_key": "role_change_within_caste",
+    "type": "merge",
+    "member_ids": [
+      "564",
+      "1108"
+    ],
+    "rationale": "Both describe abnormal role change within caste (typo variant)."
+  },
+  {
+    "group_key": "nachr_activation_desensitization",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "559",
+      "663"
+    ],
+    "rationale": "Both target nicotinic acetylcholine receptor but activation and desensitization are distinct processes."
+  },
+  {
+    "group_key": "sodium_channel_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "584",
+      "598",
+      "585"
+    ],
+    "rationale": "All concern sodium channel function with inhibition, modulation, and reduced conductance as distinct descriptions."
+  },
+  {
+    "group_key": "impaired_development",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "566",
+      "577"
+    ],
+    "rationale": "Both describe impaired development, one specific to larval development."
+  },
+  {
+    "group_key": "predation_increase",
+    "type": "merge",
+    "member_ids": [
+      "588",
+      "623"
+    ],
+    "rationale": "Both describe increased predation."
+  },
+  {
+    "group_key": "locomotion_opposite",
+    "type": "soda",
+    "member_ids": [
+      "622",
+      "635"
+    ],
+    "rationale": "Increased vs decreased locomotion."
+  },
+  {
+    "group_key": "survival_reduced",
+    "type": "merge",
+    "member_ids": [
+      "592",
+      "636"
+    ],
+    "rationale": "Both describe reduced/decreased survival."
+  },
+  {
+    "group_key": "cytotoxicity_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "709",
+      "768",
+      "770"
+    ],
+    "rationale": "Increase in cytotoxicity in different cell contexts (renal tubular, general, club cells)."
+  },
+  {
+    "group_key": "hyperplasia_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "767",
+      "735",
+      "740",
+      "744",
+      "772"
+    ],
+    "rationale": "Increase in hyperplasia in different cell/tissue contexts."
+  },
+  {
+    "group_key": "adenoma_carcinoma_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "713",
+      "736",
+      "741"
+    ],
+    "rationale": "Increase in adenomas/carcinomas in different tissues."
+  },
+  {
+    "group_key": "regenerative_proliferation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "710",
+      "734"
+    ],
+    "rationale": "Increased regenerative cell proliferation in different epithelial contexts."
+  },
+  {
+    "group_key": "car_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "715",
+      "1214"
+    ],
+    "rationale": "CAR activation general vs. hepatocyte-specific CAR-related gene expression."
+  },
+  {
+    "group_key": "chromosome_number_altered",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "723",
+      "536"
+    ],
+    "rationale": "Altered chromosome number, one specified in zygote."
+  },
+  {
+    "group_key": "androgen_receptor_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "743",
+      "1614"
+    ],
+    "rationale": "Decreased androgen receptor activity/binding, one in the hypothalamus."
+  },
+  {
+    "group_key": "ovulation_decrease_delay",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "488",
+      "532"
+    ],
+    "rationale": "Both describe impaired ovulation (decrease vs delay)."
+  },
+  {
+    "group_key": "coup_tfii",
+    "type": "soda",
+    "member_ids": [
+      "655",
+      "656"
+    ],
+    "rationale": "Increased vs decreased COUP-TFII in fetal Leydig cells."
+  },
+  {
+    "group_key": "ldl_receptor_uptake",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "466",
+      "467"
+    ],
+    "rationale": "LDLR upregulation and LDL uptake are related, but same-direction LDL handling."
+  },
+  {
+    "group_key": "triglyceride_increase",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "454",
+      "881"
+    ],
+    "rationale": "Increased triglyceride formation vs increased triglyceride."
+  },
+  {
+    "group_key": "srebp1_activation_inhibition",
+    "type": "soda",
+    "member_ids": [
+      "457",
+      "878"
+    ],
+    "rationale": "Activation vs inhibition of SREBF1/SREBP1c."
+  }
+]

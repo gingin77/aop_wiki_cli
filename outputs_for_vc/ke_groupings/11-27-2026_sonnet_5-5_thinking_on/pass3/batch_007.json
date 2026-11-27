@@ -1,0 +1,103 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1057",
+      "group_key": "ppar_alpha_binding_vs_activity",
+      "rationale": "Increased PPAR-alpha activation concerns the same receptor as 'Activation, PPAR\u03b1' and the other PPAR\u03b1 events, so curators should review it with them."
+    },
+    {
+      "event_id": "1059",
+      "group_key": "cholestasis_bile",
+      "rationale": "Increased cholestasis is the same pathology as 'Cholestasis, Pathology' and is closely related to bile accumulation."
+    },
+    {
+      "event_id": "1045",
+      "group_key": "estradiol_reduction",
+      "rationale": "Decreased ovarian E2 is reduced estradiol in a specific tissue context, like the other estradiol reduction events."
+    },
+    {
+      "event_id": "1062",
+      "group_key": "hyperplasia_contexts",
+      "rationale": "Hyperplasia of acinar cells is the same process in a different cell context."
+    },
+    {
+      "event_id": "1081",
+      "group_key": "hyperplasia_contexts",
+      "rationale": "Lactotroph hyperplasia is the same process in a different cell context."
+    },
+    {
+      "event_id": "1051",
+      "group_key": "hyperplasia_contexts",
+      "rationale": "Ovarian stromal cell hyperplasia is the same process in a different cell context."
+    },
+    {
+      "event_id": "1052",
+      "group_key": "hyperplasia_contexts",
+      "rationale": "Ovarian epithelium hyperplasia is the same process in a different tissue context."
+    },
+    {
+      "event_id": "1043",
+      "group_key": "hyperplasia_contexts",
+      "rationale": "Smooth muscle hypertrophy/hyperplasia is the same process in a different tissue context."
+    },
+    {
+      "event_id": "1082",
+      "group_key": "adenoma_carcinoma_contexts",
+      "rationale": "Pituitary adenomas are increased adenomas in a different tissue context."
+    },
+    {
+      "event_id": "1053",
+      "group_key": "adenoma_carcinoma_contexts",
+      "rationale": "Ovarian adenomas are increased adenomas in a different tissue context."
+    },
+    {
+      "event_id": "1086",
+      "group_key": "cytotoxicity_contexts",
+      "rationale": "Persistent cytotoxicity in pleura or peritoneum is cytotoxicity in a different tissue context."
+    },
+    {
+      "event_id": "1033",
+      "group_key": "nasal_cell_proliferation",
+      "rationale": "Increased proliferation of mesenchymal cells is cell proliferation in a specific cell context."
+    },
+    {
+      "event_id": "1042",
+      "group_key": "nasal_cell_proliferation",
+      "rationale": "Smooth muscle proliferation/clonal expansion is cell proliferation in a specific cell context."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "swim_bladder_inflation_reduced",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1004",
+        "1007"
+      ],
+      "rationale": "Reduced swim bladder inflation, specified for the posterior versus the anterior chamber."
+    },
+    {
+      "group_key": "muscle_paralysis_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1014",
+        "1019"
+      ],
+      "rationale": "Induced muscle paralysis in different muscle types (somatic versus pharyngeal)."
+    },
+    {
+      "group_key": "tumor_type_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1035",
+        "1036",
+        "1037",
+        "1044",
+        "1054",
+        "1063",
+        "1090"
+      ],
+      "rationale": "Increased or promoted tumor formation in different tissues and cell types."
+    }
+  ]
+}

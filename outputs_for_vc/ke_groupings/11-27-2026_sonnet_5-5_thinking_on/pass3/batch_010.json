@@ -1,0 +1,35 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1511",
+      "group_key": "lipid_peroxidation_membrane",
+      "rationale": "Lipid peroxidation is the same process as 'Increase, Lipid peroxidation' and the membrane-lipid oxidation event, differing only in specificity."
+    },
+    {
+      "event_id": "1394",
+      "group_key": "hepatocyte_proliferation_contexts",
+      "rationale": "Persistent/sustained proliferation matches 'Induction, Sustained Cell Proliferation' in the existing group."
+    },
+    {
+      "event_id": "1395",
+      "group_key": "hcc_tumor",
+      "rationale": "Liver cancer is a liver tumor endpoint, related to the hepatocellular carcinoma and liver tumor events with differing specificity."
+    },
+    {
+      "event_id": "1444",
+      "group_key": "oocyte_atresia_ovarian_reserve",
+      "rationale": "Increased follicular atresia is an increase in loss of the follicle/oocyte pool, like increased oocyte atresia, with differing specificity."
+    },
+    {
+      "event_id": "1389",
+      "group_key": "locomotion_opposite",
+      "rationale": "Decreased locomotor activity is the same endpoint as 'Decreased, locomotion', in the opposite direction to 'Increased, locomotion'."
+    },
+    {
+      "event_id": "1509",
+      "group_key": "protein_covalent_alkylation",
+      "rationale": "Protein adduct formation concerns the same protein object as alkylation and covalent binding, but is described differently."
+    }
+  ],
+  "new_groups": []
+}

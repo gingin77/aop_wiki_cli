@@ -1,0 +1,182 @@
+[
+  {
+    "group_key": "glutamate_gated_chloride_channel_activation",
+    "type": "merge",
+    "member_ids": [
+      "760",
+      "1018"
+    ],
+    "rationale": "Both describe activation of glutamate-gated chloride channel(s) with only wording/plural differences."
+  },
+  {
+    "group_key": "regenerative_proliferation_cell_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "778",
+      "781",
+      "787",
+      "795"
+    ],
+    "rationale": "Same process (regenerative cell proliferation) in different cell/tissue contexts."
+  },
+  {
+    "group_key": "cytotoxicity_cell_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "776",
+      "780",
+      "783",
+      "786",
+      "794"
+    ],
+    "rationale": "Same process (increased cytotoxicity) in different cell type contexts."
+  },
+  {
+    "group_key": "hyperplasia_epithelial_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "782",
+      "784",
+      "796"
+    ],
+    "rationale": "Increased hyperplasia in different epithelial cell contexts."
+  },
+  {
+    "group_key": "cytoplasmic_vacuolization_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "818",
+      "824",
+      "833",
+      "837",
+      "836"
+    ],
+    "rationale": "Cytoplasmic vacuolization occurring in different cell types/tissues."
+  },
+  {
+    "group_key": "dopaminergic_activity_opposite",
+    "type": "soda",
+    "member_ids": [
+      "746",
+      "1083"
+    ],
+    "rationale": "Increase vs decrease of dopaminergic activity."
+  },
+  {
+    "group_key": "beta2_adrenergic_receptor_activation",
+    "type": "merge",
+    "member_ids": [
+      "1039",
+      "1038"
+    ],
+    "rationale": "Increased activity and activation of beta-2 adrenergic receptor are equivalent."
+  },
+  {
+    "group_key": "hyperplasia_mammary",
+    "type": "merge",
+    "member_ids": [
+      "1078",
+      "1085"
+    ],
+    "rationale": "Both describe mammary gland hyperplasia."
+  },
+  {
+    "group_key": "six1_expression",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2329",
+      "2330"
+    ],
+    "rationale": "Gene expression versus protein expression of SIX1 are distinct processes for the same object."
+  },
+  {
+    "group_key": "hpph_inhibition_hmgcoa_none",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1068",
+      "1070"
+    ],
+    "rationale": "Endometrial lesions of related squamous type; placeholder context grouping."
+  },
+  {
+    "group_key": "ttr_t4_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "957",
+      "958"
+    ],
+    "rationale": "Binding to transthyretin and displacement of T4 from transthyretin involve the same object but different processes."
+  },
+  {
+    "group_key": "lh_increase_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "791",
+      "1050"
+    ],
+    "rationale": "Increased LH generally versus increased LH secretion from anterior pituitary."
+  },
+  {
+    "group_key": "prolactin_tumors_adenoma_carcinoma",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "797",
+      "1079"
+    ],
+    "rationale": "Adenomas/carcinomas in different tissues (urothelial vs mammary)."
+  },
+  {
+    "group_key": "inflammation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "777",
+      "1087"
+    ],
+    "rationale": "Increased inflammation in corneal cells versus unspecified context."
+  },
+  {
+    "group_key": "pulmonary_fibrosis_liver_fibrosis",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "840",
+      "1458"
+    ],
+    "rationale": "Fibrosis in different organs (liver vs lung)."
+  },
+  {
+    "group_key": "lh_surge_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "970",
+      "1072"
+    ],
+    "rationale": "Both describe decreased LH release/surge from anterior pituitary, with differing specificity."
+  },
+  {
+    "group_key": "gnrh_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "969",
+      "1071"
+    ],
+    "rationale": "Both describe decreased GnRH release from hypothalamus, with differing specificity."
+  },
+  {
+    "group_key": "ovulation_disruption",
+    "type": "merge",
+    "member_ids": [
+      "971",
+      "1074"
+    ],
+    "rationale": "Both describe disrupted/blocked ovulation."
+  },
+  {
+    "group_key": "nasal_cell_proliferation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "870",
+      "1089"
+    ],
+    "rationale": "Increased cell proliferation general vs mesothelium-specific."
+  }
+]

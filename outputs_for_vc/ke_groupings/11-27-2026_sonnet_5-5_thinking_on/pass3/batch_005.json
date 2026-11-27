@@ -1,0 +1,72 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "754",
+      "group_key": "lh_increase_decrease",
+      "rationale": "Increased LH is the same direction and endpoint as the existing 'Increased, Leutinizing hormone (LH)' (spelling variant), alongside the pituitary-specific form."
+    },
+    {
+      "event_id": "773",
+      "group_key": "adenoma_carcinoma_contexts",
+      "rationale": "Increased endometrial adenocarcinomas is the same tumor process in a different tissue context."
+    },
+    {
+      "event_id": "779",
+      "group_key": "adenoma_carcinoma_contexts",
+      "rationale": "Increased papillomas/carcinomas in squamous cells is a tumor increase in a distinct tissue context."
+    },
+    {
+      "event_id": "733",
+      "group_key": "cytotoxicity_contexts",
+      "rationale": "Necrosis in terminal bronchiolar cells is a cell-injury/cytotoxicity event in a specific cell context, comparable to club-cell cytotoxicity."
+    },
+    {
+      "event_id": "800",
+      "group_key": "aromatase_inhibition_contexts",
+      "rationale": "Decreased aromatase mRNA is a reduction in aromatase expression, related to general aromatase inhibition but with a different specificity."
+    },
+    {
+      "event_id": "804",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Not applicable"
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "hif1_alpha_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "799",
+        "802"
+      ],
+      "rationale": "Both concern HIF-1 (heterodimer level vs alpha transcription), distinct processes for the same object."
+    },
+    {
+      "group_key": "pdh_pdk_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "726",
+        "724"
+      ],
+      "rationale": "Both concern pyruvate dehydrogenase regulation (PDH induction vs inhibition of its kinase PDK), distinct processes."
+    },
+    {
+      "group_key": "norepinephrine_receptor_binding_antagonism",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "848",
+        "849"
+      ],
+      "rationale": "Both concern NE receptors, with binding of NE decreased vs antagonism of the receptor."
+    },
+    {
+      "group_key": "fertility_decrease_context",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "330",
+        "809"
+      ],
+      "rationale": "Not applicable"
+    }
+  ]
+}

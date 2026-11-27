@@ -1,0 +1,39 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1741",
+      "group_key": "angiotensin_II_increase",
+      "rationale": "Induced Ang II accumulation describes increased angiotensin II, matching the existing increased Ang II events."
+    },
+    {
+      "event_id": "1816",
+      "group_key": "mitochondrial_function",
+      "rationale": "Mitochondrial dysfunction (placeholder title) is the same process as the general mitochondrial dysfunction event, differing in specificity."
+    },
+    {
+      "event_id": "1914",
+      "group_key": "tlr9_activation",
+      "rationale": "Not clearly justified"
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "six1_eya1_expression_changes",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1904",
+        "1905"
+      ],
+      "rationale": "Both are expression changes of inner-ear development genes (six1b increased vs eya1 inhibited); related but different genes, flagged for review."
+    },
+    {
+      "group_key": "ang_1_7_ang_ii_degradation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1936",
+        "1935"
+      ],
+      "rationale": "Reduced Ang II degradation and diminished Ang(1-7) concern the same angiotensin pathway but are distinct processes."
+    }
+  ]
+}

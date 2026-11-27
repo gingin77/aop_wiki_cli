@@ -1,0 +1,35 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "40",
+      "group_key": "atp_decrease",
+      "rationale": "Decreased mitochondrial ATP production is the same decreased-ATP process as the group members, with a mitochondrial context qualifier."
+    },
+    {
+      "event_id": "149",
+      "group_key": "inflammation_general_vs_liver",
+      "rationale": "Increase in inflammation, same process as the general and tissue-specific inflammation events in the group."
+    },
+    {
+      "event_id": "339",
+      "group_key": "impaired_development",
+      "rationale": "Altered larval development is the same developmental process as the impaired larval/general development events."
+    },
+    {
+      "event_id": "291",
+      "group_key": "triglyceride_increase",
+      "rationale": "Triglyceride accumulation is the same increased-triglyceride endpoint as the group members."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "ros_oxidative_stress_new",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1115",
+        "209"
+      ],
+      "rationale": "Increased reactive oxygen species and peptide oxidation are not synonyms, but both are oxidative events at different levels of specificity."
+    }
+  ]
+}

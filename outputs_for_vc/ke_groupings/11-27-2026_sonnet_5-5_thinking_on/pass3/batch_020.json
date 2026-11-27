@@ -1,0 +1,44 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1541",
+      "group_key": "complex_i_binding_vs_inhibition",
+      "rationale": "Mitochondrial Complex I inhibition is the same object and endpoint as the existing complex I inhibition event, and it is flagged alongside the inhibitor-binding event for curator review."
+    },
+    {
+      "event_id": "2307",
+      "group_key": "photosystem_II_inhibition_vs_electron_transport",
+      "rationale": "Binding of plastoquinone B within the D1 protein of Photosystem II shares the Photosystem II object but is a distinct process from inhibition or reduced electron transport."
+    },
+    {
+      "event_id": "1924",
+      "group_key": "pulmonary_fibrosis_liver_fibrosis",
+      "rationale": "Cardiac fibrosis is the same process (fibrosis) in a different organ context than liver and pulmonary fibrosis."
+    },
+    {
+      "event_id": "2274",
+      "group_key": "androgen_receptor_activation",
+      "rationale": "Increased androgen receptor activation is the same receptor activity process as the decreased AR activation event, so it is flagged for context and direction review."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "insig_srebp2_cholesterol",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2269",
+        "2268"
+      ],
+      "rationale": "This is a weak grouping: both concern the INSIG1-SREBP2 regulatory axis, but they are different proteins, so it is flagged only for review."
+    },
+    {
+      "group_key": "cardiac_conduction_alterations",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2280",
+        "2292"
+      ],
+      "rationale": "Both describe altered or delayed cardiac electrical conduction, with differing specificity."
+    }
+  ]
+}

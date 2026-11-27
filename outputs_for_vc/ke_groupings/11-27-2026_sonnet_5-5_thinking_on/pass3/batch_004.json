@@ -1,0 +1,30 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "593",
+      "group_key": "herg_blockade_vs_ikr_inhibition",
+      "rationale": "Inhibition of the ERG voltage-gated potassium channel concerns the same channel as hERG blockade and IKr inhibition, but it is a distinct functional description that needs curator review."
+    },
+    {
+      "event_id": "689",
+      "group_key": "gnrh_decrease",
+      "rationale": "Reduced hypothalamic GnRH is the same decreased-GnRH process, with different wording and specificity from the existing GnRH release events."
+    },
+    {
+      "event_id": "690",
+      "group_key": "lh_surge_decrease",
+      "rationale": "Reduced plasma LH is the same decreased-LH process as the LH surge and release events, but it lacks the anterior pituitary or surge context."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "alpha2u_globulin_binding_vs_accumulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "708",
+        "714"
+      ],
+      "rationale": "Both concern alpha2u-globulin, but chemical binding in serum and accumulation in proximal tubular epithelium are distinct processes."
+    }
+  ]
+}

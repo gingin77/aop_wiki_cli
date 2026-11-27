@@ -1,0 +1,34 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "1000",
+      "group_key": "ppar_alpha_binding_vs_activity",
+      "rationale": "Stabilization of the PPAR alpha co-repressor concerns PPAR\u03b1 signaling, a distinct process on the same receptor as binding, activation and transactivation."
+    },
+    {
+      "event_id": "55",
+      "group_key": "cell_death_necrosis",
+      "rationale": "Increase in cell injury/death is the same direction of cell death, with differing specificity from necrosis and CNS neural cell death."
+    },
+    {
+      "event_id": "360",
+      "group_key": "population_decline",
+      "rationale": "Decrease in population growth rate is a population-level decline endpoint that differs in specificity from population size and trajectory."
+    },
+    {
+      "event_id": "406",
+      "group_key": "sperm_fertility_adult",
+      "rationale": "Decreased fertility is the same endpoint as the decreased fertility in the group, though less specific."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "ecdysone_receptor_hyperactivation_vs_antagonism",
+      "type": "soda",
+      "member_ids": [
+        "103"
+      ],
+      "rationale": "Placeholder omitted."
+    }
+  ]
+}

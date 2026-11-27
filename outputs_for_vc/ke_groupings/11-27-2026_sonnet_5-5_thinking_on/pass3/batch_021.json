@@ -1,0 +1,19 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2347",
+      "group_key": "fatty_acid_beta_oxidation_direction",
+      "rationale": "Increase, Lipid degradation is closely tied to fatty acid beta-oxidation, but this is only loosely related; not clearly the same endpoint."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "glycolysis_decrease_increase_new",
+      "type": "soda",
+      "member_ids": [
+        "2350"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

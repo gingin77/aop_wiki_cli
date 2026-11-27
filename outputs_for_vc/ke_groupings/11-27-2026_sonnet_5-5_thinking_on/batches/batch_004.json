@@ -1,0 +1,232 @@
+[
+  {
+    "group_key": "homocysteine_increase",
+    "type": "merge",
+    "member_ids": [
+      "1661",
+      "1665"
+    ],
+    "rationale": "Both describe increased homocysteine levels (plasma HCY)."
+  },
+  {
+    "group_key": "angiotensin_II_increase",
+    "type": "merge",
+    "member_ids": [
+      "1752",
+      "1743"
+    ],
+    "rationale": "Both describe increased angiotensin II (plasma Ang II)."
+  },
+  {
+    "group_key": "ace2_dysregulation_downregulation",
+    "type": "merge",
+    "member_ids": [
+      "1854",
+      "1740"
+    ],
+    "rationale": "Both describe dysregulation of ACE2."
+  },
+  {
+    "group_key": "at1r_increase_vs_agonist_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1852",
+      "1851"
+    ],
+    "rationale": "Both concern AT1R but one is increased receptor level and the other agonist binding."
+  },
+  {
+    "group_key": "ace2_binding_vs_dysregulation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1739",
+      "1740",
+      "1854",
+      "1787"
+    ],
+    "rationale": "All concern ACE2 but involve binding versus dysregulation/downregulation."
+  },
+  {
+    "group_key": "dht_androgen_reduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1613",
+      "2298"
+    ],
+    "rationale": "Both describe reduced androgen levels, one in testis specifically."
+  },
+  {
+    "group_key": "progesterone_decrease",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1692",
+      "1693"
+    ],
+    "rationale": "Both concern progesterone: reduced synthesis versus decreased levels."
+  },
+  {
+    "group_key": "cortisol_decrease",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1835",
+      "1836"
+    ],
+    "rationale": "Both describe decreased cortisol, one also with 11\u03b2-OH testosterone and one in plasma."
+  },
+  {
+    "group_key": "ecdysone_cascade_opposites",
+    "type": "soda",
+    "member_ids": [
+      "2373",
+      "2375"
+    ],
+    "rationale": "Same mis-timed ecdysone receptor-responsive cascade increased vs decreased."
+  },
+  {
+    "group_key": "fecundity_decrease_f0_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "328",
+      "1781"
+    ],
+    "rationale": "Both describe decreased fecundity, one specifically in F3 generation."
+  },
+  {
+    "group_key": "caspase_transcription_f0_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1774",
+      "1779"
+    ],
+    "rationale": "Both increased caspase transcription, one in F3 generation."
+  },
+  {
+    "group_key": "ovarian_somatic_apoptosis_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1776",
+      "1783"
+    ],
+    "rationale": "Both increased ovarian somatic cell apoptosis, one in F3."
+  },
+  {
+    "group_key": "follicle_breakdown_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1777",
+      "1784"
+    ],
+    "rationale": "Both increased ovarian follicle breakdown, one in F3."
+  },
+  {
+    "group_key": "dna_methylation_decrease_f3",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1773",
+      "1778"
+    ],
+    "rationale": "Both decreased DNA methylation, one heritable in F3."
+  },
+  {
+    "group_key": "apoptosis_cell_death",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1365",
+      "1825",
+      "1817",
+      "1864"
+    ],
+    "rationale": "Increased apoptosis/cell death/programmed cell death with varying specificity."
+  },
+  {
+    "group_key": "tlr9_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1842",
+      "1900"
+    ],
+    "rationale": "Both concern TLR9 activation/expression, one on platelet surface."
+  },
+  {
+    "group_key": "inflammation_general_vs_liver",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1633",
+      "902",
+      "1750"
+    ],
+    "rationale": "Inflammation in general versus liver-specific or immune inflammatory responses."
+  },
+  {
+    "group_key": "lipid_peroxidation_membrane",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1445",
+      "1594"
+    ],
+    "rationale": "Both describe lipid oxidation, one specific to membranes."
+  },
+  {
+    "group_key": "protein_oxidation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1767",
+      "1595"
+    ],
+    "rationale": "Both protein oxidation, one membrane-specific."
+  },
+  {
+    "group_key": "chitin_pathway_cuticle",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1522",
+      "1523"
+    ],
+    "rationale": "Chitin synthase inhibition versus reduced chitin content share chitin object but differ in process."
+  },
+  {
+    "group_key": "thyroid_binding",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1830",
+      "1831"
+    ],
+    "rationale": "Both concern thyroid hormone carrier binding interactions."
+  },
+  {
+    "group_key": "ecdysone_receptor_antagonism_cascade",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "2374",
+      "2373"
+    ],
+    "rationale": "Ecdysone receptor antagonism and the receptor-responsive cascade share ecdysone receptor object but differ in process."
+  },
+  {
+    "group_key": "spermatogenesis_impaired",
+    "type": "merge",
+    "member_ids": [
+      "1758",
+      "1798"
+    ],
+    "rationale": "Both describe impaired/decreased spermatogenesis."
+  },
+  {
+    "group_key": "dna_methyltransferase",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "1697",
+      "1619"
+    ],
+    "rationale": "Both concern DNA methyltransferase but expression increase versus inhibition."
+  },
+  {
+    "group_key": "ecm_stellate",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1881",
+      "1880"
+    ],
+    "rationale": "Placeholder removal"
+  }
+]

@@ -1,0 +1,3232 @@
+{
+  "summary": {
+    "a_total_groups": 155,
+    "b_total_groups": 167,
+    "identical": 72,
+    "changed": 38,
+    "dropped_only_in_a": 45,
+    "new_only_in_b": 58,
+    "merges_detected": 1,
+    "splits_detected": 18,
+    "a_total_grouped_events": 437,
+    "b_total_grouped_events": 479,
+    "events_grouped_in_both": 350,
+    "events_grouped_only_in_a": 87,
+    "events_grouped_only_in_b": 129,
+    "by_type": {
+      "merge": {
+        "a_groups": 37,
+        "identical": 24,
+        "changed": 12,
+        "dropped": 1,
+        "new_in_b": 2
+      },
+      "soda": {
+        "a_groups": 15,
+        "identical": 10,
+        "changed": 4,
+        "dropped": 1,
+        "new_in_b": 4
+      },
+      "same_object_different_process": {
+        "a_groups": 36,
+        "identical": 14,
+        "changed": 8,
+        "dropped": 14,
+        "new_in_b": 18
+      },
+      "similar_event_different_biological_context": {
+        "a_groups": 67,
+        "identical": 24,
+        "changed": 14,
+        "dropped": 29,
+        "new_in_b": 34
+      }
+    }
+  },
+  "matches": [
+    {
+      "a_key": "vtg_synthesis_increase_merge",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "vtg_synthesis_general_vs_liver",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": true,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "renal_vtg_deposition",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "renal_vtg_deposition",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "pxr_activation",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "pxr_activation",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "mortality_increase",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "mortality",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "leydig_hyperplasia_proliferation",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "hyperplasia_proliferation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 0.5,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [
+        "142",
+        "854"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "altered_hepatic_foci",
+      "a_type": "merge",
+      "a_size": 3,
+      "b_key": "altered_hepatic_foci",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "774"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "liver_steatosis",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "liver_steatosis",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "dna_adduct_repair",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "dna_adduct_repair",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "fatty_acid_beta_oxidation_decrease",
+      "a_type": "merge",
+      "a_size": 5,
+      "b_key": "fatty_acid_beta_oxidation_decrease",
+      "b_type": "merge",
+      "b_size": 3,
+      "overlap": 0.6,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "451",
+        "2065"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "neuronal_network_function",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "neuronal_network_function",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "decreased_fetal_leydig_dysgenesis",
+      "a_type": "merge",
+      "a_size": 3,
+      "b_key": "fetal_leydig_dysgenesis",
+      "b_type": "merge",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "sperm_fertility_decrease",
+      "a_type": "merge",
+      "a_size": 3,
+      "b_key": "sperm_fertility_adult",
+      "b_type": "merge",
+      "b_size": 4,
+      "overlap": 0.75,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "543"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "caste_role_change",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "role_change_within_caste",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "pgf2a_synthesis_ovary",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "prostaglandin_f2a_ovary_synthesis",
+      "b_type": "merge",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "685"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "predation_increase",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "predation_increase",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "survival_reduced",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "survival_reduced",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "glutamate_gated_chloride_channel_activation",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "glutamate_gated_chloride_channel_activation",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "hyperplasia_mammary_merge",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "hyperplasia_mammary",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "beta2_adrenergic_receptor_activation",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "beta2_adrenergic_receptor_activation",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "lh_increase_secretion",
+      "a_type": "merge",
+      "a_size": 4,
+      "b_key": "lh_increase_decrease",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": true,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "lh_decreased_release",
+      "a_type": "merge",
+      "a_size": 3,
+      "b_key": "lh_surge_decrease",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 0.75,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [
+        "690"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ovulation_disruption",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "ovulation_disruption",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "tgf_beta_pathway_activation",
+      "a_type": "merge",
+      "a_size": 3,
+      "b_key": "tgf_beta_pathway_activation",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1271"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "oxphos_decrease",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "oxphos_decrease",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "growth_decrease",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "growth_decrease",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "dna_strand_breaks",
+      "a_type": "merge",
+      "a_size": 3,
+      "b_key": "dna_damage_strand_breaks",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 0.5,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [
+        "1194"
+      ],
+      "removed_from_a": [
+        "1554"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "cytosolic_calcium_increase",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "intracellular_calcium_increase",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "cyp2e1_activation",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "cyp2e1_activation",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "atp_decrease",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "atp_decrease",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [
+        "40"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "homocysteine_increase",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "homocysteine_increase",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "angiotensin_ii_increase",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "angiotensin_ii_increase",
+      "b_type": "merge",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1741"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ace2_dysregulation",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "ace2_dysregulation_downregulation",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "spermatogenesis_decrease",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "spermatogenesis_impaired",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "population_size_trajectory",
+      "a_type": "merge",
+      "a_size": 3,
+      "b_key": "population_decline",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 0.75,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [
+        "360"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "er_activation",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "er_activation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [
+        "2126"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "fat_mass_increase",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": "fat_mass_increase",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "tanning_sclerotization_cuticle",
+      "a_type": "merge",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2053",
+        "2054"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "er_agonism_antagonism",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "er_agonism_antagonism",
+      "b_type": "soda",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "2141"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ar_agonism_antagonism",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "ar_agonism_antagonism",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "plasma_vtg_direction",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "vtg_plasma_levels",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "vtg_synthesis_liver_direction",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "vtg_liver_synthesis",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "nmda_overactivation_vs_inhibition",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "nmdar_inhibition_vs_overactivation",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "coup_tfii_fetal_leydig",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "coup_tfii",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "locomotion_opposite",
+      "a_type": "soda",
+      "a_size": 3,
+      "b_key": "locomotion_opposite",
+      "b_type": "soda",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "dopaminergic_activity_direction",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "dopaminergic_activity_opposite",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "lh_increase_decrease",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.2,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1050",
+        "1072"
+      ],
+      "is_split": true,
+      "nearest_b_key": "lh_increase_decrease"
+    },
+    {
+      "a_key": "reproductive_success_direction",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "reproductive_success_direction",
+      "b_type": "soda",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "675"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "population_decline_vs_increase",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "population_decline_vs_increase",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "glycolysis_direction",
+      "a_type": "soda",
+      "a_size": 3,
+      "b_key": "glycolysis_direction",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2350"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "ecdysone_cascade_direction",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "ecdysone_cascade_opposites",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "aromatase_inhibition_vs_induction",
+      "a_type": "soda",
+      "a_size": 2,
+      "b_key": "aromatase_inhibition_vs_induction",
+      "b_type": "soda",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "fatty_acid_beta_oxidation_direction",
+      "a_type": "soda",
+      "a_size": 3,
+      "b_key": "fatty_acid_beta_oxidation_direction",
+      "b_type": "soda",
+      "b_size": 5,
+      "overlap": 0.6,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "451",
+        "804"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "complex_i_binding_vs_inhibition",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": "complex_i_binding_vs_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ppara_antagonist_binding_vs_activation",
+      "a_type": "same_object_different_process",
+      "a_size": 8,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.429,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "227",
+        "231",
+        "468",
+        "858",
+        "998",
+        "1057",
+        "1270",
+        "1507"
+      ],
+      "is_split": false,
+      "nearest_b_key": "ppar_alpha_binding_vs_activity"
+    },
+    {
+      "a_key": "nmda_binding_vs_inhibition",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "nmda_binding_vs_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "protein_covalent_modification",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": "protein_covalent_alkylation",
+      "b_type": "same_object_different_process",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "nachr_activation_vs_desensitization",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "nachr_activation_desensitization",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "sodium_channel_inhibition_modulation",
+      "a_type": "same_object_different_process",
+      "a_size": 5,
+      "b_key": "sodium_channel_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 6,
+      "overlap": 0.833,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1977"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "hif1_alpha_transcription_pathway",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": "hif1_alpha_events",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2162"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "ne_receptor_binding_vs_antagonism",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "norepinephrine_receptor_binding_antagonism",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "transthyretin_binding_displacement",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": "ttr_t4_binding",
+      "b_type": "same_object_different_process",
+      "b_size": 4,
+      "overlap": 0.75,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1831"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "sox1_expression_gene_protein",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "six1_expression",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "cholestasis_bile_flow",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.25,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1058",
+        "1059"
+      ],
+      "is_split": false,
+      "nearest_b_key": "cholestasis_bile"
+    },
+    {
+      "a_key": "complex_iii_binding_vs_inhibition",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "complex_iii_binding_vs_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "complex_iv_binding_vs_inhibition",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "complex_iv_binding_vs_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1840"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "complex_v_binding_vs_inhibition",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "complex_v_binding_vs_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "tgf_latent_activation",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.25,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1468",
+        "1469",
+        "2171"
+      ],
+      "is_split": true,
+      "nearest_b_key": "tgf_beta_pathway_activation"
+    },
+    {
+      "a_key": "at1r_increase_vs_binding",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "at1r_increase_vs_agonist_binding",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ace2_binding_vs_downregulation",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": "ace2_binding_vs_dysregulation",
+      "b_type": "same_object_different_process",
+      "b_size": 6,
+      "overlap": 0.5,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1854",
+        "1938",
+        "1948"
+      ],
+      "removed_from_a": [],
+      "is_split": true
+    },
+    {
+      "a_key": "tlr9_activation_expression",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "tlr9_activation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [
+        "1914"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "hormone_dhea_adione_cyp17",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1609",
+        "1610",
+        "1611"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "herg_block_vs_ikr_inhibition",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": "herg_blockade_vs_ikr_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ace2_expression_shedding",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.333,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1938",
+        "1948"
+      ],
+      "is_split": false,
+      "nearest_b_key": "ace2_binding_vs_dysregulation"
+    },
+    {
+      "a_key": "ionotropic_gaba_receptor",
+      "a_type": "same_object_different_process",
+      "a_size": 4,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "64",
+        "762",
+        "1177",
+        "2039"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "smoothened_antagonism_vs_relocation",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "gli_pathway_smoothened",
+      "b_type": "same_object_different_process",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "2040"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "angiotensin_ii_accumulation_degradation",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.333,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1741",
+        "1936"
+      ],
+      "is_split": true,
+      "nearest_b_key": "ang_1_7_ang_ii_degradation"
+    },
+    {
+      "a_key": "ppar_binding_vs_activation",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.167,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2165",
+        "2226"
+      ],
+      "is_split": false,
+      "nearest_b_key": "ppar_alpha_binding_vs_activity"
+    },
+    {
+      "a_key": "ppar_signaling_disruption",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.167,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2224",
+        "2227"
+      ],
+      "is_split": false,
+      "nearest_b_key": "ppar_alpha_binding_vs_activity"
+    },
+    {
+      "a_key": "ryanodine_receptor_activation_vs_phosphorylation",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "ryr_activation_vs_phosphorylation",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "laminin_binding",
+      "a_type": "same_object_different_process",
+      "a_size": 3,
+      "b_key": "laminin_binding_events",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2111"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "oligodendrocyte_differentiation_maturation",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "oligodendrocyte_maturation_differentiation",
+      "b_type": "merge",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": true,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "photosystem_ii_inhibition_vs_electron_transport",
+      "a_type": "same_object_different_process",
+      "a_size": 4,
+      "b_key": "photosystem_ii_inhibition_vs_electron_transport",
+      "b_type": "same_object_different_process",
+      "b_size": 4,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "serotonin_transporter_vs_serotonin",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "619",
+        "626"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "hppd_inhibition_tyrosine",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "766",
+        "775"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "gnrh_receptor_expression_and_hypermethylation",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1698",
+        "1699"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "retinoic_acid_decrease",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.2,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1881",
+        "2419"
+      ],
+      "is_split": false,
+      "nearest_b_key": "ecm_stellate"
+    },
+    {
+      "a_key": "chitin_synthase_inhibition_chitin_content",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": "chitin_pathway_cuticle",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "retinoic_acid_increase_signaling",
+      "a_type": "same_object_different_process",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1888",
+        "2420"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "aromatase_inhibition_general_vs_granulosa",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 4,
+      "b_key": "aromatase_inhibition_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 0.75,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "964"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "t4_decrease_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": "thyroxine_decrease_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 0.8,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1116"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "testosterone_decrease_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.4,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "274",
+        "413",
+        "446",
+        "1690",
+        "2298"
+      ],
+      "is_split": true,
+      "nearest_b_key": "lh_testosterone"
+    },
+    {
+      "a_key": "estradiol_reduction_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 4,
+      "b_key": "estradiol_reduction",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 0.75,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1056"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "hepatocellular_tumor",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 6,
+      "b_key": "hcc_tumor",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 6,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "mutations",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 4,
+      "b_key": "mutations",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ppar_activation_decrease_isoforms",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "232",
+        "233",
+        "1028"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "oxidative_stress",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.25,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1115",
+        "1392",
+        "1632"
+      ],
+      "is_split": true,
+      "nearest_b_key": "ros_oxidative_stress_new"
+    },
+    {
+      "a_key": "hyperplasia_proliferation",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.4,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "142",
+        "854",
+        "1062"
+      ],
+      "is_split": true,
+      "nearest_b_key": "hyperplasia_proliferation"
+    },
+    {
+      "a_key": "nis_iodide_inhibition",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "nis_iodide",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": true,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "sperm_quality_fertility_relationship",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.167,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "543",
+        "646",
+        "1757"
+      ],
+      "is_split": false,
+      "nearest_b_key": "sperm_fertility_adult"
+    },
+    {
+      "a_key": "colony_loss",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "colony_loss",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "pgf2a_plasma_vs_ovary",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": "prostaglandin_f2a_ovary_synthesis",
+      "b_type": "merge",
+      "b_size": 3,
+      "overlap": 0.6,
+      "status": "changed",
+      "type_changed": true,
+      "added_in_b": [],
+      "removed_from_a": [
+        "671",
+        "1104"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "reduced_ovulation",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": "ovulation_decrease_delay",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "cytotoxicity_general_vs_specific",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 8,
+      "b_key": "cytotoxicity_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 10,
+      "overlap": 0.8,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "733",
+        "1086"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "regenerative_proliferation_tissues",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 6,
+      "b_key": "regenerative_proliferation_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 6,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "hyperplasia_tissues",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 12,
+      "b_key": "hyperplasia_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 14,
+      "overlap": 0.733,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1062",
+        "1081",
+        "1192"
+      ],
+      "removed_from_a": [
+        "739"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "adenoma_carcinoma_tissues",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 10,
+      "b_key": "adenoma_carcinoma_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 9,
+      "overlap": 0.727,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1082"
+      ],
+      "removed_from_a": [
+        "745",
+        "1063"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "car_activation",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "car_activation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "chromosome_number_alteration",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "chromosome_number_altered",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "androgen_receptor_activation",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": "androgen_receptor_activation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "fatty_acid_triglyceride_increase",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 4,
+      "b_key": "triglyceride_increase",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 0.6,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1772"
+      ],
+      "removed_from_a": [
+        "89"
+      ],
+      "is_split": false
+    },
+    {
+      "a_key": "fecundity_reproductive_success",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.2,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "527",
+        "675",
+        "1863"
+      ],
+      "is_split": false,
+      "nearest_b_key": "reproductive_success_direction"
+    },
+    {
+      "a_key": "inflammation_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.444,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "777",
+        "902",
+        "1087",
+        "1633",
+        "2086"
+      ],
+      "is_split": false,
+      "nearest_b_key": "inflammation_general_vs_liver"
+    },
+    {
+      "a_key": "cell_proliferation_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 10,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.455,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "57",
+        "269",
+        "716",
+        "870",
+        "1033",
+        "1089",
+        "1182",
+        "1394",
+        "1555",
+        "1821"
+      ],
+      "is_split": true,
+      "nearest_b_key": "nasal_cell_proliferation"
+    },
+    {
+      "a_key": "cytoplasmic_vacuolization_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": "cytoplasmic_vacuolization_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 5,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "pulmonary_fibrosis_liver_fibrosis",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": "pulmonary_fibrosis_liver_fibrosis",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 6,
+      "overlap": 0.833,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "68"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "lysosome_disruption",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "831",
+        "898"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "apoptosis_general_vs_epithelial",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 9,
+      "b_key": "apoptosis_general_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 8,
+      "overlap": 0.889,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1780"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "fibrosis_collagen",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "fibrosis_collagen_lung",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "dna_damage_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 4,
+      "b_key": "dna_damage_oxidative_general",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 0.5,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1194",
+        "1281"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "necrosis_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.286,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "733",
+        "868",
+        "1263",
+        "1548",
+        "1607"
+      ],
+      "is_split": true,
+      "nearest_b_key": "cell_death_necrosis"
+    },
+    {
+      "a_key": "hepatotoxicity_liver_injury",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1291",
+        "1393",
+        "1549"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "fecundity_decrease",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "fecundity_decrease_f0_f3",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "caspase_transcription_f3",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "caspase_transcription_f0_f3",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "ovarian_apoptosis_f3",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "ovarian_somatic_apoptosis_f3",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 0.667,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "1780"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "follicle_breakdown_f3",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "follicle_breakdown_f3",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "dna_methylation_decrease",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "dna_methylation_decrease_f3",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "cortisol_decrease",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "cortisol_decrease",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "oxidative_stress_lipid_protein",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": "lipid_peroxidation_membrane",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "protein_oxidation",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "protein_oxidation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "tbx1_none",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1626",
+        "1627"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "pericyte_dysfunction",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1946",
+        "1947"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "cytochrome_c_aif_release",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1812",
+        "2031"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "mitochondrial_complex_sdh",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.2,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "105",
+        "2118"
+      ],
+      "is_split": false,
+      "nearest_b_key": "mitochondrial_function"
+    },
+    {
+      "a_key": "estradiol_increase_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "estradiol_increase_context",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "lipid_accumulation_general_vs_small_intestine_steatosis",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2130",
+        "2446",
+        "2454"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "fetal_leydig_decreased_testosterone_upstream",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 5,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.4,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "653",
+        "654",
+        "658",
+        "659",
+        "661"
+      ],
+      "is_split": true,
+      "nearest_b_key": "fetal_leydig_testosterone_estradiol"
+    },
+    {
+      "a_key": "adult_leydig_cell_events",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 7,
+      "b_key": "decreased_testosterone_adult_leydig",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 0.571,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "640",
+        "648",
+        "649"
+      ],
+      "is_split": true
+    },
+    {
+      "a_key": "cholesterol_decrease_relationships",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": "decreased_cholesterol_leydig_upstream",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "decreased_steroidogenic_expression",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "steroidogenic_expression_decrease",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "dna_methylation_decreased_dopamine",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1452",
+        "1453"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "fertility_decrease_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.333,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "330",
+        "765"
+      ],
+      "is_split": false,
+      "nearest_b_key": "fertility_decrease_context"
+    },
+    {
+      "a_key": "enos_activity_decrease",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "935",
+        "973"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "deiodinase_isoform_inhibition",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1002",
+        "1009"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "swim_bladder_inflation_reduced",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "swim_bladder_inflation_reduced",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "muscle_paralysis_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "muscle_paralysis_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "gnrh_release_decrease",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "gnrh_decrease",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "overlap": 0.5,
+      "status": "changed",
+      "type_changed": false,
+      "added_in_b": [
+        "530",
+        "689"
+      ],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "thyroid_hormone_increase_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.25,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1154",
+        "1828"
+      ],
+      "is_split": false,
+      "nearest_b_key": "t3_tissue_levels"
+    },
+    {
+      "a_key": "prolactin_increase",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1077",
+        "1084"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "progesterone_reduction_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": "progesterone_decrease",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "overlap": 1.0,
+      "status": "identical",
+      "type_changed": true,
+      "added_in_b": [],
+      "removed_from_a": [],
+      "is_split": false
+    },
+    {
+      "a_key": "inflammatory_response_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1844",
+        "1868"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "mbp_expression_decrease_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2105",
+        "2198"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "tissue_remodeling_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 3,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2069",
+        "2084",
+        "2098"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "sodium_decrease_context",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2236",
+        "2237"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "oxidative_stress_redox_ros",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "1238",
+        "2363"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    },
+    {
+      "a_key": "glycolysis_oxphos_energy_metabolism",
+      "a_type": "similar_event_different_biological_context",
+      "a_size": 2,
+      "b_key": null,
+      "b_type": null,
+      "b_size": 0,
+      "overlap": 0.0,
+      "status": "dropped",
+      "type_changed": false,
+      "added_in_b": [],
+      "removed_from_a": [
+        "2351",
+        "2353"
+      ],
+      "is_split": false,
+      "nearest_b_key": null
+    }
+  ],
+  "new_in_b": [
+    {
+      "b_key": "inflammatory_mediators",
+      "b_type": "merge",
+      "b_size": 4,
+      "member_ids": [
+        "1493",
+        "1496",
+        "2097",
+        "2132"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "fetal_leydig_testosterone_estradiol",
+      "b_type": "merge",
+      "b_size": 2,
+      "member_ids": [
+        "658",
+        "659"
+      ],
+      "nearest_a_key": "fetal_leydig_decreased_testosterone_upstream",
+      "nearest_overlap": 0.4
+    },
+    {
+      "b_key": "calcium_changes",
+      "b_type": "soda",
+      "b_size": 2,
+      "member_ids": [
+        "52",
+        "389"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "srebp1_activation_inhibition",
+      "b_type": "soda",
+      "b_size": 2,
+      "member_ids": [
+        "457",
+        "878"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "t3_tissue_levels",
+      "b_type": "soda",
+      "b_size": 3,
+      "member_ids": [
+        "1003",
+        "1116",
+        "1154"
+      ],
+      "nearest_a_key": "thyroid_hormone_increase_context",
+      "nearest_overlap": 0.25
+    },
+    {
+      "b_key": "pi3k_akt_pathway_activation_vs_inhibition",
+      "b_type": "soda",
+      "b_size": 2,
+      "member_ids": [
+        "2173",
+        "2311"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "ppar_alpha_binding_vs_activity",
+      "b_type": "same_object_different_process",
+      "b_size": 12,
+      "member_ids": [
+        "227",
+        "231",
+        "468",
+        "858",
+        "998",
+        "1000",
+        "1057",
+        "2165",
+        "2224",
+        "2226",
+        "2227",
+        "2472"
+      ],
+      "nearest_a_key": "ppara_antagonist_binding_vs_activation",
+      "nearest_overlap": 0.429
+    },
+    {
+      "b_key": "histone_acetylation_vs_hdac_inhibition",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "1502",
+        "1503"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "tgfb_latent_activation_vs_pathway",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "1271",
+        "1468"
+      ],
+      "nearest_a_key": "tgf_beta_pathway_activation",
+      "nearest_overlap": 0.25
+    },
+    {
+      "b_key": "trpa1_activation_nerve",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "1220",
+        "1223"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "ecdysone_receptor_antagonism_cascade",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "2373",
+        "2374"
+      ],
+      "nearest_a_key": "ecdysone_cascade_direction",
+      "nearest_overlap": 0.333
+    },
+    {
+      "b_key": "dna_methyltransferase",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "1619",
+        "1697"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "tpo_inhibition_vs_thyroid_hormone_synthesis",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "277",
+        "279"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "alpha2u_globulin_binding_vs_accumulation",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "708",
+        "714"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "pdh_pdk_events",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "724",
+        "726"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "stat5_phosphorylation_binding",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "1716",
+        "1717"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "pi3k_akt_activation",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "1299",
+        "1310"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "ang_1_7_ang_ii_degradation",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "1935",
+        "1936"
+      ],
+      "nearest_a_key": "angiotensin_ii_accumulation_degradation",
+      "nearest_overlap": 0.333
+    },
+    {
+      "b_key": "folate_transporter_vs_uptake",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "2025",
+        "2026"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "gsh_depletion_conjugation",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "130",
+        "2131"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "bax_bcl2_expression",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "2123",
+        "2124"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "gluten_reactive_b_cell_events",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "2254",
+        "2256"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "gluten_reactive_t_cell_events",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "2253",
+        "2260"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "insig_srebp2_cholesterol",
+      "b_type": "same_object_different_process",
+      "b_size": 2,
+      "member_ids": [
+        "2268",
+        "2269"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "mortality_early_life",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "350",
+        "947"
+      ],
+      "nearest_a_key": "mortality_increase",
+      "nearest_overlap": 0.333
+    },
+    {
+      "b_key": "hepatocyte_proliferation_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "member_ids": [
+        "57",
+        "269",
+        "716",
+        "1394"
+      ],
+      "nearest_a_key": "cell_proliferation_context",
+      "nearest_overlap": 0.4
+    },
+    {
+      "b_key": "oxidative_stress",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "member_ids": [
+        "1392",
+        "1538",
+        "1815"
+      ],
+      "nearest_a_key": "oxidative_stress",
+      "nearest_overlap": 0.2
+    },
+    {
+      "b_key": "mitochondrial_function",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "member_ids": [
+        "105",
+        "177",
+        "178",
+        "1816"
+      ],
+      "nearest_a_key": "mitochondrial_complex_sdh",
+      "nearest_overlap": 0.2
+    },
+    {
+      "b_key": "cognitive_learning",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 5,
+      "member_ids": [
+        "341",
+        "402",
+        "637",
+        "1941",
+        "2450"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "ahr_activation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "member_ids": [
+        "18",
+        "165",
+        "2430"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "cholestasis_bile",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "member_ids": [
+        "214",
+        "357",
+        "1059"
+      ],
+      "nearest_a_key": "cholestasis_bile_flow",
+      "nearest_overlap": 0.25
+    },
+    {
+      "b_key": "lh_testosterone",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "413",
+        "1690"
+      ],
+      "nearest_a_key": "testosterone_decrease_context",
+      "nearest_overlap": 0.4
+    },
+    {
+      "b_key": "ovarian_theca_testosterone",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "274",
+        "413"
+      ],
+      "nearest_a_key": "testosterone_decrease_context",
+      "nearest_overlap": 0.4
+    },
+    {
+      "b_key": "impaired_development",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "member_ids": [
+        "339",
+        "566",
+        "577"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "ldl_receptor_uptake",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "466",
+        "467"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "hpph_inhibition_hmgcoa_none",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "1068",
+        "1070"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "nasal_cell_proliferation",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 6,
+      "member_ids": [
+        "870",
+        "1033",
+        "1042",
+        "1089",
+        "1182",
+        "1555"
+      ],
+      "nearest_a_key": "cell_proliferation_context",
+      "nearest_overlap": 0.455
+    },
+    {
+      "b_key": "dht_androgen_reduction",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "1613",
+        "2298"
+      ],
+      "nearest_a_key": "testosterone_decrease_context",
+      "nearest_overlap": 0.167
+    },
+    {
+      "b_key": "inflammation_general_vs_liver",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 8,
+      "member_ids": [
+        "149",
+        "777",
+        "902",
+        "1087",
+        "1494",
+        "1633",
+        "1750",
+        "2010"
+      ],
+      "nearest_a_key": "inflammation_context",
+      "nearest_overlap": 0.444
+    },
+    {
+      "b_key": "ecm_stellate",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "member_ids": [
+        "1501",
+        "1606",
+        "1880",
+        "1881"
+      ],
+      "nearest_a_key": "retinoic_acid_decrease",
+      "nearest_overlap": 0.2
+    },
+    {
+      "b_key": "cell_death_necrosis",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 4,
+      "member_ids": [
+        "55",
+        "1263",
+        "1607",
+        "2195"
+      ],
+      "nearest_a_key": "necrosis_context",
+      "nearest_overlap": 0.286
+    },
+    {
+      "b_key": "chromosomal_genomic_instability",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "member_ids": [
+        "1554",
+        "1636",
+        "1896"
+      ],
+      "nearest_a_key": "dna_strand_breaks",
+      "nearest_overlap": 0.2
+    },
+    {
+      "b_key": "oocyte_atresia_ovarian_reserve",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "member_ids": [
+        "1444",
+        "1883",
+        "1990"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "tubular_epithelial_injury",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "2464",
+        "2465"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "ros_oxidative_stress_new",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "209",
+        "1115"
+      ],
+      "nearest_a_key": "oxidative_stress",
+      "nearest_overlap": 0.25
+    },
+    {
+      "b_key": "fetal_leydig_testosterone_glucocorticoid",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "653",
+        "654"
+      ],
+      "nearest_a_key": "fetal_leydig_decreased_testosterone_upstream",
+      "nearest_overlap": 0.4
+    },
+    {
+      "b_key": "adult_leydig_decreased_steroidogenesis",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 3,
+      "member_ids": [
+        "640",
+        "648",
+        "649"
+      ],
+      "nearest_a_key": "adult_leydig_cell_events",
+      "nearest_overlap": 0.429
+    },
+    {
+      "b_key": "fertility_decrease_context",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "330",
+        "809"
+      ],
+      "nearest_a_key": "fertility_decrease_context",
+      "nearest_overlap": 0.333
+    },
+    {
+      "b_key": "uroporphyrin_pathway_placeholder",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "844",
+        "846"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "tumor_type_contexts",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 7,
+      "member_ids": [
+        "1035",
+        "1036",
+        "1037",
+        "1044",
+        "1054",
+        "1063",
+        "1090"
+      ],
+      "nearest_a_key": "adenoma_carcinoma_tissues",
+      "nearest_overlap": 0.062
+    },
+    {
+      "b_key": "leukemia_infant_mll",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "1253",
+        "1254"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "chitin_degradation_enzymes",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "1806",
+        "1807"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "urothelial_injury_tumor",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "1762",
+        "1763"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "six1_eya1_expression_changes",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "1904",
+        "1905"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "adipocyte_hypertrophy_hyperplasia",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "2127",
+        "2128"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "prostate_neoplasia",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "2135",
+        "2136"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "cardiac_conduction_alterations",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "2280",
+        "2292"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    },
+    {
+      "b_key": "hsd11b_activity_decrease",
+      "b_type": "similar_event_different_biological_context",
+      "b_size": 2,
+      "member_ids": [
+        "2409",
+        "2469"
+      ],
+      "nearest_a_key": null,
+      "nearest_overlap": 0.0
+    }
+  ],
+  "merges": {
+    "prostaglandin_f2a_ovary_synthesis": 2
+  },
+  "run_a": {
+    "label": "11-25-2026",
+    "file": "outputs_for_vc/ke_groupings/11-25-2026_sonnet_5-5_thinking_on/ke_similar_events_11-25-2026_pass3.json"
+  },
+  "run_b": {
+    "label": "11-27-2026",
+    "file": "outputs_for_vc/ke_groupings/11-27-2026_sonnet_5-5_thinking_on/ke_similar_events_11-27-2026_pass3.json"
+  }
+}

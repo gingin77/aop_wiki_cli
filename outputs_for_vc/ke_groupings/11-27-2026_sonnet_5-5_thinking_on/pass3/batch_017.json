@@ -1,0 +1,10 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2040",
+      "group_key": "gli_pathway_smoothened",
+      "rationale": "Decreased GLI1/2 target gene expression is part of the same Hedgehog pathway signaling cascade, but only weakly linked; omitted."
+    }
+  ],
+  "new_groups": []
+}

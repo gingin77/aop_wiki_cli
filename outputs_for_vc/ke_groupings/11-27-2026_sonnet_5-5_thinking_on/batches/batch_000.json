@@ -1,0 +1,326 @@
+[
+  {
+    "group_key": "complex_i_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "887",
+      "888"
+    ],
+    "rationale": "Both target complex I but binding of inhibitor does not confirm functional inhibition."
+  },
+  {
+    "group_key": "ppar_alpha_binding_vs_activity",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "998",
+      "231",
+      "227",
+      "858"
+    ],
+    "rationale": "All involve PPARalpha but describe binding, activity decrease, activation and transactivation, which are distinct processes."
+  },
+  {
+    "group_key": "nmda_binding_vs_inhibition",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "201",
+      "195"
+    ],
+    "rationale": "Both involve NMDA receptors but antagonist binding is not the same as functional inhibition."
+  },
+  {
+    "group_key": "nmdar_inhibition_vs_overactivation",
+    "type": "soda",
+    "member_ids": [
+      "195",
+      "388"
+    ],
+    "rationale": "Inhibition and overactivation of NMDARs are opposite directions for the same receptor."
+  },
+  {
+    "group_key": "pxr_activation",
+    "type": "merge",
+    "member_ids": [
+      "239",
+      "245"
+    ],
+    "rationale": "Both describe activation of PXR (NR1I2/SXR) with different naming."
+  },
+  {
+    "group_key": "er_agonism_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "111",
+      "112"
+    ],
+    "rationale": "Agonism vs antagonism of estrogen receptor."
+  },
+  {
+    "group_key": "ar_agonism_antagonism",
+    "type": "soda",
+    "member_ids": [
+      "25",
+      "26"
+    ],
+    "rationale": "Agonism vs antagonism of androgen receptor."
+  },
+  {
+    "group_key": "vtg_plasma_levels",
+    "type": "soda",
+    "member_ids": [
+      "220",
+      "221"
+    ],
+    "rationale": "Plasma vitellogenin increase vs reduction."
+  },
+  {
+    "group_key": "vtg_liver_synthesis",
+    "type": "soda",
+    "member_ids": [
+      "285",
+      "307"
+    ],
+    "rationale": "Hepatic vitellogenin synthesis reduced vs increased."
+  },
+  {
+    "group_key": "vtg_synthesis_general_vs_liver",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "418",
+      "307"
+    ],
+    "rationale": "Increased vitellogenin synthesis, general vs liver-specific."
+  },
+  {
+    "group_key": "renal_vtg_deposition",
+    "type": "merge",
+    "member_ids": [
+      "252",
+      "419"
+    ],
+    "rationale": "Both describe increased renal vitellogenin deposition/pathology."
+  },
+  {
+    "group_key": "estradiol_reduction",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "219",
+      "3"
+    ],
+    "rationale": "Reduced estradiol, plasma concentration vs synthesis in granulosa cells."
+  },
+  {
+    "group_key": "aromatase_inhibition_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "36",
+      "408"
+    ],
+    "rationale": "Aromatase inhibition general vs ovarian granulosa-specific reduction."
+  },
+  {
+    "group_key": "thyroxine_decrease_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "281",
+      "280"
+    ],
+    "rationale": "Decreased T4 in serum vs neuronal tissue."
+  },
+  {
+    "group_key": "mortality",
+    "type": "merge",
+    "member_ids": [
+      "350",
+      "351"
+    ],
+    "rationale": "Both describe increased mortality."
+  },
+  {
+    "group_key": "mortality_early_life",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "350",
+      "947"
+    ],
+    "rationale": "Increased mortality general vs early life stage."
+  },
+  {
+    "group_key": "hepatocyte_proliferation_contexts",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "57",
+      "716",
+      "269"
+    ],
+    "rationale": "Increased cell proliferation, general vs hepatocytes vs sustained in liver context."
+  },
+  {
+    "group_key": "hyperplasia_proliferation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "854",
+      "142",
+      "415",
+      "416"
+    ],
+    "rationale": "Proliferation/hyperplasia general vs Leydig cell-specific."
+  },
+  {
+    "group_key": "altered_hepatic_foci",
+    "type": "merge",
+    "member_ids": [
+      "1171",
+      "491"
+    ],
+    "rationale": "Both describe clonal expansion/proliferation forming altered hepatic foci."
+  },
+  {
+    "group_key": "hcc_tumor",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "719",
+      "378",
+      "347",
+      "856",
+      "334"
+    ],
+    "rationale": "Liver tumor/hepatocellular carcinoma related events with differing specificity."
+  },
+  {
+    "group_key": "liver_steatosis",
+    "type": "merge",
+    "member_ids": [
+      "345",
+      "459"
+    ],
+    "rationale": "Both describe liver steatosis."
+  },
+  {
+    "group_key": "fatty_acid_beta_oxidation_decrease",
+    "type": "merge",
+    "member_ids": [
+      "1528",
+      "179"
+    ],
+    "rationale": "Both describe decreased fatty acid beta oxidation."
+  },
+  {
+    "group_key": "dna_adduct_repair",
+    "type": "merge",
+    "member_ids": [
+      "155",
+      "493"
+    ],
+    "rationale": "Both describe inadequate/insufficient DNA repair."
+  },
+  {
+    "group_key": "mutations",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "185",
+      "376",
+      "336"
+    ],
+    "rationale": "Increased mutations general vs critical genes vs heritable in offspring."
+  },
+  {
+    "group_key": "oxidative_stress",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "1392",
+      "1538"
+    ],
+    "rationale": "Oxidative stress increase vs decreased protection, related but distinct; flagged for review."
+  },
+  {
+    "group_key": "inflammatory_mediators",
+    "type": "merge",
+    "member_ids": [
+      "1493",
+      "1496"
+    ],
+    "rationale": "Both describe increased pro-inflammatory mediator secretion."
+  },
+  {
+    "group_key": "protein_covalent_alkylation",
+    "type": "same_object_different_process",
+    "member_ids": [
+      "244",
+      "396"
+    ],
+    "rationale": "Protein alkylation and covalent protein binding are closely related distinct descriptions."
+  },
+  {
+    "group_key": "mitochondrial_function",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "177",
+      "178"
+    ],
+    "rationale": "Mitochondrial dysfunction general vs electron transport chain disruption."
+  },
+  {
+    "group_key": "neuronal_network_function",
+    "type": "merge",
+    "member_ids": [
+      "386",
+      "618"
+    ],
+    "rationale": "Both describe decreased neuronal network function."
+  },
+  {
+    "group_key": "cognitive_learning",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "341",
+      "402"
+    ],
+    "rationale": "Impaired learning and memory vs decreased cognitive function."
+  },
+  {
+    "group_key": "calcium_changes",
+    "type": "soda",
+    "member_ids": [
+      "52",
+      "389"
+    ],
+    "rationale": "Decreased calcium influx vs intracellular calcium overload; opposite directions."
+  },
+  {
+    "group_key": "ahr_activation",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "18",
+      "165"
+    ],
+    "rationale": "AhR activation general vs long term gene expression changes."
+  },
+  {
+    "group_key": "cholestasis_bile",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "214",
+      "357"
+    ],
+    "rationale": "Bile accumulation and cholestasis closely related."
+  },
+  {
+    "group_key": "lh_testosterone",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "413",
+      "1690"
+    ],
+    "rationale": "Reduced testosterone synthesis in Leydig cells vs circulating testosterone."
+  },
+  {
+    "group_key": "ovarian_theca_testosterone",
+    "type": "similar_event_different_biological_context",
+    "member_ids": [
+      "274",
+      "413"
+    ],
+    "rationale": "Reduced testosterone synthesis in theca cells vs Leydig cells."
+  }
+]

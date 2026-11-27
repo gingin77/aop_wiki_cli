@@ -1,0 +1,29 @@
+{
+  "existing_group_assignments": [
+    {
+      "event_id": "2224",
+      "group_key": "ppar_alpha_binding_vs_activity",
+      "rationale": "Dysregulation of transcriptional expression within the PPAR signaling network concerns PPAR signaling, which the group's PPAR binding, activation and disrupted-signaling events also address."
+    }
+  ],
+  "new_groups": [
+    {
+      "group_key": "gluten_reactive_b_cell_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2256",
+        "2254"
+      ],
+      "rationale": "Both concern gluten-reactive/TG2-reactive B cells (activation vs. B cell receptor generation), which are distinct processes for the same cell object."
+    },
+    {
+      "group_key": "gluten_reactive_t_cell_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2260",
+        "2253"
+      ],
+      "rationale": "Both concern gluten-reactive T cells (activation vs. T cell receptor generation), which are distinct processes for the same cell object."
+    }
+  ]
+}
