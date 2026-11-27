@@ -14,7 +14,7 @@ Usage:
     uv run python -m aop_wiki_cli.annotation_scripts.compare_ke_annotations \
         --annotations outputs_for_vc/annotations/ke_annotations.json \
         --cache outputs/cache/04-28-2026/all_events_04-28-2026.json \
-        --output outputs/ke_annotation_comparison.csv
+        --output outputs_for_vc/annotations/ke_annotation_comparison.csv
 """
 
 import argparse
@@ -25,7 +25,10 @@ from pathlib import Path
 from aop_wiki_cli.annotation_scripts.store import latest_cache_file
 
 ANNOTATIONS_FILE = "outputs_for_vc/annotations/ke_annotations.json"
-OUTPUT_FILE = "outputs/ke_annotation_comparison.csv"  # TODO: consider outputs_for_vc/ if results should be committed
+# Written to the version-controlled annotations directory: the comparison is
+# reviewed alongside the store it describes (the _divergent_detail CSV lands
+# beside it).
+OUTPUT_FILE = "outputs_for_vc/annotations/ke_annotation_comparison.csv"
 
 COLUMNS = [
     "ke_id",

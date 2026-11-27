@@ -3,7 +3,7 @@ ke_id,title,new_over_null_count,new_over_null_fields,divergent_content_count,div
 1458,Pulmonary fibrosis,2,ec.biological_object; ec.biological_action,0,
 1495,Substance interaction with the lung resident cell membrane components,1,organ_term,2,biological_organization; ec.biological_action
 1496,"Increased, secretion of proinflammatory mediators",0,,2,biological_organization; ec.biological_process
-1497,"Increased, recruitment of inflammatory cells",1,cell_term,0,
+1497,"Increased, recruitment of inflammatory cells",1,cell_term,2,biological_organization; ec.biological_process
 1498,Loss of alveolar capillary membrane integrity,3,cell_term; ec.biological_object; ec.biological_action,0,
 1499,"Increased, activation of T (T) helper (h) type 2 cells",4,cell_term; ec.biological_object; ec.biological_process; ec.biological_action,1,biological_organization
 1500,"Increased, fibroblast proliferation and myofibroblast differentiation",6,cell_term; ec_0.biological_object; ec_0.biological_process; ec_0.biological_action; ec_1.biological_object; ec_1.biological_action,1,biological_organization
@@ -18,10 +18,26 @@ ke_id,title,new_over_null_count,new_over_null_fields,divergent_content_count,div
 313,"Increase, Allergic Respiratory Hypersensitivity Response",1,ec.biological_object,2,biological_organization; ec.biological_process
 396,"Covalent Binding, Protein",0,,2,ec.biological_object; ec.biological_action
 398,"Activation, Dendritic Cells",2,organ_term; ec.biological_object,0,
-984,"Impairment, T-cell dependent antibody response",1,ec.biological_object,2,biological_organization; ec.biological_action
+984,"Impairment, T-cell dependent antibody response",1,ec.biological_object,3,biological_organization; ec.biological_process; ec.biological_action
 1700,Impaired IL-1R1 signaling in T cell,0,,3,biological_organization; ec.biological_object; ec.biological_action
 1702,Suppression of  T cell activation,0,,1,ec.biological_process
 1250,"Decrease, Lung function",2,organ_term; ec.biological_object,2,biological_organization; ec.biological_process
 1672,Inhibition of lung surfactant function,3,organ_term; ec.biological_object; ec.biological_action,1,biological_organization
 1673,Alveolar collapse,3,organ_term; ec.biological_object; ec.biological_action,1,biological_organization
 1677,Reduced tidal volume ,1,ec.biological_action,1,biological_organization
+613,"Occurrence, Epileptic seizure",0,,0,
+177,"Increase, Mitochondrial dysfunction",0,,1,ec.biological_action
+227,"Activation, PPARα",0,,1,ec.biological_object
+451,"Inhibition, Mitochondrial fatty acid beta-oxidation",0,,0,
+458,"Increased, De Novo FA synthesis",0,,1,biological_organization
+459,"Increase, Liver steatosis",1,ec.biological_object,1,ec.biological_process
+478,"Activation, NRF2",0,,0,
+479,"Activation, NR1H4",0,,1,ec.biological_object
+480,"Activation, SHP",0,,0,
+482,"Decreased, DHB4/HSD17B4",0,,1,ec.biological_object
+483,"Activation, LXR alpha",0,,0,
+878,"Inhibition, SREBP1c",0,,1,ec.biological_action
+879,"Activation, MTTP",0,,2,biological_organization; ec.biological_object
+880,"Increased, ApoB100",0,,1,biological_organization
+881,"Increased, Triglyceride",0,,2,biological_organization; ec.biological_process
+1417,NFE2/Nrf2 repression,2,ec.biological_object; ec.biological_action,0,
