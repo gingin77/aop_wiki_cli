@@ -1,0 +1,223 @@
+status,a_key,a_type,a_size,b_key,b_type,b_size,overlap,type_changed,is_split,added_in_b,removed_from_a
+identical,pxr_activation,merge,2,pxr_activation,merge,2,1.0,False,False,,
+identical,renal_vtg_deposition,merge,2,renal_vtg_deposition,merge,2,1.0,False,False,,
+identical,mortality,merge,2,increased_mortality,merge,2,1.0,False,False,,
+changed,altered_hepatic_foci,merge,2,altered_hepatic_foci,merge,3,0.667,False,False,774,
+changed,liver_steatosis,merge,2,liver_steatosis,merge,3,0.667,False,False,2019,
+changed,fatty_acid_beta_oxidation_decrease,merge,3,fa_beta_oxidation_decrease,merge,3,0.5,False,True,2065,860
+dropped,dna_adduct_repair,merge,2,,,0,0.0,False,False,,"155, 493"
+changed,inflammatory_mediators,merge,4,proinflammatory_mediators_increase,merge,2,0.5,False,True,,"1493, 1496"
+identical,neuronal_network_function,merge,2,neuronal_network_function,similar_event_different_biological_context,2,1.0,True,False,,
+identical,fetal_leydig_dysgenesis,merge,3,fetal_leydig_dysgenesis_links,merge,3,1.0,False,False,,
+changed,sperm_fertility_adult,merge,4,sperm_fertility_links,merge,2,0.5,False,False,,"406, 543"
+changed,prostaglandin_f2a_ovary_synthesis,merge,3,prostaglandin_f2a_ovary_synthesis,merge,2,0.667,False,True,,685
+identical,role_change_within_caste,merge,2,caste_role_change,merge,2,1.0,False,False,,
+identical,predation_increase,merge,2,predation_increase,merge,2,1.0,False,False,,
+identical,survival_reduced,merge,2,survival_reduction,merge,2,1.0,False,False,,
+identical,glutamate_gated_chloride_channel_activation,merge,2,glutamate_gated_chloride_channel_activation,merge,2,1.0,False,False,,
+identical,beta2_adrenergic_receptor_activation,merge,2,beta2_adrenergic_receptor_activation,merge,2,1.0,False,False,,
+dropped,hyperplasia_mammary,merge,2,,,0,0.154,False,False,,"1078, 1085"
+dropped,ovulation_disruption,merge,2,,,0,0.2,False,False,,"971, 1074"
+identical,tgf_beta_pathway_activation,merge,2,tgf_beta_pathway_activation,merge,2,1.0,False,False,,
+identical,cyp2e1_activation,merge,2,cyp2e1_activation,merge,2,1.0,False,False,,
+identical,oxphos_decrease,merge,2,oxidative_phosphorylation_decrease,merge,2,1.0,False,False,,
+identical,intracellular_calcium_increase,merge,2,intracellular_calcium_increase,merge,2,1.0,False,False,,
+identical,growth_decrease,merge,2,growth_reduction,merge,2,1.0,False,False,,
+identical,homocysteine_increase,merge,2,homocysteine_increase,merge,2,1.0,False,False,,
+changed,angiotensin_ii_increase,merge,3,angiotensin_ii_increase,merge,2,0.667,False,True,,1741
+identical,ace2_dysregulation_downregulation,merge,2,ace2_dysregulation_downregulation,merge,2,1.0,False,False,,
+dropped,spermatogenesis_impaired,merge,2,,,0,0.333,False,False,,"1758, 1798"
+identical,fat_mass_increase,merge,2,fat_mass_increase,merge,2,1.0,False,False,,
+identical,oligodendrocyte_maturation_differentiation,merge,2,oligodendrocyte_maturation_differentiation,same_object_different_process,2,1.0,True,False,,
+identical,fetal_leydig_testosterone_estradiol,merge,2,fetal_leydig_estradiol_links,similar_event_different_biological_context,2,1.0,True,False,,
+identical,nmdar_inhibition_vs_overactivation,soda,2,nmdar_inhibition_vs_overactivation,soda,2,1.0,False,False,,
+changed,er_agonism_antagonism,soda,3,er_agonism_antagonism,soda,2,0.667,False,True,,2141
+identical,ar_agonism_antagonism,soda,2,ar_agonism_antagonism,soda,2,1.0,False,False,,
+identical,vtg_plasma_levels,soda,2,vtg_plasma_increase_reduction,soda,2,1.0,False,False,,
+identical,vtg_liver_synthesis,soda,2,vtg_synthesis_liver,soda,2,1.0,False,False,,
+dropped,calcium_changes,soda,2,,,0,0.0,False,False,,"52, 389"
+identical,locomotion_opposite,soda,3,locomotion_up_down,soda,3,1.0,False,False,,
+identical,coup_tfii,soda,2,coup_tf_ii_decrease_increase,soda,2,1.0,False,False,,
+changed,srebp1_activation_inhibition,soda,2,srebp1_activation_inhibition,soda,3,0.667,False,False,264,
+identical,dopaminergic_activity_opposite,soda,2,dopaminergic_activity_direction,soda,2,1.0,False,False,,
+changed,t3_tissue_levels,soda,3,t3_tissue_levels,soda,2,0.667,False,True,,1003
+identical,reproductive_success_direction,soda,3,reproductive_success_direction,soda,3,1.0,False,False,,
+identical,population_decline_vs_increase,soda,2,population_decline_vs_increase,soda,2,1.0,False,False,,
+dropped,glycolysis_direction,soda,2,,,0,0.0,False,False,,"1476, 2070"
+identical,ecdysone_cascade_opposites,soda,2,mistimed_ecdysone_cascade,soda,2,1.0,False,False,,
+identical,aromatase_inhibition_vs_induction,soda,2,aromatase_induction_vs_inhibition,soda,2,1.0,False,False,,
+dropped,pi3k_akt_pathway_activation_vs_inhibition,soda,2,,,0,0.0,False,False,,"2173, 2311"
+changed,fatty_acid_beta_oxidation_direction,soda,5,fatty_acid_beta_oxidation_opposite,soda,4,0.8,False,False,,804
+identical,complex_i_binding_vs_inhibition,same_object_different_process,3,complex_i_binding_vs_inhibition,same_object_different_process,3,1.0,False,False,,
+changed,ppar_alpha_binding_vs_activity,same_object_different_process,12,ppara_binding_antagonist_vs_activity,same_object_different_process,8,0.667,False,True,,"227, 1057, 2165, 2472"
+identical,nmda_binding_vs_inhibition,same_object_different_process,2,nmda_binding_vs_inhibition,same_object_different_process,2,1.0,False,False,,
+changed,protein_covalent_alkylation,same_object_different_process,3,covalent_protein_binding,merge,2,0.667,True,False,,1509
+identical,nis_iodide,same_object_different_process,2,nis_iodide_inhibition,similar_event_different_biological_context,2,1.0,True,False,,
+identical,nachr_activation_desensitization,same_object_different_process,2,nachr_activation_desensitization,same_object_different_process,2,1.0,False,False,,
+changed,sodium_channel_inhibition,same_object_different_process,6,sodium_channel_inhibition,same_object_different_process,5,0.833,False,False,,1353
+identical,six1_expression,same_object_different_process,2,six1_expression,same_object_different_process,2,1.0,False,False,,
+changed,ttr_t4_binding,same_object_different_process,4,transthyretin_binding_displacement,same_object_different_process,2,0.5,False,True,,"1830, 1831"
+identical,histone_acetylation_vs_hdac_inhibition,same_object_different_process,2,histone_acetylation_hdac,same_object_different_process,2,1.0,False,False,,
+identical,complex_iii_binding_vs_inhibition,same_object_different_process,2,complex_iii_binding_vs_inhibition,same_object_different_process,2,1.0,False,False,,
+changed,complex_iv_binding_vs_inhibition,same_object_different_process,3,complex_iv_binding_vs_inhibition,same_object_different_process,2,0.667,False,False,,1840
+identical,complex_v_binding_vs_inhibition,same_object_different_process,2,complex_v_binding_vs_inhibition,same_object_different_process,2,1.0,False,False,,
+identical,tgfb_latent_activation_vs_pathway,same_object_different_process,2,tgf_beta_signaling_vs_latent_activation,same_object_different_process,2,1.0,False,False,,
+dropped,trpa1_activation_nerve,same_object_different_process,2,,,0,0.0,False,False,,"1220, 1223"
+identical,at1r_increase_vs_agonist_binding,same_object_different_process,2,at1r_increase_and_binding,same_object_different_process,2,1.0,False,False,,
+dropped,ace2_binding_vs_dysregulation,same_object_different_process,6,,,0,0.333,False,True,,"1739, 1740, 1787, 1854, 1938, 1948"
+identical,progesterone_decrease,same_object_different_process,2,progesterone_levels_and_synthesis,same_object_different_process,2,1.0,False,False,,
+identical,chitin_pathway_cuticle,same_object_different_process,2,chitin_related_inhibition,similar_event_different_biological_context,2,1.0,True,False,,
+dropped,ecdysone_receptor_antagonism_cascade,same_object_different_process,2,,,0,0.333,False,False,,"2373, 2374"
+identical,dna_methyltransferase,same_object_different_process,2,hypermethylation_dnmt,same_object_different_process,2,1.0,False,False,,
+identical,herg_blockade_vs_ikr_inhibition,same_object_different_process,3,herg_ikr_block,same_object_different_process,3,1.0,False,False,,
+dropped,gli_pathway_smoothened,same_object_different_process,3,,,0,0.0,False,False,,"2027, 2040, 2044"
+identical,laminin_binding_events,same_object_different_process,2,laminin_binding,same_object_different_process,2,1.0,False,False,,
+identical,ryr_activation_vs_phosphorylation,same_object_different_process,2,ryr_activation_vs_phosphorylation,same_object_different_process,2,1.0,False,False,,
+changed,photosystem_ii_inhibition_vs_electron_transport,same_object_different_process,4,photosystem_ii_inhibition_electron_transport,merge,3,0.75,True,False,,2307
+identical,tpo_inhibition_vs_thyroid_hormone_synthesis,same_object_different_process,2,tpo_thyroid_hormone,similar_event_different_biological_context,2,1.0,True,False,,
+dropped,alpha2u_globulin_binding_vs_accumulation,same_object_different_process,2,,,0,0.0,False,False,,"708, 714"
+identical,hif1_alpha_events,same_object_different_process,2,hif1_events,same_object_different_process,2,1.0,False,False,,
+identical,pdh_pdk_events,same_object_different_process,2,pdh_pdk_events,same_object_different_process,2,1.0,False,False,,
+identical,norepinephrine_receptor_binding_antagonism,same_object_different_process,2,cholesterol_synthesis_hmgcr,same_object_different_process,2,1.0,False,False,,
+dropped,stat5_phosphorylation_binding,same_object_different_process,2,,,0,0.0,False,False,,"1716, 1717"
+dropped,pi3k_akt_activation,same_object_different_process,2,,,0,0.0,False,False,,"1299, 1310"
+dropped,ang_1_7_ang_ii_degradation,same_object_different_process,2,,,0,0.333,False,False,,"1935, 1936"
+identical,folate_transporter_vs_uptake,same_object_different_process,2,folate_transport,similar_event_different_biological_context,2,1.0,True,False,,
+identical,gsh_depletion_conjugation,same_object_different_process,2,gsh_depletion_vs_conjugation,same_object_different_process,2,1.0,False,False,,
+identical,bax_bcl2_expression,same_object_different_process,2,bcl2_bax_expression,soda,2,1.0,True,False,,
+dropped,gluten_reactive_b_cell_events,same_object_different_process,2,,,0,0.0,False,False,,"2254, 2256"
+dropped,gluten_reactive_t_cell_events,same_object_different_process,2,,,0,0.0,False,False,,"2253, 2260"
+dropped,insig_srebp2_cholesterol,same_object_different_process,2,,,0,0.0,False,False,,"2268, 2269"
+identical,vtg_synthesis_general_vs_liver,similar_event_different_biological_context,2,vtg_synthesis_general_vs_liver,similar_event_different_biological_context,2,1.0,False,False,,
+changed,estradiol_reduction,similar_event_different_biological_context,3,estradiol_synthesis_reduction,similar_event_different_biological_context,2,0.667,False,True,,1045
+changed,aromatase_inhibition_contexts,similar_event_different_biological_context,3,aromatase_inhibition,similar_event_different_biological_context,2,0.667,False,False,,800
+changed,thyroxine_decrease_contexts,similar_event_different_biological_context,4,t4_serum_vs_neuronal,similar_event_different_biological_context,5,0.8,False,False,1003,
+dropped,mortality_early_life,similar_event_different_biological_context,2,,,0,0.333,False,False,,"350, 947"
+dropped,hepatocyte_proliferation_contexts,similar_event_different_biological_context,4,,,0,0.444,False,False,,"57, 269, 716, 1394"
+changed,hyperplasia_proliferation,similar_event_different_biological_context,4,leydig_hyperplasia_proliferation,merge,2,0.5,True,True,,"142, 854"
+changed,hcc_tumor,similar_event_different_biological_context,6,hcc_tumor,merge,3,0.5,True,True,,"347, 856, 1395"
+dropped,mutations,similar_event_different_biological_context,4,,,0,0.0,False,False,,"185, 336, 376, 876"
+changed,oxidative_stress,similar_event_different_biological_context,3,oxidative_stress,similar_event_different_biological_context,3,0.5,False,False,1869,1815
+dropped,mitochondrial_function,similar_event_different_biological_context,4,,,0,0.2,False,False,,"105, 177, 178, 1816"
+changed,cognitive_learning,similar_event_different_biological_context,5,learning_memory_impairment,similar_event_different_biological_context,4,0.8,False,False,,402
+identical,ahr_activation,similar_event_different_biological_context,3,ahr_activation,similar_event_different_biological_context,3,1.0,False,False,,
+dropped,cholestasis_bile,similar_event_different_biological_context,3,,,0,0.0,False,False,,"214, 357, 1059"
+dropped,lh_testosterone,similar_event_different_biological_context,2,,,0,0.333,False,False,,"413, 1690"
+dropped,ovarian_theca_testosterone,similar_event_different_biological_context,2,,,0,0.333,False,False,,"274, 413"
+identical,decreased_testosterone_adult_leydig,similar_event_different_biological_context,4,adult_leydig_decreased_testosterone_links,similar_event_different_biological_context,4,1.0,False,False,,
+identical,colony_loss,similar_event_different_biological_context,2,colony_loss,similar_event_different_biological_context,2,1.0,False,False,,
+dropped,impaired_development,similar_event_different_biological_context,3,,,0,0.0,False,False,,"339, 566, 577"
+changed,cytotoxicity_contexts,similar_event_different_biological_context,10,cytotoxicity_contexts,similar_event_different_biological_context,9,0.9,False,False,,733
+changed,hyperplasia_contexts,similar_event_different_biological_context,14,hyperplasia_contexts,similar_event_different_biological_context,13,0.5,False,True,"142, 854, 1078, 1085","1043, 1051, 1052, 1062, 1192"
+changed,adenoma_carcinoma_contexts,similar_event_different_biological_context,9,adenoma_carcinoma_contexts,similar_event_different_biological_context,9,0.636,False,True,"885, 1063","773, 1053"
+identical,regenerative_proliferation_contexts,similar_event_different_biological_context,6,regenerative_proliferation_contexts,similar_event_different_biological_context,6,1.0,False,False,,
+changed,car_activation,similar_event_different_biological_context,2,car_activation,similar_event_different_biological_context,3,0.667,False,False,456,
+dropped,chromosome_number_altered,similar_event_different_biological_context,2,,,0,0.0,False,False,,"536, 723"
+changed,androgen_receptor_activation,similar_event_different_biological_context,3,androgen_receptor_activation,same_object_different_process,4,0.75,True,False,2134,
+changed,ovulation_decrease_delay,similar_event_different_biological_context,3,ovulation_decrease_delay,similar_event_different_biological_context,4,0.75,False,False,1074,
+dropped,ldl_receptor_uptake,similar_event_different_biological_context,2,,,0,0.0,False,False,,"466, 467"
+changed,triglyceride_increase,similar_event_different_biological_context,4,triglyceride_increase,merge,3,0.75,True,True,,291
+identical,cytoplasmic_vacuolization_contexts,similar_event_different_biological_context,5,cytoplasmic_vacuolization_contexts,similar_event_different_biological_context,5,1.0,False,False,,
+dropped,hpph_inhibition_hmgcoa_none,similar_event_different_biological_context,2,,,0,0.0,False,False,,"1068, 1070"
+changed,lh_increase_decrease,similar_event_different_biological_context,4,lh_increase_decrease,soda,5,0.8,True,False,690,
+dropped,pulmonary_fibrosis_liver_fibrosis,similar_event_different_biological_context,6,,,0,0.429,False,True,,"68, 344, 840, 1458, 1924, 2404"
+changed,lh_surge_decrease,similar_event_different_biological_context,4,lh_surge_release_decrease,similar_event_different_biological_context,3,0.75,False,True,,690
+changed,gnrh_decrease,similar_event_different_biological_context,4,gnrh_release_decrease,similar_event_different_biological_context,3,0.75,False,False,,689
+dropped,nasal_cell_proliferation,similar_event_different_biological_context,6,,,0,0.364,False,False,,"870, 1033, 1042, 1089, 1182, 1555"
+dropped,apoptosis_general_contexts,similar_event_different_biological_context,8,,,0,0.444,False,True,,"1183, 1262, 1365, 1513, 1775, 1817, 1825, 1864"
+changed,dna_damage_strand_breaks,similar_event_different_biological_context,3,dna_breaks,merge,2,0.667,True,False,,1194
+dropped,atp_decrease,similar_event_different_biological_context,3,,,0,0.0,False,False,,"40, 1472, 1771"
+dropped,dht_androgen_reduction,similar_event_different_biological_context,2,,,0,0.333,False,False,,"1613, 2298"
+changed,cortisol_decrease,similar_event_different_biological_context,2,cortisol_decrease,similar_event_different_biological_context,3,0.667,False,False,2371,
+dropped,fecundity_decrease_f0_f3,similar_event_different_biological_context,2,,,0,0.4,False,False,,"328, 1781"
+identical,caspase_transcription_f0_f3,similar_event_different_biological_context,2,caspase_transcription_f0_f3,similar_event_different_biological_context,2,1.0,False,False,,
+changed,ovarian_somatic_apoptosis_f3,similar_event_different_biological_context,3,ovarian_somatic_apoptosis,similar_event_different_biological_context,2,0.667,False,True,,1780
+identical,follicle_breakdown_f3,similar_event_different_biological_context,2,ovarian_follicle_breakdown,similar_event_different_biological_context,2,1.0,False,False,,
+identical,dna_methylation_decrease_f3,similar_event_different_biological_context,2,global_dna_methylation,similar_event_different_biological_context,2,1.0,False,False,,
+changed,tlr9_activation,similar_event_different_biological_context,3,tlr9_activation_expression,same_object_different_process,2,0.667,True,False,,1914
+dropped,inflammation_general_vs_liver,similar_event_different_biological_context,8,,,0,0.444,False,False,,"149, 777, 902, 1087, 1494, 1633, 1750, 2010"
+identical,lipid_peroxidation_membrane,similar_event_different_biological_context,3,oxidative_damage_lipid_protein,similar_event_different_biological_context,3,1.0,False,False,,
+dropped,protein_oxidation,similar_event_different_biological_context,2,,,0,0.0,False,False,,"1595, 1767"
+dropped,ecm_stellate,similar_event_different_biological_context,4,,,0,0.143,False,False,,"1501, 1606, 1880, 1881"
+changed,er_activation,similar_event_different_biological_context,3,estrogen_receptor_activity,same_object_different_process,3,0.5,True,False,2141,2126
+changed,population_decline,similar_event_different_biological_context,4,population_size_trajectory_decrease,merge,3,0.75,True,False,,360
+changed,cell_death_necrosis,similar_event_different_biological_context,4,cell_death_general,similar_event_different_biological_context,7,0.571,False,False,"352, 1817, 1825",
+dropped,chromosomal_genomic_instability,similar_event_different_biological_context,3,,,0,0.0,False,False,,"1554, 1636, 1896"
+dropped,oocyte_atresia_ovarian_reserve,similar_event_different_biological_context,3,,,0,0.0,False,False,,"1444, 1883, 1990"
+identical,estradiol_increase_context,similar_event_different_biological_context,2,estradiol_increase_plasma_vs_general,similar_event_different_biological_context,2,1.0,False,False,,
+dropped,tubular_epithelial_injury,similar_event_different_biological_context,2,,,0,0.333,False,False,,"2464, 2465"
+dropped,ros_oxidative_stress_new,similar_event_different_biological_context,2,,,0,0.0,False,False,,"209, 1115"
+identical,fetal_leydig_testosterone_glucocorticoid,similar_event_different_biological_context,2,fetal_leydig_glucocorticoid_links,similar_event_different_biological_context,2,1.0,False,False,,
+dropped,decreased_cholesterol_leydig_upstream,similar_event_different_biological_context,3,,,0,0.0,False,False,,"642, 643, 644"
+dropped,adult_leydig_decreased_steroidogenesis,similar_event_different_biological_context,3,,,0,0.25,False,False,,"640, 648, 649"
+dropped,steroidogenic_expression_decrease,similar_event_different_biological_context,2,,,0,0.0,False,False,,"495, 647"
+dropped,fertility_decrease_context,similar_event_different_biological_context,2,,,0,0.0,False,False,,"330, 809"
+dropped,uroporphyrin_pathway_placeholder,similar_event_different_biological_context,2,,,0,0.0,False,False,,"844, 846"
+identical,swim_bladder_inflation_reduced,similar_event_different_biological_context,2,swim_bladder_inflation_reduced,similar_event_different_biological_context,2,1.0,False,False,,
+dropped,muscle_paralysis_contexts,similar_event_different_biological_context,2,,,0,0.0,False,False,,"1014, 1019"
+dropped,tumor_type_contexts,similar_event_different_biological_context,7,,,0,0.429,False,True,,"1035, 1036, 1037, 1044, 1054, 1063, 1090"
+dropped,fibrosis_collagen_lung,similar_event_different_biological_context,2,,,0,0.2,False,False,,"1275, 1276"
+dropped,leukemia_infant_mll,similar_event_different_biological_context,2,,,0,0.0,False,False,,"1253, 1254"
+dropped,dna_damage_oxidative_general,similar_event_different_biological_context,2,,,0,0.333,False,False,,"1634, 1669"
+dropped,chitin_degradation_enzymes,similar_event_different_biological_context,2,,,0,0.0,False,False,,"1806, 1807"
+dropped,urothelial_injury_tumor,similar_event_different_biological_context,2,,,0,0.0,False,False,,"1762, 1763"
+identical,six1_eya1_expression_changes,similar_event_different_biological_context,2,six1_eya1_expression_inner_ear,same_object_different_process,2,1.0,True,False,,
+identical,adipocyte_hypertrophy_hyperplasia,similar_event_different_biological_context,2,adipocyte_size_number,similar_event_different_biological_context,2,1.0,False,False,,
+identical,prostate_neoplasia,similar_event_different_biological_context,2,prostate_neoplasia_contexts,similar_event_different_biological_context,2,1.0,False,False,,
+dropped,cardiac_conduction_alterations,similar_event_different_biological_context,2,,,0,0.0,False,False,,"2280, 2292"
+dropped,hsd11b_activity_decrease,similar_event_different_biological_context,2,,,0,0.0,False,False,,"2409, 2469"
+new,,,,liver_tumor_formation,merge,3,0.5,,,"347, 856, 1395",
+new,,,,hepatotoxicity_liver_injury,merge,3,0.0,,,"1291, 1393, 1549",
+new,,,,cryptorchidism_testis_descent,merge,2,0.0,,,"1615, 1616",
+new,,,,apoptosis_cell_death,merge,2,0.25,,,"1365, 1864",
+new,,,,de_novo_fa_synthesis,merge,2,0.0,,,"89, 458",
+new,,,,cuticle_tanning_sclerotization,merge,2,0.0,,,"2053, 2054",
+new,,,,ppara_activation_vs_decreased_activity,soda,3,0.25,,,"227, 231, 1057",
+new,,,,mtdna_damage_repair,same_object_different_process,2,0.0,,,"570, 664",
+new,,,,nfat_events,same_object_different_process,2,0.0,,,"979, 981",
+new,,,,tgf_beta_collagen_fibrosis_na,same_object_different_process,2,0.0,,,"1280, 1282",
+new,,,,ace2_binding_vs_downregulation,same_object_different_process,2,0.333,,,"1739, 1787",
+new,,,,thyroid_binding_displacement,same_object_different_process,2,0.5,,,"1830, 1831",
+new,,,,retinoic_acid_decrease,same_object_different_process,4,0.143,,,"1881, 1888, 2419, 2420",
+new,,,,mitochondrial_beta_oxidation_acyl_coa,same_object_different_process,2,0.25,,,"860, 1834",
+new,,,,il6_pathway_vs_production,same_object_different_process,2,0.0,,,"1921, 1933",
+new,,,,ace2_expression_vs_shedding,same_object_different_process,2,0.333,,,"1938, 1948",
+new,,,,glut4_glucose_uptake,same_object_different_process,2,0.0,,,"1949, 1951",
+new,,,,ache_inhibition_ach_accumulation,same_object_different_process,2,0.0,,,"10, 12",
+new,,,,decreased_ketogenesis_hmgcs2,same_object_different_process,2,0.0,,,"474, 477",
+new,,,,er_activity_suppression_vs_increase,same_object_different_process,2,0.25,,,"1045, 1046",
+new,,,,gnrhr_expression_methylation,same_object_different_process,2,0.0,,,"1698, 1699",
+new,,,,hsd11b_cyp11b_inhibition,same_object_different_process,2,0.0,,,"1796, 1799",
+new,,,,angiotensin_ii_accumulation_degradation,same_object_different_process,2,0.333,,,"1741, 1936",
+new,,,,ppar_activity_isoforms,similar_event_different_biological_context,4,0.067,,,"231, 232, 233, 1270",
+new,,,,testosterone_reduction,similar_event_different_biological_context,6,0.333,,,"274, 413, 446, 1613, 1690, 2298",
+new,,,,inflammation_mediators,similar_event_different_biological_context,4,0.333,,,"87, 1493, 1496, 1579",
+new,,,,cox_inhibition_pge2,similar_event_different_biological_context,4,0.0,,,"79, 243, 1103, 2466",
+new,,,,prostaglandin_f2a_plasma_vs_ovary,similar_event_different_biological_context,3,0.2,,,"671, 672, 1104",
+new,,,,steroidogenesis_decrease_apoptosis_leydig,similar_event_different_biological_context,2,0.25,,,"496, 648",
+new,,,,prostaglandin_ovary_reduced,similar_event_different_biological_context,2,0.667,,,"672, 685",
+new,,,,pulmonary_fibrosis_contexts,similar_event_different_biological_context,4,0.429,,,"840, 1276, 1458, 1924",
+new,,,,apoptosis_general_vs_epithelial,similar_event_different_biological_context,5,0.444,,,"1183, 1262, 1513, 1775, 1780",
+new,,,,cell_proliferation_contexts,similar_event_different_biological_context,9,0.444,,,"57, 269, 716, 870, 1089, 1182, 1394, 1555, 2198",
+new,,,,fecundity_decrease,similar_event_different_biological_context,5,0.4,,,"328, 527, 1696, 1781, 2391",
+new,,,,inflammation_general_vs_liver,similar_event_different_biological_context,5,0.444,,,"149, 902, 1087, 1633, 1868",
+new,,,,oxphos_complex_inhibition,similar_event_different_biological_context,2,0.2,,,"105, 2118",
+new,,,,lipid_accumulation_steatosis,similar_event_different_biological_context,3,0.0,,,"2130, 2446, 2454",
+new,,,,ppar_gamma_lipid_related,similar_event_different_biological_context,2,0.333,,,"2404, 2465",
+new,,,,liver_fibrosis_collagen_hsc,similar_event_different_biological_context,2,0.333,,,"68, 344",
+new,,,,triglyceride_fatty_acid_accumulation,similar_event_different_biological_context,2,0.2,,,"291, 327",
+new,,,,fetal_leydig_testosterone_links,similar_event_different_biological_context,2,0.0,,,"541, 662",
+new,,,,lysosome_disruption,similar_event_different_biological_context,2,0.0,,,"831, 898",
+new,,,,kidney_toxicity_necrosis,similar_event_different_biological_context,2,0.0,,,"814, 1097",
+new,,,,deiodinase_inhibition,similar_event_different_biological_context,2,0.0,,,"1002, 1009",
+new,,,,gaba_chloride_channel_synaptic_inhibition,similar_event_different_biological_context,2,0.0,,,"762, 1015",
+new,,,,sarcoma_increase,similar_event_different_biological_context,3,0.429,,,"1035, 1036, 1037",
+new,,,,ovarian_hyperplasia_contexts,similar_event_different_biological_context,2,0.143,,,"1051, 1052",
+new,,,,ovarian_tumor_promotion,similar_event_different_biological_context,2,0.125,,,"1053, 1054",
+new,,,,seizure_epilepsy,similar_event_different_biological_context,2,0.0,,,"1348, 1363",
+new,,,,mitochondrial_dna_depletion_polg,similar_event_different_biological_context,2,0.0,,,"1481, 1482",
+new,,,,tyrosinase_melanin_pigmentation,similar_event_different_biological_context,2,0.0,,,"1629, 1630",
+new,,,,oxidative_damage_ros_dna,similar_event_different_biological_context,2,0.333,,,"1632, 1634",
+new,,,,sperm_count_spermatogenesis,similar_event_different_biological_context,2,0.333,,,"1757, 1758",
+new,,,,decrease_reproduction_oocyte,similar_event_different_biological_context,2,0.0,,,"1837, 1863",
+new,,,,pericyte_dysfunction,similar_event_different_biological_context,2,0.0,,,"1946, 1947",

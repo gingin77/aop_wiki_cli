@@ -132,14 +132,83 @@ valid groupings) — the counts cannot tell these apart.
 
 ---
 
+## Reproducibility (replicates of the chosen config)
+
+The chosen config (`claude-sonnet-5-5`, thinking on) has now been run three
+times, giving two replicate comparisons:
+
+| Pair | What varies | A → B |
+|---|---|---|
+| `11-25` → `11-27 AM` | model sampling **+ 2 days of wiki content** (different event caches) | committed baseline → committed `11-27-2026_sonnet_5-5_thinking_on` |
+| `11-27 AM` → `11-27 PM` | model sampling **only** (identical cache, same code, ~3 h apart) | committed run → same-day re-run |
+
+Both compared with `compare_grouping_runs.py` at `--min-overlap 0.5`; both B
+runs are `run_status.complete: true` from clean commits.
+
+| Metric | 11-25 → 11-27 AM | 11-27 AM → PM |
+|---|--:|--:|
+| groups (A → B) | 155 → 167 | 167 → 166 |
+| identical groups | 72 (46%) | 70 (42%) |
+| changed / dropped / new | 38 / 45 / 58 | 41 / 56 / 55 |
+| splits | 18 | 20 |
+| grouped events (A → B) | 437 → 479 | 479 → 445 |
+| events grouped in both | 350 (80% of A) | 358 (75% of A) |
+
+Identical-group rate by type (A's perspective):
+
+| Type | 11-25 → 11-27 AM | 11-27 AM → PM |
+|---|--:|--:|
+| merge | 24/37 (65%) | 20/31 (65%) |
+| soda | 10/15 (67%) | 11/18 (61%) |
+| same_object_different_process | 14/36 (39%) | 23/40 (58%) |
+| similar_event_different_biological_context | 24/67 (36%) | 16/78 (21%) |
+
+**Reading:**
+
+1. **Same-day replication is no tighter than the cross-day comparison** (42%
+   vs 46% identical; 75% vs 80% membership retained). The drift measured
+   across two days was therefore essentially all **model sampling variance**;
+   wiki-content change contributed ~nothing. This is the replicate evidence
+   the caveat below asked for.
+2. **Stability is strongly type-dependent.** `merge` is the reproducible core
+   (65% identical in both pairs, 1–4 drops); `soda` and
+   `same_object_different_process` are moderately stable; `similar_event_
+   different_biological_context` is a different, partially overlapping
+   **sample of borderline pairs on every run** (21–36% identical, and it
+   supplies most drops and most new groups in both pairs). Single-run claims
+   about SEDC coverage should say so; if reproducible SEDC ever matters,
+   aggregate replicates via the member-overlap matcher (union or intersection).
+3. **Aggregate conservatism replicates even though individual groups do not.**
+   Thinking-on grouped 437 / 479 / 445 events across its three runs (±5%),
+   versus thinking-off's 581 — so the monotonic-conservatism finding above is
+   robust to sampling noise. By contrast, the off-vs-on *group-level* overlap
+   (74 identical groups) is the same order as the within-config replicate
+   overlap (70–72), so group-by-group differences between those configs should
+   not be read as config effects.
+
+Data: the 11-27 AM run and the 11-25→11-27 comparison are committed
+(`outputs_for_vc/ke_groupings/11-27-2026_sonnet_5-5_thinking_on/`,
+`outputs_for_vc/nov25_vs_nov27.json` + crosswalk). The 11-27 PM snapshot is
+deliberately **not** retained — it adds no information beyond the comparison —
+but its comparison outputs are committed as
+`outputs_for_vc/ke_groupings/nov27_a_vs_nov27_b.json` and
+`outputs_for_vc/ke_groupings/nov27_a_to_nov27_b_crosswalk.csv` (A = the
+committed AM run, B = the discarded PM re-run), which preserve the numbers
+above including per-group detail.
+
+---
+
 ## Caveats
 
 - **No correctness metric.** There is no labeled set of "must-group" **and**
   "must-not-group" cases, so precision/recall are unmeasured. "More grouped" is
   **not** known to be "better."
-- **Run-to-run nondeterminism.** Each config was run once; some of the churn
-  between runs of the *same* model is sampling variance, not a real effect.
-  Isolating the thinking effect would need replicate runs.
+- **Run-to-run nondeterminism — now partially measured.** The thinking-on
+  config has replicates (see [Reproducibility](#reproducibility-replicates-of-the-chosen-config)):
+  aggregate totals replicate within ~5%, but group-level overlap between
+  replicates is only ~42–46%, so group-by-group differences between configs
+  are mostly indistinguishable from sampling variance. The thinking-off and
+  Opus configs remain single runs.
 - **Threshold sensitivity.** `--min-overlap 0.5` inflates "dropped": a group
   whose members mostly scatter counts as fully dropped. Re-run with
   `--min-overlap 0.3` to see how much "dropped" reclassifies as "changed".
@@ -188,7 +257,7 @@ print(m.get('run_provenance')); print('grouped', m['total_grouped_events'])" \
   outputs_for_vc/ke_groupings/11-25-2026_sonnet_5-5/ke_similar_events_11-25-2026_pass3.json
 
 # Compare any two runs (writes an optional per-group crosswalk CSV)
-uv run python annotation_scripts/compare_grouping_runs.py \
+uv run python -m aop_wiki_cli.annotation_scripts.compare_grouping_runs \
   --file-a outputs_for_vc/ke_groupings/11-25-2026_opus_4-5/ke_similar_events_11-25-2026_pass3.json \
   --file-b outputs_for_vc/ke_groupings/11-25-2026_sonnet_5-5/ke_similar_events_11-25-2026_pass3.json \
   --crosswalk-csv crosswalk.csv
