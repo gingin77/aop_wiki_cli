@@ -39,8 +39,11 @@ Usage:
     # Annotate a KE and register it under an AOP
     uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --ke-id 68 --date 04-28-2026
 
-    # List KEs for an AOP with annotation status
+    # List KEs for an AOP with annotation status (read-only; the default for --aop)
     uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --date 04-28-2026
+
+    # Annotate every pending KE in an AOP
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --annotate-all --date 04-28-2026
 
     # Re-annotate all fields from scratch
     uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force --date 04-28-2026
@@ -531,7 +534,27 @@ def _annotate_event_components(
         )
         ec_annotation["biological_action"] = biological_action
         annotations.append(ec_annotation)
+
+    # Stored components (manual curations included) must never be lost just
+    # because the current extraction worded a subject differently: carry any
+    # unmatched component with values over unchanged, with a warning.
+    for comp in _unmatched_ref_components(ref_components_by_phrase, subjects):
+        print(f"  ! stored component {comp.get('subject')!r} matches no current "
+              f"subject — carried over unchanged")
+        annotations.append(copy.deepcopy(comp))
     return annotations
+
+
+def _unmatched_ref_components(ref_components_by_phrase: dict, subjects: list[str]) -> list[dict]:
+    """Stored event components holding values whose subject phrase matches no
+    current subject. These would otherwise vanish when the entry is saved."""
+    current = set(subjects)
+    return [
+        comp for phrase, comp in ref_components_by_phrase.items()
+        if phrase not in current
+        and any(comp.get(f) is not None
+                for f in ("biological_object", "biological_process", "phenotype"))
+    ]
 
 
 def _annotate_event_component(
@@ -893,7 +916,12 @@ def _compute_newly_updated_fields(effective_ref: dict | None, final_stored: dict
         )
         for field in ("biological_object", "biological_process", "phenotype", "biological_action"):
             stored_val = subj.get(field)
-            if stored_val is not None and not is_rejection(stored_val) and ref_subj.get(field) is None:
+            if stored_val is None or is_rejection(stored_val):
+                continue
+            # An unmatched action record ({"term": None, ...}) is not an annotation.
+            if field == "biological_action" and not stored_val.get("term"):
+                continue
+            if ref_subj.get(field) is None:
                 label = f"ec_annotations[{subj['subject']!r}].{field}"
                 if label not in new_fields:
                     new_fields.append(label)
@@ -1021,9 +1049,15 @@ def main():
         help=(
             "Re-annotate a specific field while keeping all other reference values. "
             "Can be repeated. Valid fields: biological_organization, cell_term, organ_term, "
-            "cellular_component, biological_object, biological_process, phenotype, "
-            "biological_action, assays."
+            "cellular_component, biological_object, biological_process, phenotype, assays. "
+            "(biological_action is always recomputed from the title.)"
         ),
+    )
+    parser.add_argument(
+        "--annotate-all",
+        action="store_true",
+        help="With --aop and no --ke-id: annotate every pending KE in the AOP "
+             "instead of listing their status (the default, which is read-only)",
     )
     parser.add_argument(
         "--with-assays",
@@ -1074,6 +1108,20 @@ def main():
         print(f"KE annotations: {KE_ANNOTATIONS_PATH}")
         print(f"AOP KE index:   {AOP_KE_INDEX_PATH}")
         print()
+        if not args.annotate_all:
+            # Listing mode (the default): status only, no LLM/BioPortal calls,
+            # no store writes.
+            for ke_id, title in kes:
+                entry = store.get(ke_id)
+                if entry is None:
+                    status = "not annotated"
+                elif entry.get("workflow_version") == ANNOTATION_WORKFLOW_VERSION:
+                    status = f"complete (workflow v{ANNOTATION_WORKFLOW_VERSION})"
+                else:
+                    status = "pending (stale or incomplete)"
+                print(f"  KE {ke_id:>5}  {status:<32} {title}")
+            print("\nPass --annotate-all to annotate the pending KEs.")
+            return
         annotated_ids = []
         for ke_id, _ in kes:
             ke_entry = store.get(ke_id)

@@ -22,6 +22,7 @@ from aop_wiki_cli.annotation_scripts.annotate_ke import (
     _manual_only_ref,
     _mask_ref,
     _strip_carried_suffix,
+    _unmatched_ref_components,
     _workflow_ontology_acronyms,
     partition_process_results,
 )
@@ -75,6 +76,38 @@ def test_mask_ref_does_not_mutate_input():
 def test_mask_ref_assays_field():
     masked = _mask_ref(_ref_ke(), {"assays"})
     assert masked["assays"] is None
+
+
+def test_unmatched_ref_components_are_detected_for_carryover():
+    """A stored component whose subject the extraction reworded must be
+    carried over, not silently dropped on save."""
+    ref = {
+        "Increased, fatty acid synthesis": {
+            "subject": "Increased, fatty acid synthesis",
+            "biological_object": {"term_id": "CHEBI:1", "label": "fatty acid",
+                                  "source": "manual_curation"},
+            "biological_process": None, "phenotype": None,
+        },
+        "empty one": {"subject": "empty one", "biological_object": None,
+                      "biological_process": None, "phenotype": None},
+    }
+    carried = _unmatched_ref_components(ref, ["fatty acid synthesis"])
+    # The valued component is carried; the empty one is not worth keeping.
+    assert [c["subject"] for c in carried] == ["Increased, fatty acid synthesis"]
+    # A matching subject is handled by the normal reference path, not carryover.
+    assert _unmatched_ref_components(ref, ["Increased, fatty acid synthesis"]) == []
+
+
+def test_unmatched_action_record_is_not_newly_annotated():
+    """{"term": None, "source": "unmatched"} is absence, not an annotation."""
+    stored = {
+        "ec_annotations": [{
+            "subject": "s",
+            "biological_object": None, "biological_process": None, "phenotype": None,
+            "biological_action": {"term": None, "source": "unmatched", "vocabulary": None},
+        }],
+    }
+    assert _compute_newly_updated_fields(None, stored) == []
 
 
 def test_workflow_ontology_acronyms_cover_every_scope():

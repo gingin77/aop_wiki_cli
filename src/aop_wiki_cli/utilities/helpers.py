@@ -232,10 +232,14 @@ def insert_after(d: dict, after_key: str, new_key: str, new_value) -> dict:
 
     If ``after_key`` is absent, ``new_key`` is appended at the end rather than
     silently dropped — callers rely on this to stamp provenance fields that must
-    never go missing, even when the anchor key is not present.
+    never go missing, even when the anchor key is not present. An existing
+    ``new_key`` is replaced with ``new_value`` (and moved after the anchor),
+    never kept with its stale value.
     """
     result = {}
     for k, v in d.items():
+        if k == new_key:
+            continue
         result[k] = v
         if k == after_key:
             result[new_key] = new_value

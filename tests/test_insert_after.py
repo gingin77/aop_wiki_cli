@@ -60,6 +60,20 @@ def test_chained_inserts_survive_missing_first_anchor():
     print("✓ both provenance paths present and adjacent")
 
 
+def test_existing_new_key_is_replaced_not_kept_stale():
+    """Re-stamping must take the new value: an existing new_key after the
+    anchor previously overwrote the inserted value with the stale one."""
+    print("\n=== Test: existing new_key replaced ===")
+    d = {"a": 1, "x": "old"}
+    result = insert_after(d, "a", "x", "new")
+    assert result == {"a": 1, "x": "new"}
+    # Also when the stale key precedes the anchor: it moves after it.
+    d2 = {"x": "old", "a": 1}
+    result2 = insert_after(d2, "a", "x", "new")
+    assert list(result2.items()) == [("a", 1), ("x", "new")]
+    print("✓ stale value replaced in both positions")
+
+
 def test_does_not_mutate_input():
     """The input dict is left untouched; a new dict is returned."""
     print("\n=== Test: input not mutated ===")
