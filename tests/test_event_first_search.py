@@ -11,7 +11,7 @@ Tests cover:
 Examples:
     Run all tests::
 
-        $ uv run python -m tests.test_event_first_search
+        $ uv run pytest tests/test_event_first_search.py
 
     Or directly::
 
@@ -268,9 +268,13 @@ def test_count_events_by_term():
 @pytest.fixture
 def patched_collect(monkeypatch):
     events = {"200": {"title": "Increased, apoptosis"}}
+    # Three AOPs all holding event 200, chosen so each filter is observable on
+    # its own: AOP 1 survives both filters, AOP 2 is removed only by the title
+    # exclusion, AOP 3 is removed only by the OECD-status filter.
     aops = {
         "1": {"event_ids": ["200"], "title": "Liver AOP", "oecd_status": "WPHA/WNT Endorsed"},
-        "2": {"event_ids": ["200"], "title": "Excluded tumor AOP", "oecd_status": "Under Development"},
+        "2": {"event_ids": ["200"], "title": "Tumor AOP", "oecd_status": "WPHA/WNT Endorsed"},
+        "3": {"event_ids": ["200"], "title": "Kidney AOP", "oecd_status": "Under Development"},
     }
     monkeypatch.setattr(efs, "collect_entity_with_cache",
                         lambda entity_type, *a, **k: events if entity_type == "events" else aops)
@@ -287,17 +291,40 @@ def test_search_events_to_aops_basic(patched_collect, tmp_path):
         {"ke_title_terms": ["apoptosis"]}, work_date=date(2024, 1, 1), cache_dir=tmp_path
     )
     assert set(result["matched_events"]) == {"200"}
-    assert set(result["matched_aops"]) == {"1", "2"}
+    assert set(result["matched_aops"]) == {"1", "2", "3"}
     assert result["summary"]["total_events_matched"] == 1
     assert result["summary"]["event_totals_by_term"] == {"apoptosis": 1}
 
 
+def test_search_events_to_aops_excludes_by_title_term(patched_collect, tmp_path):
+    # Only the title-exclusion filter is set: it must drop AOP 2 ("Tumor") and
+    # leave the OECD-"Under Development" AOP 3 in place.
+    result = efs.search_events_to_aops(
+        {"ke_title_terms": ["apoptosis"], "aop_title_exclusion_terms": ["tumor"]},
+        work_date=date(2024, 1, 1),
+        cache_dir=tmp_path,
+    )
+    assert set(result["matched_aops"]) == {"1", "3"}
+
+
+def test_search_events_to_aops_filters_by_oecd_status(patched_collect, tmp_path):
+    # Only the OECD-status filter is set: it must drop AOP 3 ("Under
+    # Development") and leave the "Tumor"-titled AOP 2 in place.
+    result = efs.search_events_to_aops(
+        {"ke_title_terms": ["apoptosis"], "oecd_status_filter": ["WPHA/WNT Endorsed"]},
+        work_date=date(2024, 1, 1),
+        cache_dir=tmp_path,
+    )
+    assert set(result["matched_aops"]) == {"1", "2"}
+
+
 def test_search_events_to_aops_exclusion_and_oecd_filter(patched_collect, tmp_path):
+    # Both filters together compose down to just AOP 1.
     result = efs.search_events_to_aops(
         {
             "ke_title_terms": ["apoptosis"],
             "aop_title_exclusion_terms": ["tumor"],       # drops AOP 2
-            "oecd_status_filter": ["WPHA/WNT Endorsed"],  # keeps only AOP 1
+            "oecd_status_filter": ["WPHA/WNT Endorsed"],  # drops AOP 3
         },
         work_date=date(2024, 1, 1),
         cache_dir=tmp_path,
@@ -317,24 +344,3 @@ def test_search_events_to_aops_logs_when_logger_given(patched_collect, tmp_path)
     assert messages  # logger.info branches exercised
 
 
-def run_all_tests():
-    """Run all test functions."""
-    print("\n" + "=" * 60)
-    print("RUNNING EVENT FIRST SEARCH TESTS")
-    print("=" * 60)
-
-    test_find_kers_by_single_event()
-    test_upstream_and_downstream_roles()
-    test_both_endpoints_matched()
-    test_event_id_normalization()
-    test_no_matches_and_empty_input()
-    test_malformed_ker_never_matches()
-    test_chaining_title_search_to_kers()
-
-    print("\n" + "=" * 60)
-    print("ALL TESTS PASSED ✓")
-    print("=" * 60 + "\n")
-
-
-if __name__ == "__main__":
-    run_all_tests()

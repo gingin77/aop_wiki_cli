@@ -59,7 +59,10 @@ source = ["aop_wiki_cli"]
 # references it in the `TODO: Add search reference functionality` comment; the
 # driver, the search module and the citation parser are reached by no live
 # command (search_references/parse_references are re-exported from their
-# packages' __init__ but consumed nowhere live).
+# packages' __init__ but consumed nowhere live). The one exception is
+# `data_export/export_reference_search_results.py`: it belongs to the same
+# subsystem but is deliberately left in the denominator because this suite
+# covers it (it is pure, testable JSON/CSV writing), so it is not listed below.
 #
 # Orphaned (renamed with the `*_unused.py` suffix, no longer re-exported): the
 # title-stripper and the one-off HTML-to-CSV converter. `__main__.py` is the
