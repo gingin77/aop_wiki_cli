@@ -88,16 +88,37 @@ def _iri_prefix(iri: str) -> str:
     return ""
 
 
-def search_bioportal(phrase: str, ontologies: str, api_key: str) -> list:
-    """Search BioPortal for ontology terms matching a phrase."""
-    params = urllib.parse.urlencode({
+def _search_params(phrase: str, ontologies: str, api_key: str,
+                   subtree_root_iri: str | None = None) -> dict:
+    """Build the BioPortal search parameters.
+
+    A subtree-restricted search uses BioPortal's `subtree_root_id`, which
+    requires the singular `ontology` parameter and exactly one ontology —
+    sending `ontologies` alongside it is a 400. Callers only pass
+    subtree_root_iri with a single-ontology scope.
+    """
+    params = {
         "q": phrase,
-        "ontologies": ontologies,
         "require_exact_match": "false",
         "include": "prefLabel,synonym",
         "pagesize": 10,
         "apikey": api_key,
-    })
+    }
+    if subtree_root_iri:
+        params["ontology"] = ontologies
+        params["subtree_root_id"] = subtree_root_iri
+    else:
+        params["ontologies"] = ontologies
+    return params
+
+
+def search_bioportal(phrase: str, ontologies: str, api_key: str,
+                     subtree_root_iri: str | None = None) -> list:
+    """Search BioPortal for ontology terms matching a phrase, optionally
+    restricted to the subtree rooted at `subtree_root_iri`."""
+    params = urllib.parse.urlencode(
+        _search_params(phrase, ontologies, api_key, subtree_root_iri)
+    )
     req = urllib.request.Request(
         f"{BIOPORTAL_SEARCH_URL}?{params}",
         headers={"Accept": "application/json"},
@@ -121,34 +142,36 @@ def search_bioportal(phrase: str, ontologies: str, api_key: str) -> list:
     return results
 
 
-def search_bioportal_with_fallback(phrase: str, ontologies: str, api_key: str) -> tuple[list, str]:
+def search_bioportal_with_fallback(phrase: str, ontologies: str, api_key: str,
+                                   subtree_root_iri: str | None = None) -> tuple[list, str]:
     """
     Search BioPortal with progressive fallback:
       1. Full phrase
       2. Greek letters transliterated to Latin (e.g. "PPARα" → "PPARa")
       3. Normalized phrase (stopwords removed)
       4. Noun phrase after 'of'
+    Every attempt keeps the same subtree restriction, when one is given.
     Returns (results, query_used).
     """
-    results = search_bioportal(phrase, ontologies, api_key)
+    results = search_bioportal(phrase, ontologies, api_key, subtree_root_iri)
     if results:
         return results, phrase
 
     for variant in _greek_variants(phrase):
-        results = search_bioportal(variant, ontologies, api_key)
+        results = search_bioportal(variant, ontologies, api_key, subtree_root_iri)
         if results:
             return results, f"{variant!r} (Greek transliterated)"
 
     normalized = normalize_phrase(phrase)
     if normalized != phrase:
-        results = search_bioportal(normalized, ontologies, api_key)
+        results = search_bioportal(normalized, ontologies, api_key, subtree_root_iri)
         if results:
             return results, f"{normalized!r} (stopwords removed)"
 
     of_match = re.search(r'\bof\s+(.+)$', phrase, re.IGNORECASE)
     if of_match:
         noun_phrase = normalize_phrase(of_match.group(1).strip())
-        results = search_bioportal(noun_phrase, ontologies, api_key)
+        results = search_bioportal(noun_phrase, ontologies, api_key, subtree_root_iri)
         if results:
             return results, f"{noun_phrase!r} (noun phrase fallback)"
 

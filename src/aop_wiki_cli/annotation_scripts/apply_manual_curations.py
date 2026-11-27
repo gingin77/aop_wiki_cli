@@ -30,7 +30,10 @@ from datetime import date
 import yaml
 from dotenv import load_dotenv
 
-from aop_wiki_cli.annotation_scripts.annotate_term_helpers import FIELD_ONTOLOGIES
+from aop_wiki_cli.annotation_scripts.annotate_term_helpers import (
+    FIELD_ONTOLOGIES,
+    field_subtree_root,
+)
 from aop_wiki_cli.annotation_scripts.store import (
     KE_ANNOTATIONS_PATH,
     find_cache_file,
@@ -93,7 +96,10 @@ def _resolve_term(field: str, spec: dict, bioportal_key: str | None) -> dict:
             raise ValueError(f"{field}: query resolution needs BIOPORTAL_API_KEY (not set)")
         phrase = str(spec["query"])
         ontologies = spec.get("ontologies") or FIELD_ONTOLOGIES.get(field, "")
-        results, used = search_bioportal_with_fallback(phrase, ontologies, bioportal_key)
+        results, used = search_bioportal_with_fallback(
+            phrase, ontologies, bioportal_key,
+            subtree_root_iri=field_subtree_root(field, ontologies),
+        )
         if not results:
             raise ValueError(f"{field}: no BioPortal results for query {phrase!r} in [{ontologies}]")
         exact = next((r for r in results if (r.get("label") or "").lower() == phrase.lower()), None)

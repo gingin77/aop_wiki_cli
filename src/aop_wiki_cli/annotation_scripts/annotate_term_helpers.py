@@ -35,6 +35,29 @@ TOP_LEVEL_ONTOLOGIES = {
 # One field → BioPortal ontology-scope mapping for every curatable field.
 FIELD_ONTOLOGIES = {**ECS_ONTOLOGIES, **TOP_LEVEL_ONTOLOGIES}
 
+# Branch restrictions applied at search time via BioPortal's subtree_root_id.
+# Only valid for fields whose scope is a single ontology (the API requires the
+# singular `ontology` parameter with a subtree search). cellular_component is
+# restricted to the GO cellular_component branch so BP/MF terms never reach
+# the candidate list; biological_process is left unrestricted for now because
+# GO-wide search has worked for it and a branch restriction would change
+# long-standing behavior — add "biological_process": GO_0008150 here to
+# restrict it the same way.
+FIELD_SUBTREE_ROOTS = {
+    "cellular_component": "http://purl.obolibrary.org/obo/GO_0005575",
+}
+
+
+def field_subtree_root(field: str, ontologies: str) -> str | None:
+    """The subtree root to search under for `field`, or None.
+
+    Returns None when the scope names more than one ontology, since
+    BioPortal's subtree search accepts exactly one.
+    """
+    if "," in ontologies:
+        return None
+    return FIELD_SUBTREE_ROOTS.get(field)
+
 
 def is_rejection(term) -> bool:
     """Return True if term is a stored LLM rejection record (not a real annotation)."""
@@ -181,7 +204,12 @@ def annotate_term(
         return None
     print(f"  Query phrase: {phrase!r}")
     print(f"  Ontologies:   {ontologies}")
-    results, query_used = search_bioportal_with_fallback(phrase, ontologies, api_key)
+    subtree_root = field_subtree_root(component, ontologies)
+    if subtree_root:
+        print(f"  Subtree:      {subtree_root}")
+    results, query_used = search_bioportal_with_fallback(
+        phrase, ontologies, api_key, subtree_root_iri=subtree_root
+    )
     if not results:
         print("  No matches found after fallback — manual curation needed.")
         return None
