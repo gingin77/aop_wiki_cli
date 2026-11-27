@@ -215,7 +215,13 @@ def annotate_ke(
         if ref_has_assays:
             annotated_ke["assays"] = (ref_ke or {}).get("assays")
     elif force or "assays" in (force_fields or set()) or not ref_has_assays:
-        annotated_ke["assays"] = annotate_ke_assays(ke_id, events[ke_id])
+        extracted = annotate_ke_assays(ke_id, events[ke_id])
+        if extracted is not None:
+            annotated_ke["assays"] = extracted
+        elif ref_has_assays:
+            # Extraction failed: keep the stored assays rather than lose them.
+            annotated_ke["assays"] = (ref_ke or {}).get("assays")
+        # Otherwise leave the key absent so the KE stays unstamped and retried.
     else:
         annotated_ke["assays"] = (ref_ke or {}).get("assays")
 
@@ -663,8 +669,9 @@ def llm_decompose_subject_phrase(subject: str, client: anthropic.Anthropic) -> t
     """
     parsed = call_json(client, prompts.decompose_subject_phrase(subject), max_tokens=128)
     if parsed:
-        obj = parsed.get("biological_object", "").strip()
-        proc = parsed.get("biological_process", "").strip()
+        # `or ""` guards a JSON null value, which .get's default does not.
+        obj = (parsed.get("biological_object") or "").strip()
+        proc = (parsed.get("biological_process") or "").strip()
         if obj and proc:
             return obj, proc
     return None
@@ -679,7 +686,7 @@ def detect_biological_organization(description: str, client: anthropic.Anthropic
         prompt = prompts.classify_biological_organization(description, BIOLOGICAL_ORGANIZATION_LEVELS)
         parsed = call_json(client, prompt, max_tokens=64)
         if parsed:
-            level = parsed.get("level", "").strip()
+            level = (parsed.get("level") or "").strip()
             reason = parsed.get("reason", "")
             if level in BIOLOGICAL_ORGANIZATION_LEVELS:
                 print(f"  (LLM: {level!r} — {reason})")

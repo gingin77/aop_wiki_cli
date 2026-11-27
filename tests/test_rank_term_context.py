@@ -12,6 +12,7 @@ from __future__ import annotations
 
 from aop_wiki_cli.annotation_scripts import prompts
 from aop_wiki_cli.annotation_scripts.annotate_ke import _guidance_context
+from aop_wiki_cli.annotation_scripts.annotate_term_helpers import selection_to_record
 
 CANDIDATES = [
     {"label": "mitochondrion", "ontology": "GO", "synonyms": ["mitochondria"]},
@@ -42,6 +43,16 @@ def test_rank_term_prompt_renders_context_lines():
     assert "1. mitochondrion [GO]" in prompt
     assert "2. mitochondrial membrane [GO]" in prompt
     assert prompts.COMPONENT_GUIDANCE["cellular_component"] in prompt
+
+
+def test_mechanical_llm_failure_is_not_stored_as_rejection():
+    """An llm_error outcome (call/parse failure, no judgment obtained) must
+    leave the field null for retry, never become a stored llm_rejection."""
+    assert selection_to_record(None, "llm_error", "LLM call failed") is None
+    assert selection_to_record(None, "llm_error", "Could not parse LLM response: '{\"index\":") is None
+    # A genuine model rejection still produces the rejection record.
+    rec = selection_to_record(None, "llm_recommendation", "no candidate fits")
+    assert rec == {"rejection_reason": "no candidate fits", "source": "llm_rejection"}
 
 
 def test_rank_term_prompt_without_context_has_no_context_block():

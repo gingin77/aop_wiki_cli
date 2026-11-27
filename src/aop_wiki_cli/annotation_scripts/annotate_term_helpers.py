@@ -70,29 +70,32 @@ def llm_rank_term(
     candidates: list,
     client: anthropic.Anthropic,
     context: dict | None = None,
-) -> tuple[int | None, str]:
+) -> tuple[int | None, str, bool]:
     """
     Ask Claude to pick the best ontology term from a candidate list.
-    Returns (0-based index, reason). Returns (None, reason) when no confident match.
+
+    Returns (0-based index | None, reason, judged). `judged` is False when the
+    call or its parsing failed mechanically — no model judgment was obtained,
+    so the outcome must not be stored as a rejection.
     """
     prompt = prompts.rank_term(ke_title, component, candidates, context)
-    raw = call_text(client, prompt, max_tokens=128)
+    raw = call_text(client, prompt, max_tokens=256)
     if raw is None:
-        return None, "LLM call failed"
+        return None, "LLM call failed", False
     parsed_resp = extract_json(raw)
     if parsed_resp is None:
-        return None, f"Could not parse LLM response: {raw!r}"
+        return None, f"Could not parse LLM response: {raw!r}", False
     idx_1based = parsed_resp.get("index")
     reason = parsed_resp.get("reason", "")
     if idx_1based is None:
-        return None, reason
+        return None, reason, True
     try:
         idx = int(idx_1based)
     except (TypeError, ValueError):
-        return None, f"Invalid index {idx_1based!r} from LLM: {reason}"
+        return None, f"Invalid index {idx_1based!r} from LLM: {reason}", False
     if not 1 <= idx <= len(candidates):
-        return None, f"Out-of-range index {idx} from LLM (expected 1-{len(candidates)}): {reason}"
-    return idx - 1, reason
+        return None, f"Out-of-range index {idx} from LLM (expected 1-{len(candidates)}): {reason}", False
+    return idx - 1, reason, True
 
 
 def display_candidates(candidates: list, query_used: str) -> None:
@@ -119,8 +122,8 @@ def rank_term(
     Returns (selected_result_dict | None, source, reason).
     """
     if client is not None:
-        idx, reason = llm_rank_term(ke_title, component, candidates, client, context)
-        source = "llm_recommendation"
+        idx, reason, judged = llm_rank_term(ke_title, component, candidates, client, context)
+        source = "llm_recommendation" if judged else "llm_error"
     else:
         print(f"  (Anthropic unavailable — manual selection)")
         if not sys.stdin.isatty():
@@ -175,6 +178,11 @@ def selection_to_record(result: dict | None, source: str, reason: str) -> dict |
     if source == "manual_comment":
         print(f"  → Comment recorded: {reason!r}")
         return {"comment": reason, "source": source}
+    if source == "llm_error":
+        # A mechanical failure is not a judgment: leave the field null so the
+        # next run retries it, instead of storing a permanent rejection.
+        print(f"  → LLM selection failed ({reason}) — field left null for retry")
+        return None
     if source == "llm_recommendation":
         print(f"  → LLM rejected all candidates: {reason}")
         return {"rejection_reason": reason, "source": "llm_rejection"}

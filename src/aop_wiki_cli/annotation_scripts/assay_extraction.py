@@ -37,15 +37,17 @@ def _strip_html(html: str) -> str:
     return re.sub(r'\s+', ' ', text).strip()
 
 
-def extract_assays_from_text(measurement_text: str, client: anthropic.Anthropic) -> list[dict]:
+def extract_assays_from_text(measurement_text: str, client: anthropic.Anthropic) -> list[dict] | None:
     """
     Extract structured assay objects from a KE measurement_method free-text field.
-    Returns a list of assay dicts; IDs are assigned sequentially starting at 1.
+    Returns a list of assay dicts (IDs assigned sequentially starting at 1), or
+    None when the LLM call fails or returns nothing parseable — a failure must
+    stay distinguishable from "the text describes no assays".
     """
     parsed = call_json(client, prompts.extract_assays(measurement_text), max_tokens=4096)
     if not parsed:
-        return []
-    assays = parsed.get("assays", [])
+        return None
+    assays = parsed.get("assays") or []
     for i, assay in enumerate(assays, start=1):
         assay["id"] = i
     return assays
@@ -74,10 +76,12 @@ def _resolve_label_list(
     return resolved
 
 
-def annotate_ke_assays(ke_id: str, ke_data: dict) -> list[dict]:
+def annotate_ke_assays(ke_id: str, ke_data: dict) -> list[dict] | None:
     """
     Extract and annotate assays from the measurement_method field for one KE.
-    Returns the list of annotated assay dicts; the caller is responsible for writing to the store.
+    Returns the list of annotated assay dicts ([] when the KE has no
+    measurement text), or None when extraction failed — the caller must then
+    leave the KE without assays rather than record an empty result.
     """
     client = make_client()
     if client is None:
@@ -94,6 +98,9 @@ def annotate_ke_assays(ke_id: str, ke_data: dict) -> list[dict]:
     print(f"  Text length: {len(text)} chars")
 
     assays = extract_assays_from_text(text, client)
+    if assays is None:
+        print("  (assay extraction failed — KE left without assay results)")
+        return None
     print(f"  Extracted {len(assays)} assay(s)")
 
     api_key = os.environ.get("BIOPORTAL_API_KEY")

@@ -210,7 +210,7 @@ def extract_assays(measurement_text: str) -> str:
         '- One assay object per distinct method; do not merge unrelated methods\n'
         '- If a table lists multiple assay variants, extract each as a separate assay\n'
         '- Only include citation fields present in the text; use null for missing fields\n'
-        '- If no citation is mentioned, set citation to null\n'
+        '- If no citations are mentioned, use an empty list\n'
         '- Keep labels concise and specific\n\n'
         'Each assay object must use "citations" (plural, a list) not "citation".\n'
         'Reply with ONLY valid JSON: {"assays": [<assay objects>]}'
