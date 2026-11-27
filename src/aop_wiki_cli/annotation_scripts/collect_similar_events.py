@@ -53,11 +53,11 @@ co-occur in the same AOP, distinguishing non-OFA from open-for-adoption AOPs.
 
 Usage
 -----
-    uv run python annotation_scripts/collect_similar_events.py
-    uv run python annotation_scripts/collect_similar_events.py --date 05-06-2026
-    uv run python annotation_scripts/collect_similar_events.py --batch-size 100
-    uv run python annotation_scripts/collect_similar_events.py --max-batches 2
-    uv run python annotation_scripts/collect_similar_events.py --skip-pass3
+    uv run python -m aop_wiki_cli.annotation_scripts.collect_similar_events
+    uv run python -m aop_wiki_cli.annotation_scripts.collect_similar_events --date 05-06-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.collect_similar_events --batch-size 100
+    uv run python -m aop_wiki_cli.annotation_scripts.collect_similar_events --max-batches 2
+    uv run python -m aop_wiki_cli.annotation_scripts.collect_similar_events --skip-pass3
 """
 
 import argparse
@@ -72,6 +72,18 @@ from datetime import date, datetime, timezone
 import anthropic
 from dotenv import load_dotenv
 
+from aop_wiki_cli.annotation_scripts import prompts
+from aop_wiki_cli.annotation_scripts.llm import (
+    create_message_with_retry,
+    extract_json_value,
+    make_client,
+    response_text,
+)
+from aop_wiki_cli.annotation_scripts.store import (
+    CACHE_DIR_ROOT,
+    aops_cache_file,
+    events_cache_file,
+)
 from aop_wiki_cli.utilities import set_up_logger, get_dated_cache_dir
 from aop_wiki_cli.parsers import collect_entity_with_cache, collect_aops_from_xml, collect_events_from_xml
 
@@ -83,7 +95,6 @@ logger = set_up_logger("collect-similar-events", level=logging.INFO)
 # Constants
 # ---------------------------------------------------------------------------
 
-CACHE_DIR_ROOT = "outputs/cache"
 OUTPUT_DIR_ROOT = "outputs/ke_groupings"
 
 LLM_MODEL = "claude-sonnet-5-5"
@@ -169,8 +180,8 @@ def _ensure_caches(date_str: str) -> tuple[str, str]:
     cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
     os.makedirs(cache_dir, exist_ok=True)
 
-    event_cache_path = os.path.join(cache_dir, f"all_events_{date_str}.json")
-    aop_cache_path = os.path.join(cache_dir, f"all_aops_{date_str}.json")
+    event_cache_path = events_cache_file(date_str)
+    aop_cache_path = aops_cache_file(date_str)
 
     if not os.path.exists(event_cache_path):
         logger.info("Generating event cache for %s...", date_str)
@@ -187,89 +198,26 @@ def _ensure_caches(date_str: str) -> tuple[str, str]:
 # LLM helpers
 # ---------------------------------------------------------------------------
 
-def _make_client() -> anthropic.Anthropic | None:
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        logger.warning("ANTHROPIC_API_KEY not set — LLM calls will be skipped.")
-        return None
-    return anthropic.Anthropic(api_key=api_key)
+def _call_with_retry(client, **kwargs) -> anthropic.types.Message:
+    """client.messages.create with 5xx retry (llm.create_message_with_retry),
+    defaulting to this module's thinking configuration. Kept as a module-level
+    seam so tests can monkeypatch the grouping call site."""
+    kwargs.setdefault("thinking", LLM_THINKING)
+    return create_message_with_retry(client, **kwargs)
 
 
-def _call_with_retry(
-    client: anthropic.Anthropic,
-    *,
-    model: str,
-    max_tokens: int,
-    system: str,
-    messages: list[dict],
-    max_retries: int = 3,
-    base_delay: float = 5.0,
-) -> anthropic.types.Message:
-    """Call client.messages.create with exponential-backoff retry on 5xx errors."""
-    import time
-    for attempt in range(max_retries):
-        try:
-            return client.messages.create(
-                model=model,
-                max_tokens=max_tokens,
-                system=system,
-                messages=messages,
-                thinking=LLM_THINKING,
-            )
-        except anthropic.InternalServerError as exc:
-            if attempt == max_retries - 1:
-                raise
-            delay = base_delay * (2 ** attempt)
-            logger.warning(
-                "Anthropic 500 error (attempt %d/%d): %s — retrying in %.0fs.",
-                attempt + 1, max_retries, exc, delay,
-            )
-            time.sleep(delay)
-
-
-def _response_text(message: anthropic.types.Message) -> str:
-    """Return the text of the first text block in a response.
-
-    Current-generation models (Sonnet 5.5, Opus 5.5, Haiku 5.5) run adaptive
-    thinking by default, so content[0] may be a thinking block rather than the
-    text — select the text block explicitly instead of indexing position 0.
-    Returns "" if the response carries no text block.
-    """
-    return next((b.text for b in message.content if b.type == "text"), "")
+# Thinking-aware text-block selection, shared with the annotation workflow.
+_response_text = response_text
 
 
 def _parse_json_from_response(raw: str) -> dict | list | None:
-    """Extract and parse the first JSON object or array from an LLM response.
-
-    Handles responses wrapped in markdown code fences (```json ... ```), bare
-    JSON embedded in prose, and JSON followed by trailing commentary. The last
-    case matters for current-generation models run with thinking off: they
-    sometimes append a note after the JSON (e.g. a `[...]` array then
-    "Correction: ... Final answer:"), which a plain json.loads rejects as
-    "Extra data". We decode only the first complete JSON value and ignore
-    whatever follows it.
-    """
-    # Prefer content inside a markdown code fence.
-    fence_match = re.search(r'```(?:json)?\s*(\[[\s\S]*?\]|\{[\s\S]*?\})\s*```', raw)
-    if fence_match:
-        try:
-            return json.loads(fence_match.group(1))
-        except json.JSONDecodeError:
-            pass  # fall through to raw_decode on the raw text
-
-    # Fall back: decode the first complete JSON value starting at the first
-    # [ or {, ignoring any trailing prose the model appended. raw_decode stops
-    # at the end of that value rather than requiring the whole string be JSON.
-    first = re.search(r'[\[\{]', raw)
-    if not first:
-        logger.error("Could not find JSON in LLM response: %r", raw[:200])
-        return None
-    try:
-        obj, _end = json.JSONDecoder().raw_decode(raw, first.start())
-        return obj
-    except json.JSONDecodeError as exc:
-        logger.error("JSON parse error: %s — raw: %r", exc, raw[:200])
-        return None
+    """Parse the first JSON object or array from an LLM reply
+    (llm.extract_json_value: fences, embedded JSON, trailing prose), logging
+    a parse failure instead of raising."""
+    parsed = extract_json_value(raw)
+    if parsed is None:
+        logger.error("Could not parse JSON from LLM response: %r", raw[:200])
+    return parsed
 
 
 # ---------------------------------------------------------------------------
@@ -310,190 +258,8 @@ def _dedupe_group_keys(groups: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Shared prompt guardrails (appended to all three pass prompts)
-# ---------------------------------------------------------------------------
-
-
-# ---------------------------------------------------------------------------
-# Shared group type definitions (used by Pass 1 and Pass 3 prompts)
-# ---------------------------------------------------------------------------
-
-_GROUP_TYPE_DEFINITIONS = """
-  "merge"  — events that should be merged because they describe the same biological
-             event in the same direction, using different wording, abbreviations, or
-             specificity (e.g. "collagen accumulation" and "collagen deposition", or
-             "TGF-beta activation" and "TGF-β, Activation").
-
-  "same_object_different_action (soda)" — Same Object, Directionally Opposite: events
-             that measure the same biological endpoint but in STRICTLY OPPOSITE
-             directions — one increases and the other decreases, or one activates and
-             the other inhibits the SAME receptor/protein (e.g. "Increase, Plasma
-             vitellogenin" paired with "Reduction, Plasma vitellogenin"; or "Agonism,
-             Estrogen receptor" paired with "Antagonism, Estrogen receptor").
-             IMPORTANT: "soda" is ONLY for directional opposites of the identical
-             endpoint. Do NOT use "soda" for a "binding" event paired with an
-             "inhibition" or "activation" event — those belong in
-             "same_object_different_process".
-
-  "same_object_different_process" — events that share the same biological target
-             or object but involve clearly distinct processes that cannot be assumed
-             equivalent without additional context. The most common case is a
-             "binding" event paired with an "inhibition", "activation", or
-             "degradation" event for the same molecule: binding does not imply a
-             functional outcome, so these must NOT be classified as "soda" or "merge".
-             Group them here so curators can review whether the functional relationship
-             is documented. Example: "Binding of inhibitor, Complex I" and
-             "Inhibition, Complex I" share the same object but binding alone does not
-             confirm inhibition — use "same_object_different_process", not "soda".
-             IMPORTANT: "same object" means the IDENTICAL molecule, receptor, or
-             entity — not merely related molecules. An enzyme and its substrate or
-             product are DIFFERENT objects (e.g. aromatase ≠ estradiol; AChE ≠
-             acetylcholine). Do NOT group events across different biological objects
-             even if they are part of the same pathway.
-
-  "similar_event_different_biological_context" — events that describe the same
-             process in the same direction, but one specifies a biological context
-             (cell type, tissue, organ, compartment) while the other either does not list
-             a biological context or the biological context is different. These
-             should NOT be merged because the specificity difference is biologically
-             meaningful for AOP placement. Group them here for curator review.
-             Example: "Inhibition, Aromatase" (general) paired with "reduction in
-             ovarian granulosa cells, Aromatase (Cyp19a1)" (cell-specific); or "liver
-             fibrosis" paired with "pulmonary fibrosis".
-"""
-
-_GROUPING_MISTAKES = """
-CRITICAL MISTAKES TO AVOID:
-
-1. Do NOT put events with conflicting directions into the same "merge" group.
-   Check whether the group members are increases or decreases and only include
-   events going the SAME direction. If two events describe the same endpoint in
-   opposite directions, they belong in a "soda" group together — not a merge group.
-   Two small precise merge groups (one for each direction) is better than one large
-   SODA group. Only fall back to a SODA group when no same-direction merge partner
-   exists. Do NOT create a SODA group with 4+ members when the existing merge group
-   already has 3+ — leave the opposing event ungrouped instead.
-   BAD EXAMPLE: Putting "Increase, Fatty acid beta-oxidation" or "Increase, Lipid
-   degradation" into a merge group whose other members all describe DECREASED
-   fatty acid beta-oxidation.
-   BAD EXAMPLE: Putting "Decrease, Triglyceride" into a merge group whose other
-   members all describe INCREASED triglyceride formation/accumulation.
-
-2. Do NOT put pathway-adjacent or downstream events into the same "merge" group.
-   Merge means synonym-level equivalence only. Events that are upstream causes,
-   downstream effects, or co-regulated pathway members of a group's topic are NOT
-   synonyms for each other.
-   BAD EXAMPLE: Grouping "Activation, SREBF1", "Up Regulation, SCD-1", or
-   "Increase, De novo lipogenesis" with "Up Regulation, FAS" (fatty acid synthase)
-   — these are different molecules and processes in the same pathway.
-   BAD EXAMPLE: Grouping "Activation, TGF-beta pathway" with "Increase, Collagen
-   accumulation" — TGF-beta activation is an upstream cause, not a synonym for
-   collagen accumulation.
-
-3. If you determine a group or assignment is not biologically justified, OMIT IT
-   ENTIRELY. Do not output it with a rationale saying "withdrawing this grouping"
-   or "these are different biological events". Simply do not include it.
-
-4. Do NOT combine events that operate at different levels of biological scale or
-   specificity using "merge", "soda", or "same_object_different_process".
-   A generalized process that can occur across many tissue types is NOT equivalent
-   to an organ-specific or tissue-specific form of that process, even if they share
-   the same general mechanism.
-   In particular, organ-level fibrosis events (liver fibrosis, pulmonary fibrosis,
-   cardiac fibrosis, renal fibrosis) must NOT be placed in a "merge" group with each
-   other or with cellular/tissue-level events like "Increase, Collagen accumulation"
-   — fibrosis at a specific organ is a pathological outcome, while collagen
-   accumulation is a cellular/ECM process that may contribute to fibrosis in any
-   tissue.
-   HOWEVER, multiple organ-specific fibrosis events (e.g. "Increase, Liver fibrosis"
-   + "Increase, Pulmonary fibrosis" + "Increase, Cardiac fibrosis") ARE appropriate
-   candidates for a "similar_event_different_biological_context" group — they describe
-   the same process (fibrosis) in different organ contexts.
-   Similarly, "Increase, Liver fibrosis" paired with "Increase, Collagen accumulation"
-   may belong in "similar_event_different_biological_context" (organ-level outcome vs.
-   cellular process contributing to it), not "merge".
-   BAD EXAMPLE: Merging "Increase, Liver fibrosis" with "Increase, Collagen
-   accumulation" — liver fibrosis is organ-level pathology; collagen accumulation
-   is a cellular process. Use "similar_event_different_biological_context" instead.
-   BAD EXAMPLE: Merging "Increase, Liver fibrosis" with "Increase, Pulmonary
-   fibrosis" — these are the same process in different organs. Use
-   "similar_event_different_biological_context" instead.
-"""
-
-# ---------------------------------------------------------------------------
-# Shared grouping rules (used by Pass 1 and Pass 3 prompts)
-# ---------------------------------------------------------------------------
-
-_GROUPING_RULES = """
-Grouping rules:
-- Do NOT group events that are merely related (e.g. "inflammation" and
-  "macrophage infiltration" should NOT be grouped).
-- Each event ID may appear in at most one group.
-- Only group or assign an event when the match is clear and biologically
-  justified — do not force groupings.
-- When in doubt between "merge" and "same_object_different_process", choose
-  "same_object_different_process" to flag curator review.
-- When one event adds a cell type, tissue, organ, or compartment qualifier that
-  the paired event lacks, use "similar_event_different_biological_context" rather
-  than "merge".
-"""
-
-# ---------------------------------------------------------------------------
 # Pass 1 — Intra-batch grouping
 # ---------------------------------------------------------------------------
-
-BATCH_SYSTEM_PROMPT = (
-    """You are a biologist reviewing AOP-Wiki Key Event (KE) titles.
-Your task: identify groups of events that describe the same underlying biological
-object, process, or phenotype and classify each group as one of four types:
-"""
-    + _GROUP_TYPE_DEFINITIONS
-    + _GROUPING_RULES
-    + """
-Reply with ONLY a JSON array of group objects. Each object must have:
-  "group_key":   a short snake_case identifier for the group
-  "type":        "merge", "soda", "same_object_different_process", or "similar_event_different_biological_context"
-  "member_ids":  array of string event IDs in this group (minimum 2)
-  "rationale":   one sentence explaining why these are grouped
-
-Example:
-[
-  {
-    "group_key": "collagen_accumulation",
-    "type": "merge",
-    "member_ids": ["ID_A", "ID_B"],
-    "rationale": "Both describe increased collagen deposition in tissue."
-  },
-  {
-    "group_key": "vitellogenin_plasma_levels",
-    "type": "soda",
-    "member_ids": ["ID_C", "ID_D"],
-    "rationale": "Both measure plasma vitellogenin but in opposite directions."
-  },
-  {
-    "group_key": "complex_i_binding_vs_inhibition",
-    "type": "same_object_different_process",
-    "member_ids": ["ID_X", "ID_Y"],
-    "rationale": "Both target Complex I but binding does not confirm inhibition without additional context."
-  },
-  {
-    "group_key": "aromatase_inhibition_general_vs_granulosa",
-    "type": "similar_event_different_biological_context",
-    "member_ids": ["ID_E", "ID_F"],
-    "rationale": "Both describe aromatase inhibition but one specifies ovarian granulosa cells while the other is general."
-  }
-]
-
-If there are no similar pairs in this batch, reply with: []
-"""
-    + _GROUPING_MISTAKES
-)
-
-
-def _build_batch_prompt(batch: list[tuple[str, str]]) -> str:
-    lines = "\n".join(f"  ID {ke_id}: {title}" for ke_id, title in batch)
-    return f"Review these {len(batch)} AOP-Wiki Key Events and group similar ones:\n\n{lines}"
-
 
 def _run_batch(
     client: anthropic.Anthropic,
@@ -502,12 +268,12 @@ def _run_batch(
 ) -> list[dict]:
     """Call the LLM for one batch. Returns a list of group dicts."""
     logger.info("  Batch %d: %d events", batch_idx, len(batch))
-    prompt = _build_batch_prompt(batch)
+    prompt = prompts.grouping_batch(batch)
     message = _call_with_retry(
         client,
         model=LLM_MODEL,
         max_tokens=PASS_1_MAX_TOKENS,
-        system=BATCH_SYSTEM_PROMPT,
+        system=prompts.GROUPING_BATCH_SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
     if message.stop_reason == "max_tokens":
@@ -592,46 +358,6 @@ def run_pass1(
 # Pass 2 — Cross-batch consolidation
 # ---------------------------------------------------------------------------
 
-CONSOLIDATION_SYSTEM_PROMPT = """You are a biologist reviewing groups of AOP-Wiki Key Events
-that were identified as similar within separate batches.
-
-Each group has a "type" of "merge", "soda", "same_object_different_process",
-or "similar_event_different_biological_context".
-
-Your task: identify groups from different batches that describe the same underlying
-biological event and should be merged into one. Only merge groups that share the
-same type. For example, a batch-1 group "collagen_accumulation" and a batch-2
-group "collagen_deposition" should be merged because they describe the same process.
-
-Rules:
-- Only merge groups that clearly refer to the same biological event.
-- Do not merge groups that are merely related.
-- Do not change the type of any group.
-- A group may only appear in one merge instruction.
-
-Reply with ONLY a JSON array of merge instructions. Each instruction identifies
-one group to keep and one or more groups to absorb into it:
-  {
-    "keep":   "<group_key to keep>",
-    "absorb": ["<group_key>", ...],
-    "rationale": "<one sentence>"
-  }
-
-If no cross-batch duplicates exist, reply with: []
-Do NOT re-output groups that have no match — only list merges.
-""" + _GROUPING_MISTAKES
-
-
-def _build_consolidation_prompt(groups: list[dict]) -> str:
-    lines = [f"Review these {len(groups)} groups for cross-batch duplicates to merge:\n"]
-    for g in groups:
-        lines.append(
-            f'  group_key: {g["group_key"]!r}  type: {g.get("type", "merge")!r}\n'
-            f'  rationale: {g.get("rationale", "")!r}\n'
-        )
-    return "\n".join(lines)
-
-
 def _apply_consolidation_merges(
     all_groups: list[dict],
     merges: list[dict],
@@ -699,12 +425,12 @@ def run_pass2(
             return json.load(f)
 
     logger.info("Pass 2: sending %d groups for consolidation.", len(all_groups))
-    prompt = _build_consolidation_prompt(all_groups)
+    prompt = prompts.grouping_consolidation(all_groups)
     message = _call_with_retry(
         client,
         model=LLM_MODEL,
         max_tokens=PASS_2_MAX_TOKENS,
-        system=CONSOLIDATION_SYSTEM_PROMPT,
+        system=prompts.GROUPING_CONSOLIDATION_SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
     if message.stop_reason == "max_tokens":
@@ -727,72 +453,6 @@ def run_pass2(
 # ---------------------------------------------------------------------------
 # Pass 3 — Straggler sweep (ungrouped events vs. existing groups)
 # ---------------------------------------------------------------------------
-
-PASS3_SYSTEM_PROMPT = (
-    """You are a biologist reviewing AOP-Wiki Key Event titles.
-
-You are given:
-1. EXISTING GROUPS — groups already identified in earlier processing, each with a
-   group_key, type, and the titles of their current members.
-2. UNGROUPED EVENTS — events that were not placed in any group during earlier
-   processing, each with an ID and title.
-
-Your two tasks:
-A. For each ungrouped event, decide if it clearly belongs in one of the existing
-   groups. Apply the same type rules:
-"""
-    + _GROUP_TYPE_DEFINITIONS
-    + _GROUPING_RULES
-    + """
-B. Among the ungrouped events themselves, identify any NEW groups (pairs or larger
-   sets) not captured above. Use the same four types.
-
-Reply with ONLY a JSON object with exactly two keys:
-
-"existing_group_assignments": array of assignment objects:
-  {
-    "event_id": "<string ID of the ungrouped event>",
-    "group_key": "<key of the existing group it belongs in>",
-    "rationale": "<one sentence>"
-  }
-
-"new_groups": array of new group objects:
-  {
-    "group_key": "<snake_case identifier>",
-    "type": "<merge|soda|same_object_different_process|similar_event_different_biological_context>",
-    "member_ids": ["<id>", "<id>", ...],
-    "rationale": "<one sentence>"
-  }
-
-If there are no assignments or new groups, use empty arrays.
-"""
-    + _GROUPING_MISTAKES
-)
-
-
-def _build_pass3_prompt(
-    ungrouped_batch: list[tuple[str, str]],
-    existing_groups: list[dict],
-    events: dict[str, str],
-) -> str:
-    lines = ["EXISTING GROUPS:"]
-    for g in existing_groups:
-        titles = ", ".join(
-            f'"{events.get(str(mid), str(mid))}"'
-            for mid in g.get("member_ids", [])[:6]  # cap at 6 titles to save tokens
-        )
-        rationale = g.get("rationale", "")
-        lines.append(
-            f'  {g["group_key"]} (type={g.get("type","merge")}): {titles}'
-        )
-        if rationale:
-            lines.append(f'    rationale: {rationale}')
-    lines.append("")
-    lines.append(f"UNGROUPED EVENTS ({len(ungrouped_batch)} total):")
-    for ke_id, title in ungrouped_batch:
-        lines.append(f"  ID {ke_id}: {title}")
-    return "\n".join(lines)
-
 
 def run_pass3(
     client: anthropic.Anthropic,
@@ -846,12 +506,12 @@ def run_pass3(
                 result = json.load(f)
         else:
             logger.info("Pass 3 batch %d: %d ungrouped events.", batch_idx, len(batch))
-            prompt = _build_pass3_prompt(batch, final_groups, events_lookup)
+            prompt = prompts.grouping_pass3(batch, final_groups, events_lookup)
             message = _call_with_retry(
                 client,
                 model=LLM_MODEL,
                 max_tokens=PASS_3_MAX_TOKENS,
-                system=PASS3_SYSTEM_PROMPT,
+                system=prompts.GROUPING_PASS3_SYSTEM,
                 messages=[{"role": "user", "content": prompt}],
             )
             if message.stop_reason == "max_tokens":
@@ -1124,6 +784,54 @@ def assemble_output(
 # Entry point
 # ---------------------------------------------------------------------------
 
+def _load_filtered_events(raw_cache: dict) -> tuple[dict[str, str], int, int]:
+    """Extract {id: title} from the events cache, skipping orphans (no AOPs),
+    open-for-adoption-only events, and blank/placeholder titles.
+
+    Returns (events, skipped_orphan, skipped_license); the counts feed the
+    output metadata.
+    """
+    events: dict[str, str] = {}
+    skipped_orphan = 0
+    skipped_license = 0
+    skipped_title = 0
+    for ke_id, record in raw_cache.items():
+        if not record.get("aop_ids"):
+            skipped_orphan += 1
+            continue
+        if record.get("summary_licenses", {}).get("only_open_for_adoption", False):
+            skipped_license += 1
+            continue
+        title = (record.get("title") or "").strip()
+        if not title or title.lower() in {"n/a, unknown", "unknown", "testjf"}:
+            skipped_title += 1
+            continue
+        events[ke_id] = title
+    logger.info(
+        "%d events loaded; skipped %d orphans, %d open-for-adoption-only, %d blank/placeholder titles.",
+        len(events), skipped_orphan, skipped_license, skipped_title,
+    )
+    return events, skipped_orphan, skipped_license
+
+
+def _load_aop_context(aop_cache_path: str, raw_cache: dict) -> tuple[dict[str, list], set[str]]:
+    """Return (event_aop_ids, open_for_adoption_aop_ids) for shared-AOP checks."""
+    logger.info("Loading AOP cache from %s", aop_cache_path)
+    with open(aop_cache_path) as f:
+        raw_aop_cache = json.load(f)
+    event_aop_ids = {ke_id: record.get("aop_ids", []) for ke_id, record in raw_cache.items()}
+    open_for_adoption_aop_ids = {
+        aop_id
+        for aop_id, aop in raw_aop_cache.items()
+        if aop.get("wiki_license") == "Open for adoption"
+    }
+    logger.info(
+        "AOP cache: %d AOPs, %d open-for-adoption.",
+        len(raw_aop_cache), len(open_for_adoption_aop_ids),
+    )
+    return event_aop_ids, open_for_adoption_aop_ids
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Group AOP-Wiki Key Events by title similarity using an LLM."
@@ -1158,8 +866,8 @@ def main() -> None:
         cache_path, aop_cache_path = _ensure_caches(date_str)
     else:
         date_str = args.date
-        cache_path = os.path.join(CACHE_DIR_ROOT, date_str, f"all_events_{date_str}.json")
-        aop_cache_path = os.path.join(CACHE_DIR_ROOT, date_str, f"all_aops_{date_str}.json")
+        cache_path = events_cache_file(date_str)
+        aop_cache_path = aops_cache_file(date_str)
         if not os.path.exists(cache_path):
             logger.error("Event cache not found for --date %s: %s", date_str, cache_path)
             sys.exit(1)
@@ -1170,30 +878,7 @@ def main() -> None:
     logger.info("Loading events from %s", cache_path)
     with open(cache_path) as f:
         raw_cache = json.load(f)
-
-    # Extract {id: title} — skip orphans, open-for-adoption-only, and blank/placeholder titles
-    events: dict[str, str] = {}
-    skipped_orphan = 0
-    skipped_license = 0
-    skipped_title = 0
-    for ke_id, record in raw_cache.items():
-        # Skip orphan events (no associated AOPs)
-        if not record.get("aop_ids"):
-            skipped_orphan += 1
-            continue
-        # Skip events whose only license is "open for adoption" (not yet curated)
-        if record.get("summary_licenses", {}).get("only_open_for_adoption", False):
-            skipped_license += 1
-            continue
-        title = (record.get("title") or "").strip()
-        if not title or title.lower() in {"n/a, unknown", "unknown", "testjf"}:
-            skipped_title += 1
-            continue
-        events[ke_id] = title
-    logger.info(
-        "%d events loaded; skipped %d orphans, %d open-for-adoption-only, %d blank/placeholder titles.",
-        len(events), skipped_orphan, skipped_license, skipped_title,
-    )
+    events, skipped_orphan, skipped_license = _load_filtered_events(raw_cache)
 
     # Set up output directories
     output_dir = os.path.join(OUTPUT_DIR_ROOT, date_str)
@@ -1202,7 +887,7 @@ def main() -> None:
 
     consolidation_cache = os.path.join(output_dir, "consolidation_pass2.json")
 
-    client = _make_client()
+    client = make_client()
     if client is None:
         logger.error("Cannot run without ANTHROPIC_API_KEY.")
         sys.exit(1)
@@ -1216,20 +901,8 @@ def main() -> None:
     logger.info("=== Pass 2: cross-batch consolidation ===")
     final_groups = run_pass2(client, all_groups, consolidation_cache)
 
-    # Load AOP cache for shared_aop_check enrichment (needed for both pass2 and pass3 outputs)
-    logger.info("Loading AOP cache from %s", aop_cache_path)
-    with open(aop_cache_path) as f:
-        raw_aop_cache = json.load(f)
-    event_aop_ids = {ke_id: record.get("aop_ids", []) for ke_id, record in raw_cache.items()}
-    open_for_adoption_aop_ids = {
-        aop_id
-        for aop_id, aop in raw_aop_cache.items()
-        if aop.get("wiki_license") == "Open for adoption"
-    }
-    logger.info(
-        "AOP cache: %d AOPs, %d open-for-adoption.",
-        len(raw_aop_cache), len(open_for_adoption_aop_ids),
-    )
+    # Needed for shared_aop_check enrichment in both pass2 and pass3 outputs.
+    event_aop_ids, open_for_adoption_aop_ids = _load_aop_context(aop_cache_path, raw_cache)
 
     # Assemble and write Pass 2 output snapshot
     output_path_pass2 = os.path.join(output_dir, f"ke_similar_events_{date_str}_pass2.json")

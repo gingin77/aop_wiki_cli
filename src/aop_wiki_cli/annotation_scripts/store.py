@@ -21,6 +21,11 @@ def events_cache_file(date_str: str) -> str:
     return os.path.join(CACHE_DIR_ROOT, date_str, f"all_events_{date_str}.json")
 
 
+def aops_cache_file(date_str: str) -> str:
+    """Path of the all-AOPs cache for a MM-DD-YYYY date (may not exist)."""
+    return os.path.join(CACHE_DIR_ROOT, date_str, f"all_aops_{date_str}.json")
+
+
 def latest_cache_file() -> str | None:
     """Path of the most recent dated all-events cache, or None if none exists."""
     cache_root = Path(CACHE_DIR_ROOT)
