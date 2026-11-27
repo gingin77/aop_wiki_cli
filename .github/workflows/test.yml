@@ -35,4 +35,4 @@ jobs:
           uv run pytest
           --cov=aop_wiki_cli
           --cov-report=term-missing
-          --cov-fail-under=62
+          --cov-fail-under=66
