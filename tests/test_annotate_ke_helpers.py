@@ -115,7 +115,7 @@ def test_unmatched_llm_components_are_not_carried():
 
 
 def test_manual_markers_survive_the_save_and_protect_force():
-    """apply_manual_curations → annotate_ke save → --force: the provenance
+    """apply_ke_annotation_curations → annotate_ke save → --force: the provenance
     marker must ride through the save for the curated string value to
     survive the forced run."""
     ref = {"biological_organization": "Tissue",

@@ -5,15 +5,15 @@
 # WHY THIS FILE EXISTS
 #   AOP-Wiki authors sometimes record KE titles that are wrong, unsupported, or
 #   ambiguous. Rather than let the annotation scripts faithfully (mis)annotate
-#   them, record the corrected value here. `apply_manual_curations.py` seeds
+#   them, record the corrected value here. `apply_ke_annotation_curations.py` seeds
 #   these into the shared store (outputs_for_vc/annotations/ke_annotations.json)
 #   marked `source: manual_curation`; annotate_ke.py then treats them as
 #   reference values and skips re-querying, so your corrections persist on every
 #   future run.
 #
 # HOW TO RUN
-#   uv run python annotation_scripts/apply_manual_curations.py --dry-run   # preview
-#   uv run python annotation_scripts/apply_manual_curations.py             # apply
+#   uv run python -m aop_wiki_cli.annotation_scripts.apply_ke_annotation_curations --dry-run   # preview
+#   uv run python -m aop_wiki_cli.annotation_scripts.apply_ke_annotation_curations             # apply
 #   then run annotate_ke.py as usual.
 #
 # WHICH FIELDS CAN BE CURATED (only fields annotate_ke.py reads back from the store)

@@ -587,7 +587,7 @@ def _carry_manual_markers(annotated_ke: dict, ref_ke: dict | None,
                           re_annotated: set[str] | None = None) -> None:
     """Carry the manually_curated_fields provenance marker across a save, the
     way comments are carried — without it, the first annotation run after
-    apply_manual_curations would erase the marker and a later --force run
+    apply_ke_annotation_curations would erase the marker and a later --force run
     would discard the curated string values it protects.
 
     A field deliberately re-annotated this run (--force-on) loses its marker:
@@ -905,7 +905,7 @@ def _manual_only_ref(ref_ke: dict) -> dict | None:
         kept["comments"] = ref_ke["comments"]
     # biological_organization is a plain string with no source marker, so its
     # manual provenance lives in the entry's manually_curated_fields list
-    # (written by apply_manual_curations).
+    # (written by apply_ke_annotation_curations).
     if ("biological_organization" in ref_ke.get("manually_curated_fields", [])
             and ref_ke.get("biological_organization") is not None):
         kept["biological_organization"] = ref_ke["biological_organization"]

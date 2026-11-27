@@ -82,7 +82,7 @@ source = ["aop_wiki_cli"]
 # tooling run as standalone modules, not wired into any CLI command, so by the
 # same rule it stays out of the denominator — except its two pure parsing
 # modules (ke_title_parser, query_bioportal), which the suite covers directly.
-# The pure helpers of annotate_ke, apply_manual_curations and
+# The pure helpers of annotate_ke, apply_ke_annotation_curations and
 # report_annotation_coverage are tested too, but those files are dominated by
 # interactive orchestration, so they are omitted rather than diluting the figure.
 omit = [
@@ -99,7 +99,7 @@ omit = [
     "*/annotation_scripts/annotate_ke.py",
     "*/annotation_scripts/annotate_liver_microphys_data.py",
     "*/annotation_scripts/annotate_term_helpers.py",
-    "*/annotation_scripts/apply_manual_curations.py",
+    "*/annotation_scripts/apply_ke_annotation_curations.py",
     "*/annotation_scripts/assay_extraction.py",
     "*/annotation_scripts/compare_ke_annotations.py",
     "*/annotation_scripts/export_assays_to_csv.py",

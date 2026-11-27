@@ -1,16 +1,16 @@
-"""Tests for the pure resolution helpers in apply_manual_curations:
+"""Tests for the pure resolution helpers in apply_ke_annotation_curations:
 CURIE → IRI expansion, spec → stored-record resolution (no network), and
 subject selection for per-subject curations.
 
-Run directly:    python -m tests.test_apply_manual_curations
-Under pytest:    python -m pytest tests/test_apply_manual_curations.py
+Run directly:    python -m tests.test_apply_ke_annotation_curations
+Under pytest:    python -m pytest tests/test_apply_ke_annotation_curations.py
 """
 
 from __future__ import annotations
 
 import pytest
 
-from aop_wiki_cli.annotation_scripts.apply_manual_curations import (
+from aop_wiki_cli.annotation_scripts.apply_ke_annotation_curations import (
     _curie_to_iri,
     _pick_subject_phrase,
     _resolve_string,

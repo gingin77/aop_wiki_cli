@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Apply manual KE curations into the shared store BEFORE running annotate_ke.py.
 
-Reads annotation_scripts/manual_curations.yaml and seeds corrected field values
+Reads annotation_scripts/ke_annotation_curations.yaml and seeds corrected field values
 into outputs_for_vc/annotations/ke_annotations.json, marked
 `source: manual_curation`. annotate_ke.py then treats these as reference values
 and skips re-querying them (its "(reference) ... skipping query" path), so the
@@ -15,10 +15,10 @@ Only fields the annotator reads back from the store are curatable:
 curatable here.)
 
 Usage:
-    uv run python -m aop_wiki_cli.annotation_scripts.apply_manual_curations --dry-run
-    uv run python -m aop_wiki_cli.annotation_scripts.apply_manual_curations
-    uv run python -m aop_wiki_cli.annotation_scripts.apply_manual_curations \\
-        --curations src/aop_wiki_cli/annotation_scripts/manual_curations.yaml --date 11-25-2026
+    uv run python -m aop_wiki_cli.annotation_scripts.apply_ke_annotation_curations --dry-run
+    uv run python -m aop_wiki_cli.annotation_scripts.apply_ke_annotation_curations
+    uv run python -m aop_wiki_cli.annotation_scripts.apply_ke_annotation_curations \\
+        --curations src/aop_wiki_cli/annotation_scripts/ke_annotation_curations.yaml --date 11-25-2026
 """
 
 import argparse
@@ -43,7 +43,7 @@ from aop_wiki_cli.annotation_scripts.store import (
 from aop_wiki_cli.annotation_scripts.ke_title_parser import parse_ke_title
 from aop_wiki_cli.annotation_scripts.query_bioportal import search_bioportal_with_fallback
 
-DEFAULT_CURATIONS = os.path.join(os.path.dirname(__file__), "manual_curations.yaml")
+DEFAULT_CURATIONS = os.path.join(os.path.dirname(__file__), "ke_annotation_curations.yaml")
 
 # Fields the annotator honors from the store (see module docstring).
 TOP_LEVEL_TERM_FIELDS = {"cell_term", "organ_term", "cellular_component"}
