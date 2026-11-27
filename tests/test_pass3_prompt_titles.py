@@ -10,22 +10,9 @@ Run under pytest::
 
 from __future__ import annotations
 
-import importlib.util
-from pathlib import Path
 from types import SimpleNamespace
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-MODULE_PATH = REPO_ROOT / "annotation_scripts" / "collect_similar_events.py"
-
-
-def _load_module():
-    spec = importlib.util.spec_from_file_location("collect_similar_events", MODULE_PATH)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-cse = _load_module()
+from aop_wiki_cli.annotation_scripts import collect_similar_events as cse
 
 
 def test_pass3_prompt_includes_existing_group_member_titles(tmp_path, monkeypatch):

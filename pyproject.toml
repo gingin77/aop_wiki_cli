@@ -110,6 +110,11 @@ omit = [
     "*/annotation_scripts/store.py",
     "*/annotation_scripts/summarize_annotations.py",
     "*/annotation_scripts/validate_annotations.py",
+    # interactive KE grouping tooling (same rule; the pure helpers the suite
+    # covers live inside LLM-orchestration CLIs)
+    "*/annotation_scripts/collect_similar_events.py",
+    "*/annotation_scripts/compare_grouping_runs.py",
+    "*/annotation_scripts/compare_pass_2_vs_pass_3.py",
 ]
 
 [tool.hatch.metadata]

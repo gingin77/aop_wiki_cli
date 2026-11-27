@@ -17,22 +17,7 @@ Or under pytest::
 
 from __future__ import annotations
 
-import importlib.util
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
-MODULE_PATH = REPO_ROOT / "annotation_scripts" / "collect_similar_events.py"
-
-
-def _load_module():
-    """Import collect_similar_events.py by path (annotation_scripts is not a package)."""
-    spec = importlib.util.spec_from_file_location("collect_similar_events", MODULE_PATH)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-cse = _load_module()
+from aop_wiki_cli.annotation_scripts import collect_similar_events as cse
 
 
 def test_dedupe_renames_collisions():

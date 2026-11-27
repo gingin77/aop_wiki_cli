@@ -16,21 +16,7 @@ Or under pytest::
 
 from __future__ import annotations
 
-import importlib.util
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
-MODULE_PATH = REPO_ROOT / "annotation_scripts" / "compare_pass_2_vs_pass_3.py"
-
-
-def _load_module():
-    spec = importlib.util.spec_from_file_location("compare_pass_2_vs_pass_3", MODULE_PATH)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-cmp = _load_module()
+from aop_wiki_cli.annotation_scripts import compare_pass_2_vs_pass_3 as cmp
 
 
 def test_cross_bucket_key_collision_keeps_both_groups():
