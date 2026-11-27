@@ -125,12 +125,26 @@ def test_stamped_cache_rejects_mismatched_inputs(tmp_path):
     cse._write_stamped_cache(path, ["1", "2"], "groups", [{"group_key": "g"}])
     assert cse._load_stamped_cache(path, ["1", "2"], "groups") == [{"group_key": "g"}]
     assert cse._load_stamped_cache(path, ["1", "3"], "groups") is None
-    # Legacy format (bare payload, no stamp) is accepted unverified.
+    # Legacy format (bare payload, no stamp) is accepted unverified...
     import json as _json
     legacy = str(tmp_path / "legacy.json")
     with open(legacy, "w") as f:
         _json.dump([{"group_key": "old"}], f)
     assert cse._load_stamped_cache(legacy, ["1"], "groups") == [{"group_key": "old"}]
+    # ...EXCEPT empty legacy payloads, which older runs wrote for failed
+    # calls: those are rejected so resuming an old directory retries them.
+    for name, payload in (("empty_list.json", []),
+                          ("empty_p3.json", {"existing_group_assignments": [], "new_groups": []})):
+        path2 = str(tmp_path / name)
+        with open(path2, "w") as f:
+            _json.dump(payload, f)
+        assert cse._load_stamped_cache(path2, ["1"], "groups") is None, name
+    # Dict-valued stamps (Pass 3: events + group keys) must also match exactly.
+    p3 = str(tmp_path / "p3.json")
+    stamp = {"events": ["1"], "groups": ["g1"]}
+    cse._write_stamped_cache(p3, stamp, "result", {"new_groups": []})
+    assert cse._load_stamped_cache(p3, stamp, "result") == {"new_groups": []}
+    assert cse._load_stamped_cache(p3, {"events": ["1"], "groups": ["g2"]}, "result") is None
     print("✓ Test passed")
 
 
