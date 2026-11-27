@@ -48,6 +48,10 @@ Usage:
     # Re-annotate only the assays
     uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force-on assays --date 04-28-2026
 
+    # Test the ECS workflow without assay extraction (KE stays unstamped
+    # unless assays could be carried from the store)
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force --skip-assays --date 04-28-2026
+
 """
 
 import argparse
@@ -141,6 +145,7 @@ def annotate_ke(
     cache_file: str,
     force: bool = False,
     force_fields: set[str] | None = None,
+    skip_assays: bool = False,
 ) -> str:
     """
     Annotate one KE and write it to the shared store.
@@ -182,7 +187,12 @@ def annotate_ke(
     annotated_ke = _build_ke_annotation(ke_id, title, bp_api_key, description=description, ref_ke=effective_ref)
 
     ref_has_assays = (ref_ke or {}).get("assays") is not None
-    if force or "assays" in (force_fields or set()) or not ref_has_assays:
+    if skip_assays:
+        # Carry stored assays when they exist; otherwise leave the key absent
+        # so the KE reads as "not yet submitted for assay annotation".
+        if ref_has_assays:
+            annotated_ke["assays"] = (ref_ke or {}).get("assays")
+    elif force or "assays" in (force_fields or set()) or not ref_has_assays:
         annotated_ke["assays"] = annotate_ke_assays(ke_id, events[ke_id])
     else:
         annotated_ke["assays"] = (ref_ke or {}).get("assays")
@@ -195,7 +205,13 @@ def annotate_ke(
     else:
         annotated_ke.pop("newly_annotated_fields", None)
 
-    annotated_ke["schema_version"] = ANNOTATION_SCHEMA_VERSION
+    if skip_assays and "assays" not in annotated_ke:
+        # Without assays the KE is not complete: leave it unstamped so the
+        # next run without --skip-assays picks it up again (honoring the
+        # term annotations just stored as reference values).
+        print(f"  (--skip-assays: KE {ke_id} left unstamped — re-run without it to complete)")
+    else:
+        annotated_ke["schema_version"] = ANNOTATION_SCHEMA_VERSION
     store[ke_id] = annotated_ke
     save_ke_annotations(store)
     for aop in events[ke_id].get("aop_ids", []):
@@ -888,6 +904,15 @@ def main():
         ),
     )
     parser.add_argument(
+        "--skip-assays",
+        action="store_true",
+        help=(
+            "Skip assay extraction entirely (useful for testing the term workflow). "
+            "Stored assays are carried over when present; a KE left without assays "
+            "is not stamped complete, so a later run without this flag finishes it."
+        ),
+    )
+    parser.add_argument(
         "--date",
         default=date.today().strftime("%m-%d-%Y"),
         help="Cache date MM-DD-YYYY (default: today)",
@@ -930,7 +955,8 @@ def main():
             if already_complete and not args.force and not force_fields:
                 print(f"KE {ke_id} is already fully annotated (schema v{ANNOTATION_SCHEMA_VERSION}).")
                 continue
-            annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields)
+            annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields,
+                        skip_assays=args.skip_assays)
         return
 
     store = load_ke_annotations()
@@ -943,7 +969,8 @@ def main():
               f"Use --force to re-annotate or --force-on <field> to re-annotate specific fields.")
         return
 
-    annotate_ke(args.ke_id, cache, force=args.force, force_fields=force_fields)
+    annotate_ke(args.ke_id, cache, force=args.force, force_fields=force_fields,
+                skip_assays=args.skip_assays)
 
 
 if __name__ == "__main__":
