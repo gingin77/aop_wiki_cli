@@ -170,7 +170,7 @@ prefix_to_adapter:
   OBI: sqlite:obo:obi
 ```
 
-```
+```sh
 uv run linkml-term-validator validate-schema src/linkml_aop/schema/aop_emod_linkml.yaml -c conf/oak_config.yaml
 uv run linkml-term-validator validate-data <instances> -s <schema> -c conf/oak_config.yaml
 ```
