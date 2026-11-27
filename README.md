@@ -258,7 +258,7 @@ cp .env.sample .env
 | Variable | Where to get it | What happens without it |
 |---|---|---|
 | `BIOPORTAL_API_KEY` | Shown on your [BioPortal account page](https://bioportal.bioontology.org/account) after registering | `annotate_ke` exits immediately — BioPortal search is required |
-| `ANTHROPIC_API_KEY` | [Anthropic Console](https://console.anthropic.com/) → API keys | Title extraction and term ranking fall back to rule-based parsing and interactive manual selection; assay extraction refuses to run (use `--skip-assays`) |
+| `ANTHROPIC_API_KEY` | [Anthropic Console](https://console.anthropic.com/) → API keys | Title extraction and term ranking fall back to rule-based parsing and interactive manual selection; assay extraction (opt-in via `--with-assays`) refuses to run |
 
 ```sh
 # Annotate all KEs for an AOP (uses cached date by default)

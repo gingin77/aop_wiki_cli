@@ -18,8 +18,9 @@ The AOP ID is given as the skill argument; call it `<aop_id>` below.
 For each pending KE (in order):
 
 1. Tell the user which KE you are about to annotate (ID and title).
-2. Run:
-   `uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop <aop_id> --ke-id <ke_id> --date <cache_date>`
+2. Run (with assay extraction, so each KE finishes fully annotated and stamped;
+   assays are off by default otherwise):
+   `uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop <aop_id> --ke-id <ke_id> --with-assays --date <cache_date>`
 3. Present the ANNOTATION SUMMARY from the output to the user in a readable format.
    If any phenotype is flagged with `⚠ needs_review`, highlight it explicitly.
 4. Ask the user: "Any comments or corrections for this KE? (type your comment, or press Enter to continue)"

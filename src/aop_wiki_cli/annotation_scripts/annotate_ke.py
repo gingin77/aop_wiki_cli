@@ -45,12 +45,11 @@ Usage:
     # Re-annotate all fields from scratch
     uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force --date 04-28-2026
 
-    # Re-annotate only the assays
-    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force-on assays --date 04-28-2026
+    # Annotate the terms AND extract assays (assay extraction is off by default)
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --with-assays --date 04-28-2026
 
-    # Test the ECS workflow without assay extraction (KE stays unstamped
-    # unless assays could be carried from the store)
-    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force --skip-assays --date 04-28-2026
+    # Re-annotate only the assays (implies --with-assays)
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force-on assays --date 04-28-2026
 
 """
 
@@ -149,16 +148,18 @@ def annotate_ke(
     cache_file: str,
     force: bool = False,
     force_fields: set[str] | None = None,
-    skip_assays: bool = False,
+    with_assays: bool = False,
 ) -> str:
     """
     Annotate one KE and write it to the shared store.
 
     Load the KE from the cache, use any stored annotation as the reference
     (masked by --force/--force-on), run the annotation sequence
-    (_build_ke_annotation), extract assays, carry comments forward, record
-    which fields are newly annotated, stamp the workflow version, save, and
-    register the KE under its AOPs.
+    (_build_ke_annotation), carry comments forward, record which fields are
+    newly annotated, stamp the workflow version, save, and register the KE
+    under its AOPs. Assays are extracted only when `with_assays` is True
+    (stored assays are always carried over); a KE left without assays is not
+    stamped complete.
 
     Returns the shared store path.
     """
@@ -197,9 +198,10 @@ def annotate_ke(
     annotated_ke = _build_ke_annotation(ke_id, title, bp_api_key, description=description, ref_ke=effective_ref)
 
     ref_has_assays = (ref_ke or {}).get("assays") is not None
-    if skip_assays:
-        # Carry stored assays when they exist; otherwise leave the key absent
-        # so the KE reads as "not yet submitted for assay annotation".
+    if not with_assays:
+        # Default: no assay extraction. Carry stored assays when they exist;
+        # otherwise leave the key absent so the KE reads as "not yet
+        # submitted for assay annotation".
         if ref_has_assays:
             annotated_ke["assays"] = (ref_ke or {}).get("assays")
     elif force or "assays" in (force_fields or set()) or not ref_has_assays:
@@ -215,11 +217,11 @@ def annotate_ke(
     else:
         annotated_ke.pop("newly_annotated_fields", None)
 
-    if skip_assays and "assays" not in annotated_ke:
-        # Without assays the KE is not complete: leave it unstamped so the
-        # next run without --skip-assays picks it up again (honoring the
+    if "assays" not in annotated_ke:
+        # Without assays the KE is not complete: leave it unstamped so a
+        # later run with --with-assays picks it up again (honoring the
         # term annotations just stored as reference values).
-        print(f"  (--skip-assays: KE {ke_id} left unstamped — re-run without it to complete)")
+        print(f"  (no assays: KE {ke_id} left unstamped — re-run with --with-assays to complete)")
     else:
         annotated_ke["workflow_version"] = ANNOTATION_WORKFLOW_VERSION
     store[ke_id] = annotated_ke
@@ -964,12 +966,13 @@ def main():
         ),
     )
     parser.add_argument(
-        "--skip-assays",
+        "--with-assays",
         action="store_true",
         help=(
-            "Skip assay extraction entirely (useful for testing the term workflow). "
-            "Stored assays are carried over when present; a KE left without assays "
-            "is not stamped complete, so a later run without this flag finishes it."
+            "Also extract and annotate assays (the most expensive step; off by "
+            "default). Stored assays are always carried over; a KE left without "
+            "assays is not stamped complete, so a later run with this flag "
+            "finishes it. Implied by --force-on assays."
         ),
     )
     parser.add_argument(
@@ -996,6 +999,8 @@ def main():
         return
 
     force_fields = set(args.force_fields) if args.force_fields else None
+    # Explicitly forcing the assays field means assay extraction is wanted.
+    with_assays = args.with_assays or "assays" in (force_fields or set())
     if args.ke_id is None:
         if args.aop is None:
             print("Provide --ke-id to annotate a KE, or --aop to list KEs for an AOP.")
@@ -1016,7 +1021,7 @@ def main():
                 print(f"KE {ke_id} is already fully annotated (workflow v{ANNOTATION_WORKFLOW_VERSION}).")
                 continue
             annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields,
-                        skip_assays=args.skip_assays)
+                        with_assays=with_assays)
         return
 
     store = load_ke_annotations()
@@ -1030,7 +1035,7 @@ def main():
         return
 
     annotate_ke(args.ke_id, cache, force=args.force, force_fields=force_fields,
-                skip_assays=args.skip_assays)
+                with_assays=with_assays)
 
 
 if __name__ == "__main__":
