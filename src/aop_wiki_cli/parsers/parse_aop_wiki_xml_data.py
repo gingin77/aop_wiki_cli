@@ -19,7 +19,7 @@ from aop_wiki_cli.parsers.completion_score import (
     add_completion_score_to_kers,
     add_completion_score_to_aops,
 )
-from aop_wiki_cli.analysis import apply_ranking_to_events_dict
+from aop_wiki_cli.analysis import add_integration_ranking_to_events_dict
 from aop_wiki_cli.parsers.xml_processing_helpers import (
     collect_ker_to_aop_mapping_from_xml,
     collect_tables_from_field,
@@ -115,7 +115,7 @@ def collect_events_from_xml(root, xml_namespace, refs):
             print(f"WARNING: Missing KE ID {ke_id}")
 
     events_with_completion_scores = add_completion_score_to_events(ke_to_aop_info)
-    events_ranked = apply_ranking_to_events_dict(events_with_completion_scores)
+    events_ranked = add_integration_ranking_to_events_dict(events_with_completion_scores)
     return events_ranked
 
 

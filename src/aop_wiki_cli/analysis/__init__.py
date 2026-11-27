@@ -16,7 +16,7 @@ Public API
 ----------
 
 Ranking & Filtering:
-    apply_ranking_to_events_dict: Apply integration rankings to events
+    add_integration_ranking_to_events_dict: Apply integration rankings to events
     filter_kers_by_tables: Filter KERs by presence of tabulated evidence
 
 Event Statistics:
@@ -39,7 +39,7 @@ Note:
 
 # Ranking and filtering
 from aop_wiki_cli.analysis.meta_data_helpers import (
-    apply_ranking_to_events_dict,
+    add_integration_ranking_to_events_dict,
     filter_kers_by_tables,
     get_average_completion_score,
     calculate_event_summary_statistics,
@@ -76,7 +76,7 @@ from aop_wiki_cli.analysis.pair_mies_and_aos import (
 
 __all__ = [
     # Ranking & filtering
-    'apply_ranking_to_events_dict',
+    'add_integration_ranking_to_events_dict',
     'filter_kers_by_tables',
     'get_average_completion_score',
     # Event statistics

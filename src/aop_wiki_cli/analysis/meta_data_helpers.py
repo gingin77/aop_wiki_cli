@@ -25,7 +25,7 @@ def get_average_completion_score(entities_dict):
     average = sum(completion_scores) / len(completion_scores)
     return round(average, 2)
 
-def apply_ranking_to_events_dict(events_dict):
+def add_integration_ranking_to_events_dict(events_dict):
     """
     Applies an integration ranking score to each event in the events_dict based on percent
     complete, OECD status, license type, and match to search terms if applicable. A lower score
@@ -186,7 +186,7 @@ def calculate_event_summary_statistics(event_dict):
 if __name__ == "__main__":
     input_event_file = outputs_dir("depression_aops") / "depression_events_2025-12-16.json"
     events_dict = get_dict_from_json(input_event_file)["key_events"]
-    events_dict = apply_ranking_to_events_dict(events_dict)
+    events_dict = add_integration_ranking_to_events_dict(events_dict)
     
     ranked_events = sorted(events_dict.items(), key=lambda x: x[1]['integration_score'], reverse=True)
     for event_id, event in ranked_events:
