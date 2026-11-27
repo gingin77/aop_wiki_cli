@@ -181,6 +181,90 @@
           "submission_id": 10
         }
       }
+    },
+    {
+      "timestamp": "2026-11-27T16:51:03+00:00",
+      "workflow_version": 2,
+      "llm_model": "claude-sonnet-4-6",
+      "code_git_sha": "cfceaa6b045397f22399050299a287fe05f4b8f0",
+      "code_dirty": true,
+      "cache_file": "outputs/cache/11-27-2026/all_events_11-27-2026.json",
+      "command": {
+        "aop": null,
+        "ke_id": null,
+        "ke_ids": [
+          "68",
+          "177"
+        ],
+        "force": false,
+        "force_on": [],
+        "with_assays": false
+      },
+      "kes_annotated": [
+        "177"
+      ],
+      "bioportal_submissions": {
+        "BAO": {
+          "version": "2.8.19",
+          "released": "2026-05-06T18:00:20.000-07:00",
+          "submission_id": 68
+        },
+        "CHEBI": {
+          "version": "257",
+          "released": "2026-11-05T18:08:55.000-08:00",
+          "submission_id": 228
+        },
+        "CL": {
+          "version": "2026-11-13",
+          "released": "2026-11-16T18:08:01.000-08:00",
+          "submission_id": 130
+        },
+        "GO": {
+          "version": "2026-07-26",
+          "released": "2026-08-08T18:04:38.000-07:00",
+          "submission_id": 1836
+        },
+        "HGNC": {
+          "version": "dev",
+          "released": "2026-11-23T18:14:00.000-08:00",
+          "submission_id": 11
+        },
+        "HP": {
+          "version": "2026-09-01",
+          "released": "2026-09-03T18:07:00.000-07:00",
+          "submission_id": 628
+        },
+        "MP": {
+          "version": "2026-06-17",
+          "released": "2026-06-22T18:06:43.000-07:00",
+          "submission_id": 462
+        },
+        "NCBITAXON": {
+          "version": "2026_04_20",
+          "released": "2026-10-09T00:00:00.000+00:00",
+          "submission_id": 29
+        },
+        "OBI": {
+          "version": "2026-07-27",
+          "released": "2026-11-18T18:12:51.000-08:00",
+          "submission_id": 67
+        },
+        "PR": {
+          "version": "73.0",
+          "released": "2026-09-15T18:13:15.000-07:00",
+          "submission_id": 94
+        },
+        "UBERON": {
+          "version": "2023-07-25",
+          "released": "2026-11-05T20:00:06.000-08:00",
+          "submission_id": 357
+        },
+        "UPHENO": {
+          "version": "2026-10-19",
+          "released": "2026-10-20T18:20:16.000-07:00",
+          "submission_id": 10
+        }
+      }
     }
   ]
 }

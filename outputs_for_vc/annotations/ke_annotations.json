@@ -9269,6 +9269,13 @@
       "rejection_reason": "The candidate term 'obsolete mitochondrial aggregate' is not an appropriate organ or tissue term for this KE, which primarily concerns mitochondrial dysfunction in the context of cellular/organ systems, and the term itself is obsolete and refers to a specific developmental structure (Balbiani body) rather than a general anatomical organ or tissue.",
       "source": "llm_rejection"
     },
+    "cellular_component": {
+      "term_id": "http://purl.obolibrary.org/obo/GO_0005739",
+      "label": "mitochondrion",
+      "ontology": "GO",
+      "reason": "The KE describes mitochondrial dysfunction, and 'mitochondrion' is the directly relevant cellular component (organelle) where this dysfunction occurs.",
+      "source": "llm_recommendation"
+    },
     "ec_annotations": [
       {
         "subject": "Mitochondrial dysfunction",
@@ -9289,7 +9296,8 @@
         },
         "biological_action": {
           "term": "increased",
-          "source": "llm_normalization"
+          "source": "llm_extraction",
+          "vocabulary": "aop_wiki_action_terms"
         }
       }
     ],
@@ -9299,10 +9307,9 @@
       "new": []
     },
     "newly_annotated_fields": [
-      "biological_organization",
-      "ec_annotations['Mitochondrial dysfunction'].phenotype",
-      "ec_annotations['Mitochondrial dysfunction'].biological_action"
-    ]
+      "cellular_component"
+    ],
+    "workflow_version": 2
   },
   "227": {
     "ke_id": "227",
