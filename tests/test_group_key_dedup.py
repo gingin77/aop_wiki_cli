@@ -82,6 +82,58 @@ def test_consolidation_keeps_all_members_with_duplicate_keys():
     print("✓ Test passed")
 
 
+def test_self_absorb_instruction_does_not_delete_the_group():
+    """{"keep": "a", "absorb": ["a"]} must be a no-op, not delete group a."""
+    print("\n=== Test: self-absorb is skipped ===")
+    all_groups = [
+        {"group_key": "a", "type": "merge", "member_ids": ["1", "2"]},
+        {"group_key": "b", "type": "merge", "member_ids": ["3", "4"]},
+    ]
+    result = cse._apply_consolidation_merges(all_groups, [{"keep": "a", "absorb": ["a"]}])
+    keys = {g["group_key"] for g in result}
+    assert keys == {"a", "b"}, f"group 'a' must survive, got {keys}"
+    surviving = {m for g in result for m in g["member_ids"]}
+    assert surviving == {"1", "2", "3", "4"}
+    print("✓ Test passed")
+
+
+def test_chained_merges_follow_the_redirect():
+    """a<-b then b<-c: c's members must reach a, not strand in the removed b."""
+    print("\n=== Test: chained merge instructions ===")
+    all_groups = [
+        {"group_key": "a", "type": "merge", "member_ids": ["1", "2"]},
+        {"group_key": "b", "type": "merge", "member_ids": ["3", "4"]},
+        {"group_key": "c", "type": "merge", "member_ids": ["5", "6"]},
+    ]
+    merges = [
+        {"keep": "a", "absorb": ["b"]},
+        {"keep": "b", "absorb": ["c"]},  # b is already absorbed into a
+    ]
+    result = cse._apply_consolidation_merges(all_groups, merges)
+    by_key = {g["group_key"]: g for g in result}
+    assert set(by_key) == {"a"}
+    assert set(by_key["a"]["member_ids"]) == {"1", "2", "3", "4", "5", "6"}, \
+        "events 5,6 must not be lost in the removed intermediate group"
+    print("✓ Test passed")
+
+
+def test_stamped_cache_rejects_mismatched_inputs(tmp_path):
+    """A cache built for different events must not be reused (e.g. a re-run
+    with a different --batch-size); legacy unstamped caches are accepted."""
+    print("\n=== Test: stamped cache validation ===")
+    path = str(tmp_path / "batch_000.json")
+    cse._write_stamped_cache(path, ["1", "2"], "groups", [{"group_key": "g"}])
+    assert cse._load_stamped_cache(path, ["1", "2"], "groups") == [{"group_key": "g"}]
+    assert cse._load_stamped_cache(path, ["1", "3"], "groups") is None
+    # Legacy format (bare payload, no stamp) is accepted unverified.
+    import json as _json
+    legacy = str(tmp_path / "legacy.json")
+    with open(legacy, "w") as f:
+        _json.dump([{"group_key": "old"}], f)
+    assert cse._load_stamped_cache(legacy, ["1"], "groups") == [{"group_key": "old"}]
+    print("✓ Test passed")
+
+
 def test_assemble_output_keeps_three_same_slug_groups():
     """Three groups whose keys slugify identically must all appear in the output.
 
@@ -118,6 +170,11 @@ def run_all_tests() -> int:
     test_dedupe_renames_collisions()
     test_dedupe_leaves_unique_keys_untouched()
     test_consolidation_keeps_all_members_with_duplicate_keys()
+    test_self_absorb_instruction_does_not_delete_the_group()
+    test_chained_merges_follow_the_redirect()
+    import pathlib, tempfile
+    with tempfile.TemporaryDirectory() as td:
+        test_stamped_cache_rejects_mismatched_inputs(pathlib.Path(td))
     test_assemble_output_keeps_three_same_slug_groups()
     print("\n" + "=" * 68)
     print("ALL TESTS PASSED ✓")

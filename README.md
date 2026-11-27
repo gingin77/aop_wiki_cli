@@ -317,8 +317,8 @@ caches let interrupted runs resume without re-calling the LLM.
 
 ```sh
 # Group similar KEs (uses today's event cache by default)
-uv run python annotation_scripts/collect_similar_events.py
-uv run python annotation_scripts/collect_similar_events.py --date 11-25-2026
+uv run python -m aop_wiki_cli.annotation_scripts.collect_similar_events
+uv run python -m aop_wiki_cli.annotation_scripts.collect_similar_events --date 11-25-2026
 
 # Sample logs at end of run 
 2026-11-25 19:01:11,756 - INFO - Done. 
@@ -330,13 +330,13 @@ uv run python annotation_scripts/collect_similar_events.py --date 11-25-2026
 Final output: outputs/ke_groupings/11-25-2026/ke_similar_events_11-25-2026_pass3.json
 
 # Compare the Pass 2 and Pass 3 groupings, optionally exporting the changes (JSON/CSV)
-uv run python annotation_scripts/compare_pass_2_vs_pass_3.py \
+uv run python -m aop_wiki_cli.annotation_scripts.compare_pass_2_vs_pass_3 \
     <path>/ke_similar_events_<date>_pass2.json \
     <path>/ke_similar_events_<date>_pass3.json \
     --changes-json changes_pass2_to_pass3.json --changes-csv changes_pass2_to_pass3.csv
 
 # Compare two full grouping runs (e.g. different models or dates) by member overlap
-uv run python annotation_scripts/compare_grouping_runs.py \
+uv run python -m aop_wiki_cli.annotation_scripts.compare_grouping_runs \
     --file-a <path>/ke_similar_events_<date>_pass3.json \
     --file-b <path>/ke_similar_events_<date>_pass3.json \
     --crosswalk-csv crosswalk.csv

@@ -87,8 +87,6 @@ from aop_wiki_cli.annotation_scripts.store import (
 from aop_wiki_cli.utilities import set_up_logger, get_dated_cache_dir
 from aop_wiki_cli.parsers import collect_entity_with_cache, collect_aops_from_xml, collect_events_from_xml
 
-load_dotenv(override=True)
-
 logger = set_up_logger("collect-similar-events", level=logging.INFO)
 
 # ---------------------------------------------------------------------------
@@ -135,8 +133,11 @@ def _git_commit() -> tuple[str | None, bool | None]:
             ["git", "rev-parse", "--short", "HEAD"],
             cwd=repo_dir, capture_output=True, text=True, check=True,
         ).stdout.strip()
+        # Scope dirty to the code (as annotate_ke's provenance does): pending
+        # run outputs in outputs_for_vc/ don't make a run unreproducible.
+        # ":/" pathspecs anchor at the repo root regardless of cwd.
         status = subprocess.run(
-            ["git", "status", "--porcelain"],
+            ["git", "status", "--porcelain", "--", ":/src", ":/pyproject.toml"],
             cwd=repo_dir, capture_output=True, text=True, check=True,
         ).stdout
         return sha or None, bool(status.strip())
@@ -176,7 +177,7 @@ def _ensure_caches(date_str: str) -> tuple[str, str]:
 
     Returns (event_cache_path, aop_cache_path).
     """
-    work_date = date.today()
+    work_date = datetime.strptime(date_str, "%m-%d-%Y").date()
     cache_dir = get_dated_cache_dir(CACHE_DIR_ROOT, work_date)
     os.makedirs(cache_dir, exist_ok=True)
 
@@ -261,12 +262,41 @@ def _dedupe_group_keys(groups: list[dict]) -> list[dict]:
 # Pass 1 — Intra-batch grouping
 # ---------------------------------------------------------------------------
 
+def _load_stamped_cache(cache_path: str, expected_ids: list[str], payload_key: str):
+    """Load a cache file whose contents are stamped with the event ids that
+    produced them, or None when it does not match the current inputs.
+
+    A re-run with a different --batch-size (or --max-batches) slices events
+    differently, and index-named caches would silently attach cached results
+    to events they never saw. New-format caches are
+    {"input_ids": [...], <payload_key>: ...} and are rejected on mismatch;
+    legacy caches (a bare payload, pre-stamp) are accepted with a warning
+    since they carry nothing to verify.
+    """
+    with open(cache_path) as f:
+        data = json.load(f)
+    if isinstance(data, dict) and "input_ids" in data:
+        if data["input_ids"] == expected_ids:
+            return data.get(payload_key)
+        logger.warning("Cache %s was built for different events — recomputing.", cache_path)
+        return None
+    logger.warning("Cache %s has no input stamp (legacy format) — accepting unverified.", cache_path)
+    return data
+
+
+def _write_stamped_cache(cache_path: str, expected_ids: list[str], payload_key: str, payload) -> None:
+    with open(cache_path, "w") as f:
+        json.dump({"input_ids": expected_ids, payload_key: payload}, f, indent=2)
+
+
 def _run_batch(
     client: anthropic.Anthropic,
     batch: list[tuple[str, str]],
     batch_idx: int,
-) -> list[dict]:
-    """Call the LLM for one batch. Returns a list of group dicts."""
+) -> list[dict] | None:
+    """Call the LLM for one batch. Returns a list of group dicts, or None when
+    the reply was truncated or unparseable — a failure must not be cached (or
+    treated) as "no groups in this batch"."""
     logger.info("  Batch %d: %d events", batch_idx, len(batch))
     prompt = prompts.grouping_batch(batch)
     message = _call_with_retry(
@@ -277,12 +307,15 @@ def _run_batch(
         messages=[{"role": "user", "content": prompt}],
     )
     if message.stop_reason == "max_tokens":
-        logger.warning("  Batch %d: response truncated (max_tokens reached) — output may be incomplete.", batch_idx)
+        logger.warning("  Batch %d: response truncated (max_tokens reached) — "
+                       "batch skipped and not cached (retried on re-run).", batch_idx)
+        return None
     raw = _response_text(message).strip()
     parsed = _parse_json_from_response(raw)
     if not isinstance(parsed, list):
-        logger.warning("  Batch %d: unexpected response shape, skipping.", batch_idx)
-        return []
+        logger.warning("  Batch %d: unparseable response — "
+                       "batch skipped and not cached (retried on re-run).", batch_idx)
+        return None
     # Filter out malformed entries
     valid = []
     for item in parsed:
@@ -334,21 +367,33 @@ def run_pass1(
     os.makedirs(batches_dir, exist_ok=True)
     all_groups: list[dict] = []
     processed_ids: set[str] = set()
+    skipped_batches = 0
 
     for batch_idx, batch in _iter_batches(events, batch_size, max_batches):
-        processed_ids.update(ke_id for ke_id, _ in batch)
+        batch_ids = [ke_id for ke_id, _ in batch]
         cache_path = os.path.join(batches_dir, f"batch_{batch_idx:03d}.json")
 
+        groups = None
         if os.path.exists(cache_path):
-            logger.info("Pass 1 batch %d: loading from cache (%s)", batch_idx, cache_path)
-            with open(cache_path) as f:
-                groups = json.load(f)
-        else:
+            groups = _load_stamped_cache(cache_path, batch_ids, "groups")
+            if groups is not None:
+                logger.info("Pass 1 batch %d: loaded from cache (%s)", batch_idx, cache_path)
+        if groups is None:
             groups = _run_batch(client, batch, batch_idx)
-            with open(cache_path, "w") as f:
-                json.dump(groups, f, indent=2)
+            if groups is None:
+                # Failed call: these events were NOT processed — leaving them
+                # out of processed_ids keeps them from reading as "processed
+                # but ungrouped" in the output.
+                skipped_batches += 1
+                continue
+            _write_stamped_cache(cache_path, batch_ids, "groups", groups)
 
+        processed_ids.update(batch_ids)
         all_groups.extend(groups)
+
+    if skipped_batches:
+        logger.warning("Pass 1: %d batch(es) failed and were skipped — re-run to retry them.",
+                       skipped_batches)
 
     _dedupe_group_keys(all_groups)
     return all_groups, processed_ids
@@ -370,9 +415,18 @@ def _apply_consolidation_merges(
     """
     groups_by_key: dict[str, dict] = {g["group_key"]: g for g in all_groups}
     absorbed_keys: set[str] = set()
+    # Union-find-style redirects: once a group is absorbed, any later
+    # instruction naming it (as keep OR absorb) must act on its absorber —
+    # otherwise a chain like a<-b, b<-c strands c's members in the removed b.
+    redirect: dict[str, str] = {}
+
+    def _resolve(key: str) -> str:
+        while key in redirect:
+            key = redirect[key]
+        return key
 
     for instruction in merges:
-        keep_key = instruction.get("keep", "")
+        keep_key = _resolve(instruction.get("keep", ""))
         absorb_keys = instruction.get("absorb", [])
         if keep_key not in groups_by_key:
             logger.warning("Pass 2: merge instruction references unknown keep key %r — skipping.", keep_key)
@@ -381,6 +435,11 @@ def _apply_consolidation_merges(
         keep_ids: list = keep_group.setdefault("member_ids", [])
         keep_id_set = set(str(i) for i in keep_ids)
         for absorb_key in absorb_keys:
+            absorb_key = _resolve(absorb_key)
+            if absorb_key == keep_key:
+                # Self-absorb would delete the whole group from the output.
+                logger.warning("Pass 2: instruction absorbs %r into itself — skipping.", absorb_key)
+                continue
             if absorb_key not in groups_by_key:
                 logger.warning("Pass 2: merge instruction references unknown absorb key %r — skipping.", absorb_key)
                 continue
@@ -390,6 +449,7 @@ def _apply_consolidation_merges(
                     keep_ids.append(mid_str)
                     keep_id_set.add(mid_str)
             absorbed_keys.add(absorb_key)
+            redirect[absorb_key] = keep_key
             logger.debug("Pass 2: absorbed %r into %r", absorb_key, keep_key)
 
     result = [g for g in all_groups if g["group_key"] not in absorbed_keys]
@@ -419,10 +479,15 @@ def run_pass2(
         logger.info("Pass 2: no groups to consolidate.")
         return []
 
+    # Stamp the cache with the input group keys so a re-run whose Pass 1
+    # produced a different group set (different --batch-size/--max-batches)
+    # does not reuse a consolidation computed for other groups.
+    input_keys = sorted(g["group_key"] for g in all_groups)
     if os.path.exists(consolidation_cache_path):
-        logger.info("Pass 2: loading consolidation from cache (%s)", consolidation_cache_path)
-        with open(consolidation_cache_path) as f:
-            return json.load(f)
+        cached = _load_stamped_cache(consolidation_cache_path, input_keys, "groups")
+        if cached is not None:
+            logger.info("Pass 2: loaded consolidation from cache (%s)", consolidation_cache_path)
+            return cached
 
     logger.info("Pass 2: sending %d groups for consolidation.", len(all_groups))
     prompt = prompts.grouping_consolidation(all_groups)
@@ -434,18 +499,18 @@ def run_pass2(
         messages=[{"role": "user", "content": prompt}],
     )
     if message.stop_reason == "max_tokens":
-        logger.warning("Pass 2: response truncated (max_tokens reached) — consolidation may be incomplete.")
+        logger.warning("Pass 2: response truncated (max_tokens reached) — "
+                       "returning groups unmerged, not cached (retried on re-run).")
+        return all_groups
     raw = _response_text(message).strip()
     parsed = _parse_json_from_response(raw)
-    if isinstance(parsed, list):
-        consolidated = _apply_consolidation_merges(all_groups, parsed)
-    else:
-        logger.warning("Pass 2: unexpected response shape, returning groups unmerged.")
-        consolidated = all_groups
+    if not isinstance(parsed, list):
+        logger.warning("Pass 2: unparseable response — "
+                       "returning groups unmerged, not cached (retried on re-run).")
+        return all_groups
 
-    with open(consolidation_cache_path, "w") as f:
-        json.dump(consolidated, f, indent=2)
-
+    consolidated = _apply_consolidation_merges(all_groups, parsed)
+    _write_stamped_cache(consolidation_cache_path, input_keys, "groups", consolidated)
     logger.info("Pass 2: %d final groups after consolidation.", len(consolidated))
     return consolidated
 
@@ -480,13 +545,16 @@ def run_pass3(
         logger.info("Pass 3: no ungrouped events to sweep.")
         return {"existing_group_assignments": [], "new_groups": []}
 
+    sweep_ids = sorted(ungrouped_events, key=lambda x: int(x) if x.isdigit() else 0)
     if os.path.exists(pass3_cache_path):
-        logger.info("Pass 3: loading from cache (%s)", pass3_cache_path)
-        with open(pass3_cache_path) as f:
-            return json.load(f)
+        cached = _load_stamped_cache(pass3_cache_path, sweep_ids, "result")
+        if cached is not None:
+            logger.info("Pass 3: loaded from cache (%s)", pass3_cache_path)
+            return cached
 
     os.makedirs(pass3_dir, exist_ok=True)
     items = list(ungrouped_events.items())
+    skipped_batches = 0
     # Title lookup for the prompt builder: must cover existing-group members
     # (from all_events) as well as the ungrouped events being swept.
     events_lookup = {**(all_events or {}), **ungrouped_events}
@@ -498,13 +566,15 @@ def run_pass3(
 
     for batch_idx, start in enumerate(range(0, len(items), PASS_3_BATCH_SIZE)):
         batch = items[start : start + PASS_3_BATCH_SIZE]
+        batch_ids = [ke_id for ke_id, _ in batch]
         cache_path = os.path.join(pass3_dir, f"batch_{batch_idx:03d}.json")
 
+        result = None
         if os.path.exists(cache_path):
-            logger.info("Pass 3 batch %d: loading from cache.", batch_idx)
-            with open(cache_path) as f:
-                result = json.load(f)
-        else:
+            result = _load_stamped_cache(cache_path, batch_ids, "result")
+            if result is not None:
+                logger.info("Pass 3 batch %d: loaded from cache.", batch_idx)
+        if result is None:
             logger.info("Pass 3 batch %d: %d ungrouped events.", batch_idx, len(batch))
             prompt = prompts.grouping_pass3(batch, final_groups, events_lookup)
             message = _call_with_retry(
@@ -523,20 +593,22 @@ def run_pass3(
                     "batch skipped and not cached (will be retried on re-run).",
                     batch_idx,
                 )
+                skipped_batches += 1
                 result = {"existing_group_assignments": [], "new_groups": []}
             else:
                 raw = _response_text(message).strip()
                 parsed = _parse_json_from_response(raw)
                 if not isinstance(parsed, dict):
-                    logger.warning("Pass 3 batch %d: unexpected response shape, skipping.", batch_idx)
+                    logger.warning("Pass 3 batch %d: unparseable response — "
+                                   "batch skipped and not cached (retried on re-run).", batch_idx)
+                    skipped_batches += 1
                     result = {"existing_group_assignments": [], "new_groups": []}
                 else:
                     result = {
                         "existing_group_assignments": parsed.get("existing_group_assignments", []),
                         "new_groups": parsed.get("new_groups", []),
                     }
-                with open(cache_path, "w") as f:
-                    json.dump(result, f, indent=2)
+                    _write_stamped_cache(cache_path, batch_ids, "result", result)
 
         # Filter assignments: only keep valid IDs not already assigned
         valid_ids_in_batch = {ke_id for ke_id, _ in batch}
@@ -558,8 +630,14 @@ def run_pass3(
         "existing_group_assignments": all_assignments,
         "new_groups": all_new_groups,
     }
-    with open(pass3_cache_path, "w") as f:
-        json.dump(merged, f, indent=2)
+    if skipped_batches:
+        # The merged cache would short-circuit every later run before the
+        # per-batch caches are consulted, so writing it here would make the
+        # skipped batches permanent. Leave it absent until a run completes.
+        logger.warning("Pass 3: %d batch(es) skipped — merged result NOT cached, "
+                       "so a re-run retries them.", skipped_batches)
+    else:
+        _write_stamped_cache(pass3_cache_path, sweep_ids, "result", merged)
 
     logger.info(
         "Pass 3: %d assignments to existing groups, %d new groups.",
@@ -833,6 +911,9 @@ def _load_aop_context(aop_cache_path: str, raw_cache: dict) -> tuple[dict[str, l
 
 
 def main() -> None:
+    # Loaded here, not at import time: importing this module (e.g. in tests)
+    # must not override environment variables already set in the shell or CI.
+    load_dotenv()
     parser = argparse.ArgumentParser(
         description="Group AOP-Wiki Key Events by title similarity using an LLM."
     )

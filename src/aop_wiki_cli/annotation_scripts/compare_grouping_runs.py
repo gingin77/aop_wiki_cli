@@ -22,12 +22,12 @@ file. The group-shape helpers mirror collect_similar_events.py's output format.
 
 Usage:
     # By date (defaults to the pass 3 snapshot of each run)
-    uv run python annotation_scripts/compare_grouping_runs.py \
+    uv run python -m aop_wiki_cli.annotation_scripts.compare_grouping_runs \
         --date-a 05-07-2026 --date-b 11-25-2026 \
         --crosswalk-csv outputs/ke_groupings/may_to_nov_crosswalk.csv
 
     # Explicit files, and a full JSON dump of the comparison
-    uv run python annotation_scripts/compare_grouping_runs.py \
+    uv run python -m aop_wiki_cli.annotation_scripts.compare_grouping_runs \
         --file-a <...>/ke_similar_events_05-07-2026_pass3.json \
         --file-b <...>/ke_similar_events_11-25-2026_pass3.json \
         --json-out outputs/ke_groupings/may_vs_nov.json

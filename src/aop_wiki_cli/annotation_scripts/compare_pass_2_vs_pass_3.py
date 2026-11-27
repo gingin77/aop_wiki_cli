@@ -2,14 +2,14 @@
 """Compare pass 2 and pass 3 outputs from collect_similar_events.py.
 
 Usage:
-uv run python annotation_scripts/compare_pass_2_vs_pass_3.py \
+uv run python -m aop_wiki_cli.annotation_scripts.compare_pass_2_vs_pass_3 \
 outputs_for_vc/ke_groupings/05-07-2026_with_updated_prompts_200_NA_50/ke_similar_events_05-07-2026_pass2.json \
 outputs_for_vc/ke_groupings/05-07-2026_with_updated_prompts_200_NA_50/ke_similar_events_05-07-2026_pass3.json \
 --changes-json outputs_for_vc/ke_groupings/05-07-2026_with_updated_prompts_200_NA_50/changes_pass2_to_pass3.json \
 --changes-csv  outputs_for_vc/ke_groupings/05-07-2026_with_updated_prompts_200_NA_50/changes_pass2_to_pass3.csv
 
     # Optionally write full comparison to JSON:
-    uv run python annotation_scripts/compare_pass_2_vs_pass_3.py \\
+    uv run python -m aop_wiki_cli.annotation_scripts.compare_pass_2_vs_pass_3 \\
         ..._pass2.json ..._pass3.json --json-out comparison.json
 """
 
