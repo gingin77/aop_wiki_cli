@@ -47,6 +47,7 @@ from aop_wiki_cli.parsers import (
     collect_entity_with_cache,
 )
 from aop_wiki_cli.parsers.parse_behl_seizure_aop_workbook import parse_seizure_aop_workbook
+from aop_wiki_cli.parsers.seizure_harmonization import read_behl_seizure_aop_ids
 from aop_wiki_cli.analysis.event_level_llm_review import (
     DEFAULT_MODEL as EVENT_LEVEL_REVIEW_MODEL,
     review_events as review_event_levels_with_llm,
@@ -401,10 +402,7 @@ def search_within_aops(
     id_list, aop_terms, ke_terms = split(aop_ids), split(aop_title_terms), split(ke_title_terms)
     if behl_seizure_aops:
         logger.info("Reading seizure AOP IDs from the Behl supplementary workbook...")
-        workbook = parse_seizure_aop_workbook(seizure_workbook_path())
-        behl_ids = sorted(
-            workbook['ready_for_emod']['data']['aop_to_harmonized_events_dict'], key=int
-        )
+        behl_ids = read_behl_seizure_aop_ids(seizure_workbook_path())
         typer.echo(f"Behl workbook seizure AOPs: {', '.join(behl_ids)}")
         id_list = list(dict.fromkeys(id_list + behl_ids))
     if not (id_list or aop_terms or ke_terms):
