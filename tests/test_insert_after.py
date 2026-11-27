@@ -1,6 +1,6 @@
 """Regression tests for src.utilities.helpers.insert_after.
 
-process_manual_curations.py stamps provenance paths onto the integrated output
+process_manual_curations_csv.py stamps provenance paths onto the integrated output
 with two chained insert_after calls: the first inserts ``llm_annotation_file``
 after ``source_cache``, the second inserts ``manual_annotation_file`` after
 ``llm_annotation_file``. An earlier version dropped the new key whenever the

@@ -104,7 +104,7 @@ omit = [
     "*/annotation_scripts/compare_ke_annotations.py",
     "*/annotation_scripts/export_assays_to_csv.py",
     "*/annotation_scripts/llm.py",
-    "*/annotation_scripts/process_manual_curations.py",
+    "*/annotation_scripts/process_manual_curations_csv.py",
     "*/annotation_scripts/prompts.py",
     "*/annotation_scripts/report_annotation_coverage.py",
     "*/annotation_scripts/store.py",
