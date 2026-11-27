@@ -46,24 +46,45 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 source = ["aop_wiki_cli"]
-# Single-use scripts developed to process one specific input and not meant for
-# reuse (the seizure pipeline driven by `collect-harmonized-seizure-aops`), plus
-# code that is not wired into any command: the reference-search driver (see the
-# `TODO: Add search reference functionality` in cli.py) and the orphaned
-# title-stripper (`*_unused.py`). Excluded so coverage reflects the reusable
-# library. See issue #25 and the follow-up #28.
+# Coverage is measured against the reusable library that the CLI commands
+# actually run. Excluded below (so the figure is not diluted by code nothing
+# calls): single-use scripts, code wired into no command, and orphaned files.
+# See issue #25 and the follow-up #28.
+#
+# Single-use seizure pipeline (driven by `collect-harmonized-seizure-aops`),
+# processing one specific input and not meant for reuse. `parse_citations.py`
+# is imported only by the seizure workbook parser, so it belongs here too.
+#
+# Not wired into any command: the reference-search subsystem. `cli.py` only
+# references it in the `TODO: Add search reference functionality` comment; the
+# driver, the search module and the citation parser are reached by no live
+# command (search_references/parse_references are re-exported from their
+# packages' __init__ but consumed nowhere live).
+#
+# Orphaned: the title-stripper (`*_unused.py`) and `html_to_csv_converter.py`
+# (re-exported but only its own __main__ calls it). `__main__.py` is the
+# `python -m` entry point.
 #
 # `manual_match_review.py` is excluded too: although it also backs the
 # `manually-review-matches` command, its logic is an interactive stdin review
 # loop (part of the manual harmonization workflow), not reusable library code.
 omit = [
+    # single-use seizure pipeline
     "*/parsers/parse_behl_seizure_aop_workbook.py",
-    "*/parsers/aop_wiki_content_parsers_unused.py",
+    "*/parsers/parse_citations.py",
     "*/data_export/seizure_aop_export.py",
     "*/analysis/analyze_seizure_aop_content.py",
     "*/analysis/map_ke_descriptions_to_harmonized.py",
-    "*/analysis/manual_match_review.py",
+    # not-wired reference-search subsystem
     "*/search/aop_wiki_xml_ref_search.py",
+    "*/search/search_references.py",
+    "*/parsers/parse_references.py",
+    # orphaned / entry point
+    "*/parsers/aop_wiki_content_parsers_unused.py",
+    "*/utilities/html_to_csv_converter.py",
+    "*/__main__.py",
+    # interactive stdin workflow, not reusable library code
+    "*/analysis/manual_match_review.py",
 ]
 
 [tool.hatch.metadata]
