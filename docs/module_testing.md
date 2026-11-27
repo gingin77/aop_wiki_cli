@@ -82,10 +82,10 @@ aop-wiki-cli search-kers-for-concordance-text
 aop-wiki-cli harmonize-ker-evidence
 aop-wiki-cli search-with-config methods_nams
 aop-wiki-cli search-with-config lung_and_immune_aops   # exercises the entities_and_fields path
-aop-wiki-cli collect-harmonized-seizure-aops           # uses the shipped workbook + curated files
+uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops           # uses the shipped workbook + curated files
 
 echo '{"a": {"input_term": "x", "matched_term": "y", "match_score": 0.95}}' > m.json
-aop-wiki-cli manually-review-matches m.json --threshold 0.5
+uv run python -m scripts.seizure_aops manually-review-matches m.json --threshold 0.5
 
 find . -type d -maxdepth 2   # outputs/, xml_inputs/, logs/ all under /tmp/aop-test
 ```

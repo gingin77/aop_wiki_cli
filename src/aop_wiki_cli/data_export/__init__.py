@@ -90,11 +90,6 @@ from .excel_writer import (
     auto_size_columns,
 )
 
-from .seizure_aop_export import (
-    write_seizure_aop_excel_workbook,
-    export_seizure_aop_results,
-)
-
 # Reference search result exports
 from aop_wiki_cli.data_export.export_reference_search_results import (
     export_search_results_to_csv,
@@ -158,11 +153,7 @@ __all__ = [
     'create_aop_specific_harmonized_ker_workbook',
     'write_excel_workbook',
     'write_excel_sheet',
-    'write_seizure_aop_excel_workbook',
     'auto_size_columns',
-    
-    # Seizure AOP exports
-    'export_seizure_aop_results',
 
     # Search result exports
     'export_search_results_to_json',

@@ -23,14 +23,6 @@ Event Statistics:
     calculate_event_summary_statistics: Generate summary stats for event collections
     collect_and_rank_events: Collect events from XML with rankings and stats
 
-Seizure AOP Analysis:
-    organize_and_enrich_harmonized_events: Analyze and enrich seizure AOP data with AOP-Wiki matches
-    
-KE Description Mapping:
-    map_ke_descriptions_to_harmonized_kes: Fuzzy match KE descriptions to harmonized titles
-    generate_match_metrics: Generate statistics on matching results
-    map_assays_to_events_via_target_families: Link assays to events through target family associations
-
 MIE/AO Pairing:
     build_mie_ao_pairs: Pair each AOP's MIEs with its AOs, one row per combination
     summarize_mie_ao_pairs: Summary counts over a set of pair rows
@@ -51,19 +43,6 @@ from aop_wiki_cli.analysis.meta_data_helpers import (
     filter_kers_by_tables,
     get_average_completion_score,
     calculate_event_summary_statistics,
-)
-
-# Seizure AOP content analysis
-from aop_wiki_cli.analysis.analyze_seizure_aop_content import (
-    organize_and_enrich_harmonized_events
-)
-
-# KE description mapping
-from aop_wiki_cli.analysis.map_ke_descriptions_to_harmonized import (
-    map_ke_descriptions_to_harmonized_kes,
-    generate_match_metrics,
-    enrich_target_families,
-    map_assays_to_events_via_target_families,
 )
 
 # Event content internal alignment: structured properties against the Event's own text
@@ -102,13 +81,6 @@ __all__ = [
     'get_average_completion_score',
     # Event statistics
     'calculate_event_summary_statistics',
-    # Seizure AOP content analysis
-    'organize_and_enrich_harmonized_events',
-    # KE description mapping
-    'map_ke_descriptions_to_harmonized_kes',
-    'generate_match_metrics',
-    'enrich_target_families',
-    'map_assays_to_events_via_target_families',
     # Event content internal alignment
     'check_event',
     'check_events',

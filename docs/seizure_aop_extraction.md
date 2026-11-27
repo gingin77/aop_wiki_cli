@@ -37,7 +37,7 @@ References to `<group>.data` throughout this document refer to this `data` key.
 ### Step 1 — Parse Workbook → `seizure_content`
 
 **Function:** `parse_seizure_aop_workbook(workbook_path)`
-**Source:** `src/aop_wiki_cli/parsers/parse_behl_seizure_aop_workbook.py`
+**Source:** `scripts/seizure_aops/parse_behl_seizure_aop_workbook.py`
 
 Reads 3 sheets from `inputs/seizure_aops/behl_seizure_supp_data.xlsx`:
 harmonization, assays, and chemicals. Extracts and organizes content into the
@@ -68,7 +68,7 @@ Initial `seizure_content` root groups populated here:
 ### Step 2 — Fuzzy Match KE Descriptions → Harmonized KE Titles
 
 **Function:** `map_ke_descriptions_to_harmonized_kes(ke_description_mapping, harmonized_kes_list, threshold=0.6)`
-**Source:** `src/aop_wiki_cli/analysis/map_ke_descriptions_to_harmonized.py`
+**Source:** `scripts/seizure_aops/map_ke_descriptions_to_harmonized.py`
 
 The Behl workbook links assays to KE *descriptions* rather than exact KE titles. This step
 uses prefix-weighted fuzzy matching to find the best harmonized KE title for each
@@ -84,7 +84,7 @@ description (threshold: 0.6).
 ### Human Review — Stage 1: KE Description ↔ Harmonized KE
 
 **Function:** `review_matches(enhanced_ke_description_mapping, score_threshold=0.9)`
-**Source:** `src/aop_wiki_cli/analysis/manual_match_review.py`
+**Source:** `scripts/seizure_aops/manual_match_review.py`
 
 Interactive terminal review of matches below the 0.9 confidence threshold.
 High-confidence matches (≥ 0.9) are auto-approved.
@@ -123,7 +123,7 @@ export from `xml_inputs/` and saves results to cache.
 ### Step 4 — Fuzzy Match Target Families → Wiki Events
 
 **Function:** `enrich_target_families(target_families_to_h_events_and_assays, all_events)`
-**Source:** `src/aop_wiki_cli/analysis/map_ke_descriptions_to_harmonized.py`
+**Source:** `scripts/seizure_aops/map_ke_descriptions_to_harmonized.py`
 
 For each biological target family from the workbook, checks for an existing manual mapping
 to harmonized events. If none exists, fuzzy-matches the target family name against Wiki
@@ -137,7 +137,7 @@ family, sorted by score descending.
 ### Human Review — Stage 2: Target Family ↔ Wiki Event
 
 **Function:** `review_matches(tfs_to_events, score_threshold=0.9)`
-**Source:** `src/aop_wiki_cli/analysis/manual_match_review.py`
+**Source:** `scripts/seizure_aops/manual_match_review.py`
 
 Same interactive review process as Stage 1, applied to target family → event matches.
 After review, the CLI renames fields for clarity:
@@ -157,7 +157,7 @@ If this file exists and `--skip-curated` is not set, this stage is skipped on re
 ### Step 5 — Map Assays to Events via Target Families
 
 **Function:** `map_assays_to_events_via_target_families(enriched_target_families_reviewed, target_families_to_h_events_and_assays)`
-**Source:** `src/aop_wiki_cli/analysis/map_ke_descriptions_to_harmonized.py`
+**Source:** `scripts/seizure_aops/map_ke_descriptions_to_harmonized.py`
 
 Creates a two-step linking chain: assays → target families → events. For each target
 family, builds an event list from three sources (in priority order):
@@ -209,7 +209,7 @@ unassigned ("nan") events.
 ### Step 7 — Export All Results
 
 **Function:** `export_seizure_aop_results(seizure_content, output_dir, work_date_str)`
-**Source:** `src/aop_wiki_cli/data_export/seizure_aop_export.py`
+**Source:** `scripts/seizure_aops/seizure_aop_export.py`
 
 Iterates over `seizure_content` root groups and writes each dataset based on its declared
 `export_types` (`json`, `csv`, `xlsx`). All files written to
