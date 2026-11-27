@@ -50,6 +50,7 @@ prefixes:
   OBI: http://purl.obolibrary.org/obo/OBI_
   BAO: http://www.bioassayontology.org/bao#BAO_
   NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  namo: https://w3id.org/monarch-initiative/namo/
 ```
 
 ### 2. Type `source_id` as `uriorcurie`
@@ -94,8 +95,13 @@ enums:
       is_direct: false
       relationship_types: [rdfs:subClassOf]
   AssayTermEnum:
+    # namo:NAMModel admits the NAMO (New Approach Methodology Ontology)
+    # model-system classes — CellularSystem, MicrophysiologicalSystem,
+    # OrganOnChip, CellFreeSystem and its assay subclasses (BiochemicalAssay,
+    # PeptideReactivityAssay, PhysicochemicalAssay), InSilicoModel, etc. —
+    # which is how NAM-based measurement methods enter EMOD's Assay matching.
     reachable_from:
-      source_nodes: [OBI:0000070, BAO:0000015]
+      source_nodes: [OBI:0000070, BAO:0000015, namo:NAMModel]
       is_direct: false
       relationship_types: [rdfs:subClassOf]
   BiologicalObjectTermEnum:
@@ -189,6 +195,17 @@ separately.
   bindings, or bind them with a pattern constraint only.
 - **BAO** is not an OBO ontology; its sqlite build availability should be
   confirmed before including `BAO:0000015` in `AssayTermEnum`'s roots.
+- **NAMO** is a LinkML semantic model (monarch-initiative/namo) exported as an
+  ontology and published on BioPortal, not OLS or the OBO sqlite registry, so
+  its closure must be served through a different adapter (e.g. oaklib's
+  `bioportal:NAMO`, which needs a BioPortal API key) or a locally built OWL.
+  Its class identifiers are name-based (`namo:BiochemicalAssay`), not numeric.
+  Note the modeling nuance: NAMO's `NAMModel` branch describes *model/test
+  systems*, which is broader than an assay method — if EMOD wants only the
+  assay-shaped classes, root the enum at `namo:CellFreeSystem` plus the other
+  assay-like subtrees instead of all of `NAMModel`. NAMO's `FunctionalAssay`
+  class is a measurement *record* attached to a model system, not a method
+  class, and should stay out of the enum.
 - Dynamic-enum validation needs the ontology closures; `linkml-term-validator`
   materializes/caches enum membership, and the first run downloads the SQLite
   ontology builds (GO and CHEBI are large, NCBITaxon very large — taxon
