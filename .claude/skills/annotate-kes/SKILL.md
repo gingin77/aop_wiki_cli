@@ -1,11 +1,15 @@
 ---
-name: annotate-aop-ke-ontology
-description: Interactively annotate all Key Events (KEs) for one AOP with bio-ontology terms, one KE at a time, collecting the user's feedback after each KE. Use when the user asks to annotate an AOP's Key Events (e.g. "annotate AOP 173") or invokes /annotate-aop-ke-ontology. Takes the AOP ID as its argument.
+name: annotate-kes
+description: Interactively annotate Key Events (KEs) with bio-ontology terms, one KE at a time, collecting the user's feedback after each KE. Use when the user asks to annotate an AOP's Key Events (e.g. "annotate AOP 173") or a set of KEs, or invokes /annotate-kes. Takes an AOP ID as its argument, or a comma-separated list of KE IDs.
 ---
 
-# Interactive KE ontology annotation for one AOP
+# Interactive KE annotation
 
-The AOP ID is given as the skill argument; call it `<aop_id>` below.
+The skill argument is either an AOP ID (call it `<aop_id>` below) or a
+comma-separated list of KE IDs. With a KE-ID list, skip the AOP listing in
+setup, use `--ke-id <ke_id>` per KE exactly as below (dropping `--aop`), and
+treat the given list as the pending set. (Non-interactive cluster runs can use
+`--ke-ids <id,id,...>` directly.)
 
 ## Setup
 

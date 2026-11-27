@@ -270,6 +270,9 @@ uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --annotat
 # Annotate a single KE by ID
 uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 1702
 
+# Annotate a cluster of KEs across AOPs in one run
+uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-ids 68,177,227
+
 # Re-annotate a specific field while keeping all other values
 uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 1702 --force-on assays
 
@@ -298,9 +301,9 @@ Valid `--force-on` fields: `biological_organization`, `cell_term`, `organ_term`,
 
 ### Interactive annotation via Claude Code
 
-When working in Claude Code, invoke the `annotate-aop-ke-ontology` skill
-(`/annotate-aop-ke-ontology <aop_id>`) to interactively annotate all Key Events for an AOP one
-at a time, with the opportunity to review and comment after each KE.
+When working in Claude Code, invoke the `annotate-kes` skill
+(`/annotate-kes <aop_id>` or `/annotate-kes <ke_id,ke_id,...>`) to interactively annotate
+Key Events one at a time, with the opportunity to review and comment after each KE.
 
 ## Development
 

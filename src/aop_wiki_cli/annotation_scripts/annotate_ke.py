@@ -45,6 +45,9 @@ Usage:
     # Annotate every pending KE in an AOP
     uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --aop 173 --annotate-all --date 04-28-2026
 
+    # Annotate a cluster of KEs across AOPs in one run
+    uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-ids 68,177,227 --date 04-28-2026
+
     # Re-annotate all fields from scratch
     uv run python -m aop_wiki_cli.annotation_scripts.annotate_ke --ke-id 68 --force --date 04-28-2026
 
@@ -1000,6 +1003,25 @@ def _git_output(*args) -> str | None:
         return None
 
 
+def _annotate_batch(ke_ids, store, cache, args, force_fields, with_assays) -> list[str]:
+    """Annotate every pending KE in ke_ids (the --aop and --ke-ids batch loop):
+    complete KEs are skipped unless --force/--force-on, and one metadata record
+    is appended for the whole run."""
+    annotated_ids = []
+    for ke_id in ke_ids:
+        ke_entry = store.get(ke_id)
+        already_complete = ke_entry and ke_entry.get("workflow_version") == ANNOTATION_WORKFLOW_VERSION
+        if already_complete and not args.force and not force_fields:
+            print(f"KE {ke_id} is already fully annotated (workflow v{ANNOTATION_WORKFLOW_VERSION}).")
+            continue
+        if annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields,
+                       with_assays=with_assays):
+            annotated_ids.append(ke_id)
+    if annotated_ids:
+        _record_run_metadata(args, force_fields, with_assays, cache, annotated_ids)
+    return annotated_ids
+
+
 def _workflow_ontology_acronyms() -> list[str]:
     """Every BioPortal ontology acronym the workflow can query."""
     scopes = list(FIELD_ONTOLOGIES.values()) + [ASSAY_TYPE_ONTOLOGIES, TAXON_ONTOLOGIES]
@@ -1024,6 +1046,7 @@ def _record_run_metadata(args, force_fields, with_assays, cache, annotated_ids) 
         "command": {
             "aop": args.aop,
             "ke_id": args.ke_id,
+            "ke_ids": [k.strip() for k in (args.ke_ids or "").split(",") if k.strip()],
             "force": args.force,
             "force_on": sorted(force_fields) if force_fields else [],
             "with_assays": with_assays,
@@ -1051,6 +1074,11 @@ def main():
     parser = argparse.ArgumentParser(description="Annotate AOP-Wiki Key Events with ontology terms")
     parser.add_argument("--aop", default=None, help="AOP ID (e.g. 173); omit to annotate a KE standalone")
     parser.add_argument("--ke-id", default=None, help="Annotate a single KE by ID")
+    parser.add_argument(
+        "--ke-ids", metavar="ID,ID,...", default=None,
+        help="Annotate a cluster of KEs in one run, regardless of AOP membership "
+             "(comma-separated; complete KEs are skipped as in --aop batch mode)",
+    )
     parser.add_argument("--add-comment", default=None, help="Append a comment to a KE (requires --ke-id)")
     parser.add_argument(
         "--force", action="store_true",
@@ -1116,9 +1144,21 @@ def main():
     force_fields = set(args.force_fields) if args.force_fields else None
     # Explicitly forcing the assays field means assay extraction is wanted.
     with_assays = args.with_assays or "assays" in (force_fields or set())
+
+    if args.ke_ids:
+        if args.ke_id or args.aop:
+            parser.error("--ke-ids cannot be combined with --ke-id or --aop")
+        ke_ids = [k.strip() for k in args.ke_ids.split(",") if k.strip()]
+        if not ke_ids:
+            parser.error("--ke-ids needs at least one KE id")
+        _annotate_batch(ke_ids, load_ke_annotations(), cache, args,
+                        force_fields, with_assays)
+        return
+
     if args.ke_id is None:
         if args.aop is None:
-            print("Provide --ke-id to annotate a KE, or --aop to list KEs for an AOP.")
+            print("Provide --ke-id to annotate a KE, --ke-ids for a cluster of KEs, "
+                  "or --aop to list KEs for an AOP.")
             sys.exit(1)
         kes = list_aop_kes(args.aop, cache)
         if not kes:
@@ -1143,18 +1183,8 @@ def main():
                 print(f"  KE {ke_id:>5}  {status:<32} {title}")
             print("\nPass --annotate-all to annotate the pending KEs.")
             return
-        annotated_ids = []
-        for ke_id, _ in kes:
-            ke_entry = store.get(ke_id)
-            already_complete = ke_entry and ke_entry.get("workflow_version") == ANNOTATION_WORKFLOW_VERSION
-            if already_complete and not args.force and not force_fields:
-                print(f"KE {ke_id} is already fully annotated (workflow v{ANNOTATION_WORKFLOW_VERSION}).")
-                continue
-            if annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields,
-                           with_assays=with_assays):
-                annotated_ids.append(ke_id)
-        if annotated_ids:
-            _record_run_metadata(args, force_fields, with_assays, cache, annotated_ids)
+        _annotate_batch([ke_id for ke_id, _ in kes], store, cache, args,
+                        force_fields, with_assays)
         return
 
     store = load_ke_annotations()
