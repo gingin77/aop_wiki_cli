@@ -1,0 +1,507 @@
+{
+  "input_ids": [
+    "142",
+    "57",
+    "334",
+    "887",
+    "177",
+    "889",
+    "188",
+    "890",
+    "888",
+    "896",
+    "1264",
+    "1265",
+    "988",
+    "1266",
+    "1267",
+    "993",
+    "103",
+    "990",
+    "350",
+    "1000",
+    "858",
+    "1528",
+    "861",
+    "862",
+    "863",
+    "998",
+    "864",
+    "219",
+    "3",
+    "408",
+    "406",
+    "405",
+    "295",
+    "961",
+    "281",
+    "280",
+    "756",
+    "757",
+    "758",
+    "239",
+    "64",
+    "669",
+    "682",
+    "616",
+    "667",
+    "613",
+    "245",
+    "195",
+    "52",
+    "381",
+    "55",
+    "201",
+    "352",
+    "341",
+    "382",
+    "385",
+    "386",
+    "383",
+    "202",
+    "152",
+    "168",
+    "145",
+    "403",
+    "122",
+    "323",
+    "155",
+    "185",
+    "97",
+    "336",
+    "10",
+    "39",
+    "445",
+    "1703",
+    "12",
+    "351",
+    "360",
+    "1538",
+    "1392",
+    "1488",
+    "1492",
+    "1493",
+    "1487",
+    "266",
+    "447",
+    "413",
+    "1690",
+    "289",
+    "227",
+    "348",
+    "286",
+    "26",
+    "944",
+    "1269",
+    "317",
+    "947",
+    "18",
+    "129",
+    "274",
+    "285",
+    "221",
+    "309",
+    "78",
+    "25",
+    "36",
+    "178",
+    "40",
+    "1115",
+    "288",
+    "214",
+    "87",
+    "149",
+    "209",
+    "41",
+    "357",
+    "243",
+    "49",
+    "106",
+    "119",
+    "79",
+    "253",
+    "220",
+    "307",
+    "252",
+    "111",
+    "363",
+    "339",
+    "364",
+    "112",
+    "77",
+    "164",
+    "147",
+    "270",
+    "269",
+    "347",
+    "759",
+    "54",
+    "115",
+    "66",
+    "264",
+    "116",
+    "258",
+    "89",
+    "291",
+    "167",
+    "228",
+    "345",
+    "169",
+    "46",
+    "327",
+    "140",
+    "179",
+    "8",
+    "231",
+    "232",
+    "233",
+    "459",
+    "1170",
+    "716",
+    "1171",
+    "719",
+    "265",
+    "68",
+    "244",
+    "344",
+    "1496",
+    "398",
+    "272",
+    "396",
+    "313",
+    "826",
+    "827",
+    "139",
+    "853",
+    "854",
+    "165",
+    "856",
+    "277",
+    "279",
+    "402",
+    "28",
+    "110",
+    "298",
+    "305",
+    "1001",
+    "376",
+    "409",
+    "491",
+    "493",
+    "373",
+    "378",
+    "388",
+    "389",
+    "618",
+    "875",
+    "414",
+    "415",
+    "416",
+    "417",
+    "418",
+    "419"
+  ],
+  "groups": [
+    {
+      "group_key": "complex_i_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "887",
+        "888"
+      ],
+      "rationale": "Both target Complex I; binding of inhibitor does not confirm functional inhibition."
+    },
+    {
+      "group_key": "ppara_binding_antagonist_vs_activity",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "998",
+        "231"
+      ],
+      "rationale": "Both concern PPAR alpha; antagonist binding vs decreased activity are distinct processes."
+    },
+    {
+      "group_key": "pxr_activation",
+      "type": "merge",
+      "member_ids": [
+        "239",
+        "245"
+      ],
+      "rationale": "Both describe activation of pregnane-X receptor (NR1I2/PXR/SXR)."
+    },
+    {
+      "group_key": "nmda_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "201",
+        "195"
+      ],
+      "rationale": "Both concern NMDA receptors; antagonist binding vs inhibition of function."
+    },
+    {
+      "group_key": "nmdar_inhibition_vs_overactivation",
+      "type": "soda",
+      "member_ids": [
+        "195",
+        "388"
+      ],
+      "rationale": "Inhibition and overactivation of NMDARs are opposite directions of the same object."
+    },
+    {
+      "group_key": "increased_mortality",
+      "type": "merge",
+      "member_ids": [
+        "350",
+        "351"
+      ],
+      "rationale": "Both describe increased mortality."
+    },
+    {
+      "group_key": "ahr_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "18",
+        "165"
+      ],
+      "rationale": "AhR activation general vs long-term AHR-driven gene expression changes."
+    },
+    {
+      "group_key": "vtg_plasma_increase_reduction",
+      "type": "soda",
+      "member_ids": [
+        "220",
+        "221"
+      ],
+      "rationale": "Plasma vitellogenin increased vs reduced."
+    },
+    {
+      "group_key": "vtg_synthesis_liver",
+      "type": "soda",
+      "member_ids": [
+        "307",
+        "285"
+      ],
+      "rationale": "Hepatic vitellogenin synthesis increase vs reduction."
+    },
+    {
+      "group_key": "vtg_synthesis_general_vs_liver",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "418",
+        "307"
+      ],
+      "rationale": "Increased vitellogenin synthesis general vs liver-specific."
+    },
+    {
+      "group_key": "renal_vtg_deposition",
+      "type": "merge",
+      "member_ids": [
+        "252",
+        "419"
+      ],
+      "rationale": "Both describe increased renal vitellogenin deposition/pathology."
+    },
+    {
+      "group_key": "er_agonism_antagonism",
+      "type": "soda",
+      "member_ids": [
+        "111",
+        "112"
+      ],
+      "rationale": "Agonism vs antagonism of estrogen receptor."
+    },
+    {
+      "group_key": "ar_agonism_antagonism",
+      "type": "soda",
+      "member_ids": [
+        "25",
+        "26"
+      ],
+      "rationale": "Agonism vs antagonism of androgen receptor."
+    },
+    {
+      "group_key": "leydig_hyperplasia_proliferation",
+      "type": "merge",
+      "member_ids": [
+        "415",
+        "416"
+      ],
+      "rationale": "Leydig cell hyperplasia and increased proliferation describe the same event."
+    },
+    {
+      "group_key": "hepatocyte_proliferation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "716",
+        "57",
+        "269"
+      ],
+      "rationale": "Cell proliferation, with hepatocyte specificity in one and sustained proliferation in another."
+    },
+    {
+      "group_key": "altered_hepatic_foci",
+      "type": "merge",
+      "member_ids": [
+        "1171",
+        "491"
+      ],
+      "rationale": "Both describe clonal expansion/proliferation forming altered hepatic foci."
+    },
+    {
+      "group_key": "hcc_tumor",
+      "type": "merge",
+      "member_ids": [
+        "378",
+        "719"
+      ],
+      "rationale": "Both describe hepatocellular carcinoma/adenoma tumor formation."
+    },
+    {
+      "group_key": "liver_tumor_formation",
+      "type": "merge",
+      "member_ids": [
+        "347",
+        "856"
+      ],
+      "rationale": "Both describe formation of liver tumors."
+    },
+    {
+      "group_key": "liver_steatosis",
+      "type": "merge",
+      "member_ids": [
+        "345",
+        "459"
+      ],
+      "rationale": "Both describe liver steatosis."
+    },
+    {
+      "group_key": "ppar_activity_isoforms",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "231",
+        "232",
+        "233"
+      ],
+      "rationale": "Decreased activity of different PPAR isoforms."
+    },
+    {
+      "group_key": "fa_beta_oxidation_decrease",
+      "type": "merge",
+      "member_ids": [
+        "1528",
+        "179"
+      ],
+      "rationale": "Both describe decreased fatty acid beta oxidation."
+    },
+    {
+      "group_key": "ppara_activation_vs_decreased_activity",
+      "type": "soda",
+      "member_ids": [
+        "227",
+        "231"
+      ],
+      "rationale": "PPAR\u03b1 activation vs decreased PPAR\u03b1 activity."
+    },
+    {
+      "group_key": "estradiol_synthesis_reduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "219",
+        "3"
+      ],
+      "rationale": "Reduced estradiol, plasma vs ovarian granulosa synthesis."
+    },
+    {
+      "group_key": "t4_serum_vs_neuronal",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "281",
+        "280"
+      ],
+      "rationale": "Decreased thyroxine in serum vs neuronal tissue."
+    },
+    {
+      "group_key": "testosterone_reduction",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "413",
+        "1690",
+        "274"
+      ],
+      "rationale": "Reduced testosterone synthesis/levels in different contexts."
+    },
+    {
+      "group_key": "aromatase_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "36",
+        "408"
+      ],
+      "rationale": "General aromatase inhibition vs granulosa cell-specific reduction."
+    },
+    {
+      "group_key": "oxidative_stress",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1392",
+        "1538"
+      ],
+      "rationale": "Oxidative stress increase vs decreased protection against it; related and flagged for review."
+    },
+    {
+      "group_key": "inflammation_mediators",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1493",
+        "1496",
+        "87"
+      ],
+      "rationale": "Increased pro-inflammatory mediator/cytokine release in various contexts."
+    },
+    {
+      "group_key": "covalent_protein_binding",
+      "type": "merge",
+      "member_ids": [
+        "244",
+        "396"
+      ],
+      "rationale": "Both describe covalent modification of proteins."
+    },
+    {
+      "group_key": "tpo_thyroid_hormone",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "277",
+        "279"
+      ],
+      "rationale": "Thyroid hormone synthesis decrease and TPO inhibition; flagged for review."
+    },
+    {
+      "group_key": "neuronal_network_function",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "386",
+        "618"
+      ],
+      "rationale": "Decreased neuronal network function, one specifying adult brain."
+    },
+    {
+      "group_key": "cox_inhibition_pge2",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "79",
+        "243"
+      ],
+      "rationale": "Related COX/prostaglandin reduction; flagged for review."
+    },
+    {
+      "group_key": "hepatic_hyperplasia_proliferation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "142",
+        "854"
+      ],
+      "rationale": "Hyperplasia and cellular proliferation/hyperplasia alterations."
+    }
+  ]
+}

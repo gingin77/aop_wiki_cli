@@ -139,8 +139,8 @@ times, giving two replicate comparisons:
 
 | Pair | What varies | A → B |
 |---|---|---|
-| `11-25` → `11-27 AM` | model sampling **+ 2 days of wiki content** (different event caches) | committed baseline → committed `11-27-2026_sonnet_5-5_thinking_on` |
-| `11-27 AM` → `11-27 PM` | model sampling **only** (identical cache, same code, ~3 h apart) | committed run → same-day re-run |
+| `11-25` → `11-27 AM` | model sampling **+ 2 days of wiki content** (different event caches) | committed baseline → `11-27-2026_sonnet_5-5_thinking_on_run_a` |
+| `11-27 AM` → `11-27 PM` | model sampling **only** (identical cache, same code, ~3 h apart) | `..._run_a` → `..._run_b` |
 
 Both compared with `compare_grouping_runs.py` at `--min-overlap 0.5`; both B
 runs are `run_status.complete: true` from clean commits.
@@ -186,15 +186,13 @@ Identical-group rate by type (A's perspective):
    overlap (70–72), so group-by-group differences between those configs should
    not be read as config effects.
 
-Data: the 11-27 AM run and the 11-25→11-27 comparison are committed
-(`outputs_for_vc/ke_groupings/11-27-2026_sonnet_5-5_thinking_on/`,
-`outputs_for_vc/nov25_vs_nov27.json` + crosswalk). The 11-27 PM snapshot is
-deliberately **not** retained — it adds no information beyond the comparison —
-but its comparison outputs are committed as
-`outputs_for_vc/ke_groupings/nov27_a_vs_nov27_b.json` and
-`outputs_for_vc/ke_groupings/nov27_a_to_nov27_b_crosswalk.csv` (A = the
-committed AM run, B = the discarded PM re-run), which preserve the numbers
-above including per-group detail.
+Data: both same-day replicates are committed under
+`outputs_for_vc/ke_groupings/` as `11-27-2026_sonnet_5-5_thinking_on_run_a/`
+(AM; the one the 11-25 comparison used) and
+`11-27-2026_sonnet_5-5_thinking_on_run_b/` (PM), with the comparisons beside
+them: `nov25_vs_nov27.json` + `nov25_to_nov27_crosswalk.csv` (at the
+`outputs_for_vc/` root) and `nov27_a_vs_nov27_b.json` +
+`nov27_a_to_nov27_b_crosswalk.csv`.
 
 ---
 

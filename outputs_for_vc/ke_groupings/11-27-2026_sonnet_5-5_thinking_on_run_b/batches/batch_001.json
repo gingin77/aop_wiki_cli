@@ -1,0 +1,438 @@
+{
+  "input_ids": [
+    "421",
+    "422",
+    "425",
+    "851",
+    "424",
+    "450",
+    "451",
+    "216",
+    "465",
+    "466",
+    "467",
+    "80",
+    "462",
+    "457",
+    "458",
+    "454",
+    "463",
+    "470",
+    "456",
+    "468",
+    "461",
+    "471",
+    "472",
+    "474",
+    "477",
+    "480",
+    "482",
+    "483",
+    "878",
+    "879",
+    "880",
+    "881",
+    "478",
+    "479",
+    "484",
+    "486",
+    "488",
+    "685",
+    "675",
+    "495",
+    "496",
+    "520",
+    "494",
+    "186",
+    "192",
+    "655",
+    "656",
+    "657",
+    "653",
+    "654",
+    "505",
+    "660",
+    "658",
+    "659",
+    "661",
+    "645",
+    "642",
+    "643",
+    "644",
+    "646",
+    "647",
+    "648",
+    "649",
+    "640",
+    "525",
+    "651",
+    "652",
+    "650",
+    "1028",
+    "1448",
+    "1449",
+    "1450",
+    "1451",
+    "1452",
+    "1453",
+    "1454",
+    "1447",
+    "528",
+    "529",
+    "530",
+    "531",
+    "532",
+    "533",
+    "534",
+    "535",
+    "536",
+    "526",
+    "527",
+    "540",
+    "541",
+    "662",
+    "543",
+    "560",
+    "1107",
+    "1243",
+    "559",
+    "563",
+    "564",
+    "565",
+    "566",
+    "568",
+    "570",
+    "571",
+    "664",
+    "572",
+    "573",
+    "574",
+    "576",
+    "577",
+    "578",
+    "579",
+    "580",
+    "561",
+    "1108",
+    "663",
+    "585",
+    "586",
+    "584",
+    "587",
+    "588",
+    "592",
+    "444",
+    "590",
+    "591",
+    "593",
+    "599",
+    "600",
+    "601",
+    "602",
+    "598",
+    "625",
+    "1139",
+    "1142",
+    "1143",
+    "624",
+    "622",
+    "626",
+    "619",
+    "623",
+    "627",
+    "629",
+    "633",
+    "634",
+    "635",
+    "638",
+    "636",
+    "671",
+    "672",
+    "673",
+    "674",
+    "678",
+    "681",
+    "687",
+    "689",
+    "690",
+    "691",
+    "692",
+    "694",
+    "693",
+    "695",
+    "696",
+    "698",
+    "699",
+    "697",
+    "708",
+    "709",
+    "710",
+    "767",
+    "714",
+    "713",
+    "720",
+    "721",
+    "752",
+    "723",
+    "718",
+    "728",
+    "1214",
+    "774",
+    "715",
+    "768",
+    "726",
+    "769",
+    "724",
+    "733",
+    "734",
+    "735",
+    "770",
+    "736",
+    "1023",
+    "739",
+    "740",
+    "741",
+    "743",
+    "744",
+    "754",
+    "1614",
+    "745",
+    "747",
+    "749",
+    "772"
+  ],
+  "groups": [
+    {
+      "group_key": "nis_iodide_inhibition",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "424",
+        "425"
+      ],
+      "rationale": "NIS inhibition and decreased thyroidal iodide are related but concern different objects, so this grouping is weak; they are flagged for curator review."
+    },
+    {
+      "group_key": "fetal_leydig_dysgenesis_links",
+      "type": "merge",
+      "member_ids": [
+        "657",
+        "660",
+        "540"
+      ],
+      "rationale": "All three are the same KER-style title: decreased testosterone by fetal Leydig cells paired with dysgenesis of fetal Leydig cells."
+    },
+    {
+      "group_key": "sperm_fertility_links",
+      "type": "merge",
+      "member_ids": [
+        "520",
+        "505"
+      ],
+      "rationale": "Both describe decreased sperm quantity/quality in the adult with decreased fertility."
+    },
+    {
+      "group_key": "coup_tf_ii_decrease_increase",
+      "type": "soda",
+      "member_ids": [
+        "655",
+        "656"
+      ],
+      "rationale": "Both concern COUP-TFII in fetal Leydig cells, one increased and one decreased."
+    },
+    {
+      "group_key": "prostaglandin_f2a_ovary_synthesis",
+      "type": "merge",
+      "member_ids": [
+        "672",
+        "681"
+      ],
+      "rationale": "Both describe reduced prostaglandin F2alpha synthesis in the ovary."
+    },
+    {
+      "group_key": "nachr_activation_desensitization",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "559",
+        "663"
+      ],
+      "rationale": "Both target the nicotinic acetylcholine receptor but activation and desensitization are distinct processes."
+    },
+    {
+      "group_key": "colony_loss",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1107",
+        "563"
+      ],
+      "rationale": "Both describe colony-level decline, differing in severity (weakened vs death/failure)."
+    },
+    {
+      "group_key": "caste_role_change",
+      "type": "merge",
+      "member_ids": [
+        "564",
+        "1108"
+      ],
+      "rationale": "Both describe abnormal role change within caste (spelling variant)."
+    },
+    {
+      "group_key": "sodium_channel_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "584",
+        "585",
+        "598"
+      ],
+      "rationale": "All concern the sodium channel but describe inhibition, decreased conductance, and modulation as distinct processes."
+    },
+    {
+      "group_key": "locomotion_up_down",
+      "type": "soda",
+      "member_ids": [
+        "622",
+        "635"
+      ],
+      "rationale": "Both describe locomotion in opposite directions."
+    },
+    {
+      "group_key": "predation_increase",
+      "type": "merge",
+      "member_ids": [
+        "588",
+        "623"
+      ],
+      "rationale": "Both describe increased predation."
+    },
+    {
+      "group_key": "cytotoxicity_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "709",
+        "768",
+        "770"
+      ],
+      "rationale": "Increased cytotoxicity in different tissue or cell contexts, or unspecified."
+    },
+    {
+      "group_key": "hyperplasia_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "767",
+        "735",
+        "740",
+        "744",
+        "772"
+      ],
+      "rationale": "Increased hyperplasia in different cell and tissue contexts."
+    },
+    {
+      "group_key": "regenerative_proliferation_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "710",
+        "734"
+      ],
+      "rationale": "Regenerative cell proliferation in different epithelial contexts."
+    },
+    {
+      "group_key": "adenoma_carcinoma_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "713",
+        "736",
+        "741"
+      ],
+      "rationale": "Adenomas/carcinomas in different tissue contexts."
+    },
+    {
+      "group_key": "car_activation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "715",
+        "1214"
+      ],
+      "rationale": "CAR activation general vs hepatocyte-specific CAR-related gene expression changes."
+    },
+    {
+      "group_key": "lh_increase_decrease",
+      "type": "soda",
+      "member_ids": [
+        "690",
+        "754"
+      ],
+      "rationale": "Both concern luteinizing hormone, reduced vs increased."
+    },
+    {
+      "group_key": "androgen_receptor_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "743",
+        "1614"
+      ],
+      "rationale": "Both relate to androgen receptor activation by testosterone; one is binding in hypothalamus, the other overall receptor activation."
+    },
+    {
+      "group_key": "mtdna_damage_repair",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "570",
+        "664"
+      ],
+      "rationale": "Both concern mitochondrial DNA damage and repair, which are distinct processes."
+    },
+    {
+      "group_key": "prostaglandin_f2a_plasma_vs_ovary",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "671",
+        "672"
+      ],
+      "rationale": "Reduced PGF2alpha in plasma vs ovary synthesis, different compartments."
+    },
+    {
+      "group_key": "steroidogenesis_decrease_apoptosis_leydig",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "496",
+        "648"
+      ],
+      "rationale": "Both involve Leydig cell apoptosis, in fetal/adult vs adult contexts."
+    },
+    {
+      "group_key": "triglyceride_increase",
+      "type": "merge",
+      "member_ids": [
+        "454",
+        "881"
+      ],
+      "rationale": "Both describe increased triglyceride formation/levels."
+    },
+    {
+      "group_key": "srebp1_activation_inhibition",
+      "type": "soda",
+      "member_ids": [
+        "457",
+        "878"
+      ],
+      "rationale": "SREBF1/SREBP1c activated vs inhibited."
+    },
+    {
+      "group_key": "prostaglandin_ovary_reduced",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "685",
+        "672"
+      ],
+      "rationale": "Reduced prostaglandins in ovary vs reduced PGF2alpha synthesis in ovary, differing in specificity."
+    },
+    {
+      "group_key": "ovulation_decrease_delay",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "488",
+        "532"
+      ],
+      "rationale": "Both concern impaired ovulation, decreased vs delayed."
+    }
+  ]
+}

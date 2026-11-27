@@ -1,0 +1,432 @@
+{
+  "input_ids": [
+    "1602",
+    "1623",
+    "1788",
+    "1594",
+    "1595",
+    "1599",
+    "926",
+    "1603",
+    "1605",
+    "1606",
+    "1604",
+    "1825",
+    "1610",
+    "1611",
+    "1613",
+    "1615",
+    "1609",
+    "1616",
+    "1785",
+    "1628",
+    "1629",
+    "1630",
+    "1631",
+    "1627",
+    "1632",
+    "1634",
+    "1881",
+    "2419",
+    "1640",
+    "1643",
+    "1880",
+    "1754",
+    "1755",
+    "1651",
+    "1656",
+    "1661",
+    "1665",
+    "1666",
+    "1657",
+    "1667",
+    "1673",
+    "1677",
+    "1672",
+    "1669",
+    "1668",
+    "1670",
+    "1681",
+    "1682",
+    "1683",
+    "1684",
+    "1680",
+    "1685",
+    "1688",
+    "2298",
+    "1692",
+    "1693",
+    "1694",
+    "1695",
+    "1696",
+    "1691",
+    "679",
+    "1697",
+    "1698",
+    "1699",
+    "1705",
+    "1822",
+    "1707",
+    "1708",
+    "1706",
+    "1709",
+    "1711",
+    "1712",
+    "1713",
+    "1710",
+    "1714",
+    "1716",
+    "1717",
+    "1718",
+    "1715",
+    "1719",
+    "1721",
+    "1722",
+    "1723",
+    "1724",
+    "1720",
+    "1725",
+    "1834",
+    "860",
+    "1854",
+    "1752",
+    "1851",
+    "1172",
+    "1740",
+    "1738",
+    "1901",
+    "1847",
+    "1848",
+    "1750",
+    "1748",
+    "1739",
+    "1757",
+    "1756",
+    "1758",
+    "2147",
+    "1445",
+    "1767",
+    "1768",
+    "1769",
+    "1770",
+    "1772",
+    "1365",
+    "2245",
+    "2089",
+    "1761",
+    "1762",
+    "1763",
+    "1773",
+    "1774",
+    "1619",
+    "328",
+    "1776",
+    "1777",
+    "1778",
+    "1779",
+    "1780",
+    "1782",
+    "1781",
+    "1783",
+    "1784",
+    "2373",
+    "2375",
+    "2374",
+    "1786",
+    "1800",
+    "1789",
+    "1790",
+    "1791",
+    "1793",
+    "1794",
+    "1795",
+    "1792",
+    "1799",
+    "1835",
+    "1836",
+    "1798",
+    "1837",
+    "1796",
+    "996",
+    "1524",
+    "1806",
+    "1807",
+    "1523",
+    "1522",
+    "1526",
+    "1525",
+    "1815",
+    "1817",
+    "1818",
+    "1819",
+    "1633",
+    "1814",
+    "1820",
+    "1877",
+    "1878",
+    "1830",
+    "1831",
+    "1840",
+    "2312",
+    "1839",
+    "1841",
+    "1897",
+    "1895",
+    "1869",
+    "1809",
+    "1898",
+    "1900",
+    "1899",
+    "1857",
+    "1846",
+    "1868",
+    "902",
+    "1844",
+    "1842",
+    "1843",
+    "1845",
+    "1787",
+    "1856",
+    "1849",
+    "1850",
+    "1743",
+    "1852",
+    "1501",
+    "1855",
+    "1853",
+    "2096",
+    "1861",
+    "1862",
+    "1863",
+    "1864",
+    "1865"
+  ],
+  "groups": [
+    {
+      "group_key": "homocysteine_increase",
+      "type": "merge",
+      "member_ids": [
+        "1661",
+        "1665"
+      ],
+      "rationale": "Both describe increased homocysteine levels (plasma HCY), differing only in wording."
+    },
+    {
+      "group_key": "angiotensin_II_increase",
+      "type": "merge",
+      "member_ids": [
+        "1752",
+        "1743"
+      ],
+      "rationale": "Both describe increased angiotensin II (plasma Ang II)."
+    },
+    {
+      "group_key": "ace2_dysregulation_downregulation",
+      "type": "merge",
+      "member_ids": [
+        "1854",
+        "1740"
+      ],
+      "rationale": "Both describe dysregulation of ACE2 in the SARS-CoV-2 context."
+    },
+    {
+      "group_key": "at1r_increase_and_binding",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1851",
+        "1852"
+      ],
+      "rationale": "Both concern AT1R, but agonist binding and increased receptor level are distinct processes."
+    },
+    {
+      "group_key": "ace2_binding_vs_downregulation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1739",
+        "1787"
+      ],
+      "rationale": "Both involve ACE2, but binding by the virus does not equal downregulation of ACE2."
+    },
+    {
+      "group_key": "cryptorchidism_testis_descent",
+      "type": "merge",
+      "member_ids": [
+        "1615",
+        "1616"
+      ],
+      "rationale": "Impaired testicular descent and cryptorchidism (maldescended testis) are the same phenotype."
+    },
+    {
+      "group_key": "hypermethylation_dnmt",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1697",
+        "1619"
+      ],
+      "rationale": "Both concern DNA methyltransferase; increased expression and inhibition are distinct processes."
+    },
+    {
+      "group_key": "caspase_transcription_f0_f3",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1774",
+        "1779"
+      ],
+      "rationale": "Same increase in caspase transcription, but the F3 generation is specified in one."
+    },
+    {
+      "group_key": "fecundity_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "328",
+        "1781"
+      ],
+      "rationale": "Same decrease in fecundity; one is specified for the F3 generation."
+    },
+    {
+      "group_key": "ovarian_somatic_apoptosis",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1776",
+        "1783"
+      ],
+      "rationale": "Same ovarian somatic cell apoptosis increase, with the F3 generation specified in one."
+    },
+    {
+      "group_key": "ovarian_follicle_breakdown",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1777",
+        "1784"
+      ],
+      "rationale": "Same follicle breakdown increase, with the F3 generation specified in one."
+    },
+    {
+      "group_key": "global_dna_methylation",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1773",
+        "1778"
+      ],
+      "rationale": "Both describe decreased DNA methylation, one specifically heritable in F3."
+    },
+    {
+      "group_key": "mistimed_ecdysone_cascade",
+      "type": "soda",
+      "member_ids": [
+        "2373",
+        "2375"
+      ],
+      "rationale": "The same mis-timed nuclear receptor cascade, increased versus decreased."
+    },
+    {
+      "group_key": "cortisol_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1835",
+        "1836"
+      ],
+      "rationale": "Both describe decreased cortisol; one also includes 11\u03b2-OH testosterone."
+    },
+    {
+      "group_key": "oxidative_damage_lipid_protein",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1594",
+        "1445"
+      ],
+      "rationale": "Both describe lipid oxidation; one specifies membrane lipids."
+    },
+    {
+      "group_key": "tlr9_activation_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1900",
+        "1842"
+      ],
+      "rationale": "Both concern TLR9, but surface expression and prolonged activation are distinct processes."
+    },
+    {
+      "group_key": "thyroid_binding_displacement",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1830",
+        "1831"
+      ],
+      "rationale": "Both concern T4 transport on thyroid binding globulin; binding and displacement are distinct processes."
+    },
+    {
+      "group_key": "apoptosis_cell_death",
+      "type": "merge",
+      "member_ids": [
+        "1365",
+        "1864"
+      ],
+      "rationale": "Increased apoptosis and increased programmed cell death are the same process."
+    },
+    {
+      "group_key": "cell_death_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1825",
+        "1817"
+      ],
+      "rationale": "Both describe cell death; one is general and one is apoptotic."
+    },
+    {
+      "group_key": "inflammation_general_vs_liver",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1633",
+        "902",
+        "1868"
+      ],
+      "rationale": "Inflammation in general versus liver-specific inflammation and hyperinflammation."
+    },
+    {
+      "group_key": "reproduction_fecundity",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1696",
+        "328"
+      ],
+      "rationale": "Decreased egg production and fecundity are the same reproductive output endpoint."
+    },
+    {
+      "group_key": "progesterone_levels_and_synthesis",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1692",
+        "1693"
+      ],
+      "rationale": "Both concern progesterone, but reduced synthesis and reduced levels are distinct processes."
+    },
+    {
+      "group_key": "retinoic_acid_decrease",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1881",
+        "2419"
+      ],
+      "rationale": "Both concern retinoic acid signaling; reduced concentration and reduced receptor activation are distinct events."
+    },
+    {
+      "group_key": "mitochondrial_beta_oxidation_acyl_coa",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1834",
+        "860"
+      ],
+      "rationale": "Both relate to mitochondrial fatty acid oxidation, with decreased enzymes versus the process."
+    },
+    {
+      "group_key": "androgen_levels",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "2298",
+        "1613"
+      ],
+      "rationale": "Both describe decreased androgen levels; one is intratesticular testosterone and the other DHT."
+    }
+  ]
+}

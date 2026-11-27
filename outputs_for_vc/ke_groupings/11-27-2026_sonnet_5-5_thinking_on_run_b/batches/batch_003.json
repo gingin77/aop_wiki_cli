@@ -1,0 +1,370 @@
+{
+  "input_ids": [
+    "1169",
+    "1136",
+    "1152",
+    "1116",
+    "1828",
+    "1829",
+    "1154",
+    "1153",
+    "1155",
+    "1156",
+    "1158",
+    "1157",
+    "1161",
+    "1255",
+    "1163",
+    "621",
+    "1164",
+    "1218",
+    "1220",
+    "1222",
+    "1433",
+    "1435",
+    "1215",
+    "1223",
+    "1434",
+    "1226",
+    "1176",
+    "1179",
+    "1182",
+    "1183",
+    "1190",
+    "1192",
+    "1194",
+    "1195",
+    "1196",
+    "1197",
+    "1198",
+    "1239",
+    "1241",
+    "1193",
+    "1206",
+    "1209",
+    "1205",
+    "1208",
+    "361",
+    "1210",
+    "1461",
+    "1253",
+    "1252",
+    "1254",
+    "1256",
+    "1257",
+    "1141",
+    "1258",
+    "1260",
+    "1259",
+    "1262",
+    "1263",
+    "1271",
+    "1275",
+    "1457",
+    "1270",
+    "1276",
+    "1279",
+    "1280",
+    "1281",
+    "1174",
+    "1277",
+    "1282",
+    "1283",
+    "1284",
+    "1285",
+    "1286",
+    "1287",
+    "1288",
+    "1289",
+    "1290",
+    "1291",
+    "1292",
+    "1293",
+    "1294",
+    "1295",
+    "1503",
+    "1505",
+    "1515",
+    "1502",
+    "1506",
+    "1489",
+    "1320",
+    "1321",
+    "1330",
+    "1339",
+    "1346",
+    "1349",
+    "1350",
+    "1353",
+    "1348",
+    "1363",
+    "1635",
+    "1444",
+    "1366",
+    "1686",
+    "1376",
+    "1387",
+    "1388",
+    "1389",
+    "1386",
+    "1390",
+    "1393",
+    "1394",
+    "1391",
+    "1395",
+    "2421",
+    "1417",
+    "1426",
+    "1427",
+    "1425",
+    "1428",
+    "1429",
+    "1430",
+    "1431",
+    "1432",
+    "1438",
+    "1439",
+    "1443",
+    "1775",
+    "1456",
+    "1469",
+    "1468",
+    "1467",
+    "1472",
+    "1473",
+    "1474",
+    "1475",
+    "1476",
+    "1477",
+    "1478",
+    "1479",
+    "1471",
+    "1521",
+    "1482",
+    "1481",
+    "1486",
+    "1511",
+    "1512",
+    "1513",
+    "1508",
+    "1509",
+    "1514",
+    "1530",
+    "1531",
+    "1532",
+    "1533",
+    "1536",
+    "1537",
+    "1529",
+    "1535",
+    "1771",
+    "1821",
+    "1446",
+    "2064",
+    "1562",
+    "1527",
+    "2070",
+    "2071",
+    "2072",
+    "1636",
+    "1556",
+    "1545",
+    "1547",
+    "1542",
+    "1543",
+    "1544",
+    "1653",
+    "1654",
+    "1655",
+    "1548",
+    "1549",
+    "1557",
+    "1558",
+    "1559",
+    "1560",
+    "1561",
+    "1563",
+    "1564",
+    "1702",
+    "1700",
+    "1575",
+    "1576",
+    "1579",
+    "1574",
+    "1581",
+    "1582",
+    "1580",
+    "1583",
+    "1585",
+    "1586",
+    "1587",
+    "1584",
+    "1588"
+  ],
+  "groups": [
+    {
+      "group_key": "tgf_beta_pathway_activation",
+      "type": "merge",
+      "member_ids": [
+        "1283",
+        "1469"
+      ],
+      "rationale": "Both describe activation of the TGF-beta pathway with different wording."
+    },
+    {
+      "group_key": "tgf_beta_signaling_vs_latent_activation",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1271",
+        "1468"
+      ],
+      "rationale": "Both concern TGF-beta but signaling increase and activation of latent TGF-beta1 are distinct processes."
+    },
+    {
+      "group_key": "oxidative_phosphorylation_decrease",
+      "type": "merge",
+      "member_ids": [
+        "1477",
+        "1545"
+      ],
+      "rationale": "Both describe decreased mitochondrial oxidative phosphorylation."
+    },
+    {
+      "group_key": "reproductive_success_direction",
+      "type": "soda",
+      "member_ids": [
+        "1163",
+        "1141"
+      ],
+      "rationale": "Same endpoint, reproductive success, increased versus decreased."
+    },
+    {
+      "group_key": "population_decline_vs_increase",
+      "type": "soda",
+      "member_ids": [
+        "1164",
+        "361"
+      ],
+      "rationale": "Population increased versus declined."
+    },
+    {
+      "group_key": "t3_tissue_levels",
+      "type": "soda",
+      "member_ids": [
+        "1116",
+        "1154"
+      ],
+      "rationale": "Tissue T3 decreased versus increased."
+    },
+    {
+      "group_key": "complex_iii_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1542",
+        "1653"
+      ],
+      "rationale": "Both target mitochondrial complex III but binding does not confirm inhibition."
+    },
+    {
+      "group_key": "complex_iv_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1543",
+        "1654"
+      ],
+      "rationale": "Both target mitochondrial complex IV but binding does not confirm inhibition."
+    },
+    {
+      "group_key": "complex_v_binding_vs_inhibition",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1544",
+        "1655"
+      ],
+      "rationale": "Both target mitochondrial complex V but binding does not confirm inhibition."
+    },
+    {
+      "group_key": "cyp2e1_activation",
+      "type": "merge",
+      "member_ids": [
+        "1391",
+        "1508"
+      ],
+      "rationale": "Both describe activation of CYP2E1."
+    },
+    {
+      "group_key": "dna_breaks",
+      "type": "merge",
+      "member_ids": [
+        "1461",
+        "1635"
+      ],
+      "rationale": "Both describe increased DNA strand/double-strand breaks, closely overlapping endpoints."
+    },
+    {
+      "group_key": "apoptosis_general_vs_epithelial",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1262",
+        "1513",
+        "1183"
+      ],
+      "rationale": "Apoptosis described generally versus in epithelial cells (opposite direction noted for 1183 but same process in differing context)."
+    },
+    {
+      "group_key": "oocyte_apoptosis_vs_general",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1775",
+        "1262"
+      ],
+      "rationale": "Apoptosis in oocytes versus general apoptosis."
+    },
+    {
+      "group_key": "cell_proliferation_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1182",
+        "1394"
+      ],
+      "rationale": "Increased cell proliferation in epithelial cells versus general sustained proliferation."
+    },
+    {
+      "group_key": "intracellular_calcium_increase",
+      "type": "merge",
+      "member_ids": [
+        "1339",
+        "2064"
+      ],
+      "rationale": "Both describe increased intracellular/cytosolic calcium."
+    },
+    {
+      "group_key": "growth_reduction",
+      "type": "merge",
+      "member_ids": [
+        "1467",
+        "1521"
+      ],
+      "rationale": "Both describe decreased growth."
+    },
+    {
+      "group_key": "hepatotoxicity_liver_injury",
+      "type": "merge",
+      "member_ids": [
+        "1291",
+        "1549",
+        "1393"
+      ],
+      "rationale": "Hepatotoxicity, liver injury and hepatocytotoxicity describe liver damage."
+    },
+    {
+      "group_key": "tgf_beta_collagen_fibrosis_na",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "1282",
+        "1280"
+      ],
+      "rationale": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "input_ids": [
+    "746",
+    "773",
+    "761",
+    "763",
+    "764",
+    "760",
+    "765",
+    "775",
+    "776",
+    "777",
+    "778",
+    "766",
+    "779",
+    "781",
+    "782",
+    "780",
+    "784",
+    "783",
+    "787",
+    "786",
+    "791",
+    "1617",
+    "794",
+    "795",
+    "796",
+    "793",
+    "797",
+    "799",
+    "800",
+    "798",
+    "802",
+    "801",
+    "805",
+    "807",
+    "809",
+    "804",
+    "330",
+    "848",
+    "849",
+    "813",
+    "823",
+    "824",
+    "818",
+    "819",
+    "820",
+    "821",
+    "825",
+    "814",
+    "829",
+    "831",
+    "833",
+    "835",
+    "837",
+    "838",
+    "839",
+    "836",
+    "828",
+    "840",
+    "850",
+    "844",
+    "845",
+    "846",
+    "369",
+    "868",
+    "870",
+    "869",
+    "876",
+    "867",
+    "872",
+    "1096",
+    "1097",
+    "1098",
+    "1102",
+    "1106",
+    "877",
+    "885",
+    "898",
+    "1494",
+    "1539",
+    "2117",
+    "962",
+    "941",
+    "1250",
+    "927",
+    "935",
+    "934",
+    "932",
+    "933",
+    "937",
+    "951",
+    "973",
+    "952",
+    "945",
+    "948",
+    "1891",
+    "1892",
+    "1893",
+    "958",
+    "959",
+    "960",
+    "957",
+    "1056",
+    "968",
+    "969",
+    "970",
+    "971",
+    "964",
+    "972",
+    "979",
+    "981",
+    "1202",
+    "980",
+    "984",
+    "1003",
+    "1004",
+    "1005",
+    "1002",
+    "1007",
+    "1009",
+    "1012",
+    "1014",
+    "1015",
+    "1016",
+    "762",
+    "1019",
+    "1018",
+    "1029",
+    "1032",
+    "1033",
+    "1034",
+    "1035",
+    "1036",
+    "1037",
+    "1039",
+    "1040",
+    "1042",
+    "1043",
+    "1038",
+    "1044",
+    "1045",
+    "1046",
+    "1047",
+    "1049",
+    "1050",
+    "1051",
+    "1052",
+    "1053",
+    "1054",
+    "1057",
+    "1058",
+    "1059",
+    "1060",
+    "1061",
+    "1062",
+    "1063",
+    "2329",
+    "2330",
+    "1066",
+    "1068",
+    "1070",
+    "1071",
+    "1072",
+    "1074",
+    "1075",
+    "1076",
+    "1077",
+    "1078",
+    "1080",
+    "1079",
+    "1081",
+    "1082",
+    "1083",
+    "1084",
+    "1085",
+    "1086",
+    "1087",
+    "1089",
+    "1090",
+    "1497",
+    "1498",
+    "1499",
+    "1500",
+    "1495",
+    "1458",
+    "1101",
+    "1104",
+    "1105",
+    "1103",
+    "1109",
+    "1110",
+    "1114",
+    "1122",
+    "1130",
+    "1131",
+    "1132",
+    "1133",
+    "1135",
+    "1151",
+    "1134",
+    "1138"
+  ],
+  "groups": [
+    {
+      "group_key": "glutamate_gated_chloride_channel_activation",
+      "type": "merge",
+      "member_ids": [
+        "760",
+        "1018"
+      ],
+      "rationale": "Both describe activation of glutamate-gated chloride channels with only wording differences (singular/plural)."
+    },
+    {
+      "group_key": "beta2_adrenergic_receptor_activation",
+      "type": "merge",
+      "member_ids": [
+        "1039",
+        "1038"
+      ],
+      "rationale": "Both describe increased activation/activity of the beta-2 adrenergic receptor."
+    },
+    {
+      "group_key": "dopaminergic_activity_direction",
+      "type": "soda",
+      "member_ids": [
+        "746",
+        "1083"
+      ],
+      "rationale": "Both measure dopaminergic activity but in opposite directions (increase vs decrease)."
+    },
+    {
+      "group_key": "regenerative_proliferation_cell_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "778",
+        "781",
+        "787",
+        "795"
+      ],
+      "rationale": "Same process (increased regenerative cell proliferation) in different cell/tissue contexts."
+    },
+    {
+      "group_key": "cytotoxicity_cell_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "776",
+        "780",
+        "783",
+        "786",
+        "794"
+      ],
+      "rationale": "Same process (increased cytotoxicity) in different cell types."
+    },
+    {
+      "group_key": "hyperplasia_epithelial_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "782",
+        "784",
+        "796"
+      ],
+      "rationale": "Same process (hyperplasia) in different epithelial cell contexts."
+    },
+    {
+      "group_key": "cytoplasmic_vacuolization_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "824",
+        "818",
+        "833",
+        "837",
+        "836"
+      ],
+      "rationale": "Same process (cytoplasmic vacuolization) in different cell types."
+    },
+    {
+      "group_key": "mammary_hyperplasia_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "1078",
+        "1085"
+      ],
+      "rationale": "Both describe mammary gland hyperplasia with differing wording."
+    },
+    {
+      "group_key": "lh_surge_release_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "970",
+        "1072"
+      ],
+      "rationale": "Both describe decreased LH release/surge from the anterior pituitary, with differing specificity."
+    },
+    {
+      "group_key": "gnrh_release_decrease",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "969",
+        "1071"
+      ],
+      "rationale": "Both describe decreased GnRH release from hypothalamic neurons, with differing context."
+    },
+    {
+      "group_key": "six1_expression",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "2329",
+        "2330"
+      ],
+      "rationale": "Gene expression and protein expression of SIX1 are distinct levels of the same object."
+    },
+    {
+      "group_key": "transthyretin_binding_displacement",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "957",
+        "958"
+      ],
+      "rationale": "Binding to transthyretin and displacement of T4 from transthyretin involve the same object but distinct processes."
+    },
+    {
+      "group_key": "nfat_events",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "979",
+        "981"
+      ],
+      "rationale": "Both concern NFAT but nuclear localization vs complex formation are distinct processes."
+    },
+    {
+      "group_key": "cholesterol_synthesis_hmgcr",
+      "type": "same_object_different_process",
+      "member_ids": [
+        "848",
+        "849"
+      ],
+      "rationale": "Both concern NE receptor on GnRH neurons; binding decrease vs antagonism are distinct processes."
+    },
+    {
+      "group_key": "pulmonary_fibrosis_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "840",
+        "1458"
+      ],
+      "rationale": "Both describe fibrosis in different organs (liver vs lung)."
+    },
+    {
+      "group_key": "adenoma_carcinoma_tissue_contexts",
+      "type": "similar_event_different_biological_context",
+      "member_ids": [
+        "779",
+        "797",
+        "1079"
+      ],
+      "rationale": "Tumor formation (adenomas/carcinomas/papillomas) in different tissues."
+    }
+  ]
+}
