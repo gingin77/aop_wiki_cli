@@ -24,10 +24,11 @@ in the same order. Group keys are not used for matching (they are generated
 per run and drift); each set is identified by its sorted member ids.
 
 Usage:
-    # merge groups across the three thinking-on replicates (the defaults)
+    # all four types across the three thinking-on replicates (the defaults):
+    # one workbook with a summary sheet plus three sheets per type
     uv run python -m aop_wiki_cli.annotation_scripts.define_stable_ke_groups
 
-    # another type, explicit runs
+    # a single type, explicit runs
     uv run python -m aop_wiki_cli.annotation_scripts.define_stable_ke_groups \\
         --type soda \\
         --files outputs_for_vc/ke_groupings/<run_1>/ke_similar_events_<date>_pass3.json \\
@@ -58,6 +59,15 @@ DEFAULT_FILES = [
 # Derived, regenerable reports stay out of outputs_for_vc/ (which ships
 # downstream verbatim).
 DEFAULT_OUTPUT_DIR = Path("outputs/ke_groupings/stable_groups")
+
+# Short sheet-name prefixes for the all-types workbook (Excel caps sheet
+# names at 31 characters; the two review-category type names exceed that).
+TYPE_ABBR = {
+    "merge": "merge",
+    "soda": "soda",
+    "same_object_different_process": "sodp",
+    "similar_event_different_biological_context": "sedc",
+}
 
 
 # ---------------------------------------------------------------------------
@@ -250,35 +260,65 @@ def _sheet_specs(result: dict) -> list[tuple[str, list[str], list[list]]]:
     ]
 
 
-def write_workbook(result: dict, out_dir: Path) -> Path:
-    """Write the three review sections as sheets of one Excel workbook."""
+def _write_sheet(wb: Workbook, sheet_name: str, header: list[str], rows: list[list]) -> None:
+    wrap_top = Alignment(wrap_text=True, vertical="top")
+    ws = wb.create_sheet(sheet_name)
+    ws.append(header)
+    for cell in ws[1]:
+        cell.font = Font(bold=True)
+    ws.freeze_panes = "A2"
+    for row in rows:
+        ws.append(row)
+    # Column widths from the longest LINE per column (multi-line cells
+    # wrap); wrap+top-align the data cells so stacked titles stay legible.
+    for col_idx in range(1, len(header) + 1):
+        longest = max(
+            (max((len(line) for line in str(c.value).splitlines()), default=0)
+             for c in next(ws.iter_cols(min_col=col_idx, max_col=col_idx)) if c.value is not None),
+            default=0,
+        )
+        ws.column_dimensions[get_column_letter(col_idx)].width = max(10, min(60, longest + 2))
+    for row_cells in ws.iter_rows(min_row=2):
+        for cell in row_cells:
+            cell.alignment = wrap_top
+
+
+SUMMARY_COLUMNS = [
+    ("group_type", lambda r: r["group_type"]),
+    ("distinct_sets_seen", lambda r: r["summary"]["distinct_sets_seen"]),
+    ("stable_groups", lambda r: r["summary"]["stable_groups"]),
+    ("stable_events", lambda r: r["summary"]["stable_events"]),
+    ("unstable_groups", lambda r: r["summary"]["unstable_groups"]),
+    ("attention_events", lambda r: r["summary"]["attention_events"]),
+    ("membership_differs", lambda r: r["summary"]["attention_membership_differs"]),
+    ("not_in_every_run", lambda r: r["summary"]["attention_not_in_every_run"]),
+]
+
+
+def write_workbook(results: list[dict], out_dir: Path) -> Path:
+    """Write the review sections of one or more type results as one workbook.
+
+    A single result keeps the plain sheet names (stable_groups, …); several
+    results get TYPE_ABBR-prefixed sheets plus a leading summary sheet, and
+    the workbook is named all_types_stable_groups.xlsx.
+    """
     out_dir.mkdir(parents=True, exist_ok=True)
     wb = Workbook()
     wb.remove(wb.active)  # drop the default empty sheet
 
-    wrap_top = Alignment(wrap_text=True, vertical="top")
-    for sheet_name, header, rows in _sheet_specs(result):
-        ws = wb.create_sheet(sheet_name)
-        ws.append(header)
-        for cell in ws[1]:
-            cell.font = Font(bold=True)
-        ws.freeze_panes = "A2"
-        for row in rows:
-            ws.append(row)
-        # Column widths from the longest LINE per column (multi-line cells
-        # wrap); wrap+top-align the data cells so stacked titles stay legible.
-        for col_idx in range(1, len(header) + 1):
-            longest = max(
-                (max((len(line) for line in str(c.value).splitlines()), default=0)
-                 for c in next(ws.iter_cols(min_col=col_idx, max_col=col_idx)) if c.value is not None),
-                default=0,
-            )
-            ws.column_dimensions[get_column_letter(col_idx)].width = max(10, min(60, longest + 2))
-        for row_cells in ws.iter_rows(min_row=2):
-            for cell in row_cells:
-                cell.alignment = wrap_top
+    if len(results) > 1:
+        header = [name for name, _ in SUMMARY_COLUMNS] + ["runs"]
+        rows = [[getter(r) for _, getter in SUMMARY_COLUMNS] + ["\n".join(r["runs"])]
+                for r in results]
+        _write_sheet(wb, "summary", header, rows)
 
-    path = out_dir / f"{result['group_type']}_stable_groups.xlsx"
+    for result in results:
+        prefix = f"{TYPE_ABBR[result['group_type']]}_" if len(results) > 1 else ""
+        for sheet_name, header, rows in _sheet_specs(result):
+            _write_sheet(wb, f"{prefix}{sheet_name}", header, rows)
+
+    stem = "all_types" if len(results) > 1 else results[0]["group_type"]
+    path = out_dir / f"{stem}_stable_groups.xlsx"
     wb.save(path)
     return path
 
@@ -308,8 +348,10 @@ def main() -> None:
         description="Define the KE groups of one type that are unchanged across replicate runs.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    parser.add_argument("--type", dest="group_type", default="merge", choices=sorted(TYPE_KEYS),
-                        help="Group type to evaluate (default: merge)")
+    parser.add_argument("--type", dest="group_type", default="all",
+                        choices=sorted(TYPE_KEYS) + ["all"],
+                        help="Group type to evaluate, or 'all' for every type "
+                             "in one workbook with a summary sheet (default: all)")
     parser.add_argument("--files", nargs="+", metavar="FILE", default=DEFAULT_FILES,
                         help="Grouping snapshots (pass 3 JSON) to compare; "
                              "default: the three sonnet-5-5 thinking-on replicates")
@@ -335,17 +377,22 @@ def main() -> None:
         with open(p) as f:
             runs[label] = load_run(json.load(f))
 
-    result = define_stable_groups(runs, args.group_type)
-    result["files"] = {lb: str(p) for lb, p in zip(runs, paths)}
-    print_report(result)
-
+    group_types = list(TYPE_KEYS) if args.group_type == "all" else [args.group_type]
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    json_path = out_dir / f"{args.group_type}_stable_groups.json"
-    with open(json_path, "w") as f:
-        json.dump(result, f, indent=2)
-    print(f"JSON written to: {json_path}")
-    print(f"Workbook written to: {write_workbook(result, out_dir)}")
+
+    results = []
+    for gtype in group_types:
+        result = define_stable_groups(runs, gtype)
+        result["files"] = {lb: str(p) for lb, p in zip(runs, paths)}
+        print_report(result)
+        json_path = out_dir / f"{gtype}_stable_groups.json"
+        with open(json_path, "w") as f:
+            json.dump(result, f, indent=2)
+        print(f"JSON written to: {json_path}")
+        results.append(result)
+
+    print(f"Workbook written to: {write_workbook(results, out_dir)}")
 
 
 if __name__ == "__main__":

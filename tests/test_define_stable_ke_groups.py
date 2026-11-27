@@ -55,7 +55,7 @@ def test_stable_unstable_attention_split():
 
 def test_workbook_has_three_sheets_with_the_section_rows(tmp_path):
     result = define_stable_groups(_two_runs(), "merge")
-    path = write_workbook(result, tmp_path)
+    path = write_workbook([result], tmp_path)
     assert path.name == "merge_stable_groups.xlsx"
     wb = load_workbook(path)
     assert wb.sheetnames == ["stable_groups", "unstable_groups", "attention_events"]
@@ -75,10 +75,31 @@ def test_workbook_has_three_sheets_with_the_section_rows(tmp_path):
     assert rows["5"][3] == "not_in_run"
 
 
+def test_all_types_workbook_prefixes_sheets_and_adds_summary(tmp_path):
+    from aop_wiki_cli.annotation_scripts.define_stable_ke_groups import TYPE_ABBR
+    runs = _two_runs()
+    results = [define_stable_groups(runs, t) for t in TYPE_ABBR]
+    path = write_workbook(results, tmp_path)
+    assert path.name == "all_types_stable_groups.xlsx"
+    wb = load_workbook(path)
+    expected = ["summary"] + [f"{abbr}_{s}" for abbr in TYPE_ABBR.values()
+                              for s in ("stable_groups", "unstable_groups", "attention_events")]
+    assert wb.sheetnames == expected
+    assert all(len(name) <= 31 for name in wb.sheetnames)
+    summary = wb["summary"]
+    rows = {r[0].value: [c.value for c in r] for r in summary.iter_rows(min_row=2)}
+    # merge: 1 stable group (2 events), 2 unstable sets, 3 attention events.
+    assert rows["merge"][1:6] == [3, 1, 2, 2, 3]
+    # soda appears only in runA, so its one set is unstable, both events attention.
+    assert rows["soda"][2] == 0 and rows["soda"][4] == 1
+
+
 if __name__ == "__main__":
     import pathlib
     import tempfile
     test_stable_unstable_attention_split()
     with tempfile.TemporaryDirectory() as td:
         test_workbook_has_three_sheets_with_the_section_rows(pathlib.Path(td))
+    with tempfile.TemporaryDirectory() as td:
+        test_all_types_workbook_prefixes_sheets_and_adds_summary(pathlib.Path(td))
     print("ALL TESTS PASSED ✓")
