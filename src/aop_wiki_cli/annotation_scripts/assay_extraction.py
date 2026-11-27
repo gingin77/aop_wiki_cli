@@ -1,5 +1,12 @@
 """Extract structured, ontology-annotated assays from the free-text
-"How is it measured or detected" field of a Key Event."""
+"How is it measured or detected" field of a Key Event.
+
+Proof of concept: demonstrates how AOP EMOD structures method-of-measurement
+properties — each free-text method becomes an Assay record (title,
+description, effect specificity, citations) whose measured biological
+objects, processes, and taxa are resolved to ontology terms, mirroring the
+EMOD Assay/Observation model rather than aiming for production completeness.
+"""
 
 import os
 import re
