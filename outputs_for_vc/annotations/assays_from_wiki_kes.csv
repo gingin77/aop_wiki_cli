@@ -1,0 +1,567 @@
+assay_id,ke_id,aop_ids,title,description,effect_specificity,assay_type_label,assay_type_ontology,assay_type_term_id,objects,processes,taxon_terms,citations
+1,68,173,Western Immunoblotting of Alpha1(I) Collagen,Western immunoblotting of intact alpha1(I) collagen using antibodies directed to alpha1(I) collagen amino and carboxyl propeptides to assess in vitro production of type I collagen.,,western blot assay,OBI,http://purl.obolibrary.org/obo/OBI_0000854,"- alpha1(I) collagen
+- alpha1(I) collagen amino propeptide
+- alpha1(I) collagen carboxyl propeptide","- collagen production
+- type I collagen synthesis",,- Rishikof et al. | 2005
+2,68,173,Real-Time PCR for Alpha1(I) Collagen mRNA,Measurement of alpha1(I) collagen mRNA levels using real-time polymerase chain reaction to assess in vitro production of type I collagen.,,real time polymerase chain reaction assay,OBI,http://purl.obolibrary.org/obo/OBI_0000893,- alpha1(I) collagen mRNA,"- gene expression
+- type I collagen synthesis",,- Rishikof et al. | 2005
+3,68,173,Nuclear Run-On Assay for Alpha1(I) Collagen Transcriptional Regulation,A nuclear run-on assay used to determine the transcriptional regulation of alpha1(I) collagen gene expression.,,precision nuclear run-on sequencing assay,OBI,http://purl.obolibrary.org/obo/OBI_0002457,"- alpha1(I) collagen
+- nucleus","- regulation of collagen biosynthetic process
+- type I collagen gene transcription",,- Rishikof et al. | 2005
+4,68,173,Histological Staining for Collagen (Masson Trichrome / Picro-Sirius Red),"Histological staining with Masson Trichrome or Picro-Sirius Red to identify the tissue/cellular distribution of collagen, quantified using morphometric analysis both in vivo and in vitro.",,histological assay,OBI,http://purl.obolibrary.org/obo/OBI_0600020,"- Collagen
+- tissue
+- cells","- collagen deposition
+- connective tissue replacement involved in inflammatory response wound healing",,
+5,68,173,Sircol Collagen Assay,"Colorimetric assay using Sirius Red F3BA dye, which selectively binds to collagen; signal is read at 540 nm to quantify collagen in histology samples.",,assay,OBI,http://purl.obolibrary.org/obo/OBI_0000070,"- Collagen
+- Sirius red F3B",- collagen quantification,,"- Chen and Raghunath | 2009
+- Nikota et al. | 2017"
+6,68,173,Hydroxyproline Assay,"Colorimetric assay measuring hydroxyproline, a non-proteinogenic amino acid found exclusively in collagen, as a direct measure of collagen content in cells or tissues. Hydroxyproline is formed by prolyl-4-hydroxylase.",,assay,OBI,http://purl.obolibrary.org/obo/OBI_0000070,"- hydroxyproline
+- Collagen
+- prolyl-4-hydroxylase
+- cells
+- tissues","- collagen quantification
+- collagen biosynthetic process",,"- Chen and Raghunath | 2009
+- Nikota et al. | 2017"
+7,68,173,Ex Vivo Precision Cut Tissue Slices,"Precision cut tissue slices used to mimic whole organ response, allowing histological assessment of collagen and fibrosis endpoints. Reduces the number of animals required compared to whole animal exposure studies.",,ex vivo design,OBI,http://purl.obolibrary.org/obo/OBI_0001211,"- tissue
+- organ","- collagen deposition
+- connective tissue replacement involved in inflammatory response wound healing
+- histological assessment",- animal,- Rahman et al. | 2020
+8,1458,173,Ashcroft Histopathological Fibrosis Scoring,Histological samples of lung tissue are stained and scored on a numerical scale from 0 to 8 (Ashcroft scale) to indicate the amount of fibrotic tissue. Scores range from normal lung (0) to fibrotic obliteration (8).,,,,,"- lung connective tissue
+- tissue","- lung fibrosis
+- fibrogenesis","- Homo sapiens
+- Rattus norvegicus",- Ashcroft et al. | 1988
+9,1458,173,Modified Ashcroft Fibrosis Scoring (Hubner),"A modified version of the Ashcroft scoring system that enables morphological distinctions for better grading of lung fibrosis. Grades 0–8 are assigned based on specific morphological features, applied to bleomycin-induced lung fibrosis in rats.",,,,,"- lung connective tissue
+- alveolar wall
+- fibrotic masses","- lung fibrosis
+- fibrogenesis",- Rattus norvegicus,- Hubner et al. | 2008
+10,1458,173,Morphometric Analysis of Fibrotic Disease Area (ImageJ),"Formalin-fixed, paraffin-embedded lung cross-sections are imaged using wide-field light microscopy. ImageJ software is used to trace and quantify total lung area and diseased area (alveolar epithelium thickening and consolidated air space). Disease extent is expressed as diseased area / total area.",,,,,"- lung connective tissue
+- alveolar wall
+- air space","- lung fibrosis
+- alveolar epithelium thickening",,- Nikota et al. | 2017
+11,1458,173,qRT-PCR for Fibrosis Markers,"Real-time reverse transcription-polymerase chain reaction (qRT-PCR) is used in vitro to measure increased gene expression of collagen, TGF-β1, and pro-inflammatory mediators as markers of fibrogenesis potential.",,,,,"- Collagen
+- TGF-β1
+- pro-inflammatory mediators","- fibrogenesis
+- inflammation",,
+12,1458,173,ELISA for Fibrosis Markers,"Enzyme-linked immunosorbent assay (ELISA) is used in vitro to measure protein levels of collagen, TGF-β1, and various pro-inflammatory mediators as sensitive markers of the potential of substances to induce lung fibrosis.",,ELISA microplate reader,OBI,http://purl.obolibrary.org/obo/OBI_0001059,"- Collagen
+- TGF-β1
+- pro-inflammatory mediators","- fibrogenesis
+- inflammation",,
+13,1495,173,ELISA for DAMP/Cytokine Quantification,"Sandwich ELISA to quantitatively measure DAMPs and cytokines (e.g., IL-1α, IL-1β) released from stressed, injured, or dying cells in biological samples such as culture supernatant, bronchoalveolar lavage fluid, serum, cerebrospinal fluid, and peritoneal fluids. A capture antibody immobilized on microtitre wells binds the target antigen; a detection antibody conjugated to horseradish peroxidase or biotin-streptavidin system is used with a chromogenic substrate, and absorbance is read by spectrophotometer.",,cytokine assay,OBI,http://purl.obolibrary.org/obo/OBI_0002766,"- IL-1α
+- IL-1β
+- DAMPs
+- alarmins
+- cytokines
+- culture supernatant
+- bronchoalveolar lavage fluid
+- blood serum
+- cerebrospinal fluid
+- peritoneal fluid","- DAMP release
+- cytokine production
+- cellular stress
+- production of molecular mediator involved in inflammatory response
+- cell activation","- Homo sapiens
+- animal","- Nikota et al. | 2017
+- Rabolli et al. | 2014
+- Suwara et al. | 2014
+- Amsen and De Visser | 2009
+- Di Paolo and Shayakhmetov | 2016"
+14,1495,173,Western Blot for Alarmin Quantification,Western blot technique using specific antibodies to quantify the release of various alarmins from cells exposed to toxicants or particles.,,western blot assay,OBI,http://purl.obolibrary.org/obo/OBI_0000854,"- alarmins
+- DAMPs","- DAMP release
+- alarmin secretion
+- inflammation",,
+15,1495,173,qRT-PCR for Gene Expression of PRR Downstream Targets,"Real-time reverse transcription-polymerase chain reaction (qRT-PCR) to quantify gene expression regulated by receptor binding, such as downstream of TLR binding, indicative of cellular activation following substance or particle interaction.",,,,,"- TLR downstream target genes
+- messenger RNA","- gene expression
+- signaling
+- cell activation
+- inflammatory response",,
+16,1496,"173, 39",qRT-PCR for pro-inflammatory mediator mRNA,"Measures the abundance of cytokine mRNA in a sample by reverse transcription of RNA to cDNA, PCR amplification, and real-time fluorescence detection using SYBR green or nested fluorescent probes. Cycle threshold values are used to quantify relative mRNA amounts.",,,,,"- cytokine mRNA
+- pro-inflammatory mediators
+- cDNA
+- SYBR Green I","- reverse transcription
+- DNA amplification
+- gene expression
+- cytokine production involved in inflammatory response","- Mus musculus
+- Rattus norvegicus
+- Homo sapiens",- Nolan et al. | 2006
+17,1496,"173, 39",ELISA for pro-inflammatory mediators,Enzyme-linked immunosorbent assay that permits quantitative measurement of cytokine and other pro-inflammatory mediator proteins in biological samples including cell culture supernatants and whole cell homogenates.,,,,,"- pro-inflammatory mediators
+- cytokines
+- antigens","- protein quantification
+- cytokine production involved in inflammatory response",,
+18,1496,"173, 39",Cytokine bead array / cytokine PCR array,"Multiplex method for simultaneous quantitative detection of a panel of inflammatory mediator proteins or genes in a single sample, particularly useful when sample amounts are scarce.",,cytometric bead array assay,OBI,http://purl.obolibrary.org/obo/OBI_0000920,"- cytokines
+- pro-inflammatory mediators","- production of molecular mediator involved in inflammatory response
+- cytokine production involved in inflammatory response",,- Husain et al. | 2015
+19,1496,"173, 39",Immunohistochemistry for pro-inflammatory mediators,Uses specific antibodies to detect and localize immune cell types producing pro-inflammatory mediators and downstream effectors in tissue sections. Results are qualitative and used as weight of evidence.,,immunohistochemistry,OBI,http://purl.obolibrary.org/obo/OBI_0001986,"- pro-inflammatory mediators
+- immune cells
+- tissue","- immune cell localization
+- production of molecular mediator involved in inflammatory response",,"- Costa et al. | 2017
+- Amsen and De Visser | 2009"
+20,1497,173,Bronchoalveolar Lavage Fluid (BALF) Cellularity Assay,"In vivo assessment of lung immune response by lavaging the fluid lining the lung epithelium and quantitatively analyzing the types of infiltrating cells, cytokines, and chemokines to evaluate pro-inflammatory cell recruitment, dose-response, potency ranking, and no-effect exposure levels.",,lavage fluid specimen,OBI,http://purl.obolibrary.org/obo/OBI_0003666,"- bronchoalveolar lavage fluid (BALF)
+- pro-inflammatory cells
+- cytokines
+- chemokines
+- lung epithelium","- pro-inflammatory cell recruitment
+- immune response
+- initiation and progression of lung immune disease",- in vivo (unspecified),- Cho et al. | 2010
+21,1497,173,In Vitro Pro-inflammatory Mediator Assessment (qRT-PCR),Real-time reverse transcription-polymerase chain reaction (qRT-PCR) used in cell culture models to measure cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.,,,,,"- pro-inflammatory mediators
+- mRNA transcripts","- pro-inflammatory cell recruitment
+- gene expression",- in vitro (cell culture),
+22,1497,173,In Vitro Pro-inflammatory Mediator Assessment (ELISA),Enzyme-linked immunosorbent assay (ELISA) used in cell culture models to quantify cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.,,,,,"- pro-inflammatory mediators
+- cytokines
+- chemokines","- pro-inflammatory cell recruitment
+- cytokine production",- in vitro (cell culture),
+23,1497,173,In Vitro Pro-inflammatory Mediator Assessment (Immunohistochemistry),Immunohistochemistry used in cell culture models to detect and localize cell-type-specific pro-inflammatory mediators as indicators of immune cell recruitment into the lungs.,,immunohistochemistry,OBI,http://purl.obolibrary.org/obo/OBI_0001986,"- pro-inflammatory mediators
+- inflammatory cell","- pro-inflammatory cell recruitment
+- protein localization of pro-inflammatory mediators",- in vitro (cell culture),
+24,1497,173,Precision Cut Lung Slices (PCLS) Inflammatory Foci Assessment,Histological assessment of inflammatory foci in precision cut lung slices to evaluate recruitment of tissue-resident inflammatory cells following treatment with compounds such as bleomycin and MWCNTs.,,,,,"- tissue-resident inflammatory cells
+- inflammatory cell
+- lung parenchyma","- inflammatory response
+- inflammatory response",- ex vivo lung tissue,- Rahman et al. | 2020
+25,1497,173,Microfluidic Lung-on-a-Chip Immune Cell Migration Assay,Microfluidic lung-on-a-chip device used to assess migration of select immune cells and fibroblasts toward a simulated epithelium following treatment with pro-fibrotic compounds.,,cell migration assay,OBI,http://purl.obolibrary.org/obo/OBI_0003820,"- immune cells
+- fibroblasts
+- epithelium","- cell migration
+- fibroblast migration
+- immune response",- in vitro (microfluidic model),- He et al. | 2017
+26,1498,"173, 302",BALF Total Protein Content,Measures total protein content in bronchoalveolar lavage fluid (BALF) from experimental animals or human patients to assess alveolar-capillary membrane (ACM) barrier integrity loss.,,total bodily fluid protein assay,OBI,http://purl.obolibrary.org/obo/OBI_2100328,"- protein
+- bronchoalveolar lavage fluid (BALF)","- alveolar-capillary membrane barrier integrity
+- lung fibrosis",- Homo sapiens,
+27,1498,"173, 302",BALF Total Albumin Content,Measures total albumin content in bronchoalveolar lavage fluid (BALF) from experimental animals or human patients as an indicator of compromised ACM barrier integrity.,,bodily fluid albumin assay,OBI,http://purl.obolibrary.org/obo/OBI_2100351,"- albumin type
+- bronchoalveolar lavage fluid (BALF)","- alveolar-capillary membrane barrier integrity
+- lung fibrosis",- Homo sapiens,
+28,1498,"173, 302",BALF Total Urea Content,Measures total urea in bronchoalveolar lavage fluid (BALF) as an indicator of ACM integrity loss.,,,,,"- urea
+- bronchoalveolar lavage fluid (BALF)",- alveolar-capillary membrane barrier integrity,- Homo sapiens,- Schmekel et al. | 1992
+29,1498,"173, 302",Trypan Blue Exclusion Assay,"A dye exclusion assay where cells with intact membranes exclude trypan blue dye and remain clear, while cells with damaged membranes incorporate the dye and turn blue, allowing assessment of cell viability.",,assay,OBI,http://purl.obolibrary.org/obo/OBI_0000070,"- cell membrane
+- alveolar macrophages
+- dendritic cells
+- epithelial cells
+- neutrophils","- cytotoxicity
+- disruption of plasma membrane integrity in another organism
+- cell viability",- Homo sapiens,
+30,1498,"173, 302",Fluorescent DNA Stain Cytotoxicity Assay (Ethidium Bromide / Propidium Iodide),High-throughput assay using fluorescent DNA stains such as ethidium bromide or propidium iodide to identify cells with damaged membranes; cells that incorporate the dye are scored by flow cytometry.,,,,,"- cell membrane
+- deoxyribonucleic acid
+- ethidium bromide
+- propidium iodide","- cytotoxicity
+- disruption of plasma membrane integrity in another organism
+- cell viability",- Homo sapiens,
+31,1498,"173, 302",Lactate Dehydrogenase (LDH) Release Assay,"Measures the amount of LDH released into cell culture media following membrane injury. Based on measuring NAD reduction and conversion of a tetrazolium dye, detected at 490 nm absorbance.",,cell death assay detecting lactate dehydrogenase (LDH) release,OBI,http://purl.obolibrary.org/obo/OBI_0003761,"- lactate
+- nicotinamide adenine dinucleotide (NAD)
+- tetrazolium dye
+- cell membrane","- cytotoxicity
+- disruption of plasma membrane integrity in another organism",- Homo sapiens,
+32,1498,"173, 302",Calcein AM Assay,"Assay based on intracellular hydrolysis of non-fluorescent calcein AM by non-specific esterases in live cells to produce fluorescent calcein; damaged cells release calcein into culture media, indicating membrane compromise.",,assay,OBI,http://purl.obolibrary.org/obo/OBI_0000070,"- calcein am
+- calcein am
+- intracellular esterases
+- cell membrane","- cytotoxicity
+- cell membrane integrity
+- cell viability",- Homo sapiens,
+33,1498,"173, 302",Transepithelial/Transendothelial Electrical Resistance (TEER),Quantitative technique measuring ohmic resistance across endothelial or epithelial cell monolayers to assess tight junction integrity in cell culture models.,,Transepithelial Electrical Resistance (TEER) device,OBI,http://purl.obolibrary.org/obo/OBI_0003809,"- tight junctions
+- epithelial cell
+- endothelial cell","- epithelial barrier integrity
+- establishment of endothelial barrier
+- tight junction organization",- Homo sapiens,
+34,1499,"173, 14",ELISA for Th1/Th2 Cytokines and Related Proteins,"Enzyme-linked immunosorbent assay to quantify protein levels of Th1 and Th2 cytokines (IL-4, IL-5, IL-13, IL-10, IL-12, IFN-γ, TGF-β) and related proteins (Arg-1, Arg-2) in BALF supernatant, tissue homogenates, or cell pellets from animals, human patients, or in vitro cell cultures.",,,,,"- IL-4
+- IL-5
+- IL-13
+- IL-10
+- IL-12
+- IFN-γ
+- TGF-β
+- Arginase-1 (Arg-1)
+- Arginase-2 (Arg-2)
+- BALF supernatant
+- tissue homogenate
+- cell pellet","- immune response
+- immune response
+- immune response
+- cytokine production","- Homo sapiens
+- animal model",
+35,1499,"173, 14",qRT-PCR for Th1/Th2 Cytokine and Related Gene Expression,"Real-time quantitative polymerase chain reaction to measure mRNA levels of Th1 and Th2 cytokines (IL-4, IL-5, IL-13, IL-10, IL-12, IFN-γ, TGF-β) and related genes (Arg-1, Arg-2) in BALF supernatant, tissue homogenates, or cell pellets from animals, human patients, or in vitro cell cultures.",,PCR program,OBI,http://purl.obolibrary.org/obo/OBI_0001961,"- IL-4 mRNA
+- IL-5 mRNA
+- IL-13 mRNA
+- IL-10 mRNA
+- IL-12 mRNA
+- IFN-γ mRNA
+- TGF-β mRNA
+- Arginase-1 (Arg-1) mRNA
+- Arginase-2 (Arg-2) mRNA
+- BALF supernatant
+- tissue homogenate
+- cell pellet","- immune response
+- immune response
+- immune response
+- gene expression","- Homo sapiens
+- animal model",
+36,1499,"173, 14",Cytokine Bead Array (Multiplex Immunoassay),Multiplex bead-based immunoassay to simultaneously quantify a panel of Th1 and/or Th2 cytokine proteins from BALF or other samples; particularly advantageous when sample volume is limited.,,cytometric bead array assay,OBI,http://purl.obolibrary.org/obo/OBI_0000920,"- Th1 cytokines
+- Th2 cytokines
+- BALF supernatant","- immune response
+- immune response
+- cytokine production","- Homo sapiens
+- animal model",
+37,1499,"173, 14",Cytokine PCR Array (Multiplex Gene Expression),Multiplex PCR array to simultaneously measure mRNA expression of a panel of Th1 and/or Th2 cytokine genes from BALF or other samples; particularly advantageous when sample volume is limited.,,,,,"- Th1 cytokine mRNAs
+- Th2 cytokine mRNAs
+- BALF supernatant","- immune response
+- immune response
+- gene expression","- Homo sapiens
+- animal model",
+38,1500,"173, 14",Immunohistochemistry for Fibroblast and Myofibroblast Markers (In Vivo/Human),"Detection of fibroblast proliferation and myofibroblast activation in formalin-fixed paraffin-embedded lung sections using antibodies against vimentin, procollagen 1, and α-SMA via immunoperoxidase technique with avidin-biotin amplification and DAB substrate. Morphometric analysis using ocular grids on 20-25 non-overlapping squares from 2-3 random lung sections at 20x magnification.",,immunohistochemistry,OBI,http://purl.obolibrary.org/obo/OBI_0001986,"- vimentin
+- procollagen 1
+- alpha-SMA
+- fibroblasts
+- myofibroblasts
+- lung mesenchyme","- fibroblast proliferation
+- myofibroblast differentiation",- Homo sapiens,- Zhang | 1994
+39,1500,"173, 14",In Vitro Immunoassay for Fibroblast and Myofibroblast Markers,"In vitro measurement of fibroblast and myofibroblast markers including type-1 collagen, Thy-1, COX2, caveolin-1, TGF-β, α-SMA, and Smad3 to assess fibroblast proliferation, differentiation, and EMT in lung epithelial cells (e.g., A549 cells) exposed to asbestos.",,,,,"- type-1 collagen
+- Thy-1 cell surface antigen
+- cyclooxygenase-2 (COX2)
+- caveolin-1 (CAV1)
+- TGF-β
+- alpha-SMA
+- Smad3
+- p-Smad2
+- A549 cells
+- fibroblasts
+- myofibroblasts","- fibroblast proliferation
+- fibroblast differentiation
+- myofibroblast differentiation
+- epithelial to mesenchymal transition
+- TGF-β signaling",,"- Tamminen et al. | 2012
+- Kim et al. | 2006"
+40,1500,"173, 14",Hydrogel-Based ECM Mimicry Assay,"Use of water-swollen crosslinked polymer networks (hydrogels) composed of collagen, fibrin, hyaluronic acid, or synthetic materials such as polyacrylamide enriched with ECM proteins to mimic the extracellular matrix and assess mechanical and biochemical properties relevant to fibroblast behavior.",,,,,"- Collagen
+- Fibrin
+- hyaluronic acid
+- poly(acrylamide) macromolecule
+- obsolete extracellular matrix","- extracellular matrix disassembly
+- fibroblast migration",,
+41,122,14,TOX21 GR BLA Agonist Ratio,Cell-based beta-lactamase reporter assay measuring glucocorticoid receptor agonism in human cervical cells,,,,,"- glucocorticoid receptor
+- beta-lactamase reporter",- glucocorticoid receptor agonism,- Homo sapiens,- Huang et al. | 2011
+42,122,14,GR CALUX,Chemical-Activated LUciferase gene eXpression assay measuring glucocorticoid receptor agonism in human osteosarcoma cells via luciferase reporter,,,,,"- glucocorticoid receptor
+- luciferase reporter",- glucocorticoid receptor agonism,- Homo sapiens,"- Been et al. | 2021
+- Macikova et al. | 2014
+- Schriks et al. | 2010
+- Suzuki et al. | 2015"
+43,122,14,Attagene GR TRANS,Transactivation assay measuring glucocorticoid receptor-mediated transcriptional activation in human liver cells,,,,,"- glucocorticoid receptor
+- liver cells",- glucocorticoid receptor transactivation,- Homo sapiens,"- Martin et al. | 2010
+- Medvedev et al. | 2018
+- Romanov et al. | 2008"
+44,122,14,Attagene GRe CIS,Cis-reporter assay measuring glucocorticoid response element-driven transcriptional activity in human liver cells,,,,,"- glucocorticoid receptor
+- glucocorticoid response element
+- liver cells",- glucocorticoid receptor cis-transcriptional activation,- Homo sapiens,"- Martin et al. | 2010
+- Medvedev et al. | 2018
+- Romanov et al. | 2008"
+45,122,14,CV1-hGR,Cell-based reporter assay measuring human glucocorticoid receptor agonism in CV1 kidney cells,,,,,"- human glucocorticoid receptor
+- kidney cells",- glucocorticoid receptor agonism,- Homo sapiens,- Medlock Kakaley et al. | 2019
+46,122,14,GR-GeneBlazer,Beta-lactamase reporter gene assay measuring glucocorticoid receptor agonism in human kidney cells,,,,,"- glucocorticoid receptor
+- beta-lactamase reporter
+- kidney cells",- glucocorticoid receptor agonism,- Homo sapiens,- Jia et al. | 2016
+47,122,14,NovaScreen NR hGR,Competitive binding or reporter assay measuring human glucocorticoid receptor activation,,,,,- human glucocorticoid receptor,- glucocorticoid receptor agonism,- Homo sapiens,"- Knudsen et al. | 2011
+- Sipes et al. | 2013"
+48,122,14,Trout GR1,Reporter assay measuring glucocorticoid receptor 1 agonism in rainbow trout kidney cells,,,,,"- glucocorticoid receptor 1
+- kidney cells",- glucocorticoid receptor agonism,- Oncorhynchus mykiss,- Kugathas & Sumpter | 2011
+49,122,14,Trout GR2,Reporter assay measuring glucocorticoid receptor 2 agonism in rainbow trout kidney cells,,,,,"- glucocorticoid receptor 2
+- kidney cells",- glucocorticoid receptor agonism,- Oncorhynchus mykiss,- Kugathas & Sumpter | 2011
+50,122,14,Indigo hGR,Reporter assay measuring human glucocorticoid receptor agonism using Indigo Biosciences platform,,,,,- human glucocorticoid receptor,- glucocorticoid receptor agonism,- Homo sapiens,"- Cavaillin et al. | 2021
+- Cole et al. | 2025"
+51,122,14,Indigo zfGR,Reporter assay measuring zebrafish glucocorticoid receptor agonism using Indigo Biosciences platform,,,,,- zebrafish glucocorticoid receptor,- glucocorticoid receptor agonism,- Danio rerio,- Cole et al. | 2025
+52,122,14,GR-regulated gene induction (in vivo),Measurement of glucocorticoid receptor-regulated gene expression in vivo as an indicator of GR agonism,,,,,"- glucocorticoid receptor
+- GR-regulated genes","- glucocorticoid receptor-regulated gene expression
+- glucocorticoid receptor agonism",,"- Cavallin et al. | 2021
+- Cole et al. | 2025
+- Garland et al. | 2019"
+53,202,"14, 277, 278, 447, 618",NF-κB Transcriptional Activity Beta-Lactamase Reporter Gene Assay,Measures NF-κB transcriptional activity using a beta-lactamase reporter gene assay,,reporter gene assay,OBI,http://purl.obolibrary.org/obo/OBI_0002082,"- NF-kappaB inhibitor
+- ",- activation of NF-kappaB-inducing kinase activity,,- Miller et al. | 2010
+54,202,"14, 277, 278, 447, 618",Lentiviral NF-κB GFP Reporter with Flow Cytometry,Measures NF-κB transcription using a lentiviral NF-κB GFP reporter construct detected by flow cytometry,,flow cytometry assay,OBI,http://purl.obolibrary.org/obo/OBI_0000916,"- NF-kappaB inhibitor
+- GFP reporter",- obsolete positive regulation of NF-kappaB transcription factor activity,,- Moujalled et al. | 2012
+55,202,"14, 277, 278, 447, 618",IκBα Phosphorylation Western Blot,Measures IκBα phosphorylation status using Western blotting,,western blot assay,OBI,http://purl.obolibrary.org/obo/OBI_0000854,- IκBα,- protein phosphorylation,,- Miller et al. | 2010
+56,202,"14, 277, 278, 447, 618",NF-κB p65 Total/Phospho ELISA,Measures total and phosphorylated NF-κB p65 protein levels using ELISA,,,,,- NF-kappaB inhibitor,- protein phosphorylation,,
+57,202,"14, 277, 278, 447, 618","Cytokine ELISA (IL-6, IL-8, COX)","Measures secreted levels of IL-6, IL-8, and COX using ELISA",,,,,"- 
+- 
+- ","- cytokine production
+- inflammatory response",,
+58,272,"39, 40",In vitro T-cell-based co-culture assay,Co-culture of allergen-treated dendritic cells and modified T-lymphocytes measuring expression of selected biomarkers (e.g. interferon gamma) or T-cell proliferation as the reported outcome in response to chemical stimuli.,,cell culture assay,OBI,http://purl.obolibrary.org/obo/OBI_0003587,"- dendritic cell
+- 
+- ","- antigen processing and presentation
+- T cell proliferation
+- cytokine production",- Homo sapiens,- Martin et al.
+59,272,"39, 40",Local Lymph Node Assay (LLNA) - OECD TG 429,In vivo mouse assay measuring lymph node cell proliferation in response to skin sensitizers. The basis for the LLNA is the proliferative response of lymph node cells following topical chemical exposure.,,assay,OBI,http://purl.obolibrary.org/obo/OBI_0000070,- lymph node,"- lymphocyte migration into lymph node
+- ",- Mus musculus,- OECD TG 429 Skin Sensitisation: Local Lymph Node Assay
+60,272,"39, 40",LLNA:DA - OECD TG 442A,Non-radioactive modification of the Local Lymph Node Assay measuring lymph node cell proliferation using a non-radioactive endpoint (DA) in mice.,,,,,- lymph node,"- lymphocyte migration into lymph node
+- ",- Mus musculus,- OECD TG 442A LLNA:DA
+61,272,"39, 40",LLNA:BrdU-ELISA - OECD TG 442B,Non-radioactive modification of the Local Lymph Node Assay measuring lymph node cell proliferation using BrdU incorporation detected by ELISA in mice.,,ELISA microplate reader,OBI,http://purl.obolibrary.org/obo/OBI_0001059,"- lymph node
+- 5-bromo-2'-deoxyuridine","- 
+- ",- Mus musculus,- OECD TG 442B LLNA: BrdU-ELISA
+62,272,"39, 40",Human T cell proliferation and cytokine profiling assay,Measurement of human T cell proliferation and dendritic cell and T cell cytokine profiles produced in vitro in response to chemical respiratory stimuli.,,,,,"- 
+- 
+- cytokines","- T cell proliferation
+- cytokine production
+- ",- Homo sapiens,"- Holden et al. | 2008
+- Bernstein et al. | 2011"
+63,313,"14, 39",Serial Spirometry (FEV1) for Bronchoconstriction,Serial measures of airflow (FEV1) taken approximately 12 hours after exposure to test for immediate or delayed bronchoconstriction and airflow obstruction.,,,,,"- FEV1
+- airflow","- bronchoconstriction
+- airflow obstruction",- Homo sapiens,- Beckett | 2008
+64,313,"14, 39",Skin Prick Test for Allergen-Specific IgE,Intradermal and subcutaneous skin prick testing to detect allergen-specific IgE and identify sensitized individuals.,,in vivo skin test assay measuring T cell epitope specific type IV hypersensitivity,OBI,http://purl.obolibrary.org/obo/OBI_0001348,"- 
+- allergen","- sensitization
+- humoral immune response",- Homo sapiens,"- Bernstein et al. | 2011
+- Kimber et al. | 2014
+- Quirce | 2014"
+65,313,"14, 39",ELISA for Allergen-Specific Antibody Detection,Enzyme-linked immunosorbent assay (ELISA) used to detect and measure allergen-specific IgE and IgG antibody isotype profiles in serum.,,,,,"- 
+- 
+- allergen","- sensitization
+- ",- Homo sapiens,"- Kimber et al. | 2014
+- Quirce | 2014
+- Movéare et al. | 2017"
+66,313,"14, 39",ImmunoCAP for Allergen-Specific IgE,Commercially available immunoassay (ImmunoCAP) used to detect and quantify allergen-specific IgE and antibody isotype profiles in blood.,,,,,"- 
+- allergen
+- ","- sensitization
+- ",- Homo sapiens,"- Kimber et al. | 2014
+- Quirce | 2014
+- Movéare et al. | 2017"
+67,313,"14, 39",Transcriptomic Analysis of IgE Heavy Chain Transcripts,Transcriptomic analyses of IgE heavy chain transcripts to investigate direct and indirect class switching in IgE-switched B cells.,,,,,"- 
+- IgE memory B cell","- isotype switching
+- ",- Homo sapiens,- Davies et al. | 2013
+68,313,"14, 39",Basophil Activation Test (BAT),"Flow cytometry-based measurement of CD63 translocation to the membrane of basophils in fresh blood samples following IgE receptor cross-linking, used to identify allergic response in patients.",,basophil assay,OBI,http://purl.obolibrary.org/obo/OBI_0003021,"- CD63
+- basophils
+- 
+- ","- basophil degranulation
+- 
+- immune response",- Homo sapiens,- Vera-Berrios et al. | 2019
+69,313,"14, 39",In Vivo Breathing Parameter Assessment,"Quantitative assessment of allergen-induced airway hyperreactivity by measuring respiratory parameters including respiratory rate, minute volume, tidal volume, peak expiratory flow, inspiratory and expiratory times, and enhanced pause (Penh).",,in vivo design,OBI,http://purl.obolibrary.org/obo/OBI_0001199,"- respiratory system
+- 
+- 
+- peak expiratory flow
+- enhanced pause (Penh)","- 
+- bronchoconstriction
+- ",- Rattus norvegicus,- Boverhof et al. | 2008
+70,313,"14, 39",Bronchoalveolar Lavage (BAL) Polymorphonuclear Cell Count,Measurement of polymorphonuclear cells (PMN) in bronchoalveolar lavage fluid one day after inhalation challenge with diisocyanates to confirm elicitation of airway response in rats.,,count bodily fluid cell count assay,OBI,http://purl.obolibrary.org/obo/OBI_2100330,"- 
+- ","- inflammatory response
+- cell activation involved in immune response",- Rattus norvegicus,
+71,313,"14, 39",Exhaled Nitric Oxide (NO) Measurement,Measurement of exhaled nitric oxide as a biomarker of airway inflammation following inhalation challenge with diisocyanates in rats.,,analyte measurement objective,OBI,http://purl.obolibrary.org/obo/OBI_0000437,- nitric oxide,- production of molecular mediator involved in inflammatory response,- Rattus norvegicus,
+72,396,"39, 40",In silico Structural Alerts / SAR for Chemical Reactivity,"2D structural alerts used for qualitative identification of chemical sub-structures with the potential to be reactive towards proteins, as implemented in tools such as the OECD QSAR Toolbox.",,in silico design,OBI,http://purl.obolibrary.org/obo/OBI_0003291,"- chemical entity
+- protein","- 
+- response to chemical",,- 
+73,396,"39, 40",QSAR Models for Chemical Reactivity,"Quantitative structure-activity relationship models used for quantitative prediction of relative chemical reactivity towards biological nucleophiles, as described by Schwöbel et al.",,,,,"- chemical entity
+- nucleophilic reagent","- response to chemical
+- ",,- Schwöbel et al.
+74,396,"39, 40",Glutathione (GSH) Depletion Assay,"Chemicals are incubated with glutathione (GSH) as a model nucleophile; after a defined reaction time, the concentration of free thiol groups is measured to assess soft electrophilic reactivity via thiol depletion.",,assay,OBI,http://purl.obolibrary.org/obo/OBI_0000070,"- glutathione
+- thiol group
+- ","- 
+- electrophilic reactivity
+- ",,
+75,396,"39, 40",Direct Peptide Reactivity Assay (DPRA),OECD Test Guideline No. 442C in chemico method that quantifies the reactivity of chemicals towards synthetic model peptides containing either lysine or cysteine residues to assess skin sensitisation potential.,,direct binding assay,OBI,http://purl.obolibrary.org/obo/OBI_0001591,"- cysteine
+- lysine
+- cysteine
+- L-lysine","- 
+- electrophilic reactivity
+- ",,"- OECD TG No442C: In chemico skin sensitisation – Direct Peptide Reactivity Assay (DPRA)
+- EURL ECVAM DB-ALM Protocol No154 for Direct Peptide Reactivity Assay (DPRA) for skin sensitisation testing"
+76,396,"39, 40",In Chemico Reactivity Database for Michael Acceptors,Systematic in chemico databases reporting measurements of reactive potency specifically for Michael acceptors towards nucleophilic model compounds.,,,,,"- 
+- nucleophilic reagent","- 
+- electrophilic reactivity measurement",,
+77,398,"39, 40",VITOSENS,Assay using human CD34+ progenitor-derived dendritic cells (CD34-DC) based on differential expression of CREM and CCR2 genes to identify skin sensitizers.,,,,,"- 
+- 
+- monocyte","- gene expression
+- sensitization",- Homo sapiens,- 
+78,398,"39, 40",Genomic Allergen Rapid Detection (GARD),Biomarker genomic signature assay based on the human myelomonocytic cell line MUTZ-3 for identification of human sensitizing chemicals.,,,,,"- obsolete immortal cell line cell
+- biomarker","- gene expression
+- sensitization",- Homo sapiens,- 
+79,398,"39, 40",SENSIS,Genomic platform measuring over-expression of 3 sets of genes to assess the sensitizing potential of a compound in vitro.,,,,,- gene expression sets,"- gene expression
+- sensitization",- Homo sapiens,- 
+80,398,"39, 40",human Cell Line Activation Test (h-CLAT),"Flow cytometry-based assay measuring CD86 and CD54 surface marker expression on THP-1 cells following exposure to sensitizers, as indicators of dendritic cell maturation/activation.",,,,,"- 
+- CD54
+- ","- dendritic cell differentiation
+- myeloid dendritic cell activation
+- sensitization",- Homo sapiens,- 
+81,398,"39, 40",myeloid U937 Skin Sensitisation Test (U-SENS),Flow cytometry-based assay measuring CD86 surface marker expression on U937 cells to assess skin sensitization potential.,,,,,"- 
+- ","- myeloid dendritic cell activation
+- sensitization",- Homo sapiens,- 
+82,398,"39, 40",IL-8 ELISA assay,Enzyme Linked Immunosorbent Assay (ELISA) for quantification of IL-8 chemokine levels to distinguish sensitizers from non-sensitizers in dendritic cell-based assays.,,assay,OBI,http://purl.obolibrary.org/obo/OBI_0000070,"- 
+- ","- chemokine production
+- ",- Homo sapiens,- 
+83,398,"39, 40",Dendritic cell cytokine expression assay,"Measurement of cytokine expression (IL-1α, IL-1β, IL-18, TNF-α) in dendritic cells as biomarkers of response to skin sensitizers.",,cytokine assay,OBI,http://purl.obolibrary.org/obo/OBI_0002766,"- 
+- 
+- 
+- 
+- dendritic cell","- cytokine production
+- sensitization
+- myeloid dendritic cell activation",- Homo sapiens,
+84,398,"39, 40",Dendritic cell genomic/proteomic array and qPCR,Custom designed arrays or quantitative PCR of selected genes used to highlight the reaction of dendritic cells to sensitizers in omic studies.,,,,,"- dendritic cell
+- 
+- protein","- gene expression
+- gene expression
+- sensitization",- Homo sapiens,- 
+85,984,"277, 154","Sandwich ELISA for serum anti-KLH IgM and IgG (rat, FK506)","Rats were repeatedly administered FK506 orally for 4 weeks and immunized with KLH. Serum was examined for T-cell-dependent, antigen-specific IgM and IgG levels using a Sandwich ELISA kit.",antagonist,,,,"- 
+- 
+- KLH (keyhole limpet hemocyanin)","- 
+- immunoglobulin production",- Rattus norvegicus,- Ulrich et al. | 2004
+86,984,"277, 154","Plaque-Forming Cell (PFC) Assay for anti-SRBC response (mouse, CNIs)",Mice were repeatedly administered calcineurin inhibitors (FK506 and CsA) orally for 4 days and immunized with SRBC. Spleen cells were examined using a PFC assay to measure antigen-specific antibody-secreting cells.,antagonist,immune response assay,OBI,http://purl.obolibrary.org/obo/OBI_0000743,"- spleen
+- 
+- antibody secreting cell","- T cell activation involved in immune response
+- immunoglobulin production",- Mus musculus,- Kino et al. | 1987
+87,984,"277, 154","ELISA for serum anti-SRBC IgM and IgG (cynomolgus monkey, CsA)",Cynomolgus monkeys received CsA twice daily via oral gavage for 23 days and were immunized with SRBC. Serum was examined for anti-SRBC IgM and IgG levels using an ELISA specific for SRBC antigen.,antagonist,,,,"- 
+- 
+- ","- 
+- immunoglobulin production",- Macaca fascicularis,"- Kevin, G. et al. | 2014"
+88,984,"277, 154",ELISA for splenocyte IgM and IgG after DBA exposure (mouse),Mice were exposed to a single pharyngeal aspiration of DBA. Supernatants of splenocytes cultured for 24 h in the presence of LPS were assayed using a mouse IgM or IgG matched pairs antibody kit.,,,,,"- 
+- 
+- splenocytes
+- ","- immunoglobulin production
+- B cell activation",- Mus musculus,"- Donna, C. et al. | 2010"
+89,984,"277, 154","Sandwich ELISA for IgM and IgG in PBMC co-culture (human, CNIs)",T cells and B cells isolated from human PBMCs were co-cultured with CNIs (FK506 or CsA) for nine days in the presence of polyclonal T-cell stimulation. Supernatants were tested for IgM and IgG levels using a Sandwich ELISA kit.,antagonist,,,,"- 
+- 
+- 
+- 
+- peripheral blood mononuclear cell","- 
+- 
+- immunoglobulin production",- Homo sapiens,- Heidt et al. | 2009
+90,984,"277, 154","ELISA for IgM in SKW6.4 B-cell line co-culture with PBMC supernatant (human, CNIs)","SKW6.4 cells (IL-6-dependent IgM-secreting human B-cell line) were cultured with anti-CD3/CD28 antibody-stimulated PBMC culture supernatant. After four days, IgM in culture supernatants was measured using an ELISA kit. FK506 or CsA reduced IgM levels.",antagonist,,,,"- IgM plasmablast
+- 
+- peripheral blood mononuclear cell
+- ","- secretion
+- B cell activation",- Homo sapiens,- Sakuma et al. | 2001
+91,984,"277, 154","Quantitative PCR for cytokine mRNA in T cells (human, CNIs)","T cells derived from human PBMCs were cultured with CNIs. Cytokine mRNA levels of Interferon-gamma, IL-2, IL-4, IL-5, IL-10, IL-13, and other B-cell-stimulatory cytokines produced in T cells were measured by quantitative PCR to examine class switching.",antagonist,,,,"- 
+- 
+- 
+- 
+- 
+- 
+- 
+- peripheral blood lymphocyte","- cytokine production
+- 
+- T cell activation",- Homo sapiens,- Dumont et al. | 1998
+92,1700,277,RT-PCR for IL-1α/IL-1β mRNA,Real-time polymerase chain reaction to measure IL-1α or IL-1β mRNA expression levels,,transcription profiling by RT-PCR assay,OBI,http://purl.obolibrary.org/obo/OBI_0001361,"- 
+- ppp5'AACA-mRNA(7-)","- gene expression
+- mRNA transcription",,
+93,1700,277,ELISA for IL-1α/IL-1β protein,Enzyme-linked immunosorbent assay to detect and quantify IL-1α or IL-1β protein levels,,,,,"- protein
+- protein",- cytokine production,,
+94,1700,277,Competitive Inhibition Binding Assay for IL-1α to Type I IL-1R,"Competitive inhibition binding experiments using 125I-labeled IL-1α to measure binding to type I IL-1 receptor present on EL4 thymoma cells, 3T3 fibroblasts, hepatocytes, and Chinese hamster ovary cells expressing recombinant mouse type I IL-1R",,competitive inhibition of binding assay,OBI,http://purl.obolibrary.org/obo/OBI_0001593,"- 
+- 
+- 
+- 
+- hepatocytes
+- ",- ,"- Mus musculus
+- Cricetulus griseus","- McIntyre et al. | 1991
+- Shuck et al. | 1991"
+95,1700,277,IL-1β Bioactivity Neutralization Assay on Human Fibroblasts,Measurement of the ability of a reagent to neutralize the bioactivity of human IL-1β on primary human fibroblasts in vitro,antagonist,assay measuring epitope specific immunoglobulin-mediated neutralization,OBI,http://purl.obolibrary.org/obo/OBI_0001643,"- 
+- ","- cytokine production
+- immunoglobulin-mediated neutralization",- Homo sapiens,- Alten et al. | 2008
+96,1702,277,IL-2 Production ELISA,Measurement of IL-2 cytokine production by T cells using enzyme-linked immunosorbent assay (ELISA) to evaluate T cell activation,,ELISA measuring epitope specific interleukin-2 production by T cells,OBI,http://purl.obolibrary.org/obo/OBI_1110152,"- 
+- ","- 
+- cytokine production",,
+97,1702,277,CFSE-based T Cell Proliferation Assay,"Measurement of T cell proliferation by labeling cells with CFSE (carboxyfluorescein succinimidyl ester) and analyzing dye dilution as cells divide, to evaluate T cell activation",,epitope specific T cell proliferation,OBI,http://purl.obolibrary.org/obo/OBI_1110182,"- T cell
+- 6-carboxyfluorescein succinimidyl ester","- 
+- T cell proliferation",,
+98,1702,277,[3H]Thymidine Incorporation Assay,"Measurement of T cell proliferation by incorporation of tritiated thymidine ([3H]thymidine) into newly synthesized DNA during cell division, to evaluate T cell activation",,tritiated thymidine incorporation assay,OBI,http://purl.obolibrary.org/obo/OBI_0000669,"- T cell
+- thymidine","- 
+- activated T cell proliferation
+- DNA synthesis involved in DNA replication",,
+99,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - FEV1,"Measures the maximum volume of air that can forcibly be exhaled during the first second following maximal inhalation, used to assess airflow limitation and airway obstruction.",,,,,"- lung
+- FEV1","- forced expiration
+- airflow
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+100,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - FVC,"Measures the maximum volume of air that can forcibly be exhaled following maximal inhalation, used to assess airway restriction and lung function.",,,,,"- lung
+- FVC","- forced expiration
+- 
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+101,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Vital Capacity (VC),"Measures the maximum volume of air that can be exhaled as fast as possible, used to evaluate lung capacity.",,vital sign assay,OBI,http://purl.obolibrary.org/obo/OBI_0003715,"- lung
+- vital capacity","- expiration
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+102,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - FEV1/FVC Ratio,Calculates the ratio of FEV1 to FVC to discriminate between obstructive and restrictive lung diseases.,,,,,"- lung parenchyma
+- FEV1/FVC ratio","- 
+- 
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+103,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Peak Expiratory Flow (PEF),"Measures the maximal flow that can be exhaled when exhaling at a steady rate, used to assess airway function.",,,,,"- lung
+- peak expiratory flow","- expiratory airflow
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+104,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Forced Expiratory Flow (FEF),"Measures mid-expiratory flow rates at 25%, 50%, and 75% of FVC during forced exhalation.",,,,,"- lung
+- forced expiratory flow","- expiratory airflow
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+105,1250,"302, 148, 411, 418, 419, 424, 425",Spirometry - Inspiratory Vital Capacity (IVC),Measures the maximum volume of air that can be inhaled after a full expiration.,,vital sign assay,OBI,http://purl.obolibrary.org/obo/OBI_0003715,"- lung
+- inspiratory vital capacity","- inspiration
+- ",- Homo sapiens,"- Graham et al. | 2019 | Standardization of spirometry 2019 update. An official American Thoracic Society and European Respiratory Society technical statement
+- Pellegrino et al. | 2005 | Interpretative strategies for lung function tests
+- Culver et al. | 2017 | Interpretive strategies for lung function tests"
+106,1250,"302, 148, 411, 418, 419, 424, 425",Body Plethysmography - Functional Residual Capacity (FRC),"Measures the volume of gas present in the lung at end-expiration during tidal breathing using a body plethysmograph, as the initial step in determining lung volumes.",,functional assessment of individual,OBI,http://purl.obolibrary.org/obo/OBI_0003501,"- lung
+- ","- 
+- ",- Homo sapiens,
+107,1250,"302, 148, 411, 418, 419, 424, 425",Nitrogen Washout - Lung Volume Measurement,Measures lung volumes including functional residual capacity using nitrogen washout technique.,,volume measurement assay,OBI,http://purl.obolibrary.org/obo/OBI_0002141,"- lung
+- 
+- ","- 
+- gas transport",- Homo sapiens,
+108,1250,"302, 148, 411, 418, 419, 424, 425",Helium Dilution - Lung Volume Measurement,Measures lung volumes including functional residual capacity using helium dilution technique.,,volume measurement assay,OBI,http://purl.obolibrary.org/obo/OBI_0002141,"- lung
+- helium(0)
+- ","- 
+- gas transport",- Homo sapiens,
+109,1672,"14, 302",Constrained Drop Surfactometer (CDS),"A droplet of lung surfactant is deposited on a sharp-edged pedestal, forming a surfactant film at its air-water surface. The film is cycled continuously to mimic breathing. A camera takes pictures of the droplet before and during exposure to aerosols of the test substance or after mixing with the test substance. Surface tension values (minimum and maximum) are obtained by real-time drop shape analysis.",antagonist,,,,"- pulmonary surfactant
+- pulmonary surfactant","- surfactant homeostasis
+- obsolete negative regulation of liquid surface tension
+- surfactant homeostasis",,"- Zuo, Veldhuizen et al. | 2008
+- Valle, Wu et al. | 2015
+- Sørli, Da Silva et al. | 2016
+- Yang, Wu et al. | 2018
+- Sørli, Låg et al. | 2020
+- Yu, Yang et al. | 2016"
+110,1672,"14, 302",Captive Bubble Surfactometer (CBS),"A lung surfactant film is formed at the air-liquid interface of an air bubble suspended in liquid. The test substance is injected near the surfactant layer or mixed with surfactant prior to injection. The method studies rapid initial adsorption, post-expansion adsorption, surface activity during dynamic and quasi-static cycles, and stability of the surfactant film.",antagonist,,,,"- pulmonary surfactant
+- pulmonary surfactant
+- ","- surfactant homeostasis
+- surfactant homeostasis
+- surfactant homeostasis",,- Autilio and Perez-Gil | 2019
+111,1672,"14, 302",Pulsating Bubble Surfactometer (PBS),"An air bubble suspended on a capillary tube is formed in a chamber containing lung surfactant and is periodically compressed and expanded by a piston pulsator. Used to study effects of nanoparticles, bacterial lipopolysaccharides, glucocorticoids, meconium, and clinical samples on lung surfactant function.",antagonist,,,,"- pulmonary surfactant
+- 
+- 
+- 
+- 
+- ","- surfactant homeostasis
+- obsolete negative regulation of liquid surface tension
+- surfactant homeostasis",- Homo sapiens,"- Enhorning | 2001
+- Autilio and Perez-Gil | 2019
+- Schleh, Muhlfeld et al. | 2009
+- Kolomaznik, Liskayova et al. | 2018
+- Cimato, Facorro et al. | 2018
+- Stichtenoth, Jung et al. | 2006
+- Gregory, Longmore et al. | 1991
+- Markart, Ruppert et al. | 2007"
+112,1672,"14, 302",Capillary Surfactometer (CS),"Surfactant is deposited in a capillary tube of uneven diameter simulating terminal conducting airways, and a constant airflow is led through the capillary. The percent of time with an open passage is used to assess lung surfactant functionality.",antagonist,,,,"- pulmonary surfactant
+- capillary
+- terminal bronchiole","- 
+- surfactant homeostasis",,"- Enhorning | 2001
+- Larsen, Dallot et al. | 2014
+- Sørli, Da Silva et al. | 2016"
+113,1672,"14, 302",Surfactant Adsorption Test,A fluorescence-based high-throughput method measuring the extent and rate of adsorption of lung surfactant at the air-liquid interface. Lung surfactant labelled with a fluorescent probe is injected into multi-well plates containing a light-absorbing agent (brilliant black). Fluorescence of surfactant reaching the surface is measured; bulk fluorescence is quenched by the light-absorbing agent.,antagonist,,,,"- surfactant
+- 
+- ","- surfactant homeostasis
+- ",,"- Ravasio, Cruz et al. | 2008"
+114,1672,"14, 302",Atomic Force Microscopy (AFM) of Surfactant Films,"The topography of surfactant structures formed at respiratory-like air-liquid interfaces upon exposure to test substances is studied by atomic force microscopy on fixed samples, providing nanoscale structural information about the surfactant film.",,,,,"- pulmonary surfactant
+- pulmonary surfactant","- surfactant homeostasis
+- surfactant homeostasis",,
+115,1672,"14, 302",Langmuir-Blodgett Film / Langmuir Trough,"Interfacial films of surfactant are transferred from the air-liquid interface onto solid supports or studied in a Langmuir trough. Surfactant films are compressed by reducing surface area, and a sensor plate measures surface pressure variations to yield surface pressure-area isotherms. Comparison in the presence or absence of test substances reveals interactions with lung surfactant at the molecular level. Can be combined with epifluorescence or atomic force microscopy.",,,,,"- surfactant
+- 1,2-dihexadecanoyl-sn-glycero-3-phosphocholine
+- surfactant
+- phospholipid
+- surfactant","- surfactant homeostasis
+- 
+- surfactant homeostasis",,"- Cruz and Perez-Gil | 2007
+- Xu, Yang et al. | 2020"
+116,1672,"14, 302",Cryogenic Transmission Electron Microscopy (Cryo-TEM),"Lung surfactant vesicles in aqueous dispersions are incubated with test substance, applied onto a carbon grid, and vitrified in liquid ethane cooled by liquid nitrogen. Morphological and structural changes at the single membrane vesicle level (size, circularity, lamellarity) are visualized to indicate disruption of three-dimensional surfactant structures.",,electron microscopy imaging assay,OBI,http://purl.obolibrary.org/obo/OBI_0001631,"- 
+- 
+- lipid","- 
+- ",,
+117,1672,"14, 302",Differential Scanning Calorimetry (DSC),"Phase transitions occurring in lipid membranes (such as lung surfactant models) are studied over changes in temperature. Thermotropic phase behaviours of phospholipids in surfactant models are characterized in the absence or presence of interacting substances. Associated enthalpy, transition temperature, and cooperativity are estimated from thermograms.",,,,,"- 
+- phospholipid
+- 1,2-dihexadecanoyl-sn-glycero-3-phosphocholine
+- lipid","- 
+- ",,- Demetzos | 2008
+118,1673,302,Histological detection of atelectasis in lung tissue,"Lung tissue from exposed experimental animals is stained and examined histologically to identify areas of alveolar collapse (atelectasis). Individual alveoli cannot be measured directly due to their small size (~200 µm diameter), but regions of atelectasis are observable at the tissue level.",,histological assay,OBI,http://purl.obolibrary.org/obo/OBI_0600020,"- lung
+- alveolus of lung","- 
+- atelectasis",- experimental animals,"- Jefferies, Kawano et al. | 1988
+- Yamashita and Tanaka | 1995
+- Nørgaard, Larsen et al. | 2010"

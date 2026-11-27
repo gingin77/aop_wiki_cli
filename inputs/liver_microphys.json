@@ -1,0 +1,115 @@
+{
+    "aops": [
+        {
+            "title": "Protein Alkylation leading to Liver Fibrosis",
+            "aop_id": 38,
+            "has_structured_methods": true
+        }
+    ],
+    "assays": [
+        {
+            "title": "Akura Twin Liver Fibrosis Microphysiological System",
+            "classification": "in vitro",
+            "description": "Liver fibrosis model based on Akura™ Twin microplate featuring interconnected well pairs"
+        }
+    ],
+    "experiment_setup": {
+        "assay": "Akura Twin Liver Fibrosis Microphysiological System",
+        "biological_context": {
+            "cell_types": [
+                "HepaRG microtissues",
+                "Kupffer-cell like THP-1 Cells",
+                "hepatic stellate cell (hTERT-HSC)"
+            ]
+        },
+        "causal_agent": "TGF-β1"
+    },
+    "events": {
+        "MIE": {
+            "aop_wiki_ke_id": 244,
+            "title": "Alkylation, Protein"
+        },
+        "KE_1": {
+            "aop_wiki_ke_id": 55,
+            "title": "Increase, Cell injury/death",
+            "observations": [{
+                "experiment_setup": "experiment_setup",
+                "biological_object": "albumin",
+                "experimental_effect": "decreased"
+            }]
+        },
+        "KE_2": {
+            "aop_wiki_ke_id": 1492,
+            "title": "Tissue resident cell activation",
+            "observations": [
+                {
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "ALOX5AP",
+                    "experimental_effect": "increased"
+                },{
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "TREM2",
+                    "experimental_effect": "increased"
+                }
+            ]
+        },
+        "KE_3": {
+            "aop_wiki_ke_id": 1493,
+            "title": "Increased Pro-inflammatory mediators",
+            "observations": [
+                {
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "TGF-β1",
+                    "experimental_effect": "increased"
+                },{
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "PAI-1",
+                    "experimental_effect": "increased"
+                }
+            ]
+        },
+        "KE_4": {
+            "aop_wiki_ke_id": 265,
+            "title": "Increase, Hepatic stellate cell activation",
+            "observations": [
+                {
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "ACTA2",
+                    "experimental_effect": "increased"
+                },{
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "FN1",
+                    "experimental_effect": "increased"
+                },
+                {
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "f-actin",
+                    "experimental_effect": "increased"
+                },{
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "Fibronectin",
+                    "experimental_effect": "increased"
+                }
+            ]
+        },
+        "KE_5": {
+            "aop_wiki_ke_id": 68,
+            "title": "Increase, Collagen accumulation",
+            "observations": [
+                {
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "COL1A1",
+                    "experimental_effect": "increased"
+                },{
+                    "experiment_setup": "experiment_setup",
+                    "biological_object": "COL3A1",
+                    "experimental_effect": "increased"
+                }
+            ]
+        },
+        "AO": {
+            "aop_wiki_ke_id": 344,
+            "title": "Increase, Liver fibrosis"
+        }
+    }
+}
