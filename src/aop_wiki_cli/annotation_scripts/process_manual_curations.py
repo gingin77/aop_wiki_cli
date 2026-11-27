@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """Parse and merge the LLM groupings output with the manually curated review CSV.
 
+A review CSV is tied to the grouping run it was curated against — group keys
+are LLM-generated per run and drift between runs, so ratings keyed to one
+run's groups do not match another's. The committed
+ke_groupings_manual_review_05-07-2026_ALL_GROUPS.csv was curated against the
+05-07-2026 run; to apply its ratings to a newer run, re-key them first via
+compare_grouping_runs.py's member-overlap crosswalk.
+
 Pass a grouping run by date (resolved under outputs_for_vc/ke_groupings/<date>/),
 or point at an LLM file explicitly:
 
@@ -8,7 +15,7 @@ Usage:
     # By date — resolves ke_similar_events_<date>_pass3.json in the groupings dir
     uv run python -m aop_wiki_cli.annotation_scripts.process_manual_curations \
         --date 11-25-2026 \
-        --mc-file "inputs/manual_curations/KE groupings manual review - ALL_GROUPS.csv"
+        --mc-file "inputs/manual_curations/ke_groupings_manual_review_05-07-2026_ALL_GROUPS.csv"
 
     # Choose the pass 2 snapshot instead
     uv run python -m aop_wiki_cli.annotation_scripts.process_manual_curations \
@@ -171,7 +178,7 @@ def main() -> None:
         "--mc-file",
         required=True,
         metavar="FILE",
-        help="Path to the manual review CSV (e.g. 'inputs/manual_curations/KE groupings manual review - ALL_GROUPS.csv')",
+        help="Path to the manual review CSV (e.g. 'inputs/manual_curations/ke_groupings_manual_review_05-07-2026_ALL_GROUPS.csv')",
     )
     parser.add_argument(
         "--json-out",
