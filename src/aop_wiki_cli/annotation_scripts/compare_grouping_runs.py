@@ -188,6 +188,20 @@ def compare_runs(groups_a: dict[str, dict], groups_b: dict[str, dict], min_overl
     grouped_a = _all_grouped_ids(groups_a)
     grouped_b = _all_grouped_ids(groups_b)
 
+    # Per-type breakdown: the review categories (same_object_different_process,
+    # similar_event_different_biological_context) churn far more between runs
+    # than merge/soda, and the aggregate counts hide that.
+    by_type: dict[str, dict] = {}
+    for gtype in TYPE_KEYS:
+        rows = [m for m in matches if m["a_type"] == gtype]
+        by_type[gtype] = {
+            "a_groups": len(rows),
+            "identical": sum(1 for m in rows if m["status"] == "identical"),
+            "changed": sum(1 for m in rows if m["status"] == "changed"),
+            "dropped": sum(1 for m in rows if m["status"] == "dropped"),
+            "new_in_b": sum(1 for n in new_in_b if n["b_type"] == gtype),
+        }
+
     summary = {
         "a_total_groups": len(groups_a),
         "b_total_groups": len(groups_b),
@@ -202,6 +216,7 @@ def compare_runs(groups_a: dict[str, dict], groups_b: dict[str, dict], min_overl
         "events_grouped_in_both": len(grouped_a & grouped_b),
         "events_grouped_only_in_a": len(grouped_a - grouped_b),
         "events_grouped_only_in_b": len(grouped_b - grouped_a),
+        "by_type": by_type,
     }
     return {"summary": summary, "matches": matches, "new_in_b": new_in_b, "merges": merges}
 
@@ -227,6 +242,12 @@ def print_report(result: dict, label_a: str, label_b: str, min_overlap: float) -
     print(f"    in both run groupings : {s['events_grouped_in_both']}")
     print(f"    grouped only in A     : {s['events_grouped_only_in_a']}")
     print(f"    grouped only in B     : {s['events_grouped_only_in_b']}")
+    print()
+    print("  By group type (A groups; 'new' counts B-only groups of that type):")
+    print(f"  {'type':<45}{'A':>5}{'ident':>7}{'chng':>6}{'drop':>6}{'new':>6}")
+    for gtype, t in s["by_type"].items():
+        print(f"  {gtype:<45}{t['a_groups']:>5}{t['identical']:>7}"
+              f"{t['changed']:>6}{t['dropped']:>6}{t['new_in_b']:>6}")
     print("=" * 72)
 
 
