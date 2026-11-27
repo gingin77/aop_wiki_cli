@@ -139,6 +139,10 @@ def test_stamped_cache_rejects_mismatched_inputs(tmp_path):
         with open(path2, "w") as f:
             _json.dump(payload, f)
         assert cse._load_stamped_cache(path2, ["1"], "groups") is None, name
+    # accept_legacy=False (the Pass 2 consolidation and Pass 3 merged sweep):
+    # even a NON-empty legacy payload is rejected there, because the old code
+    # cached failure fallbacks with real-looking content in those files.
+    assert cse._load_stamped_cache(legacy, ["1"], "groups", accept_legacy=False) is None
     # Dict-valued stamps (Pass 3: events + group keys) must also match exactly.
     p3 = str(tmp_path / "p3.json")
     stamp = {"events": ["1"], "groups": ["g1"]}

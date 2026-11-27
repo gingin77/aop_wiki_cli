@@ -262,7 +262,8 @@ def _dedupe_group_keys(groups: list[dict]) -> list[dict]:
 # Pass 1 — Intra-batch grouping
 # ---------------------------------------------------------------------------
 
-def _load_stamped_cache(cache_path: str, expected_ids: list[str], payload_key: str):
+def _load_stamped_cache(cache_path: str, expected_ids, payload_key: str,
+                        accept_legacy: bool = True):
     """Load a cache file whose contents are stamped with the event ids that
     produced them, or None when it does not match the current inputs.
 
@@ -291,6 +292,14 @@ def _load_stamped_cache(cache_path: str, expected_ids: list[str], payload_key: s
     if legacy_empty:
         logger.warning("Cache %s is an unstamped empty payload — likely a cached "
                        "failure from an older run; recomputing.", cache_path)
+        return None
+    if not accept_legacy:
+        # For this file, a legacy cache can encode a FAILED run with non-empty
+        # content (Pass 2 cached its unmerged fallback; the Pass 3 sweep was
+        # written despite skipped batches), so accepting it would adopt the
+        # failure as a result. Recomputing costs one call / a rebuild.
+        logger.warning("Cache %s has no input stamp and its legacy format may "
+                       "encode a failed run — recomputing.", cache_path)
         return None
     logger.warning("Cache %s has no input stamp (legacy format) — accepting unverified.", cache_path)
     return data
@@ -500,7 +509,8 @@ def run_pass2(
     # does not reuse a consolidation computed for other groups.
     input_keys = sorted(g["group_key"] for g in all_groups)
     if os.path.exists(consolidation_cache_path):
-        cached = _load_stamped_cache(consolidation_cache_path, input_keys, "groups")
+        cached = _load_stamped_cache(consolidation_cache_path, input_keys, "groups",
+                                     accept_legacy=False)
         if cached is not None:
             logger.info("Pass 2: loaded consolidation from cache (%s)", consolidation_cache_path)
             return cached, True
@@ -570,7 +580,8 @@ def run_pass3(
     sweep_ids = sorted(ungrouped_events, key=lambda x: int(x) if x.isdigit() else 0)
     merged_stamp = {"events": sweep_ids, "groups": group_keys}
     if os.path.exists(pass3_cache_path):
-        cached = _load_stamped_cache(pass3_cache_path, merged_stamp, "result")
+        cached = _load_stamped_cache(pass3_cache_path, merged_stamp, "result",
+                                     accept_legacy=False)
         if cached is not None:
             logger.info("Pass 3: loaded from cache (%s)", pass3_cache_path)
             return cached, []
