@@ -1,6 +1,21 @@
 """
 Annotate AOP-Wiki Key Events with bio-ontology terms using BioPortal + Claude.
 
+Workflow (see _build_ke_annotation, which runs one step per line):
+  1. review_ref_comments           — summarize prior curator comments into
+                                     ranking guidance for every later step
+  2. _parse_title                  — split the title into direction + subject
+                                     phrases (+ subcellular-location hint)
+  3. _annotate_biological_action   — controlled vocab, else LLM normalization
+  4. _resolve_biological_organization — stored reference, else LLM/manual
+  5. _annotate_location_terms      — cell_term / organ_term /
+                                     cellular_component, gated by org level
+  6. _annotate_subjects            — per subject phrase: biological_object →
+                                     biological_process → phenotype
+annotate_ke() wraps that sequence with store handling: load the cache and the
+stored reference, honor --force/--force-on, extract assays, carry comments,
+record newly annotated fields, stamp the schema version, and save.
+
 This script is designed to make use of LLM annotations that have already been stored
 and are under version control in `outputs_for_vc/annotations/`.
 
@@ -107,93 +122,118 @@ ANNOTATION_SCHEMA_VERSION = 2
 _PHENOTYPE_GO_REVIEW_PREFIXES = {"GO"}
 
 
-def _ref_term_label(term: dict) -> str:
-    """Return a short display string for a stored reference term or rejection."""
-    if is_rejection(term):
-        return f"[rejected: {term.get('rejection_reason', '')}]"
-    if "comment" in term:
-        return f"[comment: {term['comment']}]"
-    return term.get("label", str(term))
+# ---------------------------------------------------------------------------
+# Orchestration
+# ---------------------------------------------------------------------------
 
-
-def _stored_ref(ref: dict | None, field: str):
-    """Return the stored reference value for `field`, printing the skip notice.
-
-    Returns None when the reference has no value for the field, meaning the
-    caller should compute one.
+def annotate_ke(
+    ke_id: str,
+    cache_file: str,
+    force: bool = False,
+    force_fields: set[str] | None = None,
+) -> str:
     """
-    val = (ref or {}).get(field)
-    if val is not None:
-        print(f"  (reference) {_ref_term_label(val)!r} — skipping query")
-    return val
+    Annotate one KE and write it to the shared store.
+
+    Load the KE from the cache, use any stored annotation as the reference
+    (masked by --force/--force-on), run the annotation sequence
+    (_build_ke_annotation), extract assays, carry comments forward, record
+    which fields are newly annotated, stamp the schema version, save, and
+    register the KE under its AOPs.
+
+    Returns the shared store path.
+    """
+    bp_api_key = os.environ.get("BIOPORTAL_API_KEY")
+    if not bp_api_key:
+        raise EnvironmentError("BIOPORTAL_API_KEY not set — add it to .env")
+
+    with open(cache_file) as f:
+        events = json.load(f)
+
+    if ke_id not in events:
+        print(f"KE {ke_id} not found in cache — skipping.")
+        return ""
+
+    store = load_ke_annotations()
+    ref_ke = store.get(ke_id)
+    if ref_ke:
+        print(f"  (KE {ke_id} found in shared store — using as reference)")
+
+    title = events[ke_id].get("title", "")
+    description = events[ke_id].get("description", "")
+
+    if force:
+        effective_ref = None
+    elif force_fields:
+        effective_ref = _mask_ref(ref_ke, force_fields) if ref_ke else None
+    else:
+        effective_ref = ref_ke
+
+    annotated_ke = _build_ke_annotation(ke_id, title, bp_api_key, description=description, ref_ke=effective_ref)
+
+    ref_has_assays = (ref_ke or {}).get("assays") is not None
+    if force or "assays" in (force_fields or set()) or not ref_has_assays:
+        annotated_ke["assays"] = annotate_ke_assays(ke_id, events[ke_id])
+    else:
+        annotated_ke["assays"] = (ref_ke or {}).get("assays")
+
+    ref_comments = _attach_comments(annotated_ke, ref_ke)
+
+    new_fields = _compute_newly_updated_fields(effective_ref, annotated_ke)
+    if new_fields:
+        annotated_ke["newly_annotated_fields"] = new_fields
+    else:
+        annotated_ke.pop("newly_annotated_fields", None)
+
+    annotated_ke["schema_version"] = ANNOTATION_SCHEMA_VERSION
+    store[ke_id] = annotated_ke
+    save_ke_annotations(store)
+    for aop in events[ke_id].get("aop_ids", []):
+        register_ke_in_aop(str(aop), ke_id)
+
+    _print_ke_summary(ke_id, title, annotated_ke, new_fields, ref_comments)
+    return KE_ANNOTATIONS_PATH
+
+
+def _build_ke_annotation(
+    ke_id: str,
+    title: str,
+    api_key: str,
+    description: str = "",
+    ref_ke: dict | None = None,
+) -> dict:
+    """Run the annotation sequence for one KE and return the annotation dict.
+
+    Each line is one workflow step (the module docstring describes them);
+    `ref_ke` supplies stored values that every step honors instead of
+    re-querying.
+    """
+    client = make_client()
+    print(f"KE {ke_id}: {title}\n")
+
+    guidance = review_ref_comments(ref_ke, client, title)
+    parsed = _parse_title(title)
+    biological_action = _annotate_biological_action(parsed, client)
+    org_level = _resolve_biological_organization(description, ref_ke, client)
+    location_terms = _annotate_location_terms(
+        parsed, title, api_key, client, ref_ke, org_level, guidance
+    )
+    ec_annotations = _annotate_subjects(
+        parsed["subjects"], title, api_key, client, ref_ke, biological_action, guidance
+    )
+
+    return {
+        "ke_id": ke_id,
+        "title": title,
+        "biological_organization": org_level,
+        **location_terms,
+        "ec_annotations": ec_annotations,
+    }
 
 
 # ---------------------------------------------------------------------------
-# KE-specific LLM functions
+# Workflow steps, in execution order
 # ---------------------------------------------------------------------------
-
-def llm_normalize_biological_action(direction: str, client: anthropic.Anthropic) -> str | None:
-    """Map a direction phrase to the nearest WIKI_ACTION_WORDS term via LLM."""
-    prompt = prompts.normalize_biological_action(direction, WIKI_ACTION_WORDS)
-    parsed = call_json(client, prompt, max_tokens=64)
-    if parsed:
-        term = parsed.get("term")
-        reason = parsed.get("reason", "")
-        if term and term in WIKI_ACTION_WORDS:
-            print(f"  (LLM normalized {direction!r} → {term!r}: {reason})")
-            return term
-    return None
-
-
-def llm_decompose_subject(subject: str, client: anthropic.Anthropic) -> tuple[str, str] | None:
-    """
-    Ask Claude to split a KE subject phrase into (biological_object, biological_process).
-    Returns (object_phrase, process_phrase) or None.
-    """
-    parsed = call_json(client, prompts.decompose_subject(subject), max_tokens=128)
-    if parsed:
-        obj = parsed.get("biological_object", "").strip()
-        proc = parsed.get("biological_process", "").strip()
-        if obj and proc:
-            return obj, proc
-    return None
-
-
-def detect_biological_organization(description: str, client: anthropic.Anthropic | None) -> str | None:
-    """
-    Determine the level of biological organization for a KE from its description.
-    Uses LLM when available; falls back to interactive prompt in tty sessions.
-    """
-    if client is not None:
-        prompt = prompts.classify_biological_organization(description, BIOLOGICAL_ORGANIZATION_LEVELS)
-        parsed = call_json(client, prompt, max_tokens=64)
-        if parsed:
-            level = parsed.get("level", "").strip()
-            reason = parsed.get("reason", "")
-            if level in BIOLOGICAL_ORGANIZATION_LEVELS:
-                print(f"  (LLM: {level!r} — {reason})")
-                return level
-        print("  (LLM organization detection failed — falling back to manual)")
-
-    if not sys.stdin.isatty():
-        print("  (non-interactive mode — skipping manual selection)")
-        return None
-
-    print("  Levels of biological organization:")
-    for i, level in enumerate(BIOLOGICAL_ORGANIZATION_LEVELS, 1):
-        print(f"    {i}. {level}")
-    choice = input(
-        f"  Select level (1-{len(BIOLOGICAL_ORGANIZATION_LEVELS)}, Enter to skip, q=quit): "
-    ).strip().lower()
-    if choice == "q":
-        print("Quitting.")
-        raise SystemExit(0)
-    if choice.isdigit():
-        idx = int(choice) - 1
-        if 0 <= idx < len(BIOLOGICAL_ORGANIZATION_LEVELS):
-            return BIOLOGICAL_ORGANIZATION_LEVELS[idx]
-    return None
-
 
 def review_ref_comments(
         ref_ke: dict | None,
@@ -218,70 +258,134 @@ def review_ref_comments(
     return review
 
 
-def _guidance_context(guidance: str | None, **extra) -> dict | None:
-    """Build a rank_term context dict from curator guidance plus extras, or None."""
-    context = {k: v for k, v in extra.items() if v}
-    if guidance:
-        context["curator_guidance"] = guidance
-    return context or None
+def _parse_title(title: str) -> dict:
+    """Parse the KE title into ECS source phrases and show what was found."""
+    parsed = parse_ke_title(title)
+    print("Parsed ECS source phrases:")
+    for k, v in parsed.items():
+        print(f"  {k}: {v!r}")
+    print()
+    return parsed
 
 
-# ---------------------------------------------------------------------------
-# Per-component annotation helpers
-# ---------------------------------------------------------------------------
-
-def partition_process_results(results: list, object_label: str) -> tuple[list, list]:
-    """
-    Split process results into (kept, filtered_out) based on the resolved object label.
-    Filters out terms specific to a different variant of the object.
-    """
-    object_words = [w for w in object_label.lower().split() if w not in STOPWORDS]
-    kept, filtered_out = [], []
-    for r in results:
-        label_lower = r["label"].lower()
-        has_any_object_word = any(w in label_lower for w in object_words)
-        has_full_object = object_label.lower() in label_lower
-        if not has_any_object_word or has_full_object:
-            kept.append(r)
-        else:
-            filtered_out.append(r)
-    return kept, filtered_out
+def _annotate_biological_action(parsed: dict, client) -> dict:
+    """Resolve the direction phrase to a controlled-vocab action term."""
+    print("--- biological_action ---")
+    if parsed["biological_action"] is not None:
+        print(f"  Detected (controlled vocab): {parsed['biological_action']!r}\n")
+        return {"term": parsed["biological_action"], "source": "controlled_vocab"}
+    llm_action = llm_normalize_biological_action(parsed["raw_direction"], client) if client else None
+    if llm_action:
+        print(f"  LLM normalized to: {llm_action!r}\n")
+        return {"term": llm_action, "source": "llm_normalization"}
+    print(f"  No match for {parsed['raw_direction']!r} — biological_action set to null\n")
+    return {"term": None, "source": "unmatched"}
 
 
-def _annotate_biological_process(
-    subject: str,
+def _resolve_biological_organization(
+    description: str,
+    ref_ke: dict | None,
+    client,
+) -> str | None:
+    """Use the stored organization level, or detect it from the description."""
+    print("--- biological_organization ---")
+    ref_org = (ref_ke or {}).get("biological_organization")
+    if ref_org is not None:
+        print(f"  (reference) {ref_org!r} — skipping detection")
+        org_level = ref_org
+    else:
+        org_level = detect_biological_organization(description, client)
+    print()
+    return org_level
+
+
+def _annotate_location_terms(
+    parsed: dict,
     title: str,
     api_key: str,
     client: anthropic.Anthropic | None,
-    selected_object_label: str | None,
-    ref: dict | None,
+    ref_ke: dict | None,
+    org_level: str | None,
+    guidance: str | None,
+) -> dict:
+    """Annotate the three KE-level location fields, each gated by org level.
+
+    cell_term and organ_term are queried on the full subject phrase.
+    cellular_component is queried on the extracted subcellular-location noun
+    (e.g. "mitochondrion"), NOT the full subject — the location is an adjective
+    embedded in a process phrase, so querying the whole phrase returns the
+    process/complex, not the organelle. When no location word is present the
+    hint is None and _annotate_location_term skips the query.
+    """
+    return {
+        "cell_term": _annotate_location_term(
+            "cell_term", _CELL_TERM_LEVELS,
+            parsed["full_subject"], title, api_key, client, ref_ke, org_level, guidance,
+        ),
+        "organ_term": _annotate_location_term(
+            "organ_term", _ORGAN_TERM_LEVELS,
+            parsed["full_subject"], title, api_key, client, ref_ke, org_level, guidance,
+        ),
+        "cellular_component": _annotate_location_term(
+            "cellular_component", _CELLULAR_COMPONENT_LEVELS,
+            parsed.get("cellular_component"), title, api_key, client, ref_ke, org_level, guidance,
+        ),
+    }
+
+
+def _annotate_location_term(
+    field: str,
+    trigger_levels: set[str],
+    query: str,
+    title: str,
+    api_key: str,
+    client: anthropic.Anthropic | None,
+    ref_ke: dict | None,
+    org_level: str | None,
     guidance: str | None = None,
 ) -> dict | None:
-    """Search, filter, and rank a biological_process term for a KE subject phrase."""
-    ref_process = _stored_ref(ref, "biological_process")
-    if ref_process is not None:
-        return ref_process
+    """Return a ref value if present, or annotate from BioPortal if org_level matches trigger_levels."""
+    ref_val = (ref_ke or {}).get(field)
+    if ref_val is not None:
+        print(f"--- {field} ---")
+        print(f"  (reference) {_ref_term_label(ref_val)!r} — skipping query")
+        print()
+        return ref_val
+    if query and org_level in trigger_levels:
+        print(f"--- {field} ---")
+        result = annotate_term(query, TOP_LEVEL_ONTOLOGIES[field], field, title, api_key, client,
+                               context=_guidance_context(guidance))
+        print()
+        return result
+    return None
 
-    result_filter = None
-    context = _guidance_context(guidance, selected_object=selected_object_label)
-    if selected_object_label:
 
-        def result_filter(results):
-            kept, filtered_out = partition_process_results(results, selected_object_label)
-            if filtered_out:
-                print(
-                    f"  Filtered out {len(filtered_out)} off-target result(s)"
-                    f" (not '{selected_object_label}'):"
-                )
-                for r in filtered_out:
-                    print(f"    ✗ [{r['ontology']}] {r['label']!r}")
-                print()
-            return kept
-
-    return annotate_term(
-        subject, ECS_ONTOLOGIES["biological_process"], "biological_process",
-        title, api_key, client, context=context, result_filter=result_filter,
-    )
+def _annotate_subjects(
+    subjects: list[str],
+    title: str,
+    api_key: str,
+    client: anthropic.Anthropic | None,
+    ref_ke: dict | None,
+    biological_action: dict,
+    guidance: str | None,
+) -> list[dict]:
+    """Annotate every subject phrase, attaching the shared biological_action."""
+    ref_subjects: dict[str, dict] = {
+        s["subject"]: s
+        for s in (ref_ke or {}).get("ec_annotations", [])
+        if isinstance(s, dict) and "subject" in s
+    }
+    annotations = []
+    for i, subject in enumerate(subjects):
+        if len(subjects) > 1:
+            print(f"\n[Subject {i + 1}/{len(subjects)}: {subject!r}]")
+        subj_annotation = _annotate_subject(
+            subject, title, api_key, client,
+            ref=ref_subjects.get(subject), guidance=guidance,
+        )
+        subj_annotation["biological_action"] = biological_action
+        annotations.append(subj_annotation)
+    return annotations
 
 
 def _annotate_subject(
@@ -353,124 +457,162 @@ def _annotate_subject(
     return subj_annotation
 
 
-def _annotate_location_term(
-    field: str,
-    trigger_levels: set[str],
-    query: str,
+def _annotate_biological_process(
+    subject: str,
     title: str,
     api_key: str,
     client: anthropic.Anthropic | None,
-    ref_ke: dict | None,
-    org_level: str | None,
+    selected_object_label: str | None,
+    ref: dict | None,
     guidance: str | None = None,
 ) -> dict | None:
-    """Return a ref value if present, or annotate from BioPortal if org_level matches trigger_levels."""
-    ref_val = (ref_ke or {}).get(field)
-    if ref_val is not None:
-        print(f"--- {field} ---")
-        print(f"  (reference) {_ref_term_label(ref_val)!r} — skipping query")
-        print()
-        return ref_val
-    if query and org_level in trigger_levels:
-        print(f"--- {field} ---")
-        result = annotate_term(query, TOP_LEVEL_ONTOLOGIES[field], field, title, api_key, client,
-                               context=_guidance_context(guidance))
-        print()
-        return result
+    """Search, filter, and rank a biological_process term for a KE subject phrase."""
+    ref_process = _stored_ref(ref, "biological_process")
+    if ref_process is not None:
+        return ref_process
+
+    result_filter = None
+    context = _guidance_context(guidance, selected_object=selected_object_label)
+    if selected_object_label:
+
+        def result_filter(results):
+            kept, filtered_out = partition_process_results(results, selected_object_label)
+            if filtered_out:
+                print(
+                    f"  Filtered out {len(filtered_out)} off-target result(s)"
+                    f" (not '{selected_object_label}'):"
+                )
+                for r in filtered_out:
+                    print(f"    ✗ [{r['ontology']}] {r['label']!r}")
+                print()
+            return kept
+
+    return annotate_term(
+        subject, ECS_ONTOLOGIES["biological_process"], "biological_process",
+        title, api_key, client, context=context, result_filter=result_filter,
+    )
+
+
+# ---------------------------------------------------------------------------
+# LLM primitives used by the steps
+# ---------------------------------------------------------------------------
+
+def llm_normalize_biological_action(direction: str, client: anthropic.Anthropic) -> str | None:
+    """Map a direction phrase to the nearest WIKI_ACTION_WORDS term via LLM."""
+    prompt = prompts.normalize_biological_action(direction, WIKI_ACTION_WORDS)
+    parsed = call_json(client, prompt, max_tokens=64)
+    if parsed:
+        term = parsed.get("term")
+        reason = parsed.get("reason", "")
+        if term and term in WIKI_ACTION_WORDS:
+            print(f"  (LLM normalized {direction!r} → {term!r}: {reason})")
+            return term
     return None
 
 
-def _build_ke_annotation(
-    ke_id: str,
-    title: str,
-    api_key: str,
-    description: str = "",
-    ref_ke: dict | None = None,
-) -> dict:
-    """Run the full ECS annotation workflow for a single KE. Returns the annotation dict."""
-    client = make_client()
+def llm_decompose_subject(subject: str, client: anthropic.Anthropic) -> tuple[str, str] | None:
+    """
+    Ask Claude to split a KE subject phrase into (biological_object, biological_process).
+    Returns (object_phrase, process_phrase) or None.
+    """
+    parsed = call_json(client, prompts.decompose_subject(subject), max_tokens=128)
+    if parsed:
+        obj = parsed.get("biological_object", "").strip()
+        proc = parsed.get("biological_process", "").strip()
+        if obj and proc:
+            return obj, proc
+    return None
 
-    print(f"KE {ke_id}: {title}\n")
 
-    guidance = review_ref_comments(ref_ke, client, title)
+def detect_biological_organization(description: str, client: anthropic.Anthropic | None) -> str | None:
+    """
+    Determine the level of biological organization for a KE from its description.
+    Uses LLM when available; falls back to interactive prompt in tty sessions.
+    """
+    if client is not None:
+        prompt = prompts.classify_biological_organization(description, BIOLOGICAL_ORGANIZATION_LEVELS)
+        parsed = call_json(client, prompt, max_tokens=64)
+        if parsed:
+            level = parsed.get("level", "").strip()
+            reason = parsed.get("reason", "")
+            if level in BIOLOGICAL_ORGANIZATION_LEVELS:
+                print(f"  (LLM: {level!r} — {reason})")
+                return level
+        print("  (LLM organization detection failed — falling back to manual)")
 
-    parsed = parse_ke_title(title)
-    print("Parsed ECS source phrases:")
-    for k, v in parsed.items():
-        print(f"  {k}: {v!r}")
-    print()
+    if not sys.stdin.isatty():
+        print("  (non-interactive mode — skipping manual selection)")
+        return None
 
-    annotation: dict = {
-        "ke_id": ke_id,
-        "title": title,
-        "biological_organization": None,
-        "cell_term": None,
-        "organ_term": None,
-        "cellular_component": None,
-        "ec_annotations": [],
-    }
+    print("  Levels of biological organization:")
+    for i, level in enumerate(BIOLOGICAL_ORGANIZATION_LEVELS, 1):
+        print(f"    {i}. {level}")
+    choice = input(
+        f"  Select level (1-{len(BIOLOGICAL_ORGANIZATION_LEVELS)}, Enter to skip, q=quit): "
+    ).strip().lower()
+    if choice == "q":
+        print("Quitting.")
+        raise SystemExit(0)
+    if choice.isdigit():
+        idx = int(choice) - 1
+        if 0 <= idx < len(BIOLOGICAL_ORGANIZATION_LEVELS):
+            return BIOLOGICAL_ORGANIZATION_LEVELS[idx]
+    return None
 
-    # --- biological_action ---
-    print("--- biological_action ---")
-    if parsed["biological_action"] is not None:
-        print(f"  Detected (controlled vocab): {parsed['biological_action']!r}\n")
-        biological_action = {"term": parsed["biological_action"], "source": "controlled_vocab"}
-    else:
-        llm_action = llm_normalize_biological_action(parsed["raw_direction"], client) if client else None
-        if llm_action:
-            print(f"  LLM normalized to: {llm_action!r}\n")
-            biological_action = {"term": llm_action, "source": "llm_normalization"}
-        else:
-            print(f"  No match for {parsed['raw_direction']!r} — biological_action set to null\n")
-            biological_action = {"term": None, "source": "unmatched"}
-
-    # --- biological_organization ---
-    print("--- biological_organization ---")
-    ref_org = (ref_ke or {}).get("biological_organization")
-    if ref_org is not None:
-        print(f"  (reference) {ref_org!r} — skipping detection")
-        org_level = ref_org
-    else:
-        org_level = detect_biological_organization(description, client)
-    annotation["biological_organization"] = org_level
-    print()
-
-    annotation["cell_term"] = _annotate_location_term(
-        "cell_term", _CELL_TERM_LEVELS,
-        parsed["full_subject"], title, api_key, client, ref_ke, org_level, guidance,
-    )
-    annotation["organ_term"] = _annotate_location_term(
-        "organ_term", _ORGAN_TERM_LEVELS,
-        parsed["full_subject"], title, api_key, client, ref_ke, org_level, guidance,
-    )
-    # cellular_component is queried on the extracted subcellular-location noun
-    # (e.g. "mitochondrion"), NOT the full subject — the location is an adjective
-    # embedded in a process phrase, so querying the whole phrase returns the
-    # process/complex, not the organelle. When no location word is present the
-    # hint is None and _annotate_location_term skips the query.
-    annotation["cellular_component"] = _annotate_location_term(
-        "cellular_component", _CELLULAR_COMPONENT_LEVELS,
-        parsed.get("cellular_component"), title, api_key, client, ref_ke, org_level, guidance,
-    )
-
-    # --- ECS annotation ---
-    ref_subjects: dict[str, dict] = {
-        s["subject"]: s
-        for s in (ref_ke or {}).get("ec_annotations", [])
-        if isinstance(s, dict) and "subject" in s
-    }
-    for i, subject in enumerate(parsed["subjects"]):
-        if len(parsed["subjects"]) > 1:
-            print(f"\n[Subject {i + 1}/{len(parsed['subjects'])}: {subject!r}]")
-        ref_subj = ref_subjects.get(subject)
-        subj_annotation = _annotate_subject(subject, title, api_key, client, ref=ref_subj, guidance=guidance)
-        subj_annotation["biological_action"] = biological_action
-        annotation["ec_annotations"].append(subj_annotation)
-
-    return annotation
 
 # ---------------------------------------------------------------------------
-# Annotation & Orchestration helpers
+# Shared helpers for the steps
+# ---------------------------------------------------------------------------
+
+def _ref_term_label(term: dict) -> str:
+    """Return a short display string for a stored reference term or rejection."""
+    if is_rejection(term):
+        return f"[rejected: {term.get('rejection_reason', '')}]"
+    if "comment" in term:
+        return f"[comment: {term['comment']}]"
+    return term.get("label", str(term))
+
+
+def _stored_ref(ref: dict | None, field: str):
+    """Return the stored reference value for `field`, printing the skip notice.
+
+    Returns None when the reference has no value for the field, meaning the
+    caller should compute one.
+    """
+    val = (ref or {}).get(field)
+    if val is not None:
+        print(f"  (reference) {_ref_term_label(val)!r} — skipping query")
+    return val
+
+
+def _guidance_context(guidance: str | None, **extra) -> dict | None:
+    """Build a rank_term context dict from curator guidance plus extras, or None."""
+    context = {k: v for k, v in extra.items() if v}
+    if guidance:
+        context["curator_guidance"] = guidance
+    return context or None
+
+
+def partition_process_results(results: list, object_label: str) -> tuple[list, list]:
+    """
+    Split process results into (kept, filtered_out) based on the resolved object label.
+    Filters out terms specific to a different variant of the object.
+    """
+    object_words = [w for w in object_label.lower().split() if w not in STOPWORDS]
+    kept, filtered_out = [], []
+    for r in results:
+        label_lower = r["label"].lower()
+        has_any_object_word = any(w in label_lower for w in object_words)
+        has_full_object = object_label.lower() in label_lower
+        if not has_any_object_word or has_full_object:
+            kept.append(r)
+        else:
+            filtered_out.append(r)
+    return kept, filtered_out
+
+
+# ---------------------------------------------------------------------------
+# Store & metadata helpers
 # ---------------------------------------------------------------------------
 
 def _flat_ref_comments(raw) -> list[str]:
@@ -573,6 +715,10 @@ def _compute_newly_updated_fields(effective_ref: dict | None, final_stored: dict
     return new_fields
 
 
+# ---------------------------------------------------------------------------
+# Presentation
+# ---------------------------------------------------------------------------
+
 def _print_ke_summary(
     ke_id: str,
     title: str,
@@ -613,73 +759,8 @@ def _print_ke_summary(
 
 
 # ---------------------------------------------------------------------------
-# Orchestration
+# CLI
 # ---------------------------------------------------------------------------
-
-def annotate_ke(
-    ke_id: str,
-    cache_file: str,
-    force: bool = False,
-    force_fields: set[str] | None = None,
-) -> str:
-    """
-    Orchestration function to annotate one KE and write it to the shared store.
-    AOP associations are read from the cache and recorded in the AOP store automatically.
-
-    force=True re-annotates all fields from scratch.
-    force_fields re-annotates only the named fields, keeping all others from the reference.
-    Returns the shared store path.
-    """
-    bp_api_key = os.environ.get("BIOPORTAL_API_KEY")
-    if not bp_api_key:
-        raise EnvironmentError("BIOPORTAL_API_KEY not set — add it to .env")
-
-    with open(cache_file) as f:
-        events = json.load(f)
-
-    if ke_id not in events:
-        print(f"KE {ke_id} not found in cache — skipping.")
-        return ""
-
-    store = load_ke_annotations()
-    ref_ke = store.get(ke_id)
-    if ref_ke:
-        print(f"  (KE {ke_id} found in shared store — using as reference)")
-
-    title = events[ke_id].get("title", "")
-    description = events[ke_id].get("description", "")
-
-    if force:
-        effective_ref = None
-    elif force_fields:
-        effective_ref = _mask_ref(ref_ke, force_fields) if ref_ke else None
-    else:
-        effective_ref = ref_ke
-
-    annotated_ke = _build_ke_annotation(ke_id, title, bp_api_key, description=description, ref_ke=effective_ref)
-
-    ref_has_assays = (ref_ke or {}).get("assays") is not None
-    if force or "assays" in (force_fields or set()) or not ref_has_assays:
-        annotated_ke["assays"] = annotate_ke_assays(ke_id, events[ke_id])
-    else:
-        annotated_ke["assays"] = (ref_ke or {}).get("assays")
-
-    ref_comments = _attach_comments(annotated_ke, ref_ke)
-
-    new_fields = _compute_newly_updated_fields(effective_ref, annotated_ke)
-    if new_fields:
-        annotated_ke["newly_annotated_fields"] = new_fields
-    else:
-        annotated_ke.pop("newly_annotated_fields", None)
-
-    annotated_ke["schema_version"] = ANNOTATION_SCHEMA_VERSION
-    store[ke_id] = annotated_ke
-    save_ke_annotations(store)
-    for aop in events[ke_id].get("aop_ids", []):
-        register_ke_in_aop(str(aop), ke_id)
-
-    _print_ke_summary(ke_id, title, annotated_ke, new_fields, ref_comments)
-    return KE_ANNOTATIONS_PATH
 
 def get_fresh_event_cache(date_str: str | None = None):
     """Collect events for the given date (MM-DD-YYYY), defaulting to today."""
@@ -692,6 +773,7 @@ def get_fresh_event_cache(date_str: str | None = None):
 
     # Collect and rank events (handles caching internally)
     collect_and_rank_events(work_date, cache_dir, output_dir, logger, None)
+
 
 def main():
     parser = argparse.ArgumentParser(description="Annotate AOP-Wiki Key Events with ontology terms")
