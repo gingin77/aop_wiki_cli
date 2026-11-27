@@ -11,6 +11,7 @@ from pathlib import Path
 ANNOTATIONS_DIR = "outputs_for_vc/annotations"
 KE_ANNOTATIONS_PATH = os.path.join(ANNOTATIONS_DIR, "ke_annotations.json")
 AOP_KE_INDEX_PATH = os.path.join(ANNOTATIONS_DIR, "aop_ke_index.json")
+WORKFLOW_METADATA_PATH = os.path.join(ANNOTATIONS_DIR, "workflow_metadata.json")
 
 CACHE_DIR_ROOT = "outputs/cache"
 
@@ -58,6 +59,13 @@ def _save_json(path: str, data: dict) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
+
+
+def append_run_metadata(record: dict) -> None:
+    """Append one run-provenance record to the workflow metadata store."""
+    data = _load_json(WORKFLOW_METADATA_PATH)
+    data.setdefault("runs", []).append(record)
+    _save_json(WORKFLOW_METADATA_PATH, data)
 
 
 def load_ke_annotations() -> dict:

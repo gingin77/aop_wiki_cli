@@ -72,11 +72,13 @@ from aop_wiki_cli.analysis.collect_event_rankings import collect_and_rank_events
 logger = set_up_logger('aop-wiki-annotate', level=logging.INFO)
 
 from aop_wiki_cli.annotation_scripts import prompts
-from aop_wiki_cli.annotation_scripts.llm import call_json, call_text, make_client
+from aop_wiki_cli.annotation_scripts.llm import LLM_MODEL, call_json, call_text, make_client
 from aop_wiki_cli.annotation_scripts.store import (
     AOP_KE_INDEX_PATH,
     CACHE_DIR_ROOT,
     KE_ANNOTATIONS_PATH,
+    WORKFLOW_METADATA_PATH,
+    append_run_metadata,
     events_cache_file,
     load_ke_annotations,
     save_ke_annotations,
@@ -930,6 +932,40 @@ def _print_ke_summary(
 # CLI
 # ---------------------------------------------------------------------------
 
+def _git_output(*args) -> str | None:
+    import subprocess
+    try:
+        return subprocess.run(["git", *args], capture_output=True, text=True,
+                              check=True).stdout.strip()
+    except Exception:
+        return None
+
+
+def _record_run_metadata(args, force_fields, with_assays, cache, annotated_ids) -> None:
+    """Append one provenance record for this invocation to the metadata store."""
+    sha = _git_output("rev-parse", "HEAD")
+    # Dirty is scoped to the code: pending data outputs don't make a run
+    # unreproducible, uncommitted code changes do.
+    dirty = bool(_git_output("status", "--porcelain", "--", "src", "pyproject.toml")) if sha else None
+    append_run_metadata({
+        "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+        "workflow_version": ANNOTATION_WORKFLOW_VERSION,
+        "llm_model": LLM_MODEL,
+        "code_git_sha": sha,
+        "code_dirty": dirty,
+        "cache_file": cache,
+        "command": {
+            "aop": args.aop,
+            "ke_id": args.ke_id,
+            "force": args.force,
+            "force_on": sorted(force_fields) if force_fields else [],
+            "with_assays": with_assays,
+        },
+        "kes_annotated": annotated_ids,
+    })
+    print(f"Run recorded in {WORKFLOW_METADATA_PATH}")
+
+
 def get_fresh_event_cache(date_str: str | None = None):
     """Collect events for the given date (MM-DD-YYYY), defaulting to today."""
     work_date = (
@@ -1014,14 +1050,18 @@ def main():
         print(f"KE annotations: {KE_ANNOTATIONS_PATH}")
         print(f"AOP KE index:   {AOP_KE_INDEX_PATH}")
         print()
+        annotated_ids = []
         for ke_id, _ in kes:
             ke_entry = store.get(ke_id)
             already_complete = ke_entry and ke_entry.get("workflow_version") == ANNOTATION_WORKFLOW_VERSION
             if already_complete and not args.force and not force_fields:
                 print(f"KE {ke_id} is already fully annotated (workflow v{ANNOTATION_WORKFLOW_VERSION}).")
                 continue
-            annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields,
-                        with_assays=with_assays)
+            if annotate_ke(ke_id, cache, force=args.force, force_fields=force_fields,
+                           with_assays=with_assays):
+                annotated_ids.append(ke_id)
+        if annotated_ids:
+            _record_run_metadata(args, force_fields, with_assays, cache, annotated_ids)
         return
 
     store = load_ke_annotations()
@@ -1034,8 +1074,9 @@ def main():
               f"Use --force to re-annotate or --force-on <field> to re-annotate specific fields.")
         return
 
-    annotate_ke(args.ke_id, cache, force=args.force, force_fields=force_fields,
-                with_assays=with_assays)
+    if annotate_ke(args.ke_id, cache, force=args.force, force_fields=force_fields,
+                   with_assays=with_assays):
+        _record_run_metadata(args, force_fields, with_assays, cache, [args.ke_id])
 
 
 if __name__ == "__main__":
