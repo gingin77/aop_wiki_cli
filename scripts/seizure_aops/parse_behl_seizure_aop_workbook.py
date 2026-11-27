@@ -1,9 +1,11 @@
-# Run with: `uv run python -m scripts.seizure_aops.parse_behl_seizure_aop_workbook`
-#
 # Single-use parser for the Behl seizure supplementary workbook. Relocated out
 # of the installed aop_wiki_cli package (issue #28); the reusable
 # harmonization-sheet core it depends on lives in
 # aop_wiki_cli.parsers.seizure_harmonization.
+#
+# Normally driven through the runner (scripts/seizure_aops/runner.py). The
+# __main__ demo below can be run from the repo root with:
+#   uv run python -m scripts.seizure_aops.parse_behl_seizure_aop_workbook
 
 import re
 

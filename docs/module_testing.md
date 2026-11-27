@@ -82,17 +82,32 @@ aop-wiki-cli search-kers-for-concordance-text
 aop-wiki-cli harmonize-ker-evidence
 aop-wiki-cli search-with-config methods_nams
 aop-wiki-cli search-with-config lung_and_immune_aops   # exercises the entities_and_fields path
-uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops           # uses the shipped workbook + curated files
-
-echo '{"a": {"input_term": "x", "matched_term": "y", "match_score": 0.95}}' > m.json
-uv run python -m scripts.seizure_aops manually-review-matches m.json --threshold 0.5
 
 find . -type d -maxdepth 2   # outputs/, xml_inputs/, logs/ all under /tmp/aop-test
 ```
 
-**Expected:** all eight commands complete, and nothing is written outside `/tmp/aop-test`.
+**Expected:** all seven commands complete, and nothing is written outside `/tmp/aop-test`.
 
-**Note:** `collect-harmonized-seizure-aops` runs without prompting because the curated files ship in the wheel. Add
+---
+
+## 4a. Seizure runner (from the clone)
+
+The seizure workflow is a standalone runner under `scripts/`, which is not shipped in the wheel or sdist, so there is
+no installed command for it — run the file from a clone (it puts the repo root on `sys.path` itself, so any working
+directory works). It still resolves its data directory the usual way, so point `AOP_WIKI_CLI_DATA_DIR` at the test
+directory to keep outputs out of the clone.
+
+```bash
+cd ~/Developer/aop_wiki_cli
+export AOP_WIKI_CLI_DATA_DIR=/tmp/aop-test
+
+uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops   # uses the shipped workbook + curated files
+
+echo '{"a": {"input_term": "x", "matched_term": "y", "match_score": 0.95}}' > /tmp/aop-test/m.json
+uv run python scripts/seizure_aops/runner.py manually-review-matches /tmp/aop-test/m.json --threshold 0.5
+```
+
+**Note:** `collect-harmonized-seizure-aops` runs without prompting because the curated files ship with the tool. Add
 `--skip-curated` to confirm the two interactive review stages still work.
 
 ---

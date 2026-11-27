@@ -6,11 +6,15 @@ seizure supplementary workbook — one specific input, not reusable — so they 
 live in this standalone runner outside the installed library. They still use
 the reusable `aop_wiki_cli.*` library for XML collection, paths and exports.
 
-Run from the repository root::
+Run from a clone (any working directory; `scripts/` is not shipped in the
+wheel, so there is nothing to install)::
 
-    $ uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops
-    $ uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops --date 03-12-2026
-    $ uv run python -m scripts.seizure_aops manually-review-matches <file.json> --threshold 0.9
+    $ uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops
+    $ uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops --date 03-12-2026
+    $ uv run python scripts/seizure_aops/runner.py manually-review-matches <file.json> --threshold 0.9
+
+The `python -m scripts.seizure_aops <command>` form also works, but only when
+the current directory is the repository root (so `scripts` is importable).
 """
 
 import json
@@ -34,6 +38,17 @@ from aop_wiki_cli.parsers import (
     collect_events_from_xml,
     collect_entity_with_cache,
 )
+
+# `scripts/` is not an installed package, so it is only importable when the
+# repository root is on sys.path. That happens automatically for
+# `python scripts/seizure_aops/runner.py` run from the repo root, but not when this
+# file is run directly (`python scripts/seizure_aops/runner.py`) or from another
+# directory. Put the repo root (two levels up) on sys.path so both work anywhere.
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = str(_Path(__file__).resolve().parents[2])
+if _REPO_ROOT not in _sys.path:
+    _sys.path.insert(0, _REPO_ROOT)
 
 from scripts.seizure_aops.parse_behl_seizure_aop_workbook import parse_seizure_aop_workbook
 from scripts.seizure_aops.map_ke_descriptions_to_harmonized import (
@@ -105,9 +120,9 @@ def collect_harmonized_seizure_aops(
         - Various JSON files with mappings and validation results
 
     Examples:
-        uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops
-        uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops --date 03-12-2026
-        uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops --skip-curated --force-refresh
+        uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops
+        uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops --date 03-12-2026
+        uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops --skip-curated --force-refresh
 
     # TODO: Add option to pass a file path for the curated inputs.
     """
@@ -247,7 +262,7 @@ def manually_review_matches(
     Developed to serve 2 main use cases in the seizure AOP project. To test this function, run
     with:
 
-    uv run python -m scripts.seizure_aops manually-review-matches <data-dir>/outputs/seizure_aops/{date}/mapping_ke_description_to_harmonized_ke_{date}.json --threshold 0.9
+    uv run python scripts/seizure_aops/runner.py manually-review-matches <data-dir>/outputs/seizure_aops/{date}/mapping_ke_description_to_harmonized_ke_{date}.json --threshold 0.9
 
     Input JSON structure (dict or list):
         Dict: { "<key>": { "input_term": ..., "matched_term": ..., "match_score": ... } }

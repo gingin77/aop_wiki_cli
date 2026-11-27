@@ -181,7 +181,7 @@ and `['event_to_assays_summary']`
 ### Step 6 — Organize and Enrich Harmonized Events
 
 **Function:** `organize_and_enrich_harmonized_events(seizure_aop_curations, all_aops, all_events)`
-**Source:** `src/aop_wiki_cli/analysis/analyze_seizure_aop_content.py`
+**Source:** `scripts/seizure_aops/analyze_seizure_aop_content.py`
 
 Two-stage enrichment:
 

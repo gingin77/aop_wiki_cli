@@ -38,7 +38,7 @@ The supplemental data from Behl et al was extracted and analyzed using the `coll
 - Source workbook: `src/aop_wiki_cli/data/seizure_aops/behl_seizure_supp_data.xlsx`
   (overridable at `<data-dir>/inputs/seizure_aops/behl_seizure_supp_data.xlsx`)
 - Output directory: `<data-dir>/outputs/seizure_aops/<MM-DD-YYYY>/`
-- Run (standalone runner, from a clone): `uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops`
+- Run (standalone runner, from a clone): `uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops`
 
 ### Canonical JSON outputs for EMOD imports
 
@@ -58,7 +58,7 @@ manually curated based upon information illustrated in a figure in the Behl manu
 |--------|---------|
 | `scripts/seizure_aops/parse_behl_seizure_aop_workbook.py` | Parses Behl Excel workbook, extracts harmonized KEs, assay mappings, and target families |
 | `scripts/seizure_aops/map_ke_descriptions_to_harmonized.py` | Fuzzy matching to map KE descriptions from assays to harmonized KE titles |
-| `src/aop_wiki_cli/analysis/analyze_seizure_aop_content.py` | Analyzes seizure AOPs against AOP-Wiki XML data |
+| `scripts/seizure_aops/analyze_seizure_aop_content.py` | Analyzes seizure AOPs against AOP-Wiki XML data |
 | `scripts/seizure_aops/seizure_aop_export.py` | Export functions for seizure AOP results (JSON, CSV, Excel) |
 | `src/aop_wiki_cli/data_export/excel_writer.py` | Excel workbook generation |
 | `export_ready_for_emod_upload.sh` | Shell script to migrate seizure files to external directory for EMOD upload |
@@ -87,4 +87,4 @@ The parser includes validation checks that print warnings/success messages:
 ## Current TODO inventory
 
 - `src/aop_wiki_cli/cli.py`: compare assay metadata to Comptox data (`collect_harmonized_seizure_aops` flow)
-- `src/aop_wiki_cli/analysis/analyze_seizure_aop_content.py`: add fuzzy title similarity scoring/reporting
+- `scripts/seizure_aops/analyze_seizure_aop_content.py`: add fuzzy title similarity scoring/reporting

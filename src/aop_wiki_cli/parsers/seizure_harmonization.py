@@ -14,7 +14,11 @@ parsing has a single home. See issue #28.
 
 import re
 
+import logging
+
 import pandas as pd
+
+logger = logging.getLogger(__name__)
 
 TITLES_TO_FIX = {"Altered Synaptic Serotinin Release": "Altered Synaptic Serotonin Release"}
 
@@ -109,9 +113,10 @@ def _collect_event_mappings_orig_to_harmonized(event_mappings_orig_to_harmonized
 def _collapse_single_title_sets(event_mappings_orig_to_harmonized):
     for event_id, harmonized_titles in event_mappings_orig_to_harmonized.items():
         if len(harmonized_titles) > 1:
-            print(f"⚠️ Validation Warning: Original event ID {event_id} maps to multiple harmonized titles:")
-            for title in harmonized_titles:
-                print(f"  - {title}")
+            logger.warning(
+                "Original event ID %s maps to multiple harmonized titles: %s",
+                event_id, ", ".join(sorted(harmonized_titles)),
+            )
             continue
 
         event_mappings_orig_to_harmonized[event_id] = list(harmonized_titles)[0]
@@ -135,41 +140,55 @@ def _collect_titles_from_event_mapping(event_mappings_orig_to_harmonized):
     return harmonized_kes_in_mapping
 
 
-def _print_harmonized_title_discrepancy(harmonized_kes_from_df, harmonized_kes_in_mapping):
+def _log_harmonized_title_discrepancy(harmonized_kes_from_df, harmonized_kes_in_mapping):
     if len(harmonized_kes_from_df) == len(harmonized_kes_in_mapping):
         return
 
-    print('Discrepancy between harmonized titles from DF and from mapping dict:')
-    diff_1 = harmonized_kes_in_mapping.difference(harmonized_kes_from_df)
-    diff_2 = harmonized_kes_from_df.difference(harmonized_kes_in_mapping)
-    print(diff_1)
-    print(diff_2)
+    only_in_mapping = harmonized_kes_in_mapping.difference(harmonized_kes_from_df)
+    only_in_df = harmonized_kes_from_df.difference(harmonized_kes_in_mapping)
+    logger.warning(
+        "Discrepancy between harmonized titles from the sheet and from the mapping dict: "
+        "only in mapping=%s; only in sheet=%s",
+        sorted(only_in_mapping), sorted(only_in_df),
+    )
 
 
 # ---------------------------------------------------------------------------
 # Sheet readers and harmonization parse
 # ---------------------------------------------------------------------------
 
-def get_seizure_dfs(excel_file):
-    sheet_names = {
-        "network": "Suppl1_Biovista Vizit",
-        "harmonization": "Suppl2_KEs AOP Harmonization",
-        "assays": "Suppl6_ICE Assays",
-        "chemicals_w_cas": "Suppl4_Compiled Compounds"
-    }
+SHEET_NAMES = {
+    "network": "Suppl1_Biovista Vizit",
+    "harmonization": "Suppl2_KEs AOP Harmonization",
+    "assays": "Suppl6_ICE Assays",
+    "chemicals_w_cas": "Suppl4_Compiled Compounds",
+}
 
-    # network_df = pd.read_excel(excel_file, sheet_name=sheet_names["network"])
-    harmonization_df = pd.read_excel(excel_file, sheet_name=sheet_names["harmonization"], skiprows=1)
+
+def read_harmonization_df(excel_file):
+    """Read and refine only the harmonization sheet of the Behl workbook.
+
+    This is all the general ``search-within-aops --behl-seizure-aops`` path
+    needs, so it never touches the assay or chemical sheets (see
+    ``read_behl_seizure_aop_ids``). The full seizure runner's
+    ``get_seizure_dfs`` reuses this for the harmonization portion.
+    """
+    harmonization_df = pd.read_excel(excel_file, sheet_name=SHEET_NAMES["harmonization"], skiprows=1)
     harmonization_df = _refine_harmonization_df_columns(harmonization_df)
 
     # Apply title fixes early: strip whitespace and correct typos in harmonized_kes column
     harmonization_df['harmonized_kes'] = harmonization_df['harmonized_kes'].apply(
         lambda x: TITLES_TO_FIX.get(x.strip(), x.strip()) if pd.notna(x) else x
     )
+    return harmonization_df
 
-    assays_df = pd.read_excel(excel_file, sheet_name=sheet_names["assays"], skiprows=1)
 
-    chemicals_w_cas_df = pd.read_excel(excel_file, sheet_name=sheet_names["chemicals_w_cas"], skiprows=1)
+def get_seizure_dfs(excel_file):
+    harmonization_df = read_harmonization_df(excel_file)
+
+    assays_df = pd.read_excel(excel_file, sheet_name=SHEET_NAMES["assays"], skiprows=1)
+
+    chemicals_w_cas_df = pd.read_excel(excel_file, sheet_name=SHEET_NAMES["chemicals_w_cas"], skiprows=1)
     chemicals_w_cas_df = _refine_chemicals_w_cas_df_columns(chemicals_w_cas_df)
 
     return harmonization_df, assays_df, chemicals_w_cas_df
@@ -235,7 +254,7 @@ def parse_harmonization_df(harmonization_df):
     # in the input data.
     event_mappings_orig_to_harmonized = _collapse_single_title_sets(event_mappings_orig_to_harmonized)
     harmonized_kes_in_mapping = _collect_titles_from_event_mapping(event_mappings_orig_to_harmonized)
-    _print_harmonized_title_discrepancy(harmonized_kes_from_df, harmonized_kes_in_mapping)
+    _log_harmonized_title_discrepancy(harmonized_kes_from_df, harmonized_kes_in_mapping)
 
     return harmonization_dict, event_mappings_orig_to_harmonized, harmonized_kes_from_df
 
@@ -267,14 +286,15 @@ def extract_harmonized_aops(harmonization_dict):
 def read_behl_seizure_aop_ids(workbook_path):
     """Return the Behl seizure AOP IDs as a sorted list of strings.
 
-    Reads only the harmonization sheet of the Behl supplementary workbook and
-    returns the AOP IDs that have at least one harmonized key event — the same
-    IDs the full seizure pipeline exposes as
-    ``['ready_for_emod']['data']['aop_to_harmonized_events_dict']`` — without
-    parsing the assay, target-family or chemical sheets.
+    Reads only the harmonization sheet of the Behl supplementary workbook (not
+    the assay, target-family or chemical sheets) and returns every AOP ID that
+    appears as a header there — the same keys the full seizure pipeline exposes
+    as ``['ready_for_emod']['data']['aop_to_harmonized_events_dict']``. Every
+    AOP header in the workbook has harmonized events; an AOP whose events were
+    all excluded would still be listed (matching the full-pipeline behavior).
     """
     excel_file = pd.ExcelFile(workbook_path)
-    harmonization_df, _assays_df, _chemicals_df = get_seizure_dfs(excel_file)
+    harmonization_df = read_harmonization_df(excel_file)
     harmonization_dict, _mappings, _harmonized_kes = parse_harmonization_df(harmonization_df)
     aop_to_harmonized_events_dict = extract_harmonized_aops(harmonization_dict)
     return sorted(aop_to_harmonized_events_dict, key=int)

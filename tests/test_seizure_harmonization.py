@@ -24,11 +24,22 @@ from aop_wiki_cli.paths import seizure_workbook_path
 
 def test_read_behl_seizure_aop_ids_from_bundled_workbook():
     ids = sh.read_behl_seizure_aop_ids(seizure_workbook_path())
-    # The harmonization sheet's AOP headers with at least one harmonized KE,
-    # sorted numerically. This is the exact set search-within-aops injects for
-    # --behl-seizure-aops.
+    # Every AOP header on the harmonization sheet, sorted numerically. This is
+    # the exact set search-within-aops injects for --behl-seizure-aops.
     assert ids == ['10', '214', '215', '223', '230', '231', '281']
     assert all(isinstance(i, str) for i in ids)
+
+
+def test_get_seizure_dfs_reads_all_three_sheets():
+    # The full seizure runner uses this; it must read the harmonization, assay
+    # and chemical sheets (read_behl_seizure_aop_ids reads only the first).
+    import pandas as pd
+    harmonization_df, assays_df, chemicals_df = sh.get_seizure_dfs(
+        pd.ExcelFile(seizure_workbook_path())
+    )
+    assert "aop_wiki_terminologies" in harmonization_df.columns
+    assert "casrn" in chemicals_df.columns          # chemicals columns refined
+    assert not assays_df.empty
 
 
 # ---------------------------------------------------------------------------
@@ -85,15 +96,16 @@ def test_collect_and_collapse_event_mappings():
     assert collapsed["999"] == "DROPPED"
 
 
-def test_collapse_keeps_multi_title_sets_and_warns(capsys):
+def test_collapse_keeps_multi_title_sets_and_warns(caplog):
     mappings = {"386": {"Title A", "Title B"}}
-    collapsed = sh._collapse_single_title_sets(mappings)
+    with caplog.at_level("WARNING", logger=sh.__name__):
+        collapsed = sh._collapse_single_title_sets(mappings)
     assert collapsed["386"] == {"Title A", "Title B"}  # ambiguous set left intact
-    assert "maps to multiple harmonized titles" in capsys.readouterr().out
+    assert "maps to multiple harmonized titles" in caplog.text
 
 
 # ---------------------------------------------------------------------------
-# _collect_titles_from_event_mapping / _print_harmonized_title_discrepancy
+# _collect_titles_from_event_mapping / _log_harmonized_title_discrepancy
 # ---------------------------------------------------------------------------
 
 def test_collect_titles_from_event_mapping_handles_sets_and_scalars():
@@ -102,12 +114,15 @@ def test_collect_titles_from_event_mapping_handles_sets_and_scalars():
     assert titles == {"Title A", "Title B"}  # 'nan' and '' dropped
 
 
-def test_print_harmonized_title_discrepancy(capsys):
-    sh._print_harmonized_title_discrepancy({"a", "b"}, {"a"})
-    assert "Discrepancy" in capsys.readouterr().out
+def test_log_harmonized_title_discrepancy(caplog):
+    with caplog.at_level("WARNING", logger=sh.__name__):
+        sh._log_harmonized_title_discrepancy({"a", "b"}, {"a"})
+    assert "Discrepancy" in caplog.text
     # equal sizes -> silent
-    sh._print_harmonized_title_discrepancy({"a"}, {"b"})
-    assert capsys.readouterr().out == ""
+    caplog.clear()
+    with caplog.at_level("WARNING", logger=sh.__name__):
+        sh._log_harmonized_title_discrepancy({"a"}, {"b"})
+    assert caplog.text == ""
 
 
 # ---------------------------------------------------------------------------

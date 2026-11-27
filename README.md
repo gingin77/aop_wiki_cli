@@ -127,14 +127,14 @@ aop-wiki-cli event-level-llm-review --ke-ids 97,1908
 aop-wiki-cli event-level-llm-review --limit 10
 
 # Collect and harmonize seizure AOP data (interactive review)
-uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops
-uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops --date 02-20-2026
+uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops
+uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops --date 02-20-2026
 
 # Manually review match results from a JSON file
-uv run python -m scripts.seizure_aops manually-review-matches <input_file.json> [--threshold 0.9]
+uv run python scripts/seizure_aops/runner.py manually-review-matches <input_file.json> [--threshold 0.9]
 
 # Concrete example - with future oriented date
-uv run python -m scripts.seizure_aops manually-review-matches outputs/seizure_aops/03-14-2026/mapping_ke_description_to_harmonized_ke_03-14-2026.json --threshold 0.9
+uv run python scripts/seizure_aops/runner.py manually-review-matches outputs/seizure_aops/03-14-2026/mapping_ke_description_to_harmonized_ke_03-14-2026.json --threshold 0.9
 ```
 
 ## DILI AOP Collection
@@ -201,16 +201,16 @@ To regenerate matches (bypass curated inputs), use `--skip-curated`.
 
 ```bash
 # Basic usage (uses cached curations if available)
-uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops
+uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops
 
 # Specify a cache date for AOP-Wiki data
-uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops --date MM-DD-YYYY
+uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops --date MM-DD-YYYY
 
 # Force refresh of AOP-Wiki XML data
-uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops --force-refresh
+uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops --force-refresh
 
 # Skip curated inputs and regenerate via fuzzy matching + review
-uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops --skip-curated
+uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops --skip-curated
 ```
 
 ### Export to Target Project

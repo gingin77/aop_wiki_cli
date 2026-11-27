@@ -2,5 +2,5 @@
 
 Code here is single-use and lives outside ``src/aop_wiki_cli/`` on purpose, so
 it is not shipped in the wheel and not measured for library test coverage. Run
-a runner from the repository root, e.g. ``uv run python -m scripts.seizure_aops``.
+a runner from a clone, e.g. ``uv run python scripts/seizure_aops/runner.py``.
 """

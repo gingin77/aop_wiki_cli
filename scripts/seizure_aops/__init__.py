@@ -7,6 +7,6 @@ harmonization-sheet core in ``aop_wiki_cli.parsers.seizure_harmonization``.
 
 Run the two commands it provides with::
 
-    $ uv run python -m scripts.seizure_aops collect-harmonized-seizure-aops
-    $ uv run python -m scripts.seizure_aops manually-review-matches <file.json>
+    $ uv run python scripts/seizure_aops/runner.py collect-harmonized-seizure-aops
+    $ uv run python scripts/seizure_aops/runner.py manually-review-matches <file.json>
 """
