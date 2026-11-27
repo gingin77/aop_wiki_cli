@@ -13,6 +13,13 @@ wheels/
 # Secrets
 .env
 
+# Test / coverage artifacts
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.pytest_cache/
+
 # Miscellaneous
 .DS_Store
 *.log
