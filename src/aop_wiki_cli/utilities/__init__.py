@@ -35,9 +35,6 @@ Downloads:
 AOP-Wiki URLs:
     get_single_aopwiki_url: Generate URL for a single AOP-Wiki entity
     get_aopwiki_urls: Generate URLs for multiple entities
-
-HTML Conversion:
-    convert_html_to_csv: Convert HTML table to CSV
 """
 
 # File I/O
@@ -65,9 +62,6 @@ from aop_wiki_cli.utilities.helpers import (
     get_aopwiki_urls,
 )
 
-# HTML conversion
-from aop_wiki_cli.utilities.html_to_csv_converter import convert_html_to_csv
-
 __all__ = [
     # File I/O
     'to_json_serializable',
@@ -86,8 +80,6 @@ __all__ = [
     # URLs
     'get_single_aopwiki_url',
     'get_aopwiki_urls',
-    # HTML
-    'convert_html_to_csv',
     # Benchmarking
     'format_elapsed'
 ]

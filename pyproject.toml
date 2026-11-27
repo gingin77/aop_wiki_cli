@@ -61,8 +61,8 @@ source = ["aop_wiki_cli"]
 # command (search_references/parse_references are re-exported from their
 # packages' __init__ but consumed nowhere live).
 #
-# Orphaned: the title-stripper (`*_unused.py`) and `html_to_csv_converter.py`
-# (re-exported but only its own __main__ calls it). `__main__.py` is the
+# Orphaned (renamed with the `*_unused.py` suffix, no longer re-exported): the
+# title-stripper and the one-off HTML-to-CSV converter. `__main__.py` is the
 # `python -m` entry point.
 #
 # `manual_match_review.py` is excluded too: although it also backs the
@@ -81,7 +81,7 @@ omit = [
     "*/parsers/parse_references.py",
     # orphaned / entry point
     "*/parsers/aop_wiki_content_parsers_unused.py",
-    "*/utilities/html_to_csv_converter.py",
+    "*/utilities/html_to_csv_converter_unused.py",
     "*/__main__.py",
     # interactive stdin workflow, not reusable library code
     "*/analysis/manual_match_review.py",

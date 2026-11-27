@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Convert ker_2937_evidence_map_2.html to CSV format"""
+"""Convert ker_2937_evidence_map_2.html to CSV format.
+
+ORPHANED / UNWIRED (hence the ``_unused`` filename). ``convert_html_to_csv`` was
+a one-off to convert a single hand-made evidence-map HTML file; it is called by
+no command, module, or test (only this module's own ``__main__`` block) and is
+no longer re-exported from ``utilities/__init__.py``. Kept for reference; wire
+it in (and rename back) or delete it if it stays unused.
+"""
 
 import csv
 from bs4 import BeautifulSoup
