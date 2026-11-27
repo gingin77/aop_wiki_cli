@@ -9,6 +9,7 @@ import urllib.parse
 import urllib.request
 
 BIOPORTAL_SEARCH_URL = "https://data.bioontology.org/search"
+BIOPORTAL_ONTOLOGY_URL = "https://data.bioontology.org/ontologies"
 STOPWORDS = {"type", "the", "a", "an", "of", "in", "and", "or", "with", "by"}
 
 # Greek letters in KE titles (e.g. "PPARα", "LXRβ", "TNFα") get zero BioPortal
@@ -140,6 +141,32 @@ def search_bioportal(phrase: str, ontologies: str, api_key: str,
             "synonyms": item.get("synonym", []),
         })
     return results
+
+
+def ontology_submission_versions(acronyms, api_key: str) -> dict:
+    """Return {ACRONYM: {version, released, submission_id}} from BioPortal's
+    latest_submission endpoint, for run provenance. A failed lookup maps the
+    acronym to None rather than raising — ontology content drifts between
+    runs, so the versions are recorded best-effort."""
+    versions: dict = {}
+    for acronym in sorted({str(a).strip().upper() for a in acronyms if str(a).strip()}):
+        params = urllib.parse.urlencode({"apikey": api_key, "display": "version,released,submissionId"})
+        req = urllib.request.Request(
+            f"{BIOPORTAL_ONTOLOGY_URL}/{acronym}/latest_submission?{params}",
+            headers={"Accept": "application/json"},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read())
+            versions[acronym] = {
+                "version": data.get("version"),
+                "released": data.get("released"),
+                "submission_id": data.get("submissionId"),
+            }
+        except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError) as e:
+            print(f"  (submission lookup failed for {acronym}: {e})")
+            versions[acronym] = None
+    return versions
 
 
 def search_bioportal_with_fallback(phrase: str, ontologies: str, api_key: str,

@@ -90,14 +90,22 @@ from aop_wiki_cli.annotation_scripts.ke_title_parser import (
     extract_biological_object,
     parse_ke_title,
 )
-from aop_wiki_cli.annotation_scripts.query_bioportal import STOPWORDS
+from aop_wiki_cli.annotation_scripts.query_bioportal import (
+    STOPWORDS,
+    ontology_submission_versions,
+)
 from aop_wiki_cli.annotation_scripts.annotate_term_helpers import (
     ECS_ONTOLOGIES,
+    FIELD_ONTOLOGIES,
     TOP_LEVEL_ONTOLOGIES,
     annotate_term,
     is_rejection,
 )
-from aop_wiki_cli.annotation_scripts.assay_extraction import annotate_ke_assays
+from aop_wiki_cli.annotation_scripts.assay_extraction import (
+    ASSAY_TYPE_ONTOLOGIES,
+    TAXON_ONTOLOGIES,
+    annotate_ke_assays,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -941,12 +949,20 @@ def _git_output(*args) -> str | None:
         return None
 
 
+def _workflow_ontology_acronyms() -> list[str]:
+    """Every BioPortal ontology acronym the workflow can query."""
+    scopes = list(FIELD_ONTOLOGIES.values()) + [ASSAY_TYPE_ONTOLOGIES, TAXON_ONTOLOGIES]
+    return sorted({a.strip().upper() for scope in scopes for a in scope.split(",") if a.strip()})
+
+
 def _record_run_metadata(args, force_fields, with_assays, cache, annotated_ids) -> None:
     """Append one provenance record for this invocation to the metadata store."""
     sha = _git_output("rev-parse", "HEAD")
     # Dirty is scoped to the code: pending data outputs don't make a run
     # unreproducible, uncommitted code changes do.
     dirty = bool(_git_output("status", "--porcelain", "--", "src", "pyproject.toml")) if sha else None
+    bp_key = os.environ.get("BIOPORTAL_API_KEY", "")
+    submissions = ontology_submission_versions(_workflow_ontology_acronyms(), bp_key)
     append_run_metadata({
         "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
         "workflow_version": ANNOTATION_WORKFLOW_VERSION,
@@ -962,6 +978,7 @@ def _record_run_metadata(args, force_fields, with_assays, cache, annotated_ids) 
             "with_assays": with_assays,
         },
         "kes_annotated": annotated_ids,
+        "bioportal_submissions": submissions,
     })
     print(f"Run recorded in {WORKFLOW_METADATA_PATH}")
 

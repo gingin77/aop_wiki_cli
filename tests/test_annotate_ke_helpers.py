@@ -22,6 +22,7 @@ from aop_wiki_cli.annotation_scripts.annotate_ke import (
     _manual_only_ref,
     _mask_ref,
     _strip_carried_suffix,
+    _workflow_ontology_acronyms,
     partition_process_results,
 )
 
@@ -74,6 +75,15 @@ def test_mask_ref_does_not_mutate_input():
 def test_mask_ref_assays_field():
     masked = _mask_ref(_ref_ke(), {"assays"})
     assert masked["assays"] is None
+
+
+def test_workflow_ontology_acronyms_cover_every_scope():
+    """The provenance fetch must cover every ontology the workflow queries."""
+    acronyms = _workflow_ontology_acronyms()
+    assert acronyms == sorted(acronyms)
+    for expected in ("GO", "CL", "UBERON", "CHEBI", "PR", "HGNC",
+                     "UPHENO", "HP", "MP", "OBI", "BAO", "NCBITAXON"):
+        assert expected in acronyms, expected
 
 
 def test_manual_only_ref_keeps_manual_values_and_drops_llm_ones():
