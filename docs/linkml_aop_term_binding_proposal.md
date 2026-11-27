@@ -175,17 +175,29 @@ uv run linkml-term-validator validate-schema src/linkml_aop/schema/aop_emod_link
 uv run linkml-term-validator validate-data <instances> -s <schema> -c conf/oak_config.yaml
 ```
 
-### 6. Discussion point: phenotype and cellular component on EventComponent
+### 6. Discussion point: phenotype on EventComponent, cellular_component on Event
 
-`EventComponent` today holds action/object/process. The aop_wiki_cli
-annotations also capture a **phenotype** per event component and a
-**cellular_component** per event (the `Observation` class already has a
-`phenotype` attribute, so the concept exists in the model). If EMOD intends to
-ingest these annotations, `EventComponent` would need an optional
-`phenotype_id` (bound to `PhenotypeTermEnum`) and `Event` an optional
-`cellular_component_id` (bound to `CellularComponentTermEnum`). This is a
-modeling decision for EMOD rather than a validation mechanism, so it is listed
-separately.
+The aop_wiki_cli annotations capture a **phenotype per event component** and a
+**cellular_component per Event (KE)**. Phenotype already has a toehold in the
+schema, but not a structured one:
+
+- `Observation.phenotype` exists as an **untyped free-string attribute** (no
+  range, no term class) — unlike `biological_object_id` /
+  `biological_process_id`, which reference term classes;
+- `BiologicalProcessSourceEnum` lists **HP and MP** as permissible sources, so
+  phenotype-ontology terms are currently admitted through the
+  `BiologicalProcess` class rather than as phenotypes;
+- `EventComponent` holds only action/object/process, and `Event` has no
+  cellular component.
+
+To ingest the annotations as modeled here, `EventComponent` would gain an
+optional `phenotype_id` referencing a new `Phenotype` term class (bound to
+`PhenotypeTermEnum`), `Event` would gain an optional `cellular_component_id`
+(bound to `CellularComponentTermEnum`), and `Observation.phenotype` could be
+retyped to the same `Phenotype` class for consistency. Whether HP/MP should
+then be removed from `BiologicalProcessSourceEnum` is a follow-on data-
+migration question. This is a modeling decision for EMOD rather than a
+validation mechanism, so it is listed separately.
 
 ## Known caveats
 
