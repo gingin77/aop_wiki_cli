@@ -31,6 +31,12 @@ dev = [
     "pytest>=8.0",
     "pytest-cov>=5.0",
 ]
+# Opt-in group for annotation_scripts/validate_annotations.py (OAK-backed
+# ontology checks); heavy, so not part of the default install:
+#   uv run --group validation python -m aop_wiki_cli.annotation_scripts.validate_annotations
+validation = [
+    "oaklib>=0.6.15",
+]
 
 [project.scripts]
 aop-wiki-cli = "aop_wiki_cli.cli:app"
@@ -103,6 +109,7 @@ omit = [
     "*/annotation_scripts/report_annotation_coverage.py",
     "*/annotation_scripts/store.py",
     "*/annotation_scripts/summarize_annotations.py",
+    "*/annotation_scripts/validate_annotations.py",
 ]
 
 [tool.hatch.metadata]
