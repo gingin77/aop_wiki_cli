@@ -145,7 +145,7 @@ def _blank_entry(ke_id: str, title: str | None) -> dict:
     }
 
 
-def _ec_subject_entry(entry: dict, subject: str) -> dict:
+def _event_component_for_phrase(entry: dict, subject: str) -> dict:
     for s in entry["ec_annotations"]:
         if isinstance(s, dict) and s.get("subject") == subject:
             return s
@@ -162,7 +162,7 @@ def _add_comment(entry: dict, text: str) -> None:
         comments.setdefault("new", []).append(text)
 
 
-def _pick_subject(field: str, spec: dict, subjects: list[str], ke_id: str) -> str:
+def _pick_subject_phrase(field: str, spec: dict, subjects: list[str], ke_id: str) -> str:
     requested = spec.get("subject") if isinstance(spec, dict) else None
     if requested:
         if subjects and requested not in subjects:
@@ -212,8 +212,8 @@ def apply_curations(curations: dict, store: dict, cache_file: str | None,
                     summary = value.get("label") or value.get("rejection_reason")
                 else:  # EC term field
                     value = _resolve_term(field, spec, bioportal_key)
-                    subject = _pick_subject(field, spec, subjects, ke_id)
-                    subj_entry = _ec_subject_entry(entry, subject)
+                    subject = _pick_subject_phrase(field, spec, subjects, ke_id)
+                    subj_entry = _event_component_for_phrase(entry, subject)
                     old = subj_entry.get(field)
                     subj_entry[field] = value
                     summary = value.get("label") or value.get("rejection_reason")

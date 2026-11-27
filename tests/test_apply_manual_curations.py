@@ -12,7 +12,7 @@ import pytest
 
 from aop_wiki_cli.annotation_scripts.apply_manual_curations import (
     _curie_to_iri,
-    _pick_subject,
+    _pick_subject_phrase,
     _resolve_string,
     _resolve_term,
 )
@@ -71,17 +71,17 @@ def test_resolve_string():
         _resolve_string("biological_organization", {})
 
 
-def test_pick_subject_single_subject_is_implicit():
-    assert _pick_subject("phenotype", {}, ["only subject"], "68") == "only subject"
+def test_pick_subject_phrase_single_subject_is_implicit():
+    assert _pick_subject_phrase("phenotype", {}, ["only subject"], "68") == "only subject"
 
 
-def test_pick_subject_requested_subject_wins():
-    assert _pick_subject("phenotype", {"subject": "b"}, ["a", "b"], "68") == "b"
+def test_pick_subject_phrase_requested_subject_wins():
+    assert _pick_subject_phrase("phenotype", {"subject": "b"}, ["a", "b"], "68") == "b"
 
 
-def test_pick_subject_multiple_subjects_require_explicit_choice():
+def test_pick_subject_phrase_multiple_subjects_require_explicit_choice():
     with pytest.raises(ValueError):
-        _pick_subject("phenotype", {}, ["a", "b"], "68")
+        _pick_subject_phrase("phenotype", {}, ["a", "b"], "68")
 
 
 if __name__ == "__main__":

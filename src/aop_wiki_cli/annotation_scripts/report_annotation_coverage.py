@@ -62,7 +62,7 @@ def classify(value) -> tuple[str, str | None]:
     return "null", source
 
 
-def _subjects(ke: dict) -> list[dict]:
+def _event_components(ke: dict) -> list[dict]:
     return [ec for ec in ke.get("ec_annotations", []) if isinstance(ec, dict)]
 
 
@@ -79,7 +79,7 @@ def tally(store: dict):
             field_state[f][state] += 1
             if state == "resolved":
                 field_source[f][src] += 1
-        for ec in _subjects(ke):
+        for ec in _event_components(ke):
             for f in EC_TERM_FIELDS:
                 state, src = classify(ec.get(f))
                 field_state[f][state] += 1
@@ -155,7 +155,7 @@ def print_worklist(store: dict, which: str) -> None:
                 if state != "resolved":
                     lines.append(f"      {f}: {state}")
             else:
-                for ec in _subjects(ke):
+                for ec in _event_components(ke):
                     state, _ = classify(ec.get(f))
                     if state != "resolved":
                         reason = ""

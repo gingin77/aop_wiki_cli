@@ -23,7 +23,7 @@ def normalize_biological_action(direction: str, vocabulary: list[str]) -> str:
     )
 
 
-def decompose_subject(subject: str) -> str:
+def decompose_subject_phrase(subject: str) -> str:
     """Split a KE subject phrase into biological_object and biological_process."""
     return (
         f"You are parsing an AOP-Wiki Key Event subject phrase into ECS components.\n"

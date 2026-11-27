@@ -10,7 +10,7 @@ Workflow (see _build_ke_annotation, which runs one step per line):
   4. _resolve_biological_organization — stored reference, else LLM/manual
   5. _annotate_location_terms      — cell_term / organ_term /
                                      cellular_component, gated by org level
-  6. _annotate_subjects            — per subject phrase: biological_object →
+  6. _annotate_event_components            — per subject phrase: biological_object →
                                      biological_process → phenotype
 annotate_ke() wraps that sequence with store handling: load the cache and the
 stored reference, honor --force/--force-on, extract assays, carry comments,
@@ -218,7 +218,7 @@ def _build_ke_annotation(
     location_terms = _annotate_location_terms(
         parsed, title, api_key, client, ref_ke, org_level, guidance
     )
-    ec_annotations = _annotate_subjects(
+    ec_annotations = _annotate_event_components(
         parsed["subjects"], title, api_key, client, ref_ke, biological_action, guidance
     )
 
@@ -360,7 +360,7 @@ def _annotate_location_term(
     return None
 
 
-def _annotate_subjects(
+def _annotate_event_components(
     subjects: list[str],
     title: str,
     api_key: str,
@@ -369,8 +369,10 @@ def _annotate_subjects(
     biological_action: dict,
     guidance: str | None,
 ) -> list[dict]:
-    """Annotate every subject phrase, attaching the shared biological_action."""
-    ref_subjects: dict[str, dict] = {
+    """Build one event-component annotation per subject phrase, attaching the
+    shared biological_action. Each record's "subject" key holds the phrase
+    that identifies the component."""
+    ref_components_by_phrase: dict[str, dict] = {
         s["subject"]: s
         for s in (ref_ke or {}).get("ec_annotations", [])
         if isinstance(s, dict) and "subject" in s
@@ -379,16 +381,16 @@ def _annotate_subjects(
     for i, subject in enumerate(subjects):
         if len(subjects) > 1:
             print(f"\n[Subject {i + 1}/{len(subjects)}: {subject!r}]")
-        subj_annotation = _annotate_subject(
+        ec_annotation = _annotate_event_component(
             subject, title, api_key, client,
-            ref=ref_subjects.get(subject), guidance=guidance,
+            ref=ref_components_by_phrase.get(subject), guidance=guidance,
         )
-        subj_annotation["biological_action"] = biological_action
-        annotations.append(subj_annotation)
+        ec_annotation["biological_action"] = biological_action
+        annotations.append(ec_annotation)
     return annotations
 
 
-def _annotate_subject(
+def _annotate_event_component(
     subject: str,
     title: str,
     api_key: str,
@@ -400,7 +402,7 @@ def _annotate_subject(
     Annotate the three ECS components (biological_object, biological_process, phenotype)
     for one KE subject phrase. When `ref` is supplied, any non-null field is used directly.
     """
-    subj_annotation: dict = {
+    ec_annotation: dict = {
         "subject": subject,
         "biological_object": None,
         "biological_process": None,
@@ -408,7 +410,7 @@ def _annotate_subject(
     }
 
     if client is not None:
-        decomposed = llm_decompose_subject(subject, client)
+        decomposed = llm_decompose_subject_phrase(subject, client)
     else:
         decomposed = None
 
@@ -422,18 +424,18 @@ def _annotate_subject(
     print("--- biological_object ---")
     ref_object = _stored_ref(ref, "biological_object")
     if ref_object is not None:
-        subj_annotation["biological_object"] = ref_object
+        ec_annotation["biological_object"] = ref_object
         selected_object_label = ref_object.get("label") if not is_rejection(ref_object) else None
     else:
         term = annotate_term(object_phrase, ECS_ONTOLOGIES["biological_object"], "biological_object", title, api_key, client,
                              context=_guidance_context(guidance))
-        subj_annotation["biological_object"] = term
+        ec_annotation["biological_object"] = term
         selected_object_label = term.get("label") if term else None
     print()
 
     # --- biological_process ---
     print("--- biological_process ---")
-    subj_annotation["biological_process"] = _annotate_biological_process(
+    ec_annotation["biological_process"] = _annotate_biological_process(
         subject, title, api_key, client, selected_object_label, ref, guidance
     )
     print()
@@ -442,7 +444,7 @@ def _annotate_subject(
     print("--- phenotype ---")
     ref_phenotype = _stored_ref(ref, "phenotype")
     if ref_phenotype is not None:
-        subj_annotation["phenotype"] = ref_phenotype
+        ec_annotation["phenotype"] = ref_phenotype
     else:
         term = annotate_term(subject, ECS_ONTOLOGIES["phenotype"], "phenotype", title, api_key, client,
                              context=_guidance_context(guidance))
@@ -451,10 +453,10 @@ def _annotate_subject(
             if needs_review:
                 print("  ⚠ GO term assigned as phenotype — needs manual review")
                 term["needs_review"] = True
-        subj_annotation["phenotype"] = term
+        ec_annotation["phenotype"] = term
     print()
 
-    return subj_annotation
+    return ec_annotation
 
 
 def _annotate_biological_process(
@@ -510,12 +512,12 @@ def llm_normalize_biological_action(direction: str, client: anthropic.Anthropic)
     return None
 
 
-def llm_decompose_subject(subject: str, client: anthropic.Anthropic) -> tuple[str, str] | None:
+def llm_decompose_subject_phrase(subject: str, client: anthropic.Anthropic) -> tuple[str, str] | None:
     """
     Ask Claude to split a KE subject phrase into (biological_object, biological_process).
     Returns (object_phrase, process_phrase) or None.
     """
-    parsed = call_json(client, prompts.decompose_subject(subject), max_tokens=128)
+    parsed = call_json(client, prompts.decompose_subject_phrase(subject), max_tokens=128)
     if parsed:
         obj = parsed.get("biological_object", "").strip()
         proc = parsed.get("biological_process", "").strip()
