@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   pytest:
     runs-on: ubuntu-latest
@@ -18,8 +21,10 @@ jobs:
 
       # Installs Python 3.13 (per .python-version / requires-python) and all
       # dependencies, including the linkml-aop git pin fetched from GitHub.
+      # --locked fails the run if uv.lock is stale rather than silently
+      # re-resolving, so CI never goes green against a rewritten lockfile.
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --locked
 
       # Coverage is reported on every run and ratcheted with --cov-fail-under so
       # it cannot silently drop. The floor sits just under the current level;

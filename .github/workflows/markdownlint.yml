@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   markdownlint:
     runs-on: ubuntu-latest
@@ -15,12 +18,16 @@ jobs:
         with:
           node-version: "20"
 
+      # Lints every tracked Markdown file (so a new README under src/ or tests/
+      # is covered automatically), ignoring generated and dependency trees.
       # markdownlint-cli auto-discovers .markdownlint.json (MD013 at 120 chars,
       # relaxed for code blocks and tables). Pinned to the classic CLI rather
       # than markdownlint-cli2, whose newer default rules flag the existing docs.
       - name: Run markdownlint
         run: >
           npx --yes markdownlint-cli@0.45.0
-          "README.md"
-          "docs/**/*.md"
-          "src/aop_wiki_cli/configs/Configs_README.md"
+          "**/*.md"
+          --ignore node_modules
+          --ignore .venv
+          --ignore outputs
+          --ignore outputs_for_vc
