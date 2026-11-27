@@ -305,6 +305,48 @@ When working in Claude Code, invoke the `annotate-kes` skill
 (`/annotate-kes <aop_id>` or `/annotate-kes <ke_id,ke_id,...>`) to interactively annotate
 Key Events one at a time, with the opportunity to review and comment after each KE.
 
+### Grouping similar Key Events
+
+`collect_similar_events.py` groups AOP-Wiki Key Events that describe the same underlying
+biology, using a three-pass LLM workflow: intra-batch grouping, cross-batch consolidation,
+and a straggler sweep. Each group is classified as `merge`, `soda` (same object, directionally
+opposite), `same_object_different_process`, or `similar_event_different_biological_context`,
+and records whether its members co-occur in the same AOP (distinguishing non-OFA from
+open-for-adoption AOPs). Results are written to `outputs/ke_groupings/<date>/`; per-batch
+caches let interrupted runs resume without re-calling the LLM.
+
+```sh
+# Group similar KEs (uses today's event cache by default)
+uv run python annotation_scripts/collect_similar_events.py
+uv run python annotation_scripts/collect_similar_events.py --date 11-25-2026
+
+# Sample logs at end of run 
+2026-11-25 19:01:11,756 - INFO - Done. 
+108 merge groups (282 events), 
+30 SODA groups (69 events), 
+154 similar-object groups (345 events), 
+180 different-context groups (431 events). 
+1478 processed events (402 ungrouped, 0 not yet processed).
+Final output: outputs/ke_groupings/11-25-2026/ke_similar_events_11-25-2026_pass3.json
+
+# Compare the Pass 2 and Pass 3 groupings, optionally exporting the changes (JSON/CSV)
+uv run python annotation_scripts/compare_pass_2_vs_pass_3.py \
+    <path>/ke_similar_events_<date>_pass2.json \
+    <path>/ke_similar_events_<date>_pass3.json \
+    --changes-json changes_pass2_to_pass3.json --changes-csv changes_pass2_to_pass3.csv
+
+# Compare two full grouping runs (e.g. different models or dates) by member overlap
+uv run python annotation_scripts/compare_grouping_runs.py \
+    --file-a <path>/ke_similar_events_<date>_pass3.json \
+    --file-b <path>/ke_similar_events_<date>_pass3.json \
+    --crosswalk-csv crosswalk.csv
+```
+
+For the November 2026 comparison of the Opus 4.5 baseline against
+`claude-sonnet-5-5` (thinking off vs on) — methodology, results, caveats, and the
+decision on which run feeds downstream steps — see
+[docs/ke_grouping_model_comparison.md](docs/ke_grouping_model_comparison.md).
+
 ## Development
 
 ### Project Organization
