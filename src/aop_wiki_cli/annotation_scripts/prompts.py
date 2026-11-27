@@ -23,6 +23,60 @@ def normalize_biological_action(direction: str, vocabulary: list[str]) -> str:
     )
 
 
+def extract_title_concepts(
+    title: str,
+    vocabulary: list[str],
+    known_subjects: list[str] | None = None,
+) -> str:
+    """Decompose a whole KE title into action, event components, and location.
+
+    One call replaces the separate direction-normalization and per-subject
+    decomposition prompts, and additionally proposes a phenotype phrase per
+    component and a subcellular location. When `known_subjects` is given (a
+    stored annotation exists), the model must reuse those exact subject
+    phrases so event-component identity is preserved across re-annotation.
+    """
+    vocab_str = ", ".join(f'"{w}"' for w in vocabulary)
+    known_block = ""
+    if known_subjects:
+        subjects_str = "\n".join(f"- {s!r}" for s in known_subjects)
+        known_block = (
+            f"\nThis Key Event was annotated before with these subject phrases. "
+            f"Return exactly one event component per phrase, with `subject` copied "
+            f"verbatim:\n{subjects_str}\n"
+        )
+    return (
+        f"You are decomposing an AOP-Wiki Key Event title into structured concepts "
+        f"for ontology annotation.\n"
+        f"KE title: {title!r}\n"
+        f"{known_block}\n"
+        f"Extract:\n"
+        f"- biological_action: the direction or observation the title asserts, as the "
+        f"semantically closest term from this controlled vocabulary (or null if none "
+        f"fits): {vocab_str}. 'occurrence' covers events observed to happen without a "
+        f"directional change (formation of a lesion, presence of an interaction, a "
+        f"pathological state).\n"
+        f"- event_components: one entry per distinct biological change in the title "
+        f"(usually one; more when the title conjoins changes). Each entry has:\n"
+        f"  - subject: the title phrase describing the change, without the direction word\n"
+        f"  - biological_object: the cell type, tissue, molecule, or anatomical entity "
+        f"acted upon\n"
+        f"  - biological_process: the activity or process phrase, suited to a GO "
+        f"biological_process search\n"
+        f"  - phenotype: a phrase suited to a phenotype-ontology search (HP/MP/UPHENO), "
+        f"or null when the title describes no phenotype-like concept\n"
+        f"- cellular_component: when the title localizes the event subcellularly, the "
+        f"organelle NOUN to search with (e.g. 'Mitochondrial fatty acid beta-oxidation' "
+        f"→ 'mitochondrion'); null otherwise. Do not treat parts of protein names "
+        f"('nuclear receptor', 'membrane receptor') as locations.\n\n"
+        f"Prefer words that appear in the title; keep phrases concise.\n"
+        f"Reply with ONLY valid JSON:\n"
+        f'{{"biological_action": "<term or null>", "cellular_component": "<noun or null>", '
+        f'"event_components": [{{"subject": "...", "biological_object": "...", '
+        f'"biological_process": "...", "phenotype": "<phrase or null>"}}]}}'
+    )
+
+
 def decompose_subject_phrase(subject: str) -> str:
     """Split a KE subject phrase into biological_object and biological_process."""
     return (

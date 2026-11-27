@@ -4,14 +4,21 @@ Annotate AOP-Wiki Key Events with bio-ontology terms using BioPortal + Claude.
 Workflow (see _build_ke_annotation, which runs one step per line):
   1. review_ref_comments           — summarize prior curator comments into
                                      ranking guidance for every later step
-  2. _parse_title                  — split the title into direction + subject
-                                     phrases (+ subcellular-location hint)
-  3. _annotate_biological_action   — controlled vocab, else LLM normalization
+  2. _extract_title_concepts       — one LLM call decomposes the whole title
+                                     into the action, per-component subject /
+                                     object / process / phenotype phrases, and
+                                     a subcellular location; the rule-based
+                                     title parse is the fallback, and stored
+                                     subject phrases are reused so component
+                                     identity survives re-annotation
+  3. _annotate_biological_action   — extraction result, controlled vocab, or
+                                     LLM normalization of the direction phrase
   4. _resolve_biological_organization — stored reference, else LLM/manual
   5. _annotate_location_terms      — cell_term / organ_term /
                                      cellular_component, gated by org level
-  6. _annotate_event_components            — per subject phrase: biological_object →
-                                     biological_process → phenotype
+  6. _annotate_event_components    — per event component: biological_object →
+                                     biological_process → phenotype, searching
+                                     with the extracted phrases
 annotate_ke() wraps that sequence with store handling: load the cache and the
 stored reference, honor --force/--force-on, extract assays, carry comments,
 record newly annotated fields, stamp the schema version, and save.
@@ -114,7 +121,10 @@ _CELLULAR_COMPONENT_LEVELS = {"Molecular", "Cellular"}
 # History:
 #   2 — versioned completeness; adds cellular_component + subcellular-location
 #       extraction (replaces the 'assays'-presence proxy)
-ANNOTATION_SCHEMA_VERSION = 2
+#   3 — LLM title-concept extraction: one call on the whole title supplies the
+#       action, per-component object/process/phenotype query phrases, and the
+#       subcellular location (rule-based parse remains the fallback)
+ANNOTATION_SCHEMA_VERSION = 3
 
 # GO terms may be valid phenotype terms (e.g. "hypersensitivity" is included in UPHENO),
 # but many are biological processes and not appropriate as phenotype annotations.
@@ -212,14 +222,14 @@ def _build_ke_annotation(
     print(f"KE {ke_id}: {title}\n")
 
     guidance = review_ref_comments(ref_ke, client, title)
-    parsed = _parse_title(title)
+    parsed = _extract_title_concepts(title, client, ref_ke)
     biological_action = _annotate_biological_action(parsed, client)
     org_level = _resolve_biological_organization(description, ref_ke, client)
     location_terms = _annotate_location_terms(
         parsed, title, api_key, client, ref_ke, org_level, guidance
     )
     ec_annotations = _annotate_event_components(
-        parsed["subjects"], title, api_key, client, ref_ke, biological_action, guidance
+        parsed, title, api_key, client, ref_ke, biological_action, guidance
     )
 
     return {
@@ -258,10 +268,77 @@ def review_ref_comments(
     return review
 
 
-def _parse_title(title: str) -> dict:
-    """Parse the KE title into ECS source phrases and show what was found."""
+def coerce_title_concepts(raw, vocabulary: list[str]) -> dict | None:
+    """Validate and normalize the LLM's title-extraction JSON.
+
+    Returns {"biological_action", "cellular_component", "event_components"}
+    with cleaned values, or None when the payload is unusable. An action
+    outside the controlled vocabulary becomes None rather than failing the
+    whole extraction.
+    """
+    if not isinstance(raw, dict):
+        return None
+
+    def _phrase(value) -> str | None:
+        return value.strip() if isinstance(value, str) and value.strip() else None
+
+    components = []
+    for c in raw.get("event_components") or []:
+        if not isinstance(c, dict):
+            continue
+        subject = _phrase(c.get("subject"))
+        if not subject:
+            continue
+        components.append({
+            "subject": subject,
+            "biological_object": _phrase(c.get("biological_object")),
+            "biological_process": _phrase(c.get("biological_process")),
+            "phenotype": _phrase(c.get("phenotype")),
+        })
+    if not components:
+        return None
+
+    action = raw.get("biological_action")
+    return {
+        "biological_action": action if action in vocabulary else None,
+        "cellular_component": _phrase(raw.get("cellular_component")),
+        "event_components": components,
+    }
+
+
+def _extract_title_concepts(title: str, client, ref_ke: dict | None = None) -> dict:
+    """Decompose the title with one LLM call; rule-based parse as fallback.
+
+    Returns the parse_ke_title dict, extended with "component_hints"
+    (subject → extracted object/process/phenotype phrases) and
+    "action_source" when the LLM supplied the action. Stored subject phrases
+    from `ref_ke` are handed to the model so re-annotation keeps the same
+    event-component identities.
+    """
     parsed = parse_ke_title(title)
-    print("Parsed ECS source phrases:")
+    if client is not None:
+        known_subjects = [
+            s["subject"] for s in (ref_ke or {}).get("ec_annotations", [])
+            if isinstance(s, dict) and s.get("subject")
+        ]
+        raw = call_json(
+            client,
+            prompts.extract_title_concepts(title, WIKI_ACTION_WORDS, known_subjects or None),
+            max_tokens=1024,
+        )
+        coerced = coerce_title_concepts(raw, WIKI_ACTION_WORDS)
+        if coerced is None:
+            print("  (LLM title extraction failed — using rule-based parse)")
+        else:
+            parsed["subjects"] = [c["subject"] for c in coerced["event_components"]]
+            parsed["component_hints"] = {c["subject"]: c for c in coerced["event_components"]}
+            if coerced["biological_action"]:
+                parsed["biological_action"] = coerced["biological_action"]
+                parsed["action_source"] = "llm_extraction"
+            if coerced["cellular_component"]:
+                parsed["cellular_component"] = coerced["cellular_component"]
+
+    print("Extracted title concepts:")
     for k, v in parsed.items():
         print(f"  {k}: {v!r}")
     print()
@@ -271,6 +348,9 @@ def _parse_title(title: str) -> dict:
 def _annotate_biological_action(parsed: dict, client) -> dict:
     """Resolve the direction phrase to a controlled-vocab action term."""
     print("--- biological_action ---")
+    if parsed.get("action_source") == "llm_extraction":
+        print(f"  Extracted from title (LLM): {parsed['biological_action']!r}\n")
+        return {"term": parsed["biological_action"], "source": "llm_extraction"}
     if parsed["biological_action"] is not None:
         print(f"  Detected (controlled vocab): {parsed['biological_action']!r}\n")
         return {"term": parsed["biological_action"], "source": "controlled_vocab"}
@@ -361,7 +441,7 @@ def _annotate_location_term(
 
 
 def _annotate_event_components(
-    subjects: list[str],
+    parsed: dict,
     title: str,
     api_key: str,
     client: anthropic.Anthropic | None,
@@ -370,8 +450,11 @@ def _annotate_event_components(
     guidance: str | None,
 ) -> list[dict]:
     """Build one event-component annotation per subject phrase, attaching the
-    shared biological_action. Each record's "subject" key holds the phrase
-    that identifies the component."""
+    shared biological_action and searching with the extracted phrase hints.
+    Each record's "subject" key holds the phrase that identifies the
+    component."""
+    subjects = parsed["subjects"]
+    hints = parsed.get("component_hints", {})
     ref_components_by_phrase: dict[str, dict] = {
         s["subject"]: s
         for s in (ref_ke or {}).get("ec_annotations", [])
@@ -383,7 +466,9 @@ def _annotate_event_components(
             print(f"\n[Subject {i + 1}/{len(subjects)}: {subject!r}]")
         ec_annotation = _annotate_event_component(
             subject, title, api_key, client,
-            ref=ref_components_by_phrase.get(subject), guidance=guidance,
+            ref=ref_components_by_phrase.get(subject),
+            guidance=guidance,
+            hints=hints.get(subject),
         )
         ec_annotation["biological_action"] = biological_action
         annotations.append(ec_annotation)
@@ -397,10 +482,13 @@ def _annotate_event_component(
     client: anthropic.Anthropic | None,
     ref: dict | None = None,
     guidance: str | None = None,
+    hints: dict | None = None,
 ) -> dict:
     """
     Annotate the three ECS components (biological_object, biological_process, phenotype)
-    for one KE subject phrase. When `ref` is supplied, any non-null field is used directly.
+    for one event component. `hints` carries the title-extraction phrases for this
+    subject (object/process/phenotype); without hints the older per-phrase
+    decomposition is used. When `ref` is supplied, any non-null field is used directly.
     """
     ec_annotation: dict = {
         "subject": subject,
@@ -408,17 +496,20 @@ def _annotate_event_component(
         "biological_process": None,
         "phenotype": None,
     }
+    hints = hints or {}
 
-    if client is not None:
-        decomposed = llm_decompose_subject_phrase(subject, client)
+    if hints.get("biological_object"):
+        object_phrase = hints["biological_object"]
+        print(f"  (title extraction: object={object_phrase!r})")
     else:
-        decomposed = None
-
-    if decomposed:
-        object_phrase, _ = decomposed
-        print(f"  (LLM decomposition: object={object_phrase!r}, process={subject!r})")
-    else:
-        object_phrase = extract_biological_object(subject)
+        decomposed = llm_decompose_subject_phrase(subject, client) if client else None
+        if decomposed:
+            object_phrase, _ = decomposed
+            print(f"  (LLM decomposition: object={object_phrase!r}, process={subject!r})")
+        else:
+            object_phrase = extract_biological_object(subject)
+    process_query = hints.get("biological_process") or subject
+    phenotype_query = hints.get("phenotype") or subject
 
     # --- biological_object ---
     print("--- biological_object ---")
@@ -436,7 +527,7 @@ def _annotate_event_component(
     # --- biological_process ---
     print("--- biological_process ---")
     ec_annotation["biological_process"] = _annotate_biological_process(
-        subject, title, api_key, client, selected_object_label, ref, guidance
+        process_query, title, api_key, client, selected_object_label, ref, guidance
     )
     print()
 
@@ -446,7 +537,7 @@ def _annotate_event_component(
     if ref_phenotype is not None:
         ec_annotation["phenotype"] = ref_phenotype
     else:
-        term = annotate_term(subject, ECS_ONTOLOGIES["phenotype"], "phenotype", title, api_key, client,
+        term = annotate_term(phenotype_query, ECS_ONTOLOGIES["phenotype"], "phenotype", title, api_key, client,
                              context=_guidance_context(guidance))
         if term and term.get("term_id"):
             needs_review = term.get("ontology", "").upper() in _PHENOTYPE_GO_REVIEW_PREFIXES
@@ -460,7 +551,7 @@ def _annotate_event_component(
 
 
 def _annotate_biological_process(
-    subject: str,
+    query_phrase: str,
     title: str,
     api_key: str,
     client: anthropic.Anthropic | None,
@@ -468,7 +559,7 @@ def _annotate_biological_process(
     ref: dict | None,
     guidance: str | None = None,
 ) -> dict | None:
-    """Search, filter, and rank a biological_process term for a KE subject phrase."""
+    """Search, filter, and rank a biological_process term for one event component."""
     ref_process = _stored_ref(ref, "biological_process")
     if ref_process is not None:
         return ref_process
@@ -490,7 +581,7 @@ def _annotate_biological_process(
             return kept
 
     return annotate_term(
-        subject, ECS_ONTOLOGIES["biological_process"], "biological_process",
+        query_phrase, ECS_ONTOLOGIES["biological_process"], "biological_process",
         title, api_key, client, context=context, result_filter=result_filter,
     )
 
