@@ -36,6 +36,19 @@ try:
 except ImportError:  # direct-run / stdlib-only environments
     _HAS_PYTEST = False
 
+# Opt-in evaluation: without a run pinned via KE_GROUPINGS_FILE, skip the
+# whole module once at collection (one 's' in the suite instead of five).
+# Grouping runs are nondeterministic (the committed same-day replicates score
+# 4/5 and 5/5 against the same expectations), so the default suite must not
+# assert on whichever run's file is newest. PYTEST_VERSION is only set when
+# running under pytest, so direct runs (python -m) are unaffected.
+if _HAS_PYTEST and "PYTEST_VERSION" in os.environ and not os.environ.get("KE_GROUPINGS_FILE"):
+    pytest.skip(
+        "opt-in LLM-grouping evaluation: set KE_GROUPINGS_FILE to a specific "
+        "ke_similar_events_*.json run to evaluate it",
+        allow_module_level=True,
+    )
+
 # Repo root = parent of the tests/ directory.
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FIXTURE_PATH = Path(__file__).resolve().parent / "expected_ke_groupings.json"

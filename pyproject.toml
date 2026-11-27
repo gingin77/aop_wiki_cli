@@ -50,6 +50,20 @@ include = ["src/aop_wiki_cli", "tests", "README.md", "LICENSE"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+# Third-party import-time noise only — nothing here originates in this
+# codebase. Each filter is pinned to its message/category so a genuinely
+# new warning still surfaces.
+filterwarnings = [
+    # anyio's pytest plugin imports a renamed pytest internal
+    "ignore::pytest.PytestRemovedIn10Warning",
+    # oaklib (optional validation group) pins urllib3/chardet versions that
+    # trip requests' version check; matched by message because resolving the
+    # category would import requests and emit the warning first
+    "ignore:urllib3 .* doesn't match a supported version:Warning",
+    # typer imports click streams deprecated in Click 9
+    "ignore:'click.utils.get_binary_stream' is deprecated:DeprecationWarning",
+    "ignore:'click.utils.get_text_stream' is deprecated:DeprecationWarning",
+]
 
 [tool.coverage.run]
 source = ["aop_wiki_cli"]
