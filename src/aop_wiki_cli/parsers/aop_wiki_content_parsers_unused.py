@@ -1,4 +1,10 @@
-"""Parsers for non-XML AOP-Wiki content inputs."""
+"""Parsers for non-XML AOP-Wiki content inputs.
+
+ORPHANED / UNWIRED (hence the ``_unused`` filename). ``strip_event_titles`` was
+scaffolded for fuzzy key-event title matching but is not called by any command,
+module, or test, and is no longer re-exported from ``parsers/__init__.py``. Kept
+for reference; wire it in (and rename back) or delete it if it stays unused.
+"""
 
 import difflib
 

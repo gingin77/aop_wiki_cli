@@ -66,10 +66,6 @@ from aop_wiki_cli.parsers.completion_score import (
     aop_completion_score,
 )
 
-from aop_wiki_cli.parsers.aop_wiki_content_parsers import (
-    strip_event_titles,
-)
-
 __all__ = [
     # Main entity collectors
     'collect_events_from_xml',
@@ -92,7 +88,4 @@ __all__ = [
     'event_completion_score',
     'ker_completion_score',
     'aop_completion_score',
-
-    # AOP-Wiki content parsing
-    'strip_event_titles',
 ]
