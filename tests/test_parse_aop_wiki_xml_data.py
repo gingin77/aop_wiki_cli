@@ -204,6 +204,20 @@ def test_add_aop_status_info_to_kes_summaries():
     assert ke["aops"] == "1, 2"
 
 
+def test_add_aop_status_info_to_kes_no_oecd_status_is_not_in_program():
+    # Every associated AOP has an empty/None oecd_status → neither endorsed
+    # nor in the programme (guards the `item != ''` filter at line ~628).
+    ke_to_aop_info = {"100": {"aop_ids": ["1", "2"]}}
+    aop_base_info = {
+        "1": {"oecd_status": "", "wiki_license": "All rights reserved"},
+        "2": {"oecd_status": None, "wiki_license": "Do not distribute"},
+    }
+    out = add_aop_status_info_to_kes(ke_to_aop_info, aop_base_info)
+    statuses = out["100"]["summary_oecd_statuses"]
+    assert statuses["any_oecd_endorsed"] is False
+    assert statuses["in_oecd_aop_program"] is False
+
+
 @pytest.mark.parametrize("xml, default, expected", [
     ("<a>hi</a>", "", "hi"),
     ("<a></a>", "", ""),

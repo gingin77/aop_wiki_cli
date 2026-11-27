@@ -46,10 +46,15 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 source = ["aop_wiki_cli"]
-# Single-use scripts developed to process one input and not meant for reuse
-# (the seizure pipeline driven by `collect-harmonized-seizure-aops`), plus the
-# not-yet-wired reference-search driver (see the TODO at cli.py ~line 1106).
-# Excluded so coverage reflects the reusable library. See issue #25.
+# Single-use scripts developed to process one specific input and not meant for
+# reuse (the seizure pipeline driven by `collect-harmonized-seizure-aops`), plus
+# the not-yet-wired reference-search driver (see the
+# `TODO: Add search reference functionality` in cli.py). Excluded so coverage
+# reflects the reusable library. See issue #25 and the follow-up #28.
+#
+# `manual_match_review.py` is excluded too: although it also backs the
+# `manually-review-matches` command, its logic is an interactive stdin review
+# loop (part of the manual harmonization workflow), not reusable library code.
 omit = [
     "*/parsers/parse_behl_seizure_aop_workbook.py",
     "*/data_export/seizure_aop_export.py",

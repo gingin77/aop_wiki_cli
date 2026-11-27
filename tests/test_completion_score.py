@@ -42,6 +42,11 @@ from aop_wiki_cli.parsers.completion_score import (
     (1.5, True),      # truthy non-str/list/dict falls through to True
 ])
 def test_has_content(value, expected):
+    # Note the `(0, False)` case: `_has_content` returns early on `if not value`,
+    # so a numeric 0 reads as "no content". That is correct here because no
+    # scored completion field holds a meaningful numeric 0 (all are text, lists,
+    # or dicts). If one ever did, `_has_content` would need a `value is None`
+    # check instead and this case would change.
     assert _has_content(value) is expected
 
 
@@ -97,20 +102,26 @@ def test_event_score_tissue_without_organ_term_tracks_organ():
     assert "organ" in result["empty_structured"]
 
 
-@pytest.mark.parametrize("lobo, term_field", [
-    ("Cellular", "cell_term"),
-    ("Molecular", "cell_term"),
-])
-def test_event_score_cellular_molecular_use_cell_term(lobo, term_field):
+@pytest.mark.parametrize("lobo", ["Cellular", "Molecular"])
+def test_event_score_cellular_molecular_use_cell_term(lobo):
     event = {
         "title": "t",
         "level_of_biological_organization": lobo,
-        term_field: {"term": "hepatocyte"},
+        "cell_term": {"term": "hepatocyte"},
     }
     result = event_completion_score(event)
     # title (+1) + lobo base (+1) + cell term (+1) = 3; max 12
     assert result["raw_score"] == 3
     assert "cell" not in result["empty_structured"]
+
+
+@pytest.mark.parametrize("lobo", ["Cellular", "Molecular"])
+def test_event_score_cellular_molecular_without_cell_term_tracks_cell(lobo):
+    event = {"title": "t", "level_of_biological_organization": lobo}
+    result = event_completion_score(event)
+    # title (+1) + lobo base (+1) only; the missing cell term is tracked
+    assert result["raw_score"] == 2
+    assert "cell" in result["empty_structured"]
 
 
 def test_event_score_minimal_tracks_all_empties():
