@@ -13,16 +13,16 @@ or point at an LLM file explicitly:
 
 Usage:
     # By date — resolves ke_similar_events_<date>_pass3.json in the groupings dir
-    uv run python -m aop_wiki_cli.annotation_scripts.process_manual_curations_csv \
+    uv run python -m aop_wiki_cli.annotation_scripts.process_ke_grouping_curations_csv \
         --date 11-25-2026 \
         --mc-file "inputs/manual_curations/ke_groupings_manual_review_05-07-2026_ALL_GROUPS.csv"
 
     # Choose the pass 2 snapshot instead
-    uv run python -m aop_wiki_cli.annotation_scripts.process_manual_curations_csv \
+    uv run python -m aop_wiki_cli.annotation_scripts.process_ke_grouping_curations_csv \
         --date 11-25-2026 --pass 2 --mc-file "inputs/manual_curations/....csv"
 
     # Explicit LLM file (overrides --date resolution)
-    uv run python -m aop_wiki_cli.annotation_scripts.process_manual_curations_csv \
+    uv run python -m aop_wiki_cli.annotation_scripts.process_ke_grouping_curations_csv \
         --llm-file outputs_for_vc/ke_groupings/05-07-2026_.../ke_similar_events_05-07-2026_pass2.json \
         --mc-file "inputs/manual_curations/....csv"
 """
