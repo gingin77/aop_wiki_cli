@@ -264,7 +264,8 @@
           "released": "2026-10-20T18:20:16.000-07:00",
           "submission_id": 10
         }
-      }
+      },
+      "code_note": "Run executed from a dirty cfceaa6 working tree; the uncommitted code it ran (the --ke-ids batch option and skill rename) was committed unchanged immediately afterward as f7896bb, which is the commit that contains this run's code."
     }
   ]
 }
