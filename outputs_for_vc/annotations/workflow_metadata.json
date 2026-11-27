@@ -1,0 +1,62 @@
+{
+  "runs": [
+    {
+      "timestamp": "2026-11-27T14:05:17+00:00",
+      "reconstructed": true,
+      "note": "Record written after the fact; automatic run recording was added subsequently. Store was also shaped this day by the workflow_version migration and apply_manual_curations (8 fields, 6 KEs).",
+      "workflow_version": 2,
+      "llm_model": "claude-sonnet-4-6",
+      "code_git_sha": "274cc1a",
+      "code_dirty": false,
+      "cache_file": "outputs/cache/11-27-2026/all_events_11-27-2026.json",
+      "command": {
+        "aop": "173",
+        "ke_id": null,
+        "force": false,
+        "force_on": [],
+        "with_assays": false
+      },
+      "kes_annotated": [
+        "68",
+        "1458",
+        "1495",
+        "1496",
+        "1497",
+        "1498",
+        "1499",
+        "1500"
+      ],
+      "timestamp_basis": "file mtime (run end), reconstructed"
+    },
+    {
+      "timestamp": "2026-11-27T15:10:47+00:00",
+      "reconstructed": true,
+      "note": "Assay re-extraction for AOP 173; terms kept as references.",
+      "workflow_version": 2,
+      "llm_model": "claude-sonnet-4-6",
+      "code_git_sha": "74c3a24",
+      "code_dirty": false,
+      "cache_file": "outputs/cache/11-27-2026/all_events_11-27-2026.json",
+      "command": {
+        "aop": "173",
+        "ke_id": null,
+        "force": false,
+        "force_on": [
+          "assays"
+        ],
+        "with_assays": true
+      },
+      "kes_annotated": [
+        "68",
+        "1458",
+        "1495",
+        "1496",
+        "1497",
+        "1498",
+        "1499",
+        "1500"
+      ],
+      "timestamp_basis": "file mtime (run end), reconstructed"
+    }
+  ]
+}
