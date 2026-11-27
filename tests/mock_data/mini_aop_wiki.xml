@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Minimal, structurally-real AOP-Wiki XML fixture for the parser tests.
+
+  Shape mirrors the real export enough to exercise the whole collect_* chain:
+    * 3 Key Events: kea (MIE, Molecular + cell-term), keb (KE, Tissue + organ-term
+      + ECS), kec (AO in aopa, plain KE in aopb -> multi-role).
+    * 2 KERs: kera (kea->keb, with weight-of-evidence carrying an evidence table
+      and quantitative-understanding), kerb (keb->kec, minimal -> None branches).
+    * 2 AOPs: aopa (handbook 2.5, OECD endorsed, Open for adoption) and aopb
+      (handbook 2.0, All rights reserved) so status/license summaries differ.
+  Internal element ids (kea, keb, ...) map to AOP-Wiki ids (100, 200, ...) via the
+  vendor-specific reference block, exactly as collect_refs() reads them.
+-->
+<data xmlns="http://www.aopkb.org/aop-xml">
+
+  <!-- Enterprise controlled vocabulary used by key-event biological-events -->
+  <biological-process id="proc-1">
+    <source>GO</source>
+    <source-id>GO:0006915</source-id>
+    <name>apoptotic process</name>
+  </biological-process>
+  <biological-object id="obj-1">
+    <source>CL</source>
+    <source-id>CL:0000182</source-id>
+    <name>hepatocyte</name>
+  </biological-object>
+  <biological-action id="act-1">
+    <source-id>increased</source-id>
+    <name>increased</name>
+  </biological-action>
+
+  <taxonomy id="tax-1">
+    <source>NCBI</source>
+    <source-id>9606</source-id>
+    <name>Homo sapiens</name>
+  </taxonomy>
+
+  <!-- ===== Key Events ===== -->
+  <key-event id="kea">
+    <title>Molecular initiating event, receptor activation</title>
+    <short-name>Receptor activation</short-name>
+    <description>A ligand binds and activates the receptor.</description>
+    <measurement-methodology>Binding assay</measurement-methodology>
+    <biological-organization-level>Molecular</biological-organization-level>
+    <evidence-supporting-taxonomic-applicability>Mammalian evidence.</evidence-supporting-taxonomic-applicability>
+    <references>Smith 2020</references>
+    <cell-term>
+      <source>CL</source>
+      <name>hepatocyte</name>
+    </cell-term>
+  </key-event>
+
+  <key-event id="keb">
+    <title>Increased, apoptosis</title>
+    <short-name>Apoptosis</short-name>
+    <description>Programmed cell death increases in the tissue.</description>
+    <measurement-methodology>TUNEL assay</measurement-methodology>
+    <biological-organization-level>Tissue</biological-organization-level>
+    <evidence-supporting-taxonomic-applicability>Rodent evidence.</evidence-supporting-taxonomic-applicability>
+    <references>Jones 2019</references>
+    <organ-term>
+      <source>UBERON</source>
+      <name>liver</name>
+    </organ-term>
+    <biological-events>
+      <biological-event process-id="proc-1" object-id="obj-1" action-id="act-1"/>
+    </biological-events>
+    <applicability>
+      <sex>
+        <sex>Male</sex>
+      </sex>
+      <life-stage>
+        <life-stage>Adult</life-stage>
+      </life-stage>
+      <taxonomy taxonomy-id="tax-1"/>
+    </applicability>
+  </key-event>
+
+  <key-event id="kec">
+    <title>Liver cancer</title>
+    <short-name>Cancer</short-name>
+    <description>Hepatocellular carcinoma develops.</description>
+    <measurement-methodology>Histopathology</measurement-methodology>
+    <biological-organization-level>Cellular</biological-organization-level>
+    <evidence-supporting-taxonomic-applicability>Human evidence.</evidence-supporting-taxonomic-applicability>
+    <references>Lee 2021</references>
+    <cell-term>
+      <source>CL</source>
+      <name>hepatocyte</name>
+    </cell-term>
+  </key-event>
+
+  <!-- ===== Key Event Relationships ===== -->
+  <key-event-relationship id="kera">
+    <title>
+      <upstream-id>kea</upstream-id>
+      <downstream-id>keb</downstream-id>
+    </title>
+    <description>Receptor activation leads to apoptosis.</description>
+    <evidence-supporting-taxonomic-applicability>Conserved in mammals.</evidence-supporting-taxonomic-applicability>
+    <known-modulating-factors>Dose rate.</known-modulating-factors>
+    <references>Smith 2020; Jones 2019</references>
+    <weight-of-evidence>
+      <value><![CDATA[<table><tr><th>Dose</th><th>Response</th></tr><tr><td>Low</td><td>Weak</td></tr><tr><td>High</td><td>Strong</td></tr></table>]]></value>
+      <emperical-support-linkage>Strong empirical support.</emperical-support-linkage>
+      <biological-plausibility>Highly plausible.</biological-plausibility>
+      <uncertainties-or-inconsistencies>Few uncertainties.</uncertainties-or-inconsistencies>
+    </weight-of-evidence>
+    <quantitative-understanding>
+      <description>Dose-response quantified.</description>
+      <response-response-relationship>Sigmoidal.</response-response-relationship>
+      <time-scale>Hours.</time-scale>
+      <feedforward-feedback-loops>None known.</feedforward-feedback-loops>
+      <evidence-collection-strategy>Literature review.</evidence-collection-strategy>
+    </quantitative-understanding>
+  </key-event-relationship>
+
+  <key-event-relationship id="kerb">
+    <title>
+      <upstream-id>keb</upstream-id>
+      <downstream-id>kec</downstream-id>
+    </title>
+    <references>Lee 2021</references>
+  </key-event-relationship>
+
+  <!-- ===== AOPs ===== -->
+  <aop id="aopa">
+    <title>Receptor activation leading to liver cancer</title>
+    <short-name>Receptor-liver-cancer</short-name>
+    <abstract>A short abstract.</abstract>
+    <authors>Curator A</authors>
+    <point-of-contact>Curator A</point-of-contact>
+    <coaches>
+      <coach>Coach One</coach>
+    </coaches>
+    <handbook-version>2.5</handbook-version>
+    <background>Background text.</background>
+    <development-strategy>Development strategy text.</development-strategy>
+    <status>
+      <oecd-status>WPHA/WNT Endorsed</oecd-status>
+      <wiki-license>Open for adoption</wiki-license>
+    </status>
+    <overall-assessment>
+      <description>Overall assessment description.</description>
+      <applicability>Applies to mammals.</applicability>
+      <key-event-essentiality-summary>Essential events summarized.</key-event-essentiality-summary>
+      <weight-of-evidence-summary>Weight of evidence summarized.</weight-of-evidence-summary>
+      <quantitative-considerations>Quantitative considerations.</quantitative-considerations>
+      <known-modulating-factors>Known modulating factors.</known-modulating-factors>
+    </overall-assessment>
+    <potential-applications>Risk assessment.</potential-applications>
+    <references>Smith 2020; Jones 2019; Lee 2021</references>
+    <molecular-initiating-event key-event-id="kea"/>
+    <key-events>
+      <key-event key-event-id="keb"/>
+    </key-events>
+    <adverse-outcome key-event-id="kec">
+      <examples>Hepatocellular carcinoma in humans.</examples>
+    </adverse-outcome>
+    <key-event-relationships>
+      <relationship id="kera">
+        <adjacency>adjacent</adjacency>
+      </relationship>
+      <relationship id="kerb">
+        <adjacency>non-adjacent</adjacency>
+      </relationship>
+    </key-event-relationships>
+    <aop-stressors>
+      <aop-stressor stressor-id="str-1"/>
+    </aop-stressors>
+    <applicability>
+      <taxonomy taxonomy-id="tax-1"/>
+    </applicability>
+  </aop>
+
+  <aop id="aopb">
+    <title>Second pathway sharing the cancer outcome</title>
+    <short-name>Second-pathway</short-name>
+    <abstract>Another abstract.</abstract>
+    <authors>Curator B</authors>
+    <point-of-contact>Curator B</point-of-contact>
+    <handbook-version>2.0</handbook-version>
+    <background>More background.</background>
+    <status>
+      <oecd-status></oecd-status>
+      <wiki-license>All rights reserved</wiki-license>
+    </status>
+    <potential-applications>Screening.</potential-applications>
+    <references>Lee 2021</references>
+    <key-events>
+      <key-event key-event-id="kec"/>
+    </key-events>
+  </aop>
+
+  <!-- ===== Vendor-specific id -> AOP-Wiki id reference block ===== -->
+  <vendor-specific>
+    <aop-reference id="aopa" aop-wiki-id="1"/>
+    <aop-reference id="aopb" aop-wiki-id="2"/>
+    <key-event-reference id="kea" aop-wiki-id="100"/>
+    <key-event-reference id="keb" aop-wiki-id="200"/>
+    <key-event-reference id="kec" aop-wiki-id="300"/>
+    <key-event-relationship-reference id="kera" aop-wiki-id="10"/>
+    <key-event-relationship-reference id="kerb" aop-wiki-id="20"/>
+    <stressor-reference id="str-1" aop-wiki-id="500"/>
+  </vendor-specific>
+
+</data>
