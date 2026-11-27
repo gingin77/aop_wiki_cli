@@ -295,7 +295,14 @@ def _resolve_side(side: str, date_str, file_str, pass_num: int, base_dir: Path) 
         if not path.exists():
             sys.exit(f"Error: --file-{side} not found: {path}")
         m = re.search(r"(\d{2}-\d{2}-\d{4})", path.name)
-        return path, (m.group(1) if m else path.stem)
+        label = m.group(1) if m else path.stem
+        # A suffixed run directory (11-27-2026_sonnet_5-5_thinking_on_run_a)
+        # is a better label than the bare date: two same-date runs would
+        # otherwise be indistinguishable in the report and the JSON.
+        parent = path.parent.name
+        if m and parent.startswith(label) and parent != label:
+            label = parent
+        return path, label
     path = resolve_run_file(date_str, pass_num, base_dir)
     return path, date_str
 

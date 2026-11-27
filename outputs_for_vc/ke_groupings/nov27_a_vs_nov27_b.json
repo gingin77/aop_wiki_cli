@@ -3410,11 +3410,11 @@
   ],
   "merges": {},
   "run_a": {
-    "label": "11-27-2026",
-    "file": "outputs_for_vc/ke_groupings/11-27-2026_sonnet_5-5_thinking_on/ke_similar_events_11-27-2026_pass3.json"
+    "label": "11-27-2026_sonnet_5-5_thinking_on_run_a",
+    "file": "outputs_for_vc/ke_groupings/11-27-2026_sonnet_5-5_thinking_on_run_a/ke_similar_events_11-27-2026_pass3.json"
   },
   "run_b": {
-    "label": "11-27-2026",
-    "file": "outputs/ke_groupings/11-27-2026/ke_similar_events_11-27-2026_pass3.json"
+    "label": "11-27-2026_sonnet_5-5_thinking_on_run_b",
+    "file": "outputs_for_vc/ke_groupings/11-27-2026_sonnet_5-5_thinking_on_run_b/ke_similar_events_11-27-2026_pass3.json"
   }
 }

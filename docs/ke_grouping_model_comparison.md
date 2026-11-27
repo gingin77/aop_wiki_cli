@@ -189,9 +189,9 @@ Identical-group rate by type (A's perspective):
 Data: both same-day replicates are committed under
 `outputs_for_vc/ke_groupings/` as `11-27-2026_sonnet_5-5_thinking_on_run_a/`
 (AM; the one the 11-25 comparison used) and
-`11-27-2026_sonnet_5-5_thinking_on_run_b/` (PM), with the comparisons beside
-them: `nov25_vs_nov27.json` + `nov25_to_nov27_crosswalk.csv` (at the
-`outputs_for_vc/` root) and `nov27_a_vs_nov27_b.json` +
+`11-27-2026_sonnet_5-5_thinking_on_run_b/` (PM), with the comparison files
+beside them in the same directory: `nov25_vs_nov27.json` +
+`nov25_to_nov27_crosswalk.csv` and `nov27_a_vs_nov27_b.json` +
 `nov27_a_to_nov27_b_crosswalk.csv`.
 
 ---
