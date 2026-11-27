@@ -18,12 +18,14 @@ from pathlib import Path
 import pytest
 
 from aop_wiki_cli.collection.get_aop_wiki_xml_data import collect_refs
+from aop_wiki_cli.parsers import parse_aop_wiki_xml_data as pax
 from aop_wiki_cli.parsers.parse_aop_wiki_xml_data import (
     add_aop_status_info_to_kes,
     collect_aops_from_xml,
     collect_base_aop_info_from_xml,
     collect_doa_fields,
     collect_ecs_from_xml,
+    collect_entity_with_cache,
     collect_events_from_xml,
     collect_kers_from_xml,
     collect_references_from_aops_kers_and_events,
@@ -246,3 +248,46 @@ def test_collect_doa_fields_without_applicability_is_empty():
     element = ET.fromstring('<ke xmlns="http://www.aopkb.org/aop-xml"/>')
     doa = collect_doa_fields(element, NS, {})
     assert doa == {"sex_terms": [], "life_stage_terms": [], "taxonomy_terms": []}
+
+
+# ---------------------------------------------------------------------------
+# collect_entity_with_cache — the XML caching wrapper
+# (collect_xml_data patched so no download/parse happens)
+# ---------------------------------------------------------------------------
+
+def test_collect_entity_with_cache_miss_then_hit(tmp_path, monkeypatch):
+    from datetime import date
+
+    calls = {"xml": 0, "collect": 0}
+
+    def fake_collect_xml_data(work_date):
+        calls["xml"] += 1
+        return ("ROOT", NS, {})  # splatted into the collection function
+
+    def collection_function(root, ns, refs):
+        calls["collect"] += 1
+        return {"100": {"title": "An event"}}
+
+    monkeypatch.setattr(pax, "collect_xml_data", fake_collect_xml_data)
+
+    # Miss: collects fresh and writes all_events_<date>.json
+    first = collect_entity_with_cache("events", collection_function, date(2024, 1, 2), tmp_path)
+    assert first == {"100": {"title": "An event"}}
+    assert (tmp_path / "all_events_01-02-2024.json").exists()
+    assert calls == {"xml": 1, "collect": 1}
+
+    # Hit: reads the cache, so neither the collector nor collect_xml_data runs again
+    second = collect_entity_with_cache("events", collection_function, date(2024, 1, 2), tmp_path)
+    assert second == {"100": {"title": "An event"}}
+    assert calls == {"xml": 1, "collect": 1}
+
+
+def test_collect_entity_with_cache_force_refresh(tmp_path, monkeypatch):
+    from datetime import date
+
+    (tmp_path / "all_events_01-02-2024.json").write_text('{"stale": {}}')
+    monkeypatch.setattr(pax, "collect_xml_data", lambda wd: ("ROOT", NS, {}))
+    fresh = collect_entity_with_cache(
+        "events", lambda *a: {"100": {}}, date(2024, 1, 2), tmp_path, force_refresh=True
+    )
+    assert fresh == {"100": {}}
