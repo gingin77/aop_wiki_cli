@@ -17,6 +17,7 @@ Run with::
 
 import csv
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -31,6 +32,20 @@ FIXTURE = Path(__file__).parent / "mock_data" / "alignment_events_09-03-2026.jso
 DATE = "09-03-2026"
 
 runner = CliRunner()
+
+_ANSI = re.compile(r"\x1b\[[0-9;]*m")
+
+
+def strip_ansi(text: str) -> str:
+    """Drop ANSI colour codes so substring checks survive Rich highlighting.
+
+    When the terminal takes colour (as CI does), Rich highlights option-like
+    tokens and inserts escape codes *inside* them — ``--limit`` renders as
+    ``\\x1b[1;36m-\\x1b[0m\\x1b[1;36m-limit\\x1b[0m`` — so the literal substring
+    is absent from the raw output. Stripping the codes first makes the check
+    independent of whether colour is emitted.
+    """
+    return _ANSI.sub("", text)
 
 
 @pytest.fixture
@@ -146,7 +161,8 @@ def test_llm_review_refuses_to_run_without_ke_ids_or_limit(data_dir, fake_client
     root, calls = data_dir
     result = invoke(root, "event-level-llm-review", "--date", DATE)
     assert result.exit_code != 0
-    assert "--ke-ids" in result.output and "--limit" in result.output
+    clean = strip_ansi(result.output)
+    assert "--ke-ids" in clean and "--limit" in clean
     assert fake_client.messages.calls == []
     assert calls == []
 
