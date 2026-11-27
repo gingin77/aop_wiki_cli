@@ -1,6 +1,5 @@
-"""Tests for define_stable_ke_groups — the deterministic split of one group
-type into groups that are identical in every replicate run, groups seen in
-only some runs, and the KEs that need attention.
+"""Tests for define_stable_ke_groups: the stable/unstable/attention split and
+the single-workbook output (three sheets replacing the former three CSVs).
 
 Run directly:    python -m tests.test_define_stable_ke_groups
 Under pytest:    python -m pytest tests/test_define_stable_ke_groups.py
@@ -8,115 +7,78 @@ Under pytest:    python -m pytest tests/test_define_stable_ke_groups.py
 
 from __future__ import annotations
 
-import json
-
-import pytest
+from openpyxl import load_workbook
 
 from aop_wiki_cli.annotation_scripts.define_stable_ke_groups import (
     define_stable_groups,
-    load_run,
-    write_csvs,
+    write_workbook,
 )
 
 
-def _snapshot(merge=None, soda=None, ungrouped=()):
-    """A minimal grouping snapshot in collect_similar_events' output shape."""
+def _run(groups, ungrouped=()):
     return {
-        "events_to_merge": {
-            key: {"merged_event_titles": {i: f"title {i}" for i in ids}, "rationale": f"r {key}"}
-            for key, ids in (merge or {}).items()
-        },
-        "soda_events": {
-            key: {"event_ids": list(ids), "event_titles": {i: f"title {i}" for i in ids}}
-            for key, ids in (soda or {}).items()
-        },
-        "ungrouped_processed_events": {i: f"title {i}" for i in ungrouped},
+        "groups": [
+            {"key": k, "type": t, "member_ids": frozenset(ids),
+             "titles": {i: f"title {i}" for i in ids},
+             "rationale": f"r-{k}", "shared_aop_check": {}}
+            for k, t, ids in groups
+        ],
+        "ungrouped": set(ungrouped),
     }
 
 
-def _runs(*snapshots):
-    return {f"run_{n}": load_run(s) for n, s in enumerate(snapshots, 1)}
+def _two_runs():
+    run1 = _run([
+        ("g1", "merge", ["1", "2"]),            # stable (same set in both)
+        ("g2", "merge", ["3", "4"]),            # unstable: run2 words it as 3,4,5
+        ("s1", "soda", ["8", "9"]),             # other type: ignored for merge
+    ])
+    run2 = _run([
+        ("h1", "merge", ["1", "2"]),
+        ("h2", "merge", ["3", "4", "5"]),
+    ], ungrouped=["9"])
+    return {"runA": run1, "runB": run2}
 
 
-def test_identical_member_sets_are_stable_regardless_of_key():
-    runs = _runs(
-        _snapshot(merge={"pxr": ["239", "245"]}),
-        _snapshot(merge={"pxr_activation": ["245", "239"]}),  # key drifts, order differs
-        _snapshot(merge={"pxr_act_2": ["239", "245"]}),
-    )
-    result = define_stable_groups(runs, "merge")
-    assert [g["set_id"] for g in result["stable_groups"]] == ["239+245"]
-    assert result["stable_groups"][0]["keys_by_run"] == {
-        "run_1": "pxr", "run_2": "pxr_activation", "run_3": "pxr_act_2"}
-    assert result["unstable_groups"] == []
-    assert result["attention_events"] == []
+def test_stable_unstable_attention_split():
+    result = define_stable_groups(_two_runs(), "merge")
+    assert [r["set_id"] for r in result["stable_groups"]] == ["1+2"]
+    assert {r["set_id"] for r in result["unstable_groups"]} == {"3+4", "3+4+5"}
+    attention = {a["event_id"]: a for a in result["attention_events"]}
+    # 3 and 4 are merged in both runs but with differing membership; 5 only in runB.
+    assert attention["3"]["reason"] == "membership_differs"
+    assert attention["5"]["reason"] == "not_in_every_run"
+    assert set(attention) == {"3", "4", "5"}
+    s = result["summary"]
+    assert (s["stable_groups"], s["unstable_groups"], s["attention_events"]) == (1, 2, 3)
 
 
-def test_membership_change_makes_every_member_need_attention():
-    runs = _runs(
-        _snapshot(merge={"a": ["1", "2", "3"]}),
-        _snapshot(merge={"a": ["1", "2"]}, ungrouped=["3"]),
-        _snapshot(merge={"a": ["1", "2", "3"]}),
-    )
-    result = define_stable_groups(runs, "merge")
-    assert result["stable_groups"] == []
-    assert sorted(g["set_id"] for g in result["unstable_groups"]) == ["1+2", "1+2+3"]
-    reasons = {a["event_id"]: a["reason"] for a in result["attention_events"]}
-    # 1 and 2 are in a merge group every run (but not the same one);
-    # 3 drops out of merge in run 2.
-    assert reasons == {"1": "membership_differs", "2": "membership_differs", "3": "not_in_every_run"}
-    three = next(a for a in result["attention_events"] if a["event_id"] == "3")
-    assert three["by_run"]["run_2"] == {"status": "ungrouped", "groups": []}
+def test_workbook_has_three_sheets_with_the_section_rows(tmp_path):
+    result = define_stable_groups(_two_runs(), "merge")
+    path = write_workbook(result, tmp_path)
+    assert path.name == "merge_stable_groups.xlsx"
+    wb = load_workbook(path)
+    assert wb.sheetnames == ["stable_groups", "unstable_groups", "attention_events"]
 
+    stable = wb["stable_groups"]
+    assert [c.value for c in stable[1]][:4] == ["set_id", "size", "events", "shared_aop_check"]
+    assert stable["A2"].value == "1+2"
+    assert "1: title 1" in stable["C2"].value  # stacked multi-line titles
 
-def test_type_change_is_not_stable_and_reports_the_other_type():
-    runs = _runs(
-        _snapshot(merge={"vtg": ["7", "8"]}),
-        _snapshot(soda={"vtg": ["7", "8"]}),  # same members, classified differently
-    )
-    result = define_stable_groups(runs, "merge")
-    assert result["stable_groups"] == []
-    assert result["unstable_groups"][0]["absent_from"] == ["run_2"]
-    seven = next(a for a in result["attention_events"] if a["event_id"] == "7")
-    assert seven["reason"] == "not_in_every_run"
-    assert seven["by_run"]["run_2"]["groups"] == [
-        {"key": "vtg", "type": "soda", "member_ids": ["7", "8"]}]
-
-
-def test_event_missing_from_a_run_is_reported_as_not_in_run():
-    runs = _runs(_snapshot(merge={"a": ["1", "2"]}), _snapshot())
-    result = define_stable_groups(runs, "merge")
-    one = next(a for a in result["attention_events"] if a["event_id"] == "1")
-    assert one["by_run"]["run_2"]["status"] == "not_in_run"
-
-
-def test_other_types_are_ignored_for_the_requested_type():
-    runs = _runs(_snapshot(soda={"s": ["5", "6"]}), _snapshot(soda={"s": ["5", "6"]}))
-    merge = define_stable_groups(runs, "merge")
-    assert merge["summary"]["distinct_sets_seen"] == 0
-    soda = define_stable_groups(runs, "soda")
-    assert [g["set_id"] for g in soda["stable_groups"]] == ["5+6"]
-
-
-def test_output_is_deterministic_and_numerically_ordered(tmp_path):
-    snaps = [
-        _snapshot(merge={"b": ["10", "11"], "a": ["2", "3"], "c": ["100", "101"]}),
-        _snapshot(merge={"c": ["101", "100"], "a": ["3", "2"], "b": ["11", "10"]}),
-    ]
-    first = define_stable_groups(_runs(*snaps), "merge")
-    second = define_stable_groups(_runs(*snaps), "merge")
-    assert json.dumps(first) == json.dumps(second)
-    assert [g["set_id"] for g in first["stable_groups"]] == ["2+3", "10+11", "100+101"]
-    paths = write_csvs(first, tmp_path)
-    assert [p.name for p in paths] == [
-        "merge_stable_groups.csv", "merge_unstable_groups.csv", "merge_attention_events.csv"]
-
-
-def test_unknown_type_is_rejected():
-    with pytest.raises(ValueError):
-        define_stable_groups(_runs(_snapshot(), _snapshot()), "not_a_type")
+    attention = wb["attention_events"]
+    header = [c.value for c in attention[1]]
+    assert header == ["event_id", "title", "reason", "runA", "runB"]
+    rows = {r[0].value: [c.value for c in r] for r in attention.iter_rows(min_row=2)}
+    assert rows["5"][2] == "not_in_every_run"
+    # Per-run cells describe what each run did with the event.
+    assert "merge:h2" in rows["5"][4]
+    assert rows["5"][3] == "not_in_run"
 
 
 if __name__ == "__main__":
-    import sys
-    sys.exit(pytest.main([__file__]))
+    import pathlib
+    import tempfile
+    test_stable_unstable_attention_split()
+    with tempfile.TemporaryDirectory() as td:
+        test_workbook_has_three_sheets_with_the_section_rows(pathlib.Path(td))
+    print("ALL TESTS PASSED ✓")

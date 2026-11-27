@@ -35,10 +35,13 @@ Usage:
 """
 
 import argparse
-import csv
 import json
 import sys
 from pathlib import Path
+
+from openpyxl import Workbook
+from openpyxl.styles import Alignment, Font
+from openpyxl.utils import get_column_letter
 
 from aop_wiki_cli.annotation_scripts.compare_grouping_runs import (
     TYPE_KEYS,
@@ -209,46 +212,75 @@ def _run_cell(status: dict) -> str:
                      for g in status["groups"])
 
 
-def write_csvs(result: dict, out_dir: Path) -> list[Path]:
-    """Write one CSV per section; returns the written paths."""
+def _sheet_specs(result: dict) -> list[tuple[str, list[str], list[list]]]:
+    """The three review sections as (sheet_name, header, rows)."""
+    labels = result["runs"]
+
+    stable_rows = [
+        [
+            rec["set_id"], len(rec["member_ids"]),
+            "\n".join(f"{i}: {t}" for i, t in rec["titles"].items()),
+            (rec["shared_aop_check"] or {}).get("statement", ""),
+        ] + [rec["keys_by_run"].get(lb, "") for lb in labels]
+        for rec in result["stable_groups"]
+    ]
+    unstable_rows = [
+        [
+            rec["set_id"], len(rec["member_ids"]),
+            "\n".join(f"{i}: {t}" for i, t in rec["titles"].items()),
+            ", ".join(rec["present_in"]), ", ".join(rec["absent_from"]),
+        ]
+        for rec in result["unstable_groups"]
+    ]
+    attention_rows = [
+        [a["event_id"], a["title"], a["reason"]]
+        + [_run_cell(a["by_run"][lb]) for lb in labels]
+        for a in result["attention_events"]
+    ]
+    return [
+        ("stable_groups",
+         ["set_id", "size", "events", "shared_aop_check"] + [f"key: {lb}" for lb in labels],
+         stable_rows),
+        ("unstable_groups",
+         ["set_id", "size", "events", "present_in", "absent_from"],
+         unstable_rows),
+        ("attention_events",
+         ["event_id", "title", "reason"] + labels,
+         attention_rows),
+    ]
+
+
+def write_workbook(result: dict, out_dir: Path) -> Path:
+    """Write the three review sections as sheets of one Excel workbook."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    gtype, labels = result["group_type"], result["runs"]
-    written = []
+    wb = Workbook()
+    wb.remove(wb.active)  # drop the default empty sheet
 
-    path = out_dir / f"{gtype}_stable_groups.csv"
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["set_id", "size", "events", "shared_aop_check"]
-                   + [f"key: {lb}" for lb in labels])
-        for rec in result["stable_groups"]:
-            w.writerow([
-                rec["set_id"], len(rec["member_ids"]),
-                "\n".join(f"{i}: {t}" for i, t in rec["titles"].items()),
-                (rec["shared_aop_check"] or {}).get("statement", ""),
-            ] + [rec["keys_by_run"].get(lb, "") for lb in labels])
-    written.append(path)
+    wrap_top = Alignment(wrap_text=True, vertical="top")
+    for sheet_name, header, rows in _sheet_specs(result):
+        ws = wb.create_sheet(sheet_name)
+        ws.append(header)
+        for cell in ws[1]:
+            cell.font = Font(bold=True)
+        ws.freeze_panes = "A2"
+        for row in rows:
+            ws.append(row)
+        # Column widths from the longest LINE per column (multi-line cells
+        # wrap); wrap+top-align the data cells so stacked titles stay legible.
+        for col_idx in range(1, len(header) + 1):
+            longest = max(
+                (max((len(line) for line in str(c.value).splitlines()), default=0)
+                 for c in next(ws.iter_cols(min_col=col_idx, max_col=col_idx)) if c.value is not None),
+                default=0,
+            )
+            ws.column_dimensions[get_column_letter(col_idx)].width = max(10, min(60, longest + 2))
+        for row_cells in ws.iter_rows(min_row=2):
+            for cell in row_cells:
+                cell.alignment = wrap_top
 
-    path = out_dir / f"{gtype}_unstable_groups.csv"
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["set_id", "size", "events", "present_in", "absent_from"])
-        for rec in result["unstable_groups"]:
-            w.writerow([
-                rec["set_id"], len(rec["member_ids"]),
-                "\n".join(f"{i}: {t}" for i, t in rec["titles"].items()),
-                ", ".join(rec["present_in"]), ", ".join(rec["absent_from"]),
-            ])
-    written.append(path)
-
-    path = out_dir / f"{gtype}_attention_events.csv"
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["event_id", "title", "reason"] + labels)
-        for a in result["attention_events"]:
-            w.writerow([a["event_id"], a["title"], a["reason"]]
-                       + [_run_cell(a["by_run"][lb]) for lb in labels])
-    written.append(path)
-    return written
+    path = out_dir / f"{result['group_type']}_stable_groups.xlsx"
+    wb.save(path)
+    return path
 
 
 def print_report(result: dict) -> None:
@@ -282,7 +314,7 @@ def main() -> None:
                         help="Grouping snapshots (pass 3 JSON) to compare; "
                              "default: the three sonnet-5-5 thinking-on replicates")
     parser.add_argument("--output-dir", metavar="DIR", default=str(DEFAULT_OUTPUT_DIR),
-                        help=f"Where to write the JSON and CSVs (default: {DEFAULT_OUTPUT_DIR})")
+                        help=f"Where to write the JSON and the review workbook (default: {DEFAULT_OUTPUT_DIR})")
     args = parser.parse_args()
 
     paths = [Path(p) for p in args.files]
@@ -313,8 +345,7 @@ def main() -> None:
     with open(json_path, "w") as f:
         json.dump(result, f, indent=2)
     print(f"JSON written to: {json_path}")
-    for path in write_csvs(result, out_dir):
-        print(f"CSV written to:  {path}")
+    print(f"Workbook written to: {write_workbook(result, out_dir)}")
 
 
 if __name__ == "__main__":
