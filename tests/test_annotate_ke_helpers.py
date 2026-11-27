@@ -19,6 +19,7 @@ from __future__ import annotations
 from aop_wiki_cli.annotation_scripts.annotate_ke import (
     _compute_newly_updated_fields,
     _flat_ref_comments,
+    _manual_only_ref,
     _mask_ref,
     _strip_carried_suffix,
     partition_process_results,
@@ -73,6 +74,25 @@ def test_mask_ref_does_not_mutate_input():
 def test_mask_ref_assays_field():
     masked = _mask_ref(_ref_ke(), {"assays"})
     assert masked["assays"] is None
+
+
+def test_manual_only_ref_keeps_manual_values_and_drops_llm_ones():
+    ref = _ref_ke()
+    ref["organ_term"] = {"term_id": "UBERON:0002048", "label": "lung", "source": "manual_review"}
+    ref["ec_annotations"][0]["phenotype"] = {
+        "term_id": "HP:1", "label": "x", "source": "manual_curation"}
+    kept = _manual_only_ref(ref)
+    # Manual values survive a --force run as references...
+    assert kept["organ_term"]["label"] == "lung"
+    assert kept["ec_annotations"][0]["phenotype"]["source"] == "manual_curation"
+    assert kept["ec_annotations"][0]["subject"] == "LXR activation"
+    # ...while LLM-sourced values are dropped so they re-annotate.
+    assert "cell_term" not in kept
+    assert "biological_object" not in kept["ec_annotations"][0]
+
+
+def test_manual_only_ref_returns_none_when_nothing_is_manual():
+    assert _manual_only_ref(_ref_ke()) is None
 
 
 def test_newly_updated_fields_against_empty_ref():

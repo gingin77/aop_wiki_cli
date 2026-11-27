@@ -182,7 +182,13 @@ def annotate_ke(
     description = events[ke_id].get("description", "")
 
     if force:
-        effective_ref = None
+        # A full re-annotation still keeps manually sourced values (manual
+        # curation/review/entry) — those were lost to --force before (e.g.
+        # KE 1458's reviewed organ_term). Name a field in --force-on to
+        # re-annotate it even when it is manual.
+        effective_ref = _manual_only_ref(ref_ke) if ref_ke else None
+        if effective_ref and force_fields:
+            effective_ref = _mask_ref(effective_ref, force_fields)
     elif force_fields:
         effective_ref = _mask_ref(ref_ke, force_fields) if ref_ke else None
     else:
@@ -797,6 +803,38 @@ def _mask_ref(ref_ke: dict, force_fields: set[str]) -> dict:
     return masked
 
 
+def _is_manual(value) -> bool:
+    """True for a stored term record whose source marks human judgment
+    (manual_curation, manual_review, manual_entry, manual_rejection, ...)."""
+    return isinstance(value, dict) and str(value.get("source", "")).startswith("manual")
+
+
+def _manual_only_ref(ref_ke: dict) -> dict | None:
+    """Reduce a stored KE to only its manually sourced term values.
+
+    Used as the reference for --force runs, so a full re-annotation never
+    discards human curation. Returns None when nothing manual is stored.
+    """
+    kept: dict = {}
+    for field in ("cell_term", "organ_term", "cellular_component"):
+        if _is_manual(ref_ke.get(field)):
+            kept[field] = ref_ke[field]
+    components = []
+    for subj in ref_ke.get("ec_annotations", []):
+        if not isinstance(subj, dict):
+            continue
+        manual_fields = {
+            field: subj[field]
+            for field in ("biological_object", "biological_process", "phenotype")
+            if _is_manual(subj.get(field))
+        }
+        if manual_fields:
+            components.append({"subject": subj.get("subject"), **manual_fields})
+    if components:
+        kept["ec_annotations"] = components
+    return kept or None
+
+
 def _attach_comments(annotation: dict, ref_ke: dict | None) -> list[str]:
     """Attach the comments block to the annotation dict. Returns the raw ref comments."""
     ref_comments = _flat_ref_comments((ref_ke or {}).get("comments"))
@@ -908,7 +946,10 @@ def main():
     parser.add_argument("--aop", default=None, help="AOP ID (e.g. 173); omit to annotate a KE standalone")
     parser.add_argument("--ke-id", default=None, help="Annotate a single KE by ID")
     parser.add_argument("--add-comment", default=None, help="Append a comment to a KE (requires --ke-id)")
-    parser.add_argument("--force", action="store_true", help="Re-annotate all fields from scratch")
+    parser.add_argument(
+        "--force", action="store_true",
+        help="Re-annotate all fields from scratch, except manually sourced "
+             "values, which are kept (re-annotate those by naming them in --force-on)")
     parser.add_argument(
         "--force-on",
         metavar="FIELD",

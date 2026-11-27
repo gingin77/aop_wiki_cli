@@ -133,6 +133,17 @@ curations:
         curie: PR:000004145
         label: apolipoprotein B-100
 
+  "1458":
+    rationale: >-
+      "Pulmonary fibrosis" names the disease process, not the organ, so the
+      UBERON search on the title phrase never surfaces "lung" and the ranker
+      rejects every candidate (its rejection even names UBERON:0002048 as the
+      correct term). A manually reviewed "lung" was lost to a --force run.
+    fields:
+      organ_term:
+        curie: UBERON:0002048
+        label: lung
+
   # ---------------------------------------------------------------------------
   # Examples of the other styles (remove or adapt). Commented out so they do not
   # apply. Copy a block up into `curations:` and edit.
